@@ -1,3 +1,5 @@
+import { LICENCE_COURSES } from "./licence-courses";
+
 export type Difficulty = "Débutant" | "Intermédiaire" | "Avancé";
 export type SchoolLevel =
   | "6eme" | "5eme" | "4eme" | "3eme"
@@ -16450,6 +16452,9 @@ Comme $f=0{,}13 \\notin I_{400}$ (car $0{,}13 > 0{,}1294$), la fréquence observ
     ],
   },
 ];
+
+// Merge university-level courses (L1/L2/L3) into the main COURSES array
+COURSES.push(...LICENCE_COURSES);
 
 // Helpers
 export function getCourseBySlug(slug: string): Course | undefined {
