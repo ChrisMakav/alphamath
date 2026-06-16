@@ -1,0 +1,102 @@
+/* AlphaMath Design Tokens */
+/* Fonts loaded via next/font/google in layout.tsx */
+
+:root {
+  /* ── Surfaces ── */
+  --am-bg:          #08090e;
+  --am-bg-raised:   #0f1017;
+  --am-bg-card:     #13141c;
+  --am-bg-elevated: #181923;
+  --am-bg-overlay:  #1e2030;
+
+  /* ── Borders ── */
+  --am-border:        #1e2130;
+  --am-border-subtle: #161724;
+  --am-border-strong: #2a2d42;
+
+  /* ── Accent – Lime Green (primary) ── */
+  --am-green:        #4afe8a;
+  --am-green-dim:    #1e8a4a;
+  --am-green-muted:  #0d3d23;
+  --am-green-glow:   0 0 20px rgba(74, 254, 138, 0.35), 0 0 60px rgba(74, 254, 138, 0.12);
+  --am-green-glow-sm:0 0 8px rgba(74, 254, 138, 0.4);
+
+  /* ── Accent – Violet (secondary) ── */
+  --am-purple:       #8b5cf6;
+  --am-purple-dim:   #4c1d95;
+  --am-purple-muted: #1e1040;
+  --am-purple-glow:  0 0 20px rgba(139, 92, 246, 0.35), 0 0 60px rgba(139, 92, 246, 0.12);
+
+  /* ── Accent – Blue (info) ── */
+  --am-blue:         #3b82f6;
+  --am-blue-muted:   #0f1f40;
+
+  /* ── Accent – Amber (warning) ── */
+  --am-amber:        #f59e0b;
+  --am-amber-muted:  #3d2a00;
+
+  /* ── Text ── */
+  --am-text:         #f0f2ff;
+  --am-text-secondary: #8890b0;
+  --am-text-muted:   #4a5070;
+  --am-text-inverse: #08090e;
+
+  /* ── Level Badge Colors ── */
+  --am-level-demo:   #64748b;
+  --am-level-5e:     #0ea5e9;
+  --am-level-4e:     #06b6d4;
+  --am-level-3e:     #10b981;
+  --am-level-lycee:  #8b5cf6;
+  --am-level-algebra:#f59e0b;
+  --am-level-geo:    #ec4899;
+  --am-level-analyse:#3b82f6;
+
+  /* ── Typography ── */
+  --am-font-sans: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  --am-font-mono: var(--font-dm-mono), 'DM Mono', 'Fira Code', monospace;
+
+  --am-text-xs:   0.75rem;
+  --am-text-sm:   0.8125rem;
+  --am-text-base: 0.9375rem;
+  --am-text-lg:   1.0625rem;
+  --am-text-xl:   1.25rem;
+  --am-text-2xl:  1.5rem;
+  --am-text-3xl:  1.875rem;
+  --am-text-4xl:  2.5rem;
+  --am-text-5xl:  3.25rem;
+
+  /* ── Spacing ── */
+  --am-space-1:  0.25rem;
+  --am-space-2:  0.5rem;
+  --am-space-3:  0.75rem;
+  --am-space-4:  1rem;
+  --am-space-5:  1.25rem;
+  --am-space-6:  1.5rem;
+  --am-space-8:  2rem;
+  --am-space-10: 2.5rem;
+  --am-space-12: 3rem;
+  --am-space-16: 4rem;
+  --am-space-20: 5rem;
+
+  /* ── Radius ── */
+  --am-radius-sm:   0.375rem;
+  --am-radius-md:   0.625rem;
+  --am-radius-lg:   0.875rem;
+  --am-radius-xl:   1.125rem;
+  --am-radius-2xl:  1.5rem;
+  --am-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --am-shadow-sm:  0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+  --am-shadow-md:  0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+  --am-shadow-lg:  0 10px 30px rgba(0,0,0,0.6), 0 4px 8px rgba(0,0,0,0.4);
+  --am-shadow-xl:  0 20px 60px rgba(0,0,0,0.7), 0 8px 16px rgba(0,0,0,0.5);
+  --am-shadow-card: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+
+  /* ── Transitions ── */
+  --am-ease:      cubic-bezier(0.16, 1, 0.3, 1);
+  --am-ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --am-ease-out:  cubic-bezier(0, 0, 0.2, 1);
+  --am-duration:  180ms;
+  --am-duration-slow: 320ms;
+}
