@@ -11,6 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconRight?: React.ReactNode;
   loading?: boolean;
   full?: boolean;
+  href?: string;
 }
 
 const base =
@@ -42,16 +43,14 @@ export function Button({
   iconRight,
   loading = false,
   full = false,
+  href,
   children,
   className = "",
   ...props
 }: ButtonProps) {
-  return (
-    <button
-      className={[base, variants[variant], sizes[size], full ? "w-full" : "", className].join(" ")}
-      disabled={loading || props.disabled}
-      {...props}
-    >
+  const cls = [base, variants[variant], sizes[size], full ? "w-full" : "", className].join(" ");
+  const content = (
+    <>
       {loading ? (
         <span
           className="size-4 rounded-full border-2 border-current border-t-transparent animate-spin"
@@ -62,6 +61,16 @@ export function Button({
       )}
       {children}
       {!loading && iconRight}
+    </>
+  );
+
+  if (href) {
+    return <a href={href} className={cls}>{content}</a>;
+  }
+
+  return (
+    <button className={cls} disabled={loading || props.disabled} {...props}>
+      {content}
     </button>
   );
 }

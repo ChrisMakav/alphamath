@@ -78,10 +78,10 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" href="/register">
             Commencer gratuitement
           </Button>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" href="/courses">
             Découvrir la méthode
           </Button>
         </div>

@@ -56,8 +56,8 @@ export default function HomePage() {
               </p>
               <h2 className="text-3xl font-black text-[var(--am-text)]">Commencez dès aujourd'hui</h2>
             </div>
-            <Button variant="outline" size="sm" iconRight={<span>→</span>}>
-              <a href="/courses">Voir tous les cours</a>
+            <Button variant="outline" size="sm" iconRight={<span>→</span>} href="/courses">
+              Voir tous les cours
             </Button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -91,9 +91,7 @@ export default function HomePage() {
             <p className="text-[var(--am-text-secondary)] max-w-xl mx-auto">
               MathPath modélisé pour une progression rigoureuse et naturelle.
             </p>
-            <a href="/courses">
-              <Button variant="secondary" size="sm" className="mt-4">Voir toutes les fonctionnalités →</Button>
-            </a>
+            <Button variant="secondary" size="sm" className="mt-4" href="/courses">Voir toutes les fonctionnalités →</Button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <FeatureCard
@@ -101,24 +99,28 @@ export default function HomePage() {
               title="Exercices Interactifs"
               description="Des problèmes adaptatifs qui s'ajustent à votre niveau avec correction immédiate en temps réel."
               accent="green"
+              href="/courses"
             />
             <FeatureCard
               icon="🎬"
               title="Cours en Vidéo"
               description="Des contenus exclusifs réalisés par des enseignants certifiés. Support LaTeX intégré."
               accent="purple"
+              href="/courses"
             />
             <FeatureCard
               icon="✓"
               title="Corrections Détaillées"
               description="Chaque erreur est une leçon. Explications pas à pas avec méthodes alternatives."
               accent="blue"
+              href="/courses"
             />
             <FeatureCard
               icon="📊"
               title="Suivi de Progression"
               description="Visualisez vos lacunes et identifiez les notions à revoir grâce à l'analyse adaptive."
               accent="amber"
+              href="/dashboard"
             />
           </div>
         </div>
@@ -187,8 +189,8 @@ export default function HomePage() {
             Rejoignez des milliers d'étudiants qui ont fait confiance à notre méthode et notre compréhension.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button variant="primary" size="lg">Commencer l'essai gratuit</Button>
-            <Button variant="outline" size="lg">Contacter un conseiller</Button>
+            <Button variant="primary" size="lg" href="/register">Commencer l'essai gratuit</Button>
+            <Button variant="outline" size="lg" href="/courses">Contacter un conseiller</Button>
           </div>
           <p className="mt-5 text-xs text-[var(--am-text-muted)]">
             Pas de carte bancaire requise · Accès immédiat · Annulation à tout moment

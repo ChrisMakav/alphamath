@@ -5,6 +5,7 @@ interface FeatureCardProps {
   title: string;
   description: string;
   accent?: "green" | "purple" | "blue" | "amber";
+  href?: string;
   className?: string;
 }
 
@@ -15,11 +16,11 @@ const accents = {
   amber:  { color: "var(--am-amber)",  bg: "var(--am-amber-muted)",  border: "rgba(245,158,11,0.3)" },
 };
 
-export function FeatureCard({ icon, title, description, accent = "green", className = "" }: FeatureCardProps) {
+export function FeatureCard({ icon, title, description, accent = "green", href, className = "" }: FeatureCardProps) {
   const a = accents[accent];
-  return (
+  const card = (
     <div
-      className={`rounded-[var(--am-radius-xl)] p-6 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-0.5 group ${className}`}
+      className={`rounded-[var(--am-radius-xl)] p-6 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-0.5 group ${href ? "cursor-pointer" : ""} ${className}`}
       style={{
         background: "var(--am-bg-card)",
         border: "1px solid var(--am-border)",
@@ -38,4 +39,9 @@ export function FeatureCard({ icon, title, description, accent = "green", classN
       </div>
     </div>
   );
+
+  if (href) {
+    return <a href={href} className="block">{card}</a>;
+  }
+  return card;
 }
