@@ -17232,6 +17232,8 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
 
 Les nombres $a$, $b$, $c$ sont appelés les **coefficients** du trinôme. Si $a=0$, la fonction n'est plus du second degré (elle devient affine).
 
+L'écriture $f(x)=ax^2+bx+c$ s'appelle la **forme développée** du trinôme. C'est l'une des **trois formes équivalentes** d'une fonction du second degré, avec la forme **factorisée** (vue avec le discriminant) et la forme **canonique** (ci-dessous) : on passe de l'une à l'autre en développant ou en factorisant.
+
 ### Représentation graphique
 
 La courbe représentative de $f$ est une **parabole** :
@@ -18094,6 +18096,133 @@ $B(20) = -2(400)+1600-150 = -800+1600-150=650$.
             type: "open",
             modelAnswer: "On étudie le signe de $B'(x) = -3x(x-6)$ sur $[0\\,;\\,10]$.\n\nLes racines sont $0$ et $6$. Le coefficient principal de $-3x(x-6) = -3x^2+18x$ est négatif, donc le trinôme est positif entre les racines et négatif à l'extérieur :\n\n- $B'(x)>0$ sur $]0\\,;\\,6[$\n- $B'(x)<0$ sur $]6\\,;\\,10[$\n\nOn calcule $B(6) = -6^3+9\\times6^2-15 = -216+324-15=93$.\n\nOn calcule aussi les bornes pour situer le maximum global : $B(0)=-15$ et $B(10) = -1000+900-15=-115$.\n\n**Tableau de variations sur $[0\\,;\\,10]$ :**\n\n| $x$ | $0$ | | $6$ | | $10$ |\n|---|---|---|---|---|---|\n| $B'(x)$ | | $+$ | $0$ | $-$ | |\n| $B(x)$ | $-15$ | $\\nearrow$ | $93$ | $\\searrow$ | $-115$ |\n\nLe bénéfice est donc maximal pour $x=6$ (soit $600$ objets), avec un bénéfice de $93$ milliers d'euros, soit $93\\,000$ €.\n\n$$\\boxed{x=6 \\text{ (600 objets), bénéfice maximal } 93\\,000\\text{ €}}$$",
             explanation: "On factorise la dérivée, on étudie son signe en tenant compte du coefficient principal négatif, puis on confirme avec les valeurs aux bornes que le maximum global est bien atteint en $x=6$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "etf1-l4",
+        slug: "etude-fonctions-inverse-racine-carree",
+        title: "Étude des fonctions inverse et racine carrée",
+        durationMinutes: 18,
+        content: `## Rappel des dérivées usuelles
+
+| Fonction $f$ | Dérivée $f'$ | Ensemble de validité |
+|---|---|---|
+| $f(x)=\\dfrac{1}{x}$ | $f'(x)=-\\dfrac{1}{x^2}$ | $]-\\infty\\,;\\,0[\\cup]0\\,;\\,+\\infty[$ |
+| $f(x)=\\sqrt{x}$ | $f'(x)=\\dfrac{1}{2\\sqrt{x}}$ | $]0\\,;\\,+\\infty[$ |
+
+## Étude de la fonction inverse
+
+Pour $f(x)=\\dfrac{1}{x}$, on a $f'(x)=-\\dfrac{1}{x^2}$. Or $x^2>0$ pour tout $x\\neq0$, donc :
+
+$$f'(x) < 0 \\quad \\text{pour tout } x \\neq 0$$
+
+**Tableau de variations :**
+
+| $x$ | $-\\infty$ | | $0$ | | $+\\infty$ |
+|---|---|---|---|---|---|
+| $f'(x)$ | | $-$ | | $-$ | |
+| $f(x)$ | | $\\searrow$ | | $\\searrow$ | |
+
+> **Attention :** $f$ est décroissante **séparément** sur $]-\\infty\\,;\\,0[$ et sur $]0\\,;\\,+\\infty[$, mais elle n'est **pas décroissante sur la réunion** des deux intervalles : par exemple $f(-1)=-1 < f(1)=1$, alors que $-1<1$.
+
+## Étude de la fonction racine carrée
+
+Pour $f(x)=\\sqrt{x}$, définie sur $[0\\,;\\,+\\infty[$, on a $f'(x)=\\dfrac{1}{2\\sqrt{x}}$, défini seulement pour $x>0$. Comme $2\\sqrt{x}>0$ pour $x>0$ :
+
+$$f'(x) > 0 \\quad \\text{pour tout } x > 0$$
+
+**Tableau de variations :**
+
+| $x$ | $0$ | | $+\\infty$ |
+|---|---|---|
+| $f'(x)$ | | $+$ |
+| $f(x)$ | $0$ | $\\nearrow$ |
+
+> **Remarque :** $f$ n'est pas dérivable en $0$ (la formule $f'(x)=\\dfrac{1}{2\\sqrt{x}}$ n'est pas définie en $x=0$) : la courbe admet une tangente **verticale** à l'origine.
+
+## Exemple : étudier une fonction combinant les deux
+
+Étudions $f(x) = x + \\dfrac{1}{x}$ sur $]0\\,;\\,+\\infty[$.
+
+$$f'(x) = 1 - \\dfrac{1}{x^2} = \\dfrac{x^2-1}{x^2}$$
+
+Sur $]0\\,;\\,+\\infty[$, $x^2>0$, donc le signe de $f'(x)$ est celui de $x^2-1=(x-1)(x+1)$. Comme $x>0$, le facteur $(x+1)$ est toujours positif, donc le signe de $f'(x)$ dépend de $(x-1)$ :
+
+- pour $0<x<1$ : $f'(x)<0$, $f$ décroît ;
+- pour $x>1$ : $f'(x)>0$, $f$ croît.
+
+$f$ admet donc un minimum en $x=1$ : $f(1) = 1+\\dfrac{1}{1} = 2$.
+
+$$\\boxed{f \\text{ admet un minimum } f(1)=2 \\text{ sur } ]0\\,;\\,+\\infty[}$$
+
+## À retenir
+
+- La fonction inverse est décroissante sur $]-\\infty\\,;\\,0[$ et sur $]0\\,;\\,+\\infty[$ **séparément** (jamais sur la réunion).
+- La fonction racine carrée est croissante sur $[0\\,;\\,+\\infty[$, mais non dérivable en $0$.
+- Pour étudier une fonction combinant plusieurs fonctions usuelles, on calcule sa dérivée, on la met sous une forme dont le signe est lisible (souvent en réduisant au même dénominateur), puis on applique la méthode habituelle.`,
+        exercises: [
+          {
+            id: "etf1-l4-e1",
+            question: "Sur quel(s) intervalle(s) la fonction inverse $f(x)=\\dfrac{1}{x}$ est-elle décroissante ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Sur $]-\\infty\\,;\\,0[$ et sur $]0\\,;\\,+\\infty[$, séparément" },
+              { id: "B", text: "Sur $\\mathbb{R}$ tout entier" },
+              { id: "C", text: "Sur $]-\\infty\\,;\\,0[\\cup]0\\,;\\,+\\infty[$ globalement" },
+              { id: "D", text: "Elle est croissante partout" },
+            ],
+            correctId: "A",
+            explanation: "$f'(x)=-\\dfrac{1}{x^2}<0$ sur chacun des deux intervalles, mais $f$ n'est décroissante que sur chacun pris séparément, pas sur leur réunion.",
+            difficulty: "debutant",
+          },
+          {
+            id: "etf1-l4-e2",
+            question: "La fonction racine carrée $f(x)=\\sqrt{x}$ est dérivable en $x=0$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "$f'(x)=\\dfrac{1}{2\\sqrt{x}}$ n'est pas définie en $x=0$ (division par $\\sqrt{0}=0$) : la fonction racine carrée n'est pas dérivable en $0$, sa courbe y admet une tangente verticale.",
+            difficulty: "debutant",
+          },
+          {
+            id: "etf1-l4-e3",
+            question: "Quel est le signe de $f'(x)=\\dfrac{1}{2\\sqrt{x}}$ sur $]0\\,;\\,+\\infty[$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Toujours positif" },
+              { id: "B", text: "Toujours négatif" },
+              { id: "C", text: "Positif puis négatif" },
+              { id: "D", text: "Toujours nul" },
+            ],
+            correctId: "A",
+            explanation: "$2\\sqrt{x}>0$ pour tout $x>0$, donc $f'(x)=\\dfrac{1}{2\\sqrt{x}}$ est toujours strictement positif sur $]0\\,;\\,+\\infty[$ : $f$ y est strictement croissante.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "etf1-l4-e4",
+            question: "Soit $g(x) = \\dfrac{1}{x}+2x$ sur $]0\\,;\\,+\\infty[$. Que vaut $g'(x)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-\\dfrac{1}{x^2}+2$" },
+              { id: "B", text: "$\\dfrac{1}{x^2}+2$" },
+              { id: "C", text: "$-\\dfrac{1}{x^2}+2x$" },
+              { id: "D", text: "$-\\dfrac{1}{x}+2$" },
+            ],
+            correctId: "A",
+            explanation: "On dérive terme à terme : la dérivée de $\\dfrac{1}{x}$ est $-\\dfrac{1}{x^2}$, et celle de $2x$ est $2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "etf1-l4-e5",
+            question: "Étudie les variations de $g(x) = \\dfrac{4}{x}+x$ sur $]0\\,;\\,+\\infty[$ et détermine son minimum.",
+            type: "open",
+            modelAnswer: "On calcule la dérivée :\n\n$$g'(x) = -\\dfrac{4}{x^2}+1 = \\dfrac{x^2-4}{x^2}$$\n\nSur $]0\\,;\\,+\\infty[$, $x^2>0$, donc le signe de $g'(x)$ est celui de $x^2-4=(x-2)(x+2)$. Comme $x>0$, le facteur $(x+2)$ est toujours positif, donc le signe de $g'(x)$ dépend de $(x-2)$ :\n\n- pour $0<x<2$ : $g'(x)<0$, $g$ décroît ;\n- pour $x>2$ : $g'(x)>0$, $g$ croît.\n\n$g$ admet donc un minimum en $x=2$ :\n\n$$g(2) = \\dfrac{4}{2}+2 = 2+2=4$$\n\n$$\\boxed{g \\text{ admet un minimum } g(2)=4 \\text{ sur } ]0\\,;\\,+\\infty[}$$",
+            explanation: "On dérive, on réduit au même dénominateur pour lire facilement le signe, on factorise le numérateur, puis on conclut sur les variations en tenant compte du domaine $x>0$.",
             difficulty: "expert",
           },
         ],
@@ -19270,6 +19399,745 @@ On vérifie que la situation est bien un **schéma de Bernoulli répété $n$ fo
     ],
   },
   {
+    id: "algorithmique-python-1ere",
+    slug: "algorithmique-python-1ere",
+    title: "Algorithmique et programmation en Python",
+    description: "Parcourir des listes, calculer les termes d'une suite et un seuil, simuler des expériences aléatoires et la loi binomiale, et écrire des fonctions Python plus avancées.",
+    schoolLevel: "1ere",
+    subject: "arithmetique",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "💻",
+    lessons: [
+      {
+        id: "algopy1-l1",
+        slug: "parcours-de-listes",
+        title: "Parcours de listes",
+        durationMinutes: 16,
+        content: `## Rappel : qu'est-ce qu'une liste ?
+
+Une **liste** Python regroupe plusieurs valeurs dans une seule variable, entre crochets, séparées par des virgules :
+
+\`\`\`python
+notes = [12, 8, 15, 10, 17]
+\`\`\`
+
+## Parcourir une liste avec for
+
+La façon la plus simple de parcourir une liste est d'utiliser une boucle \`for\` directement sur ses éléments :
+
+\`\`\`python
+notes = [12, 8, 15, 10, 17]
+for note in notes:
+    print(note)
+\`\`\`
+
+> **Remarque :** à chaque tour de boucle, la variable \`note\` prend successivement la valeur de chaque élément de la liste, dans l'ordre.
+
+## Parcourir avec les indices
+
+On peut aussi parcourir une liste par ses **indices** (le premier élément est à l'indice $0$), grâce à \`range(len(liste))\` :
+
+\`\`\`python
+notes = [12, 8, 15, 10, 17]
+for i in range(len(notes)):
+    print("Indice", i, ":", notes[i])
+\`\`\`
+
+\`len(notes)\` renvoie le **nombre d'éléments** de la liste (ici $5$).
+
+## Calculer une somme, une moyenne
+
+\`\`\`python
+notes = [12, 8, 15, 10, 17]
+total = 0
+for note in notes:
+    total = total + note
+
+moyenne = total / len(notes)
+print("Moyenne :", moyenne)
+\`\`\`
+
+> **Astuce :** Python propose aussi les fonctions prêtes à l'emploi \`sum(notes)\`, \`max(notes)\` et \`min(notes)\`, qui évitent d'écrire la boucle de somme à la main.
+
+## Construire une liste avec .append()
+
+On peut démarrer d'une liste **vide** et la remplir progressivement avec \`.append()\` :
+
+\`\`\`python
+carres = []
+for n in range(1, 6):
+    carres.append(n * n)
+
+print(carres)
+\`\`\`
+
+Ce programme construit la liste \`[1, 4, 9, 16, 25]\`, les carrés des entiers de $1$ à $5$.
+
+## Exemples
+
+### ✅ Exemple simple — Afficher chaque élément
+
+\`\`\`python
+temperatures = [18, 21, 19, 23]
+for t in temperatures:
+    print(t)
+\`\`\`
+
+Ce programme affiche les quatre températures, une par ligne.
+
+### 📘 Exemple intermédiaire — Calculer la moyenne d'une liste de notes
+
+\`\`\`python
+notes = [14, 9, 16, 11, 8, 20]
+total = 0
+for note in notes:
+    total = total + note
+
+moyenne = total / len(notes)
+print("Moyenne de la classe :", moyenne)
+\`\`\`
+
+### 🔴 Exemple avancé — Construire la liste des doubles
+
+\`\`\`python
+valeurs = [3, 7, 2, 9, 5]
+doubles = []
+for v in valeurs:
+    doubles.append(2 * v)
+
+print(doubles)
+\`\`\`
+
+On part d'une liste vide \`doubles\`, et on y ajoute, à chaque tour de boucle, le double de l'élément courant de \`valeurs\`. Le résultat est \`[6, 14, 4, 18, 10]\`.
+
+## À retenir
+
+- \`for element in liste:\` parcourt directement les valeurs de la liste.
+- \`for i in range(len(liste)):\` permet de parcourir la liste par ses indices.
+- \`sum()\`, \`max()\`, \`min()\`, \`len()\` sont des fonctions prêtes à l'emploi sur les listes.
+- \`.append(valeur)\` ajoute un élément à la fin d'une liste, utile pour construire une liste progressivement dans une boucle.`,
+        exercises: [
+          {
+            id: "algopy1-l1-e1",
+            question: "Que fait l'instruction \`liste.append(7)\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Elle ajoute la valeur $7$ à la fin de la liste" },
+              { id: "B", text: "Elle remplace tous les éléments par $7$" },
+              { id: "C", text: "Elle supprime le $7$e élément de la liste" },
+              { id: "D", text: "Elle renvoie la position de la valeur $7$ dans la liste" },
+            ],
+            correctId: "A",
+            explanation: "La méthode \`.append(valeur)\` ajoute \`valeur\` à la fin de la liste, en augmentant sa longueur de $1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l1-e2",
+            question: "Dans une liste Python, le premier élément a pour indice $1$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "En Python, l'indexation commence à $0$ : le premier élément d'une liste a pour indice $0$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l1-e3",
+            question: "Que vaut \`len([5, 3, 8, 1])\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4$" },
+              { id: "B", text: "$5$" },
+              { id: "C", text: "$1$" },
+              { id: "D", text: "$17$" },
+            ],
+            correctId: "A",
+            explanation: "\`len()\` renvoie le nombre d'éléments de la liste, ici $4$ (les valeurs $5$, $3$, $8$, $1$).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l1-e4",
+            question: "Que va afficher ce programme ?\n\n\`\`\`python\ntotal = 0\nfor x in [2, 4, 6]:\n    total = total + x\nprint(total)\n\`\`\`",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$12$" },
+              { id: "B", text: "$3$" },
+              { id: "C", text: "$2$" },
+              { id: "D", text: "Une erreur" },
+            ],
+            correctId: "A",
+            explanation: "La boucle accumule la somme : $0+2=2$, $2+4=6$, $6+6=12$. Le programme affiche $12$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l1-e5",
+            question: "Écris un programme Python qui, à partir d'une liste \`temperatures = [12, 18, 9, 21, 15]\`, construit une nouvelle liste \`au_dessus\` contenant uniquement les températures strictement supérieures à $14$, puis affiche cette nouvelle liste.",
+            type: "open",
+            modelAnswer: "```python\ntemperatures = [12, 18, 9, 21, 15]\nau_dessus = []\nfor t in temperatures:\n    if t > 14:\n        au_dessus.append(t)\n\nprint(au_dessus)\n```\n\nOn part d'une liste vide \`au_dessus\`. Pour chaque température \`t\` de la liste de départ, si \`t > 14\`, on l'ajoute à \`au_dessus\` avec \`.append(t)\`. Le programme affiche \`[18, 21, 15]\`.",
+            explanation: "C'est le schéma classique de filtrage d'une liste : créer une liste vide, parcourir la liste de départ avec une condition, et utiliser \`.append()\` pour ajouter les éléments qui vérifient la condition.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy1-l2",
+        slug: "calculs-numeriques-suites-et-seuil",
+        title: "Calculer les termes d'une suite et un algorithme de seuil",
+        durationMinutes: 17,
+        content: `## Calculer les termes d'une suite par récurrence
+
+Une suite définie par récurrence ($u_0$ donné, $u_{n+1}=f(u_n)$) se calcule naturellement avec une boucle \`for\`, en mettant à jour une variable à chaque tour.
+
+**Exemple :** suite arithmétique $u_0=3$, $u_{n+1}=u_n+5$.
+
+\`\`\`python
+u = 3
+for i in range(10):
+    u = u + 5
+
+print(u)
+\`\`\`
+
+Ce programme calcule $u_{10}$ : à chaque tour de boucle, \`u\` est remplacé par sa valeur précédente plus $5$.
+
+## Stocker les termes dans une liste
+
+Pour conserver **tous** les termes calculés (et pas seulement le dernier), on les ajoute à une liste avec \`.append()\` à chaque tour :
+
+\`\`\`python
+u = 3
+termes = [u]
+for i in range(10):
+    u = u + 5
+    termes.append(u)
+
+print(termes)
+\`\`\`
+
+\`termes\` contient alors $u_0, u_1, \\ldots, u_{10}$, soit $11$ valeurs.
+
+## Algorithme de seuil
+
+Un **algorithme de seuil** détermine le plus petit rang $n$ à partir duquel une suite (croissante) dépasse une valeur donnée. On utilise une boucle \`while\`, qui s'arrête dès que la condition est vérifiée :
+
+\`\`\`python
+u = 3
+n = 0
+while u <= 100:
+    u = u + 5
+    n = n + 1
+
+print("Rang :", n, "  Valeur :", u)
+\`\`\`
+
+> **Point clé :** la boucle \`while condition:\` répète les instructions **tant que** la condition est vraie, et s'arrête dès qu'elle devient fausse. Il faut que la condition finisse par devenir fausse, sinon la boucle ne s'arrête jamais !
+
+## Exemples
+
+### ✅ Exemple simple — Calculer un terme d'une suite géométrique
+
+\`\`\`python
+v = 2
+for i in range(5):
+    v = v * 3
+
+print(v)
+\`\`\`
+
+Ce programme calcule $v_5$ pour la suite géométrique $v_0=2$, $v_{n+1}=3v_n$ : il affiche \`486\`.
+
+### 📘 Exemple intermédiaire — Stocker les 6 premiers termes
+
+\`\`\`python
+v = 2
+termes = [v]
+for i in range(6):
+    v = v * 3
+    termes.append(v)
+
+print(termes)
+\`\`\`
+
+Ce programme affiche la liste \`[2, 6, 18, 54, 162, 486, 1458]\`, soit $v_0$ à $v_6$.
+
+### 🔴 Exemple avancé — Algorithme de seuil pour une suite géométrique
+
+\`\`\`python
+v = 2
+n = 0
+while v < 1000:
+    v = v * 3
+    n = n + 1
+
+print("Rang :", n, "  Valeur :", v)
+\`\`\`
+
+Ce programme cherche le plus petit rang $n$ pour lequel $v_n \\geqslant 1000$, en multipliant \`v\` par $3$ à chaque tour tant que $v<1000$.
+
+## À retenir
+
+- Une boucle \`for\` qui met à jour une variable permet de calculer le terme d'une suite définie par récurrence.
+- \`.append()\` dans la boucle permet de conserver tous les termes calculés dans une liste.
+- Une boucle \`while condition:\` répète tant que la condition est vraie : c'est l'outil adapté pour un algorithme de seuil, où l'on ne connaît pas à l'avance le nombre de répétitions nécessaires.`,
+        exercises: [
+          {
+            id: "algopy1-l2-e1",
+            question: "Pour calculer un terme d'une suite définie par récurrence avec un nombre **connu** d'étapes, quelle boucle est la plus adaptée ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une boucle \`for\`" },
+              { id: "B", text: "Une boucle \`while\`" },
+              { id: "C", text: "Aucune boucle n'est nécessaire" },
+              { id: "D", text: "Une boucle \`if\`" },
+            ],
+            correctId: "A",
+            explanation: "Quand le nombre d'étapes (le rang $n$ visé) est connu à l'avance, une boucle \`for\` avec \`range(n)\` est la plus adaptée.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l2-e2",
+            question: "Une boucle \`while\` répète ses instructions tant que sa condition est vraie.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "C'est la définition même de la boucle \`while\` : elle continue de s'exécuter tant que la condition reste vraie, et s'arrête dès qu'elle devient fausse.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l2-e3",
+            question: "Que calcule ce programme ?\n\n\`\`\`python\nu = 10\nfor i in range(4):\n    u = u + 3\nprint(u)\n\`\`\`",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Le terme $u_4$ d'une suite arithmétique de premier terme $10$ et de raison $3$" },
+              { id: "B", text: "Le terme $u_3$ d'une suite arithmétique de raison $4$" },
+              { id: "C", text: "La somme des $4$ premiers entiers" },
+              { id: "D", text: "Une erreur, car \`u\` n'est pas une liste" },
+            ],
+            correctId: "A",
+            explanation: "On part de $u_0=10$ et on ajoute $3$ à chaque tour de boucle, $4$ fois : on obtient $u_4 = 10+4\\times3=22$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l2-e4",
+            question: "Pourquoi utilise-t-on une boucle \`while\` plutôt qu'une boucle \`for\` dans un algorithme de seuil ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Parce qu'on ne connaît pas à l'avance le nombre d'étapes nécessaires pour atteindre le seuil" },
+              { id: "B", text: "Parce que \`for\` ne peut pas être utilisée avec des suites" },
+              { id: "C", text: "Parce que \`while\` est toujours plus rapide" },
+              { id: "D", text: "Il n'y a aucune différence" },
+            ],
+            correctId: "A",
+            explanation: "Dans un algorithme de seuil, on cherche le rang $n$ à partir duquel une condition est vérifiée, sans savoir à l'avance combien d'étapes seront nécessaires : la boucle \`while\` est donc l'outil adapté.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l2-e5",
+            question: "Écris un programme Python qui calcule le plus petit rang $n$ à partir duquel le terme $u_n$ d'une suite arithmétique de premier terme $u_0=5$ et de raison $r=4$ dépasse strictement $200$, puis affiche ce rang ainsi que la valeur de $u_n$ correspondante.",
+            type: "open",
+            modelAnswer: "```python\nu = 5\nn = 0\nwhile u <= 200:\n    u = u + 4\n    n = n + 1\n\nprint(\"Rang :\", n, \"  Valeur :\", u)\n```\n\nOn initialise \`u\` à $u_0=5$ et \`n\` à $0$. Tant que \`u\` ne dépasse pas strictement $200$ (donc tant que \`u <= 200\`), on ajoute $4$ à \`u\` et on incrémente \`n\`. Quand la boucle s'arrête, \`n\` contient le plus petit rang pour lequel $u_n>200$, et \`u\` contient la valeur correspondante.\n\n$$\\boxed{\\text{Le programme affiche le plus petit } n \\text{ tel que } u_n=5+4n>200}$$",
+            explanation: "C'est le schéma classique de l'algorithme de seuil : une boucle \`while\` qui met à jour à la fois le terme de la suite et un compteur de rang, tant que la condition de seuil n'est pas dépassée.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy1-l3",
+        slug: "simuler-experience-aleatoire-et-loi-binomiale",
+        title: "Simuler une expérience aléatoire et la loi binomiale",
+        durationMinutes: 17,
+        content: `## Simuler une épreuve de Bernoulli
+
+Une **épreuve de Bernoulli** de paramètre $p$ a deux issues : succès (probabilité $p$) ou échec (probabilité $1-p$). On la simule avec \`random.random()\`, qui renvoie un décimal dans $[0\\,;\\,1[$ :
+
+\`\`\`python
+import random
+
+p = 0.3
+tirage = random.random()
+if tirage < p:
+    print("Succès")
+else:
+    print("Échec")
+\`\`\`
+
+> **Pourquoi ça marche :** \`random.random()\` renvoie une valeur uniformément répartie dans $[0\\,;\\,1[$, donc la probabilité que \`tirage < p\` soit vraie est exactement $p$.
+
+## Simuler une réalisation de la loi binomiale
+
+La loi binomiale $\\mathcal{B}(n\\,;\\,p)$ compte le nombre de succès parmi $n$ répétitions **indépendantes** d'une épreuve de Bernoulli de paramètre $p$. On simule cela avec une boucle qui répète $n$ fois l'épreuve, en comptant les succès :
+
+\`\`\`python
+import random
+
+n = 10
+p = 0.3
+succes = 0
+for i in range(n):
+    if random.random() < p:
+        succes = succes + 1
+
+print("Nombre de succès :", succes)
+\`\`\`
+
+Chaque exécution de ce programme simule **une réalisation** de la variable aléatoire $X \\sim \\mathcal{B}(10\\,;\\,0{,}3)$.
+
+## Estimer une probabilité par simulation répétée
+
+Pour estimer $P(X=k)$, on répète la simulation précédente un grand nombre de fois, en comptant combien de fois on obtient exactement $k$ succès :
+
+\`\`\`python
+import random
+
+n = 10
+p = 0.3
+k = 3
+nb_simulations = 5000
+compteur = 0
+
+for simulation in range(nb_simulations):
+    succes = 0
+    for i in range(n):
+        if random.random() < p:
+            succes = succes + 1
+    if succes == k:
+        compteur = compteur + 1
+
+frequence = compteur / nb_simulations
+print("Fréquence estimée de P(X=3) :", frequence)
+\`\`\`
+
+> **Remarque :** ce programme contient une boucle **dans** une boucle. La boucle intérieure simule une réalisation de $X$ ; la boucle extérieure répète cette simulation \`nb_simulations\` fois pour estimer une fréquence.
+
+## Exemples
+
+### ✅ Exemple simple — Simuler un succès ou un échec
+
+\`\`\`python
+import random
+
+p = 0.5
+print(random.random() < p)
+\`\`\`
+
+Ce programme affiche \`True\` (succès) ou \`False\` (échec), chacun avec une probabilité $0{,}5$.
+
+### 📘 Exemple intermédiaire — Compter les succès sur 20 répétitions
+
+\`\`\`python
+import random
+
+succes = 0
+for i in range(20):
+    if random.random() < 0.4:
+        succes = succes + 1
+
+print("Succès :", succes)
+\`\`\`
+
+### 🔴 Exemple avancé — Estimer $P(X=0)$ par simulation
+
+\`\`\`python
+import random
+
+n = 8
+p = 0.2
+nb_simulations = 10000
+compteur = 0
+
+for simulation in range(nb_simulations):
+    succes = 0
+    for i in range(n):
+        if random.random() < p:
+            succes = succes + 1
+    if succes == 0:
+        compteur = compteur + 1
+
+frequence = compteur / nb_simulations
+print("Fréquence estimée de P(X=0) :", frequence)
+\`\`\`
+
+La probabilité théorique est $P(X=0) = \\dbinom{8}{0}\\times0{,}2^0\\times0{,}8^8 = 0{,}8^8 \\approx 0{,}168$. Avec $10\\,000$ simulations, la fréquence observée doit s'en approcher.
+
+## À retenir
+
+- \`random.random() < p\` simule une épreuve de Bernoulli de paramètre $p$.
+- Répéter cette épreuve $n$ fois en comptant les succès simule une réalisation de la loi binomiale $\\mathcal{B}(n\\,;\\,p)$.
+- Pour estimer $P(X=k)$, on répète la simulation de $X$ un grand nombre de fois (boucle dans une boucle) et on calcule la fréquence des simulations où l'on obtient exactement $k$ succès.`,
+        exercises: [
+          {
+            id: "algopy1-l3-e1",
+            question: "Quelle instruction simule une épreuve de Bernoulli de paramètre $p=0{,}25$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`random.random() < 0.25\`" },
+              { id: "B", text: "\`random.randint(0, 25)\`" },
+              { id: "C", text: "\`random.random() == 0.25\`" },
+              { id: "D", text: "\`random.random() > 1\`" },
+            ],
+            correctId: "A",
+            explanation: "\`random.random()\` renvoie un décimal uniforme dans $[0\\,;\\,1[$ ; la condition \`< 0.25\` est donc vraie avec probabilité exactement $0{,}25$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l3-e2",
+            question: "Pour simuler une réalisation de la loi binomiale $\\mathcal{B}(n\\,;\\,p)$, il suffit de simuler **une seule** épreuve de Bernoulli de paramètre $p$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "La loi binomiale compte le nombre de succès parmi $n$ répétitions de l'épreuve de Bernoulli : il faut donc répéter l'épreuve $n$ fois dans une boucle, pas une seule fois.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l3-e3",
+            question: "Dans le programme d'estimation de $P(X=k)$ par simulation, pourquoi y a-t-il une boucle à l'intérieur d'une autre boucle ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La boucle intérieure simule une réalisation de $X$, la boucle extérieure répète cette simulation pour estimer une fréquence" },
+              { id: "B", text: "C'est une erreur de programmation à éviter" },
+              { id: "C", text: "Pour accélérer le programme" },
+              { id: "D", text: "Pour simuler deux variables aléatoires différentes" },
+            ],
+            correctId: "A",
+            explanation: "La boucle intérieure (sur \`range(n)\`) simule les $n$ épreuves de Bernoulli d'une réalisation de $X$ ; la boucle extérieure répète ce processus \`nb_simulations\` fois pour estimer une fréquence représentative de $P(X=k)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l3-e4",
+            question: "On simule $20\\,000$ réalisations de $X \\sim \\mathcal{B}(5\\,;\\,0{,}5)$ et on obtient une fréquence de $0{,}031$ pour l'événement $\\{X=0\\}$. La valeur théorique est $P(X=0)=0{,}5^5=0{,}03125$. Que peut-on conclure ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La fréquence observée est très proche de la valeur théorique : la simulation est cohérente" },
+              { id: "B", text: "La simulation est forcément fausse car $0{,}031 \\neq 0{,}03125$ exactement" },
+              { id: "C", text: "Il faudrait simuler moins de réalisations pour être précis" },
+              { id: "D", text: "$P(X=0)$ vaut exactement $0{,}031$" },
+            ],
+            correctId: "A",
+            explanation: "Avec un grand nombre de simulations, la fréquence observée se rapproche de la probabilité théorique (loi des grands nombres) ; un petit écart comme ici est normal et attendu.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l3-e5",
+            question: "Écris un programme Python qui simule $n=4$ épreuves de Bernoulli de paramètre $p=0{,}6$ pour obtenir une réalisation de $X \\sim \\mathcal{B}(4\\,;\\,0{,}6)$, puis répète cette simulation $5000$ fois pour estimer $P(X=4)$ (tous les succès). Affiche la fréquence estimée.",
+            type: "open",
+            modelAnswer: "```python\nimport random\n\nn = 4\np = 0.6\nnb_simulations = 5000\ncompteur = 0\n\nfor simulation in range(nb_simulations):\n    succes = 0\n    for i in range(n):\n        if random.random() < p:\n            succes = succes + 1\n    if succes == 4:\n        compteur = compteur + 1\n\nfrequence = compteur / nb_simulations\nprint(\"Fréquence estimée de P(X=4) :\", frequence)\n```\n\nLa boucle intérieure simule les $4$ épreuves de Bernoulli et compte les succès. Si on obtient $4$ succès sur $4$ (tous des succès), on incrémente \`compteur\`. On répète cela $5000$ fois, puis on divise par $5000$ pour obtenir la fréquence.\n\n$$\\boxed{\\text{La valeur théorique est } P(X=4)=0{,}6^4=0{,}1296\\text{ ; la fréquence affichée doit s'en approcher}}$$",
+            explanation: "On reproduit le schéma à deux boucles : la boucle intérieure simule une réalisation de la loi binomiale, la boucle extérieure répète la simulation pour estimer une fréquence proche de la probabilité théorique $p^n$ (cas particulier où tous les essais sont des succès).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy1-l4",
+        slug: "fonctions-avancees-et-programmes-combines",
+        title: "Fonctions avancées et programmes combinés",
+        durationMinutes: 18,
+        content: `## Rappel : définir une fonction
+
+\`\`\`python
+def carre(x):
+    return x * x
+\`\`\`
+
+Une fonction prend des **paramètres** (ici \`x\`) et renvoie un résultat avec \`return\`. L'intérêt principal d'une fonction est d'éviter de **répéter** le même code plusieurs fois dans un programme.
+
+## Combiner une fonction et une liste
+
+On peut écrire une fonction qui calcule et renvoie une **liste** de termes d'une suite jusqu'à un rang donné :
+
+\`\`\`python
+def termes_suite(u0, r, n):
+    u = u0
+    termes = [u]
+    for i in range(n):
+        u = u + r
+        termes.append(u)
+    return termes
+
+print(termes_suite(3, 5, 4))
+\`\`\`
+
+Ce programme affiche \`[3, 8, 13, 18, 23]\`, les termes $u_0$ à $u_4$ de la suite arithmétique de premier terme $3$ et de raison $5$.
+
+## Combiner une fonction et un algorithme de seuil
+
+\`\`\`python
+def rang_seuil(u0, r, seuil):
+    u = u0
+    n = 0
+    while u <= seuil:
+        u = u + r
+        n = n + 1
+    return n
+
+print(rang_seuil(3, 5, 100))
+\`\`\`
+
+Cette fonction renvoie directement le rang à partir duquel la suite dépasse \`seuil\`, **sans avoir à réécrire** la boucle \`while\` chaque fois qu'on change les paramètres.
+
+## Une fonction de simulation paramétrée
+
+On peut transformer le programme de simulation de la loi binomiale vu précédemment en une fonction réutilisable avec différents paramètres :
+
+\`\`\`python
+import random
+
+def simuler_binomiale(n, p, k, nb_simulations):
+    compteur = 0
+    for simulation in range(nb_simulations):
+        succes = 0
+        for i in range(n):
+            if random.random() < p:
+                succes = succes + 1
+        if succes == k:
+            compteur = compteur + 1
+    return compteur / nb_simulations
+
+frequence = simuler_binomiale(10, 0.3, 3, 5000)
+print("Fréquence estimée :", frequence)
+\`\`\`
+
+> **Intérêt :** une fois la fonction \`simuler_binomiale\` écrite, on peut l'appeler avec n'importe quelles valeurs de \`n\`, \`p\`, \`k\` et \`nb_simulations\`, sans dupliquer le code.
+
+## Exemples
+
+### ✅ Exemple simple — Fonction renvoyant une liste
+
+\`\`\`python
+def puissances_de_deux(n):
+    resultat = []
+    valeur = 1
+    for i in range(n):
+        resultat.append(valeur)
+        valeur = valeur * 2
+    return resultat
+
+print(puissances_de_deux(5))
+\`\`\`
+
+Ce programme affiche \`[1, 2, 4, 8, 16]\`.
+
+### 📘 Exemple intermédiaire — Fonction de seuil pour une suite géométrique
+
+\`\`\`python
+def rang_seuil_geometrique(v0, q, seuil):
+    v = v0
+    n = 0
+    while v < seuil:
+        v = v * q
+        n = n + 1
+    return n
+
+print(rang_seuil_geometrique(2, 1.5, 50))
+\`\`\`
+
+Cette fonction renvoie le plus petit rang $n$ pour lequel $v_n \\geqslant 50$, pour la suite géométrique $v_0=2$, raison $q=1{,}5$.
+
+### 🔴 Exemple avancé — Fonction combinant liste et simulation
+
+\`\`\`python
+import random
+
+def liste_frequences(n, p, nb_simulations):
+    resultats = []
+    for k in range(n + 1):
+        compteur = 0
+        for simulation in range(nb_simulations):
+            succes = 0
+            for i in range(n):
+                if random.random() < p:
+                    succes = succes + 1
+            if succes == k:
+                compteur = compteur + 1
+        resultats.append(compteur / nb_simulations)
+    return resultats
+
+print(liste_frequences(3, 0.5, 2000))
+\`\`\`
+
+Cette fonction renvoie la liste des fréquences estimées de $P(X=0)$, $P(X=1)$, $P(X=2)$ et $P(X=3)$ pour $X \\sim \\mathcal{B}(3\\,;\\,0{,}5)$ : une approximation de toute la loi de probabilité de $X$.
+
+## À retenir
+
+- Une fonction permet de **réutiliser** un même calcul (termes d'une suite, seuil, simulation) avec des paramètres différents, sans dupliquer le code.
+- On peut combiner librement fonctions, listes, boucles \`for\`/\`while\` et conditions pour construire des programmes plus complets.
+- Bien choisir les **noms des paramètres** d'une fonction rend le programme plus facile à lire et à réutiliser.`,
+        exercises: [
+          {
+            id: "algopy1-l4-e1",
+            question: "Quel est l'intérêt principal d'écrire une fonction plutôt que de répéter le même code plusieurs fois ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "On peut réutiliser le même calcul avec des paramètres différents, sans dupliquer le code" },
+              { id: "B", text: "Une fonction s'exécute toujours plus vite qu'une boucle" },
+              { id: "C", text: "Une fonction ne peut contenir aucune boucle" },
+              { id: "D", text: "Cela évite d'utiliser des listes" },
+            ],
+            correctId: "A",
+            explanation: "Une fonction encapsule un calcul et permet de le réutiliser avec différentes valeurs de paramètres, ce qui évite de réécrire (et de dupliquer) le même code plusieurs fois.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l4-e2",
+            question: "Une fonction Python peut renvoyer une liste avec \`return\`.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "\`return\` peut renvoyer n'importe quel type de valeur, y compris une liste construite à l'intérieur de la fonction.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy1-l4-e3",
+            question: "Que renvoie l'appel \`termes_suite(0, 2, 3)\` avec la fonction \`termes_suite(u0, r, n)\` définie dans la leçon (suite arithmétique) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`[0, 2, 4, 6]\`" },
+              { id: "B", text: "\`[2, 4, 6]\`" },
+              { id: "C", text: "\`[0, 2, 4]\`" },
+              { id: "D", text: "\`6\`" },
+            ],
+            correctId: "A",
+            explanation: "On part de $u_0=0$ et on ajoute $3$ fois la raison $2$ : la liste contient $u_0=0$, $u_1=2$, $u_2=4$, $u_3=6$, soit \`[0, 2, 4, 6]\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l4-e4",
+            question: "Dans la fonction \`simuler_binomiale(n, p, k, nb_simulations)\` de la leçon, à quoi correspond le paramètre \`k\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Le nombre de succès dont on veut estimer la probabilité" },
+              { id: "B", text: "Le nombre de répétitions de la simulation" },
+              { id: "C", text: "La probabilité de succès d'une épreuve" },
+              { id: "D", text: "Le nombre d'épreuves de Bernoulli par réalisation" },
+            ],
+            correctId: "A",
+            explanation: "La fonction compte la proportion de simulations où le nombre de succès est exactement égal à \`k\` : c'est donc une estimation de $P(X=k)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy1-l4-e5",
+            question: "Écris une fonction Python \`moyenne_liste(liste)\` qui renvoie la moyenne des éléments d'une liste (sans utiliser la fonction prête à l'emploi \`sum()\`), puis utilise-la pour calculer la moyenne de \`[10, 14, 8, 16, 12]\`.",
+            type: "open",
+            modelAnswer: "```python\ndef moyenne_liste(liste):\n    total = 0\n    for element in liste:\n        total = total + element\n    return total / len(liste)\n\nprint(moyenne_liste([10, 14, 8, 16, 12]))\n```\n\nLa fonction parcourt la liste avec une boucle \`for\`, accumule la somme des éléments dans \`total\`, puis renvoie cette somme divisée par le nombre d'éléments (\`len(liste)\`). Pour la liste donnée : $10+14+8+16+12=60$, et $60/5=12$.\n\n$$\\boxed{\\text{moyenne\\_liste}([10, 14, 8, 16, 12]) = 12}$$",
+            explanation: "On retrouve le schéma de calcul de moyenne déjà vu, mais encapsulé dans une fonction réutilisable \`moyenne_liste\`, qui peut désormais être appelée sur n'importe quelle liste de nombres.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  {
     id: "lst1-id",
     slug: "limites-de-suites-terminale",
     title: "Limites de suites et raisonnement par récurrence",
@@ -20350,6 +21218,139 @@ $$f'(x) = 1\\times e^{-x} + x\\times(-e^{-x}) = e^{-x}(1-x)$$
           },
         ],
       },
+      {
+        id: "exp1-l4",
+        slug: "equations-differentielles",
+        title: "Équations différentielles y'=ay et y'=ay+b",
+        durationMinutes: 22,
+        content: `## Qu'est-ce qu'une équation différentielle ?
+
+Une **équation différentielle** est une équation dans laquelle l'inconnue est une fonction $y$, et qui fait intervenir cette fonction ainsi que sa dérivée $y'$ (et parfois des dérivées d'ordre supérieur). Résoudre une équation différentielle, c'est trouver **toutes** les fonctions $y$ qui vérifient cette relation sur un intervalle donné, en général $\\mathbb{R}$.
+
+C'est ici que la fonction exponentielle joue un rôle central : elle est, à une constante multiplicative près, la seule fonction égale à sa propre dérivée.
+
+## L'équation $y' = ay$
+
+> **Théorème.** Soit $a$ un réel. Les solutions sur $\\mathbb{R}$ de l'équation différentielle
+> $$y' = ay$$
+> sont exactement les fonctions de la forme
+> $$y(x) = Ce^{ax}, \\quad C \\in \\mathbb{R}$$
+
+On vérifie facilement qu'une telle fonction convient : si $y(x) = Ce^{ax}$, alors $y'(x) = Ce^{ax}\\times a = a y(x)$. La partie la plus difficile du théorème (qu'il n'y a pas d'autres solutions) est admise.
+
+Il existe donc une **infinité de solutions**, une pour chaque valeur de $C$. Pour en choisir une seule, il faut une information supplémentaire : une **condition initiale**.
+
+## Généralisation : l'équation $y' = ay + b$
+
+> **Théorème.** Soient $a$ et $b$ deux réels, avec $a \\neq 0$. Les solutions sur $\\mathbb{R}$ de
+> $$y' = ay + b$$
+> sont exactement les fonctions de la forme
+> $$y(x) = Ce^{ax} - \\dfrac{b}{a}, \\quad C \\in \\mathbb{R}$$
+
+**Idée :** la fonction constante $y_p(x) = -\\dfrac{b}{a}$ est une solution particulière évidente (car $y_p' = 0$ et $a\\times\\left(-\\dfrac{b}{a}\\right) + b = -b+b=0$). On ajoute ensuite à cette solution particulière n'importe quelle solution $Ce^{ax}$ de l'équation "sans second membre" $y'=ay$, ce qui donne la forme générale ci-dessus.
+
+## Déterminer la constante $C$
+
+Si l'on connaît une **condition initiale** $y(x_0) = y_0$, on peut déterminer la valeur exacte de $C$ en remplaçant $x$ par $x_0$ dans la solution générale, puis en résolvant l'équation obtenue.
+
+**Exemple :** pour $y' = 2y$ avec $y(0) = 5$, la solution générale est $y(x) = Ce^{2x}$. En $x=0$ : $y(0) = Ce^0 = C$. Comme $y(0)=5$, on a $C=5$, donc $y(x) = 5e^{2x}$.
+
+## Exemple de modélisation : la décroissance radioactive
+
+On modélise la désintégration d'un échantillon radioactif. Soit $N(t)$ le nombre de noyaux radioactifs présents à l'instant $t$ (en années). La loi de désintégration radioactive affirme que la vitesse de désintégration est proportionnelle au nombre de noyaux présents :
+
+$$N'(t) = -\\lambda N(t)$$
+
+où $\\lambda > 0$ est la **constante radioactive** du matériau (ici $a=-\\lambda < 0$, et $b=0$).
+
+D'après le théorème, les solutions sont $N(t) = Ce^{-\\lambda t}$.
+
+**Condition initiale :** à $t=0$, on suppose qu'il y a $N_0$ noyaux. Alors $N(0) = C = N_0$, donc :
+$$N(t) = N_0 e^{-\\lambda t}$$
+
+**Application numérique :** prenons un échantillon avec $N_0 = 1000$ noyaux et $\\lambda = 0{,}1$ (en an$^{-1}$). Alors $N(t) = 1000\\,e^{-0{,}1t}$.
+
+Calculons le nombre de noyaux restants après $10$ ans :
+$$N(10) = 1000\\,e^{-1} \\approx 368$$
+
+On retrouve ainsi la notion de **demi-vie** : le temps $T$ au bout duquel la moitié des noyaux a disparu vérifie $N(T) = \\dfrac{N_0}{2}$, soit $e^{-\\lambda T} = \\dfrac{1}{2}$, c'est-à-dire $T = \\dfrac{\\ln 2}{\\lambda}$. Ici, $T = \\dfrac{\\ln 2}{0{,}1} \\approx 6{,}9$ années.`,
+        exercises: [
+          {
+            id: "exp1-l4-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Quelles sont les solutions sur $\\mathbb{R}$ de l'équation différentielle $y' = 3y$ ?",
+            options: [
+              { id: "A", text: "$y(x) = Ce^{3x}$, avec $C\\in\\mathbb{R}$" },
+              { id: "B", text: "$y(x) = 3e^x$" },
+              { id: "C", text: "$y(x) = Ce^{x/3}$, avec $C\\in\\mathbb{R}$" },
+            ],
+            correctId: "A",
+            explanation: "Pour une équation de la forme $y'=ay$ avec ici $a=3$, les solutions sont exactement les fonctions $y(x) = Ce^{ax} = Ce^{3x}$, où $C$ est une constante réelle quelconque.",
+          },
+          {
+            id: "exp1-l4-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "L'équation différentielle $y' = ay$ admet une unique solution sur $\\mathbb{R}$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est faux : il existe une infinité de solutions, une pour chaque valeur de la constante $C \\in \\mathbb{R}$. Il faut une condition initiale pour en sélectionner une seule.",
+          },
+          {
+            id: "exp1-l4-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "Quelle est la solution de $y' = 2y$ vérifiant la condition initiale $y(0) = 4$ ?",
+            options: [
+              { id: "A", text: "$y(x) = 4e^{2x}$" },
+              { id: "B", text: "$y(x) = 2e^{4x}$" },
+              { id: "C", text: "$y(x) = 4e^{x/2}$" },
+            ],
+            correctId: "A",
+            explanation: "La solution générale est $y(x)=Ce^{2x}$. En $x=0$, $y(0)=C=4$, donc $C=4$ et la solution cherchée est $y(x) = 4e^{2x}$.",
+          },
+          {
+            id: "exp1-l4-e4",
+            type: "true_false",
+            difficulty: "intermediaire",
+            question: "Pour l'équation $y' = 2y + 6$, la fonction constante $y(x) = -3$ est une solution particulière.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Ici $a=2$ et $b=6$, donc la solution particulière constante est $-\\dfrac{b}{a} = -\\dfrac{6}{2} = -3$. On vérifie : $y'=0$ et $2\\times(-3)+6=0$, l'égalité $y'=2y+6$ est bien vérifiée.",
+          },
+          {
+            id: "exp1-l4-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Un objet chauffé est sorti du four à la température de $90°C$ et placé dans une pièce à $20°C$. La loi de Newton donne $T'(t) = -0{,}3\\big(T(t)-20\\big)$, où $T(t)$ est la température (en °C) à l'instant $t$ (en minutes). Déterminer l'expression de $T(t)$, puis calculer la température après $5$ minutes (arrondie au dixième).",
+            modelAnswer: `On pose $y(t) = T(t)$. L'équation s'écrit :
+$$T'(t) = -0{,}3\\,T(t) + 6$$
+
+car $-0{,}3\\times(-20) = 6$. C'est une équation de la forme $y'=ay+b$ avec $a=-0{,}3$ et $b=6$.
+
+D'après le théorème, les solutions sont :
+$$T(t) = Ce^{-0{,}3t} - \\dfrac{b}{a} = Ce^{-0{,}3t} - \\dfrac{6}{-0{,}3} = Ce^{-0{,}3t} + 20$$
+
+**Condition initiale :** $T(0) = 90$, donc $C e^{0} + 20 = 90$, soit $C = 70$.
+
+On obtient donc :
+$$T(t) = 70\\,e^{-0{,}3t} + 20$$
+
+**Calcul de $T(5)$ :**
+$$T(5) = 70\\,e^{-1{,}5} + 20 \\approx 70\\times0{,}2231 + 20 \\approx 15{,}6 + 20 \\approx 35{,}6$$
+
+$$\\boxed{T(t) = 70\\,e^{-0{,}3t} + 20 \\quad \\text{et} \\quad T(5) \\approx 35{,}6\\,°C}$$`,
+            explanation: "On réécrit la loi de Newton sous la forme $y'=ay+b$, on applique le théorème de résolution générale, on utilise la condition initiale pour déterminer $C$, puis on évalue numériquement la fonction obtenue.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -21181,6 +22182,2201 @@ Comme $f=0{,}13 \\notin I_{400}$ (car $0{,}13 > 0{,}1294$), la fréquence observ
       },
     ],
   },
+  {
+    id: "comb1-id",
+    slug: "combinatoire-et-denombrement-terminale",
+    title: "Combinatoire et dénombrement",
+    description: "Apprendre à compter efficacement des configurations avec les listes, permutations, arrangements et combinaisons.",
+    schoolLevel: "terminale",
+    subject: "algebre",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "🔢",
+    lessons: [
+      {
+        id: "comb1-l1",
+        slug: "principe-multiplicatif-et-listes",
+        title: "Principe multiplicatif et $p$-listes",
+        content: `## Compter sans tout énumérer
+
+  En combinatoire, on cherche à **dénombrer** (compter) le nombre de façons de réaliser une situation, sans avoir à lister tous les cas un par un.
+
+  ### Principe additif
+
+  Si une situation se décompose en plusieurs cas qui s'excluent mutuellement (on ne peut pas être dans deux cas à la fois), le nombre total de possibilités est la **somme** du nombre de possibilités de chaque cas.
+
+  **Exemple :** dans une classe, il y a 12 filles et 15 garçons. Choisir un délégué (fille OU garçon) offre $12+15=27$ possibilités.
+
+  ### Principe multiplicatif
+
+  > **Principe multiplicatif :** si une situation se décompose en une succession de $k$ étapes indépendantes, comportant respectivement $n_1, n_2, \\dots, n_k$ possibilités, alors le nombre total de façons de réaliser la situation complète est :
+  > $$n_1 \\times n_2 \\times \\dots \\times n_k$$
+
+  **Exemple :** pour s'habiller, on choisit un pantalon parmi 4, un t-shirt parmi 6 et une paire de chaussures parmi 3. Le nombre de tenues possibles est $4\\times 6\\times 3 = 72$.
+
+  ### Listes avec répétition ($p$-listes)
+
+  On considère un ensemble $E$ à $n$ éléments. Une **$p$-liste** (ou $p$-uplet) d'éléments de $E$ est une liste ordonnée de $p$ éléments de $E$, où les répétitions sont autorisées (un même élément peut être choisi plusieurs fois).
+
+  > **Nombre de $p$-listes :** le nombre de $p$-listes d'un ensemble à $n$ éléments est :
+  > $$n^p$$
+
+  Cela vient directement du principe multiplicatif : il y a $p$ étapes (choisir le 1er élément, le 2e, ..., le $p$-ième), et à chaque étape on a $n$ choix possibles, indépendamment des choix précédents.
+
+  ### Exemple complet
+
+  **Énoncé :** un digicode utilise des codes à 4 chiffres, chaque chiffre étant choisi parmi $0,1,\\dots,9$ (répétitions autorisées). Combien de codes différents existe-t-il ?
+
+  **Résolution :** ici $n=10$ (les 10 chiffres possibles) et $p=4$ (la longueur du code). Le nombre de codes est :
+  $$10^4 = 10\\,000$$
+
+  Il existe donc $10\\,000$ codes à 4 chiffres possibles, de "0000" à "9999".
+
+  ### Autres exemples classiques
+
+  - **Mots de passe** de longueur $p$ utilisant un alphabet de $n$ caractères (lettres, chiffres, symboles) : $n^p$ mots de passe possibles.
+  - **Lancers successifs d'un dé** à 6 faces, répété $p$ fois : $6^p$ résultats possibles (les répétitions sont permises puisqu'on peut obtenir la même face plusieurs fois).
+  - **Tirages avec remise** dans une urne à $n$ boules, $p$ tirages successifs : $n^p$ tirages possibles.
+
+  ### Méthode
+
+  1. Identifier si la situation est une succession d'étapes indépendantes (principe multiplicatif) ou un choix entre cas exclusifs (principe additif).
+  2. Si c'est une $p$-liste avec répétition possible, repérer $n$ (taille de l'ensemble) et $p$ (nombre de choix successifs).
+  3. Appliquer la formule $n^p$ ou le produit des nombres de possibilités à chaque étape.`,
+        durationMinutes: 20,
+        exercises: [
+          {
+            id: "comb1-l1-e1",
+            question: "Une plaque d'immatriculation simplifiée est composée de 3 lettres parmi les 26 lettres de l'alphabet (répétitions autorisées). Combien de plaques différentes peut-on former ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$26 \\times 3$" },
+              { id: "B", text: "$3^{26}$" },
+              { id: "C", text: "$26^3$" },
+              { id: "D", text: "$26!$" },
+            ],
+            correctId: "C",
+            explanation: "Il s'agit d'une 3-liste (3 lettres choisies successivement, avec répétition possible) d'un ensemble à 26 éléments. Le nombre de plaques est donc $26^3$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l1-e2",
+            question: "Le principe multiplicatif permet de calculer le nombre de menus possibles si on choisit une entrée parmi 3, un plat parmi 5 et un dessert parmi 4, en faisant le produit $3\\times 5\\times 4$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Les trois choix (entrée, plat, dessert) sont des étapes indépendantes successives : on applique bien le principe multiplicatif, ce qui donne $3\\times5\\times4=60$ menus possibles.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l1-e3",
+            question: "On lance un dé à 6 faces successivement 3 fois. Combien de résultats (suites ordonnées de 3 numéros) sont possibles ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$18$" },
+              { id: "B", text: "$6^3 = 216$" },
+              { id: "C", text: "$3^6 = 729$" },
+              { id: "D", text: "$6\\times 5\\times 4 = 120$" },
+            ],
+            correctId: "B",
+            explanation: "Chaque lancer est indépendant et offre 6 résultats possibles, avec répétition possible d'une face à l'autre lancer. C'est une 3-liste d'un ensemble à 6 éléments : $6^3=216$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l1-e4",
+            question: "Un mot de passe est constitué de 5 caractères choisis parmi les 10 chiffres et les 26 lettres minuscules (répétitions autorisées). Calculer le nombre total de mots de passe possibles, puis calculer combien il y en a si on impose en plus que le premier caractère soit un chiffre.",
+            type: "open",
+            modelAnswer: `**Nombre total de caractères possibles :** $10 + 26 = 36$.
+
+  **Sans contrainte :** le mot de passe est une 5-liste d'un ensemble à 36 éléments (chaque caractère est choisi indépendamment, avec répétition possible) :
+  $$36^5 = 60\\,466\\,176$$
+
+  **Avec la contrainte « premier caractère = un chiffre » :**
+  - Pour la 1ère position : 10 choix possibles (un chiffre).
+  - Pour chacune des 4 positions suivantes : 36 choix possibles (chiffre ou lettre).
+
+  Par le principe multiplicatif :
+  $$10 \\times 36^4 = 10 \\times 1\\,679\\,616 = 16\\,796\\,160$$
+
+  $$\\boxed{36^5 = 60\\,466\\,176 \\text{ mots de passe possibles, dont } 10\\times 36^4 = 16\\,796\\,160 \\text{ commençant par un chiffre.}}$$`,
+            explanation: "On reconnaît des $p$-listes : sans contrainte, $n=36$ et $p=5$ donnent $36^5$. Avec la contrainte sur la première position, on traite cette étape séparément (10 choix) puis on applique le principe multiplicatif aux 4 positions restantes (36 choix chacune).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l1-e5",
+            question: "Une entreprise veut créer des codes d'accès de longueur $p$ utilisant uniquement les chiffres de 0 à 9 (répétitions autorisées), et souhaite garantir au moins 1 000 000 de codes différents. Déterminer la plus petite valeur de $p$ qui convient, puis donner le nombre exact de codes obtenus avec cette valeur.",
+            type: "open",
+            modelAnswer: `Le nombre de codes possibles de longueur $p$ (chiffres de 0 à 9, répétitions autorisées) est une $p$-liste d'un ensemble à $n=10$ éléments :
+  $$10^p$$
+
+  On cherche le plus petit entier $p$ tel que :
+  $$10^p \\geqslant 1\\,000\\,000 = 10^6$$
+
+  Comme la fonction $p \\mapsto 10^p$ est strictement croissante, cette inégalité équivaut à :
+  $$p \\geqslant 6$$
+
+  Le plus petit entier qui convient est donc $p=6$.
+
+  **Vérification :** pour $p=6$, on obtient exactement $10^6 = 1\\,000\\,000$ codes, ce qui atteint juste le seuil demandé. Pour $p=5$, on aurait seulement $10^5=100\\,000$ codes, ce qui est insuffisant.
+
+  $$\\boxed{p = 6 \\text{ et le nombre de codes obtenu est } 10^6 = 1\\,000\\,000}$$`,
+            explanation: "On pose l'inégalité $10^p \\geqslant 10^6$ et on utilise la stricte croissance de la fonction puissance pour comparer directement les exposants, ce qui donne $p\\geqslant 6$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "comb1-l2",
+        slug: "permutations-et-arrangements",
+        title: "Permutations et arrangements",
+        content: `## Ranger sans répéter
+
+  Dans la leçon précédente, les répétitions étaient autorisées. On s'intéresse maintenant aux situations où **chaque élément ne peut être choisi qu'une seule fois**.
+
+  ### La factorielle
+
+  > **Définition :** pour tout entier $n \\geqslant 1$, on appelle **factorielle de $n$**, notée $n!$, le nombre :
+  > $$n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1$$
+  > Par convention, $0! = 1$.
+
+  **Exemples :** $3! = 3\\times 2\\times 1 = 6$ ; $\\quad 5! = 5\\times4\\times3\\times2\\times1=120$.
+
+  On remarque que $n! = n\\times(n-1)!$, ce qui permet de calculer une factorielle de proche en proche.
+
+  ### Permutations
+
+  Une **permutation** d'un ensemble $E$ à $n$ éléments est un classement ordonné de **tous** les éléments de $E$ (chaque élément apparaît une fois et une seule).
+
+  > **Nombre de permutations :** le nombre de permutations d'un ensemble à $n$ éléments est :
+  > $$n!$$
+
+  **Justification :** pour la 1ère position, il y a $n$ choix ; pour la 2e position, il ne reste que $n-1$ choix (un élément a déjà été placé) ; et ainsi de suite jusqu'à la dernière position où il ne reste qu'1 choix. Par le principe multiplicatif :
+  $$n\\times(n-1)\\times\\dots\\times 1 = n!$$
+
+  **Exemple :** le nombre de façons de classer 5 coureurs à l'arrivée d'une course (sans ex-aequo) est $5! = 120$.
+
+  ### Arrangements
+
+  Un **arrangement** de $p$ éléments parmi $n$ (avec $p\\leqslant n$) est une $p$-liste **sans répétition** d'éléments de l'ensemble $E$ à $n$ éléments : on choisit $p$ éléments distincts de $E$ et on les **ordonne**.
+
+  > **Nombre d'arrangements**, noté $A_n^p$ :
+  > $$A_n^p = n\\times(n-1)\\times\\dots\\times(n-p+1) = \\dfrac{n!}{(n-p)!}$$
+
+  **Justification :** pour la 1ère position, $n$ choix ; pour la 2e, $n-1$ choix (un élément déjà utilisé) ; ... ; pour la $p$-ième position, $n-p+1$ choix. On multiplie ces $p$ facteurs, ce qui donne bien $\\dfrac{n!}{(n-p)!}$ après simplification.
+
+  On remarque que lorsque $p=n$, on retrouve $A_n^n = \\dfrac{n!}{0!} = n!$, c'est-à-dire le nombre de permutations.
+
+  ### Exemple complet
+
+  **Énoncé :** dans une course de 8 chevaux, on souhaite prévoir le tiercé (les 3 premiers chevaux, dans l'ordre exact). Combien de tiercés différents sont possibles ?
+
+  **Résolution :** on choisit 3 chevaux parmi 8, en tenant compte de l'ordre, sans répétition (un même cheval ne peut pas arriver 1er ET 2e). Il s'agit donc d'un arrangement avec $n=8$ et $p=3$ :
+  $$A_8^3 = \\dfrac{8!}{(8-3)!} = \\dfrac{8!}{5!} = 8\\times 7\\times 6 = 336$$
+
+  Il existe donc $336$ tiercés possibles.
+
+  ### Méthode
+
+  1. Si on range **tous** les éléments de l'ensemble : c'est une permutation, le résultat est $n!$.
+  2. Si on choisit **$p$ éléments parmi $n$, dans un ordre précis, sans répétition** : c'est un arrangement, le résultat est $A_n^p = \\dfrac{n!}{(n-p)!}$.
+  3. Bien vérifier qu'aucune répétition n'est permise (sinon on retombe sur une $p$-liste $n^p$ de la leçon précédente).`,
+        durationMinutes: 22,
+        exercises: [
+          {
+            id: "comb1-l2-e1",
+            question: "Calculer $4!$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$16$" },
+              { id: "B", text: "$24$" },
+              { id: "C", text: "$12$" },
+              { id: "D", text: "$8$" },
+            ],
+            correctId: "B",
+            explanation: "$4! = 4\\times3\\times2\\times1=24$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l2-e2",
+            question: "Le nombre de façons de classer entièrement 6 livres distincts sur une étagère est donné par $6!$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Ranger tous les éléments d'un ensemble dans un ordre donné est une permutation : le nombre de classements possibles des 6 livres est bien $6! = 720$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l2-e3",
+            question: "On tire successivement et sans remise 3 cartes parmi un jeu de 32 cartes, en tenant compte de l'ordre de tirage. Combien de tirages ordonnés différents sont possibles ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$32^3$" },
+              { id: "B", text: "$32\\times31\\times30 = 29\\,760$" },
+              { id: "C", text: "$\\dfrac{32!}{3!}$" },
+              { id: "D", text: "$3! = 6$" },
+            ],
+            correctId: "B",
+            explanation: "Tirage sans remise (sans répétition) avec ordre : c'est un arrangement $A_{32}^3 = \\dfrac{32!}{29!} = 32\\times31\\times30 = 29\\,760$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l2-e4",
+            question: "Dans un tournoi de tennis à élimination directe regroupant 7 joueurs, on souhaite désigner un podium (1er, 2e, 3e), sans aucun ex-aequo. Calculer le nombre de podiums possibles, en détaillant la formule utilisée.",
+            type: "open",
+            modelAnswer: `On choisit 3 joueurs parmi 7 pour les places de 1er, 2e et 3e : l'ordre compte (la place de 1er n'est pas équivalente à la place de 3e) et un même joueur ne peut occuper qu'une seule place (pas de répétition). Il s'agit donc d'un **arrangement** de $p=3$ éléments parmi $n=7$ :
+  $$A_7^3 = \\dfrac{7!}{(7-3)!} = \\dfrac{7!}{4!}$$
+
+  Calcul :
+  $$A_7^3 = 7\\times 6\\times 5 = 210$$
+
+  $$\\boxed{A_7^3 = 210 \\text{ podiums possibles}}$$`,
+            explanation: "On reconnaît un arrangement car on sélectionne un sous-ensemble ordonné (1er/2e/3e) sans répétition possible d'un même joueur sur plusieurs places.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l2-e5",
+            question: "Démontrer que pour tout entier $n\\geqslant 2$ et tout entier $p$ tel que $1\\leqslant p \\leqslant n$, on a l'égalité $A_n^p = n\\times A_{n-1}^{p-1}$, puis vérifier cette relation pour $n=6$ et $p=3$.",
+            type: "open",
+            modelAnswer: `**Démonstration générale.** Par définition :
+  $$A_n^p = \\dfrac{n!}{(n-p)!}$$
+
+  D'autre part :
+  $$A_{n-1}^{p-1} = \\dfrac{(n-1)!}{\\big((n-1)-(p-1)\\big)!} = \\dfrac{(n-1)!}{(n-p)!}$$
+
+  En multipliant par $n$ :
+  $$n\\times A_{n-1}^{p-1} = n\\times \\dfrac{(n-1)!}{(n-p)!} = \\dfrac{n\\times(n-1)!}{(n-p)!} = \\dfrac{n!}{(n-p)!}$$
+
+  car $n\\times(n-1)! = n!$ par définition de la factorielle. On retrouve donc exactement $A_n^p$, ce qui prouve l'égalité :
+  $$A_n^p = n\\times A_{n-1}^{p-1}$$
+
+  **Interprétation :** pour former un arrangement de $p$ éléments parmi $n$, on choisit d'abord l'élément en 1ère position ($n$ choix), puis on complète avec un arrangement de $p-1$ éléments parmi les $n-1$ restants.
+
+  **Vérification pour $n=6$, $p=3$ :**
+  $$A_6^3 = 6\\times5\\times4 = 120$$
+  $$6\\times A_5^2 = 6\\times(5\\times4) = 6\\times 20 = 120$$
+
+  Les deux résultats coïncident bien.
+
+  $$\\boxed{A_n^p = n\\times A_{n-1}^{p-1}, \\text{ vérifié numériquement par } A_6^3 = 6\\times A_5^2 = 120}$$`,
+            explanation: "La démonstration repose sur l'écriture des arrangements à l'aide de factorielles et sur la relation $n!=n\\times(n-1)!$. L'interprétation combinatoire (choisir le 1er élément puis arranger le reste) donne du sens au résultat.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "comb1-l3",
+        slug: "combinaisons-et-coefficients-binomiaux",
+        title: "Combinaisons et coefficients binomiaux",
+        content: `## Choisir sans ordonner
+
+  Dans les arrangements, l'**ordre** des éléments choisis avait de l'importance (1er, 2e, 3e...). On s'intéresse maintenant aux situations où seul le **groupe** d'éléments choisis compte, sans tenir compte de l'ordre.
+
+  ### Définition
+
+  Soit $E$ un ensemble à $n$ éléments et $p$ un entier tel que $0\\leqslant p\\leqslant n$. Une **combinaison** de $p$ éléments de $E$ est un sous-ensemble (une partie) de $E$ contenant exactement $p$ éléments, **sans tenir compte de l'ordre**.
+
+  > **Coefficient binomial :** le nombre de combinaisons de $p$ éléments parmi $n$ est noté $\\dbinom{n}{p}$ et vaut :
+  > $$\\dbinom{n}{p} = \\dfrac{n!}{p!\\,(n-p)!}$$
+
+  **Lien avec les arrangements :** un arrangement de $p$ éléments parmi $n$ consiste à choisir $p$ éléments (combinaison) **puis** à les ordonner ($p!$ façons de les ordonner). On a donc :
+  $$A_n^p = \\dbinom{n}{p}\\times p! \\quad\\Longrightarrow\\quad \\dbinom{n}{p} = \\dfrac{A_n^p}{p!} = \\dfrac{n!}{(n-p)!\\,p!}$$
+
+  ### Exemple complet
+
+  **Énoncé :** dans une classe de 25 élèves, on souhaite former un groupe de 4 délégués (sans rôle distinct entre eux : pas de président, juste 4 personnes). Combien de groupes différents sont possibles ?
+
+  **Résolution :** ici l'ordre n'a pas d'importance (un groupe {Alice, Bob, Chloé, David} est le même groupe quel que soit l'ordre dans lequel on les cite). On utilise donc une combinaison avec $n=25$ et $p=4$ :
+  $$\\dbinom{25}{4} = \\dfrac{25!}{4!\\times 21!} = \\dfrac{25\\times24\\times23\\times22}{4\\times3\\times2\\times1} = \\dfrac{303\\,600}{24} = 12\\,650$$
+
+  Il existe donc $12\\,650$ groupes de 4 délégués possibles.
+
+  ### Propriétés des coefficients binomiaux
+
+  > **Propriétés à connaître :**
+  > $$\\dbinom{n}{0} = 1 \\qquad \\dbinom{n}{n} = 1 \\qquad \\dbinom{n}{1} = n$$
+  > $$\\dbinom{n}{p} = \\dbinom{n}{n-p} \\quad \\text{(symétrie)}$$
+  > $$\\dbinom{n}{p} + \\dbinom{n}{p+1} = \\dbinom{n+1}{p+1} \\quad \\text{(formule de Pascal)}$$
+
+  La **formule de Pascal** permet de construire le **triangle de Pascal**, où chaque coefficient binomial s'obtient en additionnant les deux coefficients juste au-dessus de lui :
+
+  | $n\\backslash p$ | 0 | 1 | 2 | 3 | 4 |
+  |---|---|---|---|---|---|
+  | 0 | 1 | | | | |
+  | 1 | 1 | 1 | | | |
+  | 2 | 1 | 2 | 1 | | |
+  | 3 | 1 | 3 | 3 | 1 | |
+  | 4 | 1 | 4 | 6 | 4 | 1 |
+
+  ### Lien avec la loi binomiale
+
+  Vous avez déjà rencontré les coefficients binomiaux dans le calcul des probabilités d'une **loi binomiale** $\\mathcal{B}(n,p)$ : si $X$ suit une loi binomiale de paramètres $n$ et $p$ (probabilité de succès), alors pour tout entier $k$ tel que $0\\leqslant k\\leqslant n$ :
+  $$P(X=k) = \\dbinom{n}{k}\\,p^k\\,(1-p)^{n-k}$$
+
+  Le terme $\\dbinom{n}{k}$ compte exactement le nombre de façons de choisir **lesquels**, parmi les $n$ répétitions de l'épreuve, sont les $k$ succès — sans tenir compte de l'ordre dans lequel ils surviennent. La combinatoire est donc la justification profonde de cette formule.
+
+  ### Méthode
+
+  1. Si l'ordre des éléments choisis **n'a pas d'importance** : c'est une combinaison, on utilise $\\dbinom{n}{p}$.
+  2. Vérifier si l'ordre compte (arrangement, $A_n^p$) ou non (combinaison, $\\dbinom{n}{p}$) avant de se lancer dans le calcul — c'est l'erreur la plus fréquente.
+  3. Utiliser les propriétés (symétrie, Pascal) pour simplifier les calculs ou vérifier un résultat.`,
+        durationMinutes: 24,
+        exercises: [
+          {
+            id: "comb1-l3-e1",
+            question: "Calculer $\\dbinom{6}{2}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$12$" },
+              { id: "B", text: "$15$" },
+              { id: "C", text: "$30$" },
+              { id: "D", text: "$6$" },
+            ],
+            correctId: "B",
+            explanation: "$\\dbinom{6}{2} = \\dfrac{6!}{2!\\times4!} = \\dfrac{6\\times5}{2\\times1} = 15$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l3-e2",
+            question: "Pour choisir un comité de 3 personnes parmi 10, sans rôle distinct entre les membres, on doit utiliser un arrangement $A_{10}^3$ plutôt qu'une combinaison $\\dbinom{10}{3}$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Puisque les membres du comité n'ont pas de rôle distinct, l'ordre n'a pas d'importance : il faut utiliser la combinaison $\\dbinom{10}{3}$, pas l'arrangement.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comb1-l3-e3",
+            question: "Une urne contient 12 boules numérotées de 1 à 12. On tire simultanément 5 boules (tirage simultané, donc sans ordre et sans répétition). Combien de tirages différents sont possibles ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$12^5$" },
+              { id: "B", text: "$A_{12}^5 = 95\\,040$" },
+              { id: "C", text: "$\\dbinom{12}{5} = 792$" },
+              { id: "D", text: "$5! = 120$" },
+            ],
+            correctId: "C",
+            explanation: "Un tirage simultané ne tient pas compte de l'ordre : c'est une combinaison. $\\dbinom{12}{5} = \\dfrac{12!}{5!\\times7!} = 792$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l3-e4",
+            question: "Démontrer la propriété de symétrie $\\dbinom{n}{p} = \\dbinom{n}{n-p}$ à partir de la formule $\\dbinom{n}{p}=\\dfrac{n!}{p!(n-p)!}$, puis l'utiliser pour calculer $\\dbinom{20}{18}$ rapidement.",
+            type: "open",
+            modelAnswer: `**Démonstration.** Par définition, pour $0\\leqslant p\\leqslant n$ :
+  $$\\dbinom{n}{p} = \\dfrac{n!}{p!\\,(n-p)!}$$
+
+  Calculons $\\dbinom{n}{n-p}$ en remplaçant $p$ par $n-p$ dans la formule :
+  $$\\dbinom{n}{n-p} = \\dfrac{n!}{(n-p)!\\,\\big(n-(n-p)\\big)!} = \\dfrac{n!}{(n-p)!\\,p!}$$
+
+  On reconnaît exactement la même expression que $\\dbinom{n}{p}$ (le produit $p!\\,(n-p)!$ au dénominateur ne dépend pas de l'ordre d'écriture des deux facteurs). Donc :
+  $$\\dbinom{n}{p} = \\dbinom{n}{n-p}$$
+
+  **Interprétation :** choisir les $p$ éléments que l'on garde revient à choisir les $n-p$ éléments que l'on écarte : il y a donc autant de façons de faire les deux.
+
+  **Application à $\\dbinom{20}{18}$ :** avec $n=20$ et $p=18$, on a $n-p = 2$, donc :
+  $$\\dbinom{20}{18} = \\dbinom{20}{2} = \\dfrac{20\\times19}{2\\times1} = \\dfrac{380}{2} = 190$$
+
+  $$\\boxed{\\dbinom{n}{p} = \\dbinom{n}{n-p} \\text{ et } \\dbinom{20}{18} = 190}$$`,
+            explanation: "La démonstration algébrique utilise simplement la symétrie de l'expression $p!(n-p)!$ ; l'application numérique évite de calculer $18!$ en se ramenant au calcul plus simple de $\\dbinom{20}{2}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comb1-l3-e5",
+            question: "Une urne contient 5 boules rouges et 7 boules vertes (12 boules au total, toutes discernables). On tire simultanément 4 boules. Calculer le nombre de tirages contenant exactement 2 boules rouges et 2 boules vertes, puis en déduire, en lien avec la loi binomiale, la probabilité d'obtenir exactement 2 boules rouges si l'on effectue plutôt 4 tirages successifs avec remise d'une seule boule (la probabilité de tirer une boule rouge étant alors $\\frac{5}{12}$ à chaque tirage).",
+            type: "open",
+            modelAnswer: `**Partie 1 — Tirage simultané de 4 boules, exactement 2 rouges et 2 vertes.**
+
+  Pour obtenir exactement 2 boules rouges et 2 boules vertes parmi les 4 tirées (tirage simultané, donc sans ordre), on choisit :
+  - les 2 boules rouges parmi les 5 disponibles : $\\dbinom{5}{2}$ façons,
+  - les 2 boules vertes parmi les 7 disponibles : $\\dbinom{7}{2}$ façons.
+
+  Ces deux choix sont indépendants, donc par le principe multiplicatif, le nombre de tirages favorables est :
+  $$\\dbinom{5}{2}\\times\\dbinom{7}{2} = 10\\times 21 = 210$$
+
+  **Partie 2 — Tirages successifs avec remise (loi binomiale).**
+
+  Ici, on répète 4 fois une épreuve de Bernoulli indépendante (tirer une boule, la remettre), avec probabilité de succès (boule rouge) $p=\\dfrac{5}{12}$. Le nombre $X$ de boules rouges obtenues sur les 4 tirages suit la loi binomiale $\\mathcal{B}\\!\\left(4\\,;\\,\\dfrac{5}{12}\\right)$. On veut $P(X=2)$ :
+  $$P(X=2) = \\dbinom{4}{2}\\left(\\dfrac{5}{12}\\right)^2\\left(\\dfrac{7}{12}\\right)^{2}$$
+
+  Calcul de $\\dbinom{4}{2} = 6$. Calcul de $\\left(\\dfrac{5}{12}\\right)^2 = \\dfrac{25}{144}$ et $\\left(\\dfrac{7}{12}\\right)^2 = \\dfrac{49}{144}$.
+
+  $$P(X=2) = 6\\times\\dfrac{25}{144}\\times\\dfrac{49}{144} = 6\\times\\dfrac{1225}{20\\,736} = \\dfrac{7350}{20\\,736} = \\dfrac{1225}{3456}$$
+
+  **Remarque :** le coefficient $\\dbinom{4}{2}$ joue ici le même rôle combinatoire que dans la partie 1 : il compte le nombre de façons de choisir **lesquels**, parmi les 4 tirages (ou les 4 places), correspondent à un succès rouge, indépendamment de l'ordre.
+
+  $$\\boxed{\\dbinom{5}{2}\\times\\dbinom{7}{2} = 210 \\text{ tirages simultanés favorables, et } P(X=2) = \\dfrac{1225}{3456} \\approx 0{,}3545 \\text{ pour le tirage avec remise}}$$`,
+            explanation: "La première partie combine deux combinaisons indépendantes (rouges et vertes) via le principe multiplicatif. La seconde partie réutilise le coefficient binomial dans son rôle naturel au sein de la loi binomiale, ce qui relie explicitement dénombrement et probabilités.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "vde1-id",
+    slug: "vecteurs-droites-plans-espace-terminale",
+    title: "Vecteurs, droites et plans dans l'espace",
+    description: "Découvrir la géométrie dans l'espace à travers les coordonnées de vecteurs, les représentations paramétriques de droites et de plans.",
+    schoolLevel: "terminale",
+    subject: "geometrie",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "📐",
+    lessons: [
+      {
+        id: "vde1-l1",
+        slug: "vecteurs-de-lespace",
+        title: "Vecteurs de l'espace",
+        content: `## Coordonnées d'un vecteur de l'espace
+
+  On munit l'espace d'un repère $(O\\,;\\,\\overrightarrow{i}\\,,\\,\\overrightarrow{j}\\,,\\,\\overrightarrow{k})$. Tout vecteur $\\overrightarrow{u}$ de l'espace se décompose de façon unique :
+  $$\\overrightarrow{u} = x\\,\\overrightarrow{i} + y\\,\\overrightarrow{j} + z\\,\\overrightarrow{k}$$
+
+  On note alors $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\\\ z  \\end{pmatrix}$, où $x$, $y$ et $z$ sont les **coordonnées** de $\\overrightarrow{u}$.
+
+  > **Coordonnées de $\\overrightarrow{AB}$ :** si $A(x_A\\,;\\,y_A\\,;\\,z_A)$ et $B(x_B\\,;\\,y_B\\,;\\,z_B)$, alors :
+  > $$\\overrightarrow{AB}\\begin{pmatrix} x_B - x_A \\\\ y_B - y_A \\\\ z_B - z_A  \\end{pmatrix}$$
+
+  ## Opérations sur les vecteurs
+
+  Soit $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\\\ z  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} x' \\\\ y' \\\\ z'  \\end{pmatrix}$ deux vecteurs et $k \\in \\mathbb{R}$ un réel.
+
+  - **Somme :** $\\overrightarrow{u} + \\overrightarrow{v}\\begin{pmatrix} x+x' \\\\ y+y' \\\\ z+z'  \\end{pmatrix}$
+  - **Produit par un réel :** $k\\,\\overrightarrow{u}\\begin{pmatrix} kx \\\\ ky \\\\ kz  \\end{pmatrix}$
+
+  **Exemple :** si $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ -1 \\\\ 3  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 0 \\\\ 4 \\\\ -2  \\end{pmatrix}$, alors $\\overrightarrow{u} + \\overrightarrow{v}\\begin{pmatrix} 2 \\\\ 3 \\\\ 1  \\end{pmatrix}$ et $3\\overrightarrow{u}\\begin{pmatrix} 6 \\\\ -3 \\\\ 9  \\end{pmatrix}$.
+
+  ## Norme d'un vecteur
+
+  > **Définition :** la **norme** du vecteur $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\\\ z  \\end{pmatrix}$ est le réel positif :
+  > $$\\|\\overrightarrow{u}\\| = \\sqrt{x^2+y^2+z^2}$$
+
+  Elle représente la longueur du vecteur, généralisant le théorème de Pythagore à l'espace.
+
+  **Exemple :** pour $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ -1 \\\\ 3  \\end{pmatrix}$, on a $\\|\\overrightarrow{u}\\| = \\sqrt{4+1+9} = \\sqrt{14}$.
+
+  ## Vecteurs colinéaires
+
+  > **Définition :** deux vecteurs non nuls $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont **colinéaires** s'il existe un réel $k$ tel que $\\overrightarrow{v} = k\\,\\overrightarrow{u}$.
+
+  Cela revient à dire que les coordonnées de $\\overrightarrow{v}$ sont proportionnelles à celles de $\\overrightarrow{u}$. Deux vecteurs colinéaires définissent la même direction dans l'espace.
+
+  **Exemple :** $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 2 \\\\ -1  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} -3 \\\\ -6 \\\\ 3  \\end{pmatrix}$ sont colinéaires car $\\overrightarrow{v} = -3\\,\\overrightarrow{u}$.
+
+  ## Milieu d'un segment
+
+  > **Propriété :** si $I$ est le milieu de $[AB]$, avec $A(x_A\\,;\\,y_A\\,;\\,z_A)$ et $B(x_B\\,;\\,y_B\\,;\\,z_B)$, alors :
+  > $$I\\left(\\dfrac{x_A+x_B}{2}\\,;\\,\\dfrac{y_A+y_B}{2}\\,;\\,\\dfrac{z_A+z_B}{2}\\right)$$
+
+  $$\\boxed{I\\left(\\dfrac{x_A+x_B}{2}\\,;\\,\\dfrac{y_A+y_B}{2}\\,;\\,\\dfrac{z_A+z_B}{2}\\right)}$$`,
+        durationMinutes: 20,
+        exercises: [
+          {
+            id: "vde1-l1-e1",
+            question: "Dans l'espace muni d'un repère, on considère $A(1\\,;\\,2\\,;\\,-3)$ et $B(4\\,;\\,0\\,;\\,1)$. Quelles sont les coordonnées de $\\overrightarrow{AB}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\overrightarrow{AB}\\begin{pmatrix} 3 \\\\ -2 \\\\ 4  \\end{pmatrix}$" },
+              { id: "B", text: "$\\overrightarrow{AB}\\begin{pmatrix} 5 \\\\ 2 \\\\ -2  \\end{pmatrix}$" },
+              { id: "C", text: "$\\overrightarrow{AB}\\begin{pmatrix} -3 \\\\ 2 \\\\ -4  \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "On calcule $\\overrightarrow{AB}\\begin{pmatrix} x_B-x_A \\\\ y_B-y_A \\\\ z_B-z_A  \\end{pmatrix} = \\begin{pmatrix} 4-1 \\\\ 0-2 \\\\ 1-(-3)  \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -2 \\\\ 4  \\end{pmatrix}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l1-e2",
+            question: "Soit $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 0 \\\\ -1  \\end{pmatrix}$. La norme de $\\overrightarrow{u}$ vaut $\\sqrt{2}$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "$\\|\\overrightarrow{u}\\| = \\sqrt{1^2+0^2+(-1)^2} = \\sqrt{1+0+1} = \\sqrt{2}$. L'affirmation est donc vraie.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l1-e3",
+            question: "Les vecteurs $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ -4 \\\\ 6  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} -1 \\\\ 2 \\\\ -3  \\end{pmatrix}$ sont colinéaires.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On remarque que $\\overrightarrow{u} = -2\\,\\overrightarrow{v}$ car $-2\\times(-1)=2$, $-2\\times 2=-4$ et $-2\\times(-3)=6$. Les coordonnées sont bien proportionnelles : les vecteurs sont colinéaires.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l1-e4",
+            question: "Soit $A(0\\,;\\,1\\,;\\,4)$, $B(2\\,;\\,-3\\,;\\,0)$ et $C(1\\,;\\,1\\,;\\,5)$. Calculer les coordonnées du milieu $I$ de $[AB]$, puis déterminer si $\\overrightarrow{IC}$ est colinéaire à $\\overrightarrow{i}\\begin{pmatrix} 1 \\\\ 0 \\\\ 0  \\end{pmatrix}$.",
+            type: "open",
+            explanation: "Il faut d'abord calculer les coordonnées du milieu avec la formule de la moyenne des coordonnées, puis comparer les coordonnées de $\\overrightarrow{IC}$ à celles de $\\overrightarrow{i}$.",
+            modelAnswer: `On calcule les coordonnées du milieu $I$ de $[AB]$ :
+  $$I\\left(\\dfrac{0+2}{2}\\,;\\,\\dfrac{1+(-3)}{2}\\,;\\,\\dfrac{4+0}{2}\\right) = I(1\\,;\\,-1\\,;\\,2)$$
+
+  On calcule ensuite $\\overrightarrow{IC}$ :
+  $$\\overrightarrow{IC}\\begin{pmatrix} 1-1 \\\\ 1-(-1) \\\\ 5-2  \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 2 \\\\ 3  \\end{pmatrix}$$
+
+  Pour que $\\overrightarrow{IC}$ soit colinéaire à $\\overrightarrow{i}\\begin{pmatrix} 1 \\\\ 0 \\\\ 0  \\end{pmatrix}$, il faudrait un réel $k$ tel que $0=k$, $2=0$ et $3=0$, ce qui est impossible.
+
+  $$\\boxed{I(1\\,;\\,-1\\,;\\,2) \\text{ et } \\overrightarrow{IC} \\text{ n'est pas colinéaire à } \\overrightarrow{i}}$$`,
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vde1-l1-e5",
+            question: "Dans un cube $ABCDEFGH$ d'arête $1$, on munit l'espace du repère $(A\\,;\\,\\overrightarrow{AB}\\,,\\,\\overrightarrow{AD}\\,,\\,\\overrightarrow{AE})$. On a alors $C(1\\,;\\,1\\,;\\,0)$ et $G(1\\,;\\,1\\,;\\,1)$. Démontrer que $\\overrightarrow{AG} = \\overrightarrow{AC} + \\overrightarrow{AE}$, puis calculer $\\|\\overrightarrow{AG}\\|$.",
+            type: "open",
+            explanation: "On utilise les coordonnées des points dans le repère donné pour vérifier l'égalité vectorielle, puis on applique la formule de la norme.",
+            modelAnswer: `Dans le repère $(A\\,;\\,\\overrightarrow{AB}\\,,\\,\\overrightarrow{AD}\\,,\\,\\overrightarrow{AE})$, on a $A(0\\,;\\,0\\,;\\,0)$, $E(0\\,;\\,0\\,;\\,1)$, $C(1\\,;\\,1\\,;\\,0)$ et $G(1\\,;\\,1\\,;\\,1)$.
+
+  On calcule les coordonnées de chaque vecteur :
+  $$\\overrightarrow{AG}\\begin{pmatrix} 1 \\\\ 1 \\\\ 1  \\end{pmatrix}, \\quad \\overrightarrow{AC}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0  \\end{pmatrix}, \\quad \\overrightarrow{AE}\\begin{pmatrix} 0 \\\\ 0 \\\\ 1  \\end{pmatrix}$$
+
+  On additionne $\\overrightarrow{AC} + \\overrightarrow{AE}$ :
+  $$\\overrightarrow{AC} + \\overrightarrow{AE}\\begin{pmatrix} 1+0 \\\\ 1+0 \\\\ 0+1  \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1  \\end{pmatrix} = \\overrightarrow{AG}$$
+
+  L'égalité $\\overrightarrow{AG} = \\overrightarrow{AC} + \\overrightarrow{AE}$ est donc vérifiée (c'est la relation de Chasles).
+
+  Enfin, on calcule la norme :
+  $$\\|\\overrightarrow{AG}\\| = \\sqrt{1^2+1^2+1^2} = \\sqrt{3}$$
+
+  $$\\boxed{\\overrightarrow{AG} = \\overrightarrow{AC} + \\overrightarrow{AE} \\text{ et } \\|\\overrightarrow{AG}\\| = \\sqrt{3}}$$`,
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "vde1-l2",
+        slug: "droites-de-lespace",
+        title: "Droites de l'espace",
+        content: `## Vecteur directeur d'une droite
+
+  > **Définition :** un vecteur non nul $\\overrightarrow{u}$ est un **vecteur directeur** de la droite $\\mathcal{D}$ si, pour deux points $M$ et $N$ quelconques de $\\mathcal{D}$, le vecteur $\\overrightarrow{MN}$ est colinéaire à $\\overrightarrow{u}$.
+
+  Une droite est entièrement déterminée par un point $A$ et un vecteur directeur $\\overrightarrow{u}$.
+
+  ## Représentation paramétrique d'une droite
+
+  Soit $A(x_0\\,;\\,y_0\\,;\\,z_0)$ un point et $\\overrightarrow{u}\\begin{pmatrix} a \\\\ b \\\\ c  \\end{pmatrix}$ un vecteur directeur. Un point $M(x\\,;\\,y\\,;\\,z)$ appartient à la droite $\\mathcal{D}$ passant par $A$ et dirigée par $\\overrightarrow{u}$ si et seulement s'il existe $t \\in \\mathbb{R}$ tel que $\\overrightarrow{AM} = t\\,\\overrightarrow{u}$.
+
+  > **Représentation paramétrique :**
+  > $$\\mathcal{D} : \\begin{cases} x = x_0 + at \\\\ y = y_0 + bt \\\\ z = z_0 + ct  \\end{cases} \\quad t \\in \\mathbb{R}$$
+
+  Chaque valeur du paramètre $t$ donne un point précis de la droite.
+
+  **Exemple :** la droite passant par $A(1\\,;\\,2\\,;\\,0)$ et dirigée par $\\overrightarrow{u}\\begin{pmatrix} 3 \\\\ -1 \\\\ 2  \\end{pmatrix}$ a pour représentation paramétrique :
+  $$\\begin{cases} x = 1 + 3t \\\\ y = 2 - t \\\\ z = 2t  \\end{cases} \\quad t \\in \\mathbb{R}$$
+
+  ## Appartenance d'un point à une droite
+
+  Pour savoir si un point $M(x_M\\,;\\,y_M\\,;\\,z_M)$ appartient à $\\mathcal{D}$, on résout le système formé par les trois équations en cherchant une **même** valeur de $t$ vérifiant les trois à la fois. Si on trouve un $t$ commun, $M \\in \\mathcal{D}$ ; sinon $M \\notin \\mathcal{D}$.
+
+  ## Positions relatives de deux droites dans l'espace
+
+  Contrairement au plan, deux droites de l'espace peuvent être :
+
+  - **sécantes** : elles ont un seul point commun (leurs vecteurs directeurs ne sont pas colinéaires, et le système associé a une solution) ;
+  - **strictement parallèles** : leurs vecteurs directeurs sont colinéaires, mais elles n'ont aucun point commun ;
+  - **confondues** : leurs vecteurs directeurs sont colinéaires et elles ont un point commun (donc tous leurs points) ;
+  - **non coplanaires** : leurs vecteurs directeurs ne sont pas colinéaires et elles n'ont aucun point commun — elles ne sont contenues dans aucun plan commun.
+
+  $$\\boxed{\\text{vecteurs colinéaires} \\Rightarrow \\text{droites parallèles (confondues ou strictement parallèles)}}$$`,
+        durationMinutes: 22,
+        exercises: [
+          {
+            id: "vde1-l2-e1",
+            question: "La droite $\\mathcal{D}$ passe par $A(2\\,;\\,-1\\,;\\,3)$ et a pour vecteur directeur $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 0 \\\\ -2  \\end{pmatrix}$. Quelle est sa représentation paramétrique ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\begin{cases} x = 2+t \\\\ y = -1 \\\\ z = 3-2t  \\end{cases}$" },
+              { id: "B", text: "$\\begin{cases} x = t+1 \\\\ y = -t \\\\ z = -2t+3  \\end{cases}$" },
+              { id: "C", text: "$\\begin{cases} x = 2-t \\\\ y = -1 \\\\ z = 3+2t  \\end{cases}$" },
+            ],
+            correctId: "A",
+            explanation: "On utilise $x=x_0+at$, $y=y_0+bt$, $z=z_0+ct$ avec $(x_0,y_0,z_0)=(2,-1,3)$ et $(a,b,c)=(1,0,-2)$, ce qui donne $\\begin{cases} x=2+t \\\\ y=-1 \\\\ z=3-2t  \\end{cases}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l2-e2",
+            question: "Deux droites de l'espace dont les vecteurs directeurs sont colinéaires sont nécessairement confondues.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Si les vecteurs directeurs sont colinéaires, les droites sont parallèles, mais elles peuvent être strictement parallèles (aucun point commun) ou confondues (tous les points communs). Il faut vérifier en plus qu'un point de l'une appartient à l'autre.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l2-e3",
+            question: "On considère la droite $\\mathcal{D} : \\begin{cases} x = 1+2t \\\\ y = -t \\\\ z = 3+t  \\end{cases}$, $t \\in \\mathbb{R}$. Le point $M(5\\,;\\,-2\\,;\\,5)$ appartient à $\\mathcal{D}$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On résout $1+2t=5 \\Rightarrow t=2$ ; on vérifie : $-t=-2$ correspond à $y=-2$ ✓, et $3+t=5$ correspond à $z=5$ ✓. La même valeur $t=2$ convient aux trois équations, donc $M \\in \\mathcal{D}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vde1-l2-e4",
+            question: "Soit $\\mathcal{D}$ la droite de représentation paramétrique $\\begin{cases} x = 2-t \\\\ y = 1+3t \\\\ z = -2+t  \\end{cases}$, $t \\in \\mathbb{R}$. Déterminer si le point $N(4\\,;\\,-5\\,;\\,-4)$ appartient à $\\mathcal{D}$.",
+            type: "open",
+            explanation: "Il faut chercher une valeur de $t$ commune aux trois équations en remplaçant les coordonnées de $N$, puis vérifier la cohérence.",
+            modelAnswer: `On cherche $t$ tel que :
+  $$2-t=4 \\quad\\Rightarrow\\quad t=-2$$
+
+  On vérifie avec la deuxième équation : $1+3t = 1+3\\times(-2) = 1-6 = -5$, ce qui correspond bien à $y=-5$ ✓.
+
+  On vérifie avec la troisième équation : $-2+t = -2+(-2) = -4$, ce qui correspond bien à $z=-4$ ✓.
+
+  La valeur $t=-2$ vérifie simultanément les trois équations, donc $N$ appartient à la droite $\\mathcal{D}$.
+
+  $$\\boxed{N \\in \\mathcal{D}}$$`,
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vde1-l2-e5",
+            question: "On donne deux droites : $\\mathcal{D}_1 : \\begin{cases} x = 1+t \\\\ y = 2-t \\\\ z = t  \\end{cases}$ et $\\mathcal{D}_2 : \\begin{cases} x = 2-s \\\\ y = 1+s \\\\ z = 3+2s  \\end{cases}$, avec $t,s \\in \\mathbb{R}$. Étudier la position relative de $\\mathcal{D}_1$ et $\\mathcal{D}_2$.",
+            type: "open",
+            explanation: "On compare d'abord les vecteurs directeurs pour voir s'ils sont colinéaires, puis on résout le système pour chercher un point d'intersection éventuel.",
+            modelAnswer: `Les vecteurs directeurs sont $\\overrightarrow{u_1}\\begin{pmatrix} 1 \\\\ -1 \\\\ 1  \\end{pmatrix}$ pour $\\mathcal{D}_1$ et $\\overrightarrow{u_2}\\begin{pmatrix} -1 \\\\ 1 \\\\ 2  \\end{pmatrix}$ pour $\\mathcal{D}_2$.
+
+  S'ils étaient colinéaires, on aurait $-1 = k\\times 1$ et $1=k\\times(-1)$, donc $k=-1$, mais alors la troisième coordonnée donnerait $2=k\\times 1=-1$, ce qui est faux. Les vecteurs directeurs ne sont donc pas colinéaires : les droites ne sont pas parallèles.
+
+  On cherche une éventuelle intersection en résolvant le système :
+  $$1+t = 2-s \\quad (1)$$
+  $$2-t = 1+s \\quad (2)$$
+  $$t = 3+2s \\quad (3)$$
+
+  Des équations $(1)$ et $(2)$, on tire $t+s=1$ dans les deux cas (cohérent). En substituant $t=1-s$ dans $(3)$ :
+  $$1-s = 3+2s \\quad\\Rightarrow\\quad -3s = 2 \\quad\\Rightarrow\\quad s = -\\dfrac{2}{3}$$
+
+  On obtient alors $t = 1-\\left(-\\dfrac{2}{3}\\right) = \\dfrac{5}{3}$.
+
+  On vérifie dans $(3)$ : $t = 3+2s = 3+2\\times\\left(-\\dfrac{2}{3}\\right) = 3-\\dfrac{4}{3} = \\dfrac{5}{3}$ ✓.
+
+  Les deux équations $(1)$, $(2)$, $(3)$ sont compatibles avec $t=\\dfrac{5}{3}$ et $s=-\\dfrac{2}{3}$ : il existe donc un point d'intersection. Les droites ne sont ni parallèles ni non coplanaires.
+
+  $$\\boxed{\\mathcal{D}_1 \\text{ et } \\mathcal{D}_2 \\text{ sont sécantes}}$$`,
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "vde1-l3",
+        slug: "plans-de-lespace",
+        title: "Plans de l'espace",
+        content: `## Vecteurs coplanaires
+
+  > **Définition :** trois vecteurs $\\overrightarrow{u}$, $\\overrightarrow{v}$ et $\\overrightarrow{w}$ sont **coplanaires** s'il existe des réels $a'$ et $b'$ tels que $\\overrightarrow{w} = a'\\,\\overrightarrow{u} + b'\\,\\overrightarrow{v}$, lorsque $\\overrightarrow{u}$ et $\\overrightarrow{v}$ ne sont pas colinéaires.
+
+  Autrement dit, $\\overrightarrow{w}$ est **combinaison linéaire** de $\\overrightarrow{u}$ et $\\overrightarrow{v}$ : les trois vecteurs, ramenés à une même origine, restent dans un même plan.
+
+  **Exemple :** $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 0 \\\\ 1  \\end{pmatrix}$, $\\overrightarrow{v}\\begin{pmatrix} 0 \\\\ 1 \\\\ 1  \\end{pmatrix}$ et $\\overrightarrow{w}\\begin{pmatrix} 2 \\\\ 3 \\\\ 5  \\end{pmatrix}$ sont coplanaires car $\\overrightarrow{w} = 2\\,\\overrightarrow{u} + 3\\,\\overrightarrow{v}$.
+
+  ## Représentation paramétrique d'un plan
+
+  Soit $A(x_A\\,;\\,y_A\\,;\\,z_A)$ un point et $\\overrightarrow{u}\\begin{pmatrix} a \\\\ b \\\\ c  \\end{pmatrix}$, $\\overrightarrow{v}\\begin{pmatrix} a' \\\\ b' \\\\ c'  \\end{pmatrix}$ deux vecteurs **non colinéaires**. Un point $M(x\\,;\\,y\\,;\\,z)$ appartient au plan $\\mathcal{P}$ passant par $A$ et dirigé par $\\overrightarrow{u}$ et $\\overrightarrow{v}$ si et seulement s'il existe deux réels $t$ et $s$ tels que $\\overrightarrow{AM} = t\\,\\overrightarrow{u} + s\\,\\overrightarrow{v}$.
+
+  > **Représentation paramétrique :**
+  > $$\\mathcal{P} : \\begin{cases} x = x_A + at + a's \\\\ y = y_A + bt + b's \\\\ z = z_A + ct + c's  \\end{cases} \\quad t,s \\in \\mathbb{R}$$
+
+  **Exemple :** le plan passant par $A(1\\,;\\,0\\,;\\,2)$ dirigé par $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 0 \\\\ 1 \\\\ -1  \\end{pmatrix}$ a pour représentation paramétrique :
+  $$\\begin{cases} x = 1+t \\\\ y = t+s \\\\ z = 2-s  \\end{cases} \\quad t,s \\in \\mathbb{R}$$
+
+  ## Appartenance d'un point à un plan
+
+  Pour savoir si $M(x_M\\,;\\,y_M\\,;\\,z_M)$ appartient à $\\mathcal{P}$, on résout le système des trois équations en cherchant **un même couple** $(t\\,;\\,s)$ vérifiant les trois équations simultanément.
+
+  $$\\boxed{M \\in \\mathcal{P} \\iff \\exists\\,(t\\,;\\,s) \\in \\mathbb{R}^2,\\ \\overrightarrow{AM} = t\\,\\overrightarrow{u} + s\\,\\overrightarrow{v}}$$`,
+        durationMinutes: 22,
+        exercises: [
+          {
+            id: "vde1-l3-e1",
+            question: "Le plan $\\mathcal{P}$ passe par $A(0\\,;\\,1\\,;\\,2)$ et est dirigé par $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 0 \\\\ 1  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 2 \\\\ 1 \\\\ 0  \\end{pmatrix}$. Quelle est sa représentation paramétrique ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\begin{cases} x = t+2s \\\\ y = 1+s \\\\ z = 2+t  \\end{cases}$" },
+              { id: "B", text: "$\\begin{cases} x = 1+t \\\\ y = s \\\\ z = 2+2t  \\end{cases}$" },
+              { id: "C", text: "$\\begin{cases} x = 2t+s \\\\ y = 1+t \\\\ z = 2+s  \\end{cases}$" },
+            ],
+            correctId: "A",
+            explanation: "On applique $x=x_A+at+a's$, $y=y_A+bt+b's$, $z=z_A+ct+c's$ avec $A(0,1,2)$, $\\overrightarrow{u}(1,0,1)$ et $\\overrightarrow{v}(2,1,0)$, ce qui donne $\\begin{cases} x=t+2s \\\\ y=1+s \\\\ z=2+t  \\end{cases}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l3-e2",
+            question: "Pour définir la représentation paramétrique d'un plan, les deux vecteurs directeurs utilisés doivent être colinéaires.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est l'inverse : les deux vecteurs directeurs d'un plan doivent être non colinéaires pour engendrer effectivement un plan (et non une simple droite).",
+            difficulty: "debutant",
+          },
+          {
+            id: "vde1-l3-e3",
+            question: "On considère le plan $\\mathcal{P} : \\begin{cases} x = 1+t-s \\\\ y = 2t \\\\ z = 3+s  \\end{cases}$, $t,s \\in \\mathbb{R}$. Le point $M(2\\,;\\,2\\,;\\,4)$ appartient à $\\mathcal{P}$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "De $y=2t=2$, on tire $t=1$. De $z=3+s=4$, on tire $s=1$. On vérifie avec la première équation : $1+t-s = 1+1-1 = 1$, ce qui ne correspond pas à $x=2$. Le couple $(t,s)=(1\\,;\\,1)$ ne vérifie pas simultanément les trois équations, donc $M \\notin \\mathcal{P}$ : l'affirmation est fausse.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vde1-l3-e4",
+            question: "Soit $\\mathcal{P}$ le plan passant par $A(1\\,;\\,1\\,;\\,0)$ dirigé par $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ -1 \\\\ 2  \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 0 \\\\ 2 \\\\ 1  \\end{pmatrix}$. Déterminer si le point $N(2\\,;\\,1\\,;\\,3)$ appartient à $\\mathcal{P}$.",
+            type: "open",
+            explanation: "On écrit la représentation paramétrique du plan, puis on cherche un couple $(t,s)$ commun aux trois équations en utilisant les coordonnées de $N$.",
+            modelAnswer: `La représentation paramétrique de $\\mathcal{P}$ est :
+  $$\\begin{cases} x = 1+t \\\\ y = 1-t+2s \\\\ z = 2t+s  \\end{cases} \\quad t,s \\in \\mathbb{R}$$
+
+  On remplace par les coordonnées de $N(2\\,;\\,1\\,;\\,3)$ :
+  $$1+t=2 \\quad\\Rightarrow\\quad t=1$$
+
+  On reporte dans la deuxième équation :
+  $$1-1+2s = 1 \\quad\\Rightarrow\\quad 2s=1 \\quad\\Rightarrow\\quad s=\\dfrac{1}{2}$$
+
+  On vérifie avec la troisième équation :
+  $$2t+s = 2\\times 1 + \\dfrac{1}{2} = 2{,}5 \\neq 3$$
+
+  Le couple $(t,s) = \\left(1\\,;\\,\\dfrac{1}{2}\\right)$ ne vérifie pas la troisième équation : il n'existe donc pas de couple $(t,s)$ vérifiant simultanément les trois équations.
+
+  $$\\boxed{N \\notin \\mathcal{P}}$$`,
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vde1-l3-e5",
+            question: "On donne $A(1\\,;\\,0\\,;\\,0)$, $B(0\\,;\\,1\\,;\\,0)$ et $C(0\\,;\\,0\\,;\\,1)$. Démontrer que les vecteurs $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ ne sont pas colinéaires, écrire une représentation paramétrique du plan $(ABC)$, puis déterminer si $D(2\\,;\\,-1\\,;\\,0)$ appartient à ce plan.",
+            type: "open",
+            explanation: "On calcule d'abord les vecteurs $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$, on vérifie qu'ils ne sont pas colinéaires, on en déduit la représentation paramétrique, puis on teste les coordonnées de $D$.",
+            modelAnswer: `On calcule les vecteurs directeurs :
+  $$\\overrightarrow{AB}\\begin{pmatrix} 0-1 \\\\ 1-0 \\\\ 0-0  \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 1 \\\\ 0  \\end{pmatrix}, \\qquad \\overrightarrow{AC}\\begin{pmatrix} 0-1 \\\\ 0-0 \\\\ 1-0  \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 0 \\\\ 1  \\end{pmatrix}$$
+
+  S'ils étaient colinéaires, il existerait $k$ tel que $-1=k\\times(-1)$, donc $k=1$, mais alors la deuxième coordonnée donnerait $1 = k\\times 0 = 0$, ce qui est faux. Les vecteurs $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ ne sont donc pas colinéaires : ils définissent bien un plan.
+
+  La représentation paramétrique du plan $(ABC)$ est :
+  $$\\begin{cases} x = 1-t-s \\\\ y = t \\\\ z = s  \\end{cases} \\quad t,s \\in \\mathbb{R}$$
+
+  On teste $D(2\\,;\\,-1\\,;\\,0)$ : de $y=t=-1$ et $z=s=0$, on reporte dans la première équation :
+  $$1-t-s = 1-(-1)-0 = 2$$
+
+  Cela correspond bien à $x=2$. Le couple $(t,s)=(-1\\,;\\,0)$ vérifie simultanément les trois équations.
+
+  $$\\boxed{D \\in (ABC)}$$`,
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "ode1-id",
+    slug: "orthogonalite-distances-espace-terminale",
+    title: "Orthogonalité et distances dans l'espace",
+    description: "Étudier le produit scalaire dans l'espace, caractériser l'orthogonalité à l'aide d'un vecteur normal et calculer la distance d'un point à un plan.",
+    schoolLevel: "terminale",
+    subject: "geometrie",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "📐",
+    lessons: [
+      {
+        id: "ode1-l1",
+        slug: "produit-scalaire-dans-lespace",
+        title: "Produit scalaire dans l'espace",
+        durationMinutes: 20,
+        content: `## Produit scalaire de deux vecteurs de l'espace
+
+  Le produit scalaire, déjà connu dans le plan, se prolonge naturellement à l'espace. C'est l'outil central pour étudier l'orthogonalité en 3D.
+
+  ### Définition avec les coordonnées
+
+  Soit $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} x' \\\\ y' \\\\ z' \\end{pmatrix}$ deux vecteurs de l'espace. Le **produit scalaire** de $\\overrightarrow{u}$ et $\\overrightarrow{v}$ est le nombre réel :
+  $$\\overrightarrow{u}\\cdot\\overrightarrow{v} = xx' + yy' + zz'$$
+
+  **Exemple :** avec $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$ :
+  $$\\overrightarrow{u}\\cdot\\overrightarrow{v} = 2\\times 1 + (-1)\\times 4 + 3\\times(-2) = 2 - 4 - 6 = -8$$
+
+  ### Définition géométrique
+
+  On peut aussi exprimer le produit scalaire à l'aide des normes et de l'angle géométrique formé par les deux vecteurs :
+  $$\\overrightarrow{u}\\cdot\\overrightarrow{v} = \\|\\overrightarrow{u}\\|\\times\\|\\overrightarrow{v}\\|\\times\\cos(\\overrightarrow{u},\\overrightarrow{v})$$
+
+  Cette formule reste valable dans l'espace, car deux vecteurs non nuls définissent toujours un plan dans lequel on peut mesurer leur angle.
+
+  > **Théorème (caractérisation de l'orthogonalité) :**
+  > Deux vecteurs $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont orthogonaux si et seulement si :
+  > $$\\overrightarrow{u}\\cdot\\overrightarrow{v} = 0$$
+
+  En effet, si $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont non nuls et orthogonaux, alors $(\\overrightarrow{u},\\overrightarrow{v}) = 90°$ donc $\\cos(\\overrightarrow{u},\\overrightarrow{v}) = 0$, d'où $\\overrightarrow{u}\\cdot\\overrightarrow{v}=0$. La réciproque se démontre de la même façon.
+
+  **Exemple :** $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 2 \\\\ -3 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 4 \\\\ 1 \\\\ 2 \\end{pmatrix}$ : on calcule $\\overrightarrow{u}\\cdot\\overrightarrow{v} = 1\\times4 + 2\\times1 - 3\\times2 = 4+2-6 = 0$. Les vecteurs $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont donc orthogonaux.
+
+  ### Propriétés algébriques
+
+  Pour tous vecteurs $\\overrightarrow{u}$, $\\overrightarrow{v}$, $\\overrightarrow{w}$ de l'espace et tout réel $k$ :
+
+  > - **Symétrie :** $\\overrightarrow{u}\\cdot\\overrightarrow{v} = \\overrightarrow{v}\\cdot\\overrightarrow{u}$
+  > - **Bilinéarité :** $\\overrightarrow{u}\\cdot(\\overrightarrow{v}+\\overrightarrow{w}) = \\overrightarrow{u}\\cdot\\overrightarrow{v} + \\overrightarrow{u}\\cdot\\overrightarrow{w}$ et $\\overrightarrow{u}\\cdot(k\\overrightarrow{v}) = k(\\overrightarrow{u}\\cdot\\overrightarrow{v})$
+  > - $\\overrightarrow{u}\\cdot\\overrightarrow{u} = \\|\\overrightarrow{u}\\|^2$
+
+  Ces propriétés, identiques à celles vues dans le plan, permettent de développer des expressions comme $(\\overrightarrow{u}+\\overrightarrow{v})\\cdot(\\overrightarrow{u}-\\overrightarrow{v}) = \\|\\overrightarrow{u}\\|^2 - \\|\\overrightarrow{v}\\|^2$.`,
+        exercises: [
+          {
+            id: "ode1-l1-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "On donne $\\overrightarrow{u}\\begin{pmatrix} 3 \\\\ -2 \\\\ 1 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} -1 \\\\ 4 \\\\ 2 \\end{pmatrix}$. Que vaut $\\overrightarrow{u}\\cdot\\overrightarrow{v}$ ?",
+            options: [
+              { id: "A", text: "$-9$" },
+              { id: "B", text: "$3$" },
+              { id: "C", text: "$13$" },
+              { id: "D", text: "$-3$" },
+            ],
+            correctId: "A",
+            explanation: "On calcule $\\overrightarrow{u}\\cdot\\overrightarrow{v} = 3\\times(-1) + (-2)\\times4 + 1\\times2 = -3 -8 + 2 = -9$.",
+          },
+          {
+            id: "ode1-l1-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "Les vecteurs $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 1 \\\\ -3 \\\\ -1 \\end{pmatrix}$ sont orthogonaux.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On calcule $\\overrightarrow{u}\\cdot\\overrightarrow{v} = 2\\times1 + 1\\times(-3) + (-1)\\times(-1) = 2 - 3 + 1 = 0$. Le produit scalaire est nul donc les vecteurs sont bien orthogonaux.",
+          },
+          {
+            id: "ode1-l1-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "Pour quelle valeur de $m$ les vecteurs $\\overrightarrow{u}\\begin{pmatrix} m \\\\ 2 \\\\ -1 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 3 \\\\ -1 \\\\ 4 \\end{pmatrix}$ sont-ils orthogonaux ?",
+            options: [
+              { id: "A", text: "$m=2$" },
+              { id: "B", text: "$m=-2$" },
+              { id: "C", text: "$m=6$" },
+              { id: "D", text: "$m=0$" },
+            ],
+            correctId: "A",
+            explanation: "On veut $\\overrightarrow{u}\\cdot\\overrightarrow{v}=0$, soit $3m - 2 - 4 = 0$, donc $3m = 6$, soit $m=2$.",
+          },
+          {
+            id: "ode1-l1-e4",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "Dans un repère orthonormé, on donne les points $A(1\\,;\\,0\\,;\\,2)$, $B(3\\,;\\,1\\,;\\,1)$ et $C(2\\,;\\,0\\,;\\,4)$. Montrer que le triangle $ABC$ est rectangle en $A$.",
+            explanation: "Il faut calculer les coordonnées de $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$, puis montrer que leur produit scalaire est nul.",
+            modelAnswer: `On calcule les coordonnées des deux vecteurs issus de $A$ :
+  $$\\overrightarrow{AB}\\begin{pmatrix} 3-1 \\\\ 1-0 \\\\ 1-2 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\\\ -1 \\end{pmatrix} \\quad\\text{et}\\quad \\overrightarrow{AC}\\begin{pmatrix} 2-1 \\\\ 0-0 \\\\ 4-2 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 2 \\end{pmatrix}$$
+
+  On calcule leur produit scalaire :
+  $$\\overrightarrow{AB}\\cdot\\overrightarrow{AC} = 2\\times1 + 1\\times0 + (-1)\\times2 = 2 + 0 - 2 = 0$$
+
+  Le produit scalaire $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ est nul, donc les vecteurs $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont orthogonaux : le triangle $ABC$ est bien rectangle en $A$.
+
+  $$\\boxed{\\overrightarrow{AB}\\cdot\\overrightarrow{AC} = 0 \\text{ donc } ABC \\text{ est rectangle en } A}$$`,
+          },
+          {
+            id: "ode1-l1-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Soit $\\overrightarrow{u}$ et $\\overrightarrow{v}$ deux vecteurs de l'espace tels que $\\|\\overrightarrow{u}\\|=3$, $\\|\\overrightarrow{v}\\|=5$ et $(\\overrightarrow{u},\\overrightarrow{v})=120°$. Calculer $\\overrightarrow{u}\\cdot\\overrightarrow{v}$, puis $\\|\\overrightarrow{u}+\\overrightarrow{v}\\|$.",
+            explanation: "On utilise la formule géométrique du produit scalaire, puis on développe $\\|\\overrightarrow{u}+\\overrightarrow{v}\\|^2 = (\\overrightarrow{u}+\\overrightarrow{v})\\cdot(\\overrightarrow{u}+\\overrightarrow{v})$ à l'aide de la bilinéarité.",
+            modelAnswer: `On calcule d'abord le produit scalaire à l'aide de la formule géométrique :
+  $$\\overrightarrow{u}\\cdot\\overrightarrow{v} = \\|\\overrightarrow{u}\\|\\times\\|\\overrightarrow{v}\\|\\times\\cos(\\overrightarrow{u},\\overrightarrow{v}) = 3\\times5\\times\\cos(120°) = 15\\times\\left(-\\dfrac{1}{2}\\right) = -7{,}5$$
+
+  On développe ensuite $\\|\\overrightarrow{u}+\\overrightarrow{v}\\|^2$ grâce à la bilinéarité du produit scalaire :
+  $$\\|\\overrightarrow{u}+\\overrightarrow{v}\\|^2 = (\\overrightarrow{u}+\\overrightarrow{v})\\cdot(\\overrightarrow{u}+\\overrightarrow{v}) = \\overrightarrow{u}\\cdot\\overrightarrow{u} + 2\\,\\overrightarrow{u}\\cdot\\overrightarrow{v} + \\overrightarrow{v}\\cdot\\overrightarrow{v} = \\|\\overrightarrow{u}\\|^2 + 2\\,\\overrightarrow{u}\\cdot\\overrightarrow{v} + \\|\\overrightarrow{v}\\|^2$$
+
+  On remplace par les valeurs connues :
+  $$\\|\\overrightarrow{u}+\\overrightarrow{v}\\|^2 = 9 + 2\\times(-7{,}5) + 25 = 9 - 15 + 25 = 19$$
+
+  D'où :
+  $$\\boxed{\\overrightarrow{u}\\cdot\\overrightarrow{v} = -7{,}5 \\quad\\text{et}\\quad \\|\\overrightarrow{u}+\\overrightarrow{v}\\| = \\sqrt{19}}$$`,
+          },
+        ],
+      },
+      {
+        id: "ode1-l2",
+        slug: "vecteur-normal-et-equation-de-plan",
+        title: "Vecteur normal et équation de plan",
+        durationMinutes: 22,
+        content: `## Vecteur normal à un plan
+
+  ### Définition
+
+  Un vecteur $\\vec{n}$ non nul est **normal** à un plan $\\mathcal{P}$ s'il est orthogonal à deux vecteurs directeurs non colinéaires de $\\mathcal{P}$.
+
+  On peut montrer que, dans ce cas, $\\vec{n}$ est en fait orthogonal à **tous** les vecteurs directeurs de $\\mathcal{P}$, donc à toute droite incluse dans $\\mathcal{P}$.
+
+  ### Lien avec l'équation cartésienne d'un plan
+
+  > **Théorème :**
+  > Le plan $\\mathcal{P}$ passant par un point $A(x_A\\,;\\,y_A\\,;\\,z_A)$ et de vecteur normal $\\vec{n}\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}$ (avec $(a\\,;\\,b\\,;\\,c)\\neq(0\\,;\\,0\\,;\\,0)$) est l'ensemble des points $M(x\\,;\\,y\\,;\\,z)$ tels que $\\overrightarrow{AM}\\cdot\\vec{n}=0$, ce qui équivaut à une équation de la forme :
+  > $$ax+by+cz+d=0$$
+  > où $d=-(ax_A+by_A+cz_A)$.
+
+  Réciproquement, tout plan d'équation $ax+by+cz+d=0$ admet le vecteur $\\vec{n}\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}$ comme vecteur normal.
+
+  **Exemple :** déterminons l'équation cartésienne du plan $\\mathcal{P}$ passant par $A(1\\,;\\,2\\,;\\,-1)$ et de vecteur normal $\\vec{n}\\begin{pmatrix} 3 \\\\ -1 \\\\ 2 \\end{pmatrix}$.
+
+  Pour $M(x\\,;\\,y\\,;\\,z)\\in\\mathcal{P}$, on a $\\overrightarrow{AM}\\cdot\\vec{n}=0$ :
+  $$3(x-1) - 1(y-2) + 2(z+1) = 0$$
+  $$3x - 3 - y + 2 + 2z + 2 = 0$$
+  $$3x - y + 2z + 1 = 0$$
+
+  Le plan $\\mathcal{P}$ a donc pour équation cartésienne $3x-y+2z+1=0$.
+
+  ### Orthogonalité d'une droite et d'un plan
+
+  > **Théorème :**
+  > Une droite $\\mathcal{D}$ de vecteur directeur $\\overrightarrow{u}$ est **orthogonale** à un plan $\\mathcal{P}$ de vecteur normal $\\vec{n}$ si et seulement si $\\overrightarrow{u}$ et $\\vec{n}$ sont colinéaires.
+
+  **Exemple :** la droite $\\mathcal{D}$ de vecteur directeur $\\overrightarrow{u}\\begin{pmatrix} 6 \\\\ -2 \\\\ 4 \\end{pmatrix}$ est-elle orthogonale au plan $\\mathcal{P}: 3x-y+2z+1=0$ ?
+
+  Le vecteur normal de $\\mathcal{P}$ est $\\vec{n}\\begin{pmatrix} 3 \\\\ -1 \\\\ 2 \\end{pmatrix}$. On remarque que $\\overrightarrow{u} = 2\\vec{n}$, donc $\\overrightarrow{u}$ et $\\vec{n}$ sont colinéaires : la droite $\\mathcal{D}$ est orthogonale au plan $\\mathcal{P}$.`,
+        exercises: [
+          {
+            id: "ode1-l2-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Le plan d'équation $2x+5y-3z+4=0$ admet comme vecteur normal :",
+            options: [
+              { id: "A", text: "$\\vec{n}\\begin{pmatrix} 2 \\\\ 5 \\\\ -3 \\end{pmatrix}$" },
+              { id: "B", text: "$\\vec{n}\\begin{pmatrix} 2 \\\\ 5 \\\\ 4 \\end{pmatrix}$" },
+              { id: "C", text: "$\\vec{n}\\begin{pmatrix} -3 \\\\ 5 \\\\ 2 \\end{pmatrix}$" },
+              { id: "D", text: "$\\vec{n}\\begin{pmatrix} 4 \\\\ 5 \\\\ -3 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "Dans une équation $ax+by+cz+d=0$, le vecteur $\\vec{n}\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}$ formé des coefficients de $x$, $y$, $z$ est normal au plan. Ici $a=2$, $b=5$, $c=-3$.",
+          },
+          {
+            id: "ode1-l2-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "La droite de vecteur directeur $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 2 \\\\ -1 \\end{pmatrix}$ est orthogonale au plan d'équation $x+2y-z+5=0$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Le vecteur normal du plan est $\\vec{n}\\begin{pmatrix} 1 \\\\ 2 \\\\ -1 \\end{pmatrix}$, qui est exactement égal à $\\overrightarrow{u}$ : les deux vecteurs sont colinéaires, donc la droite est orthogonale au plan.",
+          },
+          {
+            id: "ode1-l2-e3",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "Déterminer une équation cartésienne du plan $\\mathcal{P}$ passant par $A(2\\,;\\,-1\\,;\\,3)$ et de vecteur normal $\\vec{n}\\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$.",
+            explanation: "On utilise la condition $\\overrightarrow{AM}\\cdot\\vec{n}=0$ pour un point $M(x\\,;\\,y\\,;\\,z)$ quelconque du plan.",
+            modelAnswer: `Pour $M(x\\,;\\,y\\,;\\,z)\\in\\mathcal{P}$, le vecteur $\\overrightarrow{AM}\\begin{pmatrix} x-2 \\\\ y+1 \\\\ z-3 \\end{pmatrix}$ doit vérifier $\\overrightarrow{AM}\\cdot\\vec{n}=0$ :
+  $$1(x-2) + 4(y+1) - 2(z-3) = 0$$
+  $$x - 2 + 4y + 4 - 2z + 6 = 0$$
+  $$x + 4y - 2z + 8 = 0$$
+
+  $$\\boxed{x+4y-2z+8=0}$$`,
+          },
+          {
+            id: "ode1-l2-e4",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "On considère le plan $\\mathcal{P}$ défini par le point $A(0\\,;\\,1\\,;\\,2)$ et les vecteurs directeurs $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$. Lequel des vecteurs suivants est normal à $\\mathcal{P}$ ?",
+            options: [
+              { id: "A", text: "$\\vec{n}\\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}$" },
+              { id: "B", text: "$\\vec{n}\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$" },
+              { id: "C", text: "$\\vec{n}\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$" },
+              { id: "D", text: "$\\vec{n}\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "Il faut vérifier que $\\vec{n}\\cdot\\overrightarrow{u}=0$ et $\\vec{n}\\cdot\\overrightarrow{v}=0$. Pour $\\vec{n}\\begin{pmatrix}1\\\\-1\\\\1\\end{pmatrix}$ : $\\vec{n}\\cdot\\overrightarrow{u}=1-1+0=0$ et $\\vec{n}\\cdot\\overrightarrow{v}=0-1+1=0$. Les deux produits scalaires sont nuls, donc $\\vec{n}$ est normal à $\\mathcal{P}$.",
+          },
+          {
+            id: "ode1-l2-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Soit $\\mathcal{P}$ le plan défini par le point $A(1\\,;\\,0\\,;\\,1)$ et les vecteurs directeurs $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$. Déterminer un vecteur normal à $\\mathcal{P}$, puis une équation cartésienne de $\\mathcal{P}$.",
+            explanation: "On cherche $\\vec{n}\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}$ vérifiant $\\vec{n}\\cdot\\overrightarrow{u}=0$ et $\\vec{n}\\cdot\\overrightarrow{v}=0$, en résolvant un système à une inconnue libre, puis on utilise $\\overrightarrow{AM}\\cdot\\vec{n}=0$.",
+            modelAnswer: `On cherche $\\vec{n}\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}$ orthogonal à $\\overrightarrow{u}$ et $\\overrightarrow{v}$ :
+  $$\\begin{cases} \\vec{n}\\cdot\\overrightarrow{u}=0 \\\\ \\vec{n}\\cdot\\overrightarrow{v}=0 \\end{cases} \\iff \\begin{cases} 2a+b=0 \\\\ a-c=0 \\end{cases}$$
+
+  De la seconde équation, $c=a$. De la première, $b=-2a$. En choisissant $a=1$, on obtient $b=-2$ et $c=1$, donc :
+  $$\\vec{n}\\begin{pmatrix} 1 \\\\ -2 \\\\ 1 \\end{pmatrix}$$
+
+  On vérifie : $\\vec{n}\\cdot\\overrightarrow{u} = 2-2+0=0$ ✓ et $\\vec{n}\\cdot\\overrightarrow{v}=1+0-1=0$ ✓.
+
+  On utilise ensuite $A(1\\,;\\,0\\,;\\,1)$ pour écrire l'équation : pour $M(x\\,;\\,y\\,;\\,z)\\in\\mathcal{P}$,
+  $$\\overrightarrow{AM}\\cdot\\vec{n}=0 \\iff 1(x-1) - 2(y-0) + 1(z-1) = 0$$
+  $$x - 1 - 2y + z - 1 = 0 \\iff x - 2y + z - 2 = 0$$
+
+  $$\\boxed{\\vec{n}\\begin{pmatrix} 1 \\\\ -2 \\\\ 1 \\end{pmatrix} \\text{ et } \\mathcal{P}: x-2y+z-2=0}$$`,
+          },
+        ],
+      },
+      {
+        id: "ode1-l3",
+        slug: "distance-dun-point-a-un-plan",
+        title: "Distance d'un point à un plan",
+        durationMinutes: 22,
+        content: `## Distance d'un point à un plan
+
+  ### Formule de la distance
+
+  > **Théorème :**
+  > Soit $\\mathcal{P}$ un plan d'équation cartésienne $ax+by+cz+d=0$ et $M_0(x_0\\,;\\,y_0\\,;\\,z_0)$ un point de l'espace. La **distance** du point $M_0$ au plan $\\mathcal{P}$ est :
+  > $$d(M_0,\\mathcal{P}) = \\dfrac{|ax_0+by_0+cz_0+d|}{\\sqrt{a^2+b^2+c^2}}$$
+
+  Cette distance correspond à la plus courte distance entre $M_0$ et un point quelconque du plan $\\mathcal{P}$.
+
+  **Exemple :** calculons la distance du point $M_0(1\\,;\\,2\\,;\\,-3)$ au plan $\\mathcal{P}: 2x-y+2z+5=0$.
+
+  On a $a=2$, $b=-1$, $c=2$, $d=5$ et $(x_0\\,;\\,y_0\\,;\\,z_0)=(1\\,;\\,2\\,;\\,-3)$ :
+  $$d(M_0,\\mathcal{P}) = \\dfrac{|2\\times1 - 1\\times2 + 2\\times(-3) + 5|}{\\sqrt{2^2+(-1)^2+2^2}} = \\dfrac{|2-2-6+5|}{\\sqrt{4+1+4}} = \\dfrac{|-1|}{\\sqrt{9}} = \\dfrac{1}{3}$$
+
+  ### Projeté orthogonal d'un point sur un plan
+
+  Le **projeté orthogonal** $H$ d'un point $M_0$ sur un plan $\\mathcal{P}$ est le point de $\\mathcal{P}$ le plus proche de $M_0$ : c'est l'unique point de $\\mathcal{P}$ tel que $\\overrightarrow{M_0H}$ soit orthogonal à $\\mathcal{P}$ (donc colinéaire à un vecteur normal $\\vec{n}$ de $\\mathcal{P}$), et on a alors $d(M_0,\\mathcal{P}) = M_0H$.
+
+  > **Méthode pour déterminer $H$, projeté orthogonal de $M_0$ sur $\\mathcal{P}$ :**
+  > 1. Écrire une représentation paramétrique de la droite $\\mathcal{D}$ passant par $M_0$ et de vecteur directeur $\\vec{n}$ (le vecteur normal de $\\mathcal{P}$) ;
+  > 2. $H$ est le point d'intersection de $\\mathcal{D}$ et $\\mathcal{P}$ : on substitue les coordonnées paramétriques de $\\mathcal{D}$ dans l'équation de $\\mathcal{P}$ pour trouver la valeur du paramètre, puis on en déduit les coordonnées de $H$.
+
+  **Exemple :** déterminons le projeté orthogonal $H$ de $A(1\\,;\\,1\\,;\\,1)$ sur le plan $\\mathcal{P}: x+y+z-6=0$ (vecteur normal $\\vec{n}\\begin{pmatrix}1\\\\1\\\\1\\end{pmatrix}$).
+
+  La droite $\\mathcal{D}$ passant par $A$ de vecteur directeur $\\vec{n}$ a pour représentation paramétrique :
+  $$\\begin{cases} x = 1+t \\\\ y = 1+t \\\\ z = 1+t \\end{cases}, \\quad t\\in\\mathbb{R}$$
+
+  On substitue dans l'équation de $\\mathcal{P}$ :
+  $$(1+t)+(1+t)+(1+t)-6=0 \\iff 3t-3=0 \\iff t=1$$
+
+  D'où $H(1+1\\,;\\,1+1\\,;\\,1+1) = H(2\\,;\\,2\\,;\\,2)$.`,
+        exercises: [
+          {
+            id: "ode1-l3-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Quelle est la distance du point $O(0\\,;\\,0\\,;\\,0)$ au plan d'équation $x+2y+2z-9=0$ ?",
+            options: [
+              { id: "A", text: "$3$" },
+              { id: "B", text: "$9$" },
+              { id: "C", text: "$1{,}8$" },
+              { id: "D", text: "$\\sqrt{9}$" },
+            ],
+            correctId: "A",
+            explanation: "On applique la formule : $d(O,\\mathcal{P}) = \\dfrac{|1\\times0+2\\times0+2\\times0-9|}{\\sqrt{1^2+2^2+2^2}} = \\dfrac{9}{\\sqrt{9}} = \\dfrac{9}{3} = 3$.",
+          },
+          {
+            id: "ode1-l3-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "Le point $M_0(2\\,;\\,1\\,;\\,3)$ appartient au plan d'équation $x-y+z-4=0$, donc sa distance à ce plan est nulle.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On vérifie : $2-1+3-4=0$, donc $M_0\\in\\mathcal{P}$. Dans la formule, le numérateur $|ax_0+by_0+cz_0+d|$ vaut alors $0$, donc la distance est bien $0$ : un point du plan est à distance nulle de ce plan.",
+          },
+          {
+            id: "ode1-l3-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "Quelle est la distance du point $A(1\\,;\\,-2\\,;\\,2)$ au plan $\\mathcal{P}: 3x+4y-5=0$ ?",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$\\dfrac{10}{5}$" },
+              { id: "C", text: "$\\dfrac{2}{5}$" },
+              { id: "D", text: "$10$" },
+            ],
+            correctId: "A",
+            explanation: "Ici $a=3$, $b=4$, $c=0$, $d=-5$ (la variable $z$ n'apparaît pas, son coefficient est $0$). $d(A,\\mathcal{P}) = \\dfrac{|3\\times1+4\\times(-2)+0\\times2-5|}{\\sqrt{3^2+4^2+0^2}} = \\dfrac{|3-8-5|}{\\sqrt{25}} = \\dfrac{10}{5} = 2$.",
+          },
+          {
+            id: "ode1-l3-e4",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "Calculer la distance du point $M_0(3\\,;\\,0\\,;\\,-1)$ au plan $\\mathcal{P}: 2x-2y+z+1=0$.",
+            explanation: "On applique directement la formule de la distance avec $a=2$, $b=-2$, $c=1$, $d=1$.",
+            modelAnswer: `On applique la formule avec $a=2$, $b=-2$, $c=1$, $d=1$ et $(x_0\\,;\\,y_0\\,;\\,z_0)=(3\\,;\\,0\\,;\\,-1)$ :
+  $$d(M_0,\\mathcal{P}) = \\dfrac{|2\\times3 - 2\\times0 + 1\\times(-1) + 1|}{\\sqrt{2^2+(-2)^2+1^2}} = \\dfrac{|6-0-1+1|}{\\sqrt{4+4+1}} = \\dfrac{6}{\\sqrt{9}} = \\dfrac{6}{3} = 2$$
+
+  $$\\boxed{d(M_0,\\mathcal{P}) = 2}$$`,
+          },
+          {
+            id: "ode1-l3-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "On considère le plan $\\mathcal{P}: x-2y+2z-3=0$ et le point $A(4\\,;\\,-1\\,;\\,5)$. Déterminer les coordonnées du projeté orthogonal $H$ de $A$ sur $\\mathcal{P}$, puis vérifier que $AH$ est égal à la distance de $A$ à $\\mathcal{P}$ calculée par la formule.",
+            explanation: "On écrit la représentation paramétrique de la droite passant par $A$ de vecteur directeur $\\vec{n}\\begin{pmatrix}1\\\\-2\\\\2\\end{pmatrix}$, on substitue dans l'équation du plan pour trouver $H$, puis on calcule $AH$ et on compare avec la formule de la distance.",
+            modelAnswer: `Le vecteur normal de $\\mathcal{P}$ est $\\vec{n}\\begin{pmatrix} 1 \\\\ -2 \\\\ 2 \\end{pmatrix}$. La droite $\\mathcal{D}$ passant par $A(4\\,;\\,-1\\,;\\,5)$ de vecteur directeur $\\vec{n}$ a pour représentation paramétrique :
+  $$\\begin{cases} x = 4+t \\\\ y = -1-2t \\\\ z = 5+2t \\end{cases}, \\quad t\\in\\mathbb{R}$$
+
+  On substitue dans l'équation de $\\mathcal{P}$ pour trouver le paramètre du point d'intersection $H$ :
+  $$(4+t) - 2(-1-2t) + 2(5+2t) - 3 = 0$$
+  $$4+t+2+4t+10+4t-3=0$$
+  $$9t+13=0 \\iff t=-\\dfrac{13}{9}$$
+
+  On en déduit les coordonnées de $H$ :
+  $$x_H = 4-\\dfrac{13}{9} = \\dfrac{23}{9}, \\quad y_H = -1+\\dfrac{26}{9} = \\dfrac{17}{9}, \\quad z_H = 5-\\dfrac{26}{9} = \\dfrac{19}{9}$$
+
+  On calcule ensuite $AH$ :
+  $$\\overrightarrow{AH}\\begin{pmatrix} \\frac{23}{9}-4 \\\\ \\frac{17}{9}+1 \\\\ \\frac{19}{9}-5 \\end{pmatrix} = \\begin{pmatrix} -\\frac{13}{9} \\\\ \\frac{26}{9} \\\\ -\\frac{26}{9} \\end{pmatrix} = -\\dfrac{13}{9}\\begin{pmatrix} 1 \\\\ -2 \\\\ 2 \\end{pmatrix}$$
+  $$AH = \\dfrac{13}{9}\\|\\vec{n}\\| = \\dfrac{13}{9}\\times3 = \\dfrac{13}{3}$$
+
+  On vérifie avec la formule de la distance : $d(A,\\mathcal{P}) = \\dfrac{|4-2(-1)+2(5)-3|}{\\sqrt{1+4+4}} = \\dfrac{|4+2+10-3|}{3} = \\dfrac{13}{3}$. Les deux calculs coïncident.
+
+  $$\\boxed{H\\left(\\dfrac{23}{9}\\,;\\,\\dfrac{17}{9}\\,;\\,\\dfrac{19}{9}\\right) \\text{ et } AH = d(A,\\mathcal{P}) = \\dfrac{13}{3}}$$`,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "trd1-id",
+    slug: "derivees-fonctions-trigonometriques-terminale",
+    title: "Dérivées des fonctions trigonométriques",
+    description: "Apprendre à dériver les fonctions sinus et cosinus pour étudier les variations de fonctions trigonométriques.",
+    schoolLevel: "terminale",
+    subject: "analyse",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "📐",
+    lessons: [
+      {
+        id: "trd1-l1",
+        slug: "derivees-de-sinus-et-cosinus",
+        title: "Dérivées de sinus et cosinus",
+        durationMinutes: 20,
+        content: `## Deux limites usuelles
+
+  Avant d'établir les formules de dérivation, on admet deux limites fondamentales, qui traduisent le comportement du cercle trigonométrique autour de $0$ :
+
+  $$\\lim_{x\\to0} \\dfrac{\\sin x}{x} = 1 \\qquad\\qquad \\lim_{x\\to0} \\dfrac{\\cos x - 1}{x} = 0$$
+
+  **Idée géométrique :** pour un petit angle $x$ (en radians), la longueur de l'arc de cercle, la longueur de la corde et la valeur de $\\sin x$ sont presque confondues, ce qui explique que $\\sin x$ se comporte comme $x$ lorsque $x$ est proche de $0$. De même, $\\cos x$ se rapproche très vite de $1$, et la "vitesse" de ce rapprochement est nulle par rapport à $x$.
+
+  Ces deux limites permettent de retrouver les dérivées de sinus et cosinus en $0$, puis en tout point grâce aux formules d'addition.
+
+  ## Dérivées de sinus et cosinus
+
+  > **Théorème.** Les fonctions $\\sin$ et $\\cos$ sont dérivables sur $\\mathbb{R}$, et pour tout réel $x$ :
+  > $$(\\sin x)' = \\cos x \\qquad\\qquad (\\cos x)' = -\\sin x$$
+
+  Ces deux formules sont à connaître parfaitement : on retiendra que dériver $\\sin$ donne $\\cos$, et que dériver $\\cos$ donne $-\\sin$ (apparition d'un signe moins).
+
+  **Remarque :** en dérivant une seconde fois, on retrouve $(\\sin x)'' = -\\sin x$ et $(\\cos x)'' = -\\cos x$ : chaque fonction est, à un signe près, sa propre dérivée seconde.
+
+  ## Dérivée des fonctions composées $\\sin(ax+b)$ et $\\cos(ax+b)$
+
+  Soient $a$ et $b$ deux réels. En utilisant la formule de dérivation des fonctions composées $(u\\circ v)' = v' \\times u'(v)$ avec $v(x) = ax+b$, on obtient :
+
+  > $$\\big(\\sin(ax+b)\\big)' = a\\cos(ax+b)$$
+  > $$\\big(\\cos(ax+b)\\big)' = -a\\sin(ax+b)$$
+
+  Le coefficient $a$ "sort" devant la dérivée, exactement comme pour la dérivée de $e^{ax+b}$.
+
+  **Exemple complet :** soit $f(x) = \\sin(2x+1) + 3\\cos(x)$, définie sur $\\mathbb{R}$.
+
+  On dérive terme à terme :
+  - pour $\\sin(2x+1)$ : ici $a=2$, $b=1$, donc la dérivée est $2\\cos(2x+1)$ ;
+  - pour $3\\cos(x)$ : la dérivée est $3\\times(-\\sin x) = -3\\sin x$.
+
+  On obtient donc :
+  $$f'(x) = 2\\cos(2x+1) - 3\\sin x$$
+
+  Calculons par exemple $f'(0)$ :
+  $$f'(0) = 2\\cos(1) - 3\\sin(0) = 2\\cos(1)$$
+
+  On retrouve ainsi une valeur numérique exacte à partir d'une expression dérivée correctement construite.`,
+        exercises: [
+          {
+            id: "trd1-l1-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Quelle est la dérivée de la fonction $f(x) = \\sin x$ ?",
+            options: [
+              { id: "A", text: "$f'(x) = \\cos x$" },
+              { id: "B", text: "$f'(x) = -\\cos x$" },
+              { id: "C", text: "$f'(x) = -\\sin x$" },
+            ],
+            correctId: "A",
+            explanation: "La fonction sinus est dérivable sur $\\mathbb{R}$ et $(\\sin x)' = \\cos x$ : c'est une formule de cours à connaître par cœur.",
+          },
+          {
+            id: "trd1-l1-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "La dérivée de la fonction cosinus fait apparaître un signe moins : $(\\cos x)' = -\\sin x$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "C'est exact : contrairement à la dérivée de $\\sin x$, celle de $\\cos x$ comporte un signe négatif devant $\\sin x$.",
+          },
+          {
+            id: "trd1-l1-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "Quelle est la dérivée de $g(x) = \\cos(3x)$ ?",
+            options: [
+              { id: "A", text: "$g'(x) = -3\\sin(3x)$" },
+              { id: "B", text: "$g'(x) = 3\\sin(3x)$" },
+              { id: "C", text: "$g'(x) = -\\sin(3x)$" },
+            ],
+            correctId: "A",
+            explanation: "Avec $a=3$ et $b=0$, on applique $(\\cos(ax+b))' = -a\\sin(ax+b)$, ce qui donne $g'(x) = -3\\sin(3x)$.",
+          },
+          {
+            id: "trd1-l1-e4",
+            type: "true_false",
+            difficulty: "intermediaire",
+            question: "La dérivée de $h(x) = \\sin(2x-1)$ est $h'(x) = 2\\cos(2x-1)$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Avec $a=2$, $b=-1$, on a $(\\sin(2x-1))' = 2\\cos(2x-1)$, donc l'affirmation est vraie.",
+          },
+          {
+            id: "trd1-l1-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Soit $f(x) = 2\\sin(x) - \\cos(2x+\\pi)$ définie sur $\\mathbb{R}$. Calculer $f'(x)$, puis déterminer la valeur exacte de $f'\\left(\\dfrac{\\pi}{2}\\right)$.",
+            modelAnswer: `On dérive terme à terme.
+
+  Pour $2\\sin(x)$ : la dérivée est $2\\cos(x)$.
+
+  Pour $-\\cos(2x+\\pi)$ : ici $a=2$, $b=\\pi$, donc $(\\cos(2x+\\pi))' = -2\\sin(2x+\\pi)$, et donc la dérivée de $-\\cos(2x+\\pi)$ est $2\\sin(2x+\\pi)$.
+
+  On obtient :
+  $$f'(x) = 2\\cos(x) + 2\\sin(2x+\\pi)$$
+
+  On évalue en $x = \\dfrac{\\pi}{2}$ :
+  $$f'\\left(\\dfrac{\\pi}{2}\\right) = 2\\cos\\left(\\dfrac{\\pi}{2}\\right) + 2\\sin\\left(\\pi+\\pi\\right) = 2\\times 0 + 2\\sin(2\\pi) = 0 + 0 = 0$$
+
+  $$\\boxed{f'\\left(\\dfrac{\\pi}{2}\\right) = 0}$$`,
+            explanation: "On applique deux fois la formule de dérivation des fonctions composées trigonométriques, puis on substitue la valeur demandée en simplifiant les angles à l'aide de la périodicité.",
+          },
+        ],
+      },
+      {
+        id: "trd1-l2",
+        slug: "etude-de-fonctions-trigonometriques",
+        title: "Étude de fonctions trigonométriques",
+        durationMinutes: 22,
+        content: `## Rappels : périodicité et parité
+
+  Les fonctions sinus et cosinus sont **$2\\pi$-périodiques** : pour tout réel $x$,
+  $$\\sin(x+2\\pi) = \\sin x \\qquad\\qquad \\cos(x+2\\pi) = \\cos x$$
+
+  Cela signifie qu'il suffit d'étudier ces fonctions sur un intervalle de longueur $2\\pi$, par exemple $[0\\,;\\,2\\pi[$, pour connaître leur comportement sur $\\mathbb{R}$ entier.
+
+  On rappelle également la parité :
+  - $\\sin$ est **impaire** : $\\sin(-x) = -\\sin x$ ;
+  - $\\cos$ est **paire** : $\\cos(-x) = \\cos x$.
+
+  ## Méthode pour étudier les variations d'une fonction trigonométrique
+
+  Pour étudier les variations d'une fonction trigonométrique $f$ sur un intervalle donné, on procède toujours de la même façon :
+
+  1. Calculer $f'(x)$ à l'aide des formules de dérivation.
+  2. Résoudre l'équation $f'(x) = 0$ pour trouver les valeurs qui annulent la dérivée.
+  3. Étudier le signe de $f'(x)$ sur l'intervalle d'étude (souvent à l'aide du cercle trigonométrique ou d'une factorisation).
+  4. Dresser le tableau de variations de $f$.
+
+  ## Exemple détaillé : étude de $f(x) = \\sin(x) + \\cos(x)$ sur $[0\\,;\\,2\\pi]$
+
+  On considère $f(x) = \\sin(x) + \\cos(x)$, définie et dérivable sur $\\mathbb{R}$, que l'on étudie sur $[0\\,;\\,2\\pi]$.
+
+  **Étape 1 — Calcul de la dérivée.**
+  $$f'(x) = \\cos(x) - \\sin(x)$$
+
+  **Étape 2 — Résolution de $f'(x) = 0$.**
+
+  On résout $\\cos(x) - \\sin(x) = 0$, soit $\\cos(x) = \\sin(x)$.
+
+  Sur $[0\\,;\\,2\\pi]$, cette égalité a lieu lorsque $x = \\dfrac{\\pi}{4}$ ou $x = \\dfrac{\\pi}{4} + \\pi = \\dfrac{5\\pi}{4}$ (les deux points du cercle trigonométrique où l'abscisse et l'ordonnée sont égales).
+
+  **Étape 3 — Signe de $f'(x)$.**
+
+  On peut écrire $f'(x) = \\cos(x) - \\sin(x) = \\sqrt{2}\\cos\\left(x+\\dfrac{\\pi}{4}\\right)$ (factorisation classique). Le signe de $f'(x)$ est donc celui de $\\cos\\left(x+\\dfrac{\\pi}{4}\\right)$ :
+  - sur $\\left[0\\,;\\,\\dfrac{\\pi}{4}\\right[$, on a $f'(x) > 0$ ;
+  - sur $\\left]\\dfrac{\\pi}{4}\\,;\\,\\dfrac{5\\pi}{4}\\right[$, on a $f'(x) < 0$ ;
+  - sur $\\left]\\dfrac{5\\pi}{4}\\,;\\,2\\pi\\right]$, on a $f'(x) > 0$.
+
+  **Étape 4 — Tableau de variations.**
+
+  | $x$ | $0$ | | $\\dfrac{\\pi}{4}$ | | $\\dfrac{5\\pi}{4}$ | | $2\\pi$ |
+  |---|---|---|---|---|---|---|---|
+  | $f'(x)$ | | $+$ | $0$ | $-$ | $0$ | $+$ | |
+  | $f(x)$ | $1$ | $\\nearrow$ | $\\sqrt{2}$ | $\\searrow$ | $-\\sqrt{2}$ | $\\nearrow$ | $1$ |
+
+  On obtient ainsi un maximum local de valeur $\\sqrt{2}$ en $x=\\dfrac{\\pi}{4}$, et un minimum local de valeur $-\\sqrt{2}$ en $x=\\dfrac{5\\pi}{4}$, ce qui est cohérent avec la forme générale $f(x) = \\sqrt{2}\\sin\\left(x+\\dfrac{\\pi}{4}\\right)$.
+
+  Cette méthode — dériver, annuler la dérivée, étudier son signe, dresser le tableau — s'applique à toute fonction trigonométrique, y compris lorsque sinus et cosinus se mélangent à d'autres termes (comme $x+\\sin(x)$).`,
+        exercises: [
+          {
+            id: "trd1-l2-e1",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "La fonction sinus est $2\\pi$-périodique, ce qui signifie que $\\sin(x+2\\pi) = \\sin x$ pour tout réel $x$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "C'est la définition même de la $2\\pi$-périodicité de la fonction sinus, qui permet de limiter son étude à un intervalle de longueur $2\\pi$.",
+          },
+          {
+            id: "trd1-l2-e2",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Parmi les affirmations suivantes sur la parité, laquelle est correcte ?",
+            options: [
+              { id: "A", text: "$\\sin$ est impaire et $\\cos$ est paire" },
+              { id: "B", text: "$\\sin$ est paire et $\\cos$ est impaire" },
+              { id: "C", text: "$\\sin$ et $\\cos$ sont toutes les deux paires" },
+            ],
+            correctId: "A",
+            explanation: "On a $\\sin(-x) = -\\sin x$ (fonction impaire) et $\\cos(-x) = \\cos x$ (fonction paire) : ce sont des propriétés fondamentales à retenir.",
+          },
+          {
+            id: "trd1-l2-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "Pour étudier les variations de $f(x) = \\sin x + \\cos x$ sur $[0\\,;\\,2\\pi]$, quelle est la première étape ?",
+            options: [
+              { id: "A", text: "Calculer $f'(x) = \\cos x - \\sin x$" },
+              { id: "B", text: "Calculer $f(0)$ et $f(2\\pi)$ uniquement" },
+              { id: "C", text: "Résoudre directement $f(x) = 0$" },
+            ],
+            correctId: "A",
+            explanation: "La méthode d'étude des variations commence toujours par le calcul de la dérivée ; ici $f'(x) = \\cos x - \\sin x$, avant d'en étudier le signe.",
+          },
+          {
+            id: "trd1-l2-e4",
+            type: "true_false",
+            difficulty: "intermediaire",
+            question: "Sur $\\left[0\\,;\\,\\dfrac{\\pi}{4}\\right[$, la fonction $f(x) = \\sin x + \\cos x$ est croissante.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "D'après le tableau de variations établi en cours, $f'(x) > 0$ sur $\\left[0\\,;\\,\\dfrac{\\pi}{4}\\right[$, donc $f$ y est strictement croissante.",
+          },
+          {
+            id: "trd1-l2-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Soit $g(x) = x + \\sin(x)$ définie sur $[0\\,;\\,2\\pi]$. Étudier le signe de $g'(x)$ sur cet intervalle et en déduire les variations de $g$.",
+            modelAnswer: `On calcule la dérivée de $g$ :
+  $$g'(x) = 1 + \\cos(x)$$
+
+  On étudie le signe de $g'(x)$ sur $[0\\,;\\,2\\pi]$. Comme pour tout réel $x$ on a $-1 \\leqslant \\cos(x) \\leqslant 1$, il vient :
+  $$1 + \\cos(x) \\geqslant 0$$
+
+  avec égalité uniquement lorsque $\\cos(x) = -1$, c'est-à-dire pour $x = \\pi$ sur l'intervalle $[0\\,;\\,2\\pi]$.
+
+  Ainsi $g'(x) \\geqslant 0$ sur tout l'intervalle, et $g'(x) = 0$ seulement au point isolé $x=\\pi$.
+
+  On en déduit que $g$ est **strictement croissante sur $[0\\,;\\,2\\pi]$** (le fait que la dérivée s'annule en un seul point isolé n'empêche pas la stricte croissance globale).
+
+  $$\\boxed{g \\text{ est strictement croissante sur } [0\\,;\\,2\\pi]}$$`,
+            explanation: "On utilise l'encadrement classique $-1\\leqslant\\cos x\\leqslant1$ pour montrer que $g'(x)$ ne change jamais de signe, ce qui donne la stricte croissance de $g$ malgré une dérivée nulle en un point isolé.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "vad1-id",
+    slug: "variables-aleatoires-densite-terminale",
+    title: "Variables aléatoires à densité",
+    description: "Découvrir les variables aléatoires continues, la notion de densité de probabilité, et étudier les lois uniforme et exponentielle.",
+    schoolLevel: "terminale",
+    subject: "probabilites",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "📈",
+    lessons: [
+      {
+        id: "vad1-l1",
+        slug: "densite-de-probabilite-et-loi-uniforme",
+        title: "Densité de probabilité et loi uniforme",
+        durationMinutes: 22,
+        content: `## Des variables discrètes aux variables continues
+
+  Jusqu'ici, les variables aléatoires étudiées (loi binomiale, par exemple) étaient **discrètes** : elles ne prenaient qu'un nombre fini (ou dénombrable) de valeurs, et on pouvait calculer $P(X=k)$ pour chaque valeur $k$.
+
+  Une variable aléatoire **continue** (ou **à densité**) prend, elle, **toutes les valeurs** d'un intervalle de $\\mathbb{R}$ (par exemple un temps d'attente, une durée de vie, une mesure physique). On ne peut plus parler de la probabilité d'une valeur précise : on raisonne sur des **intervalles**.
+
+  > **Définition — Densité de probabilité**
+  > Soit $I$ un intervalle de $\\mathbb{R}$. Une fonction $f$ définie sur $I$ est une **densité de probabilité** si :
+  > 1. $f$ est continue (ou continue par morceaux) et **positive** sur $I$ ;
+  > 2. l'intégrale de $f$ sur $I$ vaut $1$ : $\\displaystyle\\int_I f(t)\\,dt = 1$.
+
+  Une variable aléatoire $X$ **suit la loi de densité $f$** sur $I$ lorsque, pour tous réels $a$ et $b$ de $I$ avec $a \\leqslant b$ :
+  $$P(a \\leqslant X \\leqslant b) = \\int_a^b f(t)\\,dt$$
+
+  ### Interprétation graphique
+
+  $P(a \\leqslant X \\leqslant b)$ est l'**aire** sous la courbe représentative de $f$, entre les droites d'équation $x=a$ et $x=b$. C'est l'analogue continu des diagrammes en bâtons utilisés pour les lois discrètes : l'aire totale sous la courbe de $f$ sur $I$ vaut $1$, tout comme la somme des probabilités $P(X=k)$ vaut $1$ pour une loi discrète.
+
+  ### Une conséquence essentielle : $P(X=a)=0$
+
+  Pour une loi continue, la probabilité que $X$ prenne **exactement** une valeur $a$ est nulle :
+  $$P(X=a) = \\int_a^a f(t)\\,dt = 0$$
+
+  Il en résulte que l'on ne distingue pas les inégalités strictes des inégalités larges :
+  $$P(a \\leqslant X \\leqslant b) = P(a < X \\leqslant b) = P(a \\leqslant X < b) = P(a<X<b)$$
+
+  > **Méthode**
+  > 1. Identifier la densité $f$ et son intervalle de définition $I$.
+  > 2. Vérifier (ou admettre) que $f \\geqslant 0$ et que $\\displaystyle\\int_I f(t)\\,dt = 1$.
+  > 3. Pour calculer $P(a\\leqslant X \\leqslant b)$, calculer $\\displaystyle\\int_a^b f(t)\\,dt$ à l'aide d'une primitive de $f$.
+
+  ## La loi uniforme sur $[a\\,;\\,b]$
+
+  > **Définition**
+  > Une variable aléatoire $X$ suit la **loi uniforme** sur $[a\\,;\\,b]$ (avec $a<b$), notée $X \\sim \\mathcal{U}([a\\,;\\,b])$, lorsque sa densité est **constante** sur $[a\\,;\\,b]$ :
+  > $$f(t) = \\dfrac{1}{b-a} \\quad \\text{pour } t \\in [a\\,;\\,b]$$
+
+  Cette loi modélise une valeur « tirée au hasard, sans privilégier aucune zone » dans $[a\\,;\\,b]$ (par exemple l'heure d'arrivée d'un bus dans un intervalle, à la minute près).
+
+  **Vérification que $f$ est bien une densité :**
+  $$\\int_a^b \\dfrac{1}{b-a}\\,dt = \\dfrac{1}{b-a}\\big[t\\big]_a^b = \\dfrac{b-a}{b-a} = 1$$
+
+  > **Propriété — Probabilité pour la loi uniforme**
+  > Si $X \\sim \\mathcal{U}([a\\,;\\,b])$, alors pour tout $[c\\,;\\,d] \\subset [a\\,;\\,b]$ :
+  > $$P(c \\leqslant X \\leqslant d) = \\dfrac{d-c}{b-a}$$
+  > (la probabilité est proportionnelle à la longueur de l'intervalle).
+
+  > **Propriété — Espérance**
+  > Si $X \\sim \\mathcal{U}([a\\,;\\,b])$, alors :
+  > $$E(X) = \\dfrac{a+b}{2}$$
+
+  ### Exemple résolu
+
+  Un métro passe toutes les $10$ minutes. On suppose que l'heure d'arrivée $X$ d'un voyageur sur le quai (en minutes après le passage du métro précédent) suit la loi uniforme sur $[0\\,;\\,10]$.
+
+  **1) Quelle est la densité de $X$ ?**
+  $$f(t) = \\dfrac{1}{10-0} = \\dfrac{1}{10} \\quad \\text{pour } t \\in [0\\,;\\,10]$$
+
+  **2) Quelle est la probabilité que le voyageur attende moins de $3$ minutes ?**
+
+  Le voyageur attend moins de $3$ minutes si $X \\in [7\\,;\\,10]$ (il arrive dans les $3$ dernières minutes avant le métro suivant) :
+  $$P(7 \\leqslant X \\leqslant 10) = \\dfrac{10-7}{10-0} = \\dfrac{3}{10} = 0{,}3$$
+
+  **3) Quelle est l'attente moyenne du voyageur ?**
+
+  L'attente moyenne correspond à $E(X) = \\dfrac{0+10}{2} = 5$ minutes.`,
+        exercises: [
+          {
+            id: "vad1-l1-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Une variable aléatoire continue $X$ suit la loi uniforme sur $[2\\,;\\,8]$. Quelle est sa densité $f(t)$ sur cet intervalle ?",
+            options: [
+              { id: "A", text: "$f(t) = \\dfrac{1}{6}$" },
+              { id: "B", text: "$f(t) = \\dfrac{1}{8}$" },
+              { id: "C", text: "$f(t) = 6$" },
+              { id: "D", text: "$f(t) = \\dfrac{1}{2}$" },
+            ],
+            correctId: "A",
+            explanation: "Pour une loi uniforme sur $[a\\,;\\,b]$, la densité constante est $f(t)=\\dfrac{1}{b-a}$. Ici $b-a = 8-2 = 6$, donc $f(t)=\\dfrac{1}{6}$.",
+          },
+          {
+            id: "vad1-l1-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "Si $X$ est une variable aléatoire à densité, alors $P(X=3)$ peut être strictement positif.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Pour une loi continue, $P(X=a) = \\displaystyle\\int_a^a f(t)\\,dt = 0$ pour toute valeur $a$. La probabilité qu'une variable continue prenne une valeur exacte est toujours nulle.",
+          },
+          {
+            id: "vad1-l1-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "$X$ suit la loi uniforme sur $[0\\,;\\,20]$. Quelle est la probabilité $P(5 \\leqslant X \\leqslant 12)$ ?",
+            options: [
+              { id: "A", text: "$0{,}35$" },
+              { id: "B", text: "$0{,}6$" },
+              { id: "C", text: "$7$" },
+              { id: "D", text: "$0{,}25$" },
+            ],
+            correctId: "A",
+            explanation: "$P(5 \\leqslant X \\leqslant 12) = \\dfrac{12-5}{20-0} = \\dfrac{7}{20} = 0{,}35$.",
+          },
+          {
+            id: "vad1-l1-e4",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "On choisit au hasard, selon la loi uniforme, un nombre réel $X$ dans l'intervalle $[-3\\,;\\,5]$. Calculer $P(X \\geqslant 1)$ puis $E(X)$.",
+            modelAnswer: "L'intervalle total a pour longueur $b-a = 5-(-3) = 8$, donc la densité est $f(t)=\\dfrac{1}{8}$ sur $[-3\\,;\\,5]$.\n\n**Calcul de $P(X\\geqslant 1)$ :** comme $X \\in [-3\\,;\\,5]$, l'événement $X\\geqslant 1$ correspond à $X \\in [1\\,;\\,5]$.\n$$P(X \\geqslant 1) = P(1 \\leqslant X \\leqslant 5) = \\dfrac{5-1}{8} = \\dfrac{4}{8} = \\dfrac{1}{2}$$\n\n**Calcul de $E(X)$ :**\n$$E(X) = \\dfrac{a+b}{2} = \\dfrac{-3+5}{2} = \\dfrac{2}{2} = 1$$\n\n$$\\boxed{P(X\\geqslant 1) = 0{,}5 \\text{ et } E(X) = 1}$$",
+            explanation: "On utilise la formule $P(c\\leqslant X\\leqslant d) = \\dfrac{d-c}{b-a}$ et la formule de l'espérance $E(X)=\\dfrac{a+b}{2}$ pour la loi uniforme.",
+          },
+          {
+            id: "vad1-l1-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Une fonction $f$ est définie sur $[0\\,;\\,4]$ par $f(t) = kt$, où $k$ est une constante réelle. Déterminer la valeur de $k$ pour que $f$ soit une densité de probabilité sur $[0\\,;\\,4]$, puis calculer $P(1 \\leqslant X \\leqslant 3)$ pour une variable $X$ de densité $f$.",
+            modelAnswer: "**Condition de positivité :** pour que $f(t)=kt \\geqslant 0$ sur $[0\\,;\\,4]$ (où $t\\geqslant 0$), il faut $k \\geqslant 0$.\n\n**Condition d'intégrale égale à $1$ :**\n$$\\int_0^4 kt\\,dt = k\\left[\\dfrac{t^2}{2}\\right]_0^4 = k\\times\\dfrac{16}{2} = 8k$$\nOn doit avoir $8k=1$, donc $k = \\dfrac{1}{8}$ (qui est bien positif, la condition est vérifiée).\n\n**Calcul de $P(1\\leqslant X \\leqslant 3)$ :**\n$$P(1\\leqslant X\\leqslant 3) = \\int_1^3 \\dfrac{t}{8}\\,dt = \\dfrac{1}{8}\\left[\\dfrac{t^2}{2}\\right]_1^3 = \\dfrac{1}{8}\\left(\\dfrac{9}{2}-\\dfrac{1}{2}\\right) = \\dfrac{1}{8}\\times 4 = \\dfrac{1}{2}$$\n\n$$\\boxed{k = \\dfrac{1}{8} \\text{ et } P(1\\leqslant X\\leqslant 3) = 0{,}5}$$",
+            explanation: "Cet exercice généralise la notion de densité au-delà de la loi uniforme : on retrouve les deux conditions (positivité, intégrale totale égale à $1$) pour déterminer un paramètre inconnu, puis on calcule une probabilité comme une intégrale, en utilisant une primitive de $f$.",
+          },
+        ],
+      },
+      {
+        id: "vad1-l2",
+        slug: "la-loi-exponentielle",
+        title: "La loi exponentielle",
+        durationMinutes: 24,
+        content: `## Définition de la loi exponentielle
+
+  La loi exponentielle modélise des **durées** : durée de vie d'un composant électronique, temps d'attente avant une désintégration radioactive, durée avant une panne, etc. Contrairement à la loi uniforme, elle privilégie les petites valeurs : plus le temps passe, moins il est probable que l'événement attendu se produise « à l'instant suivant ».
+
+  > **Définition**
+  > Soit $\\lambda$ un réel strictement positif. Une variable aléatoire $X$ suit la **loi exponentielle de paramètre $\\lambda$**, notée $X \\sim \\mathcal{E}(\\lambda)$, lorsque sa densité est définie sur $[0\\,;\\,+\\infty[$ par :
+  > $$f(t) = \\lambda e^{-\\lambda t}$$
+
+  **Vérification que $f$ est une densité :** $f$ est clairement positive sur $[0\\,;\\,+\\infty[$. Pour l'intégrale, on cherche une primitive de $f$. La fonction $F(t) = -e^{-\\lambda t}$ vérifie $F'(t) = \\lambda e^{-\\lambda t} = f(t)$, donc $F$ est une primitive de $f$. Ainsi, pour tout $x \\geqslant 0$ :
+  $$\\int_0^x f(t)\\,dt = \\big[-e^{-\\lambda t}\\big]_0^x = -e^{-\\lambda x} - (-e^0) = 1 - e^{-\\lambda x}$$
+  Comme $\\displaystyle\\lim_{x\\to+\\infty} e^{-\\lambda x} = 0$ (car $\\lambda > 0$), on obtient bien $\\displaystyle\\int_0^{+\\infty} f(t)\\,dt = 1$.
+
+  ## Calcul de probabilités
+
+  Le calcul précédent donne directement la formule centrale de ce cours :
+
+  > **Propriété**
+  > Si $X \\sim \\mathcal{E}(\\lambda)$, alors pour tout réel $t \\geqslant 0$ :
+  > $$P(X \\leqslant t) = \\int_0^t \\lambda e^{-\\lambda u}\\,du = 1 - e^{-\\lambda t}$$
+  > et, par passage à l'événement contraire :
+  > $$P(X > t) = 1 - P(X\\leqslant t) = e^{-\\lambda t}$$
+
+  > **Méthode**
+  > 1. Identifier $\\lambda$ et écrire la densité $f(t) = \\lambda e^{-\\lambda t}$.
+  > 2. Pour $P(X\\leqslant t)$ ou $P(X>t)$, appliquer directement les formules ci-dessus (pas besoin de recalculer l'intégrale).
+  > 3. Pour $P(a \\leqslant X \\leqslant b)$, écrire $P(a\\leqslant X\\leqslant b) = P(X\\leqslant b) - P(X \\leqslant a) = e^{-\\lambda a} - e^{-\\lambda b}$.
+
+  ## Espérance
+
+  > **Propriété — Espérance**
+  > Si $X \\sim \\mathcal{E}(\\lambda)$, alors :
+  > $$E(X) = \\dfrac{1}{\\lambda}$$
+
+  Ce résultat, obtenu par calcul intégral (intégration par parties sur $\\displaystyle\\int_0^{+\\infty} t\\lambda e^{-\\lambda t}\\,dt$), donne la **durée de vie moyenne**.
+
+  ## Propriété de durée de vie sans vieillissement
+
+  > **Propriété — Absence de mémoire**
+  > Si $X \\sim \\mathcal{E}(\\lambda)$ modélise une durée de vie, alors pour tous réels $t,s \\geqslant 0$ :
+  > $$P(X > t+s \\mid X > t) = P(X>s)$$
+
+  Cela signifie que, sachant qu'un composant a déjà fonctionné $t$ heures sans panne, la probabilité qu'il fonctionne encore $s$ heures supplémentaires est la même que la probabilité initiale qu'il fonctionne $s$ heures : **le composant ne « vieillit » pas**, il n'use pas sa probabilité de survie au fil du temps.
+
+  **Démonstration :** par définition de la probabilité conditionnelle,
+  $$P(X>t+s \\mid X>t) = \\dfrac{P\\big((X>t+s)\\cap(X>t)\\big)}{P(X>t)} = \\dfrac{P(X>t+s)}{P(X>t)}$$
+  (car $X>t+s$ entraîne $X>t$). Or $P(X>t+s)=e^{-\\lambda(t+s)} = e^{-\\lambda t}\\times e^{-\\lambda s}$ et $P(X>t)=e^{-\\lambda t}$, donc :
+  $$P(X>t+s\\mid X>t) = \\dfrac{e^{-\\lambda t}\\times e^{-\\lambda s}}{e^{-\\lambda t}} = e^{-\\lambda s} = P(X>s)$$
+
+  ### Exemple résolu
+
+  La durée de vie $X$ (en années) d'un composant électronique suit la loi exponentielle de paramètre $\\lambda = 0{,}2$.
+
+  **1) Quelle est la probabilité que le composant tombe en panne avant $5$ ans ?**
+  $$P(X\\leqslant 5) = 1-e^{-0{,}2\\times5} = 1-e^{-1} \\approx 1-0{,}3679 \\approx 0{,}632$$
+
+  **2) Quelle est la durée de vie moyenne du composant ?**
+  $$E(X) = \\dfrac{1}{\\lambda} = \\dfrac{1}{0{,}2} = 5 \\text{ ans}$$
+
+  **3) Le composant fonctionne déjà depuis $3$ ans. Quelle est la probabilité qu'il fonctionne encore $4$ années de plus ?**
+
+  Grâce à l'absence de mémoire, $P(X>3+4\\mid X>3) = P(X>4) = e^{-0{,}2\\times4} = e^{-0{,}8} \\approx 0{,}449$.`,
+        exercises: [
+          {
+            id: "vad1-l2-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "$X$ suit la loi exponentielle de paramètre $\\lambda = 0{,}5$. Quelle est sa densité $f(t)$ ?",
+            options: [
+              { id: "A", text: "$f(t) = 0{,}5\\,e^{-0{,}5t}$" },
+              { id: "B", text: "$f(t) = e^{-0{,}5t}$" },
+              { id: "C", text: "$f(t) = 0{,}5\\,e^{0{,}5t}$" },
+              { id: "D", text: "$f(t) = \\dfrac{1}{0{,}5}t$" },
+            ],
+            correctId: "A",
+            explanation: "La densité de la loi exponentielle de paramètre $\\lambda$ est $f(t)=\\lambda e^{-\\lambda t}$. Avec $\\lambda=0{,}5$, on obtient $f(t)=0{,}5\\,e^{-0{,}5t}$.",
+          },
+          {
+            id: "vad1-l2-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "Pour une variable aléatoire $X$ suivant une loi exponentielle de paramètre $\\lambda$, on a $P(X>t) = e^{-\\lambda t}$ pour tout $t\\geqslant 0$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "C'est la formule directe obtenue par passage à l'événement contraire de $P(X\\leqslant t) = 1-e^{-\\lambda t}$, donnant $P(X>t) = e^{-\\lambda t}$.",
+          },
+          {
+            id: "vad1-l2-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "$X \\sim \\mathcal{E}(\\lambda)$ avec $E(X) = 4$. Quelle est la valeur de $\\lambda$ ?",
+            options: [
+              { id: "A", text: "$\\lambda = 0{,}25$" },
+              { id: "B", text: "$\\lambda = 4$" },
+              { id: "C", text: "$\\lambda = 0{,}5$" },
+              { id: "D", text: "$\\lambda = 16$" },
+            ],
+            correctId: "A",
+            explanation: "Comme $E(X) = \\dfrac{1}{\\lambda}$, on a $\\lambda = \\dfrac{1}{E(X)} = \\dfrac{1}{4} = 0{,}25$.",
+          },
+          {
+            id: "vad1-l2-e4",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "La durée de fonctionnement $X$ (en heures) d'une ampoule suit la loi exponentielle de paramètre $\\lambda = 0{,}001$. Calculer la probabilité que l'ampoule fonctionne plus de $2000$ heures, puis sa durée de vie moyenne.",
+            modelAnswer: "**Probabilité $P(X>2000)$ :**\n$$P(X>2000) = e^{-\\lambda\\times2000} = e^{-0{,}001\\times2000} = e^{-2} \\approx 0{,}135$$\n\n**Durée de vie moyenne :**\n$$E(X) = \\dfrac{1}{\\lambda} = \\dfrac{1}{0{,}001} = 1000 \\text{ heures}$$\n\n$$\\boxed{P(X>2000)\\approx 0{,}135 \\text{ et } E(X) = 1000 \\text{ h}}$$",
+            explanation: "On applique directement la formule $P(X>t) = e^{-\\lambda t}$ et la formule de l'espérance $E(X) = \\dfrac{1}{\\lambda}$, sans recalculer l'intégrale.",
+          },
+          {
+            id: "vad1-l2-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "La durée de vie $X$ (en années) d'un robot suit la loi exponentielle de paramètre $\\lambda$. On sait que $P(X>10) = 0{,}5$. 1) Déterminer $\\lambda$ (arrondi à $10^{-3}$). 2) Sachant que le robot fonctionne encore après $10$ ans, quelle est la probabilité qu'il fonctionne encore au moins $5$ années supplémentaires ? Justifier en citant la propriété utilisée.",
+            modelAnswer: "**1) Détermination de $\\lambda$ :**\n$$P(X>10) = e^{-10\\lambda} = 0{,}5$$\nOn résout : $-10\\lambda = \\ln(0{,}5)$, donc $\\lambda = -\\dfrac{\\ln(0{,}5)}{10} = \\dfrac{\\ln 2}{10} \\approx \\dfrac{0{,}693}{10} \\approx 0{,}069$.\n\n**2) Probabilité conditionnelle :**\nOn cherche $P(X>10+5\\mid X>10) = P(X>15\\mid X>10)$.\n\nPar la propriété de **durée de vie sans vieillissement** (absence de mémoire) de la loi exponentielle, on a :\n$$P(X>10+5\\mid X>10) = P(X>5)$$\nOr $P(X>5) = e^{-5\\lambda} = e^{-5\\times0{,}069} \\approx e^{-0{,}3466} \\approx 0{,}707$.\n\n$$\\boxed{\\lambda \\approx 0{,}069 \\text{ et } P(X>15\\mid X>10) = P(X>5) \\approx 0{,}707}$$",
+            explanation: "Cet exercice combine la résolution d'une équation avec un logarithme népérien pour déterminer $\\lambda$, puis l'application directe de la propriété d'absence de mémoire (durée de vie sans vieillissement), qui évite un calcul de probabilité conditionnelle « à la main ».",
+          },
+        ],
+      },
+      {
+        id: "vad1-l3",
+        slug: "synthese-calculs-de-probabilites-a-densite",
+        title: "Synthèse : calculs de probabilités à densité",
+        durationMinutes: 20,
+        content: `## Méthodologie générale
+
+  Face à un exercice sur les variables aléatoires à densité, il faut suivre une démarche structurée.
+
+  > **Méthode générale**
+  > 1. **Identifier la loi** suivie par $X$ : loi uniforme sur $[a\\,;\\,b]$, loi exponentielle de paramètre $\\lambda$, ou une densité $f$ donnée explicitement par son expression.
+  > 2. **Écrire la formule adaptée** :
+  >    - loi uniforme : $P(c\\leqslant X\\leqslant d) = \\dfrac{d-c}{b-a}$ ;
+  >    - loi exponentielle : $P(X\\leqslant t) = 1-e^{-\\lambda t}$ et $P(X>t)=e^{-\\lambda t}$ ;
+  >    - densité quelconque : revenir à l'intégrale $P(a\\leqslant X\\leqslant b) = \\displaystyle\\int_a^b f(t)\\,dt$ à l'aide d'une primitive de $f$.
+  > 3. **Calculer** numériquement, en utilisant si besoin l'événement contraire ou la décomposition $P(a\\leqslant X\\leqslant b) = P(X\\leqslant b)-P(X\\leqslant a)$.
+  > 4. **Interpréter** le résultat dans le contexte de l'énoncé (durée, proportion, probabilité).
+
+  ## Retour sur l'espérance comme intégrale
+
+  Pour une variable aléatoire continue $X$ de densité $f$ sur un intervalle $I$, l'espérance se définit, par analogie avec la formule discrète $E(X) = \\displaystyle\\sum_k k\\,P(X=k)$, par l'intégrale :
+  $$E(X) = \\int_I t\\,f(t)\\,dt$$
+
+  C'est ce calcul intégral qui permet de **retrouver** les formules déjà rencontrées :
+  - pour la loi uniforme sur $[a\\,;\\,b]$ : $\\displaystyle E(X) = \\int_a^b t\\times\\dfrac{1}{b-a}\\,dt = \\dfrac{1}{b-a}\\left[\\dfrac{t^2}{2}\\right]_a^b = \\dfrac{a+b}{2}$ ;
+  - pour la loi exponentielle de paramètre $\\lambda$ : $\\displaystyle E(X) = \\int_0^{+\\infty} t\\lambda e^{-\\lambda t}\\,dt = \\dfrac{1}{\\lambda}$ (calcul nécessitant une intégration par parties et un passage à la limite, admis en Terminale).
+
+  Cette écriture montre que **tout le chapitre des probabilités à densité repose sur le calcul intégral** déjà étudié en analyse : primitives, calcul d'aires, limites en $+\\infty$.
+
+  ### Exemple résolu combinant les deux lois
+
+  Un serveur informatique traite des requêtes. Le temps de traitement $T_1$ (en secondes) d'une requête « simple » suit la loi uniforme sur $[0\\,;\\,2]$, tandis que le temps avant la prochaine panne $T_2$ (en heures) suit la loi exponentielle de paramètre $\\lambda = 0{,}1$.
+
+  **1) Probabilité qu'une requête simple soit traitée en moins de $0{,}5$ seconde :**
+  $$P(T_1 \\leqslant 0{,}5) = \\dfrac{0{,}5-0}{2-0} = \\dfrac{0{,}5}{2} = 0{,}25$$
+
+  **2) Probabilité que le serveur fonctionne plus de $20$ heures sans panne :**
+  $$P(T_2>20) = e^{-0{,}1\\times20} = e^{-2} \\approx 0{,}135$$
+
+  **3) Temps moyen avant panne :**
+  $$E(T_2) = \\dfrac{1}{0{,}1} = 10 \\text{ heures}$$
+
+  On voit que, malgré des contextes différents (un temps borné, un temps potentiellement infini), la même méthode en quatre étapes s'applique : identifier la loi, écrire la formule, calculer, interpréter.`,
+        exercises: [
+          {
+            id: "vad1-l3-e1",
+            type: "mcq",
+            difficulty: "debutant",
+            question: "Pour une variable aléatoire continue $X$ de densité $f$ sur $[a\\,;\\,b]$, l'espérance $E(X)$ est donnée par quelle expression ?",
+            options: [
+              { id: "A", text: "$E(X) = \\displaystyle\\int_a^b t\\,f(t)\\,dt$" },
+              { id: "B", text: "$E(X) = \\displaystyle\\int_a^b f(t)\\,dt$" },
+              { id: "C", text: "$E(X) = \\displaystyle\\sum_{k} k\\,f(k)$" },
+              { id: "D", text: "$E(X) = f(b)-f(a)$" },
+            ],
+            correctId: "A",
+            explanation: "L'espérance d'une variable continue de densité $f$ sur $I$ est définie par $E(X) = \\displaystyle\\int_I t\\,f(t)\\,dt$, l'analogue continu de $\\displaystyle\\sum_k k\\,P(X=k)$.",
+          },
+          {
+            id: "vad1-l3-e2",
+            type: "true_false",
+            difficulty: "debutant",
+            question: "Pour calculer $P(2\\leqslant X\\leqslant 6)$ lorsque $X$ suit une loi exponentielle de paramètre $\\lambda$, on peut utiliser la formule $P(2\\leqslant X\\leqslant 6) = P(X\\leqslant 6) - P(X\\leqslant 2)$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Par additivité des probabilités sur des intervalles disjoints, $P(X\\leqslant 6) = P(X\\leqslant 2) + P(2\\leqslant X\\leqslant 6)$, d'où $P(2\\leqslant X\\leqslant 6) = P(X\\leqslant 6)-P(X\\leqslant 2)$. C'est une méthode très utile en pratique.",
+          },
+          {
+            id: "vad1-l3-e3",
+            type: "mcq",
+            difficulty: "intermediaire",
+            question: "$X$ suit la loi exponentielle de paramètre $\\lambda = 0{,}25$. Quelle est la valeur de $P(4\\leqslant X\\leqslant 8)$ (arrondie à $10^{-3}$) ?",
+            options: [
+              { id: "A", text: "$\\approx 0{,}233$" },
+              { id: "B", text: "$\\approx 0{,}368$" },
+              { id: "C", text: "$\\approx 0{,}632$" },
+              { id: "D", text: "$\\approx 0{,}135$" },
+            ],
+            correctId: "A",
+            explanation: "$P(4\\leqslant X\\leqslant 8) = P(X\\leqslant 8)-P(X\\leqslant 4) = (1-e^{-0{,}25\\times8})-(1-e^{-0{,}25\\times4}) = e^{-1}-e^{-2} \\approx 0{,}368-0{,}135 \\approx 0{,}233$.",
+          },
+          {
+            id: "vad1-l3-e4",
+            type: "open",
+            difficulty: "intermediaire",
+            question: "Un appareil de mesure renvoie une valeur $X$ suivant la loi uniforme sur $[10\\,;\\,30]$. Calculer $P(15\\leqslant X\\leqslant 25)$, puis vérifier ce résultat en calculant directement l'intégrale $\\displaystyle\\int_{15}^{25} \\dfrac{1}{20}\\,dt$.",
+            modelAnswer: "**Avec la formule directe :**\n$$P(15\\leqslant X\\leqslant 25) = \\dfrac{25-15}{30-10} = \\dfrac{10}{20} = 0{,}5$$\n\n**Vérification par le calcul intégral :** la densité est $f(t) = \\dfrac{1}{30-10} = \\dfrac{1}{20}$ sur $[10\\,;\\,30]$.\n$$\\int_{15}^{25} \\dfrac{1}{20}\\,dt = \\dfrac{1}{20}\\big[t\\big]_{15}^{25} = \\dfrac{1}{20}(25-15) = \\dfrac{10}{20} = 0{,}5$$\nLes deux méthodes donnent bien le même résultat.\n\n$$\\boxed{P(15\\leqslant X\\leqslant 25) = 0{,}5}$$",
+            explanation: "Cet exercice vérifie la cohérence entre la formule « raccourcie » de la loi uniforme et le calcul intégral général, ce qui est une bonne pratique de contrôle des résultats.",
+          },
+          {
+            id: "vad1-l3-e5",
+            type: "open",
+            difficulty: "expert",
+            question: "Le temps d'attente $X$ (en minutes) à un guichet suit la loi exponentielle de paramètre $\\lambda = 0{,}2$. 1) Calculer $P(X\\leqslant 10)$. 2) Sachant qu'un client attend déjà depuis $5$ minutes, calculer la probabilité qu'il attende encore plus de $10$ minutes supplémentaires, en justifiant la propriété utilisée. 3) Calculer le temps d'attente moyen $E(X)$ et commenter le résultat par rapport à la question 1.",
+            modelAnswer: "**1) Calcul de $P(X\\leqslant 10)$ :**\n$$P(X\\leqslant 10) = 1-e^{-0{,}2\\times10} = 1-e^{-2} \\approx 1-0{,}135 \\approx 0{,}865$$\n\n**2) Probabilité conditionnelle :**\nOn cherche $P(X>5+10\\mid X>5)$. Par la propriété de **durée de vie sans vieillissement** (la loi exponentielle « n'a pas de mémoire »), on a :\n$$P(X>15\\mid X>5) = P(X>10) = e^{-0{,}2\\times10} = e^{-2} \\approx 0{,}135$$\nLe fait que le client ait déjà attendu $5$ minutes ne change rien à la probabilité qu'il attende encore $10$ minutes : le guichet ne « se souvient » pas du temps déjà écoulé.\n\n**3) Espérance et commentaire :**\n$$E(X) = \\dfrac{1}{\\lambda} = \\dfrac{1}{0{,}2} = 5 \\text{ minutes}$$\nLe temps d'attente moyen est de $5$ minutes, mais on a trouvé à la question 1 que $P(X\\leqslant 10) \\approx 0{,}865$ : il y a donc une probabilité élevée d'attendre plus que la moyenne $2$ fois, ce qui s'explique par la forme dissymétrique de la densité exponentielle (beaucoup de petites valeurs, mais une « queue » étalée vers les grandes valeurs).\n\n$$\\boxed{P(X\\leqslant10)\\approx0{,}865,\\ P(X>15\\mid X>5)\\approx0{,}135,\\ E(X)=5 \\text{ min}}$$",
+            explanation: "Cet exercice de synthèse combine le calcul direct de probabilité, l'application de la propriété d'absence de mémoire avec justification, et le calcul de l'espérance, en demandant une interprétation critique du lien entre moyenne et probabilité — exigence typique d'un sujet de baccalauréat.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "lno1-id",
+    slug: "loi-normale-terminale",
+    title: "La loi normale",
+    description: "Découvrir la loi normale centrée réduite et la loi normale générale, et comprendre enfin l'origine du nombre $1{,}96$ utilisé dans l'intervalle de fluctuation.",
+    schoolLevel: "terminale" as const,
+    subject: "probabilites" as const,
+    difficulty: "Avancé" as const,
+    isFree: true,
+    thumbnailEmoji: "🔔",
+    lessons: [
+      {
+        id: "lno1-l1",
+        slug: "loi-normale-centree-reduite",
+        title: "La loi normale centrée réduite",
+        durationMinutes: 20,
+        content: `## Une nouvelle loi à densité : la loi normale centrée réduite
+
+  Tu as déjà rencontré des **lois à densité** (loi uniforme, loi exponentielle) pour modéliser des variables aléatoires continues. La **loi normale** est la plus célèbre de toutes : sa courbe en forme de "cloche" apparaît dès que l'on observe un grand nombre de répétitions d'un phénomène aléatoire (tailles, poids, erreurs de mesure, résultats de sondages...).
+
+  > **Définition.** La variable aléatoire $Z$ suit la **loi normale centrée réduite**, notée $\\mathcal{N}(0,1)$, si elle admet pour densité de probabilité la fonction :
+  > $$f(t) = \\dfrac{1}{\\sqrt{2\\pi}}e^{-t^2/2}, \\quad t \\in \\mathbb{R}$$
+
+  On ne démontre pas dans ce cours les propriétés de cette fonction (elle est dérivable, positive, et $\\displaystyle\\int_{-\\infty}^{+\\infty} f(t)\\,dt = 1$), mais il faut retenir l'allure de sa courbe représentative.
+
+  ### Allure de la courbe
+
+  La courbe de $f$ est une **cloche symétrique par rapport à l'axe des ordonnées** (symétrique par rapport à $t=0$), centrée en $0$, qui s'aplatit rapidement de part et d'autre. L'aire totale sous la courbe vaut $1$, comme pour toute densité de probabilité.
+
+  Cette symétrie traduit le fait que $Z$ et $-Z$ ont la même loi : les valeurs négatives et positives jouent des rôles symétriques.
+
+  ### Calcul de probabilités à la calculatrice
+
+  Contrairement à la loi uniforme, on ne sait pas calculer une primitive simple de $f$. On utilise donc la **calculatrice** ou un **logiciel** pour obtenir directement :
+
+  - $P(Z \\leqslant z)$ : aire sous la courbe à gauche de $z$ (fonction de répartition, souvent notée touche "normalcdf" ou "NormCD")
+  - $P(a \\leqslant Z \\leqslant b)$ : aire sous la courbe entre $a$ et $b$, égale à $P(Z\\leqslant b) - P(Z\\leqslant a)$
+
+  ### Propriétés de symétrie
+
+  La symétrie de la cloche par rapport à $0$ donne deux propriétés très utiles, valables pour tout réel $z$ :
+
+  > $$P(Z \\leqslant -z) = 1 - P(Z \\leqslant z)$$
+  > $$P(Z \\geqslant z) = 1 - P(Z \\leqslant z)$$
+
+  *Idée : l'aire totale sous la courbe vaut $1$. L'aire à gauche de $-z$ est, par symétrie, égale à l'aire à droite de $z$, donc égale à $1$ moins l'aire à gauche de $z$.*
+
+  On a aussi, pour tout $z \\geqslant 0$ :
+  $$P(-z \\leqslant Z \\leqslant z) = 1 - 2P(Z \\geqslant z) = 2P(Z\\leqslant z) - 1$$
+
+  ### Exemple chiffré complet
+
+  Soit $Z \\sim \\mathcal{N}(0,1)$. On donne, à la calculatrice : $P(Z \\leqslant 1{,}5) \\approx 0{,}9332$.
+
+  **1) Calculer $P(Z \\geqslant 1{,}5)$.**
+  $$P(Z \\geqslant 1{,}5) = 1 - P(Z \\leqslant 1{,}5) \\approx 1 - 0{,}9332 = 0{,}0668$$
+
+  **2) Calculer $P(Z \\leqslant -1{,}5)$.**
+  $$P(Z \\leqslant -1{,}5) = 1 - P(Z \\leqslant 1{,}5) \\approx 0{,}0668$$
+
+  **3) Calculer $P(-1{,}5 \\leqslant Z \\leqslant 1{,}5)$.**
+  $$P(-1{,}5 \\leqslant Z \\leqslant 1{,}5) = P(Z\\leqslant 1{,}5) - P(Z \\leqslant -1{,}5) \\approx 0{,}9332 - 0{,}0668 = 0{,}8664$$
+
+  On retrouve bien que la quasi-totalité de la probabilité est concentrée entre $-1{,}5$ et $1{,}5$, ce qui est cohérent avec l'allure en cloche de la densité.`,
+        exercises: [
+          {
+            id: "lno1-l1-e1",
+            type: "mcq" as const,
+            difficulty: "debutant" as const,
+            question: "La courbe représentative de la densité de la loi normale centrée réduite $\\mathcal{N}(0,1)$ est :",
+            options: [
+              { id: "A", text: "Une droite croissante" },
+              { id: "B", text: "Une cloche symétrique par rapport à $t=0$" },
+              { id: "C", text: "Une cloche symétrique par rapport à $t=1$" },
+              { id: "D", text: "Une fonction constante" },
+            ],
+            correctId: "B",
+            explanation: "La densité $f(t)=\\dfrac{1}{\\sqrt{2\\pi}}e^{-t^2/2}$ est une fonction paire (elle ne dépend que de $t^2$), donc sa courbe est symétrique par rapport à l'axe des ordonnées, c'est-à-dire par rapport à $t=0$.",
+          },
+          {
+            id: "lno1-l1-e2",
+            type: "true_false" as const,
+            difficulty: "debutant" as const,
+            question: "Si $Z \\sim \\mathcal{N}(0,1)$, alors $P(Z \\leqslant 0) = 0{,}5$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Par symétrie de la cloche autour de $0$, l'aire à gauche de $0$ et l'aire à droite de $0$ sont égales, et leur somme vaut $1$. Donc $P(Z\\leqslant 0) = 0{,}5$.",
+          },
+          {
+            id: "lno1-l1-e3",
+            type: "mcq" as const,
+            difficulty: "intermediaire" as const,
+            question: "On sait que $P(Z \\leqslant 2) \\approx 0{,}9772$ pour $Z \\sim \\mathcal{N}(0,1)$. Que vaut $P(Z \\geqslant 2)$ ?",
+            options: [
+              { id: "A", text: "$0{,}9772$" },
+              { id: "B", text: "$0{,}0228$" },
+              { id: "C", text: "$-0{,}9772$" },
+              { id: "D", text: "$0{,}5$" },
+            ],
+            correctId: "B",
+            explanation: "$P(Z \\geqslant 2) = 1 - P(Z \\leqslant 2) \\approx 1 - 0{,}9772 = 0{,}0228$.",
+          },
+          {
+            id: "lno1-l1-e4",
+            type: "true_false" as const,
+            difficulty: "intermediaire" as const,
+            question: "Pour $Z \\sim \\mathcal{N}(0,1)$ et $z>0$, on a toujours $P(Z\\leqslant -z) = P(Z \\geqslant z)$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Les deux quantités valent $1 - P(Z\\leqslant z)$ d'après les propriétés de symétrie, elles sont donc égales. Cela traduit la symétrie de la cloche : l'aire à gauche de $-z$ est égale à l'aire à droite de $z$.",
+          },
+          {
+            id: "lno1-l1-e5",
+            type: "open" as const,
+            difficulty: "expert" as const,
+            question: "Soit $Z \\sim \\mathcal{N}(0,1)$. On donne $P(Z \\leqslant 0{,}8) \\approx 0{,}7881$. Calculer $P(-0{,}8 \\leqslant Z \\leqslant 0{,}8)$, puis en déduire $P(|Z| \\geqslant 0{,}8)$.",
+            modelAnswer: `On utilise $P(-z \\leqslant Z \\leqslant z) = 2P(Z\\leqslant z) - 1$ avec $z = 0{,}8$ :
+  $$P(-0{,}8 \\leqslant Z \\leqslant 0{,}8) = 2 \\times 0{,}7881 - 1 = 0{,}5762$$
+
+  L'événement $|Z| \\geqslant 0{,}8$ est l'événement contraire de $-0{,}8 \\leqslant Z \\leqslant 0{,}8$, donc :
+  $$P(|Z| \\geqslant 0{,}8) = 1 - 0{,}5762 = 0{,}4238$$
+
+  $$\\boxed{P(-0{,}8\\leqslant Z\\leqslant 0{,}8) \\approx 0{,}5762 \\text{ et } P(|Z|\\geqslant 0{,}8)\\approx 0{,}4238}$$`,
+            explanation: "On combine la formule de symétrie $P(-z\\leqslant Z\\leqslant z) = 2P(Z\\leqslant z)-1$ avec le passage à l'événement contraire pour obtenir $P(|Z|\\geqslant z) = 1 - P(-z\\leqslant Z\\leqslant z)$.",
+          },
+        ],
+      },
+      {
+        id: "lno1-l2",
+        slug: "loi-normale-generale",
+        title: "La loi normale générale $\\mathcal{N}(\\mu,\\sigma^2)$",
+        durationMinutes: 22,
+        content: `## De la loi centrée réduite à la loi normale générale
+
+  La loi $\\mathcal{N}(0,1)$ est un cas particulier. En pratique, les grandeurs que l'on modélise (tailles, poids, durées, notes...) ne sont pas centrées en $0$ ni d'écart-type $1$. On généralise donc la loi normale.
+
+  > **Définition.** Soit $\\mu \\in \\mathbb{R}$ et $\\sigma > 0$. Une variable aléatoire $X$ suit la **loi normale** de paramètres $\\mu$ et $\\sigma^2$, notée $\\mathcal{N}(\\mu,\\sigma^2)$, si la variable centrée réduite
+  > $$Z = \\dfrac{X-\\mu}{\\sigma}$$
+  > suit la loi $\\mathcal{N}(0,1)$.
+
+  Le paramètre $\\mu$ est l'**espérance** de $X$ : $E(X) = \\mu$. Le paramètre $\\sigma$ est l'**écart-type** de $X$ : $\\sigma(X) = \\sigma$. La courbe de $X$ est encore une cloche symétrique, mais centrée en $\\mu$ (au lieu de $0$) et plus ou moins étalée selon la valeur de $\\sigma$ (plus $\\sigma$ est grand, plus la cloche est aplatie et large).
+
+  ### Calculer des probabilités avec $X \\sim \\mathcal{N}(\\mu,\\sigma^2)$
+
+  On peut directement utiliser la calculatrice (avec $\\mu$ et $\\sigma$ en paramètres) pour obtenir $P(X \\leqslant x)$ ou $P(a \\leqslant X \\leqslant b)$. On peut aussi se ramener à $\\mathcal{N}(0,1)$ grâce au changement de variable $Z = \\dfrac{X-\\mu}{\\sigma}$ :
+  $$P(X \\leqslant x) = P\\left(Z \\leqslant \\dfrac{x-\\mu}{\\sigma}\\right)$$
+
+  ### La règle des "$68$-$95$-$99{,}7$"
+
+  Cette règle, très utile pour estimer rapidement des probabilités sans calculatrice, découle directement des propriétés de la loi normale :
+
+  > Si $X \\sim \\mathcal{N}(\\mu,\\sigma^2)$, alors :
+  > $$P(\\mu-\\sigma \\leqslant X \\leqslant \\mu+\\sigma) \\approx 0{,}68$$
+  > $$P(\\mu-2\\sigma \\leqslant X \\leqslant \\mu+2\\sigma) \\approx 0{,}95$$
+  > $$P(\\mu-3\\sigma \\leqslant X \\leqslant \\mu+3\\sigma) \\approx 0{,}997$$
+
+  Autrement dit : environ $68\\%$ des valeurs sont à moins d'un écart-type de la moyenne, environ $95\\%$ à moins de deux écarts-types, et la quasi-totalité ($99{,}7\\%$) à moins de trois écarts-types.
+
+  ### Exemple chiffré complet
+
+  La taille $X$ (en cm) des adultes d'une population suit la loi normale $\\mathcal{N}(170, 8^2)$, c'est-à-dire $\\mu = 170$ et $\\sigma = 8$.
+
+  **1) Quelle est la probabilité qu'un adulte mesure entre $162$ cm et $178$ cm ?**
+
+  On remarque que $162 = 170 - 8 = \\mu - \\sigma$ et $178 = 170+8 = \\mu+\\sigma$. D'après la règle des $68$-$95$-$99{,}7$ :
+  $$P(162 \\leqslant X \\leqslant 178) \\approx 0{,}68$$
+
+  **2) Quelle est la probabilité qu'un adulte mesure entre $154$ cm et $186$ cm ?**
+
+  On a $154 = \\mu - 2\\sigma$ et $186 = \\mu + 2\\sigma$, donc :
+  $$P(154 \\leqslant X \\leqslant 186) \\approx 0{,}95$$
+
+  **3) Quelle est la probabilité qu'un adulte mesure plus de $186$ cm ?**
+
+  Par symétrie de la cloche autour de $\\mu = 170$ :
+  $$P(X \\geqslant 186) = \\dfrac{1 - P(154\\leqslant X \\leqslant 186)}{2} \\approx \\dfrac{1-0{,}95}{2} = 0{,}025$$
+
+  Une probabilité d'environ $2{,}5\\%$ qu'un adulte choisi au hasard mesure plus de $1$m$86$.`,
+        exercises: [
+          {
+            id: "lno1-l2-e1",
+            type: "mcq" as const,
+            difficulty: "debutant" as const,
+            question: "Si $X \\sim \\mathcal{N}(\\mu,\\sigma^2)$, alors la variable $Z = \\dfrac{X-\\mu}{\\sigma}$ suit :",
+            options: [
+              { id: "A", text: "La loi $\\mathcal{N}(\\mu,\\sigma^2)$" },
+              { id: "B", text: "La loi $\\mathcal{N}(0,1)$" },
+              { id: "C", text: "La loi uniforme sur $[0,1]$" },
+              { id: "D", text: "La loi binomiale" },
+            ],
+            correctId: "B",
+            explanation: "C'est la définition même de la loi normale générale : $Z=\\dfrac{X-\\mu}{\\sigma}$ est, par construction, centrée réduite.",
+          },
+          {
+            id: "lno1-l2-e2",
+            type: "true_false" as const,
+            difficulty: "debutant" as const,
+            question: "Pour $X \\sim \\mathcal{N}(\\mu,\\sigma^2)$, l'espérance de $X$ est $E(X) = \\sigma$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est $\\mu$ qui est l'espérance de $X$ : $E(X) = \\mu$. Le paramètre $\\sigma$ est l'écart-type de $X$.",
+          },
+          {
+            id: "lno1-l2-e3",
+            type: "mcq" as const,
+            difficulty: "intermediaire" as const,
+            question: "Le poids $X$ (en kg) d'une population suit $\\mathcal{N}(70, 5^2)$. Quel intervalle contient environ $95\\%$ des poids ?",
+            options: [
+              { id: "A", text: "$[65\\,;\\,75]$" },
+              { id: "B", text: "$[60\\,;\\,80]$" },
+              { id: "C", text: "$[55\\,;\\,85]$" },
+              { id: "D", text: "$[69\\,;\\,71]$" },
+            ],
+            correctId: "B",
+            explanation: "On utilise $[\\mu-2\\sigma\\,;\\,\\mu+2\\sigma] = [70-10\\,;\\,70+10] = [60\\,;\\,80]$, qui contient environ $95\\%$ des valeurs.",
+          },
+          {
+            id: "lno1-l2-e4",
+            type: "true_false" as const,
+            difficulty: "intermediaire" as const,
+            question: "Pour $X\\sim\\mathcal{N}(\\mu,\\sigma^2)$, plus $\\sigma$ est grand, plus la courbe en cloche est resserrée autour de $\\mu$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est l'inverse : plus $\\sigma$ est grand, plus la dispersion autour de $\\mu$ est importante, donc plus la cloche est aplatie et étalée.",
+          },
+          {
+            id: "lno1-l2-e5",
+            type: "open" as const,
+            difficulty: "expert" as const,
+            question: "La durée de vie $X$ (en heures) d'un composant électronique suit la loi $\\mathcal{N}(1000, 50^2)$. Calculer $P(950 \\leqslant X \\leqslant 1100)$ en utilisant la règle des $68$-$95$-$99{,}7$, puis donner $P(X \\leqslant 850)$.",
+            modelAnswer: `On a $\\mu = 1000$ et $\\sigma = 50$.
+
+  **Calcul de $P(950 \\leqslant X \\leqslant 1100)$ :**
+  On ne peut pas appliquer directement la règle car les bornes ne sont pas symétriques autour de $\\mu$ avec le même multiple de $\\sigma$ : $950 = \\mu - \\sigma$ mais $1100 = \\mu + 2\\sigma$.
+  On découpe : $P(950\\leqslant X\\leqslant 1100) = P(950 \\leqslant X \\leqslant 1000) + P(1000 \\leqslant X \\leqslant 1100)$.
+  Par symétrie, $P(\\mu-\\sigma\\leqslant X\\leqslant \\mu) = \\dfrac{0{,}68}{2} = 0{,}34$ et $P(\\mu \\leqslant X \\leqslant \\mu+2\\sigma) = \\dfrac{0{,}95}{2} = 0{,}475$.
+  Donc $P(950\\leqslant X\\leqslant 1100) \\approx 0{,}34 + 0{,}475 = 0{,}815$.
+
+  **Calcul de $P(X \\leqslant 850)$ :**
+  $850 = \\mu - 3\\sigma$. On sait que $P(\\mu-3\\sigma\\leqslant X\\leqslant \\mu+3\\sigma)\\approx 0{,}997$, donc $P(X\\leqslant \\mu-3\\sigma \\text{ ou } X \\geqslant \\mu+3\\sigma) \\approx 0{,}003$. Par symétrie :
+  $$P(X \\leqslant 850) = P(X\\leqslant \\mu-3\\sigma) \\approx \\dfrac{0{,}003}{2} = 0{,}0015$$
+
+  $$\\boxed{P(950\\leqslant X\\leqslant 1100)\\approx 0{,}815 \\text{ et } P(X\\leqslant 850)\\approx 0{,}0015}$$`,
+            explanation: "Quand les bornes ne sont pas symétriques par rapport à $\\mu$, on découpe l'intervalle en deux morceaux centrés en $\\mu$ et on utilise la symétrie de la cloche pour diviser par 2 les probabilités de la règle des $68$-$95$-$99{,}7$.",
+          },
+        ],
+      },
+      {
+        id: "lno1-l3",
+        slug: "theoreme-de-moivre-laplace-et-echantillonnage",
+        title: "Théorème de Moivre-Laplace et intervalle de fluctuation",
+        durationMinutes: 24,
+        content: `## D'où vient le $1{,}96$ de l'intervalle de fluctuation ?
+
+  Tu as utilisé dans un précédent cours l'intervalle de fluctuation asymptotique au seuil de $95\\%$ :
+  $$I_n = \\left[p - 1{,}96\\sqrt{\\dfrac{p(1-p)}{n}}\\ ;\\ p + 1{,}96\\sqrt{\\dfrac{p(1-p)}{n}}\\right]$$
+  sans savoir pourquoi le nombre $1{,}96$ apparaît précisément. La loi normale permet enfin de répondre à cette question.
+
+  ### Le théorème de Moivre-Laplace
+
+  > **Théorème (admis).** Soit $p \\in (0,1)$ fixé et, pour tout entier $n$, $X_n$ une variable aléatoire suivant la loi binomiale $\\mathcal{B}(n,p)$. Alors la variable centrée réduite associée
+  > $$Z_n = \\dfrac{X_n - np}{\\sqrt{np(1-p)}}$$
+  > **converge en loi vers la loi normale centrée réduite $\\mathcal{N}(0,1)$** lorsque $n \\to +\\infty$.
+
+  Concrètement, cela signifie que pour $n$ assez grand, on peut approcher les probabilités concernant $Z_n$ par celles d'une variable $Z \\sim \\mathcal{N}(0,1)$ :
+  $$P(a \\leqslant Z_n \\leqslant b) \\approx P(a \\leqslant Z \\leqslant b)$$
+
+  C'est ce théorème qui explique pourquoi la loi binomiale, lorsque $n$ est grand, a une représentation en bâtons qui ressemble à une cloche : c'est la cloche de la loi normale !
+
+  ### Retrouver la formule de l'intervalle de fluctuation
+
+  On part de $X_n \\sim \\mathcal{B}(n,p)$ et on pose $F_n = \\dfrac{X_n}{n}$ la fréquence observée. On veut déterminer un intervalle qui contient $F_n$ avec une probabilité d'environ $0{,}95$.
+
+  **Étape 1 : trouver $z$ tel que $P(-z \\leqslant Z \\leqslant z) \\approx 0{,}95$.**
+
+  À la calculatrice, on cherche $z$ tel que $2P(Z\\leqslant z) - 1 = 0{,}95$, c'est-à-dire $P(Z \\leqslant z) = 0{,}975$. On trouve :
+  $$z \\approx 1{,}96$$
+
+  C'est ici, et seulement ici, qu'apparaît le nombre $1{,}96$ : c'est la valeur telle que $P(-1{,}96 \\leqslant Z \\leqslant 1{,}96) \\approx 0{,}95$ pour $Z\\sim\\mathcal{N}(0,1)$.
+
+  **Étape 2 : appliquer le théorème de Moivre-Laplace.**
+
+  D'après le théorème, pour $n$ assez grand, $Z_n = \\dfrac{X_n-np}{\\sqrt{np(1-p)}}$ vérifie approximativement :
+  $$P(-1{,}96 \\leqslant Z_n \\leqslant 1{,}96) \\approx 0{,}95$$
+
+  **Étape 3 : revenir à la fréquence $F_n$.**
+
+  L'événement $-1{,}96 \\leqslant \\dfrac{X_n-np}{\\sqrt{np(1-p)}} \\leqslant 1{,}96$ équivaut, en multipliant par $\\sqrt{np(1-p)}$ puis en ajoutant $np$, à :
+  $$np - 1{,}96\\sqrt{np(1-p)} \\leqslant X_n \\leqslant np + 1{,}96\\sqrt{np(1-p)}$$
+
+  En divisant chaque membre par $n$ (et en utilisant $F_n = X_n/n$ et $\\sqrt{np(1-p)}/n = \\sqrt{p(1-p)/n}$) :
+  $$p - 1{,}96\\sqrt{\\dfrac{p(1-p)}{n}} \\leqslant F_n \\leqslant p + 1{,}96\\sqrt{\\dfrac{p(1-p)}{n}}$$
+
+  On retrouve exactement la formule de $I_n$ : **le $1{,}96$ vient bien de la loi normale**, c'est la valeur $z$ telle que $P(-z\\leqslant Z \\leqslant z)\\approx 0{,}95$.
+
+  ### Lien avec la loi des grands nombres
+
+  Pour conclure, un résultat complémentaire (admis, et qu'on ne démontre pas ici) : la **loi des grands nombres** affirme que lorsque $n$ devient très grand, la fréquence observée $F_n$ se rapproche de plus en plus de $p$ (en probabilité). On voit d'ailleurs que la longueur de $I_n$, égale à $2\\times 1{,}96\\sqrt{p(1-p)/n}$, tend vers $0$ quand $n \\to +\\infty$ : l'intervalle se resserre autour de $p$, ce qui est cohérent avec ce principe.
+
+  ### Exemple chiffré
+
+  Une urne contient une proportion $p=0{,}3$ de boules rouges. On tire $n=200$ boules avec remise et on note $F_n$ la fréquence de boules rouges obtenues.
+
+  On vérifie les conditions : $n=200\\geqslant 30$, $np = 60 \\geqslant 5$, $n(1-p)=140\\geqslant 5$. On peut donc utiliser l'intervalle de fluctuation :
+  $$I_{200} = \\left[0{,}3 - 1{,}96\\sqrt{\\dfrac{0{,}3\\times0{,}7}{200}}\\ ;\\ 0{,}3+1{,}96\\sqrt{\\dfrac{0{,}3\\times 0{,}7}{200}}\\right]$$
+
+  On calcule $\\sqrt{\\dfrac{0{,}21}{200}} \\approx 0{,}0324$, donc $1{,}96\\times 0{,}0324 \\approx 0{,}0635$, et :
+  $$I_{200} \\approx [0{,}237\\,;\\,0{,}364]$$
+
+  Si la fréquence observée sur l'échantillon est, par exemple, $f=0{,}40$, alors $f \\notin I_{200}$ : ce résultat est suffisamment éloigné de $p=0{,}3$ pour remettre en question, au seuil de $5\\%$, l'hypothèse que la proportion de boules rouges dans l'urne est bien $0{,}3$.`,
+        exercises: [
+          {
+            id: "lno1-l3-e1",
+            type: "mcq" as const,
+            difficulty: "debutant" as const,
+            question: "D'après le théorème de Moivre-Laplace, lorsque $n \\to +\\infty$, la variable $Z_n = \\dfrac{X_n-np}{\\sqrt{np(1-p)}}$ converge en loi vers :",
+            options: [
+              { id: "A", text: "La loi binomiale $\\mathcal{B}(n,p)$" },
+              { id: "B", text: "La loi normale $\\mathcal{N}(0,1)$" },
+              { id: "C", text: "La loi uniforme sur $[0,1]$" },
+              { id: "D", text: "La loi normale $\\mathcal{N}(p, p(1-p))$" },
+            ],
+            correctId: "B",
+            explanation: "C'est exactement l'énoncé du théorème de Moivre-Laplace : la variable centrée réduite associée à $X_n\\sim\\mathcal{B}(n,p)$ converge en loi vers $\\mathcal{N}(0,1)$.",
+          },
+          {
+            id: "lno1-l3-e2",
+            type: "true_false" as const,
+            difficulty: "debutant" as const,
+            question: "Le nombre $1{,}96$ utilisé dans l'intervalle de fluctuation vérifie $P(-1{,}96 \\leqslant Z \\leqslant 1{,}96) \\approx 0{,}95$ pour $Z \\sim \\mathcal{N}(0,1)$.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "C'est précisément la définition de ce nombre : c'est la valeur $z$ telle que l'intervalle $[-z\\,;\\,z]$ contienne $95\\%$ de la probabilité sous la cloche de $\\mathcal{N}(0,1)$.",
+          },
+          {
+            id: "lno1-l3-e3",
+            type: "mcq" as const,
+            difficulty: "intermediaire" as const,
+            question: "Pour appliquer le théorème de Moivre-Laplace afin d'obtenir l'intervalle de fluctuation usuel, on a besoin que :",
+            options: [
+              { id: "A", text: "$n$ soit petit et $p$ proche de $0{,}5$" },
+              { id: "B", text: "$n \\geqslant 30$, $np \\geqslant 5$ et $n(1-p) \\geqslant 5$" },
+              { id: "C", text: "$p = 0{,}5$ exactement" },
+              { id: "D", text: "$n$ soit un multiple de $100$" },
+            ],
+            correctId: "B",
+            explanation: "Ces conditions garantissent que l'approximation par la loi normale (via le théorème de Moivre-Laplace) est suffisamment fiable pour les valeurs de $n$ utilisées en pratique.",
+          },
+          {
+            id: "lno1-l3-e4",
+            type: "true_false" as const,
+            difficulty: "intermediaire" as const,
+            question: "La loi des grands nombres affirme que la longueur de l'intervalle de fluctuation $I_n$ augmente lorsque $n$ augmente.",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "La longueur de $I_n$ est $2\\times1{,}96\\sqrt{p(1-p)/n}$, qui diminue et tend vers $0$ quand $n$ augmente : l'intervalle se resserre autour de $p$, ce qui traduit le fait que $F_n$ se rapproche de $p$ (loi des grands nombres).",
+          },
+          {
+            id: "lno1-l3-e5",
+            type: "open" as const,
+            difficulty: "expert" as const,
+            question: "On lance $n=400$ fois une pièce supposée équilibrée ($p=0{,}5$) et $X_n$ compte le nombre de \"face\". Vérifier les conditions d'application, donner l'intervalle de fluctuation asymptotique $I_{400}$ au seuil de $95\\%$, puis conclure si on observe $f=0{,}57$ de \"face\".",
+            modelAnswer: `**Vérification des conditions :** $n=400\\geqslant 30$ ; $np = 400\\times0{,}5=200\\geqslant5$ ; $n(1-p)=200\\geqslant5$. Les conditions sont vérifiées, on peut utiliser l'intervalle de fluctuation asymptotique.
+
+  **Calcul de $I_{400}$ :**
+  $$I_{400} = \\left[0{,}5 - 1{,}96\\sqrt{\\dfrac{0{,}5\\times0{,}5}{400}}\\ ;\\ 0{,}5+1{,}96\\sqrt{\\dfrac{0{,}5\\times0{,}5}{400}}\\right]$$
+  On calcule $\\sqrt{\\dfrac{0{,}25}{400}} = \\sqrt{0{,}000625} = 0{,}025$, donc $1{,}96\\times0{,}025 = 0{,}049$.
+  $$I_{400} = [0{,}5-0{,}049\\,;\\,0{,}5+0{,}049] = [0{,}451\\,;\\,0{,}549]$$
+
+  **Conclusion :** la fréquence observée $f=0{,}57$ n'appartient pas à $I_{400}=[0{,}451\\,;\\,0{,}549]$. Au seuil de $5\\%$, ce résultat conduit à rejeter l'hypothèse selon laquelle la pièce est équilibrée : elle semble favoriser \"face\".
+
+  $$\\boxed{I_{400} = [0{,}451\\,;\\,0{,}549], \\text{ et } f=0{,}57 \\notin I_{400} \\Rightarrow \\text{on rejette l'hypothèse } p=0{,}5}$$`,
+            explanation: "On retrouve la démarche complète de test de validité d'hypothèse via l'intervalle de fluctuation, dont la formule provient directement du théorème de Moivre-Laplace appliqué avec $z=1{,}96$.",
+          },
+        ],
+      },
+    ],
+  }
 ];
 
 // Merge university-level courses (L1/L2/L3) into the main COURSES array
