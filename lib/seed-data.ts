@@ -306,7 +306,7 @@ Vérification : $u_1 = 3 + 5 = 8$, $u_2 = 3 + 10 = 13$... ✓
             id: "s1e4",
             question: "Une suite arithmétique a pour premier terme $u_0 = -5$ et raison $r = 2{,}5$. Calcule $u_{10}$ et précise le sens de variation de la suite.",
             type: "open",
-            modelAnswer: "$$u_{10} = u_0 + 10r = -5 + 10 \\times 2{,}5 = -5+25 = 20$$\\n\\nComme $r = 2{,}5 > 0$, la suite est strictement croissante.\\n\\n$$\\boxed{u_{10} = 20, \\text{ suite strictement croissante}}$$",
+            modelAnswer: "$$u_{10} = u_0 + 10r = -5 + 10 \\times 2{,}5 = -5+25 = 20$$\n\nComme $r = 2{,}5 > 0$, la suite est strictement croissante.\n\n$$\\boxed{u_{10} = 20, \\text{ suite strictement croissante}}$$",
             explanation: "On applique directement la formule du terme général $u_n = u_0+nr$, puis on détermine le sens de variation à partir du signe de la raison $r$.",
             difficulty: "intermediaire",
           },
@@ -314,7 +314,7 @@ Vérification : $u_1 = 3 + 5 = 8$, $u_2 = 3 + 10 = 13$... ✓
             id: "s1e5",
             question: "Soit $(u_n)$ une suite arithmétique de raison $r$. On sait que $u_4 = 22$ et $u_{10} = 46$. Détermine $r$ et $u_0$, puis donne l'expression de $u_n$ en fonction de $n$.",
             type: "open",
-            modelAnswer: "$u_{10}-u_4 = 6r$, donc $46-22=6r \\implies r = \\dfrac{24}{6}=4$.\\n\\n$u_4 = u_0+4r \\implies 22 = u_0+16 \\implies u_0 = 6$.\\n\\nDonc $u_n = 6+4n$.\\n\\n$$\\boxed{r=4,\\ u_0=6,\\ u_n=6+4n}$$",
+            modelAnswer: "$u_{10}-u_4 = 6r$, donc $46-22=6r \\implies r = \\dfrac{24}{6}=4$.\n\n$u_4 = u_0+4r \\implies 22 = u_0+16 \\implies u_0 = 6$.\n\nDonc $u_n = 6+4n$.\n\n$$\\boxed{r=4,\\ u_0=6,\\ u_n=6+4n}$$",
             explanation: "On utilise deux termes connus pour former un système permettant de retrouver d'abord la raison $r$ (par différence), puis le premier terme $u_0$.",
             difficulty: "expert",
           },
@@ -375,7 +375,7 @@ $$\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$$
             id: "s2e3",
             question: "Soit $(u_n)$ arithmétique avec $u_0=4$ et $r=3$. Calcule $S = u_0+u_1+\\cdots+u_{10}$ (les $11$ premiers termes).",
             type: "open",
-            modelAnswer: "$u_{10} = u_0+10r = 4+30=34$.\\n\\n$$S_{10} = (n+1)\\times\\dfrac{u_0+u_n}{2} = 11 \\times \\dfrac{4+34}{2} = 11\\times19 = 209$$\\n\\n$$\\boxed{S=209}$$",
+            modelAnswer: "$u_{10} = u_0+10r = 4+30=34$.\n\n$$S_{10} = (n+1)\\times\\dfrac{u_0+u_n}{2} = 11 \\times \\dfrac{4+34}{2} = 11\\times19 = 209$$\n\n$$\\boxed{S=209}$$",
             explanation: "On calcule d'abord le dernier terme $u_{10}$ avec la formule du terme général, puis on applique la formule de la somme : (nombre de termes) × (moyenne du premier et dernier terme).",
             difficulty: "intermediaire",
           },
@@ -383,7 +383,7 @@ $$\\sum_{k=1}^{n} k = 1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$$
             id: "s2e4",
             question: "Une suite arithmétique a pour premier terme $u_0=1$ et raison $r=2$ (les entiers impairs). Sachant que la somme des $n+1$ premiers termes d'une telle suite vaut toujours $(n+1)^2$, retrouve ce résultat à partir de la formule générale $S_n=(n+1)\\times\\dfrac{u_0+u_n}{2}$, puis calcule $S_n$ pour $n=14$ (somme des $15$ premiers impairs).",
             type: "open",
-            modelAnswer: "On a $u_n = u_0+nr = 1+2n$.\\n\\n$$S_n = (n+1)\\times\\dfrac{u_0+u_n}{2} = (n+1)\\times\\dfrac{1+(1+2n)}{2} = (n+1)\\times\\dfrac{2+2n}{2} = (n+1)\\times(n+1) = (n+1)^2$$\\n\\nOn retrouve bien $S_n=(n+1)^2$.\\n\\nPour $n=14$ : $S_{14} = (14+1)^2 = 15^2 = 225$.\\n\\n$$\\boxed{S_{14} = 225}$$",
+            modelAnswer: "On a $u_n = u_0+nr = 1+2n$.\n\n$$S_n = (n+1)\\times\\dfrac{u_0+u_n}{2} = (n+1)\\times\\dfrac{1+(1+2n)}{2} = (n+1)\\times\\dfrac{2+2n}{2} = (n+1)\\times(n+1) = (n+1)^2$$\n\nOn retrouve bien $S_n=(n+1)^2$.\n\nPour $n=14$ : $S_{14} = (14+1)^2 = 15^2 = 225$.\n\n$$\\boxed{S_{14} = 225}$$",
             explanation: "On part de la formule générale de la somme et on simplifie l'expression algébriquement pour retrouver la propriété remarquable $S_n=(n+1)^2$ propre à la suite des entiers impairs, avant d'appliquer cette formule à un cas numérique.",
             difficulty: "expert",
           },
@@ -444,7 +444,7 @@ $$S_n = \\sum_{k=0}^{n} v_k = v_0 \\cdot \\frac{1 - q^{n+1}}{1 - q} \\quad (q \\
             id: "s3e3",
             question: "Une suite géométrique a pour premier terme $v_0=5$ et raison $q=\\dfrac{1}{2}$. Calcule $v_3$ et précise si la suite est croissante ou décroissante.",
             type: "open",
-            modelAnswer: "$$v_3 = v_0 \\times q^3 = 5\\times\\left(\\dfrac{1}{2}\\right)^3 = 5\\times\\dfrac{1}{8} = \\dfrac{5}{8}$$\\n\\nComme $v_0=5>0$ et $0<q<1$, la suite est strictement décroissante.\\n\\n$$\\boxed{v_3=\\dfrac{5}{8}, \\text{ suite décroissante}}$$",
+            modelAnswer: "$$v_3 = v_0 \\times q^3 = 5\\times\\left(\\dfrac{1}{2}\\right)^3 = 5\\times\\dfrac{1}{8} = \\dfrac{5}{8}$$\n\nComme $v_0=5>0$ et $0<q<1$, la suite est strictement décroissante.\n\n$$\\boxed{v_3=\\dfrac{5}{8}, \\text{ suite décroissante}}$$",
             explanation: "On applique la formule du terme général $v_n=v_0\\cdot q^n$, puis on détermine le sens de variation selon le signe de $v_0$ et la position de $q$ par rapport à $1$.",
             difficulty: "intermediaire",
           },
@@ -452,7 +452,7 @@ $$S_n = \\sum_{k=0}^{n} v_k = v_0 \\cdot \\frac{1 - q^{n+1}}{1 - q} \\quad (q \\
             id: "s3e4",
             question: "Calcule la somme $S = 1+2+4+8+\\cdots+512$ (suite géométrique de raison $2$, $v_0=1$, dernier terme $512$).",
             type: "open",
-            modelAnswer: "On a $v_0=1$, $q=2$, et $v_n=512=2^n \\implies n=9$ (donc $10$ termes, de $v_0$ à $v_9$).\\n\\n$$S_9 = v_0\\times\\dfrac{1-q^{10}}{1-q} = 1\\times\\dfrac{1-2^{10}}{1-2} = \\dfrac{1-1024}{-1} = \\dfrac{-1023}{-1}=1023$$\\n\\n$$\\boxed{S=1023}$$",
+            modelAnswer: "On a $v_0=1$, $q=2$, et $v_n=512=2^n \\implies n=9$ (donc $10$ termes, de $v_0$ à $v_9$).\n\n$$S_9 = v_0\\times\\dfrac{1-q^{10}}{1-q} = 1\\times\\dfrac{1-2^{10}}{1-2} = \\dfrac{1-1024}{-1} = \\dfrac{-1023}{-1}=1023$$\n\n$$\\boxed{S=1023}$$",
             explanation: "On identifie d'abord le nombre de termes à partir du dernier terme donné, puis on applique la formule de la somme géométrique $S_n=v_0\\dfrac{1-q^{n+1}}{1-q}$.",
             difficulty: "intermediaire",
           },
@@ -460,7 +460,7 @@ $$S_n = \\sum_{k=0}^{n} v_k = v_0 \\cdot \\frac{1 - q^{n+1}}{1 - q} \\quad (q \\
             id: "s3e5",
             question: "Une suite géométrique a pour termes $v_2=12$ et $v_5=96$. Détermine la raison $q$ (positive) et le premier terme $v_0$.",
             type: "open",
-            modelAnswer: "$\\dfrac{v_5}{v_2} = q^3$, donc $q^3 = \\dfrac{96}{12}=8 \\implies q=\\sqrt[3]{8}=2$.\\n\\n$v_2 = v_0\\times q^2 \\implies 12 = v_0\\times4 \\implies v_0=3$.\\n\\n$$\\boxed{q=2,\\ v_0=3}$$",
+            modelAnswer: "$\\dfrac{v_5}{v_2} = q^3$, donc $q^3 = \\dfrac{96}{12}=8 \\implies q=\\sqrt[3]{8}=2$.\n\n$v_2 = v_0\\times q^2 \\implies 12 = v_0\\times4 \\implies v_0=3$.\n\n$$\\boxed{q=2,\\ v_0=3}$$",
             explanation: "Le rapport de deux termes séparés de $k$ rangs est égal à $q^k$ ; on en déduit $q$ par racine cubique, puis $v_0$ en remontant à partir d'un terme connu.",
             difficulty: "expert",
           },
@@ -468,7 +468,7 @@ $$S_n = \\sum_{k=0}^{n} v_k = v_0 \\cdot \\frac{1 - q^{n+1}}{1 - q} \\quad (q \\
             id: "s3e6",
             question: "Une suite géométrique vérifie $0<q<1$ et $v_0>0$. Explique pourquoi la somme $S_n=v_0\\dfrac{1-q^{n+1}}{1-q}$ se rapproche d'une limite finie quand $n$ tend vers $+\\infty$, et exprime cette limite.",
             type: "open",
-            modelAnswer: "Quand $0<q<1$, la puissance $q^{n+1}$ tend vers $0$ lorsque $n$ tend vers $+\\infty$ (car on multiplie indéfiniment par un nombre inférieur à $1$ en valeur absolue).\\n\\nDonc $S_n = v_0\\dfrac{1-q^{n+1}}{1-q}$ tend vers $v_0\\dfrac{1-0}{1-q} = \\dfrac{v_0}{1-q}$.\\n\\n$$\\boxed{\\lim_{n\\to+\\infty} S_n = \\dfrac{v_0}{1-q}}$$",
+            modelAnswer: "Quand $0<q<1$, la puissance $q^{n+1}$ tend vers $0$ lorsque $n$ tend vers $+\\infty$ (car on multiplie indéfiniment par un nombre inférieur à $1$ en valeur absolue).\n\nDonc $S_n = v_0\\dfrac{1-q^{n+1}}{1-q}$ tend vers $v_0\\dfrac{1-0}{1-q} = \\dfrac{v_0}{1-q}$.\n\n$$\\boxed{\\lim_{n\\to+\\infty} S_n = \\dfrac{v_0}{1-q}}$$",
             explanation: "C'est le principe de la somme d'une série géométrique convergente : lorsque $|q|<1$, $q^{n+1}\\to0$, ce qui permet de calculer la limite de la somme partielle.",
             difficulty: "expert",
           },
@@ -560,7 +560,7 @@ $$\\boxed{\\int_a^b f(x)\\, dx = [F(x)]_a^b = F(b) - F(a)}$$`,
             id: "i1e4",
             question: "Utilise la relation de Chasles pour exprimer $\\int_0^5 f(x)\\,dx$ en fonction de $\\int_0^2 f(x)\\,dx = 4$ et $\\int_2^5 f(x)\\,dx = 7$.",
             type: "open",
-            modelAnswer: "D'après la relation de Chasles :\\n\\n$$\\int_0^5 f(x)\\,dx = \\int_0^2 f(x)\\,dx + \\int_2^5 f(x)\\,dx = 4+7=11$$\\n\\n$$\\boxed{11}$$",
+            modelAnswer: "D'après la relation de Chasles :\n\n$$\\int_0^5 f(x)\\,dx = \\int_0^2 f(x)\\,dx + \\int_2^5 f(x)\\,dx = 4+7=11$$\n\n$$\\boxed{11}$$",
             explanation: "La relation de Chasles permet de découper un intervalle d'intégration en sous-intervalles et d'additionner les intégrales correspondantes.",
             difficulty: "intermediaire",
           },
@@ -568,7 +568,7 @@ $$\\boxed{\\int_a^b f(x)\\, dx = [F(x)]_a^b = F(b) - F(a)}$$`,
             id: "i1e5",
             question: "Soit $f$ continue sur $[-3,3]$ et impaire. Que peut-on dire de $\\int_{-3}^{3} f(x)\\,dx$ ? Justifie en utilisant la symétrie de la courbe.",
             type: "open",
-            modelAnswer: "Une fonction impaire vérifie $f(-x)=-f(x)$ : sa courbe est symétrique par rapport à l'origine.\\n\\nL'aire algébrique entre $-3$ et $0$ est donc exactement l'opposée de l'aire algébrique entre $0$ et $3$ : elles s'annulent lorsqu'on les additionne.\\n\\n$$\\int_{-3}^{3} f(x)\\,dx = \\int_{-3}^{0} f(x)\\,dx + \\int_0^3 f(x)\\,dx = 0$$\\n\\n$$\\boxed{\\int_{-3}^{3} f(x)\\,dx = 0}$$",
+            modelAnswer: "Une fonction impaire vérifie $f(-x)=-f(x)$ : sa courbe est symétrique par rapport à l'origine.\n\nL'aire algébrique entre $-3$ et $0$ est donc exactement l'opposée de l'aire algébrique entre $0$ et $3$ : elles s'annulent lorsqu'on les additionne.\n\n$$\\int_{-3}^{3} f(x)\\,dx = \\int_{-3}^{0} f(x)\\,dx + \\int_0^3 f(x)\\,dx = 0$$\n\n$$\\boxed{\\int_{-3}^{3} f(x)\\,dx = 0}$$",
             explanation: "C'est une propriété classique : l'intégrale d'une fonction impaire sur un intervalle symétrique par rapport à $0$ est toujours nulle, grâce à la relation de Chasles et à la symétrie de la courbe.",
             difficulty: "expert",
           },
@@ -629,7 +629,7 @@ $$\\int_{\\varphi(\\alpha)}^{\\varphi(\\beta)} f(x)\\, dx = \\int_{\\alpha}^{\\b
             id: "i2e3",
             question: "Par changement de variable $t=x^2+1$, calcule $\\displaystyle\\int_0^1 2x\\sqrt{x^2+1}\\,dx$ (valeur exacte).",
             type: "open",
-            modelAnswer: "Avec $t=x^2+1$, $dt=2x\\,dx$. Quand $x=0$, $t=1$ ; quand $x=1$, $t=2$.\\n\\n$$\\int_0^1 2x\\sqrt{x^2+1}\\,dx = \\int_1^2 \\sqrt{t}\\,dt = \\left[\\dfrac{2}{3}t^{3/2}\\right]_1^2 = \\dfrac{2}{3}\\left(2\\sqrt{2}-1\\right)$$\\n\\n$$\\boxed{\\dfrac{2}{3}(2\\sqrt{2}-1)}$$",
+            modelAnswer: "Avec $t=x^2+1$, $dt=2x\\,dx$. Quand $x=0$, $t=1$ ; quand $x=1$, $t=2$.\n\n$$\\int_0^1 2x\\sqrt{x^2+1}\\,dx = \\int_1^2 \\sqrt{t}\\,dt = \\left[\\dfrac{2}{3}t^{3/2}\\right]_1^2 = \\dfrac{2}{3}\\left(2\\sqrt{2}-1\\right)$$\n\n$$\\boxed{\\dfrac{2}{3}(2\\sqrt{2}-1)}$$",
             explanation: "On repère que $2x\\,dx$ correspond exactement à $dt$ après le changement de variable $t=x^2+1$, ce qui simplifie l'intégrale en une primitive de puissance de $t$.",
             difficulty: "intermediaire",
           },
@@ -637,7 +637,7 @@ $$\\int_{\\varphi(\\alpha)}^{\\varphi(\\beta)} f(x)\\, dx = \\int_{\\alpha}^{\\b
             id: "i2e4",
             question: "Par IPP, calcule $\\displaystyle\\int_1^e \\ln(x)\\,dx$ (en posant $u=\\ln(x)$, $v'=1$).",
             type: "open",
-            modelAnswer: "Avec $u=\\ln(x)$, $v'=1$ : $u'=\\dfrac{1}{x}$, $v=x$.\\n\\n$$\\int_1^e \\ln(x)\\,dx = [x\\ln(x)]_1^e - \\int_1^e 1\\,dx = (e\\times1 - 1\\times0) - [x]_1^e = e - (e-1) = 1$$\\n\\n$$\\boxed{1}$$",
+            modelAnswer: "Avec $u=\\ln(x)$, $v'=1$ : $u'=\\dfrac{1}{x}$, $v=x$.\n\n$$\\int_1^e \\ln(x)\\,dx = [x\\ln(x)]_1^e - \\int_1^e 1\\,dx = (e\\times1 - 1\\times0) - [x]_1^e = e - (e-1) = 1$$\n\n$$\\boxed{1}$$",
             explanation: "L'astuce classique pour intégrer $\\ln(x)$ seul est de l'écrire comme $\\ln(x)\\times1$ et d'appliquer l'IPP avec $v'=1$.",
             difficulty: "expert",
           },
@@ -645,7 +645,7 @@ $$\\int_{\\varphi(\\alpha)}^{\\varphi(\\beta)} f(x)\\, dx = \\int_{\\alpha}^{\\b
             id: "i2e5",
             question: "Calcule $\\displaystyle\\int_0^1 x^2 e^x\\,dx$ en appliquant l'intégration par parties deux fois.",
             type: "open",
-            modelAnswer: "**Première IPP** avec $u=x^2$, $v'=e^x$ ($u'=2x$, $v=e^x$) :\\n\\n$$\\int_0^1 x^2e^x\\,dx = [x^2e^x]_0^1 - \\int_0^1 2xe^x\\,dx = e - 2\\int_0^1 xe^x\\,dx$$\\n\\n**Deuxième IPP** sur $\\int_0^1 xe^x\\,dx$ avec $u=x$, $v'=e^x$ :\\n\\n$$\\int_0^1 xe^x\\,dx = [xe^x]_0^1 - \\int_0^1 e^x\\,dx = e - (e-1) = 1$$\\n\\nDonc :\\n\\n$$\\int_0^1 x^2e^x\\,dx = e - 2\\times1 = e-2$$\\n\\n$$\\boxed{e-2}$$",
+            modelAnswer: "**Première IPP** avec $u=x^2$, $v'=e^x$ ($u'=2x$, $v=e^x$) :\n\n$$\\int_0^1 x^2e^x\\,dx = [x^2e^x]_0^1 - \\int_0^1 2xe^x\\,dx = e - 2\\int_0^1 xe^x\\,dx$$\n\n**Deuxième IPP** sur $\\int_0^1 xe^x\\,dx$ avec $u=x$, $v'=e^x$ :\n\n$$\\int_0^1 xe^x\\,dx = [xe^x]_0^1 - \\int_0^1 e^x\\,dx = e - (e-1) = 1$$\n\nDonc :\n\n$$\\int_0^1 x^2e^x\\,dx = e - 2\\times1 = e-2$$\n\n$$\\boxed{e-2}$$",
             explanation: "Lorsque l'intégrande contient $x^2$, on applique l'intégration par parties deux fois successivement, en réduisant chaque fois la puissance de $x$.",
             difficulty: "expert",
           },
@@ -700,7 +700,7 @@ $$V = \\pi \\int_{-R}^{R} (R^2 - x^2)\\, dx = \\pi \\left[R^2 x - \\frac{x^3}{3}
             id: "i3e3",
             question: "Calcule l'aire entre la courbe de $f(x)=4-x^2$ et l'axe des abscisses, sur l'intervalle où $f(x)\\geqslant 0$ (c'est-à-dire $[-2,2]$).",
             type: "open",
-            modelAnswer: "$$\\mathcal{A} = \\int_{-2}^{2} (4-x^2)\\,dx = \\left[4x-\\dfrac{x^3}{3}\\right]_{-2}^{2}$$\\n\\n$$= \\left(8-\\dfrac{8}{3}\\right) - \\left(-8+\\dfrac{8}{3}\\right) = 8-\\dfrac{8}{3}+8-\\dfrac{8}{3} = 16-\\dfrac{16}{3} = \\dfrac{48-16}{3}=\\dfrac{32}{3}$$\\n\\n$$\\boxed{\\mathcal{A} = \\dfrac{32}{3} \\text{ unités d'aire}}$$",
+            modelAnswer: "$$\\mathcal{A} = \\int_{-2}^{2} (4-x^2)\\,dx = \\left[4x-\\dfrac{x^3}{3}\\right]_{-2}^{2}$$\n\n$$= \\left(8-\\dfrac{8}{3}\\right) - \\left(-8+\\dfrac{8}{3}\\right) = 8-\\dfrac{8}{3}+8-\\dfrac{8}{3} = 16-\\dfrac{16}{3} = \\dfrac{48-16}{3}=\\dfrac{32}{3}$$\n\n$$\\boxed{\\mathcal{A} = \\dfrac{32}{3} \\text{ unités d'aire}}$$",
             explanation: "Comme $f(x)\\geqslant0$ sur $[-2,2]$ (racines de $4-x^2$), l'aire sous la courbe est directement donnée par l'intégrale de $f$ sur cet intervalle.",
             difficulty: "intermediaire",
           },
@@ -708,7 +708,7 @@ $$V = \\pi \\int_{-R}^{R} (R^2 - x^2)\\, dx = \\pi \\left[R^2 x - \\frac{x^3}{3}
             id: "i3e4",
             question: "Calcule le volume du solide engendré par la rotation autour de l'axe $(Ox)$ de la courbe de $f(x)=\\sqrt{x}$ sur $[0,4]$.",
             type: "open",
-            modelAnswer: "$$V = \\pi\\int_0^4 [f(x)]^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi\\left[\\dfrac{x^2}{2}\\right]_0^4 = \\pi\\times\\dfrac{16}{2} = 8\\pi$$\\n\\n$$\\boxed{V = 8\\pi \\text{ unités de volume}}$$",
+            modelAnswer: "$$V = \\pi\\int_0^4 [f(x)]^2\\,dx = \\pi\\int_0^4 x\\,dx = \\pi\\left[\\dfrac{x^2}{2}\\right]_0^4 = \\pi\\times\\dfrac{16}{2} = 8\\pi$$\n\n$$\\boxed{V = 8\\pi \\text{ unités de volume}}$$",
             explanation: "On élève $f(x)=\\sqrt{x}$ au carré pour obtenir $x$, ce qui simplifie considérablement le calcul de l'intégrale.",
             difficulty: "expert",
           },
@@ -716,7 +716,7 @@ $$V = \\pi \\int_{-R}^{R} (R^2 - x^2)\\, dx = \\pi \\left[R^2 x - \\frac{x^3}{3}
             id: "i3e5",
             question: "Les courbes de $f(x)=x^2$ et $g(x)=2x$ se coupent en $x=0$ et $x=2$. Calcule l'aire de la région comprise entre ces deux courbes sur $[0,2]$.",
             type: "open",
-            modelAnswer: "Sur $[0,2]$, $g(x)=2x \\geqslant x^2=f(x)$ (on peut vérifier en $x=1$ : $2 \\geqslant 1$).\\n\\n$$\\mathcal{A} = \\int_0^2 [g(x)-f(x)]\\,dx = \\int_0^2 (2x-x^2)\\,dx = \\left[x^2-\\dfrac{x^3}{3}\\right]_0^2$$\\n\\n$$= \\left(4-\\dfrac{8}{3}\\right) - 0 = \\dfrac{12-8}{3} = \\dfrac{4}{3}$$\\n\\n$$\\boxed{\\mathcal{A} = \\dfrac{4}{3} \\text{ unités d'aire}}$$",
+            modelAnswer: "Sur $[0,2]$, $g(x)=2x \\geqslant x^2=f(x)$ (on peut vérifier en $x=1$ : $2 \\geqslant 1$).\n\n$$\\mathcal{A} = \\int_0^2 [g(x)-f(x)]\\,dx = \\int_0^2 (2x-x^2)\\,dx = \\left[x^2-\\dfrac{x^3}{3}\\right]_0^2$$\n\n$$= \\left(4-\\dfrac{8}{3}\\right) - 0 = \\dfrac{12-8}{3} = \\dfrac{4}{3}$$\n\n$$\\boxed{\\mathcal{A} = \\dfrac{4}{3} \\text{ unités d'aire}}$$",
             explanation: "On identifie d'abord quelle courbe est au-dessus de l'autre sur l'intervalle considéré (en testant une valeur intermédiaire), puis on intègre la différence des deux fonctions.",
             difficulty: "expert",
           },
@@ -1128,7 +1128,7 @@ $$\\boxed{845\\,000 < 8\\,045\\,000 < 8\\,450\\,000}$$
             id: "n6-l1-e4",
             question: "Écrire en chiffres : « trois millions deux cent sept mille quatre cent cinquante ».",
             type: "open",
-            modelAnswer: "$$\\mathbf{3\\,207\\,450}$$\\n\\n**Méthode étape par étape :**\\n- Trois millions → $3\\,000\\,000$\\n- Deux cent sept mille → $+207\\,000$\\n- Quatre cent cinquante → $+450$\\n\\n$$3\\,000\\,000 + 207\\,000 + 450 = 3\\,207\\,450$$",
+            modelAnswer: "$$\\mathbf{3\\,207\\,450}$$\n\n**Méthode étape par étape :**\n- Trois millions → $3\\,000\\,000$\n- Deux cent sept mille → $+207\\,000$\n- Quatre cent cinquante → $+450$\n\n$$3\\,000\\,000 + 207\\,000 + 450 = 3\\,207\\,450$$",
             explanation: "On écrit classe par classe : millions (3), milliers (207), unités (450) → $3\\,207\\,450$.",
             difficulty: "intermediaire",
           },
@@ -1250,7 +1250,7 @@ $$\\boxed{3{,}52 < 3{,}527 < 3{,}53}$$
             id: "n6-l2-e4",
             question: "Ordonner du plus petit au plus grand : $0{,}5$ ; $0{,}52$ ; $0{,}509$ ; $0{,}49$",
             type: "open",
-            modelAnswer: "$$\\boxed{0{,}49 < 0{,}5 < 0{,}509 < 0{,}52}$$\\n\\n**Méthode :** On ajoute des zéros pour avoir 3 décimales :\\n$$0{,}490 \\quad 0{,}500 \\quad 0{,}509 \\quad 0{,}520$$\\n\\nOn compare : $490 < 500 < 509 < 520$, d'où l'ordre.",
+            modelAnswer: "$$\\boxed{0{,}49 < 0{,}5 < 0{,}509 < 0{,}52}$$\n\n**Méthode :** On ajoute des zéros pour avoir 3 décimales :\n$$0{,}490 \\quad 0{,}500 \\quad 0{,}509 \\quad 0{,}520$$\n\nOn compare : $490 < 500 < 509 < 520$, d'où l'ordre.",
             explanation: "En écrivant tous avec 3 décimales : $490 < 500 < 509 < 520$.",
             difficulty: "intermediaire",
           },
@@ -1378,7 +1378,7 @@ $$\\begin{array}{r} 45{,}20 \\\\ -\\;18{,}75 \\\\ \\hline 26{,}45 \\end{array}$$
             id: "n6-l3-e4",
             question: "Un commerçant vend 4 articles à 3,75 € chacun avec une remise de 2,00 €. Quel est le total à payer ?",
             type: "open",
-            modelAnswer: "$$4 \\times 3{,}75 - 2{,}00 = 15{,}00 - 2{,}00 = \\boxed{13{,}00\\text{ €}}$$\\n\\n**Étape 1 :** $4 \\times 375 = 1500 \\Rightarrow 4 \\times 3{,}75 = 15{,}00$ €\\n**Étape 2 :** $15{,}00 - 2{,}00 = 13{,}00$ €",
+            modelAnswer: "$$4 \\times 3{,}75 - 2{,}00 = 15{,}00 - 2{,}00 = \\boxed{13{,}00\\text{ €}}$$\n\n**Étape 1 :** $4 \\times 375 = 1500 \\Rightarrow 4 \\times 3{,}75 = 15{,}00$ €\n**Étape 2 :** $15{,}00 - 2{,}00 = 13{,}00$ €",
             explanation: "$4 \\times 3{,}75 = 15$ €, puis $15 - 2 = 13$ €.",
             difficulty: "intermediaire",
           },
@@ -1394,6 +1394,135 @@ $$\\begin{array}{r} 45{,}20 \\\\ -\\;18{,}75 \\\\ \\hline 26{,}45 \\end{array}$$
             ],
             correctId: "A",
             explanation: "On multiplie les deux termes par $10$ : $6{,}3 \\div 0{,}9 = 63 \\div 9 = 7$. Vérif : $7 \\times 0{,}9 = 6{,}3$ ✓",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "n6-l4",
+        slug: "priorites-operatoires",
+        title: "Calcul mental, calcul posé et priorités opératoires",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Quand un calcul contient plusieurs opérations, l'ordre dans lequel on les effectue change le résultat ! Il existe des règles précises, appelées **priorités opératoires**, que tout le monde doit respecter pour obtenir le même résultat.
+
+## Les règles de priorité
+
+> 📌 **Méthode — l'ordre à respecter**
+> 1. On calcule d'abord ce qui est **entre parenthèses**.
+> 2. Puis les **multiplications et divisions**, dans l'ordre où elles apparaissent (de gauche à droite).
+> 3. Enfin les **additions et soustractions**, dans l'ordre où elles apparaissent (de gauche à droite).
+
+Cette règle évite toute ambiguïté : un calcul comme $5 + 3 \\times 2$ a un **unique** résultat correct.
+
+| Étape | Opération |
+|-------|-----------|
+| 1 | Parenthèses $( \\ldots )$ |
+| 2 | $\\times$ et $\\div$ (de gauche à droite) |
+| 3 | $+$ et $-$ (de gauche à droite) |
+
+> ⚠️ **Piège fréquent**
+> $5 + 3 \\times 2 \\neq (5 + 3) \\times 2$. Sans parenthèses, on calcule **toujours** la multiplication avant l'addition : $5 + 3 \\times 2 = 5 + 6 = 11$.
+
+## Calcul mental et calcul posé
+
+Pour calculer **mentalement** plus vite, on peut regrouper astucieusement les nombres (sans changer le résultat, en respectant les priorités) :
+- $25 \\times 4 \\times 7 = (25 \\times 4) \\times 7 = 100 \\times 7 = 700$
+- $48 + 17 + 2 = 48 + (17 + 2)$... mais on peut aussi écrire $48 + 2 + 17 = 50 + 17 = 67$ (l'ordre des termes d'une **même** opération peut être changé pour additionner/multiplier).
+
+Pour un calcul plus complexe, on pose le calcul **en colonnes** (addition, soustraction, multiplication) en respectant toujours les priorités s'il y a plusieurs opérations dans l'expression.
+
+## Exemples
+
+### ✅ Exemple simple — $7 + 2 \\times 3$
+
+On calcule d'abord la multiplication : $2 \\times 3 = 6$.
+
+$$7 + 2 \\times 3 = 7 + 6 = \\boxed{13}$$
+
+### 📘 Exemple intermédiaire — $(7 + 2) \\times 3$
+
+Les parenthèses imposent de calculer $7 + 2$ en premier.
+
+$$(7 + 2) \\times 3 = 9 \\times 3 = \\boxed{27}$$
+
+*Remarque : ce résultat est très différent de l'exemple précédent ($13 \\neq 27$) bien que les nombres soient les mêmes !*
+
+### 🔴 Exemple avancé — $20 - 3 \\times 4 + 18 \\div 2$
+
+**Étape 1 (× et ÷, de gauche à droite) :** $3 \\times 4 = 12$ puis $18 \\div 2 = 9$
+
+On obtient : $20 - 12 + 9$
+
+**Étape 2 (+ et −, de gauche à droite) :** $20 - 12 = 8$ puis $8 + 9 = 17$
+
+$$20 - 3 \\times 4 + 18 \\div 2 = \\boxed{17}$$
+
+## À retenir
+
+- **Parenthèses** en premier, toujours.
+- Ensuite **× et ÷** avant **+ et −**.
+- À l'intérieur d'une même priorité, on calcule **de gauche à droite**.
+- Les parenthèses permettent de **changer l'ordre naturel** des priorités.`,
+        exercises: [
+          {
+            id: "n6-l4-e1",
+            question: "$4 + 3 \\times 2 = ?$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$14$" },
+              { id: "B", text: "$10$" },
+              { id: "C", text: "$9$" },
+              { id: "D", text: "$24$" },
+            ],
+            correctId: "B",
+            explanation: "On calcule d'abord la multiplication : $3 \\times 2 = 6$. Puis $4 + 6 = \\mathbf{10}$. (L'option A correspondrait à $(4+3)\\times 2$.)",
+            difficulty: "debutant",
+          },
+          {
+            id: "n6-l4-e2",
+            question: "$(5 + 1) \\times 3$ donne le même résultat que $5 + 1 \\times 3$.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "faux",
+            explanation: "$(5+1)\\times 3 = 6 \\times 3 = 18$, alors que $5 + 1 \\times 3 = 5 + 3 = 8$. Les parenthèses changent complètement le résultat. **Faux.**",
+            difficulty: "debutant",
+          },
+          {
+            id: "n6-l4-e3",
+            question: "$15 - 2 \\times 5 + 4 = ?$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$9$" },
+              { id: "B", text: "$65$" },
+              { id: "C", text: "$-46$" },
+              { id: "D", text: "$17$" },
+            ],
+            correctId: "A",
+            explanation: "On calcule d'abord $2 \\times 5 = 10$. Il reste $15 - 10 + 4$. De gauche à droite : $15 - 10 = 5$, puis $5 + 4 = \\mathbf{9}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "n6-l4-e4",
+            question: "Calcule en détaillant chaque étape : $30 \\div 5 + 4 \\times (6 - 2)$.",
+            type: "open",
+            modelAnswer: "**Étape 1 (parenthèses) :** $6 - 2 = 4$\n\nL'expression devient : $30 \\div 5 + 4 \\times 4$\n\n**Étape 2 (× et ÷, de gauche à droite) :** $30 \\div 5 = 6$ et $4 \\times 4 = 16$\n\nL'expression devient : $6 + 16$\n\n**Étape 3 (addition) :** $6 + 16 = 22$\n\n$$\\boxed{30 \\div 5 + 4 \\times (6 - 2) = 22}$$",
+            explanation: "On respecte l'ordre : parenthèses, puis × et ÷, puis + et −. Cela donne $6 + 16 = 22$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "n6-l4-e5",
+            question: "Parmi ces quatre expressions, laquelle donne un résultat différent des trois autres ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2 + 4 \\times 7$" },
+              { id: "B", text: "$(2 + 4) \\times 5$" },
+              { id: "C", text: "$10 \\times 3 - 2 \\times 5$" },
+              { id: "D", text: "$8 \\times 2 + 3 \\times 5 - 1$" },
+            ],
+            correctId: "C",
+            explanation: "On calcule chaque expression en respectant les priorités. A : $2 + 4\\times7 = 2 + 28 = 30$. B : $(2+4)\\times5 = 6\\times5 = 30$. C : $10\\times3 - 2\\times5 = 30 - 10 = 20$. D : $8\\times2 + 3\\times5 - 1 = 16 + 15 - 1 = 30$. A, B et D donnent $30$, alors que **C donne $20$** : c'est l'expression différente des autres.",
             difficulty: "expert",
           },
         ],
@@ -1525,7 +1654,7 @@ $$\\boxed{\\frac{36}{48} = \\frac{3}{4}}$$
             id: "f6-l1-e4",
             question: "Donne trois fractions équivalentes à $\\frac{2}{5}$.",
             type: "open",
-            modelAnswer: "$$\\frac{2}{5} = \\frac{4}{10} = \\frac{6}{15} = \\frac{8}{20}$$\\n\\n**Méthode :** On multiplie numérateur et dénominateur par $2$, $3$, $4$... :\\n$$\\frac{2}{5} \\xrightarrow{\\times 2} \\frac{4}{10} \\xrightarrow{\\times 3} \\frac{6}{15} \\xrightarrow{\\times 4} \\frac{8}{20}$$\\n\\nTous ces résultats sont valides.",
+            modelAnswer: "$$\\frac{2}{5} = \\frac{4}{10} = \\frac{6}{15} = \\frac{8}{20}$$\n\n**Méthode :** On multiplie numérateur et dénominateur par $2$, $3$, $4$... :\n$$\\frac{2}{5} \\xrightarrow{\\times 2} \\frac{4}{10} \\xrightarrow{\\times 3} \\frac{6}{15} \\xrightarrow{\\times 4} \\frac{8}{20}$$\n\nTous ces résultats sont valides.",
             explanation: "En multipliant par 2, 3, 4 : $\\frac{4}{10}$, $\\frac{6}{15}$, $\\frac{8}{20}$.",
             difficulty: "intermediaire",
           },
@@ -1652,7 +1781,7 @@ $$\\boxed{\\frac{1}{2} < \\frac{2}{3} < \\frac{3}{4} < \\frac{5}{6}}$$
             id: "f6-l2-e4",
             question: "Ranger dans l'ordre croissant : $\\frac{1}{2}$, $\\frac{2}{3}$, $\\frac{3}{4}$, $\\frac{5}{6}$.",
             type: "open",
-            modelAnswer: "$$\\boxed{\\frac{1}{2} < \\frac{2}{3} < \\frac{3}{4} < \\frac{5}{6}}$$\\n\\n**Méthode :** PPCM$(2,3,4,6) = 12$\\n$$\\frac{1}{2} = \\frac{6}{12} \\quad \\frac{2}{3} = \\frac{8}{12} \\quad \\frac{3}{4} = \\frac{9}{12} \\quad \\frac{5}{6} = \\frac{10}{12}$$\\n$$6 < 8 < 9 < 10 \\implies \\frac{1}{2} < \\frac{2}{3} < \\frac{3}{4} < \\frac{5}{6}$$",
+            modelAnswer: "$$\\boxed{\\frac{1}{2} < \\frac{2}{3} < \\frac{3}{4} < \\frac{5}{6}}$$\n\n**Méthode :** PPCM$(2,3,4,6) = 12$\n$$\\frac{1}{2} = \\frac{6}{12} \\quad \\frac{2}{3} = \\frac{8}{12} \\quad \\frac{3}{4} = \\frac{9}{12} \\quad \\frac{5}{6} = \\frac{10}{12}$$\n$$6 < 8 < 9 < 10 \\implies \\frac{1}{2} < \\frac{2}{3} < \\frac{3}{4} < \\frac{5}{6}$$",
             explanation: "PPCM = 12. Numérateurs : 6, 8, 9, 10 → ordre croissant.",
             difficulty: "intermediaire",
           },
@@ -1782,7 +1911,7 @@ $$\\frac{3}{8} = 0{,}375$$
             id: "f6-l3-e4",
             question: "Écrire $0{,}625$ sous forme de fraction irréductible.",
             type: "open",
-            modelAnswer: "$$0{,}625 = \\frac{625}{1000} \\xrightarrow{\\div 125} \\frac{5}{8}$$\\n\\n**Méthode :**\\n- $3$ décimales → dénominateur $= 1000$\\n- $\\text{PGCD}(625, 1000) = 125$\\n- $\\frac{625 \\div 125}{1000 \\div 125} = \\boxed{\\frac{5}{8}}$\\n\\n**Vérif :** $5 \\div 8 = 0{,}625$ ✓",
+            modelAnswer: "$$0{,}625 = \\frac{625}{1000} \\xrightarrow{\\div 125} \\frac{5}{8}$$\n\n**Méthode :**\n- $3$ décimales → dénominateur $= 1000$\n- $\\text{PGCD}(625, 1000) = 125$\n- $\\frac{625 \\div 125}{1000 \\div 125} = \\boxed{\\frac{5}{8}}$\n\n**Vérif :** $5 \\div 8 = 0{,}625$ ✓",
             explanation: "$0{,}625 = \\frac{625}{1000} = \\frac{5}{8}$ après simplification par 125.",
             difficulty: "intermediaire",
           },
@@ -1932,7 +2061,7 @@ Si on sait qu'un angle vaut $\\theta$, les angles **opposés par le sommet** val
             id: "g6-l1-e4",
             question: "Cite les 4 types d'angles principaux, leurs mesures et donne un exemple concret pour chacun.",
             type: "open",
-            modelAnswer: "| Type | Mesure | Exemple |\\n|------|--------|---------|\\n| **Aigu** | $0° < \\alpha < 90°$ | Pointe d'un crayon (~$30°$) |\\n| **Droit** | $\\alpha = 90°$ | Coin d'une feuille |\\n| **Obtus** | $90° < \\alpha < 180°$ | Ouverture d'une porte (~$120°$) |\\n| **Plat** | $\\alpha = 180°$ | Une droite (angle formé par les deux demi-droites opposées) |",
+            modelAnswer: "| Type | Mesure | Exemple |\n|------|--------|---------|\n| **Aigu** | $0° < \\alpha < 90°$ | Pointe d'un crayon (~$30°$) |\n| **Droit** | $\\alpha = 90°$ | Coin d'une feuille |\n| **Obtus** | $90° < \\alpha < 180°$ | Ouverture d'une porte (~$120°$) |\n| **Plat** | $\\alpha = 180°$ | Une droite (angle formé par les deux demi-droites opposées) |",
             explanation: "Les 4 types : aigu (<90°), droit (=90°), obtus (90°-180°), plat (=180°).",
             difficulty: "intermediaire",
           },
@@ -2066,7 +2195,7 @@ Un quadrilatère a ses diagonales qui sont perpendiculaires ET égales. Quel est
             id: "g6-l2-e4",
             question: "Dans un triangle, deux angles mesurent 50° et 70°. Quel est le troisième ? Ce triangle est-il rectangle, isocèle ou quelconque ?",
             type: "open",
-            modelAnswer: "**Troisième angle :** $180° - 50° - 70° = \\mathbf{60°}$\\n\\nLes trois angles sont $50°$, $60°$, $70°$ : tous différents, aucun ne vaut $90°$.\\n\\n→ Le triangle est **quelconque** (scalène) : ni rectangle, ni isocèle, ni équilatéral.",
+            modelAnswer: "**Troisième angle :** $180° - 50° - 70° = \\mathbf{60°}$\n\nLes trois angles sont $50°$, $60°$, $70°$ : tous différents, aucun ne vaut $90°$.\n\n→ Le triangle est **quelconque** (scalène) : ni rectangle, ni isocèle, ni équilatéral.",
             explanation: "Troisième angle : $180° - 50° - 70° = 60°$. Trois angles différents → triangle quelconque.",
             difficulty: "intermediaire",
           },
@@ -2190,7 +2319,7 @@ $$\\mathcal{A} = 96 - 12{,}56 = \\boxed{83{,}44\\text{ m}^2}$$
             id: "g6-l3-e4",
             question: "Un jardin rectangulaire mesure $12$ m × $8$ m. Calculer son périmètre et son aire.",
             type: "open",
-            modelAnswer: "**Périmètre :**\\n$$P = 2(L + l) = 2(12 + 8) = 2 \\times 20 = \\boxed{40\\text{ m}}$$\\n\\n**Aire :**\\n$$\\mathcal{A} = L \\times l = 12 \\times 8 = \\boxed{96\\text{ m}^2}$$\\n\\n*Attention : le périmètre est en mètres (m) et l'aire en mètres carrés (m²).*",
+            modelAnswer: "**Périmètre :**\n$$P = 2(L + l) = 2(12 + 8) = 2 \\times 20 = \\boxed{40\\text{ m}}$$\n\n**Aire :**\n$$\\mathcal{A} = L \\times l = 12 \\times 8 = \\boxed{96\\text{ m}^2}$$\n\n*Attention : le périmètre est en mètres (m) et l'aire en mètres carrés (m²).*",
             explanation: "Périmètre : $2(12+8) = 40$ m. Aire : $12 \\times 8 = 96$ m².",
             difficulty: "intermediaire",
           },
@@ -2206,6 +2335,136 @@ $$\\mathcal{A} = 96 - 12{,}56 = \\boxed{83{,}44\\text{ m}^2}$$
             ],
             correctId: "A",
             explanation: "$\\mathcal{A} = \\pi r^2 \\approx 3{,}14 \\times 7^2 = 3{,}14 \\times 49 = \\mathbf{153{,}86\\text{ cm}^2}$. L'option B ($43{,}96$) correspond au périmètre ($2\\pi r$).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "g6-l4",
+        slug: "cercle-disque-constructions",
+        title: "Le cercle, le disque et les constructions géométriques",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Le **cercle** et le **disque** sont partout autour de nous (roues, assiettes, horloges...). Dans cette leçon, on apprend le vocabulaire précis et à utiliser les bons instruments : règle, équerre, compas et rapporteur.
+
+## Vocabulaire du cercle et du disque
+
+- Le **cercle** est l'ensemble des points situés à une même distance d'un point appelé **centre**.
+- Le **disque** est la surface intérieure délimitée par le cercle (le cercle + son intérieur).
+- Le **rayon** est la distance entre le centre et un point quelconque du cercle.
+- Le **diamètre** est un segment qui traverse le cercle en passant par le centre. Sa longueur vaut **deux fois le rayon** : $d = 2r$.
+- Une **corde** est un segment qui relie deux points du cercle, **sans forcément passer par le centre**.
+
+> 📌 **Méthode — Tracer un cercle au compas**
+> 1. Piquer la pointe du compas sur le **centre**.
+> 2. Écarter le compas de la longueur du **rayon** souhaité (à l'aide d'une règle).
+> 3. Faire tourner le compas d'un tour complet, en gardant la pointe fixe.
+
+## Utiliser les instruments de géométrie
+
+| Instrument | Usage principal |
+|------------|------------------|
+| **Règle** | Tracer des droites, mesurer des longueurs |
+| **Équerre** | Tracer ou vérifier un angle droit ($90°$) |
+| **Compas** | Tracer un cercle, reporter une longueur |
+| **Rapporteur** | Mesurer ou tracer un angle de mesure donnée |
+
+> 📌 **Méthode — Tracer un angle de mesure donnée au rapporteur**
+> 1. Tracer une demi-droite $[Ox)$, qui sera un côté de l'angle.
+> 2. Placer le centre du rapporteur sur le point $O$, en alignant la ligne de référence sur $[Ox)$.
+> 3. Repérer la graduation correspondant à l'angle voulu (ex : $50°$) et marquer un point.
+> 4. Tracer la demi-droite reliant $O$ à ce point : on obtient l'angle demandé.
+
+## Exemples
+
+### ✅ Exemple simple — Identifier rayon et diamètre
+
+Un cercle de centre $O$ a un rayon $OA = 3$ cm.
+
+$$d = 2 \\times r = 2 \\times 3 = \\boxed{6\\text{ cm}}$$
+
+### 📘 Exemple intermédiaire — Tracer un cercle de rayon donné
+
+Pour tracer un cercle de rayon $4{,}5$ cm de centre $O$ :
+1. On règle l'écartement du compas sur $4{,}5$ cm à l'aide de la règle graduée.
+2. On pique la pointe sèche en $O$.
+3. On fait tourner la mine du compas pour tracer le cercle complet.
+
+Tous les points du cercle obtenu sont à exactement $4{,}5$ cm du point $O$.
+
+### 🔴 Exemple avancé — Diamètre et corde
+
+Un cercle de centre $O$ a un diamètre $[AB]$ de longueur $10$ cm, et $[CD]$ est une corde qui ne passe pas par $O$.
+
+- Le rayon de ce cercle vaut $r = \\dfrac{10}{2} = \\boxed{5\\text{ cm}}$.
+- $[AB]$ est la **plus longue corde possible** du cercle : aucune corde ne peut être plus longue qu'un diamètre.
+- $[CD]$, ne passant pas par $O$, a donc une longueur **strictement inférieure** à $10$ cm.
+
+## À retenir
+
+- **Cercle** = contour (ligne) ; **disque** = surface (intérieur + contour)
+- **Diamètre = 2 × rayon**
+- Une **corde** ne passe pas forcément par le centre ; le diamètre est la plus longue des cordes
+- **Compas** → tracer un cercle ; **rapporteur** → mesurer/tracer un angle ; **équerre** → angle droit`,
+        exercises: [
+          {
+            id: "g6-l4-e1",
+            question: "Un cercle a un rayon de $5$ cm. Quel est son diamètre ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2{,}5$ cm" },
+              { id: "B", text: "$5$ cm" },
+              { id: "C", text: "$10$ cm" },
+              { id: "D", text: "$25$ cm" },
+            ],
+            correctId: "C",
+            explanation: "Le diamètre est le double du rayon : $d = 2 \\times r = 2 \\times 5 = \\mathbf{10\\text{ cm}}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "g6-l4-e2",
+            question: "Le disque désigne uniquement le contour (la ligne) du cercle, sans son intérieur.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "faux",
+            explanation: "C'est l'inverse : le **cercle** est la ligne (le contour), tandis que le **disque** est la surface intérieure délimitée par le cercle. **Faux.**",
+            difficulty: "debutant",
+          },
+          {
+            id: "g6-l4-e3",
+            question: "Pour tracer un angle de $65°$ à partir d'une demi-droite $[Ox)$, quel instrument doit-on utiliser en priorité ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Le compas" },
+              { id: "B", text: "L'équerre" },
+              { id: "C", text: "Le rapporteur" },
+              { id: "D", text: "La règle seule" },
+            ],
+            correctId: "C",
+            explanation: "Le **rapporteur** est l'instrument qui permet de mesurer ou de tracer un angle d'une valeur précise en degrés, comme $65°$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "g6-l4-e4",
+            question: "Explique la différence entre un rayon, un diamètre et une corde d'un cercle, et donne la relation entre rayon et diamètre.",
+            type: "open",
+            modelAnswer: "- Le **rayon** relie le centre du cercle à un point du cercle.\n- Le **diamètre** est un segment qui relie deux points du cercle en passant par le centre ; c'est la plus longue corde possible.\n- Une **corde** relie deux points du cercle, mais ne passe pas forcément par le centre.\n\nRelation : $$d = 2 \\times r$$\n\nAutrement dit, le diamètre est toujours **deux fois plus grand** que le rayon.",
+            explanation: "Le rayon va du centre au cercle, le diamètre traverse le cercle en passant par le centre (et vaut $2r$), la corde relie deux points du cercle sans condition sur le centre.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "g6-l4-e5",
+            question: "Un cercle de centre $O$ a un diamètre $[AB]$ de $14$ cm. $[CD]$ est une corde de ce cercle qui ne passe pas par $O$. Que peut-on dire de la longueur de $[CD]$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[CD]$ mesure exactement $14$ cm" },
+              { id: "B", text: "$[CD]$ mesure exactement $7$ cm" },
+              { id: "C", text: "$[CD]$ mesure strictement moins de $14$ cm" },
+              { id: "D", text: "$[CD]$ mesure plus de $14$ cm" },
+            ],
+            correctId: "C",
+            explanation: "Le diamètre est la **plus longue corde possible** d'un cercle. Comme $[CD]$ ne passe pas par le centre $O$, ce n'est pas un diamètre, donc sa longueur est **strictement inférieure** à $14$ cm.",
             difficulty: "expert",
           },
         ],
@@ -2335,7 +2594,7 @@ $\\frac{2}{1} = 2$, $\\frac{3}{2} = 1{,}5$, $\\frac{5}{3} \\approx 1{,}67$ → *
             id: "p6-l1-e4",
             question: "Le tableau suivant est-il proportionnel ? $x: 1, 2, 3, 4$ et $y: 3, 6, 9, 12$. Si oui, quel est le coefficient ?",
             type: "open",
-            modelAnswer: "**Calcul des rapports :**\\n$$\\frac{3}{1} = 3 \\quad \\frac{6}{2} = 3 \\quad \\frac{9}{3} = 3 \\quad \\frac{12}{4} = 3$$\\n\\nTous les rapports sont égaux à $3$ → le tableau est **proportionnel**.\\n\\n$$\\boxed{k = 3}$$\\n\\nFormule : $y = 3x$",
+            modelAnswer: "**Calcul des rapports :**\n$$\\frac{3}{1} = 3 \\quad \\frac{6}{2} = 3 \\quad \\frac{9}{3} = 3 \\quad \\frac{12}{4} = 3$$\n\nTous les rapports sont égaux à $3$ → le tableau est **proportionnel**.\n\n$$\\boxed{k = 3}$$\n\nFormule : $y = 3x$",
             explanation: "Tous les rapports $y/x = 3$ → proportionnel, $k = 3$.",
             difficulty: "intermediaire",
           },
@@ -2458,7 +2717,7 @@ $$? = \\frac{450 \\times 10}{6} = \\frac{4500}{6} = \\boxed{750\\text{ g}}$$
             id: "p6-l2-e4",
             question: "Une recette pour 6 personnes demande 450 g de farine. Quelle quantité pour 10 personnes ?",
             type: "open",
-            modelAnswer: "**Tableau de proportionnalité :**\\n| Personnes | 6 | 10 |\\n|---|---|---|\\n| Farine (g) | 450 | ? |\\n\\n**Règle de trois :**\\n$$? = \\frac{450 \\times 10}{6} = \\frac{4500}{6} = \\boxed{750\\text{ g}}$$\\n\\n**Vérification :** $\\frac{750}{10} = 75$ g/pers $= \\frac{450}{6} = 75$ g/pers ✓",
+            modelAnswer: "**Tableau de proportionnalité :**\n| Personnes | 6 | 10 |\n|---|---|---|\n| Farine (g) | 450 | ? |\n\n**Règle de trois :**\n$$? = \\frac{450 \\times 10}{6} = \\frac{4500}{6} = \\boxed{750\\text{ g}}$$\n\n**Vérification :** $\\frac{750}{10} = 75$ g/pers $= \\frac{450}{6} = 75$ g/pers ✓",
             explanation: "$\\frac{450 \\times 10}{6} = 750$ g.",
             difficulty: "intermediaire",
           },
@@ -2591,7 +2850,7 @@ $$\\text{Prix initial} = \\frac{144}{1{,}20} = \\frac{144}{1{,}2} = \\boxed{120\
             id: "p6-l3-e4",
             question: "Un élève a obtenu $14$ points sur $20$ à un contrôle. Quel est son score en pourcentage ?",
             type: "open",
-            modelAnswer: "$$\\text{Score}\\% = \\frac{14}{20} \\times 100 = \\frac{1400}{20} = \\boxed{70\\%}$$\\n\\n**Méthode :** On divise les points obtenus par le total et on multiplie par 100.\\n\\n*Vérification :* $70\\%$ de $20 = 0{,}70 \\times 20 = 14$ ✓",
+            modelAnswer: "$$\\text{Score}\\% = \\frac{14}{20} \\times 100 = \\frac{1400}{20} = \\boxed{70\\%}$$\n\n**Méthode :** On divise les points obtenus par le total et on multiplie par 100.\n\n*Vérification :* $70\\%$ de $20 = 0{,}70 \\times 20 = 14$ ✓",
             explanation: "$\\frac{14}{20} \\times 100 = 70\\%$.",
             difficulty: "intermediaire",
           },
@@ -2715,7 +2974,7 @@ $$a - b = a + (-b)$$
             id: "rel5-l1-e5",
             question: "Calculer et simplifier : $(-12) + (+7) - (-3)$",
             type: "open",
-            modelAnswer: "$$(-12) + (+7) - (-3) = (-12) + (+7) + (+3)$$\\n\\nOn additionne dans l'ordre : $(-12) + (+7) = -5$, puis $(-5) + (+3) = -2$.\\n\\n$$\\boxed{-2}$$",
+            modelAnswer: "$$(-12) + (+7) - (-3) = (-12) + (+7) + (+3)$$\n\nOn additionne dans l'ordre : $(-12) + (+7) = -5$, puis $(-5) + (+3) = -2$.\n\n$$\\boxed{-2}$$",
             explanation: "On transforme la soustraction $-(-3)$ en addition $+(+3)$, puis on additionne de gauche à droite.",
             difficulty: "expert",
           },
@@ -2806,7 +3065,7 @@ Deux nombres opposés ont la même distance à zéro mais des signes différents
             id: "rel5-l2-e5",
             question: "Deux nombres opposés ont-ils toujours la même distance à zéro ? Justifie.",
             type: "open",
-            modelAnswer: "Oui. Deux nombres opposés, comme $a$ et $-a$, ont la même partie numérique mais des signes différents.\\n\\nPar exemple, $+5$ et $-5$ sont opposés : $|+5| = 5$ et $|-5| = 5$.\\n\\n$$|a| = |-a|$$\\n\\nLa distance à zéro ne dépend que de la partie numérique, pas du signe.",
+            modelAnswer: "Oui. Deux nombres opposés, comme $a$ et $-a$, ont la même partie numérique mais des signes différents.\n\nPar exemple, $+5$ et $-5$ sont opposés : $|+5| = 5$ et $|-5| = 5$.\n\n$$|a| = |-a|$$\n\nLa distance à zéro ne dépend que de la partie numérique, pas du signe.",
             explanation: "La valeur absolue \"efface\" le signe : deux opposés ont donc la même distance à zéro.",
             difficulty: "expert",
           },
@@ -2902,7 +3161,7 @@ Pour un produit de plusieurs facteurs relatifs, on compte le nombre de facteurs 
             id: "rel5-l3-e5",
             question: "Sans calculer le résultat complet, explique pourquoi $(-1) \\times (-1) \\times (-1) \\times (-1) \\times (-1)$ est négatif.",
             type: "open",
-            modelAnswer: "Le produit contient $5$ facteurs égaux à $-1$, donc $5$ facteurs négatifs.\\n\\n$5$ est un nombre **impair**, donc le produit est négatif.\\n\\n$$(-1)^5 = -1$$\\n\\nRègle générale : $(-1)^n$ est négatif si $n$ est impair, positif si $n$ est pair.",
+            modelAnswer: "Le produit contient $5$ facteurs égaux à $-1$, donc $5$ facteurs négatifs.\n\n$5$ est un nombre **impair**, donc le produit est négatif.\n\n$$(-1)^5 = -1$$\n\nRègle générale : $(-1)^n$ est négatif si $n$ est impair, positif si $n$ est pair.",
             explanation: "On compte la parité du nombre de facteurs négatifs : impair $\\Rightarrow$ négatif.",
             difficulty: "expert",
           },
@@ -3008,7 +3267,7 @@ $$\\frac{1}{4} + \\frac{1}{6} = \\frac{3}{12} + \\frac{2}{12} = \\frac{5}{12}$$
             id: "frac5-l1-e5",
             question: "Calculer et simplifier le résultat : $\\dfrac{5}{6} - \\dfrac{1}{4}$",
             type: "open",
-            modelAnswer: "Dénominateur commun de $6$ et $4$ : $12$.\\n\\n$$\\frac{5}{6} = \\frac{10}{12} \\qquad \\frac{1}{4} = \\frac{3}{12}$$\\n\\n$$\\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$$\\n\\n$\\frac{7}{12}$ est déjà irréductible (7 est premier et ne divise pas 12).\\n\\n$$\\boxed{\\dfrac{7}{12}}$$",
+            modelAnswer: "Dénominateur commun de $6$ et $4$ : $12$.\n\n$$\\frac{5}{6} = \\frac{10}{12} \\qquad \\frac{1}{4} = \\frac{3}{12}$$\n\n$$\\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$$\n\n$\\frac{7}{12}$ est déjà irréductible (7 est premier et ne divise pas 12).\n\n$$\\boxed{\\dfrac{7}{12}}$$",
             explanation: "On met les deux fractions au dénominateur commun $12$ avant de soustraire les numérateurs.",
             difficulty: "expert",
           },
@@ -3101,7 +3360,7 @@ $$5 \\times \\frac{2}{3} = \\frac{5}{1} \\times \\frac{2}{3} = \\frac{10}{3}$$`,
             id: "frac5-l2-e5",
             question: "Un terrain rectangulaire mesure $\\dfrac{3}{4}$ km de long et $\\dfrac{2}{5}$ km de large. Quelle est son aire en km² ?",
             type: "open",
-            modelAnswer: "L'aire d'un rectangle est $\\text{longueur} \\times \\text{largeur}$.\\n\\n$$\\frac{3}{4} \\times \\frac{2}{5} = \\frac{3 \\times 2}{4 \\times 5} = \\frac{6}{20} = \\frac{3}{10}$$\\n\\n$$\\boxed{\\dfrac{3}{10} \\text{ km}^2}$$",
+            modelAnswer: "L'aire d'un rectangle est $\\text{longueur} \\times \\text{largeur}$.\n\n$$\\frac{3}{4} \\times \\frac{2}{5} = \\frac{3 \\times 2}{4 \\times 5} = \\frac{6}{20} = \\frac{3}{10}$$\n\n$$\\boxed{\\dfrac{3}{10} \\text{ km}^2}$$",
             explanation: "On multiplie les deux fractions puis on simplifie $\\frac{6}{20}$ en divisant par $2$.",
             difficulty: "expert",
           },
@@ -3190,7 +3449,7 @@ $$\\frac{2}{3} \\div \\frac{4}{5} = \\frac{2}{3} \\times \\frac{5}{4} = \\frac{1
             id: "frac5-l3-e5",
             question: "On partage $\\dfrac{4}{5}$ L de jus en parts de $\\dfrac{1}{10}$ L. Combien de parts obtient-on ?",
             type: "open",
-            modelAnswer: "On cherche combien de fois $\\frac{1}{10}$ tient dans $\\frac{4}{5}$, donc on calcule $\\frac{4}{5} \\div \\frac{1}{10}$.\\n\\n$$\\frac{4}{5} \\div \\frac{1}{10} = \\frac{4}{5} \\times \\frac{10}{1} = \\frac{40}{5} = 8$$\\n\\n$$\\boxed{8 \\text{ parts}}$$",
+            modelAnswer: "On cherche combien de fois $\\frac{1}{10}$ tient dans $\\frac{4}{5}$, donc on calcule $\\frac{4}{5} \\div \\frac{1}{10}$.\n\n$$\\frac{4}{5} \\div \\frac{1}{10} = \\frac{4}{5} \\times \\frac{10}{1} = \\frac{40}{5} = 8$$\n\n$$\\boxed{8 \\text{ parts}}$$",
             explanation: "Diviser par $\\frac{1}{10}$ revient à multiplier par $10$, puis simplifier.",
             difficulty: "expert",
           },
@@ -3296,7 +3555,7 @@ Si deux grandeurs sont proportionnelles, on peut additionner deux colonnes pour 
             id: "prop5-l1-e5",
             question: "3 kg de pommes coûtent 5,40 €. Combien coûtent 7 kg de pommes ? Détaille ta méthode.",
             type: "open",
-            modelAnswer: "On calcule le coefficient de proportionnalité (prix d'un kg) :\\n\\n$$5{,}40 \\div 3 = 1{,}80 \\text{ €/kg}$$\\n\\nPour 7 kg :\\n\\n$$1{,}80 \\times 7 = 12{,}60$$\\n\\n$$\\boxed{12{,}60 \\text{ €}}$$",
+            modelAnswer: "On calcule le coefficient de proportionnalité (prix d'un kg) :\n\n$$5{,}40 \\div 3 = 1{,}80 \\text{ €/kg}$$\n\nPour 7 kg :\n\n$$1{,}80 \\times 7 = 12{,}60$$\n\n$$\\boxed{12{,}60 \\text{ €}}$$",
             explanation: "On trouve le prix d'un kilogramme (coefficient), puis on multiplie par la quantité voulue.",
             difficulty: "expert",
           },
@@ -3385,7 +3644,7 @@ $$d = 90 \\times 2{,}5 = 225 \\text{ km}$$`,
             id: "prop5-l2-e5",
             question: "Un TGV parcourt 320 km en 1 h 36 min. Calcule sa vitesse moyenne en km/h.",
             type: "open",
-            modelAnswer: "On convertit la durée en heures : $1$ h $36$ min $= 1 + \\frac{36}{60} = 1{,}6$ h.\\n\\n$$v = \\frac{d}{t} = \\frac{320}{1{,}6} = 200$$\\n\\n$$\\boxed{200 \\text{ km/h}}$$",
+            modelAnswer: "On convertit la durée en heures : $1$ h $36$ min $= 1 + \\frac{36}{60} = 1{,}6$ h.\n\n$$v = \\frac{d}{t} = \\frac{320}{1{,}6} = 200$$\n\n$$\\boxed{200 \\text{ km/h}}$$",
             explanation: "On convertit d'abord les minutes en heures décimales avant d'appliquer la formule $v = d/t$.",
             difficulty: "expert",
           },
@@ -3474,7 +3733,7 @@ $$\\frac{20}{100} \\times 80 = 0{,}2 \\times 80 = 16$$
             id: "prop5-l3-e5",
             question: "Sur une carte, une distance réelle de $12$ km est représentée par un segment de $6$ cm. Quelle est l'échelle de la carte ?",
             type: "open",
-            modelAnswer: "On convertit la distance réelle en cm : $12$ km $= 1\\,200\\,000$ cm.\\n\\n$$\\text{échelle} = \\frac{6}{1\\,200\\,000} = \\frac{1}{200\\,000}$$\\n\\n$$\\boxed{1/200\\,000}$$",
+            modelAnswer: "On convertit la distance réelle en cm : $12$ km $= 1\\,200\\,000$ cm.\n\n$$\\text{échelle} = \\frac{6}{1\\,200\\,000} = \\frac{1}{200\\,000}$$\n\n$$\\boxed{1/200\\,000}$$",
             explanation: "On met les deux longueurs dans la même unité avant de calculer le rapport longueur plan / longueur réelle.",
             difficulty: "expert",
           },
@@ -3580,7 +3839,7 @@ Le symétrique d'un segment $[AB]$ par rapport à $O$ est un segment $[A'B']$ de
             id: "sym5-l1-e5",
             question: "Explique pourquoi le symétrique d'un cercle de centre $C$ et de rayon $r$, par rapport à un point $O$, est un cercle de même rayon $r$.",
             type: "open",
-            modelAnswer: "La symétrie centrale conserve les longueurs (c'est une isométrie).\\n\\nLe cercle de centre $C$ et de rayon $r$ est l'ensemble des points situés à distance $r$ de $C$.\\n\\nSon symétrique par rapport à $O$ est donc l'ensemble des points situés à distance $r$ du symétrique $C'$ de $C$, c'est-à-dire le cercle de centre $C'$ et de rayon $r$.\\n\\n$$\\boxed{\\text{Même rayon } r}$$",
+            modelAnswer: "La symétrie centrale conserve les longueurs (c'est une isométrie).\n\nLe cercle de centre $C$ et de rayon $r$ est l'ensemble des points situés à distance $r$ de $C$.\n\nSon symétrique par rapport à $O$ est donc l'ensemble des points situés à distance $r$ du symétrique $C'$ de $C$, c'est-à-dire le cercle de centre $C'$ et de rayon $r$.\n\n$$\\boxed{\\text{Même rayon } r}$$",
             explanation: "Une symétrie centrale conserve les distances : l'image d'un cercle est donc un cercle de même rayon, centré sur l'image du centre.",
             difficulty: "expert",
           },
@@ -3669,7 +3928,7 @@ Si dans un quadrilatère $ABCD$ les diagonales $[AC]$ et $[BD]$ ont le **même m
             id: "sym5-l2-e5",
             question: "$ABCD$ est un quadrilatère tel que $(AB) \\parallel (DC)$ et $AB = DC$. Montre que $ABCD$ est un parallélogramme.",
             type: "open",
-            modelAnswer: "On utilise la propriété : si un quadrilatère a deux côtés opposés parallèles et de même longueur, alors c'est un parallélogramme.\\n\\nIci $(AB) \\parallel (DC)$ et $AB = DC$ : les conditions sont réunies.\\n\\n$$\\boxed{ABCD \\text{ est un parallélogramme}}$$\\n\\nOn peut aussi le justifier en montrant que $[AC]$ et $[BD]$ ont le même milieu, via un raisonnement sur les translations.",
+            modelAnswer: "On utilise la propriété : si un quadrilatère a deux côtés opposés parallèles et de même longueur, alors c'est un parallélogramme.\n\nIci $(AB) \\parallel (DC)$ et $AB = DC$ : les conditions sont réunies.\n\n$$\\boxed{ABCD \\text{ est un parallélogramme}}$$\n\nOn peut aussi le justifier en montrant que $[AC]$ et $[BD]$ ont le même milieu, via un raisonnement sur les translations.",
             explanation: "C'est l'une des propriétés caractéristiques du parallélogramme : deux côtés opposés parallèles et égaux suffisent à le démontrer.",
             difficulty: "expert",
           },
@@ -3759,7 +4018,7 @@ Sur un quadrillage, on compte le nombre de carreaux entre le point et le centre 
             id: "sym5-l3-e5",
             question: "Pourquoi le symétrique d'un triangle par rapport à un point a-t-il la même aire que le triangle initial ?",
             type: "open",
-            modelAnswer: "La symétrie centrale est une **isométrie** : elle conserve toutes les longueurs et tous les angles.\\n\\nLe triangle symétrique a donc des côtés de même longueur et des angles de même mesure que le triangle initial : les deux triangles sont **superposables** (isométriques).\\n\\nDeux figures superposables ont nécessairement la même aire.\\n\\n$$\\boxed{\\text{Même aire, car la symétrie centrale conserve les longueurs et les angles}}$$",
+            modelAnswer: "La symétrie centrale est une **isométrie** : elle conserve toutes les longueurs et tous les angles.\n\nLe triangle symétrique a donc des côtés de même longueur et des angles de même mesure que le triangle initial : les deux triangles sont **superposables** (isométriques).\n\nDeux figures superposables ont nécessairement la même aire.\n\n$$\\boxed{\\text{Même aire, car la symétrie centrale conserve les longueurs et les angles}}$$",
             explanation: "Conserver les longueurs et les angles entraîne que la figure et son image sont superposables, donc de même aire.",
             difficulty: "expert",
           },
@@ -3871,7 +4130,7 @@ $$3x + 5x - 2 = 8x - 2$$
             id: "calc4-l1-e5",
             question: "Développer puis réduire : $3(2x - 1) - 2(x - 4)$",
             type: "open",
-            modelAnswer: "On développe chaque parenthèse :\\n\\n$$3(2x-1) = 6x - 3 \\qquad 2(x-4) = 2x - 8$$\\n\\nOn soustrait : $6x - 3 - (2x - 8) = 6x - 3 - 2x + 8$\\n\\nOn réduit : $(6x - 2x) + (-3+8) = 4x + 5$\\n\\n$$\\boxed{4x + 5}$$",
+            modelAnswer: "On développe chaque parenthèse :\n\n$$3(2x-1) = 6x - 3 \\qquad 2(x-4) = 2x - 8$$\n\nOn soustrait : $6x - 3 - (2x - 8) = 6x - 3 - 2x + 8$\n\nOn réduit : $(6x - 2x) + (-3+8) = 4x + 5$\n\n$$\\boxed{4x + 5}$$",
             explanation: "Attention au signe $-$ devant la deuxième parenthèse : il faut changer le signe de chaque terme à l'intérieur.",
             difficulty: "expert",
           },
@@ -3960,7 +4219,7 @@ $$ka + kb = k(a+b)$$
             id: "calc4-l2-e5",
             question: "Factoriser l'expression : $A = (2x+1)(x-3) - 5(2x+1)$",
             type: "open",
-            modelAnswer: "Le facteur commun est $(2x+1)$.\\n\\n$$A = (2x+1)(x-3) - 5(2x+1) = (2x+1)\\big[(x-3) - 5\\big]$$\\n\\nOn réduit l'intérieur des crochets : $(x-3) - 5 = x - 8$.\\n\\n$$\\boxed{A = (2x+1)(x-8)}$$",
+            modelAnswer: "Le facteur commun est $(2x+1)$.\n\n$$A = (2x+1)(x-3) - 5(2x+1) = (2x+1)\\big[(x-3) - 5\\big]$$\n\nOn réduit l'intérieur des crochets : $(x-3) - 5 = x - 8$.\n\n$$\\boxed{A = (2x+1)(x-8)}$$",
             explanation: "On factorise par $(2x+1)$, puis on réduit ce qui reste entre crochets.",
             difficulty: "expert",
           },
@@ -4051,7 +4310,7 @@ On vérifie toujours en remplaçant $x$ par la solution trouvée dans l'équatio
             id: "calc4-l3-e5",
             question: "Résoudre l'équation $5(x-2) = 3x + 4$ et vérifier le résultat.",
             type: "open",
-            modelAnswer: "On développe : $5x - 10 = 3x + 4$.\\n\\nOn regroupe les $x$ à gauche et les nombres à droite :\\n\\n$$5x - 3x = 4 + 10 \\implies 2x = 14 \\implies x = 7$$\\n\\n**Vérification :** $5(7-2) = 5 \\times 5 = 25$ et $3 \\times 7 + 4 = 21 + 4 = 25$ ✓\\n\\n$$\\boxed{x = 7}$$",
+            modelAnswer: "On développe : $5x - 10 = 3x + 4$.\n\nOn regroupe les $x$ à gauche et les nombres à droite :\n\n$$5x - 3x = 4 + 10 \\implies 2x = 14 \\implies x = 7$$\n\n**Vérification :** $5(7-2) = 5 \\times 5 = 25$ et $3 \\times 7 + 4 = 21 + 4 = 25$ ✓\n\n$$\\boxed{x = 7}$$",
             explanation: "On développe d'abord, puis on isole $x$ en regroupant les termes semblables, et on vérifie en remplaçant dans l'équation de départ.",
             difficulty: "expert",
           },
@@ -4157,7 +4416,7 @@ $$10^3 = 1\\,000 \\qquad 10^{-2} = \\frac{1}{100} = 0{,}01$$
             id: "puiss4-l1-e5",
             question: "Calculer et simplifier : $(-3)^3$ puis $(-2)^4$. Compare les signes des résultats et explique pourquoi.",
             type: "open",
-            modelAnswer: "$(-3)^3 = (-3) \\times (-3) \\times (-3) = 9 \\times (-3) = -27$.\\n\\n$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2) = 4 \\times 4 = 16$.\\n\\nLe premier résultat est négatif (exposant **impair** : 3), le second est positif (exposant **pair** : 4).\\n\\n$$\\boxed{(-3)^3 = -27 \\quad ; \\quad (-2)^4 = 16}$$\\n\\nRègle générale : une puissance d'un nombre négatif est positive si l'exposant est pair, négative s'il est impair.",
+            modelAnswer: "$(-3)^3 = (-3) \\times (-3) \\times (-3) = 9 \\times (-3) = -27$.\n\n$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2) = 4 \\times 4 = 16$.\n\nLe premier résultat est négatif (exposant **impair** : 3), le second est positif (exposant **pair** : 4).\n\n$$\\boxed{(-3)^3 = -27 \\quad ; \\quad (-2)^4 = 16}$$\n\nRègle générale : une puissance d'un nombre négatif est positive si l'exposant est pair, négative s'il est impair.",
             explanation: "Le signe d'une puissance d'un nombre négatif dépend de la parité de l'exposant.",
             difficulty: "expert",
           },
@@ -4254,7 +4513,7 @@ $$(10^2)^3 = 10^{2 \\times 3} = 10^6$$`,
             id: "puiss4-l2-e5",
             question: "Simplifier l'expression $A = \\dfrac{10^5 \\times 10^{-2}}{10^4}$ en détaillant les étapes.",
             type: "open",
-            modelAnswer: "On commence par le numérateur : $10^5 \\times 10^{-2} = 10^{5+(-2)} = 10^3$.\\n\\nPuis le quotient : $\\dfrac{10^3}{10^4} = 10^{3-4} = 10^{-1}$.\\n\\n$$\\boxed{A = 10^{-1} = 0{,}1}$$",
+            modelAnswer: "On commence par le numérateur : $10^5 \\times 10^{-2} = 10^{5+(-2)} = 10^3$.\n\nPuis le quotient : $\\dfrac{10^3}{10^4} = 10^{3-4} = 10^{-1}$.\n\n$$\\boxed{A = 10^{-1} = 0{,}1}$$",
             explanation: "On applique d'abord la règle du produit (on additionne les exposants), puis celle du quotient (on soustrait les exposants).",
             difficulty: "expert",
           },
@@ -4345,7 +4604,7 @@ Pour écrire un nombre en notation scientifique, on déplace la virgule pour obt
             id: "puiss4-l3-e5",
             question: "La masse d'un atome d'hydrogène est environ $0{,}000\\,000\\,000\\,000\\,000\\,000\\,000\\,001\\,67$ g. Écris cette masse en notation scientifique.",
             type: "open",
-            modelAnswer: "On déplace la virgule jusqu'à obtenir un nombre entre $1$ et $10$ : on obtient $1{,}67$.\\n\\nOn compte le nombre de rangs déplacés vers la droite : $24$ rangs.\\n\\n$$\\boxed{1{,}67 \\times 10^{-24} \\text{ g}}$$\\n\\nCette écriture est beaucoup plus lisible que la forme décimale complète.",
+            modelAnswer: "On déplace la virgule jusqu'à obtenir un nombre entre $1$ et $10$ : on obtient $1{,}67$.\n\nOn compte le nombre de rangs déplacés vers la droite : $24$ rangs.\n\n$$\\boxed{1{,}67 \\times 10^{-24} \\text{ g}}$$\n\nCette écriture est beaucoup plus lisible que la forme décimale complète.",
             explanation: "On repère la première décimale non nulle pour former $a$, puis on compte le nombre de rangs déplacés pour déterminer l'exposant.",
             difficulty: "expert",
           },
@@ -4453,7 +4712,7 @@ $$0 < \\cos(\\widehat{B}) < 1$$
             id: "cos4-l1-e5",
             question: "Pourquoi le côté adjacent à un angle aigu n'est-il jamais l'hypoténuse ?",
             type: "open",
-            modelAnswer: "L'hypoténuse est par définition le côté opposé à l'angle droit, c'est le plus grand côté du triangle rectangle.\\n\\nLe côté adjacent à un angle aigu $\\widehat{B}$ est un côté qui **touche** ce sommet $B$, donc l'un des deux côtés issus de $B$.\\n\\nUn de ces deux côtés est l'hypoténuse elle-même (si $B$ n'est pas le sommet de l'angle droit, l'hypoténuse part bien de $B$), donc par convention on appelle \"côté adjacent\" l'**autre** côté issu de $B$, celui qui n'est pas l'hypoténuse.\\n\\n$$\\boxed{\\text{Par définition, on exclut l'hypoténuse du côté \"adjacent\"}}$$",
+            modelAnswer: "L'hypoténuse est par définition le côté opposé à l'angle droit, c'est le plus grand côté du triangle rectangle.\n\nLe côté adjacent à un angle aigu $\\widehat{B}$ est un côté qui **touche** ce sommet $B$, donc l'un des deux côtés issus de $B$.\n\nUn de ces deux côtés est l'hypoténuse elle-même (si $B$ n'est pas le sommet de l'angle droit, l'hypoténuse part bien de $B$), donc par convention on appelle \"côté adjacent\" l'**autre** côté issu de $B$, celui qui n'est pas l'hypoténuse.\n\n$$\\boxed{\\text{Par définition, on exclut l'hypoténuse du côté \"adjacent\"}}$$",
             explanation: "La définition du côté adjacent exclut volontairement l'hypoténuse pour distinguer les deux côtés issus du sommet de l'angle.",
             difficulty: "expert",
           },
@@ -4542,7 +4801,7 @@ $$BC = \\frac{AB}{\\cos(45°)} = \\frac{5}{0{,}707} \\approx 7{,}07 \\text{ cm}$
             id: "cos4-l2-e5",
             question: "Une échelle de $4$ m est posée contre un mur et forme un angle de $20°$ avec le mur (vertical). À quelle distance du mur se trouve le pied de l'échelle ? ($\\cos(20°) \\approx 0{,}94$)",
             type: "open",
-            modelAnswer: "Le triangle formé par le mur, le sol et l'échelle est rectangle. L'échelle est l'hypoténuse ($4$ m), et l'angle de $20°$ est mesuré entre l'échelle (hypoténuse) et le mur (côté adjacent à cet angle).\\n\\nLa distance au mur est le côté **opposé**, mais on nous donne le cosinus, donc on calcule plutôt la hauteur sur le mur (côté adjacent) :\\n\\n$$\\text{hauteur} = \\cos(20°) \\times 4 \\approx 0{,}94 \\times 4 = 3{,}76 \\text{ m}$$\\n\\n$$\\boxed{\\text{Hauteur sur le mur} \\approx 3{,}76 \\text{ m}}$$",
+            modelAnswer: "Le triangle formé par le mur, le sol et l'échelle est rectangle. L'échelle est l'hypoténuse ($4$ m), et l'angle de $20°$ est mesuré entre l'échelle (hypoténuse) et le mur (côté adjacent à cet angle).\n\nLa distance au mur est le côté **opposé**, mais on nous donne le cosinus, donc on calcule plutôt la hauteur sur le mur (côté adjacent) :\n\n$$\\text{hauteur} = \\cos(20°) \\times 4 \\approx 0{,}94 \\times 4 = 3{,}76 \\text{ m}$$\n\n$$\\boxed{\\text{Hauteur sur le mur} \\approx 3{,}76 \\text{ m}}$$",
             explanation: "On identifie l'hypoténuse (l'échelle) et on applique la formule adjacent $= \\cos(\\text{angle}) \\times$ hypoténuse pour trouver la hauteur sur le mur.",
             difficulty: "expert",
           },
@@ -4630,7 +4889,7 @@ On peut vérifier avec la somme des angles d'un triangle ($180°$) si on connaî
             id: "cos4-l3-e5",
             question: "Dans un triangle $ABC$ rectangle en $A$, $AB = 5$ cm et $BC = 13$ cm. Calcule l'angle $\\widehat{B}$ au degré près, sachant que $\\cos^{-1}(0{,}385) \\approx 67{,}4°$.",
             type: "open",
-            modelAnswer: "On calcule d'abord le cosinus de $\\widehat{B}$ :\\n\\n$$\\cos(\\widehat{B}) = \\frac{AB}{BC} = \\frac{5}{13} \\approx 0{,}385$$\\n\\nOn applique l'arccosinus :\\n\\n$$\\widehat{B} = \\cos^{-1}(0{,}385) \\approx 67{,}4°$$\\n\\n$$\\boxed{\\widehat{B} \\approx 67°}$$",
+            modelAnswer: "On calcule d'abord le cosinus de $\\widehat{B}$ :\n\n$$\\cos(\\widehat{B}) = \\frac{AB}{BC} = \\frac{5}{13} \\approx 0{,}385$$\n\nOn applique l'arccosinus :\n\n$$\\widehat{B} = \\cos^{-1}(0{,}385) \\approx 67{,}4°$$\n\n$$\\boxed{\\widehat{B} \\approx 67°}$$",
             explanation: "On calcule le rapport adjacent/hypoténuse, puis on utilise l'arccosinus pour obtenir la mesure de l'angle.",
             difficulty: "expert",
           },
@@ -4736,7 +4995,7 @@ $$\\frac{AM}{AB} = \\frac{AN}{AC} \\implies \\frac{3}{8} = \\frac{AN}{10} \\impl
             id: "thales3-l1-e5",
             question: "$AB = 12$ cm, $AM = 5$ cm, $BC = 9{,}6$ cm, avec $(MN) \\parallel (BC)$. Calcule $MN$ en détaillant ta méthode.",
             type: "open",
-            modelAnswer: "On utilise l'égalité des rapports de Thalès :\\n\\n$$\\frac{AM}{AB} = \\frac{MN}{BC}$$\\n\\n$$\\frac{5}{12} = \\frac{MN}{9{,}6}$$\\n\\n$$MN = \\frac{5 \\times 9{,}6}{12} = \\frac{48}{12} = 4$$\\n\\n$$\\boxed{MN = 4 \\text{ cm}}$$",
+            modelAnswer: "On utilise l'égalité des rapports de Thalès :\n\n$$\\frac{AM}{AB} = \\frac{MN}{BC}$$\n\n$$\\frac{5}{12} = \\frac{MN}{9{,}6}$$\n\n$$MN = \\frac{5 \\times 9{,}6}{12} = \\frac{48}{12} = 4$$\n\n$$\\boxed{MN = 4 \\text{ cm}}$$",
             explanation: "On isole $MN$ en utilisant le rapport $\\frac{AM}{AB}$, déjà connu, égal à $\\frac{MN}{BC}$.",
             difficulty: "expert",
           },
@@ -4824,7 +5083,7 @@ On utilise alors les valeurs numériques de l'énoncé pour calculer la longueur
             id: "thales3-l2-e5",
             question: "Un poteau de $2$ m projette une ombre de $3$ m. Au même moment, un arbre projette une ombre de $12$ m. Quelle est la hauteur de l'arbre ? (Les rayons du soleil sont parallèles, situation de Thalès.)",
             type: "open",
-            modelAnswer: "Les triangles formés par le poteau/son ombre et l'arbre/son ombre sont semblables (configuration de Thalès, rayons parallèles).\\n\\n$$\\frac{\\text{hauteur poteau}}{\\text{ombre poteau}} = \\frac{\\text{hauteur arbre}}{\\text{ombre arbre}}$$\\n\\n$$\\frac{2}{3} = \\frac{h}{12} \\implies h = \\frac{2 \\times 12}{3} = 8$$\\n\\n$$\\boxed{\\text{L'arbre mesure } 8 \\text{ m}}$$",
+            modelAnswer: "Les triangles formés par le poteau/son ombre et l'arbre/son ombre sont semblables (configuration de Thalès, rayons parallèles).\n\n$$\\frac{\\text{hauteur poteau}}{\\text{ombre poteau}} = \\frac{\\text{hauteur arbre}}{\\text{ombre arbre}}$$\n\n$$\\frac{2}{3} = \\frac{h}{12} \\implies h = \\frac{2 \\times 12}{3} = 8$$\n\n$$\\boxed{\\text{L'arbre mesure } 8 \\text{ m}}$$",
             explanation: "Les ombres projetées par des rayons parallèles créent des triangles semblables : on applique le rapport hauteur/ombre, identique pour les deux objets.",
             difficulty: "expert",
           },
@@ -4915,7 +5174,7 @@ Si les deux rapports sont différents, on ne peut **rien conclure** sur le paral
             id: "thales3-l3-e5",
             question: "$A$, $M$, $B$ alignés avec $AM=4$, $MB=6$ ; $A$, $N$, $C$ alignés avec $AN=6$, $NC=9$. Démontre que $(MN) \\parallel (BC)$.",
             type: "open",
-            modelAnswer: "On calcule $AB$ et $AC$ :\\n\\n$$AB = AM + MB = 4+6 = 10 \\qquad AC = AN + NC = 6+9 = 15$$\\n\\nOn calcule les deux rapports :\\n\\n$$\\frac{AM}{AB} = \\frac{4}{10} = 0{,}4 \\qquad \\frac{AN}{AC} = \\frac{6}{15} = 0{,}4$$\\n\\nLes deux rapports sont égaux, et les points sont alignés dans le bon ordre. D'après la **réciproque du théorème de Thalès** :\\n\\n$$\\boxed{(MN) \\parallel (BC)}$$",
+            modelAnswer: "On calcule $AB$ et $AC$ :\n\n$$AB = AM + MB = 4+6 = 10 \\qquad AC = AN + NC = 6+9 = 15$$\n\nOn calcule les deux rapports :\n\n$$\\frac{AM}{AB} = \\frac{4}{10} = 0{,}4 \\qquad \\frac{AN}{AC} = \\frac{6}{15} = 0{,}4$$\n\nLes deux rapports sont égaux, et les points sont alignés dans le bon ordre. D'après la **réciproque du théorème de Thalès** :\n\n$$\\boxed{(MN) \\parallel (BC)}$$",
             explanation: "On reconstitue $AB$ et $AC$ à partir des segments donnés, puis on compare les deux rapports pour appliquer la réciproque de Thalès.",
             difficulty: "expert",
           },
@@ -5025,7 +5284,7 @@ Cette méthode est très utile pour résoudre des équations du second degré qu
             id: "eqineq3-l1-e5",
             question: "Résoudre l'équation $3x(x-5) = 0$ et explique pourquoi il y a deux solutions distinctes.",
             type: "open",
-            modelAnswer: "Le produit $3x(x-5)$ est nul si l'un des facteurs $3x$ ou $(x-5)$ est nul.\\n\\n$$3x = 0 \\implies x = 0$$\\n\\n$$x - 5 = 0 \\implies x = 5$$\\n\\n$$\\boxed{x = 0 \\text{ ou } x = 5}$$\\n\\nIl y a deux solutions car l'équation est un produit de deux facteurs distincts, chacun donnant sa propre solution.",
+            modelAnswer: "Le produit $3x(x-5)$ est nul si l'un des facteurs $3x$ ou $(x-5)$ est nul.\n\n$$3x = 0 \\implies x = 0$$\n\n$$x - 5 = 0 \\implies x = 5$$\n\n$$\\boxed{x = 0 \\text{ ou } x = 5}$$\n\nIl y a deux solutions car l'équation est un produit de deux facteurs distincts, chacun donnant sa propre solution.",
             explanation: "On annule chaque facteur séparément ; un produit de deux facteurs différents donne en général deux solutions distinctes.",
             difficulty: "expert",
           },
@@ -5118,7 +5377,7 @@ La solution $x \\geq -3$ se représente par une demi-droite sur l'axe des nombre
             id: "eqineq3-l2-e5",
             question: "Résoudre l'inéquation $5(x-1) \\leq 3x + 7$ et représente la solution sur une droite numérique (décris-la).",
             type: "open",
-            modelAnswer: "On développe : $5x - 5 \\leq 3x + 7$.\\n\\nOn regroupe les $x$ à gauche : $5x - 3x \\leq 7 + 5$, soit $2x \\leq 12$.\\n\\nOn divise par $2$ (positif, le sens reste inchangé) :\\n\\n$$x \\leq 6$$\\n\\n$$\\boxed{x \\leq 6}$$\\n\\nSur la droite numérique, on représente cette solution par une demi-droite allant de $6$ (inclus, point plein) vers la gauche, vers $-\\infty$.",
+            modelAnswer: "On développe : $5x - 5 \\leq 3x + 7$.\n\nOn regroupe les $x$ à gauche : $5x - 3x \\leq 7 + 5$, soit $2x \\leq 12$.\n\nOn divise par $2$ (positif, le sens reste inchangé) :\n\n$$x \\leq 6$$\n\n$$\\boxed{x \\leq 6}$$\n\nSur la droite numérique, on représente cette solution par une demi-droite allant de $6$ (inclus, point plein) vers la gauche, vers $-\\infty$.",
             explanation: "On développe, regroupe les termes, puis on divise par un nombre positif (le sens de l'inégalité ne change pas).",
             difficulty: "expert",
           },
@@ -5208,8 +5467,161 @@ $$7 + 5 = 3x - x \\implies 12 = 2x \\implies x = 6$$
             id: "eqineq3-l3-e5",
             question: "Un rectangle a un périmètre de $46$ cm. Sa longueur est le triple de sa largeur. Trouve les dimensions du rectangle.",
             type: "open",
-            modelAnswer: "On note $x$ la largeur (en cm). La longueur est alors $3x$.\\n\\nLe périmètre d'un rectangle est $2(\\text{longueur} + \\text{largeur})$ :\\n\\n$$2(3x + x) = 46 \\implies 2 \\times 4x = 46 \\implies 8x = 46 \\implies x = 5{,}75$$\\n\\nLa largeur est $5{,}75$ cm, la longueur est $3 \\times 5{,}75 = 17{,}25$ cm.\\n\\n**Vérification :** $2(17{,}25 + 5{,}75) = 2 \\times 23 = 46$ ✓\\n\\n$$\\boxed{\\text{Largeur} = 5{,}75 \\text{ cm}, \\text{ Longueur} = 17{,}25 \\text{ cm}}$$",
+            modelAnswer: "On note $x$ la largeur (en cm). La longueur est alors $3x$.\n\nLe périmètre d'un rectangle est $2(\\text{longueur} + \\text{largeur})$ :\n\n$$2(3x + x) = 46 \\implies 2 \\times 4x = 46 \\implies 8x = 46 \\implies x = 5{,}75$$\n\nLa largeur est $5{,}75$ cm, la longueur est $3 \\times 5{,}75 = 17{,}25$ cm.\n\n**Vérification :** $2(17{,}25 + 5{,}75) = 2 \\times 23 = 46$ ✓\n\n$$\\boxed{\\text{Largeur} = 5{,}75 \\text{ cm}, \\text{ Longueur} = 17{,}25 \\text{ cm}}$$",
             explanation: "On nomme l'inconnue (la largeur), on exprime la longueur en fonction d'elle, puis on traduit le périmètre en équation.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "eqineq3-4",
+        slug: "systemes-equations",
+        title: "Systèmes de deux équations à deux inconnues",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Un **système de deux équations à deux inconnues** est un ensemble de deux égalités reliant deux nombres inconnus, en général notés $x$ et $y$. Résoudre le système, c'est trouver le **couple $(x\\,;\\,y)$** qui vérifie **les deux équations à la fois**.
+
+$$\\begin{cases} x + y = 10 \\\\ 2x - y = 5 \\end{cases}$$
+
+Il existe deux méthodes principales pour résoudre un tel système : la **substitution** et la **combinaison** (ou élimination).
+
+## Méthode 1 — La substitution
+
+> 📌 **Méthode**
+> 1. Isoler une inconnue dans **une** des deux équations (celle où c'est le plus simple).
+> 2. **Remplacer** cette inconnue par son expression dans **l'autre** équation.
+> 3. Résoudre l'équation à une seule inconnue obtenue.
+> 4. Calculer la deuxième inconnue, puis **vérifier** dans les deux équations de départ.
+
+Avec le système $\\begin{cases} x + y = 10 \\\\ 2x - y = 5 \\end{cases}$ :
+
+De la première équation, on isole $y$ : $y = 10 - x$.
+
+On remplace dans la deuxième équation : $2x - (10-x) = 5 \\implies 2x - 10 + x = 5 \\implies 3x = 15 \\implies x = 5$.
+
+On revient à $y = 10 - x = 10 - 5 = 5$.
+
+## Méthode 2 — La combinaison (élimination)
+
+> 📌 **Méthode**
+> 1. Si nécessaire, **multiplier** une ou les deux équations par un nombre pour que les coefficients d'une même inconnue soient **opposés ou égaux**.
+> 2. **Additionner** (s'ils sont opposés) ou **soustraire** (s'ils sont égaux) les deux équations membre à membre pour **éliminer** une inconnue.
+> 3. Résoudre l'équation restante, puis remplacer dans une équation de départ pour trouver la deuxième inconnue.
+
+Avec le même système $\\begin{cases} x + y = 10 \\\\ 2x - y = 5 \\end{cases}$, les coefficients de $y$ sont déjà opposés ($+1$ et $-1$) : on **additionne** les deux équations membre à membre.
+
+$$\\begin{aligned} x + y &= 10 \\\\ 2x - y &= 5 \\\\ \\hline 3x + 0 &= 15 \\end{aligned}$$
+
+D'où $3x = 15 \\implies x = 5$, puis $5 + y = 10 \\implies y = 5$.
+
+Les deux méthodes donnent bien le même résultat : $\\boxed{(x\\,;\\,y) = (5\\,;\\,5)}$.
+
+### Vérifier la solution
+
+> Une solution de système doit **toujours** être vérifiée dans les **deux équations d'origine** : $5+5=10$ ✓ et $2\\times 5 - 5 = 5$ ✓.
+
+## Exemples
+
+### ✅ Exemple simple — Substitution directe
+
+Résoudre $\\begin{cases} y = 2x \\\\ x + y = 12 \\end{cases}$.
+
+$y$ est déjà isolé : on substitue dans la deuxième équation : $x + 2x = 12 \\implies 3x = 12 \\implies x = 4$.
+
+Donc $y = 2 \\times 4 = 8$. Solution : $(4\\,;\\,8)$. Vérification : $4+8=12$ ✓.
+
+### 📘 Exemple intermédiaire — Combinaison avec un coefficient à ajuster
+
+Résoudre $\\begin{cases} 3x + y = 11 \\\\ x + y = 5 \\end{cases}$.
+
+On soustrait la deuxième équation à la première (les coefficients de $y$ sont déjà égaux) :
+
+$$(3x+y) - (x+y) = 11 - 5 \\implies 2x = 6 \\implies x = 3$$
+
+On remplace dans $x+y=5$ : $3 + y = 5 \\implies y = 2$. Solution : $(3\\,;\\,2)$. Vérification : $3\\times 3+2=11$ ✓ et $3+2=5$ ✓.
+
+### 🔴 Exemple avancé — Combinaison nécessitant une multiplication
+
+Résoudre $\\begin{cases} 2x + 3y = 16 \\\\ x - y = 2 \\end{cases}$.
+
+On multiplie la deuxième équation par $3$ pour obtenir des coefficients de $y$ opposés : $3x - 3y = 6$.
+
+On additionne membre à membre avec la première équation :
+
+$$(2x+3y) + (3x-3y) = 16 + 6 \\implies 5x = 22 \\implies x = 4{,}4$$
+
+On remplace dans $x - y = 2$ : $4{,}4 - y = 2 \\implies y = 2{,}4$. Solution : $(4{,}4\\,;\\,2{,}4)$.
+
+Vérification : $2\\times 4{,}4 + 3\\times 2{,}4 = 8{,}8+7{,}2=16$ ✓ et $4{,}4-2{,}4=2$ ✓.
+
+## À retenir
+
+- Résoudre un système, c'est trouver le couple $(x\\,;\\,y)$ qui vérifie **simultanément** les deux équations.
+- **Substitution** : isoler une inconnue dans une équation, puis remplacer dans l'autre.
+- **Combinaison** : ajuster si besoin les coefficients par multiplication, puis additionner ou soustraire les équations pour éliminer une inconnue.
+- Il faut **toujours vérifier** la solution trouvée dans les **deux équations** de départ.`,
+        exercises: [
+          {
+            id: "eqineq3-l4-e1",
+            question: "Dans un système de deux équations à deux inconnues, une solution est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Un couple $(x\\,;\\,y)$ qui vérifie les deux équations à la fois" },
+              { id: "B", text: "Une valeur de $x$ qui vérifie une seule des deux équations" },
+              { id: "C", text: "N'importe quel couple de nombres" },
+              { id: "D", text: "Une valeur de $y$ uniquement" },
+            ],
+            correctId: "A",
+            explanation: "Résoudre un système, c'est trouver le couple $(x\\,;\\,y)$ qui satisfait simultanément les deux égalités.",
+            difficulty: "debutant",
+          },
+          {
+            id: "eqineq3-l4-e2",
+            question: "Dans la méthode de substitution, que fait-on en premier ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "On isole une inconnue dans une des deux équations" },
+              { id: "B", text: "On additionne directement les deux équations" },
+              { id: "C", text: "On multiplie les deux équations entre elles" },
+              { id: "D", text: "On remplace $x$ par $y$" },
+            ],
+            correctId: "A",
+            explanation: "La substitution commence toujours par isoler une inconnue (souvent celle qui apparaît déjà avec un coefficient $1$) dans une des deux équations.",
+            difficulty: "debutant",
+          },
+          {
+            id: "eqineq3-l4-e3",
+            question: "Pour le système $\\begin{cases} x+y=10 \\\\ 2x-y=5 \\end{cases}$, le couple $(5\\,;\\,5)$ est-il solution ?",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On vérifie : $5+5=10$ ✓ et $2\\times 5 - 5 = 10-5=5$ ✓. Les deux équations sont vérifiées, donc $(5\\,;\\,5)$ est bien solution.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "eqineq3-l4-e4",
+            question: "Résoudre par combinaison : $\\begin{cases} x+y=7 \\\\ x-y=1 \\end{cases}$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(4\\,;\\,3)$" },
+              { id: "B", text: "$(3\\,;\\,4)$" },
+              { id: "C", text: "$(5\\,;\\,2)$" },
+              { id: "D", text: "$(7\\,;\\,1)$" },
+            ],
+            correctId: "A",
+            explanation: "En additionnant les deux équations : $2x=8 \\implies x=4$. Puis $4+y=7 \\implies y=3$. Vérification : $4-3=1$ ✓.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "eqineq3-l4-e5",
+            question: "Résoudre le système $\\begin{cases} 3x+2y=18 \\\\ x+y=7 \\end{cases}$ par la méthode de ton choix (substitution ou combinaison), et vérifie ta solution.",
+            type: "open",
+            modelAnswer: "**Méthode par substitution.**\n\nDe la deuxième équation, on isole $y$ : $y = 7 - x$.\n\nOn remplace dans la première équation :\n\n$$3x + 2(7-x) = 18 \\implies 3x + 14 - 2x = 18 \\implies x + 14 = 18 \\implies x = 4$$\n\nOn calcule $y$ : $y = 7 - 4 = 3$.\n\n$$\\boxed{(x\\,;\\,y) = (4\\,;\\,3)}$$\n\n**Vérification :** $3\\times 4 + 2\\times 3 = 12+6=18$ ✓ et $4+3=7$ ✓. La solution est correcte.",
+            explanation: "On isole une inconnue dans l'équation la plus simple, on substitue dans l'autre, puis on résout et on vérifie systématiquement dans les deux équations de départ.",
             difficulty: "expert",
           },
         ],
@@ -5313,7 +5725,7 @@ On dit que $11$ est l'image de $4$ par $f$, et que $4$ est un **antécédent** d
             id: "fonc3-l1-e5",
             question: "$g(x) = -2x + 5$. Calcule $g(-3)$ et trouve l'antécédent de $9$ par $g$.",
             type: "open",
-            modelAnswer: "**Calcul de $g(-3)$ :**\\n\\n$$g(-3) = -2 \\times (-3) + 5 = 6 + 5 = 11$$\\n\\n**Antécédent de $9$ :** on résout $g(x) = 9$.\\n\\n$$-2x + 5 = 9 \\implies -2x = 4 \\implies x = -2$$\\n\\n$$\\boxed{g(-3) = 11 \\quad ; \\quad \\text{antécédent de } 9 \\text{ : } x=-2}$$",
+            modelAnswer: "**Calcul de $g(-3)$ :**\n\n$$g(-3) = -2 \\times (-3) + 5 = 6 + 5 = 11$$\n\n**Antécédent de $9$ :** on résout $g(x) = 9$.\n\n$$-2x + 5 = 9 \\implies -2x = 4 \\implies x = -2$$\n\n$$\\boxed{g(-3) = 11 \\quad ; \\quad \\text{antécédent de } 9 \\text{ : } x=-2}$$",
             explanation: "Calculer une image consiste à remplacer $x$ ; trouver un antécédent consiste à résoudre une équation $g(x) = \\text{valeur}$.",
             difficulty: "expert",
           },
@@ -5406,7 +5818,7 @@ Pour tracer la droite représentant $f(x) = ax$, il suffit de connaître **un se
             id: "fonc3-l2-e5",
             question: "Une fonction linéaire $f$ vérifie $f(6) = -18$. Détermine son expression $f(x) = ax$, puis calcule $f(-2)$.",
             type: "open",
-            modelAnswer: "On cherche $a$ tel que $f(6) = a \\times 6 = -18$.\\n\\n$$a = \\frac{-18}{6} = -3$$\\n\\nDonc $f(x) = -3x$.\\n\\nOn calcule $f(-2)$ :\\n\\n$$f(-2) = -3 \\times (-2) = 6$$\\n\\n$$\\boxed{f(x) = -3x \\quad ; \\quad f(-2) = 6}$$",
+            modelAnswer: "On cherche $a$ tel que $f(6) = a \\times 6 = -18$.\n\n$$a = \\frac{-18}{6} = -3$$\n\nDonc $f(x) = -3x$.\n\nOn calcule $f(-2)$ :\n\n$$f(-2) = -3 \\times (-2) = 6$$\n\n$$\\boxed{f(x) = -3x \\quad ; \\quad f(-2) = 6}$$",
             explanation: "On utilise la valeur connue pour déterminer le coefficient $a$, puis on applique la fonction obtenue à la nouvelle valeur.",
             difficulty: "expert",
           },
@@ -5499,7 +5911,7 @@ Si $a > 0$, la fonction est **croissante** (la droite monte). Si $a < 0$, elle e
             id: "fonc3-l3-e5",
             question: "Une fonction affine $f$ vérifie $f(1) = 7$ et $f(4) = 16$. Détermine l'expression de $f(x) = ax+b$.",
             type: "open",
-            modelAnswer: "On calcule d'abord le coefficient directeur $a$ :\\n\\n$$a = \\frac{f(4)-f(1)}{4-1} = \\frac{16-7}{3} = \\frac{9}{3} = 3$$\\n\\nOn utilise $f(1) = 7$ pour trouver $b$ :\\n\\n$$f(1) = 3 \\times 1 + b = 7 \\implies b = 4$$\\n\\n$$\\boxed{f(x) = 3x + 4}$$\\n\\n**Vérification :** $f(4) = 3\\times4+4 = 16$ ✓",
+            modelAnswer: "On calcule d'abord le coefficient directeur $a$ :\n\n$$a = \\frac{f(4)-f(1)}{4-1} = \\frac{16-7}{3} = \\frac{9}{3} = 3$$\n\nOn utilise $f(1) = 7$ pour trouver $b$ :\n\n$$f(1) = 3 \\times 1 + b = 7 \\implies b = 4$$\n\n$$\\boxed{f(x) = 3x + 4}$$\n\n**Vérification :** $f(4) = 3\\times4+4 = 16$ ✓",
             explanation: "On calcule $a$ avec la formule du taux de variation entre deux points connus, puis on en déduit $b$ en remplaçant dans l'une des deux égalités.",
             difficulty: "expert",
           },
@@ -5607,7 +6019,7 @@ La racine carrée d'un nombre **négatif n'existe pas** (dans l'ensemble des nom
             id: "racine3-l1-e5",
             question: "Explique pourquoi $\\sqrt{-4}$ n'existe pas (au niveau collège), alors que $\\sqrt{4}$ existe et vaut $2$.",
             type: "open",
-            modelAnswer: "La racine carrée d'un nombre $a$ est le nombre positif dont le carré vaut $a$.\\n\\nOr, le carré de n'importe quel nombre réel (positif ou négatif) est **toujours positif ou nul** : $x^2 \\geq 0$ pour tout $x$.\\n\\nIl n'existe donc aucun nombre réel dont le carré soit égal à $-4$ (un nombre négatif), donc $\\sqrt{-4}$ n'existe pas.\\n\\nEn revanche, $2^2 = 4$, donc $\\sqrt{4} = 2$ existe bien.\\n\\n$$\\boxed{\\text{Un carré n'est jamais négatif} \\Rightarrow \\sqrt{\\text{nombre négatif}} \\text{ n'existe pas}}$$",
+            modelAnswer: "La racine carrée d'un nombre $a$ est le nombre positif dont le carré vaut $a$.\n\nOr, le carré de n'importe quel nombre réel (positif ou négatif) est **toujours positif ou nul** : $x^2 \\geq 0$ pour tout $x$.\n\nIl n'existe donc aucun nombre réel dont le carré soit égal à $-4$ (un nombre négatif), donc $\\sqrt{-4}$ n'existe pas.\n\nEn revanche, $2^2 = 4$, donc $\\sqrt{4} = 2$ existe bien.\n\n$$\\boxed{\\text{Un carré n'est jamais négatif} \\Rightarrow \\sqrt{\\text{nombre négatif}} \\text{ n'existe pas}}$$",
             explanation: "Le carré d'un nombre réel est toujours positif ou nul, donc aucun nombre ne peut avoir un carré négatif.",
             difficulty: "expert",
           },
@@ -5700,7 +6112,7 @@ Une racine carrée est sous sa **forme la plus simple** quand le nombre sous le 
             id: "racine3-l2-e5",
             question: "Simplifie $\\sqrt{72}$ puis calcule $\\sqrt{72} \\times \\sqrt{2}$ sous forme la plus simple possible.",
             type: "open",
-            modelAnswer: "**Simplification de $\\sqrt{72}$ :**\\n\\n$72 = 36 \\times 2$, donc $\\sqrt{72} = \\sqrt{36} \\times \\sqrt{2} = 6\\sqrt{2}$.\\n\\n**Calcul de $\\sqrt{72} \\times \\sqrt{2}$ :**\\n\\n$$6\\sqrt{2} \\times \\sqrt{2} = 6 \\times \\left(\\sqrt{2}\\right)^2 = 6 \\times 2 = 12$$\\n\\n$$\\boxed{\\sqrt{72} = 6\\sqrt{2} \\quad ; \\quad \\sqrt{72}\\times\\sqrt{2} = 12}$$",
+            modelAnswer: "**Simplification de $\\sqrt{72}$ :**\n\n$72 = 36 \\times 2$, donc $\\sqrt{72} = \\sqrt{36} \\times \\sqrt{2} = 6\\sqrt{2}$.\n\n**Calcul de $\\sqrt{72} \\times \\sqrt{2}$ :**\n\n$$6\\sqrt{2} \\times \\sqrt{2} = 6 \\times \\left(\\sqrt{2}\\right)^2 = 6 \\times 2 = 12$$\n\n$$\\boxed{\\sqrt{72} = 6\\sqrt{2} \\quad ; \\quad \\sqrt{72}\\times\\sqrt{2} = 12}$$",
             explanation: "On extrait le plus grand carré parfait possible ($36$), puis on utilise $\\left(\\sqrt{2}\\right)^2 = 2$ pour simplifier le produit final.",
             difficulty: "expert",
           },
@@ -5793,7 +6205,7 @@ $$\\sqrt{8} + \\sqrt{18} = 2\\sqrt{2} + 3\\sqrt{2} = 5\\sqrt{2}$$`,
             id: "racine3-l3-e5",
             question: "Calcule et simplifie au maximum : $A = \\sqrt{45} - \\sqrt{20} + \\sqrt{5}$",
             type: "open",
-            modelAnswer: "On simplifie chaque terme séparément :\\n\\n$$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$$\\n$$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$$\\n\\nOn remplace dans $A$ :\\n\\n$$A = 3\\sqrt{5} - 2\\sqrt{5} + \\sqrt{5} = (3-2+1)\\sqrt{5} = 2\\sqrt{5}$$\\n\\n$$\\boxed{A = 2\\sqrt{5}}$$",
+            modelAnswer: "On simplifie chaque terme séparément :\n\n$$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$$\n$$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$$\n\nOn remplace dans $A$ :\n\n$$A = 3\\sqrt{5} - 2\\sqrt{5} + \\sqrt{5} = (3-2+1)\\sqrt{5} = 2\\sqrt{5}$$\n\n$$\\boxed{A = 2\\sqrt{5}}$$",
             explanation: "On simplifie chaque racine pour obtenir des termes de même radical ($\\sqrt{5}$), puis on additionne/soustrait les coefficients comme en calcul littéral.",
             difficulty: "expert",
           },
@@ -5890,7 +6302,7 @@ $$P = 2 \\times \\pi \\times r \\approx 2 \\times 3{,}14 \\times 3 \\approx 18{,
             id: "aire6-l1-e4",
             question: "Quel est le périmètre approximatif d'un cercle de rayon $5$ cm ? (Utilise $\\pi \\approx 3{,}14$.)",
             type: "open",
-            modelAnswer: "$$P = 2 \\times \\pi \\times r \\approx 2 \\times 3{,}14 \\times 5 = 31{,}4 \\text{ cm}$$\\n\\n$$\\boxed{P \\approx 31{,}4 \\text{ cm}}$$",
+            modelAnswer: "$$P = 2 \\times \\pi \\times r \\approx 2 \\times 3{,}14 \\times 5 = 31{,}4 \\text{ cm}$$\n\n$$\\boxed{P \\approx 31{,}4 \\text{ cm}}$$",
             explanation: "On applique la formule $P = 2\\pi r$ avec $r = 5$ cm et $\\pi \\approx 3{,}14$.",
             difficulty: "intermediaire",
           },
@@ -5898,7 +6310,7 @@ $$P = 2 \\times \\pi \\times r \\approx 2 \\times 3{,}14 \\times 3 \\approx 18{,
             id: "aire6-l1-e5",
             question: "Un jardin rectangulaire a un périmètre de $60$ m. Sa longueur est $20$ m. Quelle est sa largeur ?",
             type: "open",
-            modelAnswer: "On sait que $P = 2 \\times (L + \\ell)$, donc $60 = 2 \\times (20 + \\ell)$.\\n\\n$$30 = 20 + \\ell \\implies \\ell = 30 - 20 = 10 \\text{ m}$$\\n\\n$$\\boxed{\\ell = 10 \\text{ m}}$$",
+            modelAnswer: "On sait que $P = 2 \\times (L + \\ell)$, donc $60 = 2 \\times (20 + \\ell)$.\n\n$$30 = 20 + \\ell \\implies \\ell = 30 - 20 = 10 \\text{ m}$$\n\n$$\\boxed{\\ell = 10 \\text{ m}}$$",
             explanation: "On divise le périmètre par $2$ pour obtenir $L + \\ell$, puis on soustrait la longueur connue.",
             difficulty: "expert",
           },
@@ -5978,7 +6390,7 @@ $$A = \\dfrac{6 \\times 5}{2} = \\dfrac{30}{2} = 15 \\text{ cm}^2$$
             id: "aire6-l2-e4",
             question: "Un carré a une aire de $49$ cm². Quel est son côté ?",
             type: "open",
-            modelAnswer: "On cherche un nombre $c$ tel que $c \\times c = 49$.\\n\\n$$c = 7 \\text{ car } 7 \\times 7 = 49$$\\n\\n$$\\boxed{c = 7 \\text{ cm}}$$",
+            modelAnswer: "On cherche un nombre $c$ tel que $c \\times c = 49$.\n\n$$c = 7 \\text{ car } 7 \\times 7 = 49$$\n\n$$\\boxed{c = 7 \\text{ cm}}$$",
             explanation: "On recherche la racine carrée de l'aire : le côté est le nombre qui, multiplié par lui-même, donne l'aire.",
             difficulty: "intermediaire",
           },
@@ -5986,7 +6398,7 @@ $$A = \\dfrac{6 \\times 5}{2} = \\dfrac{30}{2} = 15 \\text{ cm}^2$$
             id: "aire6-l2-e5",
             question: "Une pièce rectangulaire mesure $6$ m sur $4$ m. On veut poser du carrelage à $25$ €/m². Quel est le coût total ?",
             type: "open",
-            modelAnswer: "On calcule d'abord l'aire de la pièce :\\n\\n$$A = 6 \\times 4 = 24 \\text{ m}^2$$\\n\\nPuis le coût total :\\n\\n$$24 \\times 25 = 600$$\\n\\n$$\\boxed{600 \\text{ €}}$$",
+            modelAnswer: "On calcule d'abord l'aire de la pièce :\n\n$$A = 6 \\times 4 = 24 \\text{ m}^2$$\n\nPuis le coût total :\n\n$$24 \\times 25 = 600$$\n\n$$\\boxed{600 \\text{ €}}$$",
             explanation: "On calcule l'aire, puis on multiplie par le prix au m² pour obtenir le coût total.",
             difficulty: "expert",
           },
@@ -6068,7 +6480,7 @@ $$A_{terrain} = 60 - 4 = \\boxed{56 \\text{ m}^2}$$`,
             id: "aire6-l3-e4",
             question: "Calcule l'aire approximative d'un disque de rayon $10$ m.",
             type: "open",
-            modelAnswer: "$$A = \\pi \\times r^2 \\approx 3{,}14 \\times 10^2 = 3{,}14 \\times 100 = 314$$\\n\\n$$\\boxed{A \\approx 314 \\text{ m}^2}$$",
+            modelAnswer: "$$A = \\pi \\times r^2 \\approx 3{,}14 \\times 10^2 = 3{,}14 \\times 100 = 314$$\n\n$$\\boxed{A \\approx 314 \\text{ m}^2}$$",
             explanation: "On applique $A = \\pi r^2$ avec $r = 10$ m.",
             difficulty: "intermediaire",
           },
@@ -6076,7 +6488,7 @@ $$A_{terrain} = 60 - 4 = \\boxed{56 \\text{ m}^2}$$`,
             id: "aire6-l3-e5",
             question: "Une pelouse circulaire de rayon $6$ m contient une fontaine carrée de $2$ m de côté en son centre. Quelle est l'aire de la pelouse (sans la fontaine) ? Donne le résultat au cm² près.",
             type: "open",
-            modelAnswer: "On calcule l'aire du disque :\\n\\n$$A_{disque} = \\pi \\times 6^2 \\approx 3{,}14 \\times 36 = 113{,}04 \\text{ m}^2$$\\n\\nPuis l'aire de la fontaine carrée :\\n\\n$$A_{carré} = 2 \\times 2 = 4 \\text{ m}^2$$\\n\\nOn soustrait :\\n\\n$$A_{pelouse} = 113{,}04 - 4 = \\boxed{109{,}04 \\text{ m}^2}$$",
+            modelAnswer: "On calcule l'aire du disque :\n\n$$A_{disque} = \\pi \\times 6^2 \\approx 3{,}14 \\times 36 = 113{,}04 \\text{ m}^2$$\n\nPuis l'aire de la fontaine carrée :\n\n$$A_{carré} = 2 \\times 2 = 4 \\text{ m}^2$$\n\nOn soustrait :\n\n$$A_{pelouse} = 113{,}04 - 4 = \\boxed{109{,}04 \\text{ m}^2}$$",
             explanation: "On calcule l'aire totale du disque, puis on soustrait l'aire de la zone retirée (la fontaine).",
             difficulty: "expert",
           },
@@ -6169,7 +6581,7 @@ Pour construire le symétrique $A'$ d'un point $A$ par rapport à une droite $(d
             id: "sym6-l1-e4",
             question: "Un triangle $ABC$ a pour symétrique $A'B'C'$ par rapport à une droite $(d)$. Si $AB = 5$ cm, quelle est la longueur $A'B'$ ?",
             type: "open",
-            modelAnswer: "La symétrie axiale conserve les longueurs, donc $A'B'$ a la même longueur que $AB$.\\n\\n$$\\boxed{A'B' = 5 \\text{ cm}}$$",
+            modelAnswer: "La symétrie axiale conserve les longueurs, donc $A'B'$ a la même longueur que $AB$.\n\n$$\\boxed{A'B' = 5 \\text{ cm}}$$",
             explanation: "Une transformation par symétrie axiale ne change jamais les longueurs des segments.",
             difficulty: "intermediaire",
           },
@@ -6177,7 +6589,7 @@ Pour construire le symétrique $A'$ d'un point $A$ par rapport à une droite $(d
             id: "sym6-l1-e5",
             question: "Un point $M$ est à $3$ cm de l'axe $(d)$, perpendiculairement à celui-ci. Où se trouve son symétrique $M'$ ?",
             type: "open",
-            modelAnswer: "Le symétrique $M'$ se trouve sur la même perpendiculaire à $(d)$, du côté opposé à $M$, à la même distance.\\n\\n$$\\boxed{M' \\text{ est à } 3 \\text{ cm de } (d), \\text{ de l'autre côté}}$$",
+            modelAnswer: "Le symétrique $M'$ se trouve sur la même perpendiculaire à $(d)$, du côté opposé à $M$, à la même distance.\n\n$$\\boxed{M' \\text{ est à } 3 \\text{ cm de } (d), \\text{ de l'autre côté}}$$",
             explanation: "La droite $(d)$ est la médiatrice de $[MM']$ : $M$ et $M'$ sont à égale distance de $(d)$, de part et d'autre.",
             difficulty: "intermediaire",
           },
@@ -6259,7 +6671,7 @@ Un triangle équilatéral $ABC$ possède $3$ axes de symétrie : chacun passe pa
             id: "sym6-l2-e5",
             question: "Un triangle isocèle (non équilatéral) possède combien d'axes de symétrie, et où se situe-t-il ?",
             type: "open",
-            modelAnswer: "Un triangle isocèle non équilatéral possède exactement $1$ axe de symétrie.\\n\\nCet axe passe par le sommet principal (celui entre les deux côtés égaux) et par le milieu du côté opposé (la base).\\n\\n$$\\boxed{1 \\text{ axe, la médiatrice de la base}}$$",
+            modelAnswer: "Un triangle isocèle non équilatéral possède exactement $1$ axe de symétrie.\n\nCet axe passe par le sommet principal (celui entre les deux côtés égaux) et par le milieu du côté opposé (la base).\n\n$$\\boxed{1 \\text{ axe, la médiatrice de la base}}$$",
             explanation: "Le triangle isocèle est symétrique par rapport à la médiatrice de sa base, qui est aussi la bissectrice de l'angle au sommet.",
             difficulty: "intermediaire",
           },
@@ -6332,7 +6744,7 @@ Le point $A$ est à $3$ carreaux à gauche d'un axe vertical $(d)$. Son symétri
             id: "sym6-l3-e4",
             question: "Un cercle de rayon $5$ cm est symétrisé par rapport à une droite. Quel est le rayon du cercle obtenu ?",
             type: "open",
-            modelAnswer: "La symétrie axiale conserve les longueurs et donc les rayons.\\n\\n$$\\boxed{r' = 5 \\text{ cm}}$$",
+            modelAnswer: "La symétrie axiale conserve les longueurs et donc les rayons.\n\n$$\\boxed{r' = 5 \\text{ cm}}$$",
             explanation: "L'image d'un cercle par symétrie axiale est un cercle de même rayon, son centre étant le symétrique du centre initial.",
             difficulty: "intermediaire",
           },
@@ -6340,7 +6752,7 @@ Le point $A$ est à $3$ carreaux à gauche d'un axe vertical $(d)$. Son symétri
             id: "sym6-l3-e5",
             question: "Un triangle $ABC$ a un axe de symétrie $(d)$ qui passe par le sommet $A$. Que peut-on dire des côtés $AB$ et $AC$ ?",
             type: "open",
-            modelAnswer: "Si $(d)$ est un axe de symétrie du triangle passant par $A$, alors $B$ et $C$ sont symétriques par rapport à $(d)$.\\n\\nComme la symétrie conserve les longueurs, $AB$ et $AC$ doivent être égaux (le triangle est isocèle en $A$).\\n\\n$$\\boxed{AB = AC, \\text{ le triangle est isocèle en } A}$$",
+            modelAnswer: "Si $(d)$ est un axe de symétrie du triangle passant par $A$, alors $B$ et $C$ sont symétriques par rapport à $(d)$.\n\nComme la symétrie conserve les longueurs, $AB$ et $AC$ doivent être égaux (le triangle est isocèle en $A$).\n\n$$\\boxed{AB = AC, \\text{ le triangle est isocèle en } A}$$",
             explanation: "Un axe de symétrie passant par un sommet d'un triangle en fait nécessairement un triangle isocèle en ce sommet.",
             difficulty: "expert",
           },
@@ -6438,7 +6850,7 @@ Un **patron** est une représentation à plat des faces d'un solide, qui permet 
             id: "sol6-l1-e4",
             question: "Qu'est-ce qu'une arête d'un solide ?",
             type: "open",
-            modelAnswer: "Une arête est le segment de droite où se rejoignent deux faces du solide.\\n\\n$$\\boxed{\\text{Une arête est l'intersection (le segment commun) de deux faces}}$$",
+            modelAnswer: "Une arête est le segment de droite où se rejoignent deux faces du solide.\n\n$$\\boxed{\\text{Une arête est l'intersection (le segment commun) de deux faces}}$$",
             explanation: "On distingue bien face (surface), arête (segment) et sommet (point) dans le vocabulaire des solides.",
             difficulty: "intermediaire",
           },
@@ -6446,7 +6858,7 @@ Un **patron** est une représentation à plat des faces d'un solide, qui permet 
             id: "sol6-l1-e5",
             question: "Un solide possède $6$ faces, $12$ arêtes et $8$ sommets, toutes ses faces sont des rectangles non carrés. De quel solide s'agit-il ?",
             type: "open",
-            modelAnswer: "On a $6$ faces rectangulaires, $12$ arêtes et $8$ sommets : il s'agit d'un pavé droit (et non d'un cube car les faces ne sont pas carrées).\\n\\n$$\\boxed{\\text{Un pavé droit (parallélépipède rectangle)}}$$",
+            modelAnswer: "On a $6$ faces rectangulaires, $12$ arêtes et $8$ sommets : il s'agit d'un pavé droit (et non d'un cube car les faces ne sont pas carrées).\n\n$$\\boxed{\\text{Un pavé droit (parallélépipède rectangle)}}$$",
             explanation: "Le nombre de faces/arêtes/sommets correspond au cube et au pavé droit, mais la précision « faces rectangulaires non carrées » exclut le cube.",
             difficulty: "intermediaire",
           },
@@ -6523,7 +6935,7 @@ Ces équivalences permettent de relier le volume d'un solide à la quantité de 
             id: "sol6-l2-e4",
             question: "Calcule le volume d'un aquarium en forme de pavé droit mesurant $80$ cm de longueur, $40$ cm de largeur et $50$ cm de hauteur. Donne le résultat en litres.",
             type: "open",
-            modelAnswer: "$$V = 80 \\times 40 \\times 50 = 160\\,000 \\text{ cm}^3$$\\n\\nOn convertit en litres en sachant que $1 \\text{ L} = 1000 \\text{ cm}^3$ :\\n\\n$$160\\,000 \\div 1000 = 160$$\\n\\n$$\\boxed{V = 160 \\text{ L}}$$",
+            modelAnswer: "$$V = 80 \\times 40 \\times 50 = 160\\,000 \\text{ cm}^3$$\n\nOn convertit en litres en sachant que $1 \\text{ L} = 1000 \\text{ cm}^3$ :\n\n$$160\\,000 \\div 1000 = 160$$\n\n$$\\boxed{V = 160 \\text{ L}}$$",
             explanation: "On calcule d'abord le volume en cm³, puis on divise par $1000$ pour convertir en litres.",
             difficulty: "intermediaire",
           },
@@ -6531,7 +6943,7 @@ Ces équivalences permettent de relier le volume d'un solide à la quantité de 
             id: "sol6-l2-e5",
             question: "Un cube a un volume de $125$ cm³. Quelle est la longueur de son côté ?",
             type: "open",
-            modelAnswer: "On cherche $c$ tel que $c \\times c \\times c = 125$.\\n\\n$$c = 5 \\text{ car } 5 \\times 5 \\times 5 = 125$$\\n\\n$$\\boxed{c = 5 \\text{ cm}}$$",
+            modelAnswer: "On cherche $c$ tel que $c \\times c \\times c = 125$.\n\n$$c = 5 \\text{ car } 5 \\times 5 \\times 5 = 125$$\n\n$$\\boxed{c = 5 \\text{ cm}}$$",
             explanation: "On recherche la racine cubique du volume : le côté est le nombre qui, multiplié trois fois par lui-même, donne $125$.",
             difficulty: "expert",
           },
@@ -6608,7 +7020,7 @@ Le patron d'un pavé droit comporte $6$ rectangles, organisés par paires de fac
             id: "sol6-l3-e4",
             question: "Un patron de pavé droit est constitué de combien de rectangles, et comment sont-ils organisés ?",
             type: "open",
-            modelAnswer: "Un patron de pavé droit est constitué de $6$ rectangles, organisés par $3$ paires de rectangles identiques (les faces opposées du pavé droit sont superposables).\\n\\n$$\\boxed{6 \\text{ rectangles, par } 3 \\text{ paires identiques}}$$",
+            modelAnswer: "Un patron de pavé droit est constitué de $6$ rectangles, organisés par $3$ paires de rectangles identiques (les faces opposées du pavé droit sont superposables).\n\n$$\\boxed{6 \\text{ rectangles, par } 3 \\text{ paires identiques}}$$",
             explanation: "Le pavé droit a $6$ faces, regroupées en $3$ paires de faces opposées et identiques deux à deux.",
             difficulty: "intermediaire",
           },
@@ -6616,7 +7028,7 @@ Le patron d'un pavé droit comporte $6$ rectangles, organisés par paires de fac
             id: "sol6-l3-e5",
             question: "On te propose une figure plane composée de $5$ carrés identiques disposés en croix. Peut-elle être le patron d'un cube ? Justifie.",
             type: "open",
-            modelAnswer: "Non, cette figure ne peut pas être le patron d'un cube.\\n\\nUn cube possède exactement $6$ faces, donc son patron doit comporter $6$ carrés identiques, pas $5$.\\n\\n$$\\boxed{\\text{Non : il manque une face (5 carrés au lieu de 6)}}$$",
+            modelAnswer: "Non, cette figure ne peut pas être le patron d'un cube.\n\nUn cube possède exactement $6$ faces, donc son patron doit comporter $6$ carrés identiques, pas $5$.\n\n$$\\boxed{\\text{Non : il manque une face (5 carrés au lieu de 6)}}$$",
             explanation: "On vérifie toujours le nombre de faces du solide avant de valider un patron : un cube nécessite exactement $6$ faces.",
             difficulty: "expert",
           },
@@ -6711,7 +7123,7 @@ Pour le football : $\\dfrac{8}{20} = 0{,}4 = 40\\%$.`,
             id: "stat6-l1-e4",
             question: "Sur $40$ personnes interrogées, $12$ utilisent le vélo, $18$ la voiture et le reste les transports en commun. Quel est l'effectif des transports en commun ?",
             type: "open",
-            modelAnswer: "On soustrait les effectifs connus de l'effectif total.\\n\\n$$40 - 12 - 18 = 10$$\\n\\n$$\\boxed{10 \\text{ personnes}}$$",
+            modelAnswer: "On soustrait les effectifs connus de l'effectif total.\n\n$$40 - 12 - 18 = 10$$\n\n$$\\boxed{10 \\text{ personnes}}$$",
             explanation: "L'effectif total est la somme de tous les effectifs : on retrouve l'effectif manquant par soustraction.",
             difficulty: "intermediaire",
           },
@@ -6719,7 +7131,7 @@ Pour le football : $\\dfrac{8}{20} = 0{,}4 = 40\\%$.`,
             id: "stat6-l1-e5",
             question: "Dans une enquête sur $50$ élèves, la fréquence des élèves qui pratiquent la danse est $0{,}24$. Combien d'élèves pratiquent la danse ?",
             type: "open",
-            modelAnswer: "On utilise la fréquence pour retrouver l'effectif :\\n\\n$$\\text{effectif} = \\text{fréquence} \\times \\text{effectif total} = 0{,}24 \\times 50 = 12$$\\n\\n$$\\boxed{12 \\text{ élèves}}$$",
+            modelAnswer: "On utilise la fréquence pour retrouver l'effectif :\n\n$$\\text{effectif} = \\text{fréquence} \\times \\text{effectif total} = 0{,}24 \\times 50 = 12$$\n\n$$\\boxed{12 \\text{ élèves}}$$",
             explanation: "On multiplie la fréquence (en proportion) par l'effectif total pour retrouver l'effectif correspondant.",
             difficulty: "expert",
           },
@@ -6794,7 +7206,7 @@ $$0{,}25 \\times 360 = 90°$$
             id: "stat6-l2-e4",
             question: "Une part de diagramme circulaire mesure $144°$. Quelle est la fréquence correspondante (en %) ?",
             type: "open",
-            modelAnswer: "On utilise la proportion entre l'angle et $360°$ :\\n\\n$$\\text{fréquence} = \\dfrac{144}{360} = 0{,}4 = 40\\%$$\\n\\n$$\\boxed{40\\%}$$",
+            modelAnswer: "On utilise la proportion entre l'angle et $360°$ :\n\n$$\\text{fréquence} = \\dfrac{144}{360} = 0{,}4 = 40\\%$$\n\n$$\\boxed{40\\%}$$",
             explanation: "On divise l'angle obtenu par $360°$ (l'angle total) pour retrouver la fréquence.",
             difficulty: "intermediaire",
           },
@@ -6802,7 +7214,7 @@ $$0{,}25 \\times 360 = 90°$$
             id: "stat6-l2-e5",
             question: "Sur $120$ personnes interrogées sur leur boisson préférée, $30$ préfèrent le jus d'orange. Quel angle (en degrés) doit-on tracer pour cette catégorie dans un diagramme circulaire ?",
             type: "open",
-            modelAnswer: "On calcule d'abord la fréquence :\\n\\n$$\\dfrac{30}{120} = 0{,}25$$\\n\\nPuis l'angle correspondant :\\n\\n$$0{,}25 \\times 360 = 90$$\\n\\n$$\\boxed{90°}$$",
+            modelAnswer: "On calcule d'abord la fréquence :\n\n$$\\dfrac{30}{120} = 0{,}25$$\n\nPuis l'angle correspondant :\n\n$$0{,}25 \\times 360 = 90$$\n\n$$\\boxed{90°}$$",
             explanation: "On calcule la fréquence (effectif divisé par effectif total), puis on multiplie par $360°$ pour obtenir l'angle.",
             difficulty: "expert",
           },
@@ -6878,7 +7290,7 @@ $$\\text{moyenne} = \\dfrac{14 \\times 1 + 10 \\times 2}{1+2} = \\dfrac{14+20}{3
             id: "stat6-l3-e4",
             question: "Un élève a $16$ avec un coefficient $1$ et $8$ avec un coefficient $3$. Quelle est sa moyenne pondérée ?",
             type: "open",
-            modelAnswer: "$$\\text{moyenne} = \\dfrac{16 \\times 1 + 8 \\times 3}{1+3} = \\dfrac{16+24}{4} = \\dfrac{40}{4} = 10$$\\n\\n$$\\boxed{10}$$",
+            modelAnswer: "$$\\text{moyenne} = \\dfrac{16 \\times 1 + 8 \\times 3}{1+3} = \\dfrac{16+24}{4} = \\dfrac{40}{4} = 10$$\n\n$$\\boxed{10}$$",
             explanation: "On multiplie chaque note par son coefficient, on additionne, puis on divise par la somme des coefficients.",
             difficulty: "intermediaire",
           },
@@ -6886,7 +7298,7 @@ $$\\text{moyenne} = \\dfrac{14 \\times 1 + 10 \\times 2}{1+2} = \\dfrac{14+20}{3
             id: "stat6-l3-e5",
             question: "La moyenne de $4$ notes est $11$. Trois de ces notes sont $9$, $12$ et $14$. Quelle est la quatrième note ?",
             type: "open",
-            modelAnswer: "La somme des $4$ notes est : $11 \\times 4 = 44$.\\n\\nLa somme des trois notes connues est : $9 + 12 + 14 = 35$.\\n\\nLa quatrième note est :\\n\\n$$44 - 35 = 9$$\\n\\n$$\\boxed{9}$$",
+            modelAnswer: "La somme des $4$ notes est : $11 \\times 4 = 44$.\n\nLa somme des trois notes connues est : $9 + 12 + 14 = 35$.\n\nLa quatrième note est :\n\n$$44 - 35 = 9$$\n\n$$\\boxed{9}$$",
             explanation: "On retrouve la somme totale à partir de la moyenne ($\\text{moyenne} \\times \\text{nombre de valeurs}$), puis on soustrait les valeurs connues.",
             difficulty: "expert",
           },
@@ -6978,7 +7390,7 @@ $$E = 3 \\times 4 + 5 = 12 + 5 = 17$$
             id: "calc5-l1-e4",
             question: "Calcule la valeur de $F = 4a - 2b$ pour $a = 5$ et $b = 3$.",
             type: "open",
-            modelAnswer: "On remplace $a$ par $5$ et $b$ par $3$ :\\n\\n$$F = 4 \\times 5 - 2 \\times 3 = 20 - 6 = 14$$\\n\\n$$\\boxed{F = 14}$$",
+            modelAnswer: "On remplace $a$ par $5$ et $b$ par $3$ :\n\n$$F = 4 \\times 5 - 2 \\times 3 = 20 - 6 = 14$$\n\n$$\\boxed{F = 14}$$",
             explanation: "On effectue les deux multiplications avant de soustraire, en respectant les priorités opératoires.",
             difficulty: "intermediaire",
           },
@@ -6986,7 +7398,7 @@ $$E = 3 \\times 4 + 5 = 12 + 5 = 17$$
             id: "calc5-l1-e5",
             question: "Le périmètre d'un rectangle est donné par $P = 2L + 2\\ell$. Calcule $P$ pour $L = 9$ cm et $\\ell = 4$ cm, puis vérifie avec la formule $P = 2(L+\\ell)$.",
             type: "open",
-            modelAnswer: "Avec la première formule :\\n\\n$$P = 2 \\times 9 + 2 \\times 4 = 18 + 8 = 26$$\\n\\nAvec la seconde formule :\\n\\n$$P = 2 \\times (9+4) = 2 \\times 13 = 26$$\\n\\nLes deux résultats coïncident : $\\boxed{P = 26 \\text{ cm}}$.",
+            modelAnswer: "Avec la première formule :\n\n$$P = 2 \\times 9 + 2 \\times 4 = 18 + 8 = 26$$\n\nAvec la seconde formule :\n\n$$P = 2 \\times (9+4) = 2 \\times 13 = 26$$\n\nLes deux résultats coïncident : $\\boxed{P = 26 \\text{ cm}}$.",
             explanation: "Les deux écritures de la formule du périmètre du rectangle sont équivalentes, ce que confirme le calcul.",
             difficulty: "expert",
           },
@@ -7062,7 +7474,7 @@ $$B = (4a - a) + (3b + 2b) = 3a + 5b$$
             id: "calc5-l2-e4",
             question: "Réduis l'expression $C = 6x + 4y - 2x + y$.",
             type: "open",
-            modelAnswer: "On regroupe les termes en $x$ et les termes en $y$ séparément :\\n\\n$$C = (6x - 2x) + (4y + y) = 4x + 5y$$\\n\\n$$\\boxed{C = 4x + 5y}$$",
+            modelAnswer: "On regroupe les termes en $x$ et les termes en $y$ séparément :\n\n$$C = (6x - 2x) + (4y + y) = 4x + 5y$$\n\n$$\\boxed{C = 4x + 5y}$$",
             explanation: "On ne peut regrouper que les termes contenant exactement la même lettre.",
             difficulty: "intermediaire",
           },
@@ -7070,7 +7482,7 @@ $$B = (4a - a) + (3b + 2b) = 3a + 5b$$
             id: "calc5-l2-e5",
             question: "Réduis l'expression $D = 3x + 7 - 5x + 2 - x + 8$, puis calcule sa valeur pour $x = 2$.",
             type: "open",
-            modelAnswer: "On regroupe les termes en $x$ : $3x - 5x - x = -3x$.\\n\\nOn regroupe les nombres : $7+2+8 = 17$.\\n\\n$$D = -3x + 17$$\\n\\nPour $x=2$ :\\n\\n$$D = -3 \\times 2 + 17 = -6+17 = 11$$\\n\\n$$\\boxed{D = -3x+17,\\ D(2)=11}$$",
+            modelAnswer: "On regroupe les termes en $x$ : $3x - 5x - x = -3x$.\n\nOn regroupe les nombres : $7+2+8 = 17$.\n\n$$D = -3x + 17$$\n\nPour $x=2$ :\n\n$$D = -3 \\times 2 + 17 = -6+17 = 11$$\n\n$$\\boxed{D = -3x+17,\\ D(2)=11}$$",
             explanation: "On réduit d'abord complètement l'expression avant de substituer la valeur, ce qui simplifie grandement le calcul final.",
             difficulty: "expert",
           },
@@ -7150,7 +7562,7 @@ $$\\dfrac{3x}{3} = \\dfrac{21}{3} \\implies x = 7$$
             id: "calc5-l3-e4",
             question: "Résous l'équation $4x = 36$, puis vérifie ta solution.",
             type: "open",
-            modelAnswer: "$$4x = 36 \\implies x = \\dfrac{36}{4} = 9$$\\n\\n**Vérification :** $4 \\times 9 = 36$ ✓\\n\\n$$\\boxed{x = 9}$$",
+            modelAnswer: "$$4x = 36 \\implies x = \\dfrac{36}{4} = 9$$\n\n**Vérification :** $4 \\times 9 = 36$ ✓\n\n$$\\boxed{x = 9}$$",
             explanation: "On divise les deux côtés de l'équation par le coefficient de $x$, puis on vérifie en substituant.",
             difficulty: "intermediaire",
           },
@@ -7158,7 +7570,7 @@ $$\\dfrac{3x}{3} = \\dfrac{21}{3} \\implies x = 7$$
             id: "calc5-l3-e5",
             question: "Léa pense à un nombre, le multiplie par $3$ puis ajoute $5$. Elle obtient $23$. À quel nombre pensait-elle ? Mets le problème en équation et résous-le.",
             type: "open",
-            modelAnswer: "On note $x$ le nombre choisi par Léa. La mise en équation donne :\\n\\n$$3x + 5 = 23$$\\n\\nOn soustrait $5$ des deux côtés :\\n\\n$$3x = 18$$\\n\\nOn divise par $3$ :\\n\\n$$x = 6$$\\n\\n**Vérification :** $3 \\times 6 + 5 = 18+5 = 23$ ✓\\n\\n$$\\boxed{x = 6}$$",
+            modelAnswer: "On note $x$ le nombre choisi par Léa. La mise en équation donne :\n\n$$3x + 5 = 23$$\n\nOn soustrait $5$ des deux côtés :\n\n$$3x = 18$$\n\nOn divise par $3$ :\n\n$$x = 6$$\n\n**Vérification :** $3 \\times 6 + 5 = 18+5 = 23$ ✓\n\n$$\\boxed{x = 6}$$",
             explanation: "On traduit l'énoncé en équation étape par étape, puis on la résout en isolant $x$ progressivement.",
             difficulty: "expert",
           },
@@ -7248,7 +7660,7 @@ $$\\widehat{C} = 180° - \\widehat{A} - \\widehat{B} = 180° - 50° - 70° = 60�
             id: "tri5-l1-e4",
             question: "Un triangle isocèle a un angle au sommet de $40°$. Quelles sont les mesures des deux autres angles, sachant qu'ils sont égaux ?",
             type: "open",
-            modelAnswer: "La somme des deux angles à la base est :\\n\\n$$180° - 40° = 140°$$\\n\\nComme ils sont égaux, chacun mesure :\\n\\n$$140° \\div 2 = 70°$$\\n\\n$$\\boxed{70° \\text{ et } 70°}$$",
+            modelAnswer: "La somme des deux angles à la base est :\n\n$$180° - 40° = 140°$$\n\nComme ils sont égaux, chacun mesure :\n\n$$140° \\div 2 = 70°$$\n\n$$\\boxed{70° \\text{ et } 70°}$$",
             explanation: "On retire l'angle au sommet du total ($180°$), puis on partage équitablement le reste entre les deux angles égaux à la base.",
             difficulty: "intermediaire",
           },
@@ -7256,7 +7668,7 @@ $$\\widehat{C} = 180° - \\widehat{A} - \\widehat{B} = 180° - 50° - 70° = 60�
             id: "tri5-l1-e5",
             question: "Dans un triangle $ABC$, $\\widehat{B} = 2\\widehat{A}$ et $\\widehat{C} = 3\\widehat{A}$. Quelle est la mesure de chaque angle ?",
             type: "open",
-            modelAnswer: "On pose $\\widehat{A} = x$. Alors $\\widehat{B} = 2x$ et $\\widehat{C} = 3x$.\\n\\nLa somme des angles donne :\\n\\n$$x + 2x + 3x = 180° \\implies 6x = 180°$$\\n\\n$$x = 30°$$\\n\\nDonc $\\widehat{A} = 30°$, $\\widehat{B} = 60°$, $\\widehat{C} = 90°$.\\n\\n$$\\boxed{\\widehat{A}=30°,\\ \\widehat{B}=60°,\\ \\widehat{C}=90°}$$",
+            modelAnswer: "On pose $\\widehat{A} = x$. Alors $\\widehat{B} = 2x$ et $\\widehat{C} = 3x$.\n\nLa somme des angles donne :\n\n$$x + 2x + 3x = 180° \\implies 6x = 180°$$\n\n$$x = 30°$$\n\nDonc $\\widehat{A} = 30°$, $\\widehat{B} = 60°$, $\\widehat{C} = 90°$.\n\n$$\\boxed{\\widehat{A}=30°,\\ \\widehat{B}=60°,\\ \\widehat{C}=90°}$$",
             explanation: "On traduit les relations entre angles en équation, puis on résout en utilisant la somme des angles d'un triangle.",
             difficulty: "expert",
           },
@@ -7330,7 +7742,7 @@ La plus grande longueur est $7$. On vérifie : $7 < 2+3 = 5$ ? Non, $7$ n'est pa
             id: "tri5-l2-e4",
             question: "Un triangle a deux côtés de $5$ cm et $9$ cm. Entre quelles valeurs (strictement) doit se trouver le troisième côté $c$ ?",
             type: "open",
-            modelAnswer: "Si $c$ est le plus grand côté : $c < 5+9=14$.\\n\\nSi $9$ reste le plus grand côté : $9 < 5+c \\implies c > 4$.\\n\\n$$\\boxed{4 \\text{ cm} < c < 14 \\text{ cm}}$$",
+            modelAnswer: "Si $c$ est le plus grand côté : $c < 5+9=14$.\n\nSi $9$ reste le plus grand côté : $9 < 5+c \\implies c > 4$.\n\n$$\\boxed{4 \\text{ cm} < c < 14 \\text{ cm}}$$",
             explanation: "On applique l'inégalité triangulaire dans les deux sens : le troisième côté doit être à la fois assez grand pour fermer le triangle et assez petit pour ne pas dépasser la somme des deux autres.",
             difficulty: "expert",
           },
@@ -7338,7 +7750,7 @@ La plus grande longueur est $7$. On vérifie : $7 < 2+3 = 5$ ? Non, $7$ n'est pa
             id: "tri5-l2-e5",
             question: "Peut-on construire un triangle de côtés $7$ cm, $7$ cm et $14$ cm ? Justifie.",
             type: "open",
-            modelAnswer: "On vérifie l'inégalité triangulaire avec le plus grand côté, $14$ cm :\\n\\n$$7 + 7 = 14$$\\n\\nOr il faut une inégalité **stricte** : $14$ n'est pas strictement inférieur à $14$.\\n\\n$$\\boxed{\\text{Non, les trois points seraient alignés (pas un vrai triangle)}}$$",
+            modelAnswer: "On vérifie l'inégalité triangulaire avec le plus grand côté, $14$ cm :\n\n$$7 + 7 = 14$$\n\nOr il faut une inégalité **stricte** : $14$ n'est pas strictement inférieur à $14$.\n\n$$\\boxed{\\text{Non, les trois points seraient alignés (pas un vrai triangle)}}$$",
             explanation: "Lorsque la plus grande longueur est exactement égale à la somme des deux autres, les points sont alignés et ne forment pas un triangle.",
             difficulty: "expert",
           },
@@ -7415,7 +7827,7 @@ Pour construire un triangle $ABC$ dont on connaît les trois longueurs $AB$, $BC
             id: "tri5-l3-e4",
             question: "Décris les étapes pour construire un triangle $ABC$ tel que $AB = 6$ cm, $\\widehat{A} = 50°$ et $\\widehat{B} = 60°$.",
             type: "open",
-            modelAnswer: "1. On trace le segment $[AB]$ de $6$ cm.\\n\\n2. Avec le rapporteur, on trace en $A$ une demi-droite formant un angle de $50°$ avec $[AB]$.\\n\\n3. Avec le rapporteur, on trace en $B$ une demi-droite formant un angle de $60°$ avec $[AB]$ (du même côté).\\n\\n4. Le point $C$ est à l'intersection des deux demi-droites.\\n\\n$$\\boxed{\\text{Un côté + deux angles} \\implies \\text{intersection des deux demi-droites}}$$",
+            modelAnswer: "1. On trace le segment $[AB]$ de $6$ cm.\n\n2. Avec le rapporteur, on trace en $A$ une demi-droite formant un angle de $50°$ avec $[AB]$.\n\n3. Avec le rapporteur, on trace en $B$ une demi-droite formant un angle de $60°$ avec $[AB]$ (du même côté).\n\n4. Le point $C$ est à l'intersection des deux demi-droites.\n\n$$\\boxed{\\text{Un côté + deux angles} \\implies \\text{intersection des deux demi-droites}}$$",
             explanation: "Connaissant un côté et les deux angles adjacents, le triangle est entièrement déterminé : on trace les deux demi-droites qui se croisent en $C$.",
             difficulty: "expert",
           },
@@ -7423,7 +7835,7 @@ Pour construire un triangle $ABC$ dont on connaît les trois longueurs $AB$, $BC
             id: "tri5-l3-e5",
             question: "On veut construire un triangle $ABC$ avec $AB=5$ cm, $AC=4$ cm et $BC=10$ cm. Est-ce possible ?",
             type: "open",
-            modelAnswer: "On vérifie l'inégalité triangulaire avec le plus grand côté $BC = 10$ cm :\\n\\n$$AB + AC = 5+4 = 9$$\\n\\nOr $10$ n'est pas inférieur à $9$.\\n\\n$$\\boxed{\\text{Non, ce triangle ne peut pas être construit}}$$",
+            modelAnswer: "On vérifie l'inégalité triangulaire avec le plus grand côté $BC = 10$ cm :\n\n$$AB + AC = 5+4 = 9$$\n\nOr $10$ n'est pas inférieur à $9$.\n\n$$\\boxed{\\text{Non, ce triangle ne peut pas être construit}}$$",
             explanation: "Avant toute construction, il faut systématiquement vérifier l'inégalité triangulaire : ici elle n'est pas respectée.",
             difficulty: "expert",
           },
@@ -7513,7 +7925,7 @@ $$A = \\pi \\times 6^2 \\approx 3{,}14 \\times 36 \\approx 113{,}04 \\text{ cm}^
             id: "aire5-l1-e4",
             question: "Un parallélogramme a une aire de $72$ cm² et une base de $9$ cm. Quelle est sa hauteur ?",
             type: "open",
-            modelAnswer: "On utilise $A = \\text{base} \\times \\text{hauteur}$, donc $\\text{hauteur} = \\dfrac{A}{\\text{base}}$.\\n\\n$$h = \\dfrac{72}{9} = 8$$\\n\\n$$\\boxed{h = 8 \\text{ cm}}$$",
+            modelAnswer: "On utilise $A = \\text{base} \\times \\text{hauteur}$, donc $\\text{hauteur} = \\dfrac{A}{\\text{base}}$.\n\n$$h = \\dfrac{72}{9} = 8$$\n\n$$\\boxed{h = 8 \\text{ cm}}$$",
             explanation: "On isole la hauteur en divisant l'aire par la base, opération inverse de la formule de l'aire.",
             difficulty: "intermediaire",
           },
@@ -7521,7 +7933,7 @@ $$A = \\pi \\times 6^2 \\approx 3{,}14 \\times 36 \\approx 113{,}04 \\text{ cm}^
             id: "aire5-l1-e5",
             question: "Une plaque circulaire de rayon $4$ cm est découpée dans une plaque carrée de $8$ cm de côté. Quelle aire de matière reste-t-il (en cm², au centième) ?",
             type: "open",
-            modelAnswer: "Aire du carré :\\n\\n$$A_{carré} = 8^2 = 64 \\text{ cm}^2$$\\n\\nAire du disque retiré :\\n\\n$$A_{disque} = \\pi \\times 4^2 \\approx 3{,}14 \\times 16 = 50{,}24 \\text{ cm}^2$$\\n\\nAire restante :\\n\\n$$64 - 50{,}24 = \\boxed{13{,}76 \\text{ cm}^2}$$",
+            modelAnswer: "Aire du carré :\n\n$$A_{carré} = 8^2 = 64 \\text{ cm}^2$$\n\nAire du disque retiré :\n\n$$A_{disque} = \\pi \\times 4^2 \\approx 3{,}14 \\times 16 = 50{,}24 \\text{ cm}^2$$\n\nAire restante :\n\n$$64 - 50{,}24 = \\boxed{13{,}76 \\text{ cm}^2}$$",
             explanation: "On calcule l'aire de la plaque carrée, puis on soustrait l'aire du disque découpé pour obtenir l'aire de matière restante.",
             difficulty: "expert",
           },
@@ -7596,7 +8008,7 @@ $$V = 12 \\times 7 = 84 \\text{ cm}^3$$
             id: "aire5-l2-e4",
             question: "Un prisme droit à base carrée a un volume de $250$ cm³ et une hauteur de $10$ cm. Quelle est l'aire de sa base ?",
             type: "open",
-            modelAnswer: "On utilise $V = \\text{aire de la base} \\times \\text{hauteur}$, donc :\\n\\n$$\\text{aire} = \\dfrac{V}{h} = \\dfrac{250}{10} = 25$$\\n\\n$$\\boxed{25 \\text{ cm}^2}$$",
+            modelAnswer: "On utilise $V = \\text{aire de la base} \\times \\text{hauteur}$, donc :\n\n$$\\text{aire} = \\dfrac{V}{h} = \\dfrac{250}{10} = 25$$\n\n$$\\boxed{25 \\text{ cm}^2}$$",
             explanation: "On isole l'aire de la base en divisant le volume par la hauteur du prisme.",
             difficulty: "intermediaire",
           },
@@ -7604,7 +8016,7 @@ $$V = 12 \\times 7 = 84 \\text{ cm}^3$$
             id: "aire5-l2-e5",
             question: "Un prisme droit a une base en forme de parallélogramme (base $5$ cm, hauteur $4$ cm) et une hauteur de prisme de $9$ cm. Calcule son volume.",
             type: "open",
-            modelAnswer: "Aire de la base (parallélogramme) :\\n\\n$$A = 5 \\times 4 = 20 \\text{ cm}^2$$\\n\\nVolume du prisme :\\n\\n$$V = A \\times h = 20 \\times 9 = 180$$\\n\\n$$\\boxed{V = 180 \\text{ cm}^3}$$",
+            modelAnswer: "Aire de la base (parallélogramme) :\n\n$$A = 5 \\times 4 = 20 \\text{ cm}^2$$\n\nVolume du prisme :\n\n$$V = A \\times h = 20 \\times 9 = 180$$\n\n$$\\boxed{V = 180 \\text{ cm}^3}$$",
             explanation: "On calcule d'abord l'aire de la base (ici un parallélogramme), puis on multiplie par la hauteur du prisme.",
             difficulty: "expert",
           },
@@ -7678,7 +8090,7 @@ Le volume du cylindre suit la même logique que celui du prisme droit : c'est l'
             id: "aire5-l3-e4",
             question: "Une canette cylindrique a un rayon de $3{,}5$ cm et une hauteur de $12$ cm. Calcule son volume approximatif (au cm³ près).",
             type: "open",
-            modelAnswer: "$$V = \\pi r^2 h \\approx 3{,}14 \\times 3{,}5^2 \\times 12$$\\n\\n$$= 3{,}14 \\times 12{,}25 \\times 12 \\approx 461{,}7$$\\n\\n$$\\boxed{V \\approx 462 \\text{ cm}^3}$$",
+            modelAnswer: "$$V = \\pi r^2 h \\approx 3{,}14 \\times 3{,}5^2 \\times 12$$\n\n$$= 3{,}14 \\times 12{,}25 \\times 12 \\approx 461{,}7$$\n\n$$\\boxed{V \\approx 462 \\text{ cm}^3}$$",
             explanation: "On applique la formule $V = \\pi r^2 h$ avec $r = 3{,}5$ cm, en arrondissant le résultat final au cm³.",
             difficulty: "intermediaire",
           },
@@ -7686,8 +8098,144 @@ Le volume du cylindre suit la même logique que celui du prisme droit : c'est l'
             id: "aire5-l3-e5",
             question: "Un réservoir cylindrique a un volume de $1570$ cm³ et un rayon de $5$ cm. Quelle est sa hauteur (avec $\\pi \\approx 3{,}14$) ?",
             type: "open",
-            modelAnswer: "On utilise $V = \\pi r^2 h$, donc $h = \\dfrac{V}{\\pi r^2}$.\\n\\n$$h = \\dfrac{1570}{3{,}14 \\times 25} = \\dfrac{1570}{78{,}5} = 20$$\\n\\n$$\\boxed{h = 20 \\text{ cm}}$$",
+            modelAnswer: "On utilise $V = \\pi r^2 h$, donc $h = \\dfrac{V}{\\pi r^2}$.\n\n$$h = \\dfrac{1570}{3{,}14 \\times 25} = \\dfrac{1570}{78{,}5} = 20$$\n\n$$\\boxed{h = 20 \\text{ cm}}$$",
             explanation: "On isole la hauteur en divisant le volume par l'aire de la base circulaire ($\\pi r^2$).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "aire5-l4",
+        slug: "patrons-prisme-cylindre",
+        title: "Patrons et perspective du prisme et du cylindre",
+        durationMinutes: 19,
+        content: `## Introduction
+
+Avant de calculer le volume d'un solide, il faut savoir le **représenter** et reconnaître comment il est construit. On utilise pour cela le vocabulaire des solides, la **perspective cavalière** (pour le dessiner en 3D sur une feuille) et le **patron** (pour le construire à plat).
+
+## Vocabulaire des solides
+
+- Une **face** est une surface plane (ou courbe pour le cylindre) qui délimite le solide.
+- Une **arête** est le segment où se rencontrent deux faces planes.
+- Un **sommet** est le point où se rencontrent plusieurs arêtes.
+- Les **bases** d'un prisme ou d'un cylindre sont ses deux faces parallèles et superposables (identiques).
+
+| Solide | Bases | Faces latérales | Particularité |
+|-----|-----|-----|-----|
+| Prisme droit | 2 polygones identiques | Rectangles | Arêtes latérales perpendiculaires aux bases |
+| Cylindre de révolution | 2 disques identiques | 1 surface courbe (le "tour") | Pas d'arêtes sur la face latérale |
+
+## La perspective cavalière
+
+La **perspective cavalière** est une façon de dessiner un solide en 3 dimensions sur une feuille plane (en 2D), en respectant des règles précises :
+- les faces vues de face sont dessinées **en vraie grandeur** ;
+- les arêtes "qui partent vers l'arrière" sont tracées **obliques** (souvent à $45°$) et **réduites** ;
+- les arêtes cachées sont dessinées en **pointillés**.
+
+> 📌 **Méthode — Reconnaître un patron valide**
+> 1. Compter les faces du patron : il doit y avoir exactement le même nombre de faces que le solide (par exemple 5 pour un prisme à base triangulaire : 2 triangles + 3 rectangles).
+> 2. Vérifier que les faces qui doivent se rejoindre (par pliage) ont bien la **même longueur de bord commun**.
+> 3. Imaginer le pliage mentalement : les faces ne doivent ni se chevaucher, ni laisser de trou une fois repliées.
+
+## Le patron du prisme droit
+
+Le patron d'un prisme droit est composé de :
+- **2 bases** identiques (le polygone de base, par exemple un triangle ou un rectangle) ;
+- **autant de rectangles latéraux** que de côtés a la base, chaque rectangle ayant pour largeur la hauteur du prisme.
+
+## Le patron du cylindre de révolution
+
+Le patron d'un cylindre est composé de :
+- **2 disques** identiques (les bases) ;
+- **1 rectangle** pour la surface latérale, dont la largeur est la hauteur $h$ du cylindre et dont la longueur est égale au **périmètre du disque**, soit $2\\pi r$.
+
+> ⚠️ **Attention :** la longueur du rectangle latéral doit être *exactement* égale à la circonférence du disque ($2\\pi r$), sinon le patron ne se referme pas correctement autour du cylindre.
+
+## Exemples
+
+### ✅ Exemple simple — Compter les faces d'un patron
+
+Un patron comporte 2 triangles identiques et 3 rectangles. Quel solide peut-on construire ?
+
+On compte $2 + 3 = 5$ faces : 2 bases triangulaires et 3 faces latérales rectangulaires. C'est le patron d'un **prisme droit à base triangulaire**.
+
+### 📘 Exemple intermédiaire — Vérifier un patron de cylindre
+
+Un disque a un rayon $r = 2$ cm. Le rectangle latéral du patron doit-il avoir une longueur de $10$ cm ou de $12{,}56$ cm ?
+
+La longueur du rectangle doit être égale au périmètre du disque : $2\\pi r \\approx 2 \\times 3{,}14 \\times 2 = 12{,}56$ cm. C'est donc la longueur **$12{,}56$ cm** qu'il faut choisir.
+
+### 🔴 Exemple avancé — Reconnaître un patron parmi plusieurs propositions
+
+On propose trois patrons pour un prisme droit à base rectangulaire (un pavé droit) :
+- Patron 1 : 6 rectangles, assemblés de sorte qu'en pliant, chaque paire de rectangles opposés se superpose sans trou ni chevauchement.
+- Patron 2 : 5 rectangles et 1 triangle.
+- Patron 3 : 6 rectangles mais deux d'entre eux ont des longueurs de bords communs différentes (le pliage laisse un trou).
+
+Seul le **patron 1** est valide : il a le bon nombre de faces (6 rectangles, comme un pavé droit) et toutes les arêtes communes ont la même longueur, donc le pliage referme parfaitement le solide.
+
+## À retenir
+
+- **Face, arête, sommet** : vocabulaire de base pour décrire un solide.
+- En **perspective cavalière**, les faces de face sont en vraie grandeur, les arêtes vers l'arrière sont obliques et réduites, les arêtes cachées sont en pointillés.
+- Le patron d'un **prisme droit** = 2 bases identiques + autant de rectangles latéraux que de côtés.
+- Le patron d'un **cylindre** = 2 disques identiques + 1 rectangle dont la longueur vaut $2\\pi r$ (le périmètre du disque).
+- Pour valider un patron : bon nombre de faces, et bords communs de **même longueur**.`,
+        exercises: [
+          {
+            id: "aire5-l4-e1",
+            question: "Comment appelle-t-on le segment où se rencontrent deux faces d'un solide ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Un sommet" },
+              { id: "B", text: "Une arête" },
+              { id: "C", text: "Une base" },
+              { id: "D", text: "Un patron" },
+            ],
+            correctId: "B",
+            explanation: "Le segment où se rencontrent deux faces s'appelle une **arête**. Le sommet est un point (rencontre de plusieurs arêtes).",
+            difficulty: "debutant",
+          },
+          {
+            id: "aire5-l4-e2",
+            question: "Vrai ou faux : le patron d'un cylindre de révolution est composé de 2 disques et d'un rectangle.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Vrai. Les 2 bases sont des disques identiques, et la surface latérale, une fois dépliée, forme un rectangle.",
+            difficulty: "debutant",
+          },
+          {
+            id: "aire5-l4-e3",
+            question: "Un disque a un rayon de $4$ cm. Quelle doit être la longueur du rectangle latéral dans le patron du cylindre correspondant (avec $\\pi \\approx 3{,}14$) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$8$ cm" },
+              { id: "B", text: "$12{,}56$ cm" },
+              { id: "C", text: "$25{,}12$ cm" },
+              { id: "D", text: "$50{,}24$ cm" },
+            ],
+            correctId: "C",
+            explanation: "La longueur du rectangle est égale au périmètre du disque : $2\\pi r \\approx 2 \\times 3{,}14 \\times 4 = 25{,}12$ cm.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "aire5-l4-e4",
+            question: "Un patron est composé de 2 pentagones identiques et de 5 rectangles. Quel solide peut-on construire avec ce patron ?",
+            type: "open",
+            modelAnswer: "On compte les faces : $2$ bases pentagonales $+ 5$ faces latérales rectangulaires $= 7$ faces.\n\nUn prisme droit a toujours **2 bases identiques** (ici des pentagones à 5 côtés) et **autant de rectangles latéraux que de côtés de la base** (ici 5 côtés, donc 5 rectangles).\n\n$$\\boxed{\\text{C'est le patron d'un prisme droit à base pentagonale.}}$$",
+            explanation: "Le nombre de rectangles latéraux d'un prisme droit est toujours égal au nombre de côtés de sa base polygonale.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "aire5-l4-e5",
+            question: "Un élève propose un patron de cylindre avec 2 disques de rayon $3$ cm et un rectangle de longueur $15$ cm et de largeur $7$ cm (la hauteur souhaitée du cylindre). Ce patron est-il valide ? Justifie ta réponse en calculant la longueur attendue (avec $\\pi \\approx 3{,}14$).",
+            type: "open",
+            modelAnswer: "La longueur du rectangle doit être égale au périmètre du disque : $2\\pi r \\approx 2 \\times 3{,}14 \\times 3 = 18{,}84$ cm.\n\nOr le rectangle proposé a une longueur de $15$ cm, ce qui ne correspond pas à $18{,}84$ cm.\n\n$$\\boxed{\\text{Le patron n'est pas valide : la longueur du rectangle devrait être } 18{,}84 \\text{ cm, pas } 15 \\text{ cm.}}$$",
+            explanation: "Pour qu'un patron de cylindre se referme correctement, la longueur du rectangle latéral doit être exactement égale à la circonférence ($2\\pi r$) du disque de base.",
             difficulty: "expert",
           },
         ],
@@ -7778,7 +8326,7 @@ $$\\vec{AB}\\begin{pmatrix}4-1 \\\\ 6-2\\end{pmatrix} = \\vec{AB}\\begin{pmatrix
             id: "vec4-l1-e4",
             question: "Le vecteur $\\vec{u}$ a pour coordonnées $\\begin{pmatrix}5\\\\-2\\end{pmatrix}$. Si $C(3;4)$ et $\\vec{CD}=\\vec{u}$, quelles sont les coordonnées de $D$ ?",
             type: "open",
-            modelAnswer: "On a $x_D - x_C = 5$ donc $x_D = 3+5=8$.\\n\\nOn a $y_D - y_C = -2$ donc $y_D = 4-2=2$.\\n\\n$$\\boxed{D(8;2)}$$",
+            modelAnswer: "On a $x_D - x_C = 5$ donc $x_D = 3+5=8$.\n\nOn a $y_D - y_C = -2$ donc $y_D = 4-2=2$.\n\n$$\\boxed{D(8;2)}$$",
             explanation: "On ajoute les coordonnées du vecteur à celles du point de départ pour retrouver le point d'arrivée.",
             difficulty: "intermediaire",
           },
@@ -7786,7 +8334,7 @@ $$\\vec{AB}\\begin{pmatrix}4-1 \\\\ 6-2\\end{pmatrix} = \\vec{AB}\\begin{pmatrix
             id: "vec4-l1-e5",
             question: "Les points $A(0;0)$, $B(4;2)$, $C(6;5)$, $D(2;3)$ sont-ils tels que $\\vec{AB} = \\vec{DC}$ ?",
             type: "open",
-            modelAnswer: "$$\\vec{AB}\\begin{pmatrix}4-0\\\\2-0\\end{pmatrix} = \\begin{pmatrix}4\\\\2\\end{pmatrix}$$\\n\\n$$\\vec{DC}\\begin{pmatrix}6-2\\\\5-3\\end{pmatrix} = \\begin{pmatrix}4\\\\2\\end{pmatrix}$$\\n\\nLes deux vecteurs ont les mêmes coordonnées, donc ils sont égaux.\\n\\n$$\\boxed{\\text{Oui, } \\vec{AB} = \\vec{DC}}$$",
+            modelAnswer: "$$\\vec{AB}\\begin{pmatrix}4-0\\\\2-0\\end{pmatrix} = \\begin{pmatrix}4\\\\2\\end{pmatrix}$$\n\n$$\\vec{DC}\\begin{pmatrix}6-2\\\\5-3\\end{pmatrix} = \\begin{pmatrix}4\\\\2\\end{pmatrix}$$\n\nLes deux vecteurs ont les mêmes coordonnées, donc ils sont égaux.\n\n$$\\boxed{\\text{Oui, } \\vec{AB} = \\vec{DC}}$$",
             explanation: "Deux vecteurs sont égaux si et seulement s'ils ont exactement les mêmes coordonnées.",
             difficulty: "expert",
           },
@@ -7863,7 +8411,7 @@ $$A'(6;2)$$`,
             id: "vec4-l2-e4",
             question: "Un triangle $ABC$ d'aire $20$ cm² subit une translation. Quelle est l'aire de son image $A'B'C'$ ?",
             type: "open",
-            modelAnswer: "La translation est une transformation qui conserve les aires.\\n\\n$$\\boxed{\\text{Aire}(A'B'C') = 20 \\text{ cm}^2}$$",
+            modelAnswer: "La translation est une transformation qui conserve les aires.\n\n$$\\boxed{\\text{Aire}(A'B'C') = 20 \\text{ cm}^2}$$",
             explanation: "Comme la symétrie, la translation conserve les longueurs, les angles, et donc également les aires des figures.",
             difficulty: "intermediaire",
           },
@@ -7871,7 +8419,7 @@ $$A'(6;2)$$`,
             id: "vec4-l2-e5",
             question: "Le point $A(1;1)$ a pour image $A'(5;4)$ par une translation de vecteur $\\vec{u}$. Quelles sont les coordonnées de $\\vec{u}$, et quelle est l'image $B'$ du point $B(2;-3)$ par cette même translation ?",
             type: "open",
-            modelAnswer: "On détermine $\\vec{u} = \\vec{AA'}$ :\\n\\n$$\\vec{u}\\begin{pmatrix}5-1\\\\4-1\\end{pmatrix} = \\begin{pmatrix}4\\\\3\\end{pmatrix}$$\\n\\nPour $B(2;-3)$, l'image $B'$ a pour coordonnées :\\n\\n$$x_{B'}=2+4=6 \\qquad y_{B'}=-3+3=0$$\\n\\n$$\\boxed{\\vec{u}\\begin{pmatrix}4\\\\3\\end{pmatrix},\\ B'(6;0)}$$",
+            modelAnswer: "On détermine $\\vec{u} = \\vec{AA'}$ :\n\n$$\\vec{u}\\begin{pmatrix}5-1\\\\4-1\\end{pmatrix} = \\begin{pmatrix}4\\\\3\\end{pmatrix}$$\n\nPour $B(2;-3)$, l'image $B'$ a pour coordonnées :\n\n$$x_{B'}=2+4=6 \\qquad y_{B'}=-3+3=0$$\n\n$$\\boxed{\\vec{u}\\begin{pmatrix}4\\\\3\\end{pmatrix},\\ B'(6;0)}$$",
             explanation: "Toute translation est définie par un seul vecteur, valable pour tous les points du plan : on le retrouve avec un couple point/image connu, puis on l'applique à un autre point.",
             difficulty: "expert",
           },
@@ -7947,7 +8495,7 @@ Composer deux translations successives (de vecteurs $\\vec{u}$ puis $\\vec{v}$) 
             id: "vec4-l3-e4",
             question: "Simplifie l'expression $\\vec{AB} + \\vec{BC} + \\vec{CD}$.",
             type: "open",
-            modelAnswer: "On applique deux fois la relation de Chasles :\\n\\n$$\\vec{AB}+\\vec{BC} = \\vec{AC}$$\\n\\n$$\\vec{AC}+\\vec{CD} = \\vec{AD}$$\\n\\n$$\\boxed{\\vec{AB}+\\vec{BC}+\\vec{CD} = \\vec{AD}}$$",
+            modelAnswer: "On applique deux fois la relation de Chasles :\n\n$$\\vec{AB}+\\vec{BC} = \\vec{AC}$$\n\n$$\\vec{AC}+\\vec{CD} = \\vec{AD}$$\n\n$$\\boxed{\\vec{AB}+\\vec{BC}+\\vec{CD} = \\vec{AD}}$$",
             explanation: "La relation de Chasles se généralise à n'importe quelle chaîne de vecteurs « bout à bout » : tous les points intermédiaires se simplifient.",
             difficulty: "intermediaire",
           },
@@ -7955,7 +8503,7 @@ Composer deux translations successives (de vecteurs $\\vec{u}$ puis $\\vec{v}$) 
             id: "vec4-l3-e5",
             question: "Un point $M$ subit la translation de vecteur $\\vec{u}\\begin{pmatrix}3\\\\1\\end{pmatrix}$, puis celle de vecteur $\\vec{v}\\begin{pmatrix}-5\\\\2\\end{pmatrix}$. Si $M(2;0)$, quelles sont les coordonnées du point final ?",
             type: "open",
-            modelAnswer: "La composition des deux translations équivaut à la translation de vecteur $\\vec{u}+\\vec{v}$ :\\n\\n$$\\vec{u}+\\vec{v} = \\begin{pmatrix}3+(-5)\\\\1+2\\end{pmatrix} = \\begin{pmatrix}-2\\\\3\\end{pmatrix}$$\\n\\nLe point final a pour coordonnées :\\n\\n$$x = 2 + (-2) = 0 \\qquad y = 0+3=3$$\\n\\n$$\\boxed{(0;3)}$$",
+            modelAnswer: "La composition des deux translations équivaut à la translation de vecteur $\\vec{u}+\\vec{v}$ :\n\n$$\\vec{u}+\\vec{v} = \\begin{pmatrix}3+(-5)\\\\1+2\\end{pmatrix} = \\begin{pmatrix}-2\\\\3\\end{pmatrix}$$\n\nLe point final a pour coordonnées :\n\n$$x = 2 + (-2) = 0 \\qquad y = 0+3=3$$\n\n$$\\boxed{(0;3)}$$",
             explanation: "On peut additionner les vecteurs des deux translations successives pour obtenir directement le résultat final en une seule étape.",
             difficulty: "expert",
           },
@@ -8051,7 +8599,7 @@ Exemple : $2, 4, 6, 8$ (4 valeurs) → la médiane est $\\dfrac{4+6}{2} = 5$.
             id: "stat4-l1-e4",
             question: "Quelle est la médiane de la série $4, 9, 2, 7$ ?",
             type: "open",
-            modelAnswer: "On ordonne la série : $2, 4, 7, 9$.\\n\\nIl y a $4$ valeurs (nombre pair), la médiane est la moyenne des deux valeurs du milieu :\\n\\n$$\\dfrac{4+7}{2} = \\dfrac{11}{2} = 5{,}5$$\\n\\n$$\\boxed{5{,}5}$$",
+            modelAnswer: "On ordonne la série : $2, 4, 7, 9$.\n\nIl y a $4$ valeurs (nombre pair), la médiane est la moyenne des deux valeurs du milieu :\n\n$$\\dfrac{4+7}{2} = \\dfrac{11}{2} = 5{,}5$$\n\n$$\\boxed{5{,}5}$$",
             explanation: "Avec un nombre pair de valeurs, on ordonne la série puis on fait la moyenne des deux valeurs centrales.",
             difficulty: "intermediaire",
           },
@@ -8059,7 +8607,7 @@ Exemple : $2, 4, 6, 8$ (4 valeurs) → la médiane est $\\dfrac{4+6}{2} = 5$.
             id: "stat4-l1-e5",
             question: "Les températures (en °C) relevées sur une semaine sont : $18, 22, 19, 25, 20, 17, 23$. Calcule l'étendue et la médiane de cette série.",
             type: "open",
-            modelAnswer: "On ordonne la série : $17, 18, 19, 20, 22, 23, 25$.\\n\\nÉtendue : $25 - 17 = 8$.\\n\\nIl y a $7$ valeurs, la médiane est la $4^e$ valeur : $20$.\\n\\n$$\\boxed{\\text{étendue}=8°C,\\ \\text{médiane}=20°C}$$",
+            modelAnswer: "On ordonne la série : $17, 18, 19, 20, 22, 23, 25$.\n\nÉtendue : $25 - 17 = 8$.\n\nIl y a $7$ valeurs, la médiane est la $4^e$ valeur : $20$.\n\n$$\\boxed{\\text{étendue}=8°C,\\ \\text{médiane}=20°C}$$",
             explanation: "On commence toujours par ordonner la série, ce qui permet de calculer à la fois l'étendue (extrêmes) et la médiane (valeur centrale).",
             difficulty: "expert",
           },
@@ -8138,7 +8686,7 @@ $$P(\\text{pair}) = \\dfrac{3}{6} = \\dfrac{1}{2}$$`,
             id: "stat4-l2-e4",
             question: "Un sac contient $4$ billes rouges, $3$ billes bleues et $3$ billes vertes. On tire une bille au hasard. Quelle est la probabilité de tirer une bille bleue ?",
             type: "open",
-            modelAnswer: "Il y a $4+3+3=10$ billes en tout, et $3$ sont bleues.\\n\\n$$P(\\text{bleue}) = \\dfrac{3}{10} = 0{,}3$$\\n\\n$$\\boxed{P = \\dfrac{3}{10} = 30\\%}$$",
+            modelAnswer: "Il y a $4+3+3=10$ billes en tout, et $3$ sont bleues.\n\n$$P(\\text{bleue}) = \\dfrac{3}{10} = 0{,}3$$\n\n$$\\boxed{P = \\dfrac{3}{10} = 30\\%}$$",
             explanation: "On compte le nombre d'issues favorables (billes bleues) sur le nombre total d'issues possibles (toutes les billes).",
             difficulty: "intermediaire",
           },
@@ -8146,7 +8694,7 @@ $$P(\\text{pair}) = \\dfrac{3}{6} = \\dfrac{1}{2}$$`,
             id: "stat4-l2-e5",
             question: "Dans un jeu de $32$ cartes, on tire une carte au hasard. Quelle est la probabilité de tirer un roi ou une dame ?",
             type: "open",
-            modelAnswer: "Un jeu de $32$ cartes contient $4$ rois et $4$ dames, soit $8$ issues favorables.\\n\\n$$P(\\text{roi ou dame}) = \\dfrac{8}{32} = \\dfrac{1}{4} = 0{,}25$$\\n\\n$$\\boxed{P = \\dfrac{1}{4} = 25\\%}$$",
+            modelAnswer: "Un jeu de $32$ cartes contient $4$ rois et $4$ dames, soit $8$ issues favorables.\n\n$$P(\\text{roi ou dame}) = \\dfrac{8}{32} = \\dfrac{1}{4} = 0{,}25$$\n\n$$\\boxed{P = \\dfrac{1}{4} = 25\\%}$$",
             explanation: "On additionne le nombre d'issues favorables pour chaque événement (4 rois + 4 dames), puis on divise par le nombre total de cartes.",
             difficulty: "expert",
           },
@@ -8221,7 +8769,7 @@ On lance un dé à $6$ faces. « Obtenir un nombre entre $1$ et $6$ » est un é
             id: "stat4-l3-e4",
             question: "Un sac contient des billes rouges et bleues uniquement. La probabilité de tirer une bille rouge est $\\dfrac{2}{5}$. Quelle est la probabilité de tirer une bille bleue ?",
             type: "open",
-            modelAnswer: "Tirer une bille bleue est l'événement contraire de tirer une bille rouge (il n'y a que ces deux couleurs).\\n\\n$$P(\\text{bleue}) = 1 - \\dfrac{2}{5} = \\dfrac{3}{5}$$\\n\\n$$\\boxed{P(\\text{bleue}) = \\dfrac{3}{5}}$$",
+            modelAnswer: "Tirer une bille bleue est l'événement contraire de tirer une bille rouge (il n'y a que ces deux couleurs).\n\n$$P(\\text{bleue}) = 1 - \\dfrac{2}{5} = \\dfrac{3}{5}$$\n\n$$\\boxed{P(\\text{bleue}) = \\dfrac{3}{5}}$$",
             explanation: "Comme il n'y a que deux couleurs possibles, l'une est l'événement contraire de l'autre : leurs probabilités s'additionnent à $1$.",
             difficulty: "intermediaire",
           },
@@ -8229,7 +8777,7 @@ On lance un dé à $6$ faces. « Obtenir un nombre entre $1$ et $6$ » est un é
             id: "stat4-l3-e5",
             question: "Une urne contient $20$ boules numérotées de $1$ à $20$. On tire une boule au hasard. Quelle est la probabilité de ne pas tirer un multiple de $5$ ?",
             type: "open",
-            modelAnswer: "Les multiples de $5$ entre $1$ et $20$ sont : $5, 10, 15, 20$, soit $4$ issues favorables pour « tirer un multiple de 5 ».\\n\\n$$P(\\text{multiple de 5}) = \\dfrac{4}{20} = \\dfrac{1}{5}$$\\n\\nL'événement contraire « ne pas tirer un multiple de 5 » a pour probabilité :\\n\\n$$P(\\overline{A}) = 1 - \\dfrac{1}{5} = \\dfrac{4}{5}$$\\n\\n$$\\boxed{P = \\dfrac{4}{5} = 80\\%}$$",
+            modelAnswer: "Les multiples de $5$ entre $1$ et $20$ sont : $5, 10, 15, 20$, soit $4$ issues favorables pour « tirer un multiple de 5 ».\n\n$$P(\\text{multiple de 5}) = \\dfrac{4}{20} = \\dfrac{1}{5}$$\n\nL'événement contraire « ne pas tirer un multiple de 5 » a pour probabilité :\n\n$$P(\\overline{A}) = 1 - \\dfrac{1}{5} = \\dfrac{4}{5}$$\n\n$$\\boxed{P = \\dfrac{4}{5} = 80\\%}$$",
             explanation: "On calcule d'abord la probabilité de l'événement direct, puis on utilise la formule de l'événement contraire pour obtenir le résultat demandé.",
             difficulty: "expert",
           },
@@ -8319,7 +8867,7 @@ $$V = \\dfrac{36 \\times 9}{3} = \\dfrac{324}{3} = 108 \\text{ cm}^3$$
             id: "pyr4-l1-e4",
             question: "Une pyramide a un volume de $150$ cm³ et une base d'aire $30$ cm². Quelle est sa hauteur ?",
             type: "open",
-            modelAnswer: "On utilise $V = \\dfrac{A \\times h}{3}$, donc $h = \\dfrac{3V}{A}$.\\n\\n$$h = \\dfrac{3 \\times 150}{30} = \\dfrac{450}{30} = 15$$\\n\\n$$\\boxed{h = 15 \\text{ cm}}$$",
+            modelAnswer: "On utilise $V = \\dfrac{A \\times h}{3}$, donc $h = \\dfrac{3V}{A}$.\n\n$$h = \\dfrac{3 \\times 150}{30} = \\dfrac{450}{30} = 15$$\n\n$$\\boxed{h = 15 \\text{ cm}}$$",
             explanation: "On isole la hauteur en multipliant le volume par $3$ puis en divisant par l'aire de la base.",
             difficulty: "intermediaire",
           },
@@ -8327,7 +8875,7 @@ $$V = \\dfrac{36 \\times 9}{3} = \\dfrac{324}{3} = 108 \\text{ cm}^3$$
             id: "pyr4-l1-e5",
             question: "Une pyramide à base rectangulaire ($8$ cm $\\times$ $5$ cm) a le même volume qu'un cube de $6$ cm de côté. Quelle est la hauteur de la pyramide ?",
             type: "open",
-            modelAnswer: "Volume du cube :\\n\\n$$V_{cube} = 6^3 = 216 \\text{ cm}^3$$\\n\\nAire de la base de la pyramide :\\n\\n$$A = 8 \\times 5 = 40 \\text{ cm}^2$$\\n\\nOn cherche $h$ tel que $\\dfrac{40 \\times h}{3} = 216$ :\\n\\n$$40h = 648 \\implies h = \\dfrac{648}{40} = 16{,}2$$\\n\\n$$\\boxed{h = 16{,}2 \\text{ cm}}$$",
+            modelAnswer: "Volume du cube :\n\n$$V_{cube} = 6^3 = 216 \\text{ cm}^3$$\n\nAire de la base de la pyramide :\n\n$$A = 8 \\times 5 = 40 \\text{ cm}^2$$\n\nOn cherche $h$ tel que $\\dfrac{40 \\times h}{3} = 216$ :\n\n$$40h = 648 \\implies h = \\dfrac{648}{40} = 16{,}2$$\n\n$$\\boxed{h = 16{,}2 \\text{ cm}}$$",
             explanation: "On calcule le volume cible (celui du cube), puis on résout l'équation issue de la formule du volume de la pyramide.",
             difficulty: "expert",
           },
@@ -8401,7 +8949,7 @@ $$V_{cône} = \\dfrac{1}{3} V_{cylindre}$$`,
             id: "pyr4-l2-e4",
             question: "Un cône a le même rayon et la même hauteur qu'un cylindre de volume $300$ cm³. Quel est le volume du cône ?",
             type: "open",
-            modelAnswer: "Le volume du cône est égal au tiers du volume du cylindre correspondant.\\n\\n$$V_{cône} = \\dfrac{300}{3} = 100$$\\n\\n$$\\boxed{V_{cône} = 100 \\text{ cm}^3}$$",
+            modelAnswer: "Le volume du cône est égal au tiers du volume du cylindre correspondant.\n\n$$V_{cône} = \\dfrac{300}{3} = 100$$\n\n$$\\boxed{V_{cône} = 100 \\text{ cm}^3}$$",
             explanation: "Cette propriété évite de refaire tout le calcul : il suffit de diviser le volume du cylindre par $3$.",
             difficulty: "intermediaire",
           },
@@ -8409,7 +8957,7 @@ $$V_{cône} = \\dfrac{1}{3} V_{cylindre}$$`,
             id: "pyr4-l2-e5",
             question: "Un cône a un volume de $314$ cm³ et un rayon de $5$ cm. Quelle est sa hauteur (avec $\\pi \\approx 3{,}14$) ?",
             type: "open",
-            modelAnswer: "On utilise $V = \\dfrac{\\pi r^2 h}{3}$, donc $h = \\dfrac{3V}{\\pi r^2}$.\\n\\n$$h = \\dfrac{3 \\times 314}{3{,}14 \\times 25} = \\dfrac{942}{78{,}5} = 12$$\\n\\n$$\\boxed{h = 12 \\text{ cm}}$$",
+            modelAnswer: "On utilise $V = \\dfrac{\\pi r^2 h}{3}$, donc $h = \\dfrac{3V}{\\pi r^2}$.\n\n$$h = \\dfrac{3 \\times 314}{3{,}14 \\times 25} = \\dfrac{942}{78{,}5} = 12$$\n\n$$\\boxed{h = 12 \\text{ cm}}$$",
             explanation: "On isole la hauteur dans la formule du volume du cône, en multipliant par $3$ et en divisant par l'aire de la base circulaire.",
             difficulty: "expert",
           },
@@ -8485,7 +9033,7 @@ Si on coupe une pyramide (ou un cône) par un plan **parallèle à la base**, la
             id: "pyr4-l3-e4",
             question: "Une pyramide à base triangulaire a son patron composé de combien de triangles au total (base incluse) ?",
             type: "open",
-            modelAnswer: "La base est un triangle, et il y a autant de faces latérales triangulaires que de côtés à la base, soit $3$.\\n\\nTotal : $1$ (base) $+ 3$ (faces latérales) $= 4$ triangles.\\n\\n$$\\boxed{4 \\text{ triangles}}$$",
+            modelAnswer: "La base est un triangle, et il y a autant de faces latérales triangulaires que de côtés à la base, soit $3$.\n\nTotal : $1$ (base) $+ 3$ (faces latérales) $= 4$ triangles.\n\n$$\\boxed{4 \\text{ triangles}}$$",
             explanation: "Pour une pyramide à base triangulaire (un tétraèdre si toutes les faces sont identiques), le patron est entièrement constitué de $4$ triangles.",
             difficulty: "intermediaire",
           },
@@ -8493,7 +9041,7 @@ Si on coupe une pyramide (ou un cône) par un plan **parallèle à la base**, la
             id: "pyr4-l3-e5",
             question: "Une pyramide de hauteur $12$ cm est coupée par un plan parallèle à la base, à $4$ cm du sommet. Si le côté de la base mesure $9$ cm, quel est le côté de la section (les figures sont semblables) ?",
             type: "open",
-            modelAnswer: "Le rapport de réduction entre la section et la base est le rapport des distances au sommet :\\n\\n$$k = \\dfrac{4}{12} = \\dfrac{1}{3}$$\\n\\nLe côté de la section est :\\n\\n$$9 \\times \\dfrac{1}{3} = 3$$\\n\\n$$\\boxed{3 \\text{ cm}}$$",
+            modelAnswer: "Le rapport de réduction entre la section et la base est le rapport des distances au sommet :\n\n$$k = \\dfrac{4}{12} = \\dfrac{1}{3}$$\n\nLe côté de la section est :\n\n$$9 \\times \\dfrac{1}{3} = 3$$\n\n$$\\boxed{3 \\text{ cm}}$$",
             explanation: "La section est un agrandissement/réduction de la base, dans un rapport égal au rapport des distances au sommet.",
             difficulty: "expert",
           },
@@ -8583,7 +9131,7 @@ $$\\sin(30°) = \\dfrac{AC}{BC} \\implies AC = BC \\times \\sin(30°) = 10 \\tim
             id: "trig3-l1-e4",
             question: "Dans un triangle rectangle, un angle $\\widehat{B} = 25°$ a un côté adjacent de $8$ cm. Calcule la longueur du côté opposé à cet angle (au dixième près).",
             type: "open",
-            modelAnswer: "On utilise la tangente :\\n\\n$$\\tan(25°) = \\dfrac{\\text{opposé}}{\\text{adjacent}} = \\dfrac{\\text{opposé}}{8}$$\\n\\n$$\\text{opposé} = 8 \\times \\tan(25°) \\approx 8 \\times 0{,}4663 \\approx 3{,}7$$\\n\\n$$\\boxed{\\text{opposé} \\approx 3{,}7 \\text{ cm}}$$",
+            modelAnswer: "On utilise la tangente :\n\n$$\\tan(25°) = \\dfrac{\\text{opposé}}{\\text{adjacent}} = \\dfrac{\\text{opposé}}{8}$$\n\n$$\\text{opposé} = 8 \\times \\tan(25°) \\approx 8 \\times 0{,}4663 \\approx 3{,}7$$\n\n$$\\boxed{\\text{opposé} \\approx 3{,}7 \\text{ cm}}$$",
             explanation: "Connaissant l'angle et le côté adjacent, on utilise la tangente pour retrouver le côté opposé.",
             difficulty: "intermediaire",
           },
@@ -8591,7 +9139,7 @@ $$\\sin(30°) = \\dfrac{AC}{BC} \\implies AC = BC \\times \\sin(30°) = 10 \\tim
             id: "trig3-l1-e5",
             question: "Démontre que $\\tan(\\widehat{B}) = \\dfrac{\\sin(\\widehat{B})}{\\cos(\\widehat{B})}$ à partir des définitions.",
             type: "open",
-            modelAnswer: "On part des définitions :\\n\\n$$\\sin(\\widehat{B}) = \\dfrac{\\text{opp}}{\\text{hyp}} \\qquad \\cos(\\widehat{B}) = \\dfrac{\\text{adj}}{\\text{hyp}}$$\\n\\nOn calcule le rapport :\\n\\n$$\\dfrac{\\sin(\\widehat{B})}{\\cos(\\widehat{B})} = \\dfrac{\\text{opp}/\\text{hyp}}{\\text{adj}/\\text{hyp}} = \\dfrac{\\text{opp}}{\\text{adj}}$$\\n\\nOr $\\dfrac{\\text{opp}}{\\text{adj}} = \\tan(\\widehat{B})$ par définition.\\n\\n$$\\boxed{\\tan(\\widehat{B}) = \\dfrac{\\sin(\\widehat{B})}{\\cos(\\widehat{B})}}$$",
+            modelAnswer: "On part des définitions :\n\n$$\\sin(\\widehat{B}) = \\dfrac{\\text{opp}}{\\text{hyp}} \\qquad \\cos(\\widehat{B}) = \\dfrac{\\text{adj}}{\\text{hyp}}$$\n\nOn calcule le rapport :\n\n$$\\dfrac{\\sin(\\widehat{B})}{\\cos(\\widehat{B})} = \\dfrac{\\text{opp}/\\text{hyp}}{\\text{adj}/\\text{hyp}} = \\dfrac{\\text{opp}}{\\text{adj}}$$\n\nOr $\\dfrac{\\text{opp}}{\\text{adj}} = \\tan(\\widehat{B})$ par définition.\n\n$$\\boxed{\\tan(\\widehat{B}) = \\dfrac{\\sin(\\widehat{B})}{\\cos(\\widehat{B})}}$$",
             explanation: "L'hypoténuse se simplifie dans le rapport sinus/cosinus, ce qui redonne exactement la définition de la tangente.",
             difficulty: "expert",
           },
@@ -8664,7 +9212,7 @@ $$\\text{opposé} = 6 \\times \\tan(35°) \\approx 6 \\times 0{,}7002 \\approx 4
             id: "trig3-l2-e4",
             question: "Dans un triangle rectangle, $\\widehat{B} = 60°$ et le côté opposé mesure $15$ cm. Calcule le côté adjacent (au dixième près).",
             type: "open",
-            modelAnswer: "On utilise la tangente :\\n\\n$$\\tan(60°) = \\dfrac{15}{\\text{adjacent}}$$\\n\\n$$\\text{adjacent} = \\dfrac{15}{\\tan(60°)} \\approx \\dfrac{15}{1{,}732} \\approx 8{,}7$$\\n\\n$$\\boxed{\\text{adjacent} \\approx 8{,}7 \\text{ cm}}$$",
+            modelAnswer: "On utilise la tangente :\n\n$$\\tan(60°) = \\dfrac{15}{\\text{adjacent}}$$\n\n$$\\text{adjacent} = \\dfrac{15}{\\tan(60°)} \\approx \\dfrac{15}{1{,}732} \\approx 8{,}7$$\n\n$$\\boxed{\\text{adjacent} \\approx 8{,}7 \\text{ cm}}$$",
             explanation: "Connaissant l'angle et le côté opposé, on isole l'adjacent à partir de la formule de la tangente.",
             difficulty: "intermediaire",
           },
@@ -8672,7 +9220,7 @@ $$\\text{opposé} = 6 \\times \\tan(35°) \\approx 6 \\times 0{,}7002 \\approx 4
             id: "trig3-l2-e5",
             question: "Une échelle de $5$ m est posée contre un mur, formant un angle de $70°$ avec le sol. Jusqu'à quelle hauteur sur le mur monte-t-elle (au dixième de mètre) ?",
             type: "open",
-            modelAnswer: "L'hypoténuse est l'échelle ($5$ m), la hauteur sur le mur est le côté opposé à l'angle de $70°$ avec le sol.\\n\\n$$\\text{hauteur} = 5 \\times \\sin(70°) \\approx 5 \\times 0{,}9397 \\approx 4{,}7$$\\n\\n$$\\boxed{\\text{hauteur} \\approx 4{,}7 \\text{ m}}$$",
+            modelAnswer: "L'hypoténuse est l'échelle ($5$ m), la hauteur sur le mur est le côté opposé à l'angle de $70°$ avec le sol.\n\n$$\\text{hauteur} = 5 \\times \\sin(70°) \\approx 5 \\times 0{,}9397 \\approx 4{,}7$$\n\n$$\\boxed{\\text{hauteur} \\approx 4{,}7 \\text{ m}}$$",
             explanation: "On modélise la situation par un triangle rectangle : l'échelle est l'hypoténuse, la hauteur cherchée est le côté opposé à l'angle au sol.",
             difficulty: "expert",
           },
@@ -8750,7 +9298,7 @@ $$\\widehat{B} = \\sin^{-1}(0{,}5) = 30°$$
             id: "trig3-l3-e4",
             question: "Dans un triangle rectangle, le côté opposé à $\\widehat{C}$ mesure $9$ cm et le côté adjacent mesure $9$ cm. Quelle est la mesure de $\\widehat{C}$ ?",
             type: "open",
-            modelAnswer: "$$\\tan(\\widehat{C}) = \\dfrac{9}{9} = 1$$\\n\\n$$\\widehat{C} = \\tan^{-1}(1) = 45°$$\\n\\n$$\\boxed{\\widehat{C} = 45°}$$",
+            modelAnswer: "$$\\tan(\\widehat{C}) = \\dfrac{9}{9} = 1$$\n\n$$\\widehat{C} = \\tan^{-1}(1) = 45°$$\n\n$$\\boxed{\\widehat{C} = 45°}$$",
             explanation: "Quand le côté opposé est égal au côté adjacent, la tangente vaut $1$, ce qui correspond à un angle de $45°$.",
             difficulty: "intermediaire",
           },
@@ -8758,7 +9306,7 @@ $$\\widehat{B} = \\sin^{-1}(0{,}5) = 30°$$
             id: "trig3-l3-e5",
             question: "Un toboggan de $4$ m de long descend d'une hauteur de $2{,}5$ m. Quel est l'angle que forme le toboggan avec le sol (au degré près) ?",
             type: "open",
-            modelAnswer: "Le toboggan est l'hypoténuse ($4$ m) et la hauteur ($2{,}5$ m) est le côté opposé à l'angle avec le sol.\\n\\n$$\\sin(\\widehat{B}) = \\dfrac{2{,}5}{4} = 0{,}625$$\\n\\n$$\\widehat{B} = \\sin^{-1}(0{,}625) \\approx 38{,}7°$$\\n\\n$$\\boxed{\\widehat{B} \\approx 39°}$$",
+            modelAnswer: "Le toboggan est l'hypoténuse ($4$ m) et la hauteur ($2{,}5$ m) est le côté opposé à l'angle avec le sol.\n\n$$\\sin(\\widehat{B}) = \\dfrac{2{,}5}{4} = 0{,}625$$\n\n$$\\widehat{B} = \\sin^{-1}(0{,}625) \\approx 38{,}7°$$\n\n$$\\boxed{\\widehat{B} \\approx 39°}$$",
             explanation: "On modélise la situation par un triangle rectangle : le toboggan est l'hypoténuse, la hauteur de chute est le côté opposé à l'angle cherché.",
             difficulty: "expert",
           },
@@ -8846,7 +9394,7 @@ $$P(\\text{somme} = 7) = \\dfrac{6}{36} = \\dfrac{1}{6}$$`,
             id: "stat3-l1-e4",
             question: "On tire successivement deux billes dans un sac contenant $1$ bille rouge et $1$ bille bleue, avec remise. Liste toutes les issues possibles et calcule la probabilité d'obtenir deux billes de couleurs différentes.",
             type: "open",
-            modelAnswer: "Les issues possibles sont : (Rouge,Rouge), (Rouge,Bleue), (Bleue,Rouge), (Bleue,Bleue), soit $4$ issues équiprobables.\\n\\nLes issues favorables (couleurs différentes) sont : (Rouge,Bleue) et (Bleue,Rouge), soit $2$ issues.\\n\\n$$P = \\dfrac{2}{4} = \\dfrac{1}{2}$$\\n\\n$$\\boxed{P = \\dfrac{1}{2}}$$",
+            modelAnswer: "Les issues possibles sont : (Rouge,Rouge), (Rouge,Bleue), (Bleue,Rouge), (Bleue,Bleue), soit $4$ issues équiprobables.\n\nLes issues favorables (couleurs différentes) sont : (Rouge,Bleue) et (Bleue,Rouge), soit $2$ issues.\n\n$$P = \\dfrac{2}{4} = \\dfrac{1}{2}$$\n\n$$\\boxed{P = \\dfrac{1}{2}}$$",
             explanation: "Avec remise, chaque tirage a $2$ issues possibles, donc l'expérience à deux tirages a $2\\times2=4$ issues équiprobables.",
             difficulty: "intermediaire",
           },
@@ -8854,7 +9402,7 @@ $$P(\\text{somme} = 7) = \\dfrac{6}{36} = \\dfrac{1}{6}$$`,
             id: "stat3-l1-e5",
             question: "On lance deux dés à $6$ faces. Quelle est la probabilité que le produit des deux résultats soit pair ?",
             type: "open",
-            modelAnswer: "Le produit est **impair** uniquement si les deux dés tombent sur un nombre impair ($1,3,5$). Il y a $3 \\times 3 = 9$ issues où le produit est impair, sur $36$ issues totales.\\n\\n$$P(\\text{produit impair}) = \\dfrac{9}{36} = \\dfrac{1}{4}$$\\n\\nL'événement contraire est « produit pair » :\\n\\n$$P(\\text{produit pair}) = 1 - \\dfrac{1}{4} = \\dfrac{3}{4}$$\\n\\n$$\\boxed{P = \\dfrac{3}{4}}$$",
+            modelAnswer: "Le produit est **impair** uniquement si les deux dés tombent sur un nombre impair ($1,3,5$). Il y a $3 \\times 3 = 9$ issues où le produit est impair, sur $36$ issues totales.\n\n$$P(\\text{produit impair}) = \\dfrac{9}{36} = \\dfrac{1}{4}$$\n\nL'événement contraire est « produit pair » :\n\n$$P(\\text{produit pair}) = 1 - \\dfrac{1}{4} = \\dfrac{3}{4}$$\n\n$$\\boxed{P = \\dfrac{3}{4}}$$",
             explanation: "Il est plus simple de calculer la probabilité de l'événement contraire (produit impair, qui exige que les deux dés soient impairs) puis d'utiliser $P(A) = 1 - P(\\overline{A})$.",
             difficulty: "expert",
           },
@@ -8930,7 +9478,7 @@ $$P(\\text{une de chaque}) = \\dfrac{3}{5}\\times\\dfrac{2}{5} + \\dfrac{2}{5}\\
             id: "stat3-l2-e4",
             question: "Une urne contient $2$ boules noires et $3$ boules blanches. On tire deux boules successivement, avec remise. Construis l'arbre (décris les branches) et calcule la probabilité d'obtenir au moins une boule noire.",
             type: "open",
-            modelAnswer: "$P(\\text{noire}) = \\dfrac{2}{5}$, $P(\\text{blanche}) = \\dfrac{3}{5}$ à chaque tirage.\\n\\nL'événement contraire de « au moins une noire » est « aucune noire », c'est-à-dire (blanche, blanche) :\\n\\n$$P(\\text{aucune noire}) = \\dfrac{3}{5}\\times\\dfrac{3}{5} = \\dfrac{9}{25}$$\\n\\n$$P(\\text{au moins une noire}) = 1 - \\dfrac{9}{25} = \\dfrac{16}{25}$$\\n\\n$$\\boxed{P = \\dfrac{16}{25}}$$",
+            modelAnswer: "$P(\\text{noire}) = \\dfrac{2}{5}$, $P(\\text{blanche}) = \\dfrac{3}{5}$ à chaque tirage.\n\nL'événement contraire de « au moins une noire » est « aucune noire », c'est-à-dire (blanche, blanche) :\n\n$$P(\\text{aucune noire}) = \\dfrac{3}{5}\\times\\dfrac{3}{5} = \\dfrac{9}{25}$$\n\n$$P(\\text{au moins une noire}) = 1 - \\dfrac{9}{25} = \\dfrac{16}{25}$$\n\n$$\\boxed{P = \\dfrac{16}{25}}$$",
             explanation: "Il est plus simple de calculer la probabilité de l'événement contraire « aucune boule noire » (un seul chemin) puis de soustraire à $1$.",
             difficulty: "expert",
           },
@@ -8938,7 +9486,7 @@ $$P(\\text{une de chaque}) = \\dfrac{3}{5}\\times\\dfrac{2}{5} + \\dfrac{2}{5}\\
             id: "stat3-l2-e5",
             question: "Un joueur tire deux fois de suite, sans remise, dans un jeu de $4$ cartes (2 rois, 2 dames). Quelle est la probabilité de tirer deux rois ?",
             type: "open",
-            modelAnswer: "Au premier tirage : $P(\\text{roi}) = \\dfrac{2}{4} = \\dfrac{1}{2}$.\\n\\nSans remise, il ne reste que $3$ cartes dont $1$ roi : $P(\\text{roi} | \\text{roi déjà tiré}) = \\dfrac{1}{3}$.\\n\\n$$P(\\text{roi, roi}) = \\dfrac{1}{2} \\times \\dfrac{1}{3} = \\dfrac{1}{6}$$\\n\\n$$\\boxed{P = \\dfrac{1}{6}}$$",
+            modelAnswer: "Au premier tirage : $P(\\text{roi}) = \\dfrac{2}{4} = \\dfrac{1}{2}$.\n\nSans remise, il ne reste que $3$ cartes dont $1$ roi : $P(\\text{roi} | \\text{roi déjà tiré}) = \\dfrac{1}{3}$.\n\n$$P(\\text{roi, roi}) = \\dfrac{1}{2} \\times \\dfrac{1}{3} = \\dfrac{1}{6}$$\n\n$$\\boxed{P = \\dfrac{1}{6}}$$",
             explanation: "Sans remise, les probabilités du second tirage dépendent du résultat du premier : on doit recalculer les effectifs restants à chaque étape.",
             difficulty: "expert",
           },
@@ -9010,7 +9558,7 @@ Même si les deux classes ont la **même moyenne**, la classe A a des résultats
             id: "stat3-l3-e4",
             question: "Les notes de la série 1 sont $10,11,12,13,14$ (moyenne $12$) et celles de la série 2 sont $2,7,12,17,22$ (moyenne $12$). Compare leur étendue et conclus.",
             type: "open",
-            modelAnswer: "Étendue série 1 : $14-10=4$.\\n\\nÉtendue série 2 : $22-2=20$.\\n\\nLes deux séries ont la même moyenne ($12$), mais la série 1 est beaucoup plus homogène (étendue $4$) que la série 2, beaucoup plus dispersée (étendue $20$).\\n\\n$$\\boxed{\\text{Même moyenne, mais série 1 bien plus homogène}}$$",
+            modelAnswer: "Étendue série 1 : $14-10=4$.\n\nÉtendue série 2 : $22-2=20$.\n\nLes deux séries ont la même moyenne ($12$), mais la série 1 est beaucoup plus homogène (étendue $4$) que la série 2, beaucoup plus dispersée (étendue $20$).\n\n$$\\boxed{\\text{Même moyenne, mais série 1 bien plus homogène}}$$",
             explanation: "Deux séries peuvent partager la même moyenne tout en étant très différentes dans leur dispersion : c'est l'étendue qui révèle cette différence.",
             difficulty: "intermediaire",
           },
@@ -9018,7 +9566,7 @@ Même si les deux classes ont la **même moyenne**, la classe A a des résultats
             id: "stat3-l3-e5",
             question: "Une entreprise A verse des salaires de $1800, 1900, 2000, 2100, 2200$ €. Une entreprise B verse $1200, 1500, 2000, 2500, 2800$ €. Calcule la moyenne et l'étendue de chaque entreprise, puis compare-les.",
             type: "open",
-            modelAnswer: "Entreprise A : moyenne $= \\dfrac{1800+1900+2000+2100+2200}{5} = \\dfrac{10000}{5} = 2000$ €. Étendue $= 2200-1800=400$ €.\\n\\nEntreprise B : moyenne $= \\dfrac{1200+1500+2000+2500+2800}{5} = \\dfrac{10000}{5} = 2000$ €. Étendue $= 2800-1200=1600$ €.\\n\\nLes deux entreprises ont la même moyenne, mais l'entreprise A a des salaires bien plus homogènes (étendue $400$ €) que l'entreprise B (étendue $1600$ €), où les écarts entre salariés sont beaucoup plus marqués.\\n\\n$$\\boxed{\\text{Même moyenne (2000€), mais l'entreprise A est bien plus homogène}}$$",
+            modelAnswer: "Entreprise A : moyenne $= \\dfrac{1800+1900+2000+2100+2200}{5} = \\dfrac{10000}{5} = 2000$ €. Étendue $= 2200-1800=400$ €.\n\nEntreprise B : moyenne $= \\dfrac{1200+1500+2000+2500+2800}{5} = \\dfrac{10000}{5} = 2000$ €. Étendue $= 2800-1200=1600$ €.\n\nLes deux entreprises ont la même moyenne, mais l'entreprise A a des salaires bien plus homogènes (étendue $400$ €) que l'entreprise B (étendue $1600$ €), où les écarts entre salariés sont beaucoup plus marqués.\n\n$$\\boxed{\\text{Même moyenne (2000€), mais l'entreprise A est bien plus homogène}}$$",
             explanation: "On calcule systématiquement la moyenne ET l'étendue pour comparer deux séries : la moyenne seule masque souvent des différences importantes de dispersion.",
             difficulty: "expert",
           },
@@ -9105,7 +9653,7 @@ $$\\text{Volume} = \\dfrac{4}{3}\\pi \\times 3^3 = \\dfrac{4}{3}\\pi \\times 27 
             id: "esp3-l1-e4",
             question: "Une boule de pétanque a un rayon de $4$ cm. Calcule son volume exact, puis une valeur approchée au $\\text{cm}^3$ près (avec $\\pi \\approx 3{,}14$).",
             type: "open",
-            modelAnswer: "$$V = \\dfrac{4}{3}\\pi r^3 = \\dfrac{4}{3}\\pi \\times 4^3 = \\dfrac{4}{3}\\pi \\times 64 = \\dfrac{256}{3}\\pi \\text{ cm}^3$$\\n\\nValeur approchée : $V \\approx \\dfrac{256}{3}\\times 3{,}14 \\approx 267{,}9 \\text{ cm}^3$.\\n\\n$$\\boxed{V = \\dfrac{256}{3}\\pi \\approx 267{,}9 \\text{ cm}^3}$$",
+            modelAnswer: "$$V = \\dfrac{4}{3}\\pi r^3 = \\dfrac{4}{3}\\pi \\times 4^3 = \\dfrac{4}{3}\\pi \\times 64 = \\dfrac{256}{3}\\pi \\text{ cm}^3$$\n\nValeur approchée : $V \\approx \\dfrac{256}{3}\\times 3{,}14 \\approx 267{,}9 \\text{ cm}^3$.\n\n$$\\boxed{V = \\dfrac{256}{3}\\pi \\approx 267{,}9 \\text{ cm}^3}$$",
             explanation: "On applique directement la formule $V=\\dfrac{4}{3}\\pi r^3$ avec $r=4$, puis on remplace $\\pi$ par sa valeur approchée pour obtenir un résultat numérique.",
             difficulty: "intermediaire",
           },
@@ -9113,7 +9661,7 @@ $$\\text{Volume} = \\dfrac{4}{3}\\pi \\times 3^3 = \\dfrac{4}{3}\\pi \\times 27 
             id: "esp3-l1-e5",
             question: "Une sphère a un volume de $\\dfrac{4}{3}\\pi \\times 1000 \\text{ cm}^3$. Calcule son rayon, puis l'aire de cette sphère.",
             type: "open",
-            modelAnswer: "$$\\dfrac{4}{3}\\pi r^3 = \\dfrac{4}{3}\\pi \\times 1000 \\implies r^3 = 1000 \\implies r = \\sqrt[3]{1000} = 10 \\text{ cm}$$\\n\\nAire $= 4\\pi r^2 = 4\\pi \\times 10^2 = 400\\pi \\text{ cm}^2$.\\n\\n$$\\boxed{r = 10 \\text{ cm}, \\quad \\text{Aire} = 400\\pi \\text{ cm}^2}$$",
+            modelAnswer: "$$\\dfrac{4}{3}\\pi r^3 = \\dfrac{4}{3}\\pi \\times 1000 \\implies r^3 = 1000 \\implies r = \\sqrt[3]{1000} = 10 \\text{ cm}$$\n\nAire $= 4\\pi r^2 = 4\\pi \\times 10^2 = 400\\pi \\text{ cm}^2$.\n\n$$\\boxed{r = 10 \\text{ cm}, \\quad \\text{Aire} = 400\\pi \\text{ cm}^2}$$",
             explanation: "On identifie $r^3$ en simplifiant l'égalité des volumes, puis on en déduit $r$ par racine cubique avant de calculer l'aire.",
             difficulty: "expert",
           },
@@ -9187,7 +9735,7 @@ $$r^2 = R^2 - d^2 = 13^2 - 5^2 = 169 - 25 = 144 \\implies r = \\sqrt{144} = 12 \
             id: "esp3-l2-e4",
             question: "Une sphère de rayon $R=17$ cm est coupée par un plan, donnant un cercle de section de rayon $r=15$ cm. À quelle distance $d$ du centre se trouve ce plan ?",
             type: "open",
-            modelAnswer: "On utilise $r^2 + d^2 = R^2$, donc $d^2 = R^2 - r^2$.\\n\\n$$d^2 = 17^2 - 15^2 = 289 - 225 = 64 \\implies d = \\sqrt{64} = 8 \\text{ cm}$$\\n\\n$$\\boxed{d = 8 \\text{ cm}}$$",
+            modelAnswer: "On utilise $r^2 + d^2 = R^2$, donc $d^2 = R^2 - r^2$.\n\n$$d^2 = 17^2 - 15^2 = 289 - 225 = 64 \\implies d = \\sqrt{64} = 8 \\text{ cm}$$\n\n$$\\boxed{d = 8 \\text{ cm}}$$",
             explanation: "On réorganise la relation de Pythagore $r^2+d^2=R^2$ pour isoler $d^2$, puis on prend la racine carrée.",
             difficulty: "intermediaire",
           },
@@ -9195,7 +9743,7 @@ $$r^2 = R^2 - d^2 = 13^2 - 5^2 = 169 - 25 = 144 \\implies r = \\sqrt{144} = 12 \
             id: "esp3-l2-e5",
             question: "Une sphère de centre $O$ et de rayon $R=25$ cm est coupée par un plan passant à $d=7$ cm de $O$. Calcule l'aire du disque de section obtenu.",
             type: "open",
-            modelAnswer: "On calcule d'abord le rayon $r$ du cercle de section :\\n\\n$$r^2 = R^2 - d^2 = 25^2 - 7^2 = 625-49=576 \\implies r=\\sqrt{576}=24 \\text{ cm}$$\\n\\nL'aire du disque de section est :\\n\\n$$\\mathcal{A} = \\pi r^2 = \\pi \\times 24^2 = 576\\pi \\text{ cm}^2$$\\n\\n$$\\boxed{\\mathcal{A} = 576\\pi \\text{ cm}^2 \\approx 1809{,}6 \\text{ cm}^2}$$",
+            modelAnswer: "On calcule d'abord le rayon $r$ du cercle de section :\n\n$$r^2 = R^2 - d^2 = 25^2 - 7^2 = 625-49=576 \\implies r=\\sqrt{576}=24 \\text{ cm}$$\n\nL'aire du disque de section est :\n\n$$\\mathcal{A} = \\pi r^2 = \\pi \\times 24^2 = 576\\pi \\text{ cm}^2$$\n\n$$\\boxed{\\mathcal{A} = 576\\pi \\text{ cm}^2 \\approx 1809{,}6 \\text{ cm}^2}$$",
             explanation: "On combine le théorème de Pythagore (pour trouver le rayon de la section) avec la formule de l'aire du disque ($\\mathcal{A}=\\pi r^2$).",
             difficulty: "expert",
           },
@@ -9269,7 +9817,7 @@ On peut vérifier : $V_2 = \\dfrac{4}{3}\\pi \\times 6^3 = \\dfrac{4}{3}\\pi \\t
             id: "esp3-l3-e4",
             question: "Une boule de rayon $5$ cm est réduite avec un coefficient $k=0{,}4$. Calcule le rayon et le volume de la boule réduite (valeur exacte).",
             type: "open",
-            modelAnswer: "Nouveau rayon : $5 \\times 0{,}4 = 2$ cm.\\n\\nVolume initial : $V_1 = \\dfrac{4}{3}\\pi \\times 5^3 = \\dfrac{500}{3}\\pi \\text{ cm}^3$.\\n\\nNouveau volume (méthode directe) : $V_2 = \\dfrac{4}{3}\\pi \\times 2^3 = \\dfrac{32}{3}\\pi \\text{ cm}^3$.\\n\\nVérification par le coefficient : $V_2 = V_1 \\times k^3 = \\dfrac{500}{3}\\pi \\times 0{,}064 = \\dfrac{32}{3}\\pi$. ✓\\n\\n$$\\boxed{r = 2 \\text{ cm}, \\quad V = \\dfrac{32}{3}\\pi \\text{ cm}^3}$$",
+            modelAnswer: "Nouveau rayon : $5 \\times 0{,}4 = 2$ cm.\n\nVolume initial : $V_1 = \\dfrac{4}{3}\\pi \\times 5^3 = \\dfrac{500}{3}\\pi \\text{ cm}^3$.\n\nNouveau volume (méthode directe) : $V_2 = \\dfrac{4}{3}\\pi \\times 2^3 = \\dfrac{32}{3}\\pi \\text{ cm}^3$.\n\nVérification par le coefficient : $V_2 = V_1 \\times k^3 = \\dfrac{500}{3}\\pi \\times 0{,}064 = \\dfrac{32}{3}\\pi$. ✓\n\n$$\\boxed{r = 2 \\text{ cm}, \\quad V = \\dfrac{32}{3}\\pi \\text{ cm}^3}$$",
             explanation: "On peut calculer le nouveau volume soit directement avec le nouveau rayon, soit en multipliant l'ancien volume par $k^3$ — les deux méthodes doivent donner le même résultat.",
             difficulty: "intermediaire",
           },
@@ -9277,8 +9825,647 @@ On peut vérifier : $V_2 = \\dfrac{4}{3}\\pi \\times 6^3 = \\dfrac{4}{3}\\pi \\t
             id: "esp3-l3-e5",
             question: "Deux boules semblables ont des volumes $V_1 = 27 \\text{ cm}^3$ et $V_2 = 216 \\text{ cm}^3$. Quel est le coefficient d'agrandissement entre la première et la seconde ? En déduire le rapport de leurs rayons.",
             type: "open",
-            modelAnswer: "Le rapport des volumes est $\\dfrac{V_2}{V_1} = \\dfrac{216}{27} = 8$.\\n\\nOr le rapport des volumes vaut $k^3$, donc $k^3 = 8 \\implies k = \\sqrt[3]{8} = 2$.\\n\\nLe rapport des rayons (longueurs) est donc égal à $k = 2$ : le rayon de la seconde boule est le double du rayon de la première.\\n\\n$$\\boxed{k = 2}$$",
+            modelAnswer: "Le rapport des volumes est $\\dfrac{V_2}{V_1} = \\dfrac{216}{27} = 8$.\n\nOr le rapport des volumes vaut $k^3$, donc $k^3 = 8 \\implies k = \\sqrt[3]{8} = 2$.\n\nLe rapport des rayons (longueurs) est donc égal à $k = 2$ : le rayon de la seconde boule est le double du rayon de la première.\n\n$$\\boxed{k = 2}$$",
             explanation: "Pour retrouver le coefficient linéaire $k$ à partir d'un rapport de volumes, on calcule la racine cubique du rapport des volumes, car $\\dfrac{V_2}{V_1}=k^3$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // 6ème — Grandeurs et mesures
+  // ─────────────────────────────────────────────
+  {
+    id: "grandeurs-mesures-6eme",
+    slug: "grandeurs-mesures-6eme",
+    title: "Grandeurs et mesures",
+    description: "Unités de longueurs, masses et durées, conversions, et mesure des angles au rapporteur.",
+    schoolLevel: "6eme",
+    subject: "geometrie",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "📏",
+    lessons: [
+      {
+        id: "gm6-l1",
+        slug: "longueurs-masses-durees",
+        title: "Longueurs, masses et durées",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Chaque jour, on mesure des **longueurs** (distances, tailles), des **masses** (poids des objets) et des **durées** (temps qui passe). Ces grandeurs ont chacune leurs unités et leurs règles de calcul.
+
+## Les unités usuelles
+
+| Grandeur | Unité principale | Autres unités courantes |
+|----------|-------------------|--------------------------|
+| Longueur | mètre (m) | km, hm, dam, dm, cm, mm |
+| Masse | gramme (g) | kg, hg, dag, dg, cg, mg |
+| Durée | seconde (s) | heure (h), minute (min), jour |
+
+> 📌 **Repère pour les durées**
+> $1\\text{ jour} = 24\\text{ h}$, $\\quad 1\\text{ h} = 60\\text{ min}$, $\\quad 1\\text{ min} = 60\\text{ s}$
+
+## Opérations sur les durées
+
+Contrairement aux nombres décimaux, les durées ne sont **pas en base 10** : il faut convertir dès que l'on dépasse $60$ secondes ou $60$ minutes.
+
+> 📌 **Méthode — Additionner deux durées**
+> 1. Additionner les secondes entre elles, puis les minutes entre elles, puis les heures entre elles.
+> 2. Si les secondes dépassent $59$, convertir $60\\text{ s} \\rightarrow 1\\text{ min}$ et reporter sur les minutes.
+> 3. Faire de même entre minutes et heures si nécessaire.
+
+**Exemple :** $1\\text{ h } 45\\text{ min} + 0\\text{ h } 30\\text{ min}$
+- Minutes : $45 + 30 = 75\\text{ min} = 1\\text{ h } 15\\text{ min}$
+- Heures : $1\\text{ h} + 1\\text{ h} = 2\\text{ h}$
+- Total : $2\\text{ h } 15\\text{ min}$
+
+## Exemples
+
+### ✅ Exemple simple — Addition de durées sans report
+
+$$25\\text{ min} + 10\\text{ min} = \\boxed{35\\text{ min}}$$
+
+### 📘 Exemple intermédiaire — Addition avec report de minutes
+
+$$1\\text{ h } 45\\text{ min} + 0\\text{ h } 30\\text{ min}$$
+
+$45 + 30 = 75$ min $= 1$ h $15$ min. On ajoute cette heure : $1\\text{ h} + 1\\text{ h} = 2\\text{ h}$.
+
+$$\\boxed{2\\text{ h } 15\\text{ min}}$$
+
+### 🔴 Exemple avancé — Durée d'un trajet à cheval sur minuit
+
+Un film commence à $22\\text{ h } 50\\text{ min}$ et dure $1\\text{ h } 35\\text{ min}$. À quelle heure se termine-t-il ?
+
+**Minutes :** $50 + 35 = 85\\text{ min} = 1\\text{ h } 25\\text{ min}$
+
+**Heures :** $22\\text{ h} + 1\\text{ h} (\\text{durée}) + 1\\text{ h} (\\text{report}) = 24\\text{ h} = 0\\text{ h}$ (le lendemain)
+
+$$\\boxed{\\text{Le film se termine à } 0\\text{ h } 25\\text{ min}}$$
+
+## À retenir
+
+- Longueur → mètre, masse → gramme, durée → seconde
+- $1\\text{ h} = 60\\text{ min}$ et $1\\text{ min} = 60\\text{ s}$ : les durées ne sont **pas en base 10**
+- Pour additionner des durées, on convertit dès qu'on dépasse $60$ s ou $60$ min`,
+        exercises: [
+          {
+            id: "gm6-l1-e1",
+            question: "Combien de minutes y a-t-il dans $2$ heures ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$60$ min" },
+              { id: "B", text: "$100$ min" },
+              { id: "C", text: "$120$ min" },
+              { id: "D", text: "$200$ min" },
+            ],
+            correctId: "C",
+            explanation: "$1\\text{ h} = 60\\text{ min}$, donc $2\\text{ h} = 2 \\times 60 = \\mathbf{120\\text{ min}}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l1-e2",
+            question: "L'unité principale de la masse est le gramme.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "vrai",
+            explanation: "**Vrai.** Le gramme (g) est l'unité principale de masse ; le kilogramme (kg), l'hectogramme (hg)... en sont des multiples.",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l1-e3",
+            question: "$50\\text{ min} + 25\\text{ min} = ?$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$75\\text{ min}$" },
+              { id: "B", text: "$1\\text{ h } 15\\text{ min}$" },
+              { id: "C", text: "$1\\text{ h } 25\\text{ min}$" },
+              { id: "D", text: "$0\\text{ h } 75\\text{ min}$" },
+            ],
+            correctId: "B",
+            explanation: "$50 + 25 = 75\\text{ min}$. Comme $75 > 59$, on convertit : $75\\text{ min} = 60\\text{ min} + 15\\text{ min} = \\mathbf{1\\text{ h } 15\\text{ min}}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l1-e4",
+            question: "Un cours commence à $14\\text{ h } 40\\text{ min}$ et dure $0\\text{ h } 50\\text{ min}$. À quelle heure se termine-t-il ?",
+            type: "open",
+            modelAnswer: "**Minutes :** $40 + 50 = 90\\text{ min} = 1\\text{ h } 30\\text{ min}$\n\n**Heures :** $14\\text{ h} + 1\\text{ h (report)} = 15\\text{ h}$\n\n$$\\boxed{\\text{Le cours se termine à } 15\\text{ h } 30\\text{ min}}$$",
+            explanation: "On additionne les minutes ($40+50=90$ min $=1$ h $30$ min), puis on reporte l'heure supplémentaire sur les heures ($14+1=15$).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l1-e5",
+            question: "Un spectacle commence à $23\\text{ h } 20\\text{ min}$ et dure $1\\text{ h } 50\\text{ min}$. Quelle heure indique-t-il à la fin ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$0\\text{ h } 10\\text{ min}$ (le lendemain)" },
+              { id: "B", text: "$1\\text{ h } 10\\text{ min}$ (le lendemain)" },
+              { id: "C", text: "$24\\text{ h } 70\\text{ min}$" },
+              { id: "D", text: "$25\\text{ h } 10\\text{ min}$" },
+            ],
+            correctId: "A",
+            explanation: "Minutes : $20 + 50 = 70\\text{ min} = 1\\text{ h } 10\\text{ min}$. Heures : $23 + 1 (\\text{durée}) + 1 (\\text{report}) = 25\\text{ h} = 24\\text{ h} + 1\\text{ h}$, donc on repasse à $0\\text{ h}$ le jour suivant : $\\mathbf{0\\text{ h } 10\\text{ min}}$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "gm6-l2",
+        slug: "conversions-unites",
+        title: "Conversions d'unités de longueur et de masse",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Pour passer d'une unité à une autre (par exemple des mètres aux centimètres), on utilise un **tableau de conversion**. C'est un outil très efficace pour ne jamais se tromper.
+
+## Le tableau de conversion des longueurs
+
+| km | hm | dam | **m** | dm | cm | mm |
+|----|----|-----|-------|----|----|----|
+| 1000 m | 100 m | 10 m | 1 m | 0,1 m | 0,01 m | 0,001 m |
+
+> 📌 **Méthode**
+> 1. Placer **un chiffre par colonne**, en alignant les unités sur la bonne colonne.
+> 2. Repérer la colonne de l'unité de départ et celle de l'unité d'arrivée.
+> 3. Lire le nombre obtenu dans la nouvelle unité (compléter avec des zéros si besoin).
+
+**Exemple :** $3{,}5\\text{ m}$ en cm → on déplace la virgule de 2 colonnes vers la droite (de m à cm) : $3{,}5\\text{ m} = 350\\text{ cm}$.
+
+## Le tableau de conversion des masses
+
+| kg | hg | dag | **g** | dg | cg | mg |
+|----|----|-----|-------|----|----|----|
+| 1000 g | 100 g | 10 g | 1 g | 0,1 g | 0,01 g | 0,001 g |
+
+Le principe est **identique** à celui des longueurs : un chiffre par colonne, on déplace la virgule du même nombre de colonnes que d'unités parcourues.
+
+## Exemples
+
+### ✅ Exemple simple — Convertir $2\\text{ m}$ en cm
+
+$1\\text{ m} = 100\\text{ cm}$, donc :
+
+$$2\\text{ m} = 2 \\times 100 = \\boxed{200\\text{ cm}}$$
+
+### 📘 Exemple intermédiaire — Convertir $1{,}5\\text{ kg}$ en grammes
+
+$1\\text{ kg} = 1000\\text{ g}$ (3 colonnes vers la droite), donc :
+
+$$1{,}5\\text{ kg} = 1{,}5 \\times 1000 = \\boxed{1500\\text{ g}}$$
+
+### 🔴 Exemple avancé — Additionner des longueurs dans des unités différentes
+
+Calculer $2\\text{ m} + 35\\text{ cm} + 8\\text{ dm}$.
+
+On convertit tout en cm : $2\\text{ m} = 200\\text{ cm}$, $8\\text{ dm} = 80\\text{ cm}$, $35\\text{ cm}$ reste $35\\text{ cm}$.
+
+$$200 + 80 + 35 = \\boxed{315\\text{ cm} = 3{,}15\\text{ m}}$$
+
+## À retenir
+
+- Utiliser un **tableau de conversion** : un chiffre par colonne
+- Longueurs : km, hm, dam, **m**, dm, cm, mm — Masses : kg, hg, dag, **g**, dg, cg, mg
+- Pour additionner des grandeurs, il faut d'abord les convertir dans la **même unité**`,
+        exercises: [
+          {
+            id: "gm6-l2-e1",
+            question: "$3\\text{ m} = ? \\text{ cm}$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$30\\text{ cm}$" },
+              { id: "B", text: "$300\\text{ cm}$" },
+              { id: "C", text: "$3000\\text{ cm}$" },
+              { id: "D", text: "$0{,}3\\text{ cm}$" },
+            ],
+            correctId: "B",
+            explanation: "$1\\text{ m} = 100\\text{ cm}$, donc $3\\text{ m} = 3 \\times 100 = \\mathbf{300\\text{ cm}}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l2-e2",
+            question: "$1{,}2\\text{ kg}$ est égal à $1200\\text{ g}$.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "vrai",
+            explanation: "$1\\text{ kg} = 1000\\text{ g}$, donc $1{,}2\\text{ kg} = 1{,}2 \\times 1000 = 1200\\text{ g}$. **Vrai.**",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l2-e3",
+            question: "$450\\text{ mm} = ? \\text{ cm}$",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4{,}5\\text{ cm}$" },
+              { id: "B", text: "$45\\text{ cm}$" },
+              { id: "C", text: "$4500\\text{ cm}$" },
+              { id: "D", text: "$0{,}45\\text{ cm}$" },
+            ],
+            correctId: "B",
+            explanation: "$1\\text{ cm} = 10\\text{ mm}$, donc $450\\text{ mm} = 450 \\div 10 = \\mathbf{45\\text{ cm}}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l2-e4",
+            question: "Calcule la somme $1\\text{ m} + 25\\text{ cm} + 3\\text{ dm}$ en centimètres.",
+            type: "open",
+            modelAnswer: "On convertit chaque longueur en cm :\n- $1\\text{ m} = 100\\text{ cm}$\n- $25\\text{ cm} = 25\\text{ cm}$\n- $3\\text{ dm} = 30\\text{ cm}$\n\n$$100 + 25 + 30 = \\boxed{155\\text{ cm}}$$",
+            explanation: "On convertit toutes les longueurs dans la même unité (cm) avant de les additionner : $100+25+30=155$ cm.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l2-e5",
+            question: "Un sac de farine pèse $750\\text{ g}$ et un autre pèse $1{,}3\\text{ kg}$. Quelle est leur masse totale, exprimée en kg ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2{,}05\\text{ kg}$" },
+              { id: "B", text: "$1{,}45\\text{ kg}$" },
+              { id: "C", text: "$2{,}5\\text{ kg}$" },
+              { id: "D", text: "$20{,}5\\text{ kg}$" },
+            ],
+            correctId: "A",
+            explanation: "On convertit en kg : $750\\text{ g} = 0{,}750\\text{ kg}$. Total : $0{,}750 + 1{,}3 = \\mathbf{2{,}05\\text{ kg}}$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "gm6-l3",
+        slug: "mesurer-tracer-angles",
+        title: "Mesurer et tracer des angles au rapporteur",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Le **rapporteur** est l'instrument qui permet de mesurer ou de tracer un angle avec précision, en degrés ($°$). Cette leçon est consacrée à la pratique : bien positionner le rapporteur est la clé de la réussite.
+
+## Mesurer un angle existant
+
+> 📌 **Méthode — Mesurer un angle $\\widehat{xOy}$**
+> 1. Placer le **centre** du rapporteur exactement sur le **sommet** $O$ de l'angle.
+> 2. Aligner la **ligne de référence** (le 0°) du rapporteur sur l'un des côtés de l'angle, par exemple $[Ox)$.
+> 3. Lire, sur le rapporteur, la graduation par laquelle passe l'autre côté $[Oy)$ : c'est la mesure de l'angle, en degrés.
+
+> ⚠️ **Attention !** Un rapporteur a souvent deux séries de graduations (de 0 à 180 dans un sens et dans l'autre). Il faut toujours partir de **0°** du côté où est posée la demi-droite de référence.
+
+## Tracer un angle de mesure donnée
+
+> 📌 **Méthode — Tracer un angle $\\widehat{xOy} = 50°$**
+> 1. Tracer une demi-droite $[Ox)$.
+> 2. Positionner le centre du rapporteur sur $O$, ligne de référence sur $[Ox)$.
+> 3. Repérer la graduation $50°$ et marquer un point $y$ à cet endroit.
+> 4. Tracer la demi-droite $[Oy)$ : l'angle $\\widehat{xOy}$ mesure $50°$.
+
+## Exemples
+
+### ✅ Exemple simple — Lire un angle droit
+
+Un angle mesuré au rapporteur affiche $90°$. C'est un **angle droit**, que l'on peut aussi vérifier à l'**équerre**.
+
+### 📘 Exemple intermédiaire — Tracer un angle de $120°$
+
+1. Tracer $[Ox)$.
+2. Placer le rapporteur, centre sur $O$, 0° sur $[Ox)$.
+3. Marquer le point à la graduation $120°$, tracer $[Oy)$.
+
+$$\\widehat{xOy} = \\boxed{120°}$$
+
+### 🔴 Exemple avancé — Construire deux angles consécutifs
+
+On veut tracer un angle $\\widehat{xOy} = 35°$ puis, dans la continuité, un angle $\\widehat{yOz} = 40°$ (de l'autre côté de $[Oy)$ par rapport à $[Ox)$).
+
+1. Tracer $\\widehat{xOy} = 35°$ comme précédemment.
+2. Repositionner le 0° du rapporteur sur $[Oy)$, puis marquer un point à $40°$ pour obtenir $[Oz)$.
+
+L'angle total $\\widehat{xOz}$ vaut alors :
+
+$$\\widehat{xOz} = \\widehat{xOy} + \\widehat{yOz} = 35° + 40° = \\boxed{75°}$$
+
+## À retenir
+
+- Toujours placer le **centre du rapporteur sur le sommet** de l'angle
+- Aligner le **0°** sur un des côtés avant de lire ou tracer la mesure
+- Deux angles consécutifs s'additionnent pour former l'angle total`,
+        exercises: [
+          {
+            id: "gm6-l3-e1",
+            question: "Quel instrument permet de mesurer la valeur en degrés d'un angle ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La règle" },
+              { id: "B", text: "Le compas" },
+              { id: "C", text: "Le rapporteur" },
+              { id: "D", text: "L'équerre" },
+            ],
+            correctId: "C",
+            explanation: "Le **rapporteur** est spécialement conçu pour mesurer ou tracer des angles en degrés.",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l3-e2",
+            question: "Pour mesurer un angle, il faut placer le centre du rapporteur sur le sommet de l'angle.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "vrai",
+            explanation: "**Vrai.** Sans cet alignement précis du centre sur le sommet, la lecture de la mesure serait fausse.",
+            difficulty: "debutant",
+          },
+          {
+            id: "gm6-l3-e3",
+            question: "Un angle $\\widehat{xOy}$ mesure $35°$ et l'angle consécutif $\\widehat{yOz}$ mesure $40°$. Quelle est la mesure de l'angle $\\widehat{xOz}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5°$" },
+              { id: "B", text: "$75°$" },
+              { id: "C", text: "$1400°$" },
+              { id: "D", text: "$40°$" },
+            ],
+            correctId: "B",
+            explanation: "Les angles consécutifs s'additionnent : $\\widehat{xOz} = \\widehat{xOy} + \\widehat{yOz} = 35° + 40° = \\mathbf{75°}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l3-e4",
+            question: "Décris les étapes pour tracer, au rapporteur, un angle $\\widehat{xOy}$ de $70°$.",
+            type: "open",
+            modelAnswer: "1. Tracer une demi-droite $[Ox)$.\n2. Placer le centre du rapporteur exactement sur le point $O$, en alignant la ligne de référence (0°) sur $[Ox)$.\n3. Repérer la graduation $70°$ sur le rapporteur et marquer un point à cet endroit.\n4. Tracer la demi-droite $[Oy)$ reliant $O$ à ce point.\n\nOn obtient ainsi $\\widehat{xOy} = 70°$.",
+            explanation: "La méthode suit toujours les mêmes étapes : tracer un côté, positionner le rapporteur centré et aligné, repérer la graduation, puis tracer le second côté.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "gm6-l3-e5",
+            question: "Un angle $\\widehat{xOz}$ mesure $130°$ et il est partagé en deux angles consécutifs $\\widehat{xOy}$ et $\\widehat{yOz}$. Si $\\widehat{xOy} = 55°$, quelle est la mesure de $\\widehat{yOz}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$55°$" },
+              { id: "B", text: "$65°$" },
+              { id: "C", text: "$75°$" },
+              { id: "D", text: "$185°$" },
+            ],
+            correctId: "C",
+            explanation: "Puisque $\\widehat{xOz} = \\widehat{xOy} + \\widehat{yOz}$, on a $\\widehat{yOz} = \\widehat{xOz} - \\widehat{xOy} = 130° - 55° = \\mathbf{75°}$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // 6ème — Algorithmique et repérage
+  // ─────────────────────────────────────────────
+  {
+    id: "algorithmique-6eme",
+    slug: "algorithmique-6eme",
+    title: "Algorithmique et repérage",
+    description: "Repérage sur quadrillage et premiers pas en programmation visuelle : séquences d'instructions et boucles.",
+    schoolLevel: "6eme",
+    subject: "arithmetique",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "🧩",
+    lessons: [
+      {
+        id: "algo6-l1",
+        slug: "reperage-quadrillage",
+        title: "Repérage sur quadrillage",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Sur un quadrillage, on peut repérer la position exacte d'un point grâce à **deux nombres** : on parle de **coordonnées**. C'est la même idée qu'une bataille navale, ou qu'un plan de ville !
+
+## Le principe des coordonnées
+
+Sur un quadrillage, on trace deux axes :
+- un axe **horizontal** : il donne l'**abscisse** (le déplacement horizontal, souvent noté en premier)
+- un axe **vertical** : il donne l'**ordonnée** (le déplacement vertical, souvent noté en second)
+
+On note les coordonnées d'un point sous la forme **(abscisse ; ordonnée)**.
+
+> 📌 **Méthode — Placer un point de coordonnées $(3 ; 2)$**
+> 1. Partir de l'origine (le point de départ, souvent noté $O$).
+> 2. Se déplacer de **3 cases vers la droite** (abscisse).
+> 3. Se déplacer de **2 cases vers le haut** (ordonnée).
+> 4. Marquer le point à cet endroit.
+
+> ⚠️ **Attention à l'ordre !** Le couple $(3 ; 2)$ n'est **pas le même point** que $(2 ; 3)$ : l'ordre des deux nombres compte.
+
+## Lire les coordonnées d'un point
+
+Pour lire les coordonnées d'un point déjà placé, on fait le chemin inverse : on compte le nombre de cases parcourues horizontalement depuis l'origine (abscisse), puis verticalement (ordonnée).
+
+## Exemples
+
+### ✅ Exemple simple — Placer un point
+
+Pour placer le point $A(4 ; 1)$ : on part de l'origine, on avance de $4$ cases à droite, puis $1$ case vers le haut.
+
+### 📘 Exemple intermédiaire — Lire des coordonnées
+
+Un point $B$ se trouve à $5$ cases à droite et $3$ cases vers le haut de l'origine.
+
+$$B = \\boxed{(5 ; 3)}$$
+
+### 🔴 Exemple avancé — Déplacement entre deux points
+
+Un point $C$ a pour coordonnées $(2 ; 1)$. On le déplace de $3$ cases vers la droite et $4$ cases vers le haut pour obtenir le point $D$.
+
+**Nouvelle abscisse :** $2 + 3 = 5$
+
+**Nouvelle ordonnée :** $1 + 4 = 5$
+
+$$D = \\boxed{(5 ; 5)}$$
+
+## À retenir
+
+- Un point sur un quadrillage est repéré par un couple **(abscisse ; ordonnée)**
+- L'**abscisse** se lit horizontalement, l'**ordonnée** verticalement, toujours depuis l'origine
+- $(3 ; 2)$ et $(2 ; 3)$ sont des points **différents** : l'ordre compte`,
+        exercises: [
+          {
+            id: "algo6-l1-e1",
+            question: "Dans le couple de coordonnées $(4 ; 7)$, que représente le nombre $4$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "L'ordonnée" },
+              { id: "B", text: "L'abscisse" },
+              { id: "C", text: "Le rayon" },
+              { id: "D", text: "Le périmètre" },
+            ],
+            correctId: "B",
+            explanation: "Dans un couple $(\\text{abscisse} ; \\text{ordonnée})$, le premier nombre est toujours l'**abscisse** (déplacement horizontal).",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo6-l1-e2",
+            question: "Les points $(2 ; 5)$ et $(5 ; 2)$ désignent le même point sur un quadrillage.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "faux",
+            explanation: "**Faux.** L'ordre des coordonnées compte : $(2;5)$ correspond à 2 cases à droite puis 5 cases vers le haut, ce qui est différent de $(5;2)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo6-l1-e3",
+            question: "Un point $M$ se situe à $6$ cases à droite et $0$ case vers le haut de l'origine. Quelles sont ses coordonnées ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(0 ; 6)$" },
+              { id: "B", text: "$(6 ; 0)$" },
+              { id: "C", text: "$(6 ; 6)$" },
+              { id: "D", text: "$(0 ; 0)$" },
+            ],
+            correctId: "B",
+            explanation: "L'abscisse vaut $6$ (déplacement horizontal) et l'ordonnée vaut $0$ (aucun déplacement vertical) : $M = \\mathbf{(6 ; 0)}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo6-l1-e4",
+            question: "Un point $P$ a pour coordonnées $(3 ; 4)$. On le déplace de $2$ cases vers la droite et $5$ cases vers le bas. Quelles sont les coordonnées du nouveau point $Q$ ?",
+            type: "open",
+            modelAnswer: "**Abscisse :** se déplacer vers la droite **ajoute** à l'abscisse : $3 + 2 = 5$\n\n**Ordonnée :** se déplacer vers le bas **soustrait** à l'ordonnée : $4 - 5 = -1$\n\n$$Q = \\boxed{(5 ; -1)}$$",
+            explanation: "Un déplacement vers la droite augmente l'abscisse, un déplacement vers le bas diminue l'ordonnée (elle peut devenir négative).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo6-l1-e5",
+            question: "Un point $R(2 ; 3)$ est déplacé pour arriver au point $S(6 ; 1)$. Quel déplacement horizontal et vertical a été effectué ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4$ cases à droite, $2$ cases vers le bas" },
+              { id: "B", text: "$4$ cases à droite, $2$ cases vers le haut" },
+              { id: "C", text: "$2$ cases à droite, $4$ cases vers le bas" },
+              { id: "D", text: "$8$ cases à droite, $4$ cases vers le bas" },
+            ],
+            correctId: "A",
+            explanation: "Variation de l'abscisse : $6 - 2 = 4$ (donc $4$ cases à droite). Variation de l'ordonnée : $1 - 3 = -2$ (donc $2$ cases vers le bas).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo6-l2",
+        slug: "premiers-pas-programmation",
+        title: "Premiers pas en programmation visuelle",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Un **algorithme** est une suite d'instructions précises, exécutées **dans l'ordre**, pour réaliser une tâche. Les logiciels de programmation visuelle (comme Scratch) utilisent des **blocs d'instructions** que l'on assemble. On va apprendre à lire et écrire des algorithmes simples.
+
+## Vocabulaire de base
+
+- Une **instruction** est un ordre simple à exécuter, par exemple *« avance de 5 pas »* ou *« tourne de 90° »*.
+- Une **séquence** est une suite d'instructions exécutées **les unes après les autres**, dans l'ordre où elles sont écrites.
+- Une **boucle** permet de **répéter** plusieurs fois les mêmes instructions, sans avoir à les réécrire.
+
+> 📌 **Méthode — Lire un programme**
+> 1. Identifier chaque instruction, dans l'ordre.
+> 2. Si une boucle « répéter $n$ fois » apparaît, exécuter **toutes** les instructions qu'elle contient, $n$ fois de suite.
+> 3. Reconstituer le résultat final (le dessin obtenu, ou la position finale).
+
+## Exemple de bloc « répéter »
+
+Le programme :
+
+> *répéter 4 fois :*
+> &nbsp;&nbsp;*avancer de 5*
+> &nbsp;&nbsp;*tourner de 90°*
+
+signifie qu'on exécute 4 fois, à la suite, les deux instructions *avancer de 5* puis *tourner de 90°*.
+
+## Exemples
+
+### ✅ Exemple simple — Suivre une séquence simple
+
+Programme : *avancer de 3*, puis *tourner de 90°*, puis *avancer de 3*.
+
+Cela trace un **angle droit** formé de deux segments de longueur $3$.
+
+### 📘 Exemple intermédiaire — Que dessine ce programme ?
+
+> *avancer de 5* — *tourner de 90°* — *avancer de 5* — *tourner de 90°* — *avancer de 5* — *tourner de 90°* — *avancer de 5* — *tourner de 90°*
+
+On avance 4 fois de suite en tournant de $90°$ à chaque fois : on revient au point de départ en ayant tracé un **carré** de côté $5$.
+
+### 🔴 Exemple avancé — Avec une boucle « répéter »
+
+> *répéter 4 fois :*
+> &nbsp;&nbsp;*avancer de 5*
+> &nbsp;&nbsp;*tourner de 90°*
+
+Cette boucle exécute **exactement** le même programme que l'exemple intermédiaire (4 répétitions de « avancer de 5, tourner de 90° »), mais de façon plus compacte. Elle dessine donc aussi un **carré** de côté $5$.
+
+**Et avec une boucle « répéter 3 fois » et un angle de $120°$ ?**
+
+> *répéter 3 fois :*
+> &nbsp;&nbsp;*avancer de 4*
+> &nbsp;&nbsp;*tourner de 120°*
+
+$3$ côtés égaux et $3 \\times 120° = 360°$ de rotation totale : on obtient un **triangle équilatéral** de côté $4$.
+
+## À retenir
+
+- Une **séquence** exécute les instructions **dans l'ordre**, une seule fois chacune
+- Une **boucle « répéter $n$ fois »** rejoue les mêmes instructions $n$ fois
+- Pour reconnaître la figure obtenue, il faut compter le nombre de côtés et l'angle de rotation à chaque fois ($360° \\div \\text{nombre de côtés}$ pour un polygone régulier)`,
+        exercises: [
+          {
+            id: "algo6-l2-e1",
+            question: "Que signifie l'instruction « répéter 4 fois » dans un algorithme ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Exécuter une seule fois les instructions" },
+              { id: "B", text: "Exécuter 4 instructions différentes" },
+              { id: "C", text: "Exécuter le bloc d'instructions 4 fois de suite" },
+              { id: "D", text: "Attendre 4 secondes" },
+            ],
+            correctId: "C",
+            explanation: "Une boucle « répéter $n$ fois » exécute **toutes** les instructions qu'elle contient, $n$ fois de suite. Ici, $n = 4$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo6-l2-e2",
+            question: "Une séquence d'instructions est exécutée dans l'ordre où elle est écrite.",
+            type: "true_false",
+            options: [{ id: "vrai", text: "Vrai" }, { id: "faux", text: "Faux" }],
+            correctId: "vrai",
+            explanation: "**Vrai.** Une séquence respecte toujours l'ordre des instructions, de la première à la dernière.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo6-l2-e3",
+            question: "Quelle figure dessine le programme « répéter 4 fois : avancer de 5, tourner de 90° » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Un triangle" },
+              { id: "B", text: "Un carré" },
+              { id: "C", text: "Un cercle" },
+              { id: "D", text: "Une droite" },
+            ],
+            correctId: "B",
+            explanation: "4 côtés égaux de longueur $5$, avec une rotation de $90°$ à chaque fois ($4 \\times 90° = 360°$) : on trace un **carré**.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo6-l2-e4",
+            question: "Décris, étape par étape, ce que fait le programme suivant : « répéter 3 fois : avancer de 6, tourner de 120° ». Quelle figure est obtenue ?",
+            type: "open",
+            modelAnswer: "Le programme exécute 3 fois le bloc « avancer de 6, tourner de 120° » :\n\n1. Avancer de 6, tourner de 120°\n2. Avancer de 6, tourner de 120°\n3. Avancer de 6, tourner de 120°\n\nOn trace ainsi 3 côtés égaux de longueur 6, avec une rotation totale de $3 \\times 120° = 360°$ (un tour complet). On obtient un **triangle équilatéral** de côté 6.",
+            explanation: "Trois répétitions d'un même segment suivi d'une rotation de 120° (soit 360° au total) forment un triangle équilatéral.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo6-l2-e5",
+            question: "On veut dessiner un hexagone régulier (6 côtés égaux) avec une boucle « répéter 6 fois : avancer de 4, tourner de ... ° ». Quel angle de rotation faut-il utiliser ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$45°$" },
+              { id: "B", text: "$60°$" },
+              { id: "C", text: "$90°$" },
+              { id: "D", text: "$30°$" },
+            ],
+            correctId: "B",
+            explanation: "Pour qu'un polygone régulier se referme après $n$ côtés, la rotation totale doit être de $360°$, répartie en $n$ rotations égales : $360° \\div 6 = \\mathbf{60°}$.",
             difficulty: "expert",
           },
         ],
@@ -9383,7 +10570,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e6",
             question: "Calcule $7{,}5 \\times 4$ puis $9 \\div 4$ (donne le résultat décimal).",
             type: "open",
-            modelAnswer: "$$7{,}5 \\times 4 = 30$$\\n\\n$$9 \\div 4 = 2{,}25$$\\n\\n$$\\boxed{30 \\text{ et } 2{,}25}$$",
+            modelAnswer: "$$7{,}5 \\times 4 = 30$$\n\n$$9 \\div 4 = 2{,}25$$\n\n$$\\boxed{30 \\text{ et } 2{,}25}$$",
             explanation: "On effectue les deux opérations séparément : une multiplication décimale, puis une division qui ne « tombe pas juste » en entier.",
             difficulty: "intermediaire",
           },
@@ -9391,7 +10578,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e7",
             question: "Calcule $\\dfrac{2}{7} + \\dfrac{3}{7}$ puis simplifie le résultat si possible.",
             type: "open",
-            modelAnswer: "$$\\dfrac{2}{7}+\\dfrac{3}{7} = \\dfrac{2+3}{7} = \\dfrac{5}{7}$$\\n\\nCette fraction est déjà irréductible ($5$ et $7$ n'ont pas de diviseur commun autre que $1$).\\n\\n$$\\boxed{\\dfrac{5}{7}}$$",
+            modelAnswer: "$$\\dfrac{2}{7}+\\dfrac{3}{7} = \\dfrac{2+3}{7} = \\dfrac{5}{7}$$\n\nCette fraction est déjà irréductible ($5$ et $7$ n'ont pas de diviseur commun autre que $1$).\n\n$$\\boxed{\\dfrac{5}{7}}$$",
             explanation: "Pour additionner des fractions de même dénominateur, on additionne les numérateurs et on garde le dénominateur commun.",
             difficulty: "intermediaire",
           },
@@ -9399,7 +10586,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e8",
             question: "Trace un triangle $ABC$ (mentalement ou sur une feuille) et décris comment construire son symétrique par rapport à une droite $(d)$ qui ne le coupe pas.",
             type: "open",
-            modelAnswer: "Pour construire le symétrique du triangle $ABC$ par rapport à $(d)$ :\\n\\n1. Pour chaque sommet ($A$, $B$, $C$), on trace la perpendiculaire à $(d)$ passant par ce sommet.\\n2. On mesure la distance entre le sommet et $(d)$ le long de cette perpendiculaire.\\n3. On place le point symétrique à la **même distance** de $(d)$, mais de l'**autre côté**.\\n4. On obtient ainsi $A'$, $B'$, $C'$, puis on relie ces points pour former le triangle symétrique $A'B'C'$.\\n\\n$$\\boxed{\\text{Symétrique obtenu en reportant les distances perpendiculairement de l'autre côté de } (d)}$$",
+            modelAnswer: "Pour construire le symétrique du triangle $ABC$ par rapport à $(d)$ :\n\n1. Pour chaque sommet ($A$, $B$, $C$), on trace la perpendiculaire à $(d)$ passant par ce sommet.\n2. On mesure la distance entre le sommet et $(d)$ le long de cette perpendiculaire.\n3. On place le point symétrique à la **même distance** de $(d)$, mais de l'**autre côté**.\n4. On obtient ainsi $A'$, $B'$, $C'$, puis on relie ces points pour former le triangle symétrique $A'B'C'$.\n\n$$\\boxed{\\text{Symétrique obtenu en reportant les distances perpendiculairement de l'autre côté de } (d)}$$",
             explanation: "La symétrie axiale conserve les longueurs et les angles : le symétrique d'une figure est obtenu en reportant chaque point à égale distance de l'axe, de l'autre côté.",
             difficulty: "intermediaire",
           },
@@ -9407,7 +10594,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e9",
             question: "Un disque a un rayon de $6$ cm. Calcule son aire (donner la valeur exacte en fonction de $\\pi$, puis une valeur approchée avec $\\pi \\approx 3{,}14$).",
             type: "open",
-            modelAnswer: "$$\\mathcal{A} = \\pi \\times r^2 = \\pi \\times 6^2 = 36\\pi \\text{ cm}^2$$\\n\\nValeur approchée : $36 \\times 3{,}14 = 113{,}04 \\text{ cm}^2$.\\n\\n$$\\boxed{\\mathcal{A} = 36\\pi \\approx 113{,}04 \\text{ cm}^2}$$",
+            modelAnswer: "$$\\mathcal{A} = \\pi \\times r^2 = \\pi \\times 6^2 = 36\\pi \\text{ cm}^2$$\n\nValeur approchée : $36 \\times 3{,}14 = 113{,}04 \\text{ cm}^2$.\n\n$$\\boxed{\\mathcal{A} = 36\\pi \\approx 113{,}04 \\text{ cm}^2}$$",
             explanation: "On applique directement la formule de l'aire du disque $\\mathcal{A}=\\pi r^2$, puis on remplace $\\pi$ par sa valeur approchée pour obtenir un résultat numérique.",
             difficulty: "intermediaire",
           },
@@ -9415,7 +10602,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e10",
             question: "Les notes obtenues par $5$ élèves à un contrôle sont : $12, 14, 9, 17, 13$. Calcule la moyenne de la classe.",
             type: "open",
-            modelAnswer: "Somme des notes : $12+14+9+17+13 = 65$.\\n\\nMoyenne $= \\dfrac{65}{5} = 13$.\\n\\n$$\\boxed{\\text{Moyenne} = 13}$$",
+            modelAnswer: "Somme des notes : $12+14+9+17+13 = 65$.\n\nMoyenne $= \\dfrac{65}{5} = 13$.\n\n$$\\boxed{\\text{Moyenne} = 13}$$",
             explanation: "La moyenne d'une série de valeurs est la somme des valeurs divisée par leur nombre.",
             difficulty: "intermediaire",
           },
@@ -9423,7 +10610,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e11",
             question: "Un pavé droit a pour dimensions $5$ cm $\\times$ $4$ cm $\\times$ $3$ cm. Calcule son volume, puis calcule combien de petits cubes de $1$ cm de côté il faudrait pour le remplir entièrement.",
             type: "open",
-            modelAnswer: "Volume du pavé : $V = L \\times l \\times h = 5 \\times 4 \\times 3 = 60 \\text{ cm}^3$.\\n\\nUn cube de $1$ cm de côté a un volume de $1 \\text{ cm}^3$. Il faut donc $60$ petits cubes pour remplir le pavé.\\n\\n$$\\boxed{V = 60 \\text{ cm}^3, \\quad 60 \\text{ cubes}}$$",
+            modelAnswer: "Volume du pavé : $V = L \\times l \\times h = 5 \\times 4 \\times 3 = 60 \\text{ cm}^3$.\n\nUn cube de $1$ cm de côté a un volume de $1 \\text{ cm}^3$. Il faut donc $60$ petits cubes pour remplir le pavé.\n\n$$\\boxed{V = 60 \\text{ cm}^3, \\quad 60 \\text{ cubes}}$$",
             explanation: "Le volume du pavé droit est le produit de ses trois dimensions ; comme chaque petit cube a un volume de $1\\,\\text{cm}^3$, le nombre de cubes nécessaires est numériquement égal au volume en $\\text{cm}^3$.",
             difficulty: "expert",
           },
@@ -9431,7 +10618,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e12",
             question: "Une voiture roule à vitesse constante et parcourt $90$ km en $1$ heure. Construis un tableau de proportionnalité et calcule la distance parcourue en $2$ heures $30$ minutes.",
             type: "open",
-            modelAnswer: "On construit le tableau de proportionnalité (distance proportionnelle au temps) :\\n\\n| Temps (h) | $1$ | $2{,}5$ |\\n|---|---|---|\\n| Distance (km) | $90$ | $?$ |\\n\\n$2$ heures $30$ minutes $= 2{,}5$ heures.\\n\\n$$\\text{Distance} = 90 \\times 2{,}5 = 225 \\text{ km}$$\\n\\n$$\\boxed{225 \\text{ km}}$$",
+            modelAnswer: "On construit le tableau de proportionnalité (distance proportionnelle au temps) :\n\n| Temps (h) | $1$ | $2{,}5$ |\n|---|---|---|\n| Distance (km) | $90$ | $?$ |\n\n$2$ heures $30$ minutes $= 2{,}5$ heures.\n\n$$\\text{Distance} = 90 \\times 2{,}5 = 225 \\text{ km}$$\n\n$$\\boxed{225 \\text{ km}}$$",
             explanation: "On convertit d'abord la durée en heures décimales ($2$h$30$ = $2{,}5$ h), puis on utilise le coefficient de proportionnalité (la vitesse, $90$ km/h) pour calculer la distance.",
             difficulty: "expert",
           },
@@ -9439,7 +10626,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e13",
             question: "Calcule $\\dfrac{3}{4} - \\dfrac{1}{4} + \\dfrac{5}{4}$, puis donne le résultat sous la forme d'un nombre décimal.",
             type: "open",
-            modelAnswer: "$$\\dfrac{3}{4} - \\dfrac{1}{4} + \\dfrac{5}{4} = \\dfrac{3-1+5}{4} = \\dfrac{7}{4}$$\\n\\nEn décimal : $\\dfrac{7}{4} = 1{,}75$.\\n\\n$$\\boxed{\\dfrac{7}{4} = 1{,}75}$$",
+            modelAnswer: "$$\\dfrac{3}{4} - \\dfrac{1}{4} + \\dfrac{5}{4} = \\dfrac{3-1+5}{4} = \\dfrac{7}{4}$$\n\nEn décimal : $\\dfrac{7}{4} = 1{,}75$.\n\n$$\\boxed{\\dfrac{7}{4} = 1{,}75}$$",
             explanation: "Comme toutes les fractions ont le même dénominateur, on effectue les opérations directement sur les numérateurs, puis on convertit en décimal en effectuant la division.",
             difficulty: "expert",
           },
@@ -9447,7 +10634,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e14",
             question: "Une figure est composée d'un carré de $6$ cm de côté surmonté d'un demi-disque de diamètre $6$ cm. Calcule l'aire totale de la figure (valeur exacte en fonction de $\\pi$).",
             type: "open",
-            modelAnswer: "Aire du carré : $\\mathcal{A}_{carré} = 6 \\times 6 = 36 \\text{ cm}^2$.\\n\\nLe demi-disque a un diamètre de $6$ cm, donc un rayon $r = 3$ cm.\\n\\nAire du demi-disque : $\\mathcal{A}_{1/2\\,disque} = \\dfrac{\\pi r^2}{2} = \\dfrac{\\pi \\times 9}{2} = 4{,}5\\pi \\text{ cm}^2$.\\n\\nAire totale : $\\mathcal{A} = 36 + 4{,}5\\pi \\text{ cm}^2$.\\n\\n$$\\boxed{\\mathcal{A} = 36 + 4{,}5\\pi \\text{ cm}^2 \\approx 50{,}1 \\text{ cm}^2}$$",
+            modelAnswer: "Aire du carré : $\\mathcal{A}_{carré} = 6 \\times 6 = 36 \\text{ cm}^2$.\n\nLe demi-disque a un diamètre de $6$ cm, donc un rayon $r = 3$ cm.\n\nAire du demi-disque : $\\mathcal{A}_{1/2\\,disque} = \\dfrac{\\pi r^2}{2} = \\dfrac{\\pi \\times 9}{2} = 4{,}5\\pi \\text{ cm}^2$.\n\nAire totale : $\\mathcal{A} = 36 + 4{,}5\\pi \\text{ cm}^2$.\n\n$$\\boxed{\\mathcal{A} = 36 + 4{,}5\\pi \\text{ cm}^2 \\approx 50{,}1 \\text{ cm}^2}$$",
             explanation: "On décompose la figure composée en formes simples (carré + demi-disque), on calcule l'aire de chaque partie séparément, puis on additionne.",
             difficulty: "expert",
           },
@@ -9455,8 +10642,642 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev6-l1-e15",
             question: "Un fermier veut entourer un terrain rectangulaire de $25$ m sur $15$ m avec une clôture, puis recouvrir le sol de gazon. Le gazon coûte $4$ € le mètre carré et le grillage coûte $6$ € le mètre. Calcule le coût total (clôture + gazon).",
             type: "open",
-            modelAnswer: "Périmètre du terrain (longueur de clôture nécessaire) : $P = 2 \\times (25+15) = 2 \\times 40 = 80$ m.\\n\\nCoût de la clôture : $80 \\times 6 = 480$ €.\\n\\nAire du terrain (surface de gazon) : $\\mathcal{A} = 25 \\times 15 = 375 \\text{ m}^2$.\\n\\nCoût du gazon : $375 \\times 4 = 1500$ €.\\n\\nCoût total : $480 + 1500 = 1980$ €.\\n\\n$$\\boxed{\\text{Coût total} = 1980 \\text{ €}}$$",
+            modelAnswer: "Périmètre du terrain (longueur de clôture nécessaire) : $P = 2 \\times (25+15) = 2 \\times 40 = 80$ m.\n\nCoût de la clôture : $80 \\times 6 = 480$ €.\n\nAire du terrain (surface de gazon) : $\\mathcal{A} = 25 \\times 15 = 375 \\text{ m}^2$.\n\nCoût du gazon : $375 \\times 4 = 1500$ €.\n\nCoût total : $480 + 1500 = 1980$ €.\n\n$$\\boxed{\\text{Coût total} = 1980 \\text{ €}}$$",
             explanation: "Ce problème combine deux grandeurs différentes : le périmètre (pour la clôture, une longueur) et l'aire (pour le gazon, une surface) — il faut bien identifier laquelle utiliser pour chaque coût.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // 5ème — Données et statistiques
+  {
+    id: "donnees-statistiques-5eme",
+    slug: "donnees-statistiques-5eme",
+    title: "Données et statistiques",
+    description: "Lisez des tableaux d'effectifs et de fréquences, interprétez des diagrammes, puis découvrez la moyenne pondérée pour des notes ou des effectifs.",
+    schoolLevel: "5eme",
+    subject: "probabilites",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "📈",
+    lessons: [
+      {
+        id: "stat5-l1",
+        slug: "tableaux-effectifs-frequences",
+        title: "Tableaux, effectifs, fréquences et diagrammes",
+        durationMinutes: 20,
+        content: `## Introduction
+
+En 6ème, tu as appris à lire un tableau d'effectifs et à construire des diagrammes simples. En 5ème, on approfondit cette lecture avec les **fréquences en pourcentage** et les **effectifs cumulés**, pour mieux interpréter des séries de données plus riches.
+
+## Effectif et fréquence
+
+- L'**effectif** d'une valeur est le nombre de fois qu'elle apparaît dans la série de données.
+- L'**effectif total** est la somme de tous les effectifs.
+- La **fréquence** d'une valeur est la proportion qu'elle représente parmi l'effectif total :
+
+$$f = \\dfrac{\\text{effectif de la valeur}}{\\text{effectif total}}$$
+
+Pour l'exprimer en pourcentage, on multiplie par $100$ :
+
+$$f (\\text{en \\%}) = \\dfrac{\\text{effectif}}{\\text{effectif total}} \\times 100$$
+
+## L'effectif cumulé
+
+L'**effectif cumulé** d'une valeur est la somme des effectifs de cette valeur et de **toutes les valeurs précédentes** dans le tableau (en respectant l'ordre croissant). Il permet de répondre rapidement à des questions comme « combien d'élèves ont une note inférieure ou égale à... ? ».
+
+> 📌 **Méthode — Calculer un effectif cumulé**
+> 1. Trier les valeurs dans l'ordre croissant.
+> 2. Pour la première valeur, l'effectif cumulé est égal à son propre effectif.
+> 3. Pour chaque valeur suivante, additionner son effectif à l'effectif cumulé précédent.
+
+## Lire un diagramme
+
+- Un **diagramme en bâtons** ou un **histogramme** représente les effectifs (hauteur des barres) pour chaque valeur ou classe de valeurs.
+- Un **diagramme circulaire** (camembert) représente les fréquences : chaque part est proportionnelle à la fréquence qu'elle représente, l'angle au centre se calculant par $\\text{angle} = f \\times 360°$.
+
+## Exemples
+
+### ✅ Exemple simple — Calculer une fréquence
+
+Dans une classe de $25$ élèves, $10$ élèves pratiquent le football. La fréquence des footballeurs est :
+
+$$f = \\dfrac{10}{25} = 0{,}4 = 40\\%$$
+
+### 📘 Exemple intermédiaire — Effectif cumulé
+
+| Note | 8 | 12 | 15 | 18 |
+|-----|-----|-----|-----|-----|
+| Effectif | 3 | 7 | 6 | 4 |
+| Effectif cumulé | 3 | 10 | 16 | 20 |
+
+L'effectif cumulé pour la note $15$ est $3 + 7 + 6 = 16$ : cela signifie que $16$ élèves ont une note inférieure ou égale à $15$.
+
+### 🔴 Exemple avancé — Du diagramme circulaire à l'angle
+
+Dans un sondage sur $50$ personnes, $15$ préfèrent le cinéma. Quel angle représente cette réponse dans un diagramme circulaire ?
+
+$$f = \\dfrac{15}{50} = 0{,}3 \\qquad \\text{angle} = 0{,}3 \\times 360° = 108°$$
+
+## À retenir
+
+- **Fréquence** $= \\dfrac{\\text{effectif}}{\\text{effectif total}}$, qu'on peut exprimer en pourcentage en multipliant par $100$.
+- L'**effectif cumulé** d'une valeur additionne son effectif à ceux de toutes les valeurs précédentes.
+- Dans un diagramme circulaire, l'angle d'une part $= f \\times 360°$.`,
+        exercises: [
+          {
+            id: "stat5-l1-e1",
+            question: "Dans une classe de $30$ élèves, $6$ élèves ont eu une note de $20$. Quelle est la fréquence de cette note, en pourcentage ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$6\\%$" },
+              { id: "B", text: "$20\\%$" },
+              { id: "C", text: "$30\\%$" },
+              { id: "D", text: "$60\\%$" },
+            ],
+            correctId: "B",
+            explanation: "$f = \\dfrac{6}{30} = 0{,}2 = 20\\%$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "stat5-l1-e2",
+            question: "L'effectif cumulé d'une valeur tient compte uniquement de son propre effectif, pas des valeurs précédentes.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. L'effectif cumulé additionne l'effectif de la valeur à ceux de **toutes les valeurs précédentes** (dans l'ordre croissant).",
+            difficulty: "debutant",
+          },
+          {
+            id: "stat5-l1-e3",
+            question: "Un tableau donne les effectifs cumulés suivants pour des notes triées : $5 \\to 4$, $10 \\to 9$, $14 \\to 15$, $18 \\to 20$. Combien d'élèves ont une note strictement supérieure à $10$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$9$" },
+              { id: "B", text: "$11$" },
+              { id: "C", text: "$15$" },
+              { id: "D", text: "$20$" },
+            ],
+            correctId: "B",
+            explanation: "L'effectif total est $20$ et l'effectif cumulé jusqu'à $10$ (inclus) est $9$. Le nombre d'élèves avec une note strictement supérieure à $10$ est donc $20 - 9 = 11$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "stat5-l1-e4",
+            question: "Dans un diagramme circulaire représentant les sports pratiqués par $40$ personnes, la part « natation » correspond à un angle de $90°$. Combien de personnes pratiquent la natation ?",
+            type: "open",
+            modelAnswer: "La fréquence correspondant à l'angle s'obtient par $f = \\dfrac{\\text{angle}}{360°}$.\n\n$$f = \\dfrac{90}{360} = 0{,}25 = 25\\%$$\n\nNombre de personnes : $0{,}25 \\times 40 = 10$.\n\n$$\\boxed{10 \\text{ personnes pratiquent la natation.}}$$",
+            explanation: "On retrouve la fréquence à partir de l'angle (proportionnalité entre angle et fréquence), puis on l'applique à l'effectif total pour obtenir l'effectif recherché.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "stat5-l1-e5",
+            question: "Un club de $80$ adhérents propose 3 activités. Le tableau donne les effectifs : Tennis $32$, Natation $20$, Judo $28$. Calcule la fréquence (en %) de chaque activité et vérifie que la somme des fréquences fait bien $100\\%$.",
+            type: "open",
+            modelAnswer: "Effectif total : $32 + 20 + 28 = 80$ (cohérent avec l'énoncé).\n\n**Tennis :** $f = \\dfrac{32}{80} \\times 100 = 40\\%$\n\n**Natation :** $f = \\dfrac{20}{80} \\times 100 = 25\\%$\n\n**Judo :** $f = \\dfrac{28}{80} \\times 100 = 35\\%$\n\nVérification : $40\\% + 25\\% + 35\\% = 100\\%$.\n\n$$\\boxed{\\text{Tennis : } 40\\%, \\text{ Natation : } 25\\%, \\text{ Judo : } 35\\%}$$",
+            explanation: "La somme des fréquences de toutes les catégories d'une série de données doit toujours être égale à $100\\%$ (ou à $1$ si elles sont exprimées en proportions) : c'est une bonne vérification du calcul.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "stat5-l2",
+        slug: "moyenne-ponderee",
+        title: "La moyenne pondérée",
+        durationMinutes: 20,
+        content: `## Introduction
+
+En 6ème, tu as calculé une **moyenne simple** : on additionne toutes les valeurs et on divise par leur nombre. Mais parfois, certaines valeurs « comptent plus » que d'autres : c'est le cas des notes affectées d'un **coefficient**, ou des effectifs dans un tableau statistique. On a alors besoin de la **moyenne pondérée**.
+
+## Rappel : la moyenne simple
+
+$$\\text{Moyenne simple} = \\dfrac{\\text{somme des valeurs}}{\\text{nombre de valeurs}}$$
+
+Cette formule ne convient que si **toutes les valeurs ont la même importance**.
+
+## La moyenne pondérée
+
+Quand chaque valeur $x_i$ est associée à un **poids** (ou **coefficient**, ou **effectif**) $p_i$, la moyenne pondérée se calcule ainsi :
+
+$$\\text{Moyenne pondérée} = \\dfrac{x_1 \\times p_1 + x_2 \\times p_2 + \\dots + x_n \\times p_n}{p_1 + p_2 + \\dots + p_n}$$
+
+> 📌 **Méthode — Calculer une moyenne pondérée**
+> 1. Multiplier chaque valeur par son poids (coefficient ou effectif).
+> 2. Additionner tous ces produits : c'est le **numérateur**.
+> 3. Additionner tous les poids : c'est le **dénominateur**.
+> 4. Diviser le numérateur par le dénominateur.
+
+> ⚠️ **Attention :** le dénominateur est la somme des **poids** (coefficients ou effectifs), jamais le nombre de valeurs différentes si elles ont des poids différents !
+
+## Pourquoi une moyenne pondérée ?
+
+Si on calculait une simple moyenne sans tenir compte des coefficients, une note avec un petit coefficient compterait autant qu'une note avec un gros coefficient — ce qui ne reflèterait pas correctement l'importance relative de chaque épreuve ou de chaque groupe de données.
+
+## Exemples
+
+### ✅ Exemple simple — Notes avec coefficients
+
+Un élève a obtenu $12$ en devoir (coefficient $1$) et $16$ en contrôle (coefficient $2$).
+
+$$\\text{Moyenne} = \\dfrac{12 \\times 1 + 16 \\times 2}{1 + 2} = \\dfrac{12 + 32}{3} = \\dfrac{44}{3} \\approx 14{,}7$$
+
+### 📘 Exemple intermédiaire — Moyenne d'un tableau d'effectifs
+
+Un tableau donne les notes obtenues par une classe : note $10$ (effectif $5$), note $14$ (effectif $12$), note $18$ (effectif $3$).
+
+$$\\text{Moyenne} = \\dfrac{10 \\times 5 + 14 \\times 12 + 18 \\times 3}{5 + 12 + 3} = \\dfrac{50 + 168 + 54}{20} = \\dfrac{272}{20} = 13{,}6$$
+
+### 🔴 Exemple avancé — Trois notes, trois coefficients différents
+
+Un élève a $8$ en devoir (coeff $1$), $13$ en contrôle (coeff $3$) et $17$ à l'oral (coeff $2$).
+
+$$\\text{Moyenne} = \\dfrac{8 \\times 1 + 13 \\times 3 + 17 \\times 2}{1 + 3 + 2} = \\dfrac{8 + 39 + 34}{6} = \\dfrac{81}{6} = 13{,}5$$
+
+Remarque : cette moyenne ($13{,}5$) est plus proche de $13$ (la note de plus gros coefficient) que la moyenne simple des trois notes ($\\dfrac{8+13+17}{3} = 12{,}67$) ne l'aurait laissé penser — le coefficient le plus fort « tire » la moyenne vers lui.
+
+## À retenir
+
+- La moyenne pondérée tient compte de l'**importance** (coefficient ou effectif) de chaque valeur.
+- Formule : $\\dfrac{\\text{somme des (valeur} \\times \\text{poids)}}{\\text{somme des poids}}$.
+- Le dénominateur est la somme des **poids**, pas le nombre de valeurs distinctes.
+- Plus le coefficient d'une valeur est grand, plus celle-ci influence fortement la moyenne.`,
+        exercises: [
+          {
+            id: "stat5-l2-e1",
+            question: "Dans une moyenne pondérée, le dénominateur correspond à :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Le nombre de valeurs différentes" },
+              { id: "B", text: "La somme des poids (coefficients ou effectifs)" },
+              { id: "C", text: "La plus grande valeur" },
+              { id: "D", text: "Le produit de toutes les valeurs" },
+            ],
+            correctId: "B",
+            explanation: "Le dénominateur d'une moyenne pondérée est toujours la **somme des poids** (coefficients ou effectifs), pas simplement le nombre de valeurs distinctes.",
+            difficulty: "debutant",
+          },
+          {
+            id: "stat5-l2-e2",
+            question: "Si toutes les valeurs ont le même coefficient, la moyenne pondérée donne le même résultat que la moyenne simple.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Vrai. Quand tous les poids sont égaux, la moyenne pondérée se simplifie exactement en la moyenne simple (chaque valeur compte autant que les autres).",
+            difficulty: "debutant",
+          },
+          {
+            id: "stat5-l2-e3",
+            question: "Un élève a $14$ en devoir (coefficient $2$) et $10$ en contrôle (coefficient $3$). Quelle est sa moyenne pondérée ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$12$" },
+              { id: "B", text: "$11{,}6$" },
+              { id: "C", text: "$12{,}4$" },
+              { id: "D", text: "$10{,}8$" },
+            ],
+            correctId: "B",
+            explanation: "$\\text{Moyenne} = \\dfrac{14 \\times 2 + 10 \\times 3}{2+3} = \\dfrac{28+30}{5} = \\dfrac{58}{5} = 11{,}6$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "stat5-l2-e4",
+            question: "Une classe de $24$ élèves a obtenu les notes suivantes à un contrôle : note $8$ (effectif $4$), note $12$ (effectif $10$), note $16$ (effectif $10$). Calcule la moyenne pondérée de la classe.",
+            type: "open",
+            modelAnswer: "On vérifie l'effectif total : $4 + 10 + 10 = 24$ (cohérent).\n\n$$\\text{Moyenne} = \\dfrac{8 \\times 4 + 12 \\times 10 + 16 \\times 10}{4 + 10 + 10}$$\n\n$$= \\dfrac{32 + 120 + 160}{24} = \\dfrac{312}{24} = 13$$\n\n$$\\boxed{\\text{Moyenne} = 13}$$",
+            explanation: "On multiplie chaque note par son effectif (son poids), on additionne, puis on divise par l'effectif total (somme des poids).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "stat5-l2-e5",
+            question: "Un élève veut obtenir une moyenne pondérée d'au moins $12$ avec deux notes : un devoir de coefficient $1$ où il a eu $9$, et un contrôle de coefficient $2$. Quelle note minimale doit-il obtenir au contrôle pour atteindre cette moyenne ?",
+            type: "open",
+            modelAnswer: "On note $x$ la note au contrôle. On veut :\n\n$$\\dfrac{9 \\times 1 + x \\times 2}{1+2} \\geq 12$$\n\n$$\\dfrac{9 + 2x}{3} \\geq 12$$\n\n$$9 + 2x \\geq 36$$\n\n$$2x \\geq 27$$\n\n$$x \\geq 13{,}5$$\n\n$$\\boxed{\\text{Il doit obtenir au moins } 13{,}5 \\text{ au contrôle.}}$$",
+            explanation: "On pose l'inéquation à partir de la formule de la moyenne pondérée, puis on isole progressivement la note inconnue $x$ en multipliant par 3 puis en résolvant l'inégalité.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // 5ème — Algorithmique et programmation
+  {
+    id: "algorithmique-programmation-5eme",
+    slug: "algorithmique-programmation-5eme",
+    title: "Algorithmique et programmation",
+    description: "Repérez-vous dans un plan avec des nombres relatifs, utilisez des variables et des boucles, puis testez des conditions pour faire des choix dans un programme.",
+    schoolLevel: "5eme",
+    subject: "arithmetique",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "🔁",
+    lessons: [
+      {
+        id: "algo5-l1",
+        slug: "reperage-nombres-relatifs",
+        title: "Repérage avec des nombres relatifs",
+        durationMinutes: 19,
+        content: `## Introduction
+
+En 6ème (cours *Algorithmique et repérage*), tu as appris à repérer un point sur un quadrillage avec des coordonnées **positives**. Maintenant que tu connais les **nombres relatifs** (cours *Nombres relatifs*), on peut étendre le repérage à un plan complet, avec des coordonnées qui peuvent être négatives.
+
+## Le repère et ses 4 quadrants
+
+Un **repère** est formé de deux axes graduées qui se croisent à l'**origine** $O$ :
+- l'axe **horizontal** des **abscisses**, gradué avec des nombres relatifs ;
+- l'axe **vertical** des **ordonnées**, gradué avec des nombres relatifs.
+
+Ces deux axes partagent le plan en **4 quadrants** :
+
+| Quadrant | Abscisse | Ordonnée |
+|-----|-----|-----|
+| En haut à droite | positive | positive |
+| En haut à gauche | négative | positive |
+| En bas à gauche | négative | négative |
+| En bas à droite | positive | négative |
+
+Un point se note toujours $(\\text{abscisse} ; \\text{ordonnée})$, exactement comme en 6ème, mais ces deux nombres peuvent désormais être négatifs.
+
+> 📌 **Méthode — Placer le point $A(-3 ; 2)$**
+> 1. Partir de l'origine $O$.
+> 2. Comme l'abscisse est négative, se déplacer de $3$ cases **vers la gauche**.
+> 3. Comme l'ordonnée est positive, se déplacer de $2$ cases **vers le haut**.
+> 4. Marquer le point : il se trouve dans le quadrant en haut à gauche.
+
+## Lien avec les nombres relatifs
+
+Un déplacement vers la **droite** ou vers le **haut** correspond à une variation **positive**. Un déplacement vers la **gauche** ou vers le **bas** correspond à une variation **négative** — exactement comme une addition ou une soustraction de relatifs sur la droite numérique.
+
+## Exemples
+
+### ✅ Exemple simple — Identifier un quadrant
+
+Le point $M(4 ; -2)$ a une abscisse positive et une ordonnée négative : il se trouve dans le quadrant **en bas à droite**.
+
+### 📘 Exemple intermédiaire — Placer un point à coordonnées négatives
+
+Pour placer $B(-5 ; -3)$ : on part de l'origine, on va $5$ cases vers la gauche (abscisse négative), puis $3$ cases vers le bas (ordonnée négative). Le point se trouve dans le quadrant en bas à gauche.
+
+### 🔴 Exemple avancé — Déplacement avec des relatifs
+
+Un point $C$ a pour coordonnées $(-2 ; 3)$. On lui applique un déplacement de $(-4)$ en abscisse et $(+5)$ en ordonnée.
+
+**Nouvelle abscisse :** $(-2) + (-4) = -6$
+
+**Nouvelle ordonnée :** $3 + 5 = 8$
+
+$$D = \\boxed{(-6 ; 8)}$$
+
+## À retenir
+
+- Le repère est partagé en **4 quadrants** par les deux axes (abscisses et ordonnées), qui peuvent porter des valeurs négatives.
+- Un déplacement vers la gauche ou vers le bas correspond à une **addition d'un nombre négatif**.
+- Pour déplacer un point, on **additionne** les nombres relatifs du déplacement aux coordonnées de départ, exactement comme dans le cours sur les nombres relatifs.`,
+        exercises: [
+          {
+            id: "algo5-l1-e1",
+            question: "Dans quel quadrant se trouve le point $P(-5 ; 7)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "En haut à droite" },
+              { id: "B", text: "En haut à gauche" },
+              { id: "C", text: "En bas à gauche" },
+              { id: "D", text: "En bas à droite" },
+            ],
+            correctId: "B",
+            explanation: "L'abscisse $-5$ est négative (vers la gauche) et l'ordonnée $7$ est positive (vers le haut) : le point est dans le quadrant **en haut à gauche**.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l1-e2",
+            question: "Le point $(0 ; -4)$ se trouve forcément dans un des 4 quadrants.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. Comme son abscisse est $0$, ce point est situé **sur l'axe des ordonnées**, à la frontière entre deux quadrants, pas à l'intérieur d'un quadrant.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l1-e3",
+            question: "Un point $E$ a pour coordonnées $(3 ; -2)$. On lui applique un déplacement de $(-6)$ en abscisse et $(+1)$ en ordonnée. Quelles sont les coordonnées du point obtenu ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(-3 ; -1)$" },
+              { id: "B", text: "$(9 ; -3)$" },
+              { id: "C", text: "$(-3 ; -3)$" },
+              { id: "D", text: "$(3 ; -1)$" },
+            ],
+            correctId: "A",
+            explanation: "Nouvelle abscisse : $3 + (-6) = -3$. Nouvelle ordonnée : $(-2) + 1 = -1$. Le point obtenu est $(-3 ; -1)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l1-e4",
+            question: "Un point $F(2 ; 5)$ est déplacé pour arriver au point $G(-1 ; -3)$. Quel déplacement (en abscisse et en ordonnée) a été appliqué ?",
+            type: "open",
+            modelAnswer: "**Variation de l'abscisse :** $(-1) - 2 = -3$\n\n**Variation de l'ordonnée :** $(-3) - 5 = -8$\n\n$$\\boxed{\\text{Déplacement de } (-3) \\text{ en abscisse et } (-8) \\text{ en ordonnée.}}$$",
+            explanation: "On calcule la différence entre les coordonnées d'arrivée et de départ, exactement comme une soustraction de nombres relatifs.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l1-e5",
+            question: "Un point $H$ se trouve dans le quadrant en bas à gauche, à $6$ cases de l'axe des ordonnées et $4$ cases de l'axe des abscisses. Donne ses coordonnées et explique ton raisonnement.",
+            type: "open",
+            modelAnswer: "Le quadrant « en bas à gauche » correspond à une abscisse **négative** et une ordonnée **négative**.\n\nLa distance à l'axe des ordonnées donne la valeur absolue de l'abscisse : $6$, donc l'abscisse est $-6$.\n\nLa distance à l'axe des abscisses donne la valeur absolue de l'ordonnée : $4$, donc l'ordonnée est $-4$.\n\n$$\\boxed{H(-6 ; -4)}$$",
+            explanation: "Dans le quadrant en bas à gauche, les deux coordonnées sont négatives ; leurs valeurs absolues correspondent aux distances aux axes.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo5-l2",
+        slug: "variables-et-boucles",
+        title: "Variables et boucles avec compteur",
+        durationMinutes: 20,
+        content: `## Introduction
+
+En 6ème, tu as utilisé des boucles « répéter $n$ fois » avec un nombre fixe $n$. En 5ème, on introduit la notion de **variable** : une valeur qui peut changer pendant l'exécution du programme, et qui peut elle-même servir de compteur dans une boucle.
+
+## La notion de variable
+
+Une **variable** est un espace de stockage, identifié par un **nom**, qui contient une **valeur** pouvant changer au cours du programme. On peut :
+- **initialiser** une variable (lui donner une première valeur) ;
+- **modifier** sa valeur (par exemple, l'augmenter de $1$).
+
+> 📌 **Méthode — Lire un programme avec une variable**
+> 1. Repérer l'instruction d'**initialisation** de la variable (sa valeur de départ).
+> 2. Suivre, étape par étape, chaque instruction qui modifie cette variable.
+> 3. Noter la valeur de la variable après chaque étape, pour ne pas se tromper.
+
+## Boucle « répéter $n$ fois » avec $n$ variable
+
+Dans une boucle « répéter $n$ fois », le nombre $n$ peut être une **variable** plutôt qu'un nombre fixe. Le nombre de répétitions dépend alors de la **valeur de la variable** au moment où la boucle démarre.
+
+## Une variable utilisée comme compteur
+
+On utilise souvent une variable, appelée **compteur**, pour compter le nombre de tours déjà effectués dans une boucle. On l'initialise à $0$, puis on lui **ajoute $1$ à chaque tour de boucle**.
+
+## Exemples
+
+### ✅ Exemple simple — Suivre une variable
+
+Programme : *variable compteur $\\leftarrow 0$* ; *répéter 3 fois : compteur $\\leftarrow$ compteur $+ 1$*.
+
+Après le programme, le compteur vaut $0 + 1 + 1 + 1 = 3$.
+
+### 📘 Exemple intermédiaire — Boucle avec $n$ variable
+
+Programme : *variable n $\\leftarrow 5$* ; *répéter n fois : avancer de 2*.
+
+Comme $n = 5$, le robot avance $5$ fois de suite de $2$, ce qui correspond à une distance totale de $5 \\times 2 = 10$.
+
+### 🔴 Exemple avancé — Suivre deux variables
+
+Programme : *variable total $\\leftarrow 0$* ; *variable compteur $\\leftarrow 0$* ; *répéter 4 fois : compteur $\\leftarrow$ compteur $+1$ ; total $\\leftarrow$ total $+$ compteur*.
+
+| Tour | compteur | total |
+|-----|-----|-----|
+| 1 | $1$ | $0 + 1 = 1$ |
+| 2 | $2$ | $1 + 2 = 3$ |
+| 3 | $3$ | $3 + 3 = 6$ |
+| 4 | $4$ | $6 + 4 = 10$ |
+
+À la fin, *total* vaut $10$ (c'est la somme $1+2+3+4$).
+
+## À retenir
+
+- Une **variable** stocke une valeur qui peut **changer** pendant l'exécution du programme.
+- Dans une boucle « répéter $n$ fois », $n$ peut être une **variable**, et non un nombre fixe.
+- Un **compteur** est une variable initialisée à $0$, puis augmentée de $1$ à chaque tour de boucle : il sert à compter le nombre de répétitions déjà effectuées.`,
+        exercises: [
+          {
+            id: "algo5-l2-e1",
+            question: "Qu'est-ce qu'une variable dans un programme ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Un nombre qui ne change jamais" },
+              { id: "B", text: "Un espace de stockage dont la valeur peut changer" },
+              { id: "C", text: "Une instruction de dessin" },
+              { id: "D", text: "Le nom d'un programme" },
+            ],
+            correctId: "B",
+            explanation: "Une variable est un espace de stockage, identifié par un nom, dont la valeur peut **changer** au fil de l'exécution du programme.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l2-e2",
+            question: "Dans une boucle « répéter $n$ fois », le nombre $n$ doit toujours être un nombre fixe, jamais une variable.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. Le nombre de répétitions $n$ peut très bien être une **variable**, dont la valeur déterminera le nombre de tours de la boucle.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l2-e3",
+            question: "Un programme initialise *compteur* à $0$, puis répète 5 fois l'instruction *compteur $\\leftarrow$ compteur $+ 2$*. Quelle est la valeur finale du compteur ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$5$" },
+              { id: "C", text: "$10$" },
+              { id: "D", text: "$7$" },
+            ],
+            correctId: "C",
+            explanation: "Le compteur augmente de $2$ à chaque tour, $5$ fois de suite : $0 + 2 + 2 + 2 + 2 + 2 = 10$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l2-e4",
+            question: "Un programme définit *variable n $\\leftarrow$ 6*, puis exécute « répéter n fois : avancer de 3 ». Quelle distance totale est parcourue ? Détaille ton raisonnement.",
+            type: "open",
+            modelAnswer: "La variable $n$ vaut $6$, donc la boucle « répéter n fois » s'exécute **6 fois**.\n\nÀ chaque tour, le programme avance de $3$.\n\nDistance totale : $6 \\times 3 = 18$.\n\n$$\\boxed{\\text{La distance totale parcourue est de } 18.}$$",
+            explanation: "Le nombre de répétitions est donné par la valeur de la variable $n$ au moment où la boucle démarre ; on multiplie ensuite ce nombre par la distance parcourue à chaque tour.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l2-e5",
+            question: "Un programme initialise *total $\\leftarrow$ 0* et *compteur $\\leftarrow$ 0*, puis répète 3 fois : *compteur $\\leftarrow$ compteur + 1* puis *total $\\leftarrow$ total + compteur $\\times$ 2*. Calcule la valeur finale de *total*, en détaillant chaque tour de boucle.",
+            type: "open",
+            modelAnswer: "**Tour 1 :** compteur $= 0+1 = 1$ ; total $= 0 + 1 \\times 2 = 2$\n\n**Tour 2 :** compteur $= 1+1 = 2$ ; total $= 2 + 2 \\times 2 = 6$\n\n**Tour 3 :** compteur $= 2+1 = 3$ ; total $= 6 + 3 \\times 2 = 12$\n\n$$\\boxed{\\text{total} = 12 \\text{ à la fin du programme.}}$$",
+            explanation: "Il faut mettre à jour le compteur avant de l'utiliser dans le calcul de total, et suivre les deux variables tour par tour sans en oublier une étape.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo5-l3",
+        slug: "tests-conditionnels",
+        title: "Tests conditionnels simples",
+        durationMinutes: 19,
+        content: `## Introduction
+
+Jusqu'ici, un programme exécutait toujours les mêmes instructions, dans le même ordre. Grâce aux **tests conditionnels**, un programme peut désormais **faire des choix** : exécuter certaines instructions seulement si une condition est vraie.
+
+## La structure « si... alors... »
+
+La structure **« si... alors... »** permet d'exécuter une instruction **seulement si une condition est vérifiée** :
+
+> *si (condition) alors :*
+> &nbsp;&nbsp;*instruction A*
+
+Si la condition est **vraie**, on exécute l'instruction A. Si elle est **fausse**, on ne fait rien et on passe directement à la suite du programme.
+
+## La structure « si... alors... sinon... »
+
+La structure **« si... alors... sinon... »** propose **deux chemins possibles**, selon que la condition est vraie ou fausse :
+
+> *si (condition) alors :*
+> &nbsp;&nbsp;*instruction A*
+> *sinon :*
+> &nbsp;&nbsp;*instruction B*
+
+Si la condition est **vraie**, on exécute l'instruction A (et jamais B). Si elle est **fausse**, on exécute l'instruction B (et jamais A). **Un seul** des deux blocs est toujours exécuté.
+
+> 📌 **Méthode — Exécuter un test conditionnel**
+> 1. Évaluer la condition : est-elle vraie ou fausse, pour les valeurs actuelles des variables ?
+> 2. Si elle est vraie, exécuter le bloc « alors ».
+> 3. Si elle est fausse, exécuter le bloc « sinon » (s'il existe), sinon ne rien faire.
+
+## Exemples
+
+### ✅ Exemple simple — Un test sans « sinon »
+
+Programme : *variable note $\\leftarrow$ 16* ; *si (note $\\geq$ 10) alors : afficher « Réussite »*.
+
+Comme $16 \\geq 10$ est **vrai**, le programme affiche « Réussite ».
+
+### 📘 Exemple intermédiaire — Un test avec « sinon »
+
+Programme : *variable age $\\leftarrow$ 12* ; *si (age $\\geq$ 18) alors : afficher « Majeur » sinon : afficher « Mineur »*.
+
+Comme $12 \\geq 18$ est **faux**, c'est le bloc « sinon » qui s'exécute : le programme affiche « Mineur ».
+
+### 🔴 Exemple avancé — Un test conditionnel dans une boucle
+
+Programme : *répéter 5 fois avec compteur allant de 1 à 5 : si (compteur est pair) alors : afficher compteur*.
+
+À chaque tour, on teste si le compteur ($1$, puis $2$, puis $3$, puis $4$, puis $5$) est pair :
+- compteur $=1$ : impair, rien ne s'affiche ;
+- compteur $=2$ : pair, on affiche $2$ ;
+- compteur $=3$ : impair, rien ne s'affiche ;
+- compteur $=4$ : pair, on affiche $4$ ;
+- compteur $=5$ : impair, rien ne s'affiche.
+
+Le programme affiche donc $2$ puis $4$.
+
+## À retenir
+
+- **« si... alors... »** : on exécute une instruction seulement si la condition est **vraie**, sinon on ne fait rien.
+- **« si... alors... sinon... »** : on exécute **soit** le bloc « alors » (condition vraie), **soit** le bloc « sinon » (condition fausse), jamais les deux.
+- Un test conditionnel peut être placé **à l'intérieur d'une boucle**, pour appliquer un traitement différent à chaque tour selon la valeur des variables.`,
+        exercises: [
+          {
+            id: "algo5-l3-e1",
+            question: "Dans une structure « si... alors... sinon... », que se passe-t-il si la condition est fausse ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Rien ne s'exécute" },
+              { id: "B", text: "Le bloc « alors » s'exécute" },
+              { id: "C", text: "Le bloc « sinon » s'exécute" },
+              { id: "D", text: "Les deux blocs s'exécutent" },
+            ],
+            correctId: "C",
+            explanation: "Quand la condition est fausse dans une structure avec « sinon », c'est ce bloc « sinon » qui est exécuté (et jamais le bloc « alors »).",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l3-e2",
+            question: "Dans une structure « si... alors... » sans « sinon », si la condition est fausse, aucune instruction du bloc « alors » n'est exécutée.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Vrai. Sans bloc « sinon », une condition fausse signifie qu'on ne fait simplement rien, et on passe à l'instruction suivante du programme.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo5-l3-e3",
+            question: "Un programme contient : *variable score $\\leftarrow$ 7* ; *si (score $>$ 10) alors : afficher « Bravo » sinon : afficher « Continue »*. Qu'affiche ce programme ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "« Bravo »" },
+              { id: "B", text: "« Continue »" },
+              { id: "C", text: "Rien" },
+              { id: "D", text: "« Bravo » et « Continue »" },
+            ],
+            correctId: "B",
+            explanation: "$7 > 10$ est **faux**, donc c'est le bloc « sinon » qui s'exécute : le programme affiche « Continue ».",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l3-e4",
+            question: "Écris un test conditionnel qui affiche « Pair » si une variable *nombre* est un nombre pair, et « Impair » sinon. Teste ton programme avec *nombre* $= 9$.",
+            type: "open",
+            modelAnswer: "Programme : *si (nombre est pair) alors : afficher « Pair » sinon : afficher « Impair »*.\n\nAvec *nombre* $= 9$ : $9$ n'est pas un multiple de $2$, donc la condition « nombre est pair » est **fausse**.\n\nC'est donc le bloc « sinon » qui s'exécute.\n\n$$\\boxed{\\text{Le programme affiche « Impair ».}}$$",
+            explanation: "Un nombre est pair s'il est divisible par 2 sans reste ; ici 9 ne l'est pas, donc le test « nombre est pair » est faux et le bloc sinon s'exécute.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo5-l3-e5",
+            question: "Un programme initialise *total $\\leftarrow$ 0*, puis répète pour *compteur* allant de $1$ à $4$ : *si (compteur est pair) alors : total $\\leftarrow$ total + compteur sinon : total $\\leftarrow$ total + 1*. Calcule la valeur finale de *total*, en détaillant chaque tour.",
+            type: "open",
+            modelAnswer: "**compteur $=1$ :** impair $\\Rightarrow$ total $= 0 + 1 = 1$\n\n**compteur $=2$ :** pair $\\Rightarrow$ total $= 1 + 2 = 3$\n\n**compteur $=3$ :** impair $\\Rightarrow$ total $= 3 + 1 = 4$\n\n**compteur $=4$ :** pair $\\Rightarrow$ total $= 4 + 4 = 8$\n\n$$\\boxed{\\text{total} = 8 \\text{ à la fin du programme.}}$$",
+            explanation: "À chaque tour, il faut d'abord tester la parité du compteur, puis appliquer la bonne instruction (« alors » si pair, « sinon » si impair) pour mettre à jour le total.",
             difficulty: "expert",
           },
         ],
@@ -9561,7 +11382,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e6",
             question: "Calcule $(-4) \\times (-6) - 5$.",
             type: "open",
-            modelAnswer: "$$(-4)\\times(-6) = 24$$\\n\\n$$24 - 5 = 19$$\\n\\n$$\\boxed{19}$$",
+            modelAnswer: "$$(-4)\\times(-6) = 24$$\n\n$$24 - 5 = 19$$\n\n$$\\boxed{19}$$",
             explanation: "On respecte la priorité des opérations : la multiplication avant la soustraction. Le produit de deux nombres négatifs est positif.",
             difficulty: "intermediaire",
           },
@@ -9569,7 +11390,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e7",
             question: "Réduis l'expression $5x + 3 - 2x + 7$.",
             type: "open",
-            modelAnswer: "On regroupe les termes en $x$ entre eux, et les nombres entre eux :\\n\\n$$5x - 2x + 3 + 7 = 3x + 10$$\\n\\n$$\\boxed{3x+10}$$",
+            modelAnswer: "On regroupe les termes en $x$ entre eux, et les nombres entre eux :\n\n$$5x - 2x + 3 + 7 = 3x + 10$$\n\n$$\\boxed{3x+10}$$",
             explanation: "Pour réduire une expression littérale, on regroupe d'abord les termes semblables (les termes en $x$ ensemble, les nombres seuls ensemble).",
             difficulty: "intermediaire",
           },
@@ -9577,7 +11398,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e8",
             question: "Un prisme droit a une base triangulaire d'aire $12 \\text{ cm}^2$ et une hauteur de $9$ cm. Calcule son volume.",
             type: "open",
-            modelAnswer: "$$V = \\mathcal{A}_{base} \\times h = 12 \\times 9 = 108 \\text{ cm}^3$$\\n\\n$$\\boxed{V = 108 \\text{ cm}^3}$$",
+            modelAnswer: "$$V = \\mathcal{A}_{base} \\times h = 12 \\times 9 = 108 \\text{ cm}^3$$\n\n$$\\boxed{V = 108 \\text{ cm}^3}$$",
             explanation: "Le volume d'un prisme droit est égal à l'aire de sa base multipliée par sa hauteur.",
             difficulty: "intermediaire",
           },
@@ -9585,7 +11406,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e9",
             question: "Dans un tableau de proportionnalité, on a $4 \\to 18$ et $10 \\to ?$. Trouve la valeur manquante.",
             type: "open",
-            modelAnswer: "Le coefficient de proportionnalité est $18 \\div 4 = 4{,}5$.\\n\\n$$10 \\times 4{,}5 = 45$$\\n\\n$$\\boxed{45}$$",
+            modelAnswer: "Le coefficient de proportionnalité est $18 \\div 4 = 4{,}5$.\n\n$$10 \\times 4{,}5 = 45$$\n\n$$\\boxed{45}$$",
             explanation: "On calcule le coefficient de proportionnalité en divisant l'image par l'antécédent, puis on l'applique à la nouvelle valeur.",
             difficulty: "intermediaire",
           },
@@ -9593,7 +11414,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e10",
             question: "Les températures relevées sur une semaine sont : $-2°C, 0°C, 3°C, -5°C, 1°C, 4°C, -1°C$. Calcule la température moyenne de la semaine.",
             type: "open",
-            modelAnswer: "Somme des températures : $(-2)+0+3+(-5)+1+4+(-1) = 0$.\\n\\nMoyenne $= \\dfrac{0}{7} = 0$.\\n\\n$$\\boxed{\\text{Moyenne} = 0°C}$$",
+            modelAnswer: "Somme des températures : $(-2)+0+3+(-5)+1+4+(-1) = 0$.\n\nMoyenne $= \\dfrac{0}{7} = 0$.\n\n$$\\boxed{\\text{Moyenne} = 0°C}$$",
             explanation: "On additionne les nombres relatifs en faisant attention aux signes, puis on divise par le nombre de valeurs (ici $7$ jours).",
             difficulty: "intermediaire",
           },
@@ -9601,7 +11422,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e11",
             question: "Un triangle a deux côtés mesurant $7$ cm et $4$ cm. Le troisième côté peut-il mesurer $2$ cm ? Justifie avec l'inégalité triangulaire.",
             type: "open",
-            modelAnswer: "L'inégalité triangulaire impose que chaque côté soit inférieur à la somme des deux autres.\\n\\nIci, on doit vérifier : $7 < 4 + 2$, soit $7 < 6$, ce qui est **faux**.\\n\\nLe triangle ne peut donc pas exister avec ces longueurs.\\n\\n$$\\boxed{\\text{Non, le triangle n'existe pas}}$$",
+            modelAnswer: "L'inégalité triangulaire impose que chaque côté soit inférieur à la somme des deux autres.\n\nIci, on doit vérifier : $7 < 4 + 2$, soit $7 < 6$, ce qui est **faux**.\n\nLe triangle ne peut donc pas exister avec ces longueurs.\n\n$$\\boxed{\\text{Non, le triangle n'existe pas}}$$",
             explanation: "L'inégalité triangulaire doit être vérifiée pour les trois combinaisons de côtés ; il suffit qu'une seule échoue pour que le triangle soit impossible à construire.",
             difficulty: "expert",
           },
@@ -9609,7 +11430,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e12",
             question: "Un cylindre de révolution a un rayon de base $r=4$ cm et une hauteur $h=10$ cm. Calcule son volume exact, puis une valeur approchée au $\\text{cm}^3$ près ($\\pi \\approx 3{,}14$).",
             type: "open",
-            modelAnswer: "$$V = \\pi r^2 h = \\pi \\times 4^2 \\times 10 = \\pi \\times 16 \\times 10 = 160\\pi \\text{ cm}^3$$\\n\\nValeur approchée : $160 \\times 3{,}14 = 502{,}4 \\text{ cm}^3$.\\n\\n$$\\boxed{V = 160\\pi \\approx 502{,}4 \\text{ cm}^3}$$",
+            modelAnswer: "$$V = \\pi r^2 h = \\pi \\times 4^2 \\times 10 = \\pi \\times 16 \\times 10 = 160\\pi \\text{ cm}^3$$\n\nValeur approchée : $160 \\times 3{,}14 = 502{,}4 \\text{ cm}^3$.\n\n$$\\boxed{V = 160\\pi \\approx 502{,}4 \\text{ cm}^3}$$",
             explanation: "Le volume du cylindre est l'aire de sa base ($\\pi r^2$) multipliée par sa hauteur.",
             difficulty: "expert",
           },
@@ -9617,7 +11438,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e13",
             question: "Calcule $\\dfrac{3}{4} \\times \\dfrac{8}{9}$ et simplifie le résultat.",
             type: "open",
-            modelAnswer: "$$\\dfrac{3}{4}\\times\\dfrac{8}{9} = \\dfrac{3\\times 8}{4\\times 9} = \\dfrac{24}{36}$$\\n\\nOn simplifie en divisant par $12$ : $\\dfrac{24}{36} = \\dfrac{2}{3}$.\\n\\n$$\\boxed{\\dfrac{2}{3}}$$",
+            modelAnswer: "$$\\dfrac{3}{4}\\times\\dfrac{8}{9} = \\dfrac{3\\times 8}{4\\times 9} = \\dfrac{24}{36}$$\n\nOn simplifie en divisant par $12$ : $\\dfrac{24}{36} = \\dfrac{2}{3}$.\n\n$$\\boxed{\\dfrac{2}{3}}$$",
             explanation: "On multiplie les numérateurs entre eux et les dénominateurs entre eux, puis on simplifie la fraction obtenue en cherchant le plus grand diviseur commun.",
             difficulty: "expert",
           },
@@ -9625,7 +11446,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e14",
             question: "Un magasin applique une réduction de $20\\%$ sur un article à $45$ €, puis ajoute la TVA de $20\\%$ sur le nouveau prix. Calcule le prix final.",
             type: "open",
-            modelAnswer: "Réduction : $45 \\times 0{,}20 = 9$ €. Prix après réduction : $45 - 9 = 36$ €.\\n\\nTVA : $36 \\times 0{,}20 = 7{,}2$ €. Prix final : $36 + 7{,}2 = 43{,}2$ €.\\n\\n$$\\boxed{\\text{Prix final} = 43{,}2 \\text{ €}}$$",
+            modelAnswer: "Réduction : $45 \\times 0{,}20 = 9$ €. Prix après réduction : $45 - 9 = 36$ €.\n\nTVA : $36 \\times 0{,}20 = 7{,}2$ €. Prix final : $36 + 7{,}2 = 43{,}2$ €.\n\n$$\\boxed{\\text{Prix final} = 43{,}2 \\text{ €}}$$",
             explanation: "On applique les deux pourcentages successivement : d'abord la réduction sur le prix initial, puis la TVA sur le nouveau prix obtenu (et non sur le prix initial).",
             difficulty: "expert",
           },
@@ -9633,8 +11454,671 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev5-l1-e15",
             question: "Un terrain rectangulaire mesure $30$ m sur $20$ m. On veut y construire une piscine circulaire de rayon $5$ m. Calcule l'aire du terrain restante (non occupée par la piscine), en valeur exacte puis approchée ($\\pi \\approx 3{,}14$).",
             type: "open",
-            modelAnswer: "Aire du terrain : $\\mathcal{A}_{terrain} = 30 \\times 20 = 600 \\text{ m}^2$.\\n\\nAire de la piscine : $\\mathcal{A}_{piscine} = \\pi \\times 5^2 = 25\\pi \\text{ m}^2$.\\n\\nAire restante : $\\mathcal{A} = 600 - 25\\pi \\text{ m}^2$.\\n\\nValeur approchée : $600 - 25\\times3{,}14 = 600 - 78{,}5 = 521{,}5 \\text{ m}^2$.\\n\\n$$\\boxed{\\mathcal{A} = 600-25\\pi \\approx 521{,}5 \\text{ m}^2}$$",
+            modelAnswer: "Aire du terrain : $\\mathcal{A}_{terrain} = 30 \\times 20 = 600 \\text{ m}^2$.\n\nAire de la piscine : $\\mathcal{A}_{piscine} = \\pi \\times 5^2 = 25\\pi \\text{ m}^2$.\n\nAire restante : $\\mathcal{A} = 600 - 25\\pi \\text{ m}^2$.\n\nValeur approchée : $600 - 25\\times3{,}14 = 600 - 78{,}5 = 521{,}5 \\text{ m}^2$.\n\n$$\\boxed{\\mathcal{A} = 600-25\\pi \\approx 521{,}5 \\text{ m}^2}$$",
             explanation: "On calcule séparément l'aire totale du terrain (rectangle) et l'aire de la zone à exclure (disque), puis on soustrait la seconde à la première.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // 4ème — Angles et droites parallèles
+  {
+    id: "angles-paralleles-4eme",
+    slug: "angles-paralleles-4eme",
+    title: "Angles et droites parallèles",
+    description: "Découvrez les angles correspondants et alternes-internes formés par une sécante, et apprenez à démontrer que deux droites sont parallèles.",
+    schoolLevel: "4eme",
+    subject: "geometrie",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "∥",
+    lessons: [
+      {
+        id: "ang4-l1",
+        slug: "angles-correspondants-alternes-internes",
+        title: "Angles correspondants et alternes-internes",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Depuis la 6ème, tu sais reconnaître si deux droites semblent parallèles sur une figure. En 4ème, on va apprendre à **démontrer** qu'elles le sont vraiment, grâce à des angles particuliers formés par une troisième droite, appelée **sécante**.
+
+## Une sécante commune à deux droites
+
+Une **sécante** à deux droites $(d_1)$ et $(d_2)$ est une troisième droite $(\\Delta)$ qui coupe chacune d'elles. Elle crée alors **deux points d'intersection**, et donc deux « croisements », chacun formant 4 angles.
+
+On obtient ainsi 8 angles en tout (4 angles à chaque point d'intersection), que l'on compare deux à deux selon leur position.
+
+## Les angles correspondants
+
+> 📌 **Définition — Angles correspondants**
+> Deux angles formés par une sécante $(\\Delta)$ avec deux droites $(d_1)$ et $(d_2)$ sont **correspondants** s'ils sont situés :
+> - du **même côté** de la sécante $(\\Delta)$ ;
+> - de la **même position** par rapport à chacune des deux droites (par exemple, tous les deux « au-dessus » de leur droite).
+
+**Propriété (admise) :** Si deux droites sont **parallèles**, alors les angles correspondants formés par une sécante sont **égaux**.
+
+$$(d_1) \\parallel (d_2) \\implies \\text{angles correspondants égaux}$$
+
+## Les angles alternes-internes
+
+> 📌 **Définition — Angles alternes-internes**
+> Deux angles formés par une sécante $(\\Delta)$ avec deux droites $(d_1)$ et $(d_2)$ sont **alternes-internes** s'ils sont situés :
+> - de part et d'autre de la sécante $(\\Delta)$ (« alterne ») ;
+> - entre les deux droites $(d_1)$ et $(d_2)$ (« interne »).
+
+**Propriété (admise) :** Si deux droites sont **parallèles**, alors les angles alternes-internes formés par une sécante sont **égaux**.
+
+$$(d_1) \\parallel (d_2) \\implies \\text{angles alternes-internes égaux}$$
+
+> 📌 **Méthode — Reconnaître le type d'angles**
+> 1. Repérer la sécante commune $(\\Delta)$ et ses deux points d'intersection avec $(d_1)$ et $(d_2)$.
+> 2. Si les deux angles sont du **même côté** de $(\\Delta)$ et à la **même position relative** : ce sont des angles **correspondants**.
+> 3. Si les deux angles sont de **part et d'autre** de $(\\Delta)$ et **entre** les deux droites : ce sont des angles **alternes-internes**.
+
+## Exemples
+
+### ✅ Exemple simple — Reconnaître des angles correspondants
+
+Une sécante $(\\Delta)$ coupe deux droites parallèles $(d_1)$ et $(d_2)$. L'angle $\\widehat{x}$ en haut à droite du premier croisement et l'angle $\\widehat{y}$ en haut à droite du second croisement sont **correspondants** (même côté de la sécante, même position « en haut à droite »).
+
+Comme $(d_1) \\parallel (d_2)$, on conclut directement : $\\widehat{x} = \\widehat{y}$.
+
+### 📘 Exemple intermédiaire — Calculer un angle alterne-interne
+
+$(d_1) \\parallel (d_2)$ et une sécante $(\\Delta)$ les coupe. Un angle alterne-interne mesure $\\widehat{a} = 118°$. L'autre angle alterne-interne $\\widehat{b}$ vaut alors :
+
+$$\\widehat{b} = \\widehat{a} = 118°$$
+
+car les droites sont parallèles, donc les angles alternes-internes formés par la sécante sont égaux.
+
+### 🔴 Exemple avancé — Combiner angles alternes-internes et angles supplémentaires
+
+$(d_1) \\parallel (d_2)$, sécante $(\\Delta)$. L'angle $\\widehat{m} = 65°$ et l'angle $\\widehat{n}$ est son alterne-interne. L'angle $\\widehat{p}$ est adjacent à $\\widehat{n}$ sur la droite $(d_2)$ (ils forment ensemble un angle de $180°$, car ils sont sur une même droite).
+
+**Étape 1 :** Comme $(d_1) \\parallel (d_2)$, $\\widehat{n} = \\widehat{m} = 65°$ (alternes-internes).
+
+**Étape 2 :** $\\widehat{n}$ et $\\widehat{p}$ sont supplémentaires (ils forment un angle plat) :
+
+$$\\widehat{p} = 180° - \\widehat{n} = 180° - 65° = 115°$$
+
+$$\\boxed{\\widehat{n} = 65° \\text{ et } \\widehat{p} = 115°}$$
+
+## À retenir
+
+- Une **sécante** est une droite qui coupe deux autres droites, créant 8 angles à comparer deux à deux.
+- Des angles **correspondants** sont du même côté de la sécante, à la même position par rapport à chaque droite.
+- Des angles **alternes-internes** sont de part et d'autre de la sécante, entre les deux droites.
+- Si deux droites sont **parallèles**, alors les angles correspondants (ou alternes-internes) formés par une sécante sont **égaux**.`,
+        exercises: [
+          {
+            id: "ang4-l1-e1",
+            question: "Que crée une sécante coupant deux droites $(d_1)$ et $(d_2)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "1 point d'intersection et 4 angles" },
+              { id: "B", text: "2 points d'intersection et 8 angles" },
+              { id: "C", text: "2 points d'intersection et 4 angles" },
+              { id: "D", text: "3 points d'intersection" },
+            ],
+            correctId: "B",
+            explanation: "La sécante coupe chacune des deux droites en un point, soit 2 points d'intersection, et forme 4 angles à chaque point, soit 8 angles en tout.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ang4-l1-e2",
+            question: "Des angles alternes-internes sont situés du même côté de la sécante.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. Les angles alternes-internes sont situés de part et d'autre de la sécante (« alterne »), et entre les deux droites (« interne »). Ce sont les angles correspondants qui sont du même côté.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ang4-l1-e3",
+            question: "$(d_1) \\parallel (d_2)$. Une sécante forme un angle correspondant $\\widehat{u} = 73°$ avec un angle $\\widehat{v}$. Que vaut $\\widehat{v}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$73°$" },
+              { id: "B", text: "$107°$" },
+              { id: "C", text: "$17°$" },
+              { id: "D", text: "On ne peut pas savoir" },
+            ],
+            correctId: "A",
+            explanation: "Comme les deux droites sont parallèles, les angles correspondants formés par la sécante sont égaux : $\\widehat{v} = \\widehat{u} = 73°$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ang4-l1-e4",
+            question: "$(d_1) \\parallel (d_2)$. Un angle alterne-interne $\\widehat{a} = 52°$. L'angle $\\widehat{c}$, adjacent et supplémentaire à son alterne-interne $\\widehat{b}$ sur $(d_2)$, vaut combien ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$52°$" },
+              { id: "B", text: "$128°$" },
+              { id: "C", text: "$38°$" },
+              { id: "D", text: "$180°$" },
+            ],
+            correctId: "B",
+            explanation: "$\\widehat{b} = \\widehat{a} = 52°$ (alternes-internes, droites parallèles). Puis $\\widehat{c} = 180° - \\widehat{b} = 180° - 52° = 128°$ (angles supplémentaires sur une droite).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ang4-l1-e5",
+            question: "Explique la différence entre des angles correspondants et des angles alternes-internes, en précisant leur position par rapport à la sécante et aux deux droites.",
+            type: "open",
+            modelAnswer: "**Angles correspondants :**\n- Ils sont situés du **même côté** de la sécante $(\\Delta)$.\n- Ils occupent la **même position relative** par rapport à leur droite respective (par exemple, tous les deux au-dessus de leur droite et à droite de la sécante).\n\n**Angles alternes-internes :**\n- Ils sont situés de **part et d'autre** de la sécante $(\\Delta)$ (c'est l'« alternance »).\n- Ils sont situés **entre** les deux droites $(d_1)$ et $(d_2)$ (c'est la position « interne »).\n\n$$\\boxed{\\text{Correspondants : même côté de la sécante. Alternes-internes : de part et d'autre, entre les deux droites.}}$$",
+            explanation: "La distinction clé porte sur la position par rapport à la sécante (même côté ou de part et d'autre) et par rapport aux deux droites (à l'extérieur ou entre elles).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "ang4-l2",
+        slug: "reciproque-angles-paralleles",
+        title: "La réciproque et la démonstration de parallélisme",
+        durationMinutes: 21,
+        content: `## Introduction
+
+Dans la leçon précédente, on a vu que si deux droites sont parallèles, alors certains angles formés par une sécante sont égaux. Mais comment faire si on ne sait pas encore si deux droites sont parallèles, et qu'on veut le **prouver** ? On utilise la **réciproque** de cette propriété.
+
+## La réciproque
+
+> 📌 **Réciproque (admise)**
+> Si deux droites $(d_1)$ et $(d_2)$ sont coupées par une sécante $(\\Delta)$ en formant deux angles **correspondants égaux** (ou deux angles **alternes-internes égaux**), alors les droites $(d_1)$ et $(d_2)$ sont **parallèles**.
+
+$$\\text{angles correspondants égaux} \\implies (d_1) \\parallel (d_2)$$
+$$\\text{angles alternes-internes égaux} \\implies (d_1) \\parallel (d_2)$$
+
+> ⚠️ Attention à ne pas confondre les deux sens :
+> - **Propriété directe** : on part du parallélisme **connu**, pour en déduire l'égalité d'angles.
+> - **Réciproque** : on part de l'égalité d'angles **mesurée ou donnée**, pour en déduire le parallélisme.
+
+## Rédiger une démonstration de parallélisme
+
+> 📌 **Méthode — Démontrer que deux droites sont parallèles**
+> 1. Identifier la sécante commune aux deux droites à étudier.
+> 2. Repérer deux angles correspondants (ou alternes-internes) formés par cette sécante.
+> 3. Calculer ou comparer la mesure de ces deux angles.
+> 4. Si les deux angles sont **égaux**, conclure avec la réciproque : les deux droites sont **parallèles**. Rédiger une phrase de conclusion claire, en citant la propriété utilisée.
+
+## Exemples
+
+### ✅ Exemple simple — Conclure avec des angles correspondants égaux
+
+Une sécante $(\\Delta)$ coupe $(d_1)$ et $(d_2)$. On mesure deux angles correspondants : $\\widehat{x} = 84°$ et $\\widehat{y} = 84°$.
+
+Comme $\\widehat{x} = \\widehat{y}$ et que ce sont des angles correspondants, on conclut : $(d_1) \\parallel (d_2)$ (réciproque de la propriété des angles correspondants).
+
+### 📘 Exemple intermédiaire — Calculer avant de conclure
+
+Une sécante coupe $(d_1)$ et $(d_2)$. Un angle alterne-interne $\\widehat{a} = 47°$. L'angle alterne-interne $\\widehat{b}$, de l'autre côté, est donné par $\\widehat{b} = 180° - 133°$.
+
+**Calcul :** $\\widehat{b} = 180° - 133° = 47°$.
+
+Comme $\\widehat{a} = \\widehat{b} = 47°$, et que ce sont des angles alternes-internes, on conclut : $(d_1) \\parallel (d_2)$.
+
+### 🔴 Exemple avancé — Démonstration rédigée complète
+
+On donne trois droites $(d_1)$, $(d_2)$ et une sécante $(\\Delta)$ qui les coupe. On sait que $(\\Delta)$ forme avec $(d_1)$ un angle de $73°$, et avec $(d_2)$ un angle correspondant de $73°$, du même côté de $(\\Delta)$.
+
+**Rédaction de la démonstration :**
+
+« Les angles formés par la sécante $(\\Delta)$ avec $(d_1)$ et $(d_2)$ sont des angles **correspondants** (même côté de la sécante, même position relative).
+
+Or, ces deux angles correspondants sont égaux : $73° = 73°$.
+
+D'après la **réciproque de la propriété des angles correspondants**, on en déduit que :
+
+$$(d_1) \\parallel (d_2)$$ »
+
+$$\\boxed{\\text{Les droites } (d_1) \\text{ et } (d_2) \\text{ sont parallèles.}}$$
+
+## À retenir
+
+- La **réciproque** permet de démontrer que deux droites sont parallèles à partir de l'égalité d'angles, alors que la propriété directe part du parallélisme déjà connu.
+- Si deux angles **correspondants** sont égaux, alors les deux droites sont **parallèles**.
+- Si deux angles **alternes-internes** sont égaux, alors les deux droites sont **parallèles**.
+- Une démonstration rédigée doit toujours **nommer le type d'angles** utilisé et **citer la réciproque** appliquée pour conclure.`,
+        exercises: [
+          {
+            id: "ang4-l2-e1",
+            question: "Que permet d'affirmer la réciproque de la propriété des angles correspondants ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Que deux droites parallèles ont des angles égaux" },
+              { id: "B", text: "Que des angles correspondants égaux impliquent des droites parallèles" },
+              { id: "C", text: "Que deux droites sécantes sont toujours parallèles" },
+              { id: "D", text: "Que les angles alternes-internes sont toujours différents" },
+            ],
+            correctId: "B",
+            explanation: "La réciproque part de l'égalité de deux angles correspondants pour en déduire que les deux droites sont parallèles — c'est l'inverse du raisonnement de la propriété directe.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ang4-l2-e2",
+            question: "Pour démontrer que deux droites sont parallèles, il suffit de montrer que deux angles alternes-internes formés par une sécante sont égaux.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Vrai. C'est exactement l'énoncé de la réciproque : deux angles alternes-internes égaux suffisent à conclure que les deux droites sont parallèles.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ang4-l2-e3",
+            question: "Une sécante coupe $(d_1)$ et $(d_2)$. Deux angles correspondants mesurent $\\widehat{x} = 95°$ et $\\widehat{y} = 100°$. Que peut-on conclure ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(d_1) \\parallel (d_2)$, car les angles sont proches" },
+              { id: "B", text: "On ne peut rien conclure, car les angles ne sont pas égaux" },
+              { id: "C", text: "$(d_1) \\parallel (d_2)$, toujours" },
+              { id: "D", text: "$(d_1)$ et $(d_2)$ sont perpendiculaires" },
+            ],
+            correctId: "B",
+            explanation: "La réciproque exige que les angles correspondants soient exactement égaux. Comme $95° \\neq 100°$, on ne peut pas conclure que les droites sont parallèles.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ang4-l2-e4",
+            question: "Une sécante forme avec $(d_1)$ un angle de $62°$, et avec $(d_2)$ un angle alterne-interne de $180° - 118°$. Les droites $(d_1)$ et $(d_2)$ sont-elles parallèles ? Justifie.",
+            type: "open",
+            modelAnswer: "On calcule d'abord l'angle alterne-interne donné avec $(d_2)$ : $180° - 118° = 62°$.\n\nLes deux angles alternes-internes valent donc tous les deux $62°$ : ils sont **égaux**.\n\nD'après la réciproque de la propriété des angles alternes-internes, des angles alternes-internes égaux entraînent que les deux droites sont parallèles.\n\n$$\\boxed{(d_1) \\parallel (d_2)}$$",
+            explanation: "Il faut d'abord calculer la mesure exacte du second angle avant de comparer, puis appliquer la réciproque si les deux angles alternes-internes sont égaux.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ang4-l2-e5",
+            question: "Rédige une démonstration complète : une sécante $(\\Delta)$ coupe $(d_1)$ en formant un angle de $108°$, et coupe $(d_2)$ en formant, du même côté de la sécante et à la même position relative, un angle de $108°$. Démontre que $(d_1) \\parallel (d_2)$.",
+            type: "open",
+            modelAnswer: "**Identification :** Les deux angles de $108°$ sont situés du même côté de la sécante $(\\Delta)$ et occupent la même position relative par rapport à $(d_1)$ et $(d_2)$ : ce sont donc des angles **correspondants**.\n\n**Comparaison :** Les deux angles correspondants mesurent tous les deux $108°$, ils sont donc **égaux**.\n\n**Conclusion :** D'après la réciproque de la propriété des angles correspondants, des angles correspondants égaux entraînent que les deux droites sont parallèles.\n\n$$\\boxed{(d_1) \\parallel (d_2)}$$",
+            explanation: "Une démonstration rigoureuse identifie d'abord le type d'angles, vérifie leur égalité, puis cite explicitement la réciproque utilisée pour justifier la conclusion.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // 4ème — Algorithmique et programmation
+  {
+    id: "algorithmique-programmation-4eme",
+    slug: "algorithmique-programmation-4eme",
+    title: "Algorithmique et programmation",
+    description: "Utilisez des boucles imbriquées, créez des blocs réutilisables et engendrez des suites de nombres grâce à des variables accumulatrices.",
+    schoolLevel: "4eme",
+    subject: "arithmetique",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "⚙️",
+    lessons: [
+      {
+        id: "algo4-l1",
+        slug: "boucles-imbriquees",
+        title: "Boucles imbriquées",
+        durationMinutes: 20,
+        content: `## Introduction
+
+En 5ème (cours *Algorithmique et programmation*), tu as utilisé des boucles avec une variable comme compteur. En 4ème, on va apprendre à placer une boucle **à l'intérieur** d'une autre boucle : c'est ce qu'on appelle des **boucles imbriquées**.
+
+## Le principe des boucles imbriquées
+
+Une boucle **imbriquée** est une boucle placée dans le corps d'une autre boucle. À chaque tour de la boucle **externe**, la boucle **interne** s'exécute en entier, du début à la fin.
+
+> 📌 **Méthode — Compter le nombre total de répétitions**
+> Si la boucle externe se répète $p$ fois, et que la boucle interne (à l'intérieur) se répète $q$ fois à chaque tour, alors le nombre total d'exécutions des instructions internes est :
+> $$p \\times q$$
+
+## Exemple de motif géométrique : une grille de carrés
+
+> *Programme :*
+> *répéter 3 fois (boucle externe) :*
+> > *répéter 4 fois (boucle interne) : tracer un carré, avancer*
+> > *revenir à la ligne suivante*
+
+Ce programme trace une **grille** de $3$ lignes de $4$ carrés chacune, soit $3 \\times 4 = 12$ carrés en tout.
+
+## Exemple de motif géométrique : une spirale simple
+
+Une spirale simple peut s'obtenir avec une boucle externe qui répète un motif « avancer, tourner » en augmentant la longueur du trait à chaque tour de la boucle interne, créant un effet d'agrandissement progressif.
+
+## Exemples
+
+### ✅ Exemple simple — Compter le nombre total de répétitions
+
+Une boucle externe se répète $5$ fois, et contient une boucle interne qui se répète $2$ fois à chaque tour. Le nombre total de répétitions de l'instruction interne est :
+
+$$5 \\times 2 = 10$$
+
+### 📘 Exemple intermédiaire — Une grille de carrés
+
+> *Programme :*
+> *répéter 2 fois (boucle externe) :*
+> > *répéter 5 fois (boucle interne) : tracer un carré, avancer*
+
+Ce programme dessine une grille de $2$ lignes de $5$ carrés, soit $2 \\times 5 = 10$ carrés en tout.
+
+### 🔴 Exemple avancé — Boucle imbriquée avec une variable accumulatrice
+
+> *Programme :*
+> *variable total $\\leftarrow$ 0*
+> *répéter 3 fois (boucle externe) :*
+> > *répéter 4 fois (boucle interne) : total $\\leftarrow$ total + 1*
+
+À chaque tour de la boucle externe (répétée $3$ fois), la boucle interne ajoute $1$ au total, $4$ fois de suite. Le total est donc augmenté de $4$ à chaque tour externe.
+
+$$\\text{total final} = 3 \\times 4 = 12$$
+
+$$\\boxed{\\text{total} = 12}$$
+
+## À retenir
+
+- Une boucle **imbriquée** est une boucle placée à l'intérieur d'une autre boucle.
+- À chaque tour de la boucle **externe**, la boucle **interne** s'exécute entièrement.
+- Le nombre total de répétitions des instructions internes est le **produit** du nombre de répétitions de chaque boucle ($p \\times q$).
+- Les boucles imbriquées permettent de créer des **motifs géométriques** comme des grilles ou des spirales.`,
+        exercises: [
+          {
+            id: "algo4-l1-e1",
+            question: "Une boucle externe se répète $4$ fois, et contient une boucle interne qui se répète $3$ fois à chaque tour. Combien de fois l'instruction interne est-elle exécutée en tout ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$7$" },
+              { id: "B", text: "$12$" },
+              { id: "C", text: "$4$" },
+              { id: "D", text: "$3$" },
+            ],
+            correctId: "B",
+            explanation: "Le nombre total de répétitions est le produit du nombre de tours de chaque boucle : $4 \\times 3 = 12$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l1-e2",
+            question: "Dans une boucle imbriquée, la boucle interne s'exécute entièrement à chaque tour de la boucle externe.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Vrai. C'est le principe même des boucles imbriquées : à chaque tour de la boucle externe, la boucle interne se déroule complètement avant de passer au tour externe suivant.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l1-e3",
+            question: "Un programme répète 6 fois (boucle externe) une boucle interne qui répète 2 fois l'instruction « tracer un carré ». Combien de carrés au total sont tracés ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$8$" },
+              { id: "B", text: "$12$" },
+              { id: "C", text: "$6$" },
+              { id: "D", text: "$36$" },
+            ],
+            correctId: "B",
+            explanation: "Le nombre total de carrés tracés est $6 \\times 2 = 12$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l1-e4",
+            question: "Une variable *total* commence à $0$. Une boucle externe se répète 5 fois, et à chaque tour, une boucle interne ajoute $3$ au total, 2 fois de suite. Quelle est la valeur finale de *total* ?",
+            type: "open",
+            modelAnswer: "À chaque tour de la boucle interne, on ajoute $3$ au total, et la boucle interne se répète $2$ fois : cela ajoute $3 \\times 2 = 6$ à chaque tour de la boucle externe.\n\nLa boucle externe se répète $5$ fois, donc le total final est :\n\n$$\\text{total} = 5 \\times 6 = 30$$\n\n$$\\boxed{\\text{total} = 30}$$",
+            explanation: "On calcule d'abord l'effet d'un seul tour de la boucle externe (l'ajout total fait par la boucle interne), puis on multiplie par le nombre de tours de la boucle externe.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l1-e5",
+            question: "On veut dessiner une grille rectangulaire de $4$ lignes et $7$ carrés par ligne avec des boucles imbriquées. Décris la structure du programme (boucle externe et boucle interne) et indique le nombre total de carrés tracés.",
+            type: "open",
+            modelAnswer: "**Structure du programme :**\n- Boucle **externe** : répéter $4$ fois (une fois par ligne), et à chaque tour, revenir à la ligne suivante après la boucle interne.\n- Boucle **interne** : répéter $7$ fois (un carré par colonne) : tracer un carré, avancer.\n\n**Nombre total de carrés :**\n\n$$4 \\times 7 = 28$$\n\n$$\\boxed{\\text{28 carrés sont tracés en tout.}}$$",
+            explanation: "La boucle externe gère le nombre de lignes, la boucle interne gère le nombre de carrés par ligne ; le total de carrés est le produit des deux nombres de répétitions.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo4-l2",
+        slug: "fonctions-blocs-reutilisables",
+        title: "Fonctions et blocs réutilisables",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Quand une même séquence d'instructions revient plusieurs fois dans un programme, il est utile de la regrouper dans un **bloc personnalisé** (aussi appelé procédure ou fonction), que l'on peut ensuite réutiliser à volonté, sans la réécrire chaque fois.
+
+## Créer un bloc personnalisé
+
+> 📌 **Méthode — Créer et utiliser un bloc personnalisé**
+> 1. Repérer une séquence d'instructions qui se **répète** plusieurs fois dans le programme.
+> 2. La regrouper dans un nouveau bloc, auquel on donne un **nom** clair (par exemple « tracer un carré »).
+> 3. Remplacer chaque répétition de la séquence par un simple **appel** au bloc nommé.
+
+## Un bloc avec un paramètre
+
+Un bloc personnalisé peut aussi recevoir un **paramètre** : une valeur que l'on précise à chaque appel, et qui change le comportement du bloc.
+
+> *Bloc personnalisé « tracer un polygone (nombre de côtés) » :*
+> *répéter (nombre de côtés) fois : avancer, tourner de $360° \\div$ (nombre de côtés)*
+
+Ce bloc peut tracer **n'importe quel polygone régulier** : on l'appelle avec le paramètre $3$ pour un triangle, $4$ pour un carré, $6$ pour un hexagone, etc.
+
+## Pourquoi utiliser des blocs réutilisables ?
+
+- Le programme principal devient plus **court** et plus **clair** (on lit des noms de blocs plutôt que le détail des instructions).
+- Une **modification** du bloc (par exemple corriger une erreur) s'applique automatiquement à tous les appels du bloc.
+- Un bloc paramétré peut s'adapter à plusieurs situations sans dupliquer le code.
+
+## Exemples
+
+### ✅ Exemple simple — Appeler un bloc sans paramètre
+
+Le bloc « tracer un carré » trace un carré. Le programme principal contient : *appeler tracer un carré*, *avancer*, *appeler tracer un carré*. Ce programme trace **2 carrés**, séparés par un déplacement.
+
+### 📘 Exemple intermédiaire — Un bloc avec un paramètre
+
+Le bloc « tracer un polygone (nombre de côtés) » est appelé avec le paramètre $5$. D'après sa définition, il exécute : *répéter 5 fois : avancer, tourner de $360° \\div 5 = 72°$*. Le programme trace donc un **pentagone régulier**.
+
+### 🔴 Exemple avancé — Bloc appelé dans une boucle
+
+> *Bloc personnalisé « tracer un polygone (nombre de côtés) » :*
+> *répéter (nombre de côtés) fois : avancer, tourner de $360° \\div$ (nombre de côtés)*
+>
+> *Programme principal :*
+> *répéter 3 fois : appeler tracer un polygone (4), avancer, tourner de $90°$*
+
+Le programme appelle 3 fois le bloc « tracer un polygone » avec le paramètre $4$ : il trace donc **3 carrés**, en se déplaçant et en tournant entre chaque carré.
+
+$$\\boxed{\\text{Le programme trace 3 carrés grâce à un bloc réutilisable et paramétré.}}$$
+
+## À retenir
+
+- Un **bloc personnalisé** regroupe une séquence d'instructions qui se répète, sous un nom réutilisable.
+- On **appelle** un bloc par son nom, sans avoir à réécrire toutes ses instructions.
+- Un bloc peut recevoir un **paramètre**, une valeur qui change son comportement à chaque appel.
+- Utiliser des blocs rend un programme plus **court**, plus **clair** et plus facile à **corriger**.`,
+        exercises: [
+          {
+            id: "algo4-l2-e1",
+            question: "Qu'est-ce qu'un bloc personnalisé en programmation visuelle ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une séquence d'instructions regroupée sous un nom réutilisable" },
+              { id: "B", text: "Une boucle qui se répète une seule fois" },
+              { id: "C", text: "Un nombre fixe utilisé dans un programme" },
+              { id: "D", text: "Une erreur dans un programme" },
+            ],
+            correctId: "A",
+            explanation: "Un bloc personnalisé regroupe une séquence d'instructions répétée, sous un nom que l'on peut ensuite appeler à volonté sans la réécrire.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l2-e2",
+            question: "Un bloc personnalisé ne peut jamais recevoir de paramètre.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. Un bloc peut recevoir un paramètre, une valeur précisée à chaque appel, qui modifie son comportement (par exemple le nombre de côtés d'un polygone).",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l2-e3",
+            question: "Le bloc « tracer un polygone (nombre de côtés) » est appelé avec le paramètre $8$. Quel angle de rotation utilise-t-il à chaque tour ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$8°$" },
+              { id: "B", text: "$45°$" },
+              { id: "C", text: "$36°$" },
+              { id: "D", text: "$72°$" },
+            ],
+            correctId: "B",
+            explanation: "L'angle de rotation est $360° \\div \\text{nombre de côtés} = 360° \\div 8 = 45°$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l2-e4",
+            question: "Pourquoi est-il avantageux de regrouper une séquence d'instructions répétée dans un bloc personnalisé plutôt que de la recopier plusieurs fois ? Donne deux raisons.",
+            type: "open",
+            modelAnswer: "**Première raison :** Le programme principal devient plus court et plus facile à lire, puisqu'on appelle simplement le nom du bloc au lieu de répéter toutes ses instructions.\n\n**Deuxième raison :** Si on doit corriger ou modifier la séquence d'instructions, il suffit de la modifier **une seule fois** dans la définition du bloc : la correction s'applique automatiquement à tous les appels, sans avoir à chercher et corriger chaque copie séparément.\n\n$$\\boxed{\\text{Lisibilité accrue et modification centralisée en un seul endroit.}}$$",
+            explanation: "Les blocs réutilisables évitent la duplication de code, ce qui rend le programme plus lisible et plus facile à maintenir.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l2-e5",
+            question: "On définit le bloc « tracer un polygone (nombre de côtés) » comme : *répéter (nombre de côtés) fois : avancer, tourner de $360° \\div$ (nombre de côtés)*. Le programme principal appelle ce bloc 2 fois, une fois avec le paramètre $3$, une fois avec le paramètre $6$. Décris ce que trace chaque appel et calcule l'angle de rotation utilisé dans chaque cas.",
+            type: "open",
+            modelAnswer: "**Premier appel (paramètre $3$) :** Le bloc trace un polygone à $3$ côtés, donc un **triangle équilatéral**. L'angle de rotation est $360° \\div 3 = 120°$.\n\n**Deuxième appel (paramètre $6$) :** Le bloc trace un polygone à $6$ côtés, donc un **hexagone régulier**. L'angle de rotation est $360° \\div 6 = 60°$.\n\n$$\\boxed{\\text{Triangle (rotation } 120°\\text{) puis hexagone (rotation } 60°\\text{).}}$$",
+            explanation: "Le même bloc paramétré permet de tracer des polygones différents selon la valeur du paramètre transmis à chaque appel, en recalculant l'angle de rotation à chaque fois.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo4-l3",
+        slug: "algorithme-suites-de-nombres",
+        title: "Algorithme et suites de nombres",
+        durationMinutes: 20,
+        content: `## Introduction
+
+En calcul littéral, tu as appris à manipuler des expressions avec des lettres. On peut utiliser une **boucle** avec une variable qui accumule une valeur pour engendrer, étape par étape, les termes d'une **suite de nombres**.
+
+## Une variable accumulatrice pour une suite
+
+Une **suite de nombres** est une liste ordonnée de nombres, appelés **termes**, souvent construits les uns à partir des autres par une même règle. Pour une **suite arithmétique**, on passe d'un terme au suivant en **ajoutant toujours le même nombre**, appelé la **raison**.
+
+> 📌 **Méthode — Engendrer une suite arithmétique avec une boucle**
+> 1. Initialiser une variable (le **terme**) avec la **première valeur** de la suite.
+> 2. Répéter, à chaque tour de boucle : ajouter la **raison** à la variable, puis afficher ou noter sa nouvelle valeur.
+> 3. Le nombre de tours de boucle donne le nombre de termes calculés après le premier.
+
+## Lien avec le calcul littéral
+
+Si une suite a pour premier terme $u_0$ et pour raison $r$, le terme obtenu après $n$ ajouts successifs de $r$ peut aussi se calculer directement par l'expression littérale :
+
+$$u_n = u_0 + n \\times r$$
+
+C'est exactement la même idée qu'une boucle qui ajoute $r$, $n$ fois de suite, à la variable initiale $u_0$.
+
+## Exemples
+
+### ✅ Exemple simple — Suivre une boucle accumulatrice
+
+> *Programme :*
+> *variable terme $\\leftarrow$ 5*
+> *répéter 3 fois : terme $\\leftarrow$ terme + 4*
+
+Les valeurs successives de *terme* sont : $5$, puis $9$, puis $13$, puis $17$. Après le programme, *terme* vaut $17$.
+
+### 📘 Exemple intermédiaire — Comparer boucle et formule littérale
+
+Une suite a pour premier terme $u_0 = 2$ et pour raison $r = 6$. Avec une boucle qui ajoute $6$, $4$ fois de suite, on obtient $u_4$.
+
+**Par la boucle :** $2 \\to 8 \\to 14 \\to 20 \\to 26$.
+
+**Par la formule :** $u_4 = u_0 + 4 \\times r = 2 + 4 \\times 6 = 2 + 24 = 26$.
+
+Les deux méthodes donnent bien le même résultat : $26$.
+
+### 🔴 Exemple avancé — Construire le programme à partir de la formule
+
+On veut engendrer la suite arithmétique de premier terme $u_0 = 100$ et de raison $r = -7$ (la suite décroît), et obtenir son 5ème terme après le premier ($u_5$).
+
+**Programme :**
+
+> *variable terme $\\leftarrow$ 100*
+> *répéter 5 fois : terme $\\leftarrow$ terme + (-7)*
+
+**Calcul par la boucle :** $100 \\to 93 \\to 86 \\to 79 \\to 72 \\to 65$.
+
+**Vérification par la formule littérale :** $u_5 = u_0 + 5 \\times r = 100 + 5 \\times (-7) = 100 - 35 = 65$.
+
+$$\\boxed{u_5 = 65}$$
+
+## À retenir
+
+- Une **variable accumulatrice** se met à jour à chaque tour de boucle en ajoutant toujours la même valeur (la **raison**).
+- Cette méthode permet d'engendrer, terme après terme, une **suite arithmétique**.
+- La formule littérale $u_n = u_0 + n \\times r$ donne directement le même résultat qu'une boucle qui ajoute $n$ fois la raison $r$ au premier terme $u_0$.
+- Une raison **négative** correspond à une suite **décroissante**.`,
+        exercises: [
+          {
+            id: "algo4-l3-e1",
+            question: "Dans une suite arithmétique, comment passe-t-on d'un terme au terme suivant ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "En multipliant toujours par le même nombre" },
+              { id: "B", text: "En ajoutant toujours le même nombre, appelé la raison" },
+              { id: "C", text: "En recommençant à $0$" },
+              { id: "D", text: "Il n'y a pas de règle fixe" },
+            ],
+            correctId: "B",
+            explanation: "Une suite arithmétique se construit en ajoutant toujours le même nombre, appelé la raison, pour passer d'un terme au suivant.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l3-e2",
+            question: "Une raison négative produit toujours une suite croissante.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Faux. Une raison négative fait diminuer la valeur du terme à chaque étape : la suite est donc décroissante, pas croissante.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo4-l3-e3",
+            question: "Un programme initialise *terme* $\\leftarrow$ 3, puis répète 4 fois *terme $\\leftarrow$ terme + 5*. Quelle est la valeur finale de *terme* ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$20$" },
+              { id: "B", text: "$23$" },
+              { id: "C", text: "$8$" },
+              { id: "D", text: "$15$" },
+            ],
+            correctId: "B",
+            explanation: "$\\text{terme final} = 3 + 4 \\times 5 = 3 + 20 = 23$, ce qu'on peut vérifier tour par tour : $3 \\to 8 \\to 13 \\to 18 \\to 23$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l3-e4",
+            question: "Une suite arithmétique a pour premier terme $u_0 = 10$ et pour raison $r = 3$. Écris le programme (avec une boucle) qui calcule $u_6$, puis calcule sa valeur en utilisant la formule littérale $u_n = u_0 + n \\times r$.",
+            type: "open",
+            modelAnswer: "**Programme avec une boucle :**\n\n*variable terme $\\leftarrow$ 10*\n*répéter 6 fois : terme $\\leftarrow$ terme + 3*\n\n**Calcul par la formule littérale :**\n\n$$u_6 = u_0 + 6 \\times r = 10 + 6 \\times 3 = 10 + 18 = 28$$\n\n$$\\boxed{u_6 = 28}$$",
+            explanation: "La boucle ajoute 6 fois la raison $3$ au premier terme $10$, ce qui correspond exactement au calcul direct par la formule littérale $u_0 + n \\times r$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo4-l3-e5",
+            question: "Une suite arithmétique commence à $u_0 = 50$ avec une raison $r = -8$. À partir de quel terme $u_n$ la valeur devient-elle négative pour la première fois ? Justifie en comparant la formule littérale et un raisonnement par boucle.",
+            type: "open",
+            modelAnswer: "**Formule littérale :** $u_n = u_0 + n \\times r = 50 - 8n$.\n\nOn cherche le plus petit $n$ tel que $50 - 8n < 0$, soit $8n > 50$, soit $n > 6{,}25$. Le plus petit entier $n$ qui convient est donc $n = 7$.\n\n**Vérification par boucle (la variable terme part de $50$ et on soustrait $8$ à chaque tour) :**\n\n$50 \\to 42 \\to 34 \\to 26 \\to 18 \\to 10 \\to 2 \\to -6$\n\nOn compte $7$ soustractions pour arriver à $u_7 = -6$, le premier terme négatif (alors que $u_6 = 2$ est encore positif).\n\n$$\\boxed{u_7 = -6 \\text{ est le premier terme négatif de la suite.}}$$",
+            explanation: "On résout l'inéquation $50 - 8n < 0$ pour trouver le rang exact, puis on vérifie le résultat en simulant la boucle terme par terme, ce qui confirme la cohérence entre les deux approches.",
             difficulty: "expert",
           },
         ],
@@ -9739,7 +12223,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e6",
             question: "Résous l'équation $3x - 4 = 11$.",
             type: "open",
-            modelAnswer: "$$3x - 4 = 11$$\\n\\n$$3x = 11+4 = 15$$\\n\\n$$x = \\dfrac{15}{3} = 5$$\\n\\n$$\\boxed{x = 5}$$",
+            modelAnswer: "$$3x - 4 = 11$$\n\n$$3x = 11+4 = 15$$\n\n$$x = \\dfrac{15}{3} = 5$$\n\n$$\\boxed{x = 5}$$",
             explanation: "On isole le terme en $x$ en ajoutant $4$ aux deux membres, puis on divise par le coefficient de $x$.",
             difficulty: "intermediaire",
           },
@@ -9747,7 +12231,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e7",
             question: "Dans un triangle rectangle $ABC$ rectangle en $A$, on a $AB=6$ cm et $AC=8$ cm. Calcule la longueur de l'hypoténuse $BC$.",
             type: "open",
-            modelAnswer: "D'après le théorème de Pythagore :\\n\\n$$BC^2 = AB^2 + AC^2 = 6^2+8^2 = 36+64=100$$\\n\\n$$BC = \\sqrt{100} = 10 \\text{ cm}$$\\n\\n$$\\boxed{BC = 10 \\text{ cm}}$$",
+            modelAnswer: "D'après le théorème de Pythagore :\n\n$$BC^2 = AB^2 + AC^2 = 6^2+8^2 = 36+64=100$$\n\n$$BC = \\sqrt{100} = 10 \\text{ cm}$$\n\n$$\\boxed{BC = 10 \\text{ cm}}$$",
             explanation: "L'hypoténuse est le côté opposé à l'angle droit ; son carré est égal à la somme des carrés des deux autres côtés.",
             difficulty: "intermediaire",
           },
@@ -9755,7 +12239,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e8",
             question: "On lance un dé à $6$ faces. Quelle est la probabilité d'obtenir un nombre pair ?",
             type: "open",
-            modelAnswer: "Les nombres pairs sur un dé à $6$ faces sont $2, 4, 6$, soit $3$ issues favorables sur $6$ issues possibles.\\n\\n$$P(\\text{pair}) = \\dfrac{3}{6} = \\dfrac{1}{2}$$\\n\\n$$\\boxed{P = \\dfrac{1}{2}}$$",
+            modelAnswer: "Les nombres pairs sur un dé à $6$ faces sont $2, 4, 6$, soit $3$ issues favorables sur $6$ issues possibles.\n\n$$P(\\text{pair}) = \\dfrac{3}{6} = \\dfrac{1}{2}$$\n\n$$\\boxed{P = \\dfrac{1}{2}}$$",
             explanation: "On compte le nombre d'issues favorables (les nombres pairs) et on le divise par le nombre total d'issues possibles.",
             difficulty: "intermediaire",
           },
@@ -9763,7 +12247,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e9",
             question: "Calcule $2^{-3}$ et écris le résultat sous forme de fraction.",
             type: "open",
-            modelAnswer: "Une puissance négative correspond à l'inverse :\\n\\n$$2^{-3} = \\dfrac{1}{2^3} = \\dfrac{1}{8}$$\\n\\n$$\\boxed{\\dfrac{1}{8}}$$",
+            modelAnswer: "Une puissance négative correspond à l'inverse :\n\n$$2^{-3} = \\dfrac{1}{2^3} = \\dfrac{1}{8}$$\n\n$$\\boxed{\\dfrac{1}{8}}$$",
             explanation: "Par définition, $a^{-n} = \\dfrac{1}{a^n}$ pour $a \\neq 0$.",
             difficulty: "intermediaire",
           },
@@ -9771,7 +12255,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e10",
             question: "Une série statistique a pour valeurs $4, 7, 7, 9, 12, 15$. Détermine la médiane de cette série.",
             type: "open",
-            modelAnswer: "La série est déjà rangée par ordre croissant et comporte $6$ valeurs (nombre pair).\\n\\nLa médiane est la moyenne des deux valeurs centrales (3ème et 4ème) : $7$ et $9$.\\n\\n$$\\text{Médiane} = \\dfrac{7+9}{2} = 8$$\\n\\n$$\\boxed{\\text{Médiane} = 8}$$",
+            modelAnswer: "La série est déjà rangée par ordre croissant et comporte $6$ valeurs (nombre pair).\n\nLa médiane est la moyenne des deux valeurs centrales (3ème et 4ème) : $7$ et $9$.\n\n$$\\text{Médiane} = \\dfrac{7+9}{2} = 8$$\n\n$$\\boxed{\\text{Médiane} = 8}$$",
             explanation: "Pour une série de taille paire, la médiane est la moyenne des deux valeurs centrales une fois la série rangée par ordre croissant.",
             difficulty: "intermediaire",
           },
@@ -9779,7 +12263,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e11",
             question: "Résous l'équation $2(x+3) = 5x - 6$.",
             type: "open",
-            modelAnswer: "$$2(x+3) = 5x-6$$\\n\\n$$2x+6 = 5x-6$$\\n\\n$$6+6 = 5x-2x$$\\n\\n$$12 = 3x$$\\n\\n$$x = 4$$\\n\\n$$\\boxed{x = 4}$$",
+            modelAnswer: "$$2(x+3) = 5x-6$$\n\n$$2x+6 = 5x-6$$\n\n$$6+6 = 5x-2x$$\n\n$$12 = 3x$$\n\n$$x = 4$$\n\n$$\\boxed{x = 4}$$",
             explanation: "On développe d'abord le membre de gauche, puis on regroupe tous les termes en $x$ d'un côté et les nombres de l'autre.",
             difficulty: "expert",
           },
@@ -9787,7 +12271,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e12",
             question: "Un triangle a pour côtés $AB=9$ cm, $AC=12$ cm et $BC=15$ cm. Ce triangle est-il rectangle ? Justifie en utilisant la réciproque du théorème de Pythagore.",
             type: "open",
-            modelAnswer: "Le plus grand côté est $BC=15$ cm. On compare $BC^2$ avec $AB^2+AC^2$ :\\n\\n$$BC^2 = 15^2 = 225$$\\n\\n$$AB^2+AC^2 = 9^2+12^2 = 81+144=225$$\\n\\nComme $BC^2 = AB^2+AC^2$, d'après la réciproque du théorème de Pythagore, le triangle $ABC$ est rectangle en $A$.\\n\\n$$\\boxed{\\text{Oui, le triangle est rectangle en } A}$$",
+            modelAnswer: "Le plus grand côté est $BC=15$ cm. On compare $BC^2$ avec $AB^2+AC^2$ :\n\n$$BC^2 = 15^2 = 225$$\n\n$$AB^2+AC^2 = 9^2+12^2 = 81+144=225$$\n\nComme $BC^2 = AB^2+AC^2$, d'après la réciproque du théorème de Pythagore, le triangle $ABC$ est rectangle en $A$.\n\n$$\\boxed{\\text{Oui, le triangle est rectangle en } A}$$",
             explanation: "La réciproque du théorème de Pythagore permet de prouver qu'un triangle est rectangle si l'égalité $BC^2=AB^2+AC^2$ est vérifiée pour le plus grand côté.",
             difficulty: "expert",
           },
@@ -9795,7 +12279,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e13",
             question: "Un cône de révolution a un rayon de base $r=6$ cm et une hauteur $h=10$ cm. Calcule son volume exact, puis une valeur approchée ($\\pi \\approx 3{,}14$).",
             type: "open",
-            modelAnswer: "$$V = \\dfrac{\\pi r^2 h}{3} = \\dfrac{\\pi \\times 6^2 \\times 10}{3} = \\dfrac{\\pi \\times 36 \\times 10}{3} = \\dfrac{360\\pi}{3} = 120\\pi \\text{ cm}^3$$\\n\\nValeur approchée : $120 \\times 3{,}14 = 376{,}8 \\text{ cm}^3$.\\n\\n$$\\boxed{V = 120\\pi \\approx 376{,}8 \\text{ cm}^3}$$",
+            modelAnswer: "$$V = \\dfrac{\\pi r^2 h}{3} = \\dfrac{\\pi \\times 6^2 \\times 10}{3} = \\dfrac{\\pi \\times 36 \\times 10}{3} = \\dfrac{360\\pi}{3} = 120\\pi \\text{ cm}^3$$\n\nValeur approchée : $120 \\times 3{,}14 = 376{,}8 \\text{ cm}^3$.\n\n$$\\boxed{V = 120\\pi \\approx 376{,}8 \\text{ cm}^3}$$",
             explanation: "Le volume d'un cône est le tiers du volume du cylindre de même base et même hauteur : $V=\\dfrac{\\pi r^2 h}{3}$.",
             difficulty: "expert",
           },
@@ -9803,7 +12287,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e14",
             question: "On tire successivement deux boules avec remise dans une urne contenant $3$ boules rouges et $2$ boules vertes. Calcule la probabilité de tirer deux boules de la même couleur.",
             type: "open",
-            modelAnswer: "$P(\\text{rouge}) = \\dfrac{3}{5}$, $P(\\text{verte}) = \\dfrac{2}{5}$.\\n\\n$$P(\\text{R,R}) = \\dfrac{3}{5}\\times\\dfrac{3}{5} = \\dfrac{9}{25}$$\\n\\n$$P(\\text{V,V}) = \\dfrac{2}{5}\\times\\dfrac{2}{5} = \\dfrac{4}{25}$$\\n\\n$$P(\\text{même couleur}) = \\dfrac{9}{25}+\\dfrac{4}{25} = \\dfrac{13}{25}$$\\n\\n$$\\boxed{P = \\dfrac{13}{25}}$$",
+            modelAnswer: "$P(\\text{rouge}) = \\dfrac{3}{5}$, $P(\\text{verte}) = \\dfrac{2}{5}$.\n\n$$P(\\text{R,R}) = \\dfrac{3}{5}\\times\\dfrac{3}{5} = \\dfrac{9}{25}$$\n\n$$P(\\text{V,V}) = \\dfrac{2}{5}\\times\\dfrac{2}{5} = \\dfrac{4}{25}$$\n\n$$P(\\text{même couleur}) = \\dfrac{9}{25}+\\dfrac{4}{25} = \\dfrac{13}{25}$$\n\n$$\\boxed{P = \\dfrac{13}{25}}$$",
             explanation: "On additionne les probabilités des deux chemins favorables (rouge-rouge et vert-vert) dans l'arbre de probabilité, chaque chemin étant le produit des probabilités le long de ce chemin.",
             difficulty: "expert",
           },
@@ -9811,7 +12295,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev4-l1-e15",
             question: "Un jardinier veut installer une échelle de $5$ m contre un mur, le pied de l'échelle étant à $3$ m du mur. À quelle hauteur l'échelle touche-t-elle le mur ? Si on rapproche le pied de l'échelle à $2$ m du mur (échelle toujours de $5$ m), de combien la hauteur augmente-t-elle ?",
             type: "open",
-            modelAnswer: "**Premier cas (pied à 3 m) :** d'après Pythagore, $h^2 = 5^2-3^2 = 25-9=16 \\implies h=\\sqrt{16}=4$ m.\\n\\n**Deuxième cas (pied à 2 m) :** $h'^2 = 5^2-2^2=25-4=21 \\implies h'=\\sqrt{21}\\approx4{,}58$ m.\\n\\nAugmentation de hauteur : $h'-h \\approx 4{,}58-4 = 0{,}58$ m.\\n\\n$$\\boxed{h=4 \\text{ m}, \\quad h' \\approx 4{,}58 \\text{ m}, \\quad \\text{augmentation} \\approx 0{,}58 \\text{ m}}$$",
+            modelAnswer: "**Premier cas (pied à 3 m) :** d'après Pythagore, $h^2 = 5^2-3^2 = 25-9=16 \\implies h=\\sqrt{16}=4$ m.\n\n**Deuxième cas (pied à 2 m) :** $h'^2 = 5^2-2^2=25-4=21 \\implies h'=\\sqrt{21}\\approx4{,}58$ m.\n\nAugmentation de hauteur : $h'-h \\approx 4{,}58-4 = 0{,}58$ m.\n\n$$\\boxed{h=4 \\text{ m}, \\quad h' \\approx 4{,}58 \\text{ m}, \\quad \\text{augmentation} \\approx 0{,}58 \\text{ m}}$$",
             explanation: "On applique le théorème de Pythagore deux fois (l'échelle est l'hypoténuse constante), puis on compare les deux hauteurs obtenues pour calculer l'augmentation.",
             difficulty: "expert",
           },
@@ -9819,6 +12303,666 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
       },
     ],
   },
+
+  // ─────────────────────────────────────────────
+  // 3ème — Identités remarquables
+  // ─────────────────────────────────────────────
+  {
+    id: "identites-remarquables-3eme",
+    slug: "identites-remarquables-3eme",
+    title: "Identités remarquables",
+    description: "Développez et factorisez des expressions littérales grâce aux trois identités remarquables.",
+    schoolLevel: "3eme",
+    subject: "algebre",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "²",
+    lessons: [
+      {
+        id: "ir3-l1",
+        slug: "developper-identites-remarquables",
+        title: "Développer avec les identités remarquables",
+        durationMinutes: 20,
+        content: `## Introduction
+
+Au lieu de développer une expression comme $(x+5)^2$ en repassant chaque fois par la distributivité, on peut utiliser des formules toutes faites, appelées **identités remarquables**, qui accélèrent considérablement le calcul.
+
+## Les trois identités remarquables
+
+| Identité | Formule développée |
+|---|---|
+| Carré d'une somme | $(a+b)^2 = a^2 + 2ab + b^2$ |
+| Carré d'une différence | $(a-b)^2 = a^2 - 2ab + b^2$ |
+| Produit d'une somme et d'une différence | $(a+b)(a-b) = a^2 - b^2$ |
+
+> 📌 **Méthode**
+> Pour développer une expression de la forme $(a+b)^2$, $(a-b)^2$ ou $(a+b)(a-b)$ : repérer $a$ et $b$, puis appliquer directement la formule correspondante, sans repasser par la distributivité terme à terme.
+
+### Pourquoi ces formules sont-elles vraies ?
+
+On peut les retrouver avec la double distributivité : $(a+b)^2 = (a+b)(a+b) = a^2+ab+ba+b^2 = a^2+2ab+b^2$ (car $ab=ba$).
+
+## Exemples
+
+### ✅ Exemple simple — Développer $(x+5)^2$
+
+On identifie $a = x$ et $b = 5$ :
+
+$$(x+5)^2 = x^2 + 2\\times x \\times 5 + 5^2 = x^2 + 10x + 25$$
+
+### 📘 Exemple intermédiaire — Développer $(2x-3)^2$
+
+On identifie $a = 2x$ et $b = 3$ :
+
+$$(2x-3)^2 = (2x)^2 - 2\\times 2x \\times 3 + 3^2 = 4x^2 - 12x + 9$$
+
+*Attention :* $(2x)^2 = 4x^2$, et non $2x^2$ !
+
+### 🔴 Exemple avancé — Développer $(3x+4)(3x-4)$
+
+On reconnaît la forme $(a+b)(a-b)$ avec $a = 3x$ et $b = 4$ :
+
+$$(3x+4)(3x-4) = (3x)^2 - 4^2 = 9x^2 - 16$$
+
+On peut vérifier en développant terme à terme : $9x^2 -12x+12x-16 = 9x^2-16$ ✓ (les termes en $x$ s'éliminent, ce qui est la propriété clé de cette identité).
+
+## À retenir
+
+- $(a+b)^2 = a^2+2ab+b^2$ : le carré du premier, **plus** le double produit, **plus** le carré du second.
+- $(a-b)^2 = a^2-2ab+b^2$ : même formule, mais le double produit est **soustrait**.
+- $(a+b)(a-b) = a^2-b^2$ : différence des carrés, **les termes en $ab$ s'annulent toujours**.
+- Bien repérer $a$ et $b$ avant d'appliquer la formule, en particulier quand $a$ ou $b$ contient déjà un coefficient (ex : $2x$).`,
+        exercises: [
+          {
+            id: "ir3-l1-e1",
+            question: "Développer $(x+3)^2$ donne :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x^2+6x+9$" },
+              { id: "B", text: "$x^2+9$" },
+              { id: "C", text: "$x^2+3x+9$" },
+              { id: "D", text: "$x^2+6x+3$" },
+            ],
+            correctId: "A",
+            explanation: "Avec $a=x$ et $b=3$ : $(x+3)^2 = x^2+2\\times x\\times3+3^2 = x^2+6x+9$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ir3-l1-e2",
+            question: "Dans la formule $(a-b)^2 = a^2-2ab+b^2$, le terme $b^2$ est précédé d'un signe moins.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "Dans $(a-b)^2 = a^2-2ab+b^2$, seul le double produit $2ab$ est soustrait ; le terme $b^2$ est toujours **positif** (un carré est toujours positif).",
+            difficulty: "debutant",
+          },
+          {
+            id: "ir3-l1-e3",
+            question: "Développer $(5x-2)^2$ :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$25x^2-20x+4$" },
+              { id: "B", text: "$25x^2-4$" },
+              { id: "C", text: "$5x^2-20x+4$" },
+              { id: "D", text: "$25x^2-10x+4$" },
+            ],
+            correctId: "A",
+            explanation: "Avec $a=5x$ et $b=2$ : $(5x-2)^2 = (5x)^2-2\\times5x\\times2+2^2 = 25x^2-20x+4$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ir3-l1-e4",
+            question: "Développer $(7-x)(7+x)$ :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$49-x^2$" },
+              { id: "B", text: "$49+x^2$" },
+              { id: "C", text: "$x^2-49$" },
+              { id: "D", text: "$7-x^2$" },
+            ],
+            correctId: "A",
+            explanation: "$(7-x)(7+x)$ est de la forme $(a-b)(a+b)=a^2-b^2$ avec $a=7$ et $b=x$ : on obtient $49-x^2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ir3-l1-e5",
+            question: "Développe l'expression $(2x+5)^2 - (2x-5)^2$ en utilisant les identités remarquables, puis simplifie au maximum.",
+            type: "open",
+            modelAnswer: "On développe chaque carré séparément avec $a=2x$ et $b=5$ :\n\n$$(2x+5)^2 = 4x^2+20x+25$$\n\n$$(2x-5)^2 = 4x^2-20x+25$$\n\nOn soustrait :\n\n$$(2x+5)^2-(2x-5)^2 = (4x^2+20x+25)-(4x^2-20x+25)$$\n\n$$= 4x^2+20x+25-4x^2+20x-25 = 40x$$\n\n$$\\boxed{(2x+5)^2-(2x-5)^2 = 40x}$$",
+            explanation: "On développe chaque identité remarquable séparément, en faisant bien attention aux signes lors de la soustraction, puis on réduit les termes semblables : les termes en $x^2$ et les constantes s'annulent.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "ir3-l2",
+        slug: "factoriser-identites-remarquables",
+        title: "Factoriser avec les identités remarquables",
+        durationMinutes: 20,
+        content: `## Introduction
+
+**Factoriser**, c'est transformer une somme en un produit. Les identités remarquables se lisent aussi « à l'envers » pour factoriser certaines expressions développées.
+
+## Les trois formules, dans le sens « factorisation »
+
+| Expression développée | Forme factorisée |
+|---|---|
+| $a^2+2ab+b^2$ | $(a+b)^2$ |
+| $a^2-2ab+b^2$ | $(a-b)^2$ |
+| $a^2-b^2$ | $(a+b)(a-b)$ |
+
+> 📌 **Méthode**
+> 1. Vérifier si l'expression a la forme d'**une différence de deux carrés** ($a^2-b^2$) : c'est souvent le cas le plus facile à repérer.
+> 2. Sinon, vérifier si l'expression a la forme d'un carré développé : trois termes, dont deux sont des carrés ($a^2$ et $b^2$) et le troisième est le double produit $\\pm 2ab$.
+> 3. Identifier précisément $a$ et $b$, puis écrire la forme factorisée correspondante.
+
+### Le piège classique : une différence de carrés cachée
+
+Une expression comme $4x^2-9$ n'a, à première vue, que deux termes — mais $4x^2 = (2x)^2$ et $9=3^2$ sont **tous les deux des carrés parfaits**. C'est donc bien une différence de carrés, factorisable en $(2x-3)(2x+3)$.
+
+## Exemples
+
+### ✅ Exemple simple — Factoriser $x^2-25$
+
+On reconnaît une différence de carrés : $x^2-25 = x^2-5^2$, avec $a=x$ et $b=5$ :
+
+$$x^2-25 = (x-5)(x+5)$$
+
+### 📘 Exemple intermédiaire — Factoriser $x^2+10x+25$
+
+On reconnaît trois termes : $x^2$ (carré de $x$), $25=5^2$ (carré de $5$), et $10x = 2\\times x\\times 5$ (double produit). C'est la forme $a^2+2ab+b^2$ avec $a=x$, $b=5$ :
+
+$$x^2+10x+25 = (x+5)^2$$
+
+### 🔴 Exemple avancé — Factoriser $9x^2-12x+4$ (piège : repérer le bon $a$ et le bon $b$)
+
+On a $9x^2=(3x)^2$ et $4=2^2$, donc $a=3x$ et $b=2$. On vérifie le double produit : $2\\times 3x\\times 2 = 12x$. Comme le terme est $-12x$, on retient la forme $a^2-2ab+b^2=(a-b)^2$ :
+
+$$9x^2-12x+4 = (3x-2)^2$$
+
+*Vérification :* $(3x-2)^2 = 9x^2-12x+4$ ✓ (on peut redévelopper pour contrôler son résultat).
+
+## À retenir
+
+- $a^2+2ab+b^2 = (a+b)^2$ et $a^2-2ab+b^2=(a-b)^2$ : repérer les **deux carrés** puis vérifier le **double produit**.
+- $a^2-b^2 = (a+b)(a-b)$ : dès que l'on voit **une différence de deux carrés parfaits**, même cachés comme $4x^2-9=(2x)^2-3^2$, on peut factoriser ainsi.
+- Toujours **vérifier sa factorisation** en redéveloppant le résultat trouvé : on doit retomber sur l'expression de départ.`,
+        exercises: [
+          {
+            id: "ir3-l2-e1",
+            question: "Factoriser $x^2-64$ :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(x-8)(x+8)$" },
+              { id: "B", text: "$(x-8)^2$" },
+              { id: "C", text: "$(x+8)^2$" },
+              { id: "D", text: "$(x-64)(x+1)$" },
+            ],
+            correctId: "A",
+            explanation: "$x^2-64 = x^2-8^2$ est une différence de carrés, qui se factorise en $(x-8)(x+8)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ir3-l2-e2",
+            question: "L'expression $4x^2-9$ peut être factorisée à l'aide d'une identité remarquable, car $4x^2$ et $9$ sont tous les deux des carrés parfaits.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "$4x^2=(2x)^2$ et $9=3^2$ : c'est bien une différence de deux carrés, donc $4x^2-9=(2x-3)(2x+3)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "ir3-l2-e3",
+            question: "Factoriser $x^2+8x+16$ :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(x+4)^2$" },
+              { id: "B", text: "$(x+8)^2$" },
+              { id: "C", text: "$(x-4)^2$" },
+              { id: "D", text: "$(x+4)(x-4)$" },
+            ],
+            correctId: "A",
+            explanation: "$x^2=x^2$, $16=4^2$, et le double produit $2\\times x\\times 4=8x$ correspond bien au terme central : $x^2+8x+16=(x+4)^2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ir3-l2-e4",
+            question: "Factoriser $16x^2-1$ :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(4x-1)(4x+1)$" },
+              { id: "B", text: "$(4x-1)^2$" },
+              { id: "C", text: "$(8x-1)(2x+1)$" },
+              { id: "D", text: "$(16x-1)(x+1)$" },
+            ],
+            correctId: "A",
+            explanation: "$16x^2=(4x)^2$ et $1=1^2$ : c'est une différence de carrés, $16x^2-1=(4x-1)(4x+1)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "ir3-l2-e5",
+            question: "Factoriser entièrement l'expression $A = 25x^2-20x+4-(9x^2-1)$ en détaillant chaque étape (développe d'abord la parenthèse précédée du signe moins, regroupe, puis factorise le résultat).",
+            type: "open",
+            modelAnswer: "**Étape 1 — Développer et distribuer le signe moins :**\n\n$$A = 25x^2-20x+4-9x^2+1$$\n\n**Étape 2 — Regrouper les termes semblables :**\n\n$$A = (25x^2-9x^2)-20x+(4+1) = 16x^2-20x+5$$\n\nOn remarque que $16x^2-20x+5$ ne correspond à aucune identité remarquable simple (le terme constant $5$ n'est pas un carré parfait), donc on revient vérifier : en fait $25x^2-20x+4$ est lui-même une identité remarquable ! $25x^2=(5x)^2$, $4=2^2$, double produit $2\\times5x\\times2=20x$ : donc $25x^2-20x+4=(5x-2)^2$.\n\nEt $9x^2-1=(3x)^2-1^2=(3x-1)(3x+1)$.\n\n$$\\boxed{A = (5x-2)^2 - (3x-1)(3x+1)}$$\n\n(L'expression se factorise en identifiant chaque identité remarquable séparément avant de combiner les résultats.)",
+            explanation: "Il faut repérer que chaque partie de l'expression correspond séparément à une identité remarquable ($25x^2-20x+4$ est un carré, $9x^2-1$ est une différence de carrés), puis exprimer le résultat sous forme factorisée plutôt que de tout redévelopper.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // 3ème — Algorithmique et programmation
+  // ─────────────────────────────────────────────
+  {
+    id: "algorithmique-programmation-3eme",
+    slug: "algorithmique-programmation-3eme",
+    title: "Algorithmique et programmation",
+    description: "Découvrez la boucle « tant que », les fonctions avec paramètres et valeur de retour, et les algorithmes de recherche de seuil.",
+    schoolLevel: "3eme",
+    subject: "arithmetique",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "🐍",
+    lessons: [
+      {
+        id: "algo3-l1",
+        slug: "boucle-tant-que",
+        title: "La boucle « tant que »",
+        durationMinutes: 18,
+        content: `## Introduction
+
+En 4ème, on a utilisé la boucle « répéter $n$ fois », où l'on connaît **à l'avance** le nombre exact de répétitions. Mais parfois, on ne sait pas combien de répétitions seront nécessaires : on veut simplement continuer **tant qu'une condition reste vraie**.
+
+## La boucle « tant que »
+
+> 📌 **Méthode**
+> La boucle **tant que (condition) faire ... fin tant que** répète les instructions à l'intérieur **aussi longtemps que la condition est vraie**. Avant chaque répétition, on teste la condition : si elle est fausse, la boucle s'arrête immédiatement.
+
+Différence essentielle avec « répéter $n$ fois » :
+
+| Boucle | Nombre de répétitions | Condition d'arrêt |
+|---|---|---|
+| Répéter $n$ fois | Connu à l'avance | Après $n$ tours |
+| Tant que | Inconnu à l'avance | Quand la condition devient fausse |
+
+> ⚠️ **Attention :** il faut toujours s'assurer que la condition deviendra fausse à un moment donné (par exemple en modifiant une variable à chaque tour), sinon la boucle **ne s'arrête jamais** (boucle infinie).
+
+### Exemple de structure
+
+> variable $n$ prend la valeur $1$
+> tant que $n < 5$ faire :
+> $\\quad$ afficher $n$
+> $\\quad$ $n$ prend la valeur $n+1$
+> fin tant que
+
+## Exemples
+
+### ✅ Exemple simple — Compter jusqu'à un seuil
+
+On initialise $n=0$. Tant que $n < 4$, on affiche $n$ puis on l'augmente de $1$.
+
+Déroulement : $n=0$ (affiché, $0<4$) $\\to n=1$ (affiché, $1<4$) $\\to n=2$ (affiché, $2<4$) $\\to n=3$ (affiché, $3<4$) $\\to n=4$ : la condition $4<4$ est fausse, la boucle s'arrête.
+
+Le programme affiche : $0, 1, 2, 3$.
+
+### 📘 Exemple intermédiaire — Trouver le premier multiple de 7 supérieur à 50
+
+On initialise $n=0$. Tant que $n \\leq 50$, on ajoute $7$ à $n$.
+
+Déroulement (valeurs de $n$) : $0 \\to 7 \\to 14 \\to 21 \\to 28 \\to 35 \\to 42 \\to 49 \\to 56$.
+
+Dès que $n=56$, la condition $n \\leq 50$ devient fausse : la boucle s'arrête. Réponse : $56$ est le premier multiple de $7$ strictement supérieur à $50$.
+
+### 🔴 Exemple avancé — Boucle infinie à éviter
+
+> variable $n$ prend la valeur $1$
+> tant que $n > 0$ faire :
+> $\\quad$ afficher $n$
+> fin tant que
+
+Ici, $n$ reste toujours égal à $1$ (on ne le modifie jamais à l'intérieur de la boucle), donc la condition $n>0$ est **toujours vraie** : la boucle ne s'arrêtera jamais. Il manque une instruction du type « $n$ prend la valeur $n-1$ » pour que $n$ finisse par atteindre $0$.
+
+## À retenir
+
+- La boucle « tant que » répète des instructions **tant qu'une condition reste vraie**, sans connaître à l'avance le nombre de répétitions.
+- La condition est testée **avant chaque répétition** : dès qu'elle est fausse, la boucle s'arrête.
+- Il faut toujours faire évoluer une variable à l'intérieur de la boucle pour garantir que la condition finira par être fausse, sinon on obtient une **boucle infinie**.`,
+        exercises: [
+          {
+            id: "algo3-l1-e1",
+            question: "Quelle est la différence principale entre « répéter $n$ fois » et « tant que » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Avec « tant que », le nombre de répétitions n'est pas connu à l'avance" },
+              { id: "B", text: "« tant que » répète toujours exactement 10 fois" },
+              { id: "C", text: "Il n'y a aucune différence" },
+              { id: "D", text: "« répéter n fois » ne peut pas afficher de résultat" },
+            ],
+            correctId: "A",
+            explanation: "La boucle « tant que » continue jusqu'à ce qu'une condition devienne fausse, sans que l'on connaisse à l'avance le nombre exact de répétitions.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l1-e2",
+            question: "Une boucle « tant que » dont la condition reste toujours vraie est une boucle infinie.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Si la condition ne devient jamais fausse (souvent car une variable n'évolue pas), la boucle continue indéfiniment : c'est une boucle infinie, à éviter.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l1-e3",
+            question: "On initialise $n=0$ et on répète « $n$ prend la valeur $n+3$ » tant que $n<10$. Quelle est la dernière valeur de $n$ affichée avant l'arrêt de la boucle (en supposant qu'on affiche $n$ avant le test) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$9$" },
+              { id: "B", text: "$12$" },
+              { id: "C", text: "$10$" },
+              { id: "D", text: "$0$" },
+            ],
+            correctId: "A",
+            explanation: "Déroulement : $0,3,6,9$ sont tous $<10$ et donc affichés. Après $9$, $n$ devient $12$, et $12<10$ est faux : la boucle s'arrête. La dernière valeur affichée est $9$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l1-e4",
+            question: "Pour qu'une boucle « tant que » s'arrête un jour, que doit-il se passer ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La condition doit finir par devenir fausse" },
+              { id: "B", text: "Le programme doit afficher un résultat" },
+              { id: "C", text: "La boucle doit contenir au moins 5 instructions" },
+              { id: "D", text: "Rien de particulier n'est nécessaire" },
+            ],
+            correctId: "A",
+            explanation: "Une boucle « tant que » ne s'arrête que lorsque sa condition devient fausse ; il faut donc qu'une variable testée dans la condition évolue vers cet état.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l1-e5",
+            question: "Écris (en pseudo-code) un algorithme utilisant une boucle « tant que » qui trouve le premier multiple de $4$ strictement supérieur à $30$, puis explique son déroulement.",
+            type: "open",
+            modelAnswer: "**Algorithme :**\n\n> variable $n$ prend la valeur $0$\n> tant que $n \\leq 30$ faire :\n> $\\quad$ $n$ prend la valeur $n+4$\n> fin tant que\n> afficher $n$\n\n**Déroulement :** $n$ passe par $0,4,8,12,16,20,24,28,32$.\n\nTant que $n \\leq 30$ est vrai (pour $0,4,...,28$), on continue. Quand $n=28$, $28\\leq30$ est encore vrai, donc on ajoute encore $4$ : $n=32$.\n\nMaintenant $32\\leq30$ est faux : la boucle s'arrête.\n\n$$\\boxed{\\text{Le premier multiple de 4 strictement supérieur à 30 est } 32}$$",
+            explanation: "On utilise une variable accumulatrice augmentée de $4$ à chaque tour, et une condition d'arrêt basée sur le seuil $30$ ; la boucle s'arrête dès que $n$ dépasse ce seuil.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo3-l2",
+        slug: "fonctions-parametres-valeur-retour",
+        title: "Fonctions avec paramètres et valeur de retour",
+        durationMinutes: 18,
+        content: `## Introduction
+
+En 4ème, on a créé des **blocs réutilisables** pour éviter de répéter les mêmes instructions. En 3ème, on va plus loin : une **fonction** peut recevoir des **paramètres** (des valeurs en entrée) et **renvoyer un résultat** (une valeur de sortie), réutilisable ensuite dans le programme.
+
+## Paramètres et valeur de retour
+
+> 📌 **Méthode**
+> Une fonction se définit avec :
+> - un **nom** ;
+> - des **paramètres** entre parenthèses : les valeurs qu'elle reçoit en entrée ;
+> - une instruction **renvoyer** (ou **return**) : la valeur qu'elle produit en sortie, utilisable ensuite ailleurs dans le programme.
+
+### Exemple de définition
+
+> fonction aire_rectangle(longueur, largeur) :
+> $\\quad$ renvoyer longueur $\\times$ largeur
+> fin fonction
+
+Pour **utiliser** cette fonction, on l'« appelle » avec des valeurs précises, appelées **arguments** :
+
+> $a$ prend la valeur aire_rectangle($5$, $3$) $\\quad$ *(ici $a$ reçoit la valeur $15$)*
+
+La différence avec un simple bloc réutilisable de 4ème : ici, la fonction ne se contente pas d'exécuter des instructions, elle **renvoie une valeur numérique** que l'on peut stocker dans une variable et réutiliser.
+
+## Exemples
+
+### ✅ Exemple simple — Une fonction qui double un nombre
+
+> fonction double(x) :
+> $\\quad$ renvoyer $2 \\times x$
+> fin fonction
+
+Appel : double($7$) renvoie $14$.
+
+### 📘 Exemple intermédiaire — Aire d'un rectangle, avec deux paramètres
+
+> fonction aire_rectangle(L, l) :
+> $\\quad$ renvoyer L $\\times$ l
+> fin fonction
+
+Appel : aire_rectangle($6$, $4$) renvoie $24$ (l'aire d'un rectangle de longueur $6$ et largeur $4$).
+
+On peut stocker ce résultat : $a$ prend la valeur aire_rectangle($6$, $4$), puis réutiliser $a$ plus loin dans le programme (par exemple pour calculer un prix au m²).
+
+### 🔴 Exemple avancé — Une fonction qui en appelle une autre
+
+> fonction carre(x) :
+> $\\quad$ renvoyer $x \\times x$
+> fin fonction
+>
+> fonction perimetre_carre(c) :
+> $\\quad$ renvoyer $4 \\times c$
+> fin fonction
+>
+> fonction aire_et_perimetre_egaux(c) :
+> $\\quad$ renvoyer carre(c) $=$ perimetre_carre(c)
+
+Pour $c=4$ : carre($4$) renvoie $16$, perimetre_carre($4$) renvoie $16$ : la fonction aire_et_perimetre_egaux($4$) renvoie **vrai** (l'aire et le périmètre coïncident numériquement pour un carré de côté $4$).
+
+## À retenir
+
+- Une fonction peut recevoir un ou plusieurs **paramètres** (valeurs d'entrée, entre parenthèses).
+- L'instruction **renvoyer** (ou **return**) définit la **valeur de sortie** de la fonction.
+- Une fonction qui renvoie une valeur peut être **stockée dans une variable** ou **réutilisée dans un calcul**, contrairement à un simple bloc qui ne fait qu'exécuter des instructions.
+- On peut faire appel à une fonction **à l'intérieur d'une autre fonction**.`,
+        exercises: [
+          {
+            id: "algo3-l2-e1",
+            question: "Qu'est-ce qu'un paramètre d'une fonction ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une valeur que la fonction reçoit en entrée" },
+              { id: "B", text: "Le nom de la fonction" },
+              { id: "C", text: "Le résultat final affiché à l'écran" },
+              { id: "D", text: "Une variable globale obligatoire" },
+            ],
+            correctId: "A",
+            explanation: "Un paramètre est une valeur d'entrée que l'on transmet à la fonction entre parenthèses lors de sa définition et de son appel.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l2-e2",
+            question: "L'instruction « renvoyer » (ou « return ») permet à une fonction de fournir une valeur de sortie réutilisable.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "« renvoyer » définit la valeur que la fonction produit en sortie ; cette valeur peut ensuite être stockée dans une variable ou utilisée dans un calcul.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l2-e3",
+            question: "Soit la fonction triple(x) qui renvoie $3 \\times x$. Que renvoie l'appel triple($9$) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$27$" },
+              { id: "B", text: "$12$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$9$" },
+            ],
+            correctId: "A",
+            explanation: "triple($9$) calcule $3\\times 9 = 27$ et renvoie cette valeur.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l2-e4",
+            question: "Une fonction perimetre_rectangle(L, l) renvoie $2 \\times (L+l)$. Que renvoie perimetre_rectangle($7$, $3$) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$20$" },
+              { id: "B", text: "$10$" },
+              { id: "C", text: "$21$" },
+              { id: "D", text: "$14$" },
+            ],
+            correctId: "A",
+            explanation: "perimetre_rectangle($7$,$3$) calcule $2\\times(7+3) = 2\\times10 = 20$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l2-e5",
+            question: "Écris (en pseudo-code) une fonction nommée volume_pave(L, l, h) qui reçoit trois paramètres (longueur, largeur, hauteur) et renvoie le volume d'un pavé droit. Calcule ensuite ce que renvoie l'appel volume_pave($5$, $4$, $3$), en détaillant le calcul.",
+            type: "open",
+            modelAnswer: "**Définition de la fonction :**\n\n> fonction volume_pave(L, l, h) :\n> $\\quad$ renvoyer L $\\times$ l $\\times$ h\n> fin fonction\n\n**Appel volume_pave($5$, $4$, $3$) :**\n\nLa fonction reçoit $L=5$, $l=4$, $h=3$ et calcule :\n\n$$L \\times l \\times h = 5 \\times 4 \\times 3 = 60$$\n\n$$\\boxed{\\text{volume\\_pave}(5,4,3) \\text{ renvoie } 60}$$",
+            explanation: "La fonction reçoit trois paramètres numériques, applique la formule du volume d'un pavé droit (longueur × largeur × hauteur), puis renvoie ce résultat unique qui peut ensuite être réutilisé dans le programme.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algo3-l3",
+        slug: "algorithme-recherche-seuil",
+        title: "Algorithme de recherche d'un seuil",
+        durationMinutes: 18,
+        content: `## Introduction
+
+On combine maintenant deux notions : la boucle « tant que » et les **suites de nombres** vues en 4ème (variable accumulatrice qui augmente régulièrement). On cherche à déterminer le **premier terme d'une suite qui dépasse un seuil donné**.
+
+## Principe de l'algorithme
+
+> 📌 **Méthode**
+> 1. Initialiser une variable accumulatrice avec le premier terme de la suite (ex : $u \\leftarrow u_0$).
+> 2. Initialiser un compteur de rang si besoin (ex : $n \\leftarrow 0$).
+> 3. Tant que $u$ **ne dépasse pas** le seuil, augmenter $u$ de la raison $r$ (et augmenter $n$ de $1$ si on suit le rang).
+> 4. Dès que la condition devient fausse (le seuil est dépassé), la boucle s'arrête : $u$ contient alors le premier terme dépassant le seuil.
+
+Ce principe fait le lien direct avec la formule vue en 4ème pour une suite arithmétique : $u_n = u_0 + n \\times r$. L'algorithme « tant que » permet de trouver $n$ **sans avoir à résoudre une inéquation à la main**.
+
+### Structure générale
+
+> $u$ prend la valeur $u_0$
+> $n$ prend la valeur $0$
+> tant que $u \\leq \\text{seuil}$ faire :
+> $\\quad$ $u$ prend la valeur $u + r$
+> $\\quad$ $n$ prend la valeur $n + 1$
+> fin tant que
+> afficher $n$ et $u$
+
+## Exemples
+
+### ✅ Exemple simple — Suite de raison $5$, seuil $20$
+
+Suite : $u_0=0$, raison $r=5$. On veut le premier terme $>20$.
+
+Déroulement de $u$ : $0 \\to 5 \\to 10 \\to 15 \\to 20 \\to 25$.
+
+Dès que $u=25$, la condition $u \\leq 20$ devient fausse : on s'arrête. Le premier terme dépassant $20$ est $25$ (c'est le terme de rang $n=5$).
+
+### 📘 Exemple intermédiaire — Lien avec la formule des suites arithmétiques
+
+Suite arithmétique $u_0=3$, raison $r=4$ : $u_n = 3+4n$. On cherche le premier rang $n$ tel que $u_n > 50$.
+
+Avec l'algorithme : $u$ passe par $3,7,11,...$ en ajoutant $4$ à chaque tour, jusqu'à dépasser $50$.
+
+On peut vérifier par le calcul : $3+4n>50 \\implies 4n>47 \\implies n>11{,}75$, donc le premier rang entier est $n=12$, et $u_{12}=3+4\\times12=51$. L'algorithme, en testant terme par terme, retrouve exactement ce résultat : $51$.
+
+### 🔴 Exemple avancé — Compter le nombre de tours nécessaires
+
+Une suite commence à $u_0=100$ avec une raison $r=-7$ (elle **diminue**). On veut savoir après combien de tours $u$ devient strictement négatif.
+
+Déroulement : $100,93,86,79,72,...$ On continue tant que $u \\geq 0$.
+
+En résolvant $100-7n<0 \\implies n>\\frac{100}{7}\\approx14{,}3$, donc à partir de $n=15$, $u_{15}=100-7\\times15=100-105=-5$ : c'est la première valeur négative, obtenue après $15$ tours de boucle.
+
+## À retenir
+
+- Une boucle « tant que » permet de trouver le **premier terme d'une suite qui dépasse (ou descend sous) un seuil**, sans connaître ce rang à l'avance.
+- On combine une **variable accumulatrice** (qui suit la valeur du terme) avec un **compteur de rang** si l'on veut aussi connaître $n$.
+- Ce principe est directement relié à la formule des suites arithmétiques $u_n = u_0+n\\times r$ vue en 4ème : l'algorithme donne le même résultat que la résolution d'une inéquation, mais de façon automatisée.`,
+        exercises: [
+          {
+            id: "algo3-l3-e1",
+            question: "À quoi sert un algorithme de recherche de seuil utilisant une boucle « tant que » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "À trouver le premier terme d'une suite qui dépasse une valeur donnée" },
+              { id: "B", text: "À calculer la somme de tous les termes d'une suite" },
+              { id: "C", text: "À afficher uniquement le terme $u_0$" },
+              { id: "D", text: "À trier une liste de nombres" },
+            ],
+            correctId: "A",
+            explanation: "Cet algorithme répète l'ajout de la raison tant que le terme ne dépasse pas le seuil fixé, et s'arrête dès que ce seuil est franchi.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l3-e2",
+            question: "Cet algorithme de recherche de seuil utilise le même principe accumulateur que les suites vues en 4ème.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "On retrouve la même variable accumulatrice augmentée de la raison $r$ à chaque tour, combinée ici à une condition d'arrêt liée à un seuil.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algo3-l3-e3",
+            question: "Une suite commence à $u_0=2$ avec une raison $r=3$. Quel est le premier terme strictement supérieur à $14$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$17$" },
+              { id: "B", text: "$14$" },
+              { id: "C", text: "$15$" },
+              { id: "D", text: "$11$" },
+            ],
+            correctId: "A",
+            explanation: "Déroulement : $2,5,8,11,14,17$. Le terme $14$ n'est pas strictement supérieur à $14$, donc on continue jusqu'à $17$, qui est bien le premier terme à dépasser strictement $14$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l3-e4",
+            question: "Pourquoi utiliser une boucle « tant que » plutôt qu'une boucle « répéter $n$ fois » pour ce type de recherche de seuil ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Car on ne connaît pas à l'avance le nombre de tours nécessaires pour dépasser le seuil" },
+              { id: "B", text: "Car « répéter n fois » est interdit en mathématiques" },
+              { id: "C", text: "Car « tant que » est toujours plus rapide à exécuter" },
+              { id: "D", text: "Il n'y a aucune raison particulière" },
+            ],
+            correctId: "A",
+            explanation: "Le nombre de répétitions nécessaires pour dépasser le seuil dépend des valeurs $u_0$, $r$ et du seuil : il n'est pas connu avant d'exécuter l'algorithme, ce qui impose la boucle « tant que ».",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algo3-l3-e5",
+            question: "Une suite arithmétique a pour premier terme $u_0=10$ et raison $r=6$. Écris (en pseudo-code) un algorithme avec une boucle « tant que » qui détermine le premier rang $n$ tel que $u_n>100$, puis exécute-le pas à pas pour donner ce rang et la valeur de $u_n$ correspondante.",
+            type: "open",
+            modelAnswer: "**Algorithme :**\n\n> $u$ prend la valeur $10$\n> $n$ prend la valeur $0$\n> tant que $u \\leq 100$ faire :\n> $\\quad$ $u$ prend la valeur $u+6$\n> $\\quad$ $n$ prend la valeur $n+1$\n> fin tant que\n> afficher $n$ et $u$\n\n**Exécution pas à pas** (valeurs de $u$ pour $n=0,1,2,...$) :\n\n$10,16,22,28,34,40,46,52,58,64,70,76,82,88,94,100,106$\n\nTant que $u\\leq100$ (donc jusqu'à $u=100$ inclus, au rang $n=15$), on continue. Au tour suivant, $u=106$ et $n=16$ : la condition $106\\leq100$ est fausse, la boucle s'arrête.\n\n$$\\boxed{\\text{Premier rang } n=16, \\text{ avec } u_{16}=106>100}$$\n\n**Vérification par la formule :** $u_n=10+6n$. On résout $10+6n>100 \\implies 6n>90 \\implies n>15$, donc le premier rang entier est $n=16$, et $u_{16}=10+6\\times16=106$ ✓.",
+            explanation: "On simule l'exécution de la boucle tour par tour jusqu'à ce que la condition $u\\leq100$ devienne fausse, puis on confirme le résultat en résolvant l'inéquation associée à la formule explicite de la suite arithmétique.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+
   // 3ème — Révisions générales
   {
     id: "rev3-id",
@@ -9917,7 +13061,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e6",
             question: "Résous l'inéquation $4x + 3 \\leqslant 19$ et représente la solution sur une droite graduée (décris-la).",
             type: "open",
-            modelAnswer: "$$4x+3 \\leqslant 19$$\\n\\n$$4x \\leqslant 16$$\\n\\n$$x \\leqslant 4$$\\n\\nSur une droite graduée, on représente cette solution par une demi-droite partant de $4$ (point plein car $\\leqslant$) et allant vers $-\\infty$.\\n\\n$$\\boxed{x \\leqslant 4}$$",
+            modelAnswer: "$$4x+3 \\leqslant 19$$\n\n$$4x \\leqslant 16$$\n\n$$x \\leqslant 4$$\n\nSur une droite graduée, on représente cette solution par une demi-droite partant de $4$ (point plein car $\\leqslant$) et allant vers $-\\infty$.\n\n$$\\boxed{x \\leqslant 4}$$",
             explanation: "On résout l'inéquation comme une équation (le sens de l'inégalité ne change pas car on divise par un nombre positif), puis on représente la solution comme un intervalle sur la droite numérique.",
             difficulty: "intermediaire",
           },
@@ -9925,7 +13069,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e7",
             question: "Simplifie $\\sqrt{75}$ en faisant apparaître le plus grand carré parfait possible.",
             type: "open",
-            modelAnswer: "$$75 = 25 \\times 3$$\\n\\n$$\\sqrt{75} = \\sqrt{25\\times3} = \\sqrt{25}\\times\\sqrt{3} = 5\\sqrt{3}$$\\n\\n$$\\boxed{5\\sqrt{3}}$$",
+            modelAnswer: "$$75 = 25 \\times 3$$\n\n$$\\sqrt{75} = \\sqrt{25\\times3} = \\sqrt{25}\\times\\sqrt{3} = 5\\sqrt{3}$$\n\n$$\\boxed{5\\sqrt{3}}$$",
             explanation: "On cherche le plus grand carré parfait diviseur de $75$ (ici $25$), puis on utilise la propriété $\\sqrt{a\\times b}=\\sqrt{a}\\times\\sqrt{b}$.",
             difficulty: "intermediaire",
           },
@@ -9933,7 +13077,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e8",
             question: "Dans un triangle $ABC$, les points $M$ et $N$ sont situés respectivement sur $[AB]$ et $[AC]$ tels que $(MN) \\parallel (BC)$, avec $AM=4$, $AB=10$ et $AC=15$. Calcule $AN$.",
             type: "open",
-            modelAnswer: "D'après le théorème de Thalès :\\n\\n$$\\dfrac{AM}{AB} = \\dfrac{AN}{AC}$$\\n\\n$$\\dfrac{4}{10} = \\dfrac{AN}{15}$$\\n\\n$$AN = \\dfrac{4\\times15}{10} = \\dfrac{60}{10} = 6$$\\n\\n$$\\boxed{AN = 6}$$",
+            modelAnswer: "D'après le théorème de Thalès :\n\n$$\\dfrac{AM}{AB} = \\dfrac{AN}{AC}$$\n\n$$\\dfrac{4}{10} = \\dfrac{AN}{15}$$\n\n$$AN = \\dfrac{4\\times15}{10} = \\dfrac{60}{10} = 6$$\n\n$$\\boxed{AN = 6}$$",
             explanation: "Le théorème de Thalès permet d'établir des rapports égaux entre les longueurs des côtés de deux triangles formés par des droites parallèles.",
             difficulty: "intermediaire",
           },
@@ -9941,7 +13085,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e9",
             question: "Dans un triangle rectangle, l'angle aigu mesure $\\theta$, le côté adjacent mesure $7$ cm et l'hypoténuse mesure $14$ cm. Calcule $\\theta$ (au degré près).",
             type: "open",
-            modelAnswer: "$$\\cos(\\theta) = \\dfrac{\\text{adjacent}}{\\text{hypoténuse}} = \\dfrac{7}{14} = 0{,}5$$\\n\\n$$\\theta = \\cos^{-1}(0{,}5) = 60°$$\\n\\n$$\\boxed{\\theta = 60°}$$",
+            modelAnswer: "$$\\cos(\\theta) = \\dfrac{\\text{adjacent}}{\\text{hypoténuse}} = \\dfrac{7}{14} = 0{,}5$$\n\n$$\\theta = \\cos^{-1}(0{,}5) = 60°$$\n\n$$\\boxed{\\theta = 60°}$$",
             explanation: "On utilise le cosinus car on connaît le côté adjacent et l'hypoténuse, puis on applique la fonction réciproque $\\cos^{-1}$ pour retrouver l'angle.",
             difficulty: "intermediaire",
           },
@@ -9949,7 +13093,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e10",
             question: "On tire une carte dans un jeu de $32$ cartes (8 cartes par couleur : pique, cœur, carreau, trèfle). Quelle est la probabilité de tirer un cœur ou un roi ?",
             type: "open",
-            modelAnswer: "$P(\\text{cœur}) = \\dfrac{8}{32}$. Il y a $4$ rois (un par couleur), donc $P(\\text{roi}) = \\dfrac{4}{32}$.\\n\\nLe roi de cœur est compté dans les deux : il faut le soustraire une fois pour ne pas le compter deux fois.\\n\\n$$P(\\text{cœur ou roi}) = \\dfrac{8}{32}+\\dfrac{4}{32}-\\dfrac{1}{32} = \\dfrac{11}{32}$$\\n\\n$$\\boxed{P = \\dfrac{11}{32}}$$",
+            modelAnswer: "$P(\\text{cœur}) = \\dfrac{8}{32}$. Il y a $4$ rois (un par couleur), donc $P(\\text{roi}) = \\dfrac{4}{32}$.\n\nLe roi de cœur est compté dans les deux : il faut le soustraire une fois pour ne pas le compter deux fois.\n\n$$P(\\text{cœur ou roi}) = \\dfrac{8}{32}+\\dfrac{4}{32}-\\dfrac{1}{32} = \\dfrac{11}{32}$$\n\n$$\\boxed{P = \\dfrac{11}{32}}$$",
             explanation: "Quand deux événements peuvent se produire en même temps (ici, le roi de cœur), on additionne leurs probabilités puis on soustrait la probabilité de leur intersection pour éviter de compter deux fois.",
             difficulty: "intermediaire",
           },
@@ -9957,7 +13101,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e11",
             question: "Un triangle $ABC$ est rectangle en $A$ avec $AB=6$ cm et l'angle $\\widehat{ABC}=40°$. Calcule $AC$ et $BC$ au dixième de cm près.",
             type: "open",
-            modelAnswer: "$AC$ est opposé à l'angle $\\widehat{ABC}$, $AB$ est adjacent : on utilise la tangente.\\n\\n$$\\tan(40°) = \\dfrac{AC}{AB} \\implies AC = AB \\times \\tan(40°) = 6 \\times \\tan(40°) \\approx 6 \\times 0{,}839 \\approx 5{,}0 \\text{ cm}$$\\n\\nPour $BC$ (hypoténuse), on utilise le cosinus :\\n\\n$$\\cos(40°) = \\dfrac{AB}{BC} \\implies BC = \\dfrac{AB}{\\cos(40°)} = \\dfrac{6}{\\cos(40°)} \\approx \\dfrac{6}{0{,}766} \\approx 7{,}8 \\text{ cm}$$\\n\\n$$\\boxed{AC \\approx 5{,}0 \\text{ cm}, \\quad BC \\approx 7{,}8 \\text{ cm}}$$",
+            modelAnswer: "$AC$ est opposé à l'angle $\\widehat{ABC}$, $AB$ est adjacent : on utilise la tangente.\n\n$$\\tan(40°) = \\dfrac{AC}{AB} \\implies AC = AB \\times \\tan(40°) = 6 \\times \\tan(40°) \\approx 6 \\times 0{,}839 \\approx 5{,}0 \\text{ cm}$$\n\nPour $BC$ (hypoténuse), on utilise le cosinus :\n\n$$\\cos(40°) = \\dfrac{AB}{BC} \\implies BC = \\dfrac{AB}{\\cos(40°)} = \\dfrac{6}{\\cos(40°)} \\approx \\dfrac{6}{0{,}766} \\approx 7{,}8 \\text{ cm}$$\n\n$$\\boxed{AC \\approx 5{,}0 \\text{ cm}, \\quad BC \\approx 7{,}8 \\text{ cm}}$$",
             explanation: "On choisit la fonction trigonométrique adaptée selon les côtés connus et recherchés : tangente pour relier les deux côtés non-hypoténuse, cosinus ou sinus pour relier un côté à l'hypoténuse.",
             difficulty: "expert",
           },
@@ -9965,7 +13109,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e12",
             question: "Soit $f(x) = 3x - 2$ et $g(x) = -x + 6$ deux fonctions affines. Détermine les coordonnées du point d'intersection de leurs représentations graphiques.",
             type: "open",
-            modelAnswer: "On cherche $x$ tel que $f(x)=g(x)$ :\\n\\n$$3x-2 = -x+6$$\\n\\n$$3x+x = 6+2$$\\n\\n$$4x=8 \\implies x=2$$\\n\\nOn calcule alors $y$ : $f(2) = 3\\times2-2=4$.\\n\\nLe point d'intersection est $(2;4)$.\\n\\n$$\\boxed{(2;4)}$$",
+            modelAnswer: "On cherche $x$ tel que $f(x)=g(x)$ :\n\n$$3x-2 = -x+6$$\n\n$$3x+x = 6+2$$\n\n$$4x=8 \\implies x=2$$\n\nOn calcule alors $y$ : $f(2) = 3\\times2-2=4$.\n\nLe point d'intersection est $(2;4)$.\n\n$$\\boxed{(2;4)}$$",
             explanation: "Le point d'intersection de deux droites est le point dont les coordonnées vérifient les deux équations simultanément ; on résout donc $f(x)=g(x)$.",
             difficulty: "expert",
           },
@@ -9973,7 +13117,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e13",
             question: "Une sphère de rayon $R=15$ cm est coupée par un plan situé à $9$ cm du centre. Calcule l'aire du disque de section.",
             type: "open",
-            modelAnswer: "On calcule d'abord le rayon $r$ du disque de section avec Pythagore : $r^2 = R^2-d^2 = 15^2-9^2=225-81=144 \\implies r=12$ cm.\\n\\nAire du disque : $\\mathcal{A} = \\pi r^2 = \\pi \\times 144 = 144\\pi \\text{ cm}^2$.\\n\\n$$\\boxed{\\mathcal{A} = 144\\pi \\text{ cm}^2 \\approx 452{,}4 \\text{ cm}^2}$$",
+            modelAnswer: "On calcule d'abord le rayon $r$ du disque de section avec Pythagore : $r^2 = R^2-d^2 = 15^2-9^2=225-81=144 \\implies r=12$ cm.\n\nAire du disque : $\\mathcal{A} = \\pi r^2 = \\pi \\times 144 = 144\\pi \\text{ cm}^2$.\n\n$$\\boxed{\\mathcal{A} = 144\\pi \\text{ cm}^2 \\approx 452{,}4 \\text{ cm}^2}$$",
             explanation: "On combine le théorème de Pythagore (pour trouver le rayon du disque de section à partir du rayon de la sphère et de la distance au centre) avec la formule de l'aire du disque.",
             difficulty: "expert",
           },
@@ -9981,7 +13125,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e14",
             question: "Démontre que pour tout nombre $x$, $(x+3)^2 - (x-3)^2 = 12x$.",
             type: "open",
-            modelAnswer: "On développe chaque carré :\\n\\n$$(x+3)^2 = x^2+6x+9$$\\n\\n$$(x-3)^2 = x^2-6x+9$$\\n\\nOn soustrait :\\n\\n$$(x+3)^2-(x-3)^2 = (x^2+6x+9)-(x^2-6x+9) = x^2+6x+9-x^2+6x-9 = 12x$$\\n\\n$$\\boxed{(x+3)^2-(x-3)^2 = 12x \\text{, ce qui est l'égalité demandée}}$$",
+            modelAnswer: "On développe chaque carré :\n\n$$(x+3)^2 = x^2+6x+9$$\n\n$$(x-3)^2 = x^2-6x+9$$\n\nOn soustrait :\n\n$$(x+3)^2-(x-3)^2 = (x^2+6x+9)-(x^2-6x+9) = x^2+6x+9-x^2+6x-9 = 12x$$\n\n$$\\boxed{(x+3)^2-(x-3)^2 = 12x \\text{, ce qui est l'égalité demandée}}$$",
             explanation: "On développe les deux identités remarquables séparément avant de soustraire, en faisant bien attention à distribuer le signe « moins » sur tous les termes du second développement.",
             difficulty: "expert",
           },
@@ -9989,7 +13133,7 @@ Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté prog
             id: "rev3-l1-e15",
             question: "Un magasin vend des tee-shirts à un prix qui dépend de la quantité : $f(x) = 8x$ si $x \\leqslant 10$ (où $x$ est le nombre de tee-shirts), et $f(x) = 6x + 20$ si $x > 10$ (tarif dégressif). Pour quelle quantité $x$ (avec $x>10$) les deux tarifs seraient-ils égaux si on les comparait au même prix ? Résous $8x = 6x+20$ et vérifie la cohérence du résultat avec la condition $x>10$.",
             type: "open",
-            modelAnswer: "On résout $8x = 6x+20$ :\\n\\n$$8x-6x=20$$\\n\\n$$2x=20 \\implies x=10$$\\n\\nOn trouve $x=10$, qui correspond exactement à la limite entre les deux tarifs (et non strictement $x>10$). Cela signifie que les deux formules coïncident précisément à $x=10$ tee-shirts, ce qui est cohérent : c'est le seuil de changement de tarif. Pour $x>10$, le tarif dégressif $f(x)=6x+20$ devient progressivement plus avantageux que $8x$.\\n\\n$$\\boxed{x=10 \\text{ : c'est exactement le seuil de changement de tarif}}$$",
+            modelAnswer: "On résout $8x = 6x+20$ :\n\n$$8x-6x=20$$\n\n$$2x=20 \\implies x=10$$\n\nOn trouve $x=10$, qui correspond exactement à la limite entre les deux tarifs (et non strictement $x>10$). Cela signifie que les deux formules coïncident précisément à $x=10$ tee-shirts, ce qui est cohérent : c'est le seuil de changement de tarif. Pour $x>10$, le tarif dégressif $f(x)=6x+20$ devient progressivement plus avantageux que $8x$.\n\n$$\\boxed{x=10 \\text{ : c'est exactement le seuil de changement de tarif}}$$",
             explanation: "Ce problème teste la capacité à résoudre une équation issue d'une situation concrète à tarifs multiples, et à interpréter le résultat par rapport au domaine de validité de chaque formule.",
             difficulty: "expert",
           },
@@ -10108,7 +13252,7 @@ $$|x| = \\begin{cases} x & \\text{si } x \\geqslant 0 \\\\ -x & \\text{si } x < 
             id: "nc2-l1-e5",
             question: "Résous l'équation $|x - 3| = 5$ et donne les deux solutions.",
             type: "open",
-            modelAnswer: "$|x-3| = 5$ signifie que la distance entre $x$ et $3$ vaut $5$.\\n\\nCela donne deux cas :\\n\\n$$x - 3 = 5 \\quad \\text{ou} \\quad x - 3 = -5$$\\n\\n$$x = 8 \\quad \\text{ou} \\quad x = -2$$\\n\\n**Vérification :** $|8-3| = |5| = 5$ ✓ et $|-2-3| = |-5| = 5$ ✓\\n\\n$$\\boxed{x = 8 \\text{ ou } x = -2}$$",
+            modelAnswer: "$|x-3| = 5$ signifie que la distance entre $x$ et $3$ vaut $5$.\n\nCela donne deux cas :\n\n$$x - 3 = 5 \\quad \\text{ou} \\quad x - 3 = -5$$\n\n$$x = 8 \\quad \\text{ou} \\quad x = -2$$\n\n**Vérification :** $|8-3| = |5| = 5$ ✓ et $|-2-3| = |-5| = 5$ ✓\n\n$$\\boxed{x = 8 \\text{ ou } x = -2}$$",
             explanation: "Une équation du type $|x-a| = r$ (avec $r > 0$) a toujours deux solutions, situées à distance $r$ de $a$ de part et d'autre.",
             difficulty: "expert",
           },
@@ -10219,7 +13363,7 @@ Ces identités permettent de **développer** une expression factorisée, ou inve
             id: "nc2-l2-e5",
             question: "Simplifie l'écriture $A = \\sqrt{20} + 3\\sqrt{5} - \\sqrt{45}$ pour obtenir un résultat de la forme $k\\sqrt{5}$.",
             type: "open",
-            modelAnswer: "On simplifie chaque racine séparément.\\n\\n$$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$$\\n\\n$$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$$\\n\\nDonc :\\n\\n$$A = 2\\sqrt{5} + 3\\sqrt{5} - 3\\sqrt{5} = (2+3-3)\\sqrt{5} = 2\\sqrt{5}$$\\n\\n$$\\boxed{A = 2\\sqrt{5}}$$",
+            modelAnswer: "On simplifie chaque racine séparément.\n\n$$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$$\n\n$$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$$\n\nDonc :\n\n$$A = 2\\sqrt{5} + 3\\sqrt{5} - 3\\sqrt{5} = (2+3-3)\\sqrt{5} = 2\\sqrt{5}$$\n\n$$\\boxed{A = 2\\sqrt{5}}$$",
             explanation: "On factorise chaque terme par le plus grand carré parfait possible pour obtenir un facteur commun $\\sqrt{5}$, puis on additionne les coefficients comme pour des termes semblables.",
             difficulty: "expert",
           },
@@ -10316,8 +13460,137 @@ Reconnaître la forme $a^2-b^2$, $a^2+2ab+b^2$ ou $a^2-2ab+b^2$ permet de factor
             id: "nc2-l3-e5",
             question: "Factorise complètement l'expression $E = 4x^2 - 9$ puis utilise cette factorisation pour résoudre l'équation $E = 0$.",
             type: "open",
-            modelAnswer: "On reconnaît une différence de carrés :\\n\\n$$E = 4x^2-9 = (2x)^2 - 3^2 = (2x-3)(2x+3)$$\\n\\nPour résoudre $E=0$, on utilise le fait qu'un produit est nul si et seulement si l'un des facteurs est nul :\\n\\n$$(2x-3)(2x+3) = 0 \\implies 2x-3=0 \\quad \\text{ou} \\quad 2x+3=0$$\\n\\n$$x = \\dfrac{3}{2} \\quad \\text{ou} \\quad x = -\\dfrac{3}{2}$$\\n\\n$$\\boxed{E = (2x-3)(2x+3) \\quad ; \\quad x = \\dfrac{3}{2} \\text{ ou } x=-\\dfrac{3}{2}}$$",
+            modelAnswer: "On reconnaît une différence de carrés :\n\n$$E = 4x^2-9 = (2x)^2 - 3^2 = (2x-3)(2x+3)$$\n\nPour résoudre $E=0$, on utilise le fait qu'un produit est nul si et seulement si l'un des facteurs est nul :\n\n$$(2x-3)(2x+3) = 0 \\implies 2x-3=0 \\quad \\text{ou} \\quad 2x+3=0$$\n\n$$x = \\dfrac{3}{2} \\quad \\text{ou} \\quad x = -\\dfrac{3}{2}$$\n\n$$\\boxed{E = (2x-3)(2x+3) \\quad ; \\quad x = \\dfrac{3}{2} \\text{ ou } x=-\\dfrac{3}{2}}$$",
             explanation: "La factorisation transforme l'équation en un produit de facteurs : on utilise alors la propriété du produit nul, fondamentale en algèbre.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "nc2-l4",
+        slug: "intervalles-de-nombres-reels",
+        title: "Intervalles de nombres réels",
+        durationMinutes: 18,
+        content: `## Qu'est-ce qu'un intervalle ?
+
+Un **intervalle** est un sous-ensemble de $\\mathbb{R}$ formé de tous les nombres réels compris entre deux bornes (ou allant jusqu'à l'infini).
+
+### Les différents types d'intervalles
+
+| Notation | Description | Exemple représenté |
+|---|---|---|
+| $[a;b]$ | bornes **incluses** ($a$ et $b$ en font partie) | $x$ tel que $a \\leqslant x \\leqslant b$ |
+| $]a;b[$ | bornes **exclues** | $x$ tel que $a < x < b$ |
+| $[a;b[$ | $a$ inclus, $b$ exclu | $x$ tel que $a \\leqslant x < b$ |
+| $]a;b]$ | $a$ exclu, $b$ inclus | $x$ tel que $a < x \\leqslant b$ |
+| $[a;+\\infty[$ | tous les réels $\\geqslant a$ | $x$ tel que $x \\geqslant a$ |
+| $]-\\infty;a]$ | tous les réels $\\leqslant a$ | $x$ tel que $x \\leqslant a$ |
+| $]-\\infty;+\\infty[$ | $\\mathbb{R}$ tout entier | tous les réels |
+
+> **Remarque :** $+\\infty$ et $-\\infty$ ne sont pas des nombres réels : un crochet à côté de l'infini est **toujours ouvert**, c'est-à-dire $]$ ou $[$ tourné « vers l'extérieur ».
+
+### Représentation sur une droite numérique
+
+On représente un intervalle par un trait épais entre les deux bornes :
+- un **point plein (ou crochet fermé)** indique que la borne est **incluse** ;
+- un **point vide (ou crochet ouvert)** indique que la borne est **exclue**.
+
+**Exemple :** $[-2;3[$ se représente par un trait de $-2$ (point plein) à $3$ (point vide).
+
+## Union et intersection d'intervalles
+
+- L'**intersection** $I \\cap J$ contient les réels qui appartiennent **à la fois** à $I$ et à $J$.
+- La **réunion** $I \\cup J$ contient les réels qui appartiennent **à $I$ ou à $J$** (ou aux deux).
+
+> 📌 **Méthode :** pour déterminer $I \\cap J$ ou $I \\cup J$, il est très utile de placer les deux intervalles sur une même droite numérique, l'un sous l'autre, pour visualiser les parties communes.
+
+**Exemple :** soit $I = [-1;4]$ et $J = [2;7]$.
+- $I \\cap J = [2;4]$ (la partie commune, entre $2$ et $4$).
+- $I \\cup J = [-1;7]$ (car les deux intervalles se chevauchent, on peut les réunir en un seul intervalle continu).
+
+**Exemple (intervalles disjoints) :** soit $I = [0;2]$ et $J = [5;8]$. Comme $I$ et $J$ n'ont aucun réel en commun, $I \\cap J = \\varnothing$ (l'ensemble vide), et $I \\cup J$ ne peut **pas** s'écrire comme un seul intervalle : on le laisse sous la forme $[0;2] \\cup [5;8]$.
+
+## Exemples
+
+### ✅ Exemple simple — Écrire un intervalle
+
+L'ensemble des réels $x$ tels que $-3 < x \\leqslant 5$ s'écrit $]-3;5]$ (borne de gauche exclue, borne de droite incluse).
+
+### 📘 Exemple intermédiaire — Intersection de deux intervalles
+
+Soit $I = ]-\\infty;4]$ et $J = [-2;+\\infty[$. Alors $I \\cap J = [-2;4]$ : ce sont les réels à la fois $\\leqslant 4$ et $\\geqslant -2$.
+
+### 🔴 Exemple avancé — Réunion de deux intervalles disjoints
+
+Soit $I = [1;3[$ et $J = ]3;6]$. Le réel $3$ n'appartient ni à $I$ ni à $J$ (il est exclu des deux côtés). Donc $I \\cup J = [1;3[\\,\\cup\\,]3;6]$, qui n'est **pas** un intervalle unique car le point $3$ « manque » : on ne peut pas le simplifier en $[1;6]$.
+
+## À retenir
+
+- Un crochet **fermé** ($[$ ou $]$ tourné vers l'intérieur) signifie que la borne est **incluse**.
+- Un crochet **ouvert** signifie que la borne est **exclue** ; les bornes infinies sont toujours notées avec un crochet ouvert.
+- $I \\cap J$ : ce qui est **commun** aux deux intervalles. $I \\cup J$ : ce qui appartient à **l'un ou l'autre**.
+- Toujours représenter les intervalles sur une droite numérique pour visualiser une union ou une intersection.`,
+        exercises: [
+          {
+            id: "nc2-l4-e1",
+            question: "Comment s'écrit l'ensemble des réels $x$ tels que $2 \\leqslant x < 9$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[2;9[$" },
+              { id: "B", text: "$]2;9]$" },
+              { id: "C", text: "$[2;9]$" },
+              { id: "D", text: "$]2;9[$" },
+            ],
+            correctId: "A",
+            explanation: "La borne $2$ est incluse (crochet fermé $[$) car $\\leqslant$, et la borne $9$ est exclue (crochet ouvert $[$) car $<$. On obtient $[2;9[$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "nc2-l4-e2",
+            question: "L'intervalle $]-\\infty;5]$ contient le nombre $5$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Le crochet $]$ devant $5$ est fermé (tourné vers l'intérieur), donc $5$ est inclus dans l'intervalle $]-\\infty;5]$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "nc2-l4-e3",
+            question: "Soit $I = [-5;2]$ et $J = [0;8]$. Que vaut $I \\cap J$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[0;2]$" },
+              { id: "B", text: "$[-5;8]$" },
+              { id: "C", text: "$[-5;0]$" },
+              { id: "D", text: "$\\varnothing$" },
+            ],
+            correctId: "A",
+            explanation: "L'intersection contient les réels communs aux deux intervalles : ceux qui sont à la fois $\\geqslant -5$, $\\leqslant 2$, $\\geqslant 0$ et $\\leqslant 8$, soit $[0;2]$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "nc2-l4-e4",
+            question: "Soit $I = ]-\\infty;-1[$ et $J = [-1;+\\infty[$. Que vaut $I \\cup J$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\mathbb{R}$" },
+              { id: "B", text: "$\\varnothing$" },
+              { id: "C", text: "$\\{-1\\}$" },
+              { id: "D", text: "$]-\\infty;+\\infty[$ sauf $-1$" },
+            ],
+            correctId: "A",
+            explanation: "$I$ contient tous les réels strictement inférieurs à $-1$, et $J$ contient tous les réels supérieurs ou égaux à $-1$. Ensemble, ils couvrent tout $\\mathbb{R}$, donc $I \\cup J = \\mathbb{R} = ]-\\infty;+\\infty[$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "nc2-l4-e5",
+            question: "Soit $I = [-4;3[$ et $J = ]1;6]$. Détermine $I \\cap J$ et $I \\cup J$, en justifiant.",
+            type: "open",
+            modelAnswer: "On place les deux intervalles sur une droite numérique.\n\n$I = [-4;3[$ : de $-4$ (inclus) à $3$ (exclu).\n\n$J = ]1;6]$ : de $1$ (exclu) à $6$ (inclus).\n\n**Intersection :** la partie commune va de $1$ (exclu, car exclu de $J$) à $3$ (exclu, car exclu de $I$).\n\n$$I \\cap J = ]1;3[$$\n\n**Réunion :** comme les deux intervalles se chevauchent (entre $1$ et $3$), on peut les réunir en un seul intervalle continu allant de $-4$ (inclus, borne la plus à gauche) à $6$ (inclus, borne la plus à droite).\n\n$$I \\cup J = [-4;6]$$\n\n$$\\boxed{I \\cap J = ]1;3[ \\quad ; \\quad I \\cup J = [-4;6]}$$",
+            explanation: "On compare les bornes des deux intervalles sur une droite numérique : l'intersection garde la borne de gauche la plus grande et la borne de droite la plus petite (avec leur statut ouvert/fermé d'origine) ; la réunion, quand les intervalles se chevauchent, garde la borne de gauche la plus petite et la borne de droite la plus grande.",
             difficulty: "expert",
           },
         ],
@@ -10430,7 +13703,7 @@ On pose $x$ le nombre cherché : $x + 2x = 21 \\implies 3x=21 \\implies x=7$.`,
             id: "eqi2-l1-e5",
             question: "La somme de trois entiers consécutifs vaut $72$. Détermine ces trois entiers en mettant le problème en équation.",
             type: "open",
-            modelAnswer: "On note $x$ le plus petit des trois entiers consécutifs. Les trois entiers s'écrivent alors $x$, $x+1$ et $x+2$.\\n\\nLeur somme vaut $72$ :\\n\\n$$x + (x+1) + (x+2) = 72$$\\n\\n$$3x + 3 = 72$$\\n\\n$$3x = 69$$\\n\\n$$x = 23$$\\n\\nLes trois entiers consécutifs sont donc $23$, $24$ et $25$.\\n\\n**Vérification :** $23+24+25 = 72$ ✓\\n\\n$$\\boxed{23,\\ 24,\\ 25}$$",
+            modelAnswer: "On note $x$ le plus petit des trois entiers consécutifs. Les trois entiers s'écrivent alors $x$, $x+1$ et $x+2$.\n\nLeur somme vaut $72$ :\n\n$$x + (x+1) + (x+2) = 72$$\n\n$$3x + 3 = 72$$\n\n$$3x = 69$$\n\n$$x = 23$$\n\nLes trois entiers consécutifs sont donc $23$, $24$ et $25$.\n\n**Vérification :** $23+24+25 = 72$ ✓\n\n$$\\boxed{23,\\ 24,\\ 25}$$",
             explanation: "La méthode consiste à nommer l'inconnue (ici le plus petit entier), traduire l'énoncé en équation, résoudre, puis vérifier la cohérence du résultat avec le contexte.",
             difficulty: "expert",
           },
@@ -10530,7 +13803,7 @@ Pour $x \\leqslant 5$, on utilise un **crochet fermé** (ou un rond plein) en $5
             id: "eqi2-l2-e5",
             question: "Résous l'inéquation $5(x-1) \\geqslant 3x + 7$ et écris la solution sous forme d'intervalle.",
             type: "open",
-            modelAnswer: "On développe le membre de gauche :\\n\\n$$5x - 5 \\geqslant 3x+7$$\\n\\nOn regroupe les termes en $x$ à gauche et les nombres à droite :\\n\\n$$5x-3x \\geqslant 7+5$$\\n\\n$$2x \\geqslant 12$$\\n\\nOn divise par $2$ (positif), le sens ne change pas :\\n\\n$$x \\geqslant 6$$\\n\\n$$\\boxed{x \\in [6\\ ;\\ +\\infty[}$$",
+            modelAnswer: "On développe le membre de gauche :\n\n$$5x - 5 \\geqslant 3x+7$$\n\nOn regroupe les termes en $x$ à gauche et les nombres à droite :\n\n$$5x-3x \\geqslant 7+5$$\n\n$$2x \\geqslant 12$$\n\nOn divise par $2$ (positif), le sens ne change pas :\n\n$$x \\geqslant 6$$\n\n$$\\boxed{x \\in [6\\ ;\\ +\\infty[}$$",
             explanation: "On développe, on regroupe les termes, puis on divise par le coefficient de $x$ en faisant attention au signe de ce coefficient.",
             difficulty: "expert",
           },
@@ -10637,7 +13910,7 @@ On remplace dans la deuxième équation : $2x-3=4 \\implies x=3{,}5$.
             id: "eqi2-l3-e5",
             question: "Deux places de cinéma et trois places de théâtre coûtent $58$ €. Trois places de cinéma et une place de théâtre coûtent $52$ €. Détermine le prix d'une place de cinéma et d'une place de théâtre en mettant le problème en système.",
             type: "open",
-            modelAnswer: "On note $x$ le prix d'une place de cinéma et $y$ le prix d'une place de théâtre (en euros). L'énoncé se traduit par le système :\\n\\n$$\\begin{cases} 2x+3y=58 \\\\ 3x+y=52 \\end{cases}$$\\n\\nOn utilise la combinaison linéaire : on multiplie la deuxième équation par $3$ pour aligner les coefficients de $y$ avec ceux de la première (en multipliant aussi la première par $1$) — plus simple : on exprime $y$ à partir de la deuxième équation.\\n\\n$$y = 52-3x$$\\n\\nOn substitue dans la première équation :\\n\\n$$2x+3(52-3x)=58$$\\n\\n$$2x+156-9x=58$$\\n\\n$$-7x = 58-156 = -98$$\\n\\n$$x = 14$$\\n\\nOn calcule $y$ : $y = 52-3\\times14 = 52-42=10$.\\n\\n**Vérification :** $2\\times14+3\\times10 = 28+30=58$ ✓ et $3\\times14+10=42+10=52$ ✓\\n\\n$$\\boxed{\\text{Place de cinéma : } 14\\text{ € ; place de théâtre : } 10\\text{ €}}$$",
+            modelAnswer: "On note $x$ le prix d'une place de cinéma et $y$ le prix d'une place de théâtre (en euros). L'énoncé se traduit par le système :\n\n$$\\begin{cases} 2x+3y=58 \\\\ 3x+y=52 \\end{cases}$$\n\nOn utilise la combinaison linéaire : on multiplie la deuxième équation par $3$ pour aligner les coefficients de $y$ avec ceux de la première (en multipliant aussi la première par $1$) — plus simple : on exprime $y$ à partir de la deuxième équation.\n\n$$y = 52-3x$$\n\nOn substitue dans la première équation :\n\n$$2x+3(52-3x)=58$$\n\n$$2x+156-9x=58$$\n\n$$-7x = 58-156 = -98$$\n\n$$x = 14$$\n\nOn calcule $y$ : $y = 52-3\\times14 = 52-42=10$.\n\n**Vérification :** $2\\times14+3\\times10 = 28+30=58$ ✓ et $3\\times14+10=42+10=52$ ✓\n\n$$\\boxed{\\text{Place de cinéma : } 14\\text{ € ; place de théâtre : } 10\\text{ €}}$$",
             explanation: "On nomme les deux inconnues, on traduit chaque phrase de l'énoncé par une équation, puis on résout le système par substitution en vérifiant le résultat dans les deux équations d'origine.",
             difficulty: "expert",
           },
@@ -10748,7 +14021,7 @@ La **courbe représentative** $\\mathcal{C}_f$ d'une fonction $f$ est l'ensemble
             id: "fge2-l1-e5",
             question: "Soit $f(x) = \\dfrac{2x-1}{x-3}$. Détermine l'ensemble de définition $D_f$, puis calcule $f(1)$ et trouve l'antécédent de $5$ par $f$.",
             type: "open",
-            modelAnswer: "**Ensemble de définition :** il faut que le dénominateur soit non nul.\\n\\n$$x - 3 \\neq 0 \\implies x \\neq 3$$\\n\\nDonc $D_f = \\mathbb{R}\\setminus\\{3\\}$.\\n\\n**Calcul de $f(1)$ :**\\n\\n$$f(1) = \\dfrac{2\\times1-1}{1-3} = \\dfrac{1}{-2} = -\\dfrac{1}{2}$$\\n\\n**Antécédent de $5$ :** on résout $f(x)=5$.\\n\\n$$\\dfrac{2x-1}{x-3}=5 \\implies 2x-1=5(x-3) \\implies 2x-1=5x-15$$\\n\\n$$14=3x \\implies x=\\dfrac{14}{3}$$\\n\\n$$\\boxed{D_f=\\mathbb{R}\\setminus\\{3\\}\\ ;\\ f(1)=-\\dfrac{1}{2}\\ ;\\ \\text{antécédent de } 5 : x=\\dfrac{14}{3}}$$",
+            modelAnswer: "**Ensemble de définition :** il faut que le dénominateur soit non nul.\n\n$$x - 3 \\neq 0 \\implies x \\neq 3$$\n\nDonc $D_f = \\mathbb{R}\\setminus\\{3\\}$.\n\n**Calcul de $f(1)$ :**\n\n$$f(1) = \\dfrac{2\\times1-1}{1-3} = \\dfrac{1}{-2} = -\\dfrac{1}{2}$$\n\n**Antécédent de $5$ :** on résout $f(x)=5$.\n\n$$\\dfrac{2x-1}{x-3}=5 \\implies 2x-1=5(x-3) \\implies 2x-1=5x-15$$\n\n$$14=3x \\implies x=\\dfrac{14}{3}$$\n\n$$\\boxed{D_f=\\mathbb{R}\\setminus\\{3\\}\\ ;\\ f(1)=-\\dfrac{1}{2}\\ ;\\ \\text{antécédent de } 5 : x=\\dfrac{14}{3}}$$",
             explanation: "On détermine d'abord les valeurs interdites pour l'ensemble de définition, puis on distingue le calcul d'une image (substitution directe) de la recherche d'un antécédent (résolution d'équation).",
             difficulty: "expert",
           },
@@ -10836,7 +14109,7 @@ Pour résoudre $f(x) \\leqslant g(x)$ graphiquement, on cherche les abscisses de
             id: "fge2-l2-e5",
             question: "Une courbe $\\mathcal{C}_f$ passe par les points $A(-2\\ ;\\ 4)$, $B(0\\ ;\\ 0)$ et $C(2\\ ;\\ 4)$, avec $f$ définie sur $[-2\\ ;\\ 2]$. Donne, en justifiant à partir de ces informations, l'image de $-2$ par $f$ et un antécédent de $4$.",
             type: "open",
-            modelAnswer: "Le point $A(-2\\ ;\\ 4)$ appartient à $\\mathcal{C}_f$, ce qui signifie par définition que $f(-2) = 4$.\\n\\nL'image de $-2$ par $f$ est donc $4$.\\n\\nPour un antécédent de $4$ : on cherche un point de la courbe dont l'ordonnée est $4$. On constate que $A(-2\\ ;\\ 4)$ et $C(2\\ ;\\ 4)$ sont tous deux sur la courbe, donc $4$ admet (au moins) deux antécédents : $-2$ et $2$.\\n\\n$$\\boxed{f(-2) = 4 \\quad ; \\quad \\text{antécédents de } 4 \\text{ : } -2 \\text{ et } 2}$$",
+            modelAnswer: "Le point $A(-2\\ ;\\ 4)$ appartient à $\\mathcal{C}_f$, ce qui signifie par définition que $f(-2) = 4$.\n\nL'image de $-2$ par $f$ est donc $4$.\n\nPour un antécédent de $4$ : on cherche un point de la courbe dont l'ordonnée est $4$. On constate que $A(-2\\ ;\\ 4)$ et $C(2\\ ;\\ 4)$ sont tous deux sur la courbe, donc $4$ admet (au moins) deux antécédents : $-2$ et $2$.\n\n$$\\boxed{f(-2) = 4 \\quad ; \\quad \\text{antécédents de } 4 \\text{ : } -2 \\text{ et } 2}$$",
             explanation: "Un point $(a\\ ;\\ b)$ sur la courbe traduit directement $f(a)=b$ : cela permet de lire à la fois des images et des antécédents directement à partir des coordonnées des points connus.",
             difficulty: "expert",
           },
@@ -10931,7 +14204,7 @@ Dans le tableau de variations, le maximum ou minimum local correspond à la vale
             id: "fge2-l3-e5",
             question: "Une fonction $f$ est définie sur $[-4\\ ;\\ 6]$. Elle est croissante sur $[-4\\ ;\\ -1]$, décroissante sur $[-1\\ ;\\ 3]$, puis croissante sur $[3\\ ;\\ 6]$. On donne $f(-4)=-2$, $f(-1)=5$, $f(3)=1$ et $f(6)=4$. Dresse le tableau de variations de $f$ et donne le maximum de $f$ sur $[-4\\ ;\\ 6]$.",
             type: "open",
-            modelAnswer: "On construit le tableau de variations en indiquant les flèches successives et les valeurs connues :\\n\\n| $x$ | $-4$ | | $-1$ | | $3$ | | $6$ |\\n|---|---|---|---|---|---|---|---|\\n| Variations de $f$ | $-2$ | ↗ | $5$ | ↘ | $1$ | ↗ | $4$ |\\n\\nLes valeurs prises par $f$ sur l'intervalle sont donc comprises entre $-2$ (minimum local en $x=-4$) et $5$.\\n\\nLa plus grande valeur atteinte est $f(-1)=5$, qui correspond à un sommet de la courbe (changement de croissant à décroissant).\\n\\nEn comparant toutes les valeurs clés ($-2,\\ 5,\\ 1,\\ 4$), le maximum de $f$ sur $[-4\\ ;\\ 6]$ est bien $5$.\\n\\n$$\\boxed{\\text{Maximum de } f \\text{ sur } [-4\\ ;\\ 6] : 5, \\text{ atteint en } x=-1}$$",
+            modelAnswer: "On construit le tableau de variations en indiquant les flèches successives et les valeurs connues :\n\n| $x$ | $-4$ | | $-1$ | | $3$ | | $6$ |\n|---|---|---|---|---|---|---|---|\n| Variations de $f$ | $-2$ | ↗ | $5$ | ↘ | $1$ | ↗ | $4$ |\n\nLes valeurs prises par $f$ sur l'intervalle sont donc comprises entre $-2$ (minimum local en $x=-4$) et $5$.\n\nLa plus grande valeur atteinte est $f(-1)=5$, qui correspond à un sommet de la courbe (changement de croissant à décroissant).\n\nEn comparant toutes les valeurs clés ($-2,\\ 5,\\ 1,\\ 4$), le maximum de $f$ sur $[-4\\ ;\\ 6]$ est bien $5$.\n\n$$\\boxed{\\text{Maximum de } f \\text{ sur } [-4\\ ;\\ 6] : 5, \\text{ atteint en } x=-1}$$",
             explanation: "Le tableau de variations résume tous les changements de sens de variation. Le maximum global correspond à la plus grande valeur parmi les sommets locaux et les bornes de l'intervalle.",
             difficulty: "expert",
           },
@@ -10947,7 +14220,7 @@ Dans le tableau de variations, le maximum ou minimum local correspond à la vale
     id: "fre2-id",
     slug: "fonctions-de-reference-2nde",
     title: "Fonctions de référence",
-    description: "Étudiez les fonctions affine, carré, inverse et racine carrée : expressions, représentations graphiques et sens de variation.",
+    description: "Étudiez les fonctions affine, carré, cube, inverse et racine carrée : expressions, représentations graphiques et sens de variation.",
     schoolLevel: "2nde",
     subject: "analyse",
     difficulty: "Intermédiaire",
@@ -11048,7 +14321,7 @@ $$a = \\dfrac{f(x_2)-f(x_1)}{x_2-x_1}$$
             id: "fre2-l1-e5",
             question: "Une fonction affine $f$ vérifie $f(2)=1$ et $f(5)=10$. Détermine l'expression de $f(x)=ax+b$, puis calcule $f(0)$.",
             type: "open",
-            modelAnswer: "On calcule le coefficient directeur $a$ :\\n\\n$$a = \\dfrac{f(5)-f(2)}{5-2} = \\dfrac{10-1}{3} = \\dfrac{9}{3} = 3$$\\n\\nOn utilise $f(2)=1$ pour trouver $b$ :\\n\\n$$f(2) = 3\\times2+b = 1 \\implies 6+b=1 \\implies b=-5$$\\n\\nDonc $f(x) = 3x-5$.\\n\\nOn calcule $f(0)$ :\\n\\n$$f(0) = 3\\times0-5 = -5$$\\n\\n$$\\boxed{f(x)=3x-5 \\quad ; \\quad f(0)=-5}$$",
+            modelAnswer: "On calcule le coefficient directeur $a$ :\n\n$$a = \\dfrac{f(5)-f(2)}{5-2} = \\dfrac{10-1}{3} = \\dfrac{9}{3} = 3$$\n\nOn utilise $f(2)=1$ pour trouver $b$ :\n\n$$f(2) = 3\\times2+b = 1 \\implies 6+b=1 \\implies b=-5$$\n\nDonc $f(x) = 3x-5$.\n\nOn calcule $f(0)$ :\n\n$$f(0) = 3\\times0-5 = -5$$\n\n$$\\boxed{f(x)=3x-5 \\quad ; \\quad f(0)=-5}$$",
             explanation: "On détermine $a$ avec le taux de variation entre deux points connus, puis $b$ en substituant dans une des deux égalités ; $f(0)$ correspond directement à l'ordonnée à l'origine $b$.",
             difficulty: "expert",
           },
@@ -11145,7 +14418,7 @@ Sur $[0\\ ;\\ +\\infty[$ en revanche, la fonction carré conserve l'ordre : $0 \
             id: "fre2-l2-e5",
             question: "Range dans l'ordre croissant les images par la fonction carré des nombres $-5$, $2$, $-1$ et $4$.",
             type: "open",
-            modelAnswer: "On calcule chaque image par la fonction carré :\\n\\n$$f(-5) = (-5)^2 = 25$$\\n$$f(2) = 2^2 = 4$$\\n$$f(-1) = (-1)^2 = 1$$\\n$$f(4) = 4^2 = 16$$\\n\\nOn range ces images dans l'ordre croissant :\\n\\n$$1 < 4 < 16 < 25$$\\n\\nce qui correspond à :\\n\\n$$f(-1) < f(2) < f(4) < f(-5)$$\\n\\n$$\\boxed{f(-1) < f(2) < f(4) < f(-5)}$$",
+            modelAnswer: "On calcule chaque image par la fonction carré :\n\n$$f(-5) = (-5)^2 = 25$$\n$$f(2) = 2^2 = 4$$\n$$f(-1) = (-1)^2 = 1$$\n$$f(4) = 4^2 = 16$$\n\nOn range ces images dans l'ordre croissant :\n\n$$1 < 4 < 16 < 25$$\n\nce qui correspond à :\n\n$$f(-1) < f(2) < f(4) < f(-5)$$\n\n$$\\boxed{f(-1) < f(2) < f(4) < f(-5)}$$",
             explanation: "Comme la fonction carré n'est pas monotone sur $\\mathbb{R}$ entier, il faut calculer chaque image séparément avant de pouvoir les comparer, plutôt que de se fier à l'ordre des valeurs de départ.",
             difficulty: "expert",
           },
@@ -11248,8 +14521,125 @@ $$0 \\leqslant a < b \\implies \\sqrt{a} < \\sqrt{b}$$`,
             id: "fre2-l3-e5",
             question: "Compare $\\dfrac{1}{5}$ et $\\dfrac{1}{2}$ en justifiant à l'aide du sens de variation de la fonction inverse, sachant que $5$ et $2$ sont tous deux strictement positifs.",
             type: "open",
-            modelAnswer: "On sait que $2 < 5$, et que $2$ et $5$ sont tous les deux strictement positifs, donc tous les deux dans l'intervalle $]0\\ ;\\ +\\infty[$.\\n\\nSur cet intervalle, la fonction inverse $f(x) = \\dfrac{1}{x}$ est **décroissante**. Or une fonction décroissante inverse l'ordre : si $a < b$ alors $f(a) > f(b)$.\\n\\nAvec $a=2$ et $b=5$ :\\n\\n$$2 < 5 \\implies \\dfrac{1}{2} > \\dfrac{1}{5}$$\\n\\n$$\\boxed{\\dfrac{1}{2} > \\dfrac{1}{5}}$$",
+            modelAnswer: "On sait que $2 < 5$, et que $2$ et $5$ sont tous les deux strictement positifs, donc tous les deux dans l'intervalle $]0\\ ;\\ +\\infty[$.\n\nSur cet intervalle, la fonction inverse $f(x) = \\dfrac{1}{x}$ est **décroissante**. Or une fonction décroissante inverse l'ordre : si $a < b$ alors $f(a) > f(b)$.\n\nAvec $a=2$ et $b=5$ :\n\n$$2 < 5 \\implies \\dfrac{1}{2} > \\dfrac{1}{5}$$\n\n$$\\boxed{\\dfrac{1}{2} > \\dfrac{1}{5}}$$",
             explanation: "Sur $]0\\ ;\\ +\\infty[$, la fonction inverse est décroissante : elle inverse donc l'ordre des nombres comparés, contrairement à une fonction croissante qui le conserve.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "fre2-l4",
+        slug: "fonction-cube",
+        title: "La fonction cube",
+        durationMinutes: 13,
+        content: `## Définition
+
+La fonction **cube** est la fonction $f$ définie sur $\\mathbb{R}$ par :
+
+$$f(x) = x^3$$
+
+## Tableau de valeurs
+
+| $x$ | $-2$ | $-1$ | $0$ | $1$ | $2$ |
+|---|---|---|---|---|---|
+| $f(x)=x^3$ | $-8$ | $-1$ | $0$ | $1$ | $8$ |
+
+## Signe de $x^3$
+
+Le cube d'un nombre a **toujours le même signe** que ce nombre (contrairement au carré, qui est toujours positif) :
+
+- si $x>0$, alors $x^3>0$ ;
+- si $x<0$, alors $x^3<0$ ;
+- si $x=0$, alors $x^3=0$.
+
+## Parité : une fonction impaire
+
+Pour tout réel $x$ :
+
+$$f(-x) = (-x)^3 = -x^3 = -f(x)$$
+
+On dit que la fonction cube est **impaire**. Sa courbe représentative est **symétrique par rapport à l'origine** $O$ du repère : si le point $(x\\ ;\\ x^3)$ appartient à la courbe, alors le point $(-x\\ ;\\ -x^3)$ aussi.
+
+> **Comparaison avec la fonction carré :** la fonction carré $g(x)=x^2$ est **paire** (symétrie par rapport à l'axe des ordonnées), alors que la fonction cube est **impaire** (symétrie par rapport à l'origine).
+
+## Sens de variation
+
+La fonction cube est **strictement croissante sur $\\mathbb{R}$** : elle n'a qu'une seule branche de variation, sur l'ensemble des réels (contrairement à la fonction carré, qui décroît puis croît).
+
+| $x$ | $-\\infty$ | | $+\\infty$ |
+|---|---|---|---|
+| $x^3$ | | croissante | |
+
+**Conséquence :** comme $f$ est strictement croissante sur $\\mathbb{R}$, elle **conserve l'ordre** : si $a<b$ alors $a^3<b^3$.
+
+**Exemple :** comme $-3 < 2$, on a directement $(-3)^3 < 2^3$, c'est-à-dire $-27 < 8$.
+
+## À retenir
+
+- $f(x)=x^3$ est définie sur $\\mathbb{R}$, impaire, et strictement croissante sur $\\mathbb{R}$.
+- Le cube d'un nombre a le même signe que ce nombre.
+- Étant strictement croissante, la fonction cube conserve l'ordre (utile pour comparer des cubes sans calculer).`,
+        exercises: [
+          {
+            id: "fre2-l4-e1",
+            question: "La fonction cube $f(x)=x^3$ est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "strictement croissante sur $\\mathbb{R}$" },
+              { id: "B", text: "strictement décroissante sur $\\mathbb{R}$" },
+              { id: "C", text: "décroissante puis croissante" },
+              { id: "D", text: "constante" },
+            ],
+            correctId: "A",
+            explanation: "La fonction cube est strictement croissante sur $\\mathbb{R}$ tout entier, contrairement à la fonction carré qui change de sens de variation en $0$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "fre2-l4-e2",
+            question: "Quel est le signe de $(-4)^3$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Négatif" },
+              { id: "B", text: "Positif" },
+              { id: "C", text: "Nul" },
+              { id: "D", text: "On ne peut pas savoir" },
+            ],
+            correctId: "A",
+            explanation: "Le cube d'un nombre négatif est négatif : $(-4)^3 = -64$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "fre2-l4-e3",
+            question: "La courbe de la fonction cube est symétrique par rapport à l'origine du repère.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "La fonction cube est impaire ($f(-x)=-f(x)$), ce qui se traduit graphiquement par une symétrie par rapport à l'origine $O$ (et non par rapport à l'axe des ordonnées, qui correspond aux fonctions paires).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "fre2-l4-e4",
+            question: "Sachant que $-1{,}5 < 0{,}5$, que peut-on en déduire pour $(-1{,}5)^3$ et $(0{,}5)^3$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(-1{,}5)^3 < (0{,}5)^3$" },
+              { id: "B", text: "$(-1{,}5)^3 > (0{,}5)^3$" },
+              { id: "C", text: "$(-1{,}5)^3 = (0{,}5)^3$" },
+              { id: "D", text: "On ne peut rien dire" },
+            ],
+            correctId: "A",
+            explanation: "La fonction cube est strictement croissante sur $\\mathbb{R}$, elle conserve donc l'ordre : $-1{,}5 < 0{,}5 \\implies (-1{,}5)^3 < (0{,}5)^3$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "fre2-l4-e5",
+            question: "Compare $(-3)^3$ et $(-5)^3$ en justifiant à l'aide du sens de variation de la fonction cube, sans calculer les puissances.",
+            type: "open",
+            modelAnswer: "On compare d'abord $-5$ et $-3$ : $-5 < -3$.\n\nLa fonction cube $f(x)=x^3$ est strictement croissante sur $\\mathbb{R}$. Une fonction croissante conserve l'ordre : si $a<b$ alors $f(a)<f(b)$.\n\nAvec $a=-5$ et $b=-3$ :\n\n$$-5 < -3 \\implies (-5)^3 < (-3)^3$$\n\n$$\\boxed{(-5)^3 < (-3)^3}$$",
+            explanation: "Comme la fonction cube est strictement croissante sur tout $\\mathbb{R}$, on peut comparer des cubes en comparant directement les nombres de départ, sans avoir besoin de calculer les puissances.",
             difficulty: "expert",
           },
         ],
@@ -11264,7 +14654,7 @@ $$0 \\leqslant a < b \\implies \\sqrt{a} < \\sqrt{b}$$`,
     id: "vec2-id",
     slug: "vecteurs-reperage-2nde",
     title: "Vecteurs et repérage",
-    description: "Découvrez la notion de vecteur, ses coordonnées, la relation de Chasles, et apprenez à calculer milieu et distance dans un repère.",
+    description: "Découvrez la notion de vecteur, ses coordonnées, la relation de Chasles, le calcul de milieu et de distance, la colinéarité et l'équation d'une droite.",
     schoolLevel: "2nde",
     subject: "geometrie",
     difficulty: "Intermédiaire",
@@ -11365,7 +14755,7 @@ $$\\overrightarrow{AB} = \\overrightarrow{CD} \\iff x_B-x_A = x_D-x_C \\ \\text{
             id: "vec2-l1-e5",
             question: "On donne $A(-1\\ ;\\ 3)$, $B(2\\ ;\\ -1)$, $C(0\\ ;\\ 5)$ et $D(3\\ ;\\ 1)$. Montre que $\\overrightarrow{AB} = \\overrightarrow{CD}$.",
             type: "open",
-            modelAnswer: "On calcule les coordonnées de chaque vecteur.\\n\\n$$\\overrightarrow{AB}\\begin{pmatrix} x_B-x_A \\\\ y_B-y_A \\end{pmatrix} = \\begin{pmatrix} 2-(-1) \\\\ -1-3 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$$\\n\\n$$\\overrightarrow{CD}\\begin{pmatrix} x_D-x_C \\\\ y_D-y_C \\end{pmatrix} = \\begin{pmatrix} 3-0 \\\\ 1-5 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$$\\n\\nLes deux vecteurs ont les mêmes coordonnées $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$, donc :\\n\\n$$\\boxed{\\overrightarrow{AB} = \\overrightarrow{CD}}$$",
+            modelAnswer: "On calcule les coordonnées de chaque vecteur.\n\n$$\\overrightarrow{AB}\\begin{pmatrix} x_B-x_A \\\\ y_B-y_A \\end{pmatrix} = \\begin{pmatrix} 2-(-1) \\\\ -1-3 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$$\n\n$$\\overrightarrow{CD}\\begin{pmatrix} x_D-x_C \\\\ y_D-y_C \\end{pmatrix} = \\begin{pmatrix} 3-0 \\\\ 1-5 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$$\n\nLes deux vecteurs ont les mêmes coordonnées $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$, donc :\n\n$$\\boxed{\\overrightarrow{AB} = \\overrightarrow{CD}}$$",
             explanation: "Deux vecteurs sont égaux si et seulement si ils ont les mêmes coordonnées : il suffit donc de calculer et comparer les coordonnées des deux vecteurs.",
             difficulty: "expert",
           },
@@ -11462,7 +14852,7 @@ $ABDC$ est un parallélogramme si et seulement si $\\overrightarrow{AB} = \\over
             id: "vec2-l2-e5",
             question: "On donne $A(1\\ ;\\ 1)$, $B(4\\ ;\\ 2)$ et $C(2\\ ;\\ 6)$. Détermine les coordonnées du point $D$ tel que $ABDC$ soit un parallélogramme.",
             type: "open",
-            modelAnswer: "$ABDC$ est un parallélogramme si et seulement si $\\overrightarrow{AB} = \\overrightarrow{CD}$.\\n\\nOn calcule les coordonnées de $\\overrightarrow{AB}$ :\\n\\n$$\\overrightarrow{AB}\\begin{pmatrix} 4-1 \\\\ 2-1 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$$\\n\\nOn note $D(x_D\\ ;\\ y_D)$. On veut $\\overrightarrow{CD} = \\overrightarrow{AB}$ :\\n\\n$$\\begin{pmatrix} x_D - 2 \\\\ y_D - 6 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$$\\n\\nDonc $x_D - 2 = 3 \\implies x_D = 5$ et $y_D - 6 = 1 \\implies y_D = 7$.\\n\\n$$\\boxed{D(5\\ ;\\ 7)}$$",
+            modelAnswer: "$ABDC$ est un parallélogramme si et seulement si $\\overrightarrow{AB} = \\overrightarrow{CD}$.\n\nOn calcule les coordonnées de $\\overrightarrow{AB}$ :\n\n$$\\overrightarrow{AB}\\begin{pmatrix} 4-1 \\\\ 2-1 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$$\n\nOn note $D(x_D\\ ;\\ y_D)$. On veut $\\overrightarrow{CD} = \\overrightarrow{AB}$ :\n\n$$\\begin{pmatrix} x_D - 2 \\\\ y_D - 6 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$$\n\nDonc $x_D - 2 = 3 \\implies x_D = 5$ et $y_D - 6 = 1 \\implies y_D = 7$.\n\n$$\\boxed{D(5\\ ;\\ 7)}$$",
             explanation: "On utilise la caractérisation vectorielle du parallélogramme $\\overrightarrow{AB}=\\overrightarrow{CD}$, qu'on traduit en deux équations sur les coordonnées de $D$.",
             difficulty: "expert",
           },
@@ -11555,8 +14945,232 @@ On peut utiliser les formules de distance pour calculer les longueurs des côté
             id: "vec2-l3-e5",
             question: "On donne $A(-2\\ ;\\ 1)$, $B(4\\ ;\\ 1)$ et $C(1\\ ;\\ 5)$. Calcule les longueurs $AB$, $AC$ et $BC$, puis détermine si le triangle $ABC$ est rectangle (en utilisant la réciproque du théorème de Pythagore).",
             type: "open",
-            modelAnswer: "On calcule chaque longueur avec la formule de distance.\\n\\n$$AB = \\sqrt{(4-(-2))^2+(1-1)^2} = \\sqrt{6^2+0^2} = \\sqrt{36} = 6$$\\n\\n$$AC = \\sqrt{(1-(-2))^2+(5-1)^2} = \\sqrt{3^2+4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$$\\n\\n$$BC = \\sqrt{(1-4)^2+(5-1)^2} = \\sqrt{(-3)^2+4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$$\\n\\nLe côté le plus long est $AB=6$. On teste la réciproque du théorème de Pythagore :\\n\\n$$AC^2+BC^2 = 5^2+5^2 = 25+25=50 \\qquad \\text{et} \\qquad AB^2 = 6^2=36$$\\n\\nComme $50 \\neq 36$, l'égalité de Pythagore n'est pas vérifiée.\\n\\n$$\\boxed{AB=6,\\ AC=5,\\ BC=5\\ ; \\ \\text{le triangle } ABC \\text{ n'est pas rectangle (mais il est isocèle en } C\\text{)}}$$",
+            modelAnswer: "On calcule chaque longueur avec la formule de distance.\n\n$$AB = \\sqrt{(4-(-2))^2+(1-1)^2} = \\sqrt{6^2+0^2} = \\sqrt{36} = 6$$\n\n$$AC = \\sqrt{(1-(-2))^2+(5-1)^2} = \\sqrt{3^2+4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$$\n\n$$BC = \\sqrt{(1-4)^2+(5-1)^2} = \\sqrt{(-3)^2+4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$$\n\nLe côté le plus long est $AB=6$. On teste la réciproque du théorème de Pythagore :\n\n$$AC^2+BC^2 = 5^2+5^2 = 25+25=50 \\qquad \\text{et} \\qquad AB^2 = 6^2=36$$\n\nComme $50 \\neq 36$, l'égalité de Pythagore n'est pas vérifiée.\n\n$$\\boxed{AB=6,\\ AC=5,\\ BC=5\\ ; \\ \\text{le triangle } ABC \\text{ n'est pas rectangle (mais il est isocèle en } C\\text{)}}$$",
             explanation: "On calcule systématiquement les trois longueurs avec la formule de distance, puis on compare le carré du plus grand côté à la somme des carrés des deux autres pour conclure sur la nature du triangle.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "vec2-l4",
+        slug: "colinearite-et-translations",
+        title: "Colinéarité de vecteurs et translations",
+        durationMinutes: 15,
+        content: `## La translation
+
+**Translater** un point $M$ par un vecteur $\\overrightarrow{u}$, c'est construire le point $M'$ tel que :
+
+$$\\overrightarrow{MM'} = \\overrightarrow{u}$$
+
+On dit que $M'$ est **l'image de $M$ par la translation de vecteur $\\overrightarrow{u}$**.
+
+> **Propriété :** une translation conserve les distances, les alignements et les angles : l'image d'une figure par translation est une figure **superposable** à la figure de départ, simplement « glissée ».
+
+**Exemple :** si $\\overrightarrow{u}\\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$ et $M(1\\ ;\\ 4)$, l'image $M'$ de $M$ vérifie $\\overrightarrow{MM'}=\\overrightarrow{u}$, donc $M'(1+3\\ ;\\ 4-2) = M'(4\\ ;\\ 2)$.
+
+## Vecteurs colinéaires
+
+Deux vecteurs $\\overrightarrow{u}$ et $\\overrightarrow{v}$ (non nuls) sont **colinéaires** lorsqu'ils ont la même direction, c'est-à-dire lorsqu'il existe un réel $k$ tel que :
+
+$$\\overrightarrow{v} = k\\overrightarrow{u}$$
+
+## Critère de colinéarité en coordonnées
+
+Si $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$, alors :
+
+$$\\overrightarrow{u} \\text{ et } \\overrightarrow{v} \\text{ sont colinéaires} \\iff xy'-x'y=0$$
+
+La quantité $xy'-x'y$ s'appelle le **déterminant** des deux vecteurs.
+
+**Exemple :** $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$ : $xy'-x'y = 2\\times6-4\\times3 = 12-12=0$, donc $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont colinéaires (en effet $\\overrightarrow{v}=2\\overrightarrow{u}$).
+
+## Applications de la colinéarité
+
+- **Alignement de points :** $A$, $B$, $C$ sont alignés $\\iff$ $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont colinéaires.
+- **Parallélisme de droites :** $(AB) \\parallel (CD) \\iff$ $\\overrightarrow{AB}$ et $\\overrightarrow{CD}$ sont colinéaires.
+
+**Exemple :** pour montrer que $A(1\\ ;\\ 1)$, $B(3\\ ;\\ 5)$ et $C(4\\ ;\\ 7)$ sont alignés, on calcule $\\overrightarrow{AB}\\begin{pmatrix} 2 \\\\ 4 \\end{pmatrix}$ et $\\overrightarrow{AC}\\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix}$ : $2\\times6-3\\times4 = 12-12=0$, donc $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont colinéaires, et $A$, $B$, $C$ sont alignés.
+
+## À retenir
+
+- Translater $M$ par $\\overrightarrow{u}$ donne $M'$ tel que $\\overrightarrow{MM'}=\\overrightarrow{u}$ ; une translation conserve distances et alignements.
+- $\\overrightarrow{u}\\begin{pmatrix} x \\\\ y \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} x' \\\\ y' \\end{pmatrix}$ sont colinéaires $\\iff xy'-x'y=0$.
+- La colinéarité permet de démontrer un alignement de points ou un parallélisme de droites sans tracer la figure.`,
+        exercises: [
+          {
+            id: "vec2-l4-e1",
+            question: "Deux vecteurs $\\overrightarrow{u}$ et $\\overrightarrow{v}$ sont colinéaires lorsque :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "il existe un réel $k$ tel que $\\overrightarrow{v}=k\\overrightarrow{u}$" },
+              { id: "B", text: "ils ont la même norme" },
+              { id: "C", text: "ils sont perpendiculaires" },
+              { id: "D", text: "leur somme est nulle" },
+            ],
+            correctId: "A",
+            explanation: "La colinéarité de deux vecteurs signifie qu'ils ont la même direction, c'est-à-dire que l'un est un multiple de l'autre : $\\overrightarrow{v}=k\\overrightarrow{u}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vec2-l4-e2",
+            question: "Soit $\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix}$. Ces vecteurs sont-ils colinéaires ?",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "$xy'-x'y = 1\\times6-3\\times2 = 6-6=0$, le déterminant est nul donc les vecteurs sont colinéaires (on a bien $\\overrightarrow{v}=3\\overrightarrow{u}$).",
+            difficulty: "debutant",
+          },
+          {
+            id: "vec2-l4-e3",
+            question: "On donne $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 5 \\end{pmatrix}$ et $\\overrightarrow{v}\\begin{pmatrix} 4 \\\\ 9 \\end{pmatrix}$. Que vaut le déterminant $xy'-x'y$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-2$" },
+              { id: "B", text: "$0$" },
+              { id: "C", text: "$2$" },
+              { id: "D", text: "$38$" },
+            ],
+            correctId: "A",
+            explanation: "$xy'-x'y = 2\\times9-4\\times5 = 18-20=-2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vec2-l4-e4",
+            question: "Pour montrer que les droites $(AB)$ et $(CD)$ sont parallèles, il suffit de montrer que :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\overrightarrow{AB}$ et $\\overrightarrow{CD}$ sont colinéaires" },
+              { id: "B", text: "$AB=CD$" },
+              { id: "C", text: "$A$, $B$, $C$, $D$ sont alignés" },
+              { id: "D", text: "$\\overrightarrow{AB}+\\overrightarrow{CD}=\\overrightarrow{0}$" },
+            ],
+            correctId: "A",
+            explanation: "Deux droites sont parallèles si et seulement si leurs vecteurs directeurs sont colinéaires ; ici $\\overrightarrow{AB}$ et $\\overrightarrow{CD}$ dirigent respectivement $(AB)$ et $(CD)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vec2-l4-e5",
+            question: "On donne $A(-1\\ ;\\ 2)$, $B(2\\ ;\\ 4)$ et $C(8\\ ;\\ 8)$. Montre que les points $A$, $B$ et $C$ sont alignés.",
+            type: "open",
+            modelAnswer: "On calcule les coordonnées de $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$.\n\n$$\\overrightarrow{AB}\\begin{pmatrix} 2-(-1) \\\\ 4-2 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 2 \\end{pmatrix} \\qquad \\overrightarrow{AC}\\begin{pmatrix} 8-(-1) \\\\ 8-2 \\end{pmatrix} = \\begin{pmatrix} 9 \\\\ 6 \\end{pmatrix}$$\n\nOn calcule le déterminant $xy'-x'y$ de ces deux vecteurs :\n\n$$3\\times6 - 9\\times2 = 18-18=0$$\n\nLe déterminant est nul, donc $\\overrightarrow{AB}$ et $\\overrightarrow{AC}$ sont colinéaires.\n\n$$\\boxed{\\text{Les points } A,\\ B,\\ C \\text{ sont alignés}}$$",
+            explanation: "Pour démontrer un alignement, on calcule les coordonnées de deux vecteurs partant d'un même point puis on vérifie que leur déterminant est nul, ce qui prouve leur colinéarité et donc l'alignement des trois points.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "vec2-l5",
+        slug: "equation-d-une-droite",
+        title: "Équation d'une droite",
+        durationMinutes: 16,
+        content: `## Équation réduite
+
+Toute droite **non parallèle à l'axe des ordonnées** admet une équation de la forme :
+
+$$y = mx+p$$
+
+appelée **équation réduite** de la droite : $m$ est le **coefficient directeur** et $p$ l'**ordonnée à l'origine**. On retrouve ici la fonction affine associée $f(x)=mx+p$.
+
+> **Cas particulier :** une droite parallèle à l'axe des ordonnées (donc « verticale ») n'est pas le graphe d'une fonction ; son équation est de la forme $x=c$ (avec $c$ constant), et elle n'a pas de coefficient directeur.
+
+## Équation cartésienne
+
+Une droite peut aussi s'écrire sous **forme cartésienne** :
+
+$$ax+by+c=0 \\qquad \\text{avec } (a\\ ;\\ b) \\neq (0\\ ;\\ 0)$$
+
+Un **vecteur directeur** de cette droite est $\\overrightarrow{u}\\begin{pmatrix} -b \\\\ a \\end{pmatrix}$ : ce vecteur indique la direction de la droite, et tout vecteur colinéaire à $\\overrightarrow{u}$ en est aussi un vecteur directeur.
+
+## Déterminer l'équation d'une droite passant par deux points
+
+Si une droite passe par $A(x_A\\ ;\\ y_A)$ et $B(x_B\\ ;\\ y_B)$ avec $x_A \\neq x_B$, on procède en deux étapes :
+
+> **Méthode**
+> 1. Calculer le coefficient directeur : $m = \\dfrac{y_B-y_A}{x_B-x_A}$.
+> 2. Utiliser les coordonnées d'un point connu (par exemple $A$) dans $y=mx+p$ pour trouver $p$.
+
+**Exemple :** droite passant par $A(1\\ ;\\ 3)$ et $B(4\\ ;\\ 9)$. On calcule $m = \\dfrac{9-3}{4-1} = \\dfrac{6}{3}=2$. Avec $A$ : $3 = 2\\times1+p \\implies p=1$. L'équation réduite est $y=2x+1$.
+
+## Droites parallèles
+
+$$\\text{Deux droites sont parallèles} \\iff \\text{leurs vecteurs directeurs sont colinéaires}$$
+
+Pour deux droites données par leur équation réduite, cela revient simplement à comparer leurs coefficients directeurs :
+
+$$y=mx+p \\ \\parallel\\ y=m'x+p' \\iff m=m'$$
+
+**Exemple :** $y=3x-2$ et $y=3x+5$ sont parallèles (même coefficient directeur $m=3$), alors que $y=3x-2$ et $y=4x-2$ ne le sont pas.
+
+## À retenir
+
+- Équation réduite : $y=mx+p$ (sauf droites verticales, d'équation $x=c$).
+- Équation cartésienne : $ax+by+c=0$, de vecteur directeur $\\overrightarrow{u}\\begin{pmatrix} -b \\\\ a \\end{pmatrix}$.
+- Pour deux points connus, on calcule $m$ avec le taux de variation, puis $p$ en substituant.
+- Deux droites (non verticales) sont parallèles si et seulement si elles ont le même coefficient directeur $m$.`,
+        exercises: [
+          {
+            id: "vec2-l5-e1",
+            question: "Dans l'équation réduite $y=mx+p$, le coefficient $m$ représente :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "le coefficient directeur de la droite" },
+              { id: "B", text: "l'ordonnée à l'origine" },
+              { id: "C", text: "l'abscisse à l'origine" },
+              { id: "D", text: "la longueur de la droite" },
+            ],
+            correctId: "A",
+            explanation: "Dans $y=mx+p$, $m$ est le coefficient directeur (la « pente » de la droite) et $p$ est l'ordonnée à l'origine.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vec2-l5-e2",
+            question: "Les droites d'équations $y=5x+1$ et $y=5x-3$ sont parallèles.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Ces deux droites ont le même coefficient directeur $m=5$ : elles sont donc parallèles.",
+            difficulty: "debutant",
+          },
+          {
+            id: "vec2-l5-e3",
+            question: "Quel est un vecteur directeur de la droite d'équation cartésienne $3x-2y+1=0$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$" },
+              { id: "B", text: "$\\overrightarrow{u}\\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$" },
+              { id: "C", text: "$\\overrightarrow{u}\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$" },
+              { id: "D", text: "$\\overrightarrow{u}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "Pour une droite $ax+by+c=0$, un vecteur directeur est $\\overrightarrow{u}\\begin{pmatrix} -b \\\\ a \\end{pmatrix}$ ; ici $a=3$ et $b=-2$, donc $\\overrightarrow{u}\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vec2-l5-e4",
+            question: "Une droite passe par $A(0\\ ;\\ 4)$ et $B(2\\ ;\\ 0)$. Quelle est son équation réduite ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$y=-2x+4$" },
+              { id: "B", text: "$y=2x+4$" },
+              { id: "C", text: "$y=-2x-4$" },
+              { id: "D", text: "$y=4x-2$" },
+            ],
+            correctId: "A",
+            explanation: "$m=\\dfrac{0-4}{2-0}=-2$. Comme $A(0\\ ;\\ 4)$ est sur l'axe des ordonnées, $p=4$ directement. L'équation est $y=-2x+4$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "vec2-l5-e5",
+            question: "Détermine l'équation réduite de la droite passant par $A(2\\ ;\\ 1)$ et $B(5\\ ;\\ 10)$, puis vérifie si le point $C(4\\ ;\\ 7)$ appartient à cette droite.",
+            type: "open",
+            modelAnswer: "On calcule le coefficient directeur :\n\n$$m = \\dfrac{y_B-y_A}{x_B-x_A} = \\dfrac{10-1}{5-2} = \\dfrac{9}{3} = 3$$\n\nOn utilise $A(2\\ ;\\ 1)$ dans $y=mx+p$ :\n\n$$1 = 3\\times2+p \\implies 1=6+p \\implies p=-5$$\n\nL'équation réduite est $y=3x-5$.\n\nOn teste si $C(4\\ ;\\ 7)$ appartient à la droite : on remplace $x$ par $4$ dans $3x-5$ :\n\n$$3\\times4-5 = 12-5=7$$\n\nOn obtient bien $7=y_C$.\n\n$$\\boxed{y=3x-5 \\ ;\\ C \\text{ appartient à la droite}}$$",
+            explanation: "On détermine $m$ avec le taux de variation entre les deux points connus, puis $p$ par substitution ; pour tester l'appartenance d'un point, on vérifie que ses coordonnées satisfont l'équation obtenue.",
             difficulty: "expert",
           },
         ],
@@ -11667,7 +15281,7 @@ Pour trouver un angle à partir d'un rapport de longueurs connu, on utilise la f
             id: "tri2-l1-e5",
             question: "Un triangle $ABC$ est rectangle en $A$. On a $\\widehat{B}=35°$ et $AB=8$ cm. Calcule la longueur $BC$ (l'hypoténuse) arrondie au centième.",
             type: "open",
-            modelAnswer: "Dans le triangle $ABC$ rectangle en $A$, $AB$ est le côté adjacent à l'angle $\\widehat{B}$, et $BC$ est l'hypoténuse.\\n\\nOn utilise le cosinus :\\n\\n$$\\cos(\\widehat{B}) = \\dfrac{AB}{BC}$$\\n\\n$$\\cos(35°) = \\dfrac{8}{BC}$$\\n\\n$$BC = \\dfrac{8}{\\cos(35°)}$$\\n\\nOn calcule : $\\cos(35°) \\approx 0{,}8192$, donc :\\n\\n$$BC \\approx \\dfrac{8}{0{,}8192} \\approx 9{,}77 \\text{ cm}$$\\n\\n$$\\boxed{BC \\approx 9{,}77 \\text{ cm}}$$",
+            modelAnswer: "Dans le triangle $ABC$ rectangle en $A$, $AB$ est le côté adjacent à l'angle $\\widehat{B}$, et $BC$ est l'hypoténuse.\n\nOn utilise le cosinus :\n\n$$\\cos(\\widehat{B}) = \\dfrac{AB}{BC}$$\n\n$$\\cos(35°) = \\dfrac{8}{BC}$$\n\n$$BC = \\dfrac{8}{\\cos(35°)}$$\n\nOn calcule : $\\cos(35°) \\approx 0{,}8192$, donc :\n\n$$BC \\approx \\dfrac{8}{0{,}8192} \\approx 9{,}77 \\text{ cm}$$\n\n$$\\boxed{BC \\approx 9{,}77 \\text{ cm}}$$",
             explanation: "On identifie le côté adjacent et l'hypoténuse par rapport à l'angle donné, on choisit la fonction trigonométrique appropriée (ici le cosinus), puis on isole la longueur cherchée.",
             difficulty: "expert",
           },
@@ -11764,7 +15378,7 @@ $$-1 \\leqslant \\cos(x) \\leqslant 1 \\qquad \\qquad -1 \\leqslant \\sin(x) \\l
             id: "tri2-l2-e5",
             question: "Sachant que $\\cos(x) = \\dfrac{3}{5}$ et que $x$ correspond à un point du cercle trigonométrique situé dans le quart de cercle où le sinus est positif, calcule $\\sin(x)$.",
             type: "open",
-            modelAnswer: "On utilise la relation fondamentale $\\cos^2(x)+\\sin^2(x)=1$.\\n\\n$$\\sin^2(x) = 1-\\cos^2(x) = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25} = \\dfrac{16}{25}$$\\n\\nOn en déduit :\\n\\n$$\\sin(x) = \\pm\\sqrt{\\dfrac{16}{25}} = \\pm\\dfrac{4}{5}$$\\n\\nOn nous précise que $x$ correspond à un point où le sinus est positif, donc on retient la solution positive.\\n\\n$$\\boxed{\\sin(x) = \\dfrac{4}{5}}$$",
+            modelAnswer: "On utilise la relation fondamentale $\\cos^2(x)+\\sin^2(x)=1$.\n\n$$\\sin^2(x) = 1-\\cos^2(x) = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25} = \\dfrac{16}{25}$$\n\nOn en déduit :\n\n$$\\sin(x) = \\pm\\sqrt{\\dfrac{16}{25}} = \\pm\\dfrac{4}{5}$$\n\nOn nous précise que $x$ correspond à un point où le sinus est positif, donc on retient la solution positive.\n\n$$\\boxed{\\sin(x) = \\dfrac{4}{5}}$$",
             explanation: "La relation $\\cos^2(x)+\\sin^2(x)=1$ donne deux solutions possibles pour $\\sin(x)$ (opposées) ; il faut utiliser une information sur le signe (ici donné par la position du point sur le cercle) pour choisir la bonne.",
             difficulty: "expert",
           },
@@ -11859,7 +15473,7 @@ $$\\cos(90°-x) = \\sin(x) \\qquad \\qquad \\sin(90°-x) = \\cos(x)$$
             id: "tri2-l3-e5",
             question: "Un triangle $ABC$ est rectangle en $A$, avec $\\widehat{B}=30°$ et $AC=5$ cm (côté opposé à $\\widehat{B}$). Calcule l'hypoténuse $BC$ en utilisant les valeurs remarquables, sans calculatrice.",
             type: "open",
-            modelAnswer: "Dans le triangle $ABC$ rectangle en $A$, $AC$ est le côté opposé à $\\widehat{B}$, et $BC$ est l'hypoténuse.\\n\\nOn utilise le sinus :\\n\\n$$\\sin(\\widehat{B}) = \\dfrac{AC}{BC}$$\\n\\n$$\\sin(30°) = \\dfrac{5}{BC}$$\\n\\nOn sait que $\\sin(30°) = \\dfrac{1}{2}$, donc :\\n\\n$$\\dfrac{1}{2} = \\dfrac{5}{BC} \\implies BC = 5 \\times 2 = 10$$\\n\\n$$\\boxed{BC = 10 \\text{ cm}}$$",
+            modelAnswer: "Dans le triangle $ABC$ rectangle en $A$, $AC$ est le côté opposé à $\\widehat{B}$, et $BC$ est l'hypoténuse.\n\nOn utilise le sinus :\n\n$$\\sin(\\widehat{B}) = \\dfrac{AC}{BC}$$\n\n$$\\sin(30°) = \\dfrac{5}{BC}$$\n\nOn sait que $\\sin(30°) = \\dfrac{1}{2}$, donc :\n\n$$\\dfrac{1}{2} = \\dfrac{5}{BC} \\implies BC = 5 \\times 2 = 10$$\n\n$$\\boxed{BC = 10 \\text{ cm}}$$",
             explanation: "Grâce à la valeur remarquable $\\sin(30°)=\\dfrac{1}{2}$, on peut résoudre cet exercice de trigonométrie sans calculatrice, en isolant directement la longueur cherchée dans l'équation.",
             difficulty: "expert",
           },
@@ -11971,7 +15585,7 @@ La **médiane** $\\text{Me}$ d'une série ordonnée est la valeur qui partage la
             id: "sta2-l1-e5",
             question: "Une classe de $20$ élèves a une moyenne de $12$ à un devoir. Un nouvel élève arrive et obtient $19$ à ce devoir. Calcule la nouvelle moyenne de la classe (21 élèves) arrondie au centième.",
             type: "open",
-            modelAnswer: "La somme des notes des $20$ premiers élèves est :\\n\\n$$S_{20} = 20 \\times 12 = 240$$\\n\\nEn ajoutant la note du nouvel élève :\\n\\n$$S_{21} = 240+19 = 259$$\\n\\nLa nouvelle moyenne sur $21$ élèves est :\\n\\n$$\\bar{x} = \\dfrac{259}{21} \\approx 12{,}33$$\\n\\n$$\\boxed{\\bar{x} \\approx 12{,}33}$$",
+            modelAnswer: "La somme des notes des $20$ premiers élèves est :\n\n$$S_{20} = 20 \\times 12 = 240$$\n\nEn ajoutant la note du nouvel élève :\n\n$$S_{21} = 240+19 = 259$$\n\nLa nouvelle moyenne sur $21$ élèves est :\n\n$$\\bar{x} = \\dfrac{259}{21} \\approx 12{,}33$$\n\n$$\\boxed{\\bar{x} \\approx 12{,}33}$$",
             explanation: "On retrouve la somme totale des notes à partir de la moyenne initiale ($\\text{somme} = \\text{moyenne} \\times \\text{effectif}$), on ajoute la nouvelle valeur, puis on recalcule la moyenne avec le nouvel effectif.",
             difficulty: "expert",
           },
@@ -12064,7 +15678,7 @@ $$\\text{EIQ} = Q_3 - Q_1$$
             id: "sta2-l2-e5",
             question: "On donne la série ordonnée de $12$ notes : $5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19$. Détermine $Q_1$, $Q_3$, puis l'écart interquartile.",
             type: "open",
-            modelAnswer: "Il y a $n=12$ valeurs.\\n\\n**Rang de $Q_1$ :** $\\dfrac{n}{4} = \\dfrac{12}{4} = 3$, qui est un entier. $Q_1$ est donc la $3^{\\text{ème}}$ valeur de la série ordonnée.\\n\\nLa série est : $5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19$. La 3ème valeur est $8$, donc $Q_1=8$.\\n\\n**Rang de $Q_3$ :** $\\dfrac{3n}{4} = \\dfrac{36}{4} = 9$, qui est un entier. $Q_3$ est donc la $9^{\\text{ème}}$ valeur.\\n\\nLa 9ème valeur est $14$, donc $Q_3=14$.\\n\\n**Écart interquartile :**\\n\\n$$\\text{EIQ} = Q_3-Q_1 = 14-8 = 6$$\\n\\n$$\\boxed{Q_1=8\\ ;\\ Q_3=14\\ ;\\ \\text{EIQ}=6}$$",
+            modelAnswer: "Il y a $n=12$ valeurs.\n\n**Rang de $Q_1$ :** $\\dfrac{n}{4} = \\dfrac{12}{4} = 3$, qui est un entier. $Q_1$ est donc la $3^{\\text{ème}}$ valeur de la série ordonnée.\n\nLa série est : $5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19$. La 3ème valeur est $8$, donc $Q_1=8$.\n\n**Rang de $Q_3$ :** $\\dfrac{3n}{4} = \\dfrac{36}{4} = 9$, qui est un entier. $Q_3$ est donc la $9^{\\text{ème}}$ valeur.\n\nLa 9ème valeur est $14$, donc $Q_3=14$.\n\n**Écart interquartile :**\n\n$$\\text{EIQ} = Q_3-Q_1 = 14-8 = 6$$\n\n$$\\boxed{Q_1=8\\ ;\\ Q_3=14\\ ;\\ \\text{EIQ}=6}$$",
             explanation: "On calcule les rangs théoriques de $Q_1$ et $Q_3$ avec $\\frac{n}{4}$ et $\\frac{3n}{4}$, on lit les valeurs correspondantes dans la série ordonnée, puis on soustrait pour obtenir l'écart interquartile.",
             difficulty: "expert",
           },
@@ -12166,7 +15780,7 @@ $$V = \\dfrac{4+0+4}{3} = \\dfrac{8}{3} \\qquad \\sigma = \\sqrt{\\dfrac{8}{3}} 
             id: "sta2-l3-e5",
             question: "Calcule la variance puis l'écart-type de la série $3, 5, 7, 9$ (donne l'écart-type sous forme exacte simplifiée).",
             type: "open",
-            modelAnswer: "**Étape 1 : la moyenne.**\\n\\n$$\\bar{x} = \\dfrac{3+5+7+9}{4} = \\dfrac{24}{4} = 6$$\\n\\n**Étape 2 : les écarts à la moyenne et leurs carrés.**\\n\\n$$3-6=-3 \\ \\to\\ 9 \\qquad 5-6=-1 \\ \\to\\ 1 \\qquad 7-6=1 \\ \\to\\ 1 \\qquad 9-6=3 \\ \\to\\ 9$$\\n\\n**Étape 3 : la variance.**\\n\\n$$V = \\dfrac{9+1+1+9}{4} = \\dfrac{20}{4} = 5$$\\n\\n**Étape 4 : l'écart-type.**\\n\\n$$\\sigma = \\sqrt{5}$$\\n\\n$$\\boxed{V=5 \\quad ; \\quad \\sigma = \\sqrt{5} \\approx 2{,}24}$$",
+            modelAnswer: "**Étape 1 : la moyenne.**\n\n$$\\bar{x} = \\dfrac{3+5+7+9}{4} = \\dfrac{24}{4} = 6$$\n\n**Étape 2 : les écarts à la moyenne et leurs carrés.**\n\n$$3-6=-3 \\ \\to\\ 9 \\qquad 5-6=-1 \\ \\to\\ 1 \\qquad 7-6=1 \\ \\to\\ 1 \\qquad 9-6=3 \\ \\to\\ 9$$\n\n**Étape 3 : la variance.**\n\n$$V = \\dfrac{9+1+1+9}{4} = \\dfrac{20}{4} = 5$$\n\n**Étape 4 : l'écart-type.**\n\n$$\\sigma = \\sqrt{5}$$\n\n$$\\boxed{V=5 \\quad ; \\quad \\sigma = \\sqrt{5} \\approx 2{,}24}$$",
             explanation: "On suit méthodiquement les quatre étapes du calcul : moyenne, écarts à la moyenne, carrés de ces écarts dont on fait la moyenne (variance), puis racine carrée (écart-type).",
             difficulty: "expert",
           },
@@ -12182,7 +15796,7 @@ $$V = \\dfrac{4+0+4}{3} = \\dfrac{8}{3} \\qquad \\sigma = \\sqrt{\\dfrac{8}{3}} 
     id: "pro2-id",
     slug: "probabilites-2nde",
     title: "Probabilités",
-    description: "Découvrez le vocabulaire des probabilités, l'équiprobabilité, la réunion et l'intersection d'événements, et la formule $P(A \\cup B) = P(A)+P(B)-P(A \\cap B)$.",
+    description: "Découvrez le vocabulaire des probabilités, l'équiprobabilité, la réunion et l'intersection d'événements, les arbres de probabilités, et la formule $P(A \\cup B) = P(A)+P(B)-P(A \\cap B)$.",
     schoolLevel: "2nde",
     subject: "probabilites",
     difficulty: "Débutant",
@@ -12279,7 +15893,7 @@ $$P(A) = \\dfrac{\\text{nombre d'issues favorables à } A}{\\text{nombre d'issue
             id: "pro2-l1-e5",
             question: "On lance un dé équilibré à 6 faces. Soit $A$ l'événement \"obtenir un nombre strictement supérieur à 4\". Détermine $P(A)$ puis $P(\\bar{A})$, et donne la signification de $\\bar{A}$.",
             type: "open",
-            modelAnswer: "L'univers est $\\Omega = \\{1,2,3,4,5,6\\}$, avec équiprobabilité des 6 issues.\\n\\nL'événement $A$ = \"obtenir un nombre strictement supérieur à 4\" correspond aux issues $\\{5,6\\}$, soit $2$ issues favorables.\\n\\n$$P(A) = \\dfrac{2}{6} = \\dfrac{1}{3}$$\\n\\nL'événement contraire $\\bar{A}$ = \"obtenir un nombre inférieur ou égal à 4\", correspondant à $\\{1,2,3,4\\}$.\\n\\n$$P(\\bar{A}) = 1-P(A) = 1-\\dfrac{1}{3} = \\dfrac{2}{3}$$\\n\\n$$\\boxed{P(A)=\\dfrac{1}{3} \\quad ; \\quad P(\\bar{A})=\\dfrac{2}{3}}$$",
+            modelAnswer: "L'univers est $\\Omega = \\{1,2,3,4,5,6\\}$, avec équiprobabilité des 6 issues.\n\nL'événement $A$ = \"obtenir un nombre strictement supérieur à 4\" correspond aux issues $\\{5,6\\}$, soit $2$ issues favorables.\n\n$$P(A) = \\dfrac{2}{6} = \\dfrac{1}{3}$$\n\nL'événement contraire $\\bar{A}$ = \"obtenir un nombre inférieur ou égal à 4\", correspondant à $\\{1,2,3,4\\}$.\n\n$$P(\\bar{A}) = 1-P(A) = 1-\\dfrac{1}{3} = \\dfrac{2}{3}$$\n\n$$\\boxed{P(A)=\\dfrac{1}{3} \\quad ; \\quad P(\\bar{A})=\\dfrac{2}{3}}$$",
             explanation: "On identifie d'abord les issues favorables à $A$ parmi les issues équiprobables de $\\Omega$, on calcule $P(A)$ par le rapport des cardinaux, puis on utilise $P(\\bar{A})=1-P(A)$ plutôt que de recompter.",
             difficulty: "expert",
           },
@@ -12374,7 +15988,7 @@ $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$
             id: "pro2-l2-e5",
             question: "Dans une classe de $30$ élèves, $18$ pratiquent le football, $12$ pratiquent le tennis, et $5$ pratiquent les deux sports. On choisit un élève au hasard. Calcule la probabilité qu'il pratique le football ou le tennis.",
             type: "open",
-            modelAnswer: "On note $A$=\"l'élève pratique le football\" et $B$=\"l'élève pratique le tennis\".\\n\\nOn a :\\n\\n$$P(A) = \\dfrac{18}{30} \\qquad P(B) = \\dfrac{12}{30} \\qquad P(A\\cap B) = \\dfrac{5}{30}$$\\n\\nOn applique la formule de la réunion :\\n\\n$$P(A\\cup B) = P(A)+P(B)-P(A\\cap B) = \\dfrac{18}{30}+\\dfrac{12}{30}-\\dfrac{5}{30} = \\dfrac{25}{30} = \\dfrac{5}{6}$$\\n\\n$$\\boxed{P(A\\cup B) = \\dfrac{5}{6}}$$",
+            modelAnswer: "On note $A$=\"l'élève pratique le football\" et $B$=\"l'élève pratique le tennis\".\n\nOn a :\n\n$$P(A) = \\dfrac{18}{30} \\qquad P(B) = \\dfrac{12}{30} \\qquad P(A\\cap B) = \\dfrac{5}{30}$$\n\nOn applique la formule de la réunion :\n\n$$P(A\\cup B) = P(A)+P(B)-P(A\\cap B) = \\dfrac{18}{30}+\\dfrac{12}{30}-\\dfrac{5}{30} = \\dfrac{25}{30} = \\dfrac{5}{6}$$\n\n$$\\boxed{P(A\\cup B) = \\dfrac{5}{6}}$$",
             explanation: "On modélise chaque sport par un événement, on traduit les effectifs donnés en probabilités, puis on applique la formule de la réunion pour éviter de compter deux fois les élèves pratiquant les deux sports.",
             difficulty: "expert",
           },
@@ -12470,14 +16084,1130 @@ Pour un élève pris au hasard, $P(\\text{Fille et Option A}) = \\dfrac{40}{200}
             id: "pro2-l3-e5",
             question: "Une urne contient des jetons numérotés de $1$ à $20$. On tire un jeton au hasard. Soit $A$ l'événement \"le numéro est un multiple de 4\" et $B$ l'événement \"le numéro est un multiple de 5\". Calcule $P(A)$, $P(B)$, $P(A\\cap B)$ puis $P(A\\cup B)$.",
             type: "open",
-            modelAnswer: "L'univers $\\Omega = \\{1,2,\\ldots,20\\}$ comporte $20$ issues équiprobables.\\n\\n**Événement $A$** (multiples de 4 entre 1 et 20) : $\\{4,8,12,16,20\\}$, soit $5$ issues.\\n\\n$$P(A) = \\dfrac{5}{20} = \\dfrac{1}{4}$$\\n\\n**Événement $B$** (multiples de 5 entre 1 et 20) : $\\{5,10,15,20\\}$, soit $4$ issues.\\n\\n$$P(B) = \\dfrac{4}{20} = \\dfrac{1}{5}$$\\n\\n**Événement $A\\cap B$** (multiples de $4$ et de $5$, donc multiples de $20$) : $\\{20\\}$, soit $1$ issue.\\n\\n$$P(A\\cap B) = \\dfrac{1}{20}$$\\n\\n**Réunion :**\\n\\n$$P(A\\cup B) = P(A)+P(B)-P(A\\cap B) = \\dfrac{5}{20}+\\dfrac{4}{20}-\\dfrac{1}{20} = \\dfrac{8}{20} = \\dfrac{2}{5}$$\\n\\n$$\\boxed{P(A)=\\dfrac{1}{4}\\ ;\\ P(B)=\\dfrac{1}{5}\\ ;\\ P(A\\cap B)=\\dfrac{1}{20}\\ ;\\ P(A\\cup B)=\\dfrac{2}{5}}$$",
+            modelAnswer: "L'univers $\\Omega = \\{1,2,\\ldots,20\\}$ comporte $20$ issues équiprobables.\n\n**Événement $A$** (multiples de 4 entre 1 et 20) : $\\{4,8,12,16,20\\}$, soit $5$ issues.\n\n$$P(A) = \\dfrac{5}{20} = \\dfrac{1}{4}$$\n\n**Événement $B$** (multiples de 5 entre 1 et 20) : $\\{5,10,15,20\\}$, soit $4$ issues.\n\n$$P(B) = \\dfrac{4}{20} = \\dfrac{1}{5}$$\n\n**Événement $A\\cap B$** (multiples de $4$ et de $5$, donc multiples de $20$) : $\\{20\\}$, soit $1$ issue.\n\n$$P(A\\cap B) = \\dfrac{1}{20}$$\n\n**Réunion :**\n\n$$P(A\\cup B) = P(A)+P(B)-P(A\\cap B) = \\dfrac{5}{20}+\\dfrac{4}{20}-\\dfrac{1}{20} = \\dfrac{8}{20} = \\dfrac{2}{5}$$\n\n$$\\boxed{P(A)=\\dfrac{1}{4}\\ ;\\ P(B)=\\dfrac{1}{5}\\ ;\\ P(A\\cap B)=\\dfrac{1}{20}\\ ;\\ P(A\\cup B)=\\dfrac{2}{5}}$$",
             explanation: "On liste explicitement les issues de chaque événement (en remarquant qu'être multiple de 4 et de 5 équivaut à être multiple de leur PPCM, 20), puis on applique la formule de la réunion.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "pro2-l4",
+        slug: "echantillonnage-et-simulation",
+        title: "Échantillonnage et simulation",
+        durationMinutes: 18,
+        content: `## Qu'est-ce qu'un échantillon ?
+
+Un **échantillon de taille $n$** est obtenu en répétant $n$ fois la même expérience aléatoire (ou en observant $n$ individus tirés au hasard dans une population).
+
+**Exemple :** lancer une pièce $50$ fois constitue un échantillon de taille $n=50$ de l'expérience « lancer une pièce ».
+
+## Fréquence observée et probabilité théorique
+
+Pour un échantillon de taille $n$, la **fréquence observée** d'un événement $A$ est :
+
+$$f = \\dfrac{\\text{nombre de fois où } A \\text{ s'est produit}}{n}$$
+
+> **Remarque importante :** la fréquence observée $f$ fluctue d'un échantillon à l'autre (on parle de **fluctuation d'échantillonnage**), mais lorsque $n$ devient grand, $f$ a tendance à se rapprocher de la probabilité théorique $p$ de l'événement.
+
+### Simuler une expérience aléatoire
+
+**Simuler** une expérience consiste à reproduire son hasard, par exemple avec un générateur de nombres aléatoires (calculatrice, ordinateur), pour obtenir rapidement un grand nombre de répétitions sans avoir à réaliser l'expérience physiquement.
+
+> 📌 **Méthode :** pour simuler $n$ lancers d'une pièce équilibrée, on peut tirer $n$ nombres aléatoires entre $0$ et $1$ : on décide par exemple que « pile » correspond à un nombre $< 0{,}5$ et « face » à un nombre $\\geqslant 0{,}5$.
+
+## Comparer plusieurs échantillons et prendre une décision
+
+Quand on observe plusieurs échantillons de même taille $n$ pour la même expérience, les fréquences observées varient légèrement les unes des autres : c'est normal, c'est la fluctuation d'échantillonnage. Mais si une fréquence observée est **très éloignée** de la probabilité théorique attendue, cela peut amener à douter d'une hypothèse (par exemple douter qu'une pièce soit bien équilibrée).
+
+> **Règle de bon sens :** plus la taille de l'échantillon $n$ est grande, plus on peut faire confiance à la fréquence observée comme estimation de la probabilité théorique, et plus un écart important entre les deux devient suspect.
+
+## Exemples
+
+### ✅ Exemple simple — Lire un résultat de simulation
+
+On simule $100$ lancers d'un dé à 6 faces et on obtient $19$ fois le résultat « $6$ ». La fréquence observée est $f = \\dfrac{19}{100} = 0{,}19$, à comparer à la probabilité théorique $p = \\dfrac{1}{6} \\approx 0{,}167$ : les deux valeurs sont proches, ce qui est cohérent avec un dé équilibré.
+
+### 📘 Exemple intermédiaire — Comparer deux tailles d'échantillon
+
+On lance une pièce $20$ fois et on obtient $14$ fois « pile » ($f=0{,}7$) ; un camarade lance la même pièce $500$ fois et obtient $260$ fois « pile » ($f=0{,}52$). Le second échantillon, beaucoup plus grand, donne une fréquence beaucoup plus proche de $p=0{,}5$ : il est plus fiable pour juger si la pièce est équilibrée.
+
+### 🔴 Exemple avancé — Prendre une décision
+
+Un fabricant affirme qu'une urne contient $50\\%$ de boules rouges. On simule $200$ tirages avec remise et on observe $124$ boules rouges, soit $f = \\dfrac{124}{200} = 0{,}62$. Cet écart avec $p=0{,}5$ est important pour un échantillon de cette taille : on peut raisonnablement douter de l'affirmation du fabricant et suggérer de refaire l'expérience ou d'examiner la composition réelle de l'urne.
+
+## À retenir
+
+- Un échantillon de taille $n$ est obtenu par $n$ répétitions indépendantes d'une même expérience aléatoire.
+- La fréquence observée $f$ fluctue d'un échantillon à l'autre, mais se rapproche de la probabilité théorique $p$ quand $n$ augmente.
+- Simuler permet d'estimer rapidement une fréquence sans réaliser l'expérience un grand nombre de fois en pratique.
+- Un grand écart entre $f$ et $p$, surtout pour un grand $n$, peut amener à remettre en question une hypothèse de départ.`,
+        exercises: [
+          {
+            id: "pro2-l4-e1",
+            question: "On simule $80$ lancers d'une pièce et on obtient $44$ fois « pile ». Quelle est la fréquence observée de « pile » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$0{,}55$" },
+              { id: "B", text: "$0{,}44$" },
+              { id: "C", text: "$0{,}5$" },
+              { id: "D", text: "$44$" },
+            ],
+            correctId: "A",
+            explanation: "La fréquence observée est $f = \\dfrac{44}{80} = 0{,}55$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "pro2-l4-e2",
+            question: "La fréquence observée dans un échantillon est toujours exactement égale à la probabilité théorique.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est faux : la fréquence observée fluctue d'un échantillon à l'autre (fluctuation d'échantillonnage). Elle se rapproche seulement de la probabilité théorique lorsque la taille de l'échantillon augmente, sans forcément lui être exactement égale.",
+            difficulty: "debutant",
+          },
+          {
+            id: "pro2-l4-e3",
+            question: "Pour estimer une probabilité avec le plus de fiabilité possible à partir d'une simulation, il vaut mieux :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "augmenter la taille $n$ de l'échantillon" },
+              { id: "B", text: "diminuer la taille $n$ de l'échantillon" },
+              { id: "C", text: "répéter une seule fois l'expérience" },
+              { id: "D", text: "la taille de l'échantillon n'a aucune importance" },
+            ],
+            correctId: "A",
+            explanation: "Plus l'échantillon est grand, plus la fréquence observée a tendance à se rapprocher de la probabilité théorique : augmenter $n$ améliore la fiabilité de l'estimation.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "pro2-l4-e4",
+            question: "Une urne contient des boules dont on pense qu'il y a autant de rouges que de vertes ($p=0{,}5$ pour chaque couleur). On simule $300$ tirages avec remise et on observe $158$ boules rouges. Que peut-on en conclure ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La fréquence observée ($\\approx 0{,}527$) est proche de $0{,}5$ : l'hypothèse d'équiprobabilité paraît cohérente" },
+              { id: "B", text: "L'hypothèse est forcément fausse car $158 \\neq 150$" },
+              { id: "C", text: "On ne peut rien dire sans connaître le nombre total de boules dans l'urne" },
+              { id: "D", text: "La fréquence observée est égale à la probabilité théorique" },
+            ],
+            correctId: "A",
+            explanation: "$f = \\dfrac{158}{300} \\approx 0{,}527$, ce qui est proche de $p=0{,}5$ ; un tel écart est tout à fait compatible avec la fluctuation d'échantillonnage normale pour $n=300$, donc l'hypothèse d'équiprobabilité n'est pas remise en cause.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "pro2-l4-e5",
+            question: "Un sac contient des jetons rouges et bleus en proportions inconnues. On simule deux échantillons indépendants de tirages avec remise : le premier, de taille $30$, donne $12$ jetons rouges ; le second, de taille $300$, donne $135$ jetons rouges. Calcule la fréquence observée de jetons rouges dans chaque échantillon, puis explique lequel des deux donne l'estimation la plus fiable de la proportion réelle de jetons rouges dans le sac.",
+            type: "open",
+            modelAnswer: "**Échantillon 1** (taille $30$) : $f_1 = \\dfrac{12}{30} = 0{,}4$.\n\n**Échantillon 2** (taille $300$) : $f_2 = \\dfrac{135}{300} = 0{,}45$.\n\nLes deux fréquences sont assez proches l'une de l'autre ($0{,}4$ et $0{,}45$), mais le second échantillon est dix fois plus grand que le premier. Or, plus la taille d'un échantillon est grande, plus sa fréquence observée se rapproche en général de la probabilité théorique (proportion réelle dans le sac) : la fluctuation d'échantillonnage diminue quand $n$ augmente.\n\n$$\\boxed{f_1 = 0{,}4\\ ;\\ f_2 = 0{,}45\\ ;\\ \\text{l'échantillon de taille } 300 \\text{ donne l'estimation la plus fiable}}$$",
+            explanation: "Ce problème met en évidence le principe fondamental de l'échantillonnage : à taille plus grande, fluctuation plus faible, donc estimation plus fiable de la proportion réelle (probabilité théorique) à partir de la fréquence observée.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "pro2-l5",
+        slug: "arbres-de-probabilites",
+        title: "Arbres de probabilités",
+        durationMinutes: 16,
+        content: `## Représenter une expérience à deux épreuves
+
+Un **arbre pondéré** (ou arbre de probabilités) représente une expérience aléatoire constituée de **plusieurs épreuves successives**. Chaque branche est étiquetée par la probabilité de l'issue correspondante.
+
+## Règle des nœuds
+
+À partir d'un même nœud, la somme des probabilités des branches qui en partent est égale à $1$.
+
+$$p_1+p_2+\\ldots+p_n = 1$$
+
+## Règle du produit (le long d'un chemin)
+
+La probabilité d'un **chemin** (succession de branches menant à une feuille de l'arbre) est égale au **produit** des probabilités rencontrées le long de ce chemin.
+
+**Exemple :** une urne contient $3$ boules rouges et $2$ boules vertes. On tire une boule, on note sa couleur, on la remet, puis on tire une seconde boule (tirage **avec remise**, donc les deux tirages sont indépendants). La probabilité d'obtenir « rouge puis rouge » est :
+
+$$P(\\text{R puis R}) = \\dfrac{3}{5}\\times\\dfrac{3}{5} = \\dfrac{9}{25}$$
+
+## Règle de la somme (chemins menant à un même événement)
+
+Si un événement peut être atteint par **plusieurs chemins différents**, sa probabilité est la **somme** des probabilités de chacun de ces chemins.
+
+**Exemple (suite) :** la probabilité d'obtenir « une boule rouge et une boule verte, dans n'importe quel ordre » se décompose en deux chemins : « R puis V » et « V puis R ».
+
+$$P(\\text{1 rouge et 1 verte}) = \\underbrace{\\dfrac{3}{5}\\times\\dfrac{2}{5}}_{\\text{R puis V}} + \\underbrace{\\dfrac{2}{5}\\times\\dfrac{3}{5}}_{\\text{V puis R}} = \\dfrac{6}{25}+\\dfrac{6}{25} = \\dfrac{12}{25}$$
+
+## Tirages successifs sans remise
+
+Lorsque le tirage se fait **sans remise**, la composition de l'urne change après le premier tirage : les probabilités des branches du second tirage **dépendent** du résultat du premier tirage.
+
+**Exemple :** avec la même urne ($3$ rouges, $2$ vertes, $5$ boules en tout), tirage sans remise de deux boules. Si la première boule est rouge, il ne reste plus que $2$ rouges et $2$ vertes parmi $4$ boules pour le second tirage :
+
+$$P(\\text{R puis R}) = \\dfrac{3}{5}\\times\\dfrac{2}{4} = \\dfrac{6}{20} = \\dfrac{3}{10}$$
+
+> **Point clé :** avec remise, les probabilités des branches du second tirage sont **identiques** à celles du premier. Sans remise, elles **changent** car l'urne a été modifiée.
+
+## À retenir
+
+- À partir d'un même nœud, la somme des probabilités des branches vaut $1$.
+- Probabilité d'un chemin = **produit** des probabilités le long de ce chemin.
+- Probabilité d'un événement avec plusieurs chemins = **somme** des probabilités de ces chemins.
+- Avec remise : les deux tirages sont indépendants. Sans remise : la composition change entre les deux tirages.`,
+        exercises: [
+          {
+            id: "pro2-l5-e1",
+            question: "Dans un arbre pondéré, la somme des probabilités des branches partant d'un même nœud est égale à :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$0$" },
+              { id: "C", text: "$0{,}5$" },
+              { id: "D", text: "cela dépend du nœud" },
+            ],
+            correctId: "A",
+            explanation: "C'est la règle des nœuds : les branches issues d'un même nœud représentent toutes les issues possibles à cette étape, leur somme vaut donc $1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "pro2-l5-e2",
+            question: "Pour calculer la probabilité d'un chemin complet dans un arbre, on additionne les probabilités rencontrées le long du chemin.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "On multiplie les probabilités le long d'un chemin (règle du produit), et on additionne les probabilités de plusieurs chemins différents menant à un même événement (règle de la somme).",
+            difficulty: "debutant",
+          },
+          {
+            id: "pro2-l5-e3",
+            question: "Un sac contient $4$ boules blanches et $6$ boules noires. On tire une boule, on la remet, puis on en tire une seconde (avec remise). Quelle est la probabilité d'obtenir « blanche puis blanche » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{4}{25}$" },
+              { id: "B", text: "$\\dfrac{2}{5}$" },
+              { id: "C", text: "$\\dfrac{8}{10}$" },
+              { id: "D", text: "$\\dfrac{4}{10}$" },
+            ],
+            correctId: "A",
+            explanation: "Avec remise, les deux tirages sont indépendants : $P(\\text{B puis B}) = \\dfrac{4}{10}\\times\\dfrac{4}{10} = \\dfrac{16}{100} = \\dfrac{4}{25}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "pro2-l5-e4",
+            question: "Même sac ($4$ blanches, $6$ noires), mais cette fois on tire deux boules **sans remise**. Quelle est la probabilité d'obtenir « blanche puis blanche » ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{4}{10}\\times\\dfrac{3}{9}$" },
+              { id: "B", text: "$\\dfrac{4}{10}\\times\\dfrac{4}{10}$" },
+              { id: "C", text: "$\\dfrac{4}{10}\\times\\dfrac{3}{10}$" },
+              { id: "D", text: "$\\dfrac{4}{10}+\\dfrac{3}{9}$" },
+            ],
+            correctId: "A",
+            explanation: "Sans remise, après avoir tiré une blanche il ne reste que $3$ blanches parmi $9$ boules : $P(\\text{B puis B}) = \\dfrac{4}{10}\\times\\dfrac{3}{9}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "pro2-l5-e5",
+            question: "Une urne contient $2$ boules rouges et $3$ boules vertes. On tire successivement et sans remise deux boules. Calcule la probabilité d'obtenir « une boule rouge et une boule verte, dans n'importe quel ordre ».",
+            type: "open",
+            modelAnswer: "On distingue deux chemins menant à l'événement : « R puis V » et « V puis R ».\n\n**Chemin R puis V :** au premier tirage, $P(\\text{R})=\\dfrac{2}{5}$. La boule n'est pas remise : il reste $4$ boules dont $3$ vertes, donc $P(\\text{V sachant R})=\\dfrac{3}{4}$.\n\n$$P(\\text{R puis V}) = \\dfrac{2}{5}\\times\\dfrac{3}{4} = \\dfrac{6}{20}$$\n\n**Chemin V puis R :** au premier tirage, $P(\\text{V})=\\dfrac{3}{5}$. Il reste $4$ boules dont $2$ rouges, donc $P(\\text{R sachant V})=\\dfrac{2}{4}$.\n\n$$P(\\text{V puis R}) = \\dfrac{3}{5}\\times\\dfrac{2}{4} = \\dfrac{6}{20}$$\n\nOn additionne les deux chemins (règle de la somme) :\n\n$$P(\\text{1 rouge et 1 verte}) = \\dfrac{6}{20}+\\dfrac{6}{20} = \\dfrac{12}{20} = \\dfrac{3}{5}$$\n\n$$\\boxed{P(\\text{1 rouge et 1 verte}) = \\dfrac{3}{5}}$$",
+            explanation: "On identifie tous les chemins menant à l'événement souhaité, on calcule la probabilité de chaque chemin par produit (en tenant compte du changement de composition de l'urne sans remise), puis on additionne ces probabilités.",
             difficulty: "expert",
           },
         ],
       },
     ],
   },
+
+  // ─────────────────────────────────────────────
+  // 2nde — Algorithmique et programmation en Python
+  // ─────────────────────────────────────────────
+  {
+    id: "algorithmique-python-2nde",
+    slug: "algorithmique-python-2nde",
+    title: "Algorithmique et programmation en Python",
+    description: "Découvrez le langage Python : variables et types de base, boucles et conditions, puis définition de fonctions, avec des exemples mathématiques.",
+    schoolLevel: "2nde",
+    subject: "arithmetique",
+    difficulty: "Intermédiaire",
+    isFree: true,
+    thumbnailEmoji: "💻",
+    lessons: [
+      {
+        id: "algopy2-l1",
+        slug: "variables-et-types-en-python",
+        title: "Variables et types de base en Python",
+        durationMinutes: 18,
+        content: `## Du bloc visuel au code textuel
+
+Au collège, vous avez programmé avec des **blocs** (façon Scratch). En Seconde, on passe à un véritable **langage textuel** : **Python**. C'est l'un des langages les plus utilisés au monde, en particulier en sciences et en mathématiques.
+
+## Affecter une valeur à une variable
+
+En Python, on utilise le symbole \`=\` pour **affecter** une valeur à une variable (attention : ce n'est pas une égalité mathématique, mais une instruction « range cette valeur dans cette variable »).
+
+\`\`\`python
+x = 5
+nom = "Lucie"
+\`\`\`
+
+> **Attention :** \`x = 5\` se lit « on affecte la valeur $5$ à la variable \`x\` », et non « $x$ égale $5$ » comme en mathématiques.
+
+## Les types de base
+
+| Type | Nom Python | Exemple |
+|---|---|---|
+| Entier | \`int\` | \`x = 7\` |
+| Décimal | \`float\` | \`y = 3.14\` |
+| Texte (chaîne de caractères) | \`str\` | \`nom = "Paul"\` |
+| Booléen (vrai/faux) | \`bool\` | \`reussi = True\` |
+
+> **Remarque :** en Python, le séparateur décimal est le **point** (\`.\`) et non la virgule : on écrit \`3.14\`, pas \`3,14\`.
+
+## Afficher un résultat avec print()
+
+La fonction \`print()\` permet d'afficher une valeur ou un message à l'écran.
+
+\`\`\`python
+x = 5
+print(x)          # affiche 5
+print("x vaut", x)  # affiche : x vaut 5
+\`\`\`
+
+## Les commentaires
+
+Un **commentaire**, précédé du symbole \`#\`, est ignoré par Python : il sert uniquement à expliquer le code pour les humains qui le lisent.
+
+\`\`\`python
+# Ceci est un commentaire, il n'est pas exécuté
+x = 10  # on peut aussi commenter en fin de ligne
+\`\`\`
+
+## Exemples
+
+### ✅ Exemple simple — Affecter et afficher
+
+\`\`\`python
+age = 15
+print(age)
+\`\`\`
+
+Ce programme affiche \`15\`.
+
+### 📘 Exemple intermédiaire — Calculer avec des variables
+
+\`\`\`python
+longueur = 8
+largeur = 5
+aire = longueur * largeur
+print("L'aire est :", aire)
+\`\`\`
+
+Ce programme calcule l'aire d'un rectangle de longueur $8$ et de largeur $5$, et affiche \`L'aire est : 40\`.
+
+### 🔴 Exemple avancé — Mélanger les types
+
+\`\`\`python
+rayon = 3
+pi = 3.14159
+aire = pi * rayon * rayon
+print("Le rayon est", rayon, "et l'aire du disque est environ", aire)
+\`\`\`
+
+Ici, \`rayon\` est un \`int\`, \`pi\` est un \`float\`, et le calcul \`pi * rayon * rayon\` donne un \`float\` (environ $28{,}27$). Python convertit automatiquement l'entier en décimal pour le calcul.
+
+## À retenir
+
+- \`=\` **affecte** une valeur à une variable, il ne teste pas une égalité.
+- Quatre types de base : \`int\` (entier), \`float\` (décimal), \`str\` (texte), \`bool\` (vrai/faux).
+- \`print(...)\` affiche une ou plusieurs valeurs à l'écran.
+- Un commentaire commence par \`#\` et n'est pas exécuté par Python.`,
+        exercises: [
+          {
+            id: "algopy2-l1-e1",
+            question: "Que va afficher le code suivant ?\n\n```python\nx = 7\nprint(x)\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "7" },
+              { id: "B", text: "x" },
+              { id: "C", text: "\"x\"" },
+              { id: "D", text: "Rien, il y a une erreur" },
+            ],
+            correctId: "A",
+            explanation: "La variable \`x\` reçoit la valeur $7$ par l'affectation \`x = 7\`, puis \`print(x)\` affiche la valeur contenue dans \`x\`, c'est-à-dire \`7\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l1-e2",
+            question: "Quel est le type de la valeur \`3.14\` en Python ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "float" },
+              { id: "B", text: "int" },
+              { id: "C", text: "str" },
+              { id: "D", text: "bool" },
+            ],
+            correctId: "A",
+            explanation: "Un nombre avec une partie décimale (point) est de type \`float\` en Python. \`3\` seul serait un \`int\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l1-e3",
+            question: "Le symbole \`#\` permet d'écrire un commentaire en Python, qui n'est pas exécuté par le programme.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "vrai",
+            explanation: "Tout ce qui suit \`#\` sur une ligne est un commentaire : Python l'ignore lors de l'exécution. Cela permet d'expliquer le code sans modifier son comportement.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l1-e4",
+            question: "Que va afficher ce programme ?\n\n```python\nbase = 6\nhauteur = 4\naire = base * hauteur / 2\nprint(\"Aire du triangle :\", aire)\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Aire du triangle : 12.0" },
+              { id: "B", text: "Aire du triangle : 24" },
+              { id: "C", text: "Aire du triangle : 10" },
+              { id: "D", text: "Aire du triangle : aire" },
+            ],
+            correctId: "A",
+            explanation: "$\\dfrac{6\\times4}{2} = \\dfrac{24}{2} = 12$. En Python, la division \`/\` renvoie toujours un \`float\`, donc le résultat affiché est \`12.0\` et non \`12\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l1-e5",
+            question: "Écris un programme Python qui affecte la valeur $12$ à une variable \`cote\`, calcule l'aire d'un carré de côté \`cote\` dans une variable \`aire\`, puis affiche cette aire précédée du texte \"Aire du carré :\".",
+            type: "open",
+            modelAnswer: "```python\ncote = 12\naire = cote * cote\nprint(\"Aire du carré :\", aire)\n```\n\nCe programme affecte $12$ à \`cote\`, calcule \`aire = 12 * 12 = 144\`, puis affiche \`Aire du carré : 144\`.",
+            explanation: "On affecte d'abord la donnée (le côté), puis on calcule l'aire avec la formule $\\text{côté}^2$, et enfin on affiche le résultat avec \`print\` en y associant un message explicatif.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy2-l2",
+        slug: "boucles-et-conditions-en-python",
+        title: "Boucles et conditions en Python",
+        durationMinutes: 20,
+        content: `## La boucle for
+
+La boucle \`for\` permet de répéter une instruction un **nombre de fois connu à l'avance**, en utilisant souvent la fonction \`range(...)\`.
+
+\`\`\`python
+for i in range(5):
+    print(i)
+\`\`\`
+
+Ce programme affiche \`0\`, \`1\`, \`2\`, \`3\`, \`4\` (chacun sur une ligne) : \`range(5)\` génère les entiers de $0$ à $4$ (le nombre $5$ n'est **pas** inclus).
+
+> **Attention :** en Python, l'**indentation** (les espaces en début de ligne) indique quelles instructions appartiennent à la boucle. Toutes les lignes indentées sous le \`for\` sont répétées.
+
+## La boucle while
+
+La boucle \`while\` répète une instruction **tant qu'une condition est vraie**, sans connaître à l'avance le nombre de répétitions.
+
+\`\`\`python
+n = 1
+while n <= 100:
+    n = n * 2
+print(n)
+\`\`\`
+
+Ce programme double \`n\` tant que \`n \\leqslant 100\`, en partant de $1$ : $1, 2, 4, 8, 16, 32, 64, 128$. À $128$, la condition $n \\leqslant 100$ devient fausse, la boucle s'arrête, et le programme affiche \`128\`.
+
+## Les instructions conditionnelles if / elif / else
+
+Une instruction \`if\` exécute un bloc de code **seulement si** une condition est vraie.
+
+\`\`\`python
+n = 7
+if n % 2 == 0:
+    print("pair")
+else:
+    print("impair")
+\`\`\`
+
+\`n % 2\` calcule le **reste** de la division de \`n\` par $2$ : ce reste vaut $0$ si \`n\` est pair. Ici, \`n = 7\`, donc \`n % 2 = 1\`, la condition \`n % 2 == 0\` est fausse, et le programme affiche \`impair\`.
+
+> **Remarque :** \`==\` teste une égalité (vrai/faux), alors que \`=\` affecte une valeur. Ne pas confondre les deux !
+
+On peut enchaîner plusieurs conditions avec \`elif\` (« sinon si ») :
+
+\`\`\`python
+note = 12
+if note >= 16:
+    print("Très bien")
+elif note >= 10:
+    print("Admis")
+else:
+    print("Non admis")
+\`\`\`
+
+## Exemples
+
+### ✅ Exemple simple — Boucle for et somme
+
+\`\`\`python
+somme = 0
+for i in range(1, 6):
+    somme = somme + i
+print(somme)
+\`\`\`
+
+\`range(1, 6)\` génère $1, 2, 3, 4, 5$. On additionne ces valeurs à \`somme\` à chaque tour : $1+2+3+4+5=15$. Le programme affiche \`15\`.
+
+### 📘 Exemple intermédiaire — Tester la parité
+
+\`\`\`python
+for nombre in range(1, 8):
+    if nombre % 2 == 0:
+        print(nombre, "est pair")
+    else:
+        print(nombre, "est impair")
+\`\`\`
+
+Pour chaque entier de $1$ à $7$, le programme affiche s'il est pair ou impair, par exemple \`1 est impair\`, \`2 est pair\`, etc.
+
+### 🔴 Exemple avancé — Compter les multiples avec while
+
+\`\`\`python
+compteur = 0
+n = 1
+while n <= 50:
+    if n % 3 == 0:
+        compteur = compteur + 1
+    n = n + 1
+print("Nombre de multiples de 3 entre 1 et 50 :", compteur)
+\`\`\`
+
+Ce programme parcourt les entiers de $1$ à $50$ un par un, et incrémente \`compteur\` chaque fois que \`n\` est un multiple de $3$. Il existe $16$ multiples de $3$ entre $1$ et $50$ ($3, 6, \\ldots, 48$), donc le programme affiche \`Nombre de multiples de 3 entre 1 et 50 : 16\`.
+
+## À retenir
+
+- \`for i in range(n):\` répète un bloc \`n\` fois, avec \`i\` valant successivement $0, 1, \\ldots, n-1$.
+- \`while condition:\` répète un bloc tant que la \`condition\` est vraie.
+- \`if / elif / else\` exécute un bloc selon qu'une condition est vraie ou fausse.
+- \`%\` donne le reste d'une division ; \`==\` teste une égalité (différent de \`=\`, qui affecte).
+- L'**indentation** délimite les blocs d'instructions en Python.`,
+        exercises: [
+          {
+            id: "algopy2-l2-e1",
+            question: "Que va afficher ce code ?\n\n```python\nfor i in range(3):\n    print(i)\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "0\n1\n2" },
+              { id: "B", text: "1\n2\n3" },
+              { id: "C", text: "0\n1\n2\n3" },
+              { id: "D", text: "3" },
+            ],
+            correctId: "A",
+            explanation: "\`range(3)\` génère les entiers $0, 1, 2$ (le nombre $3$ n'est pas inclus). Le programme affiche donc \`0\`, \`1\`, \`2\`, chacun sur une ligne.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l2-e2",
+            question: "L'opérateur \`==\` en Python sert à affecter une valeur à une variable.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est faux : \`==\` teste une égalité (renvoie \`True\` ou \`False\`), tandis que \`=\` (un seul signe) affecte une valeur à une variable. Ce sont deux opérateurs différents.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l2-e3",
+            question: "Que va afficher ce code ?\n\n```python\nn = 9\nif n % 2 == 0:\n    print(\"pair\")\nelse:\n    print(\"impair\")\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "impair" },
+              { id: "B", text: "pair" },
+              { id: "C", text: "9" },
+              { id: "D", text: "Rien, il y a une erreur" },
+            ],
+            correctId: "A",
+            explanation: "$9 \\% 2 = 1$ (reste de la division de $9$ par $2$), donc la condition \`n % 2 == 0\` est fausse : c'est le bloc \`else\` qui s'exécute, affichant \`impair\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l2-e4",
+            question: "Que va afficher ce programme ?\n\n```python\nsomme = 0\nfor i in range(1, 4):\n    somme = somme + i\nprint(somme)\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "6" },
+              { id: "B", text: "3" },
+              { id: "C", text: "10" },
+              { id: "D", text: "4" },
+            ],
+            correctId: "A",
+            explanation: "\`range(1, 4)\` génère $1, 2, 3$. On calcule $0+1=1$, puis $1+2=3$, puis $3+3=6$. Le programme affiche \`6\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l2-e5",
+            question: "Écris un programme Python qui utilise une boucle \`for\` pour calculer et afficher la somme des carrés des entiers de $1$ à $10$ (c'est-à-dire $1^2+2^2+\\cdots+10^2$).",
+            type: "open",
+            modelAnswer: "```python\nsomme = 0\nfor i in range(1, 11):\n    somme = somme + i * i\nprint(\"La somme des carrés est :\", somme)\n```\n\n\`range(1, 11)\` génère les entiers de $1$ à $10$. À chaque tour, on ajoute \`i * i\` (le carré de \`i\`) à \`somme\`. On obtient $1+4+9+16+25+36+49+64+81+100 = 385$. Le programme affiche \`La somme des carrés est : 385\`.",
+            explanation: "On initialise un accumulateur \`somme\` à $0$, puis on parcourt chaque entier de $1$ à $10$ avec \`range(1, 11)\` (borne supérieure exclue), en ajoutant son carré à chaque tour de boucle.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy2-l3",
+        slug: "fonctions-en-python",
+        title: "Fonctions en Python",
+        durationMinutes: 20,
+        content: `## Pourquoi définir une fonction ?
+
+Une **fonction** permet de regrouper des instructions sous un nom, pour les réutiliser facilement sans les réécrire à chaque fois. C'est l'équivalent, en programmation, d'une fonction mathématique qui prend une entrée et renvoie une sortie.
+
+## Définir une fonction avec def
+
+\`\`\`python
+def double(x):
+    return 2 * x
+\`\`\`
+
+- \`def\` annonce la définition d'une fonction.
+- \`double\` est le **nom** de la fonction.
+- \`x\` est un **paramètre** : une valeur que la fonction reçoit en entrée.
+- \`return\` indique la valeur que la fonction **renvoie** (le résultat).
+
+## Appeler une fonction
+
+Une fois définie, on **appelle** la fonction en lui donnant une valeur concrète (un **argument**) :
+
+\`\`\`python
+def double(x):
+    return 2 * x
+
+resultat = double(7)
+print(resultat)
+\`\`\`
+
+Ce programme affiche \`14\`, car \`double(7)\` calcule \`2 * 7 = 14\`, qui est ensuite stocké dans \`resultat\`.
+
+> **Attention :** \`return\` termine immédiatement la fonction et renvoie la valeur indiquée ; ce n'est pas la même chose que \`print\`, qui se contente d'afficher quelque chose sans le renvoyer à l'endroit où la fonction a été appelée.
+
+## Une fonction avec plusieurs paramètres
+
+\`\`\`python
+def aire_rectangle(longueur, largeur):
+    return longueur * largeur
+\`\`\`
+
+\`\`\`python
+print(aire_rectangle(5, 3))   # affiche 15
+print(aire_rectangle(8, 8))   # affiche 64
+\`\`\`
+
+## Exemples
+
+### ✅ Exemple simple — Fonction d'aire d'un rectangle
+
+\`\`\`python
+def aire_rectangle(longueur, largeur):
+    return longueur * largeur
+
+print(aire_rectangle(6, 4))
+\`\`\`
+
+Ce programme affiche \`24\`, car $6 \\times 4 = 24$.
+
+### 📘 Exemple intermédiaire — Fonction avec une condition
+
+\`\`\`python
+def est_pair(n):
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
+print(est_pair(10))
+print(est_pair(7))
+\`\`\`
+
+Ce programme affiche \`True\` puis \`False\` : $10$ est pair (\`10 % 2 == 0\`), et $7$ ne l'est pas.
+
+### 🔴 Exemple avancé — Tester si un nombre est premier (version simple)
+
+\`\`\`python
+def est_premier(n):
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+print(est_premier(7))
+print(est_premier(9))
+\`\`\`
+
+Pour \`n = 7\` : on teste si $7$ est divisible par $2, 3, 4, 5, 6$ ; aucun de ces nombres ne divise $7$, donc la fonction renvoie \`True\`. Pour \`n = 9\` : dès que \`i = 3\`, on a \`9 % 3 == 0\`, donc la fonction renvoie immédiatement \`False\`. Le programme affiche \`True\` puis \`False\`.
+
+## À retenir
+
+- \`def nom(paramètres):\` définit une fonction ; \`return\` indique la valeur renvoyée.
+- On **appelle** une fonction en lui passant des arguments entre parenthèses : \`nom(valeur1, valeur2)\`.
+- \`return\` arrête la fonction et renvoie un résultat utilisable ailleurs ; \`print\` ne fait qu'afficher.
+- Une fonction peut contenir des boucles et des conditions, comme tout autre bloc de code Python.`,
+        exercises: [
+          {
+            id: "algopy2-l3-e1",
+            question: "Que va afficher ce code ?\n\n```python\ndef triple(x):\n    return 3 * x\n\nprint(triple(5))\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "15" },
+              { id: "B", text: "5" },
+              { id: "C", text: "3" },
+              { id: "D", text: "53" },
+            ],
+            correctId: "A",
+            explanation: "\`triple(5)\` calcule \`3 * 5 = 15\`, qui est ensuite affiché par \`print\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l3-e2",
+            question: "L'instruction \`return\` dans une fonction affiche directement un résultat à l'écran, exactement comme \`print\`.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est faux : \`return\` renvoie une valeur que l'on peut ensuite stocker dans une variable ou utiliser ailleurs, mais elle ne s'affiche pas automatiquement à l'écran. Il faut utiliser \`print\` pour afficher le résultat.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l3-e3",
+            question: "Que va afficher ce code ?\n\n```python\ndef aire_carre(cote):\n    return cote * cote\n\nresultat = aire_carre(9)\nprint(resultat)\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "81" },
+              { id: "B", text: "18" },
+              { id: "C", text: "9" },
+              { id: "D", text: "resultat" },
+            ],
+            correctId: "A",
+            explanation: "\`aire_carre(9)\` calcule \`9 * 9 = 81\`, qui est stocké dans \`resultat\`, puis affiché par \`print(resultat)\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l3-e4",
+            question: "Que va afficher ce code ?\n\n```python\ndef est_pair(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False\n\nprint(est_pair(14))\n```",
+            type: "mcq",
+            options: [
+              { id: "A", text: "True" },
+              { id: "B", text: "False" },
+              { id: "C", text: "14" },
+              { id: "D", text: "pair" },
+            ],
+            correctId: "A",
+            explanation: "$14 \\% 2 = 0$, donc la condition \`n % 2 == 0\` est vraie, et la fonction renvoie \`True\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l3-e5",
+            question: "Écris une fonction Python \`perimetre_rectangle(longueur, largeur)\` qui renvoie le périmètre d'un rectangle, puis montre comment l'appeler pour afficher le périmètre d'un rectangle de longueur $7$ et de largeur $4$.",
+            type: "open",
+            modelAnswer: "```python\ndef perimetre_rectangle(longueur, largeur):\n    return 2 * (longueur + largeur)\n\nprint(perimetre_rectangle(7, 4))\n```\n\nLa fonction calcule $2\\times(\\text{longueur}+\\text{largeur})$. Pour $\\text{longueur}=7$ et $\\text{largeur}=4$ : $2\\times(7+4) = 2\\times11 = 22$. Le programme affiche \`22\`.",
+            explanation: "On utilise la formule du périmètre d'un rectangle $P = 2(L+\\ell)$, traduite directement en Python avec \`return\`, puis on appelle la fonction avec les arguments $7$ et $4$ pour vérifier le résultat.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "algopy2-l4",
+        slug: "simuler-des-phenomenes-aleatoires",
+        title: "Simuler des phénomènes aléatoires en Python",
+        durationMinutes: 17,
+        content: `## Le module random
+
+Pour simuler le hasard en Python, on utilise le module \`random\`, qu'il faut importer en début de programme :
+
+\`\`\`python
+import random
+\`\`\`
+
+## Deux fonctions essentielles
+
+| Fonction | Renvoie | Exemple |
+|---|---|---|
+| \`random.random()\` | un décimal aléatoire dans $[0\\ ;\\ 1[$ | \`0.7234...\` |
+| \`random.randint(a, b)\` | un entier aléatoire entre \`a\` et \`b\` **inclus** | \`random.randint(1, 6)\` |
+
+## Simuler un lancer de pièce
+
+\`\`\`python
+import random
+
+resultat = random.randint(0, 1)
+if resultat == 0:
+    print("Pile")
+else:
+    print("Face")
+\`\`\`
+
+## Simuler un lancer de dé
+
+\`\`\`python
+import random
+
+de = random.randint(1, 6)
+print("Le dé affiche", de)
+\`\`\`
+
+## Répéter une simulation avec une boucle
+
+Pour étudier la **fréquence** d'un événement, on répète l'expérience un grand nombre de fois à l'aide d'une boucle, en comptant les occurrences favorables.
+
+\`\`\`python
+import random
+
+compteur = 0
+n = 1000
+for i in range(n):
+    de = random.randint(1, 6)
+    if de == 6:
+        compteur = compteur + 1
+
+frequence = compteur / n
+print("Fréquence du 6 :", frequence)
+\`\`\`
+
+> **Rappel (loi des grands nombres) :** plus le nombre de répétitions $n$ est grand, plus la fréquence observée se rapproche de la probabilité théorique (ici $\\dfrac{1}{6}\\approx0{,}1667$).
+
+## Exemples
+
+### ✅ Exemple simple — Simuler un tirage à pile ou face
+
+\`\`\`python
+import random
+
+piece = random.randint(0, 1)
+print(piece)
+\`\`\`
+
+Ce programme affiche \`0\` ou \`1\` au hasard, chacun avec une probabilité $\\dfrac{1}{2}$.
+
+### 📘 Exemple intermédiaire — Compter les « Face » sur 10 lancers
+
+\`\`\`python
+import random
+
+compteur = 0
+for i in range(10):
+    piece = random.randint(0, 1)
+    if piece == 1:
+        compteur = compteur + 1
+
+print("Nombre de Face :", compteur)
+\`\`\`
+
+À chaque tour de boucle, on simule un lancer et on incrémente \`compteur\` si on obtient \`1\` (« Face »).
+
+### 🔴 Exemple avancé — Estimer une probabilité par simulation
+
+\`\`\`python
+import random
+
+compteur = 0
+n = 5000
+for i in range(n):
+    de = random.randint(1, 6)
+    if de == 1 or de == 2:
+        compteur = compteur + 1
+
+frequence = compteur / n
+print("Fréquence d'obtenir 1 ou 2 :", frequence)
+\`\`\`
+
+La probabilité théorique d'obtenir $1$ ou $2$ avec un dé équilibré est $\\dfrac{2}{6}=\\dfrac{1}{3}\\approx0{,}333$. Avec $n=5000$ répétitions, la fréquence observée doit s'en approcher.
+
+## À retenir
+
+- \`import random\` permet d'utiliser des fonctions de tirage aléatoire.
+- \`random.randint(a, b)\` renvoie un entier aléatoire entre \`a\` et \`b\` inclus ; \`random.random()\` renvoie un décimal dans $[0\\ ;\\ 1[$.
+- Pour estimer une probabilité, on répète une simulation dans une boucle \`for\` en comptant les occurrences favorables, puis on divise par le nombre total de répétitions.
+- D'après la loi des grands nombres, la fréquence observée se rapproche de la probabilité théorique quand $n$ augmente.`,
+        exercises: [
+          {
+            id: "algopy2-l4-e1",
+            question: "Quelle instruction permet de simuler le lancer d'un dé à 6 faces en Python ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`random.randint(1, 6)\`" },
+              { id: "B", text: "\`random.randint(0, 6)\`" },
+              { id: "C", text: "\`random.random(1, 6)\`" },
+              { id: "D", text: "\`random.randint(6)\`" },
+            ],
+            correctId: "A",
+            explanation: "\`random.randint(a, b)\` renvoie un entier aléatoire entre \`a\` et \`b\` **inclus** ; pour un dé à 6 faces (résultats $1$ à $6$), on écrit \`random.randint(1, 6)\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l4-e2",
+            question: "\`random.random()\` renvoie toujours un nombre entier.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "\`random.random()\` renvoie un nombre **décimal** (de type \`float\`) compris dans $[0\\ ;\\ 1[$, pas un entier.",
+            difficulty: "debutant",
+          },
+          {
+            id: "algopy2-l4-e3",
+            question: `Que fait ce programme ?
+
+\`\`\`python
+compteur = 0
+for i in range(200):
+    piece = random.randint(0, 1)
+    if piece == 0:
+        compteur = compteur + 1
+frequence = compteur / 200
+\`\`\``,
+            type: "mcq",
+            options: [
+              { id: "A", text: "Il estime la fréquence d'obtenir \`0\` sur 200 simulations de pile ou face" },
+              { id: "B", text: "Il calcule la probabilité théorique exacte d'obtenir \`0\`" },
+              { id: "C", text: "Il affiche \`200\` à l'écran" },
+              { id: "D", text: "Il provoque une erreur" },
+            ],
+            correctId: "A",
+            explanation: "Le programme répète $200$ tirages, compte le nombre de fois où \`piece == 0\`, puis divise par $200$ pour obtenir la **fréquence observée**, qui est une estimation (et non la valeur théorique exacte).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l4-e4",
+            question: "On simule $n=10000$ lancers de dé à 6 faces et on obtient une fréquence de $0{,}168$ pour l'événement « obtenir un 6 ». Que peut-on en conclure ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La fréquence observée est très proche de la probabilité théorique $\\dfrac{1}{6}\\approx0{,}167$ : le dé semble équilibré" },
+              { id: "B", text: "Le dé est forcément truqué car $0{,}168 \\neq \\dfrac{1}{6}$ exactement" },
+              { id: "C", text: "On ne peut rien conclure sans refaire la simulation" },
+              { id: "D", text: "La probabilité théorique est exactement $0{,}168$" },
+            ],
+            correctId: "A",
+            explanation: "Avec un grand nombre de répétitions, la fréquence observée se rapproche de la probabilité théorique (loi des grands nombres) ; un petit écart comme $0{,}168$ contre $0{,}167$ est normal et cohérent avec un dé équilibré.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "algopy2-l4-e5",
+            question: "Écris un programme Python qui simule $n=2000$ lancers d'une pièce équilibrée (\`random.randint(0, 1)\`, où \`1\` représente « Face »), compte le nombre de fois où on obtient « Face », puis calcule et affiche la fréquence observée.",
+            type: "open",
+            modelAnswer: "```python\nimport random\n\ncompteur = 0\nn = 2000\nfor i in range(n):\n    piece = random.randint(0, 1)\n    if piece == 1:\n        compteur = compteur + 1\n\nfrequence = compteur / n\nprint(\"Fréquence de Face :\", frequence)\n```\n\nOn initialise un \`compteur\` à $0$, puis on répète $n=2000$ fois le tirage \`random.randint(0, 1)\`. Chaque fois que le résultat vaut \`1\` (« Face »), on incrémente le compteur. On calcule ensuite la fréquence observée en divisant le compteur par $n$.\n\n$$\\boxed{\\text{La fréquence affichée doit être proche de } 0{,}5}$$",
+            explanation: "C'est le schéma classique de simulation : initialiser un compteur, répéter l'expérience dans une boucle \`for\`, incrémenter le compteur selon une condition, puis diviser par le nombre total de répétitions pour obtenir la fréquence.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // 2nde — Révisions générales
+  // ─────────────────────────────────────────────
+  {
+    id: "rev2-id",
+    slug: "revisions-2nde",
+    title: "Révisions générales — 2nde",
+    description: "15 exercices progressifs (débutant, intermédiaire, expert) pour réviser tout le programme de Seconde : nombres et calculs, intervalles, équations et inéquations, fonctions, vecteurs, trigonométrie, statistiques et probabilités.",
+    schoolLevel: "2nde",
+    subject: "algebre",
+    difficulty: "Avancé",
+    isFree: true,
+    thumbnailEmoji: "🎯",
+    lessons: [
+      {
+        id: "rev2-l1",
+        slug: "bilan-progressif-2nde",
+        title: "Bilan progressif : tout le programme de 2nde",
+        durationMinutes: 25,
+        content: `## Bilan de 2nde
+
+Ce bilan rassemble les **grandes notions** du programme de Seconde : nombres et intervalles, équations et inéquations, fonctions, vecteurs et repérage, trigonométrie, statistiques et probabilités.
+
+Les $15$ exercices ci-dessous sont classés en trois niveaux de difficulté progressive :
+
+- 🟢 **Débutant** (exercices 1 à 5) : applications directes des définitions et formules.
+- 🟡 **Intermédiaire** (exercices 6 à 10) : exercices combinant deux notions ou demandant un calcul en plusieurs étapes.
+- 🔴 **Expert** (exercices 11 à 15) : problèmes complets nécessitant de mobiliser plusieurs compétences du programme.
+
+> Ce bilan est un excellent entraînement pour consolider les bases avant d'aborder le programme de Première : prends le temps de bien justifier chaque réponse !`,
+        exercises: [
+          {
+            id: "rev2-l1-e1",
+            question: "Que vaut $|-9|$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$9$" },
+              { id: "B", text: "$-9$" },
+              { id: "C", text: "$0$" },
+              { id: "D", text: "$81$" },
+            ],
+            correctId: "A",
+            explanation: "La valeur absolue d'un nombre négatif est son opposé : $|-9| = 9$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "rev2-l1-e2",
+            question: "Comment s'écrit l'ensemble des réels $x$ tels que $-1 < x \\leqslant 6$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$]-1;6]$" },
+              { id: "B", text: "$[-1;6[$" },
+              { id: "C", text: "$[-1;6]$" },
+              { id: "D", text: "$]-1;6[$" },
+            ],
+            correctId: "A",
+            explanation: "La borne $-1$ est exclue (crochet ouvert) car $<$, et la borne $6$ est incluse (crochet fermé) car $\\leqslant$. On obtient $]-1;6]$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "rev2-l1-e3",
+            question: "Résous l'équation $4x - 5 = 3x + 2$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x = 7$" },
+              { id: "B", text: "$x = -7$" },
+              { id: "C", text: "$x = 3$" },
+              { id: "D", text: "$x = 1$" },
+            ],
+            correctId: "A",
+            explanation: "$4x-3x = 2+5 \\implies x = 7$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "rev2-l1-e4",
+            question: "Pour un triangle rectangle, le cosinus d'un angle aigu $\\theta$ est égal à $\\dfrac{\\text{opposé}}{\\text{hypoténuse}}$.",
+            type: "true_false",
+            options: [
+              { id: "vrai", text: "Vrai" },
+              { id: "faux", text: "Faux" },
+            ],
+            correctId: "faux",
+            explanation: "C'est faux : $\\cos(\\theta) = \\dfrac{\\text{adjacent}}{\\text{hypoténuse}}$. C'est le sinus qui correspond à $\\dfrac{\\text{opposé}}{\\text{hypoténuse}}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "rev2-l1-e5",
+            question: "Dans un repère, quelles sont les coordonnées du milieu $I$ du segment $[AB]$ avec $A(-2;5)$ et $B(4;1)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$I(1;3)$" },
+              { id: "B", text: "$I(2;6)$" },
+              { id: "C", text: "$I(1;6)$" },
+              { id: "D", text: "$I(-1;3)$" },
+            ],
+            correctId: "A",
+            explanation: "Les coordonnées du milieu sont la moyenne des coordonnées : $x_I = \\dfrac{-2+4}{2}=1$ et $y_I = \\dfrac{5+1}{2}=3$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "rev2-l1-e6",
+            question: "Résous l'inéquation $3x + 7 > 1$ et donne l'ensemble des solutions sous forme d'intervalle.",
+            type: "open",
+            modelAnswer: "$$3x+7>1$$\n\n$$3x>-6$$\n\n$$x>-2$$\n\nL'ensemble des solutions est l'intervalle $]-2;+\\infty[$.\n\n$$\\boxed{S = ]-2;+\\infty[}$$",
+            explanation: "On isole $x$ comme pour une équation ; le sens de l'inégalité ne change pas car on divise par un nombre positif ($3$). On exprime ensuite la solution sous forme d'intervalle.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "rev2-l1-e7",
+            question: "Soit $I = [-3;5]$ et $J = [2;9]$. Que vaut $I \\cap J$ ?",
+            type: "open",
+            modelAnswer: "L'intersection contient les réels appartenant à la fois à $I$ et à $J$, donc à la fois $\\geqslant -3$, $\\leqslant 5$, $\\geqslant 2$ et $\\leqslant 9$.\n\n$$I \\cap J = [2;5]$$\n\n$$\\boxed{I \\cap J = [2;5]}$$",
+            explanation: "On garde la plus grande des deux bornes inférieures ($-3$ et $2$, donc $2$) et la plus petite des deux bornes supérieures ($5$ et $9$, donc $5$).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "rev2-l1-e8",
+            question: "Soit $f(x) = -2x+3$. Quel est le sens de variation de $f$ sur $\\mathbb{R}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$f$ est strictement décroissante sur $\\mathbb{R}$" },
+              { id: "B", text: "$f$ est strictement croissante sur $\\mathbb{R}$" },
+              { id: "C", text: "$f$ est constante" },
+              { id: "D", text: "On ne peut pas déterminer le sens de variation" },
+            ],
+            correctId: "A",
+            explanation: "Une fonction affine $f(x)=ax+b$ est décroissante si et seulement si $a<0$. Ici $a=-2<0$, donc $f$ est strictement décroissante sur $\\mathbb{R}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "rev2-l1-e9",
+            question: "Dans un triangle rectangle, le côté adjacent à un angle $\\theta$ mesure $5$ cm et l'hypoténuse mesure $10$ cm. Calcule $\\theta$ au degré près.",
+            type: "open",
+            modelAnswer: "$$\\cos(\\theta) = \\dfrac{\\text{adjacent}}{\\text{hypoténuse}} = \\dfrac{5}{10} = 0{,}5$$\n\n$$\\theta = \\cos^{-1}(0{,}5) = 60°$$\n\n$$\\boxed{\\theta = 60°}$$",
+            explanation: "On utilise le cosinus car on connaît le côté adjacent et l'hypoténuse, puis la fonction réciproque $\\cos^{-1}$ pour retrouver la mesure de l'angle.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "rev2-l1-e10",
+            question: "Une urne contient $20$ boules numérotées de $1$ à $20$. On tire une boule au hasard. Quelle est la probabilité d'obtenir un multiple de $3$ ?",
+            type: "open",
+            modelAnswer: "Les multiples de $3$ entre $1$ et $20$ sont $\\{3,6,9,12,15,18\\}$, soit $6$ issues favorables sur $20$ issues possibles équiprobables.\n\n$$P = \\dfrac{6}{20} = \\dfrac{3}{10}$$\n\n$$\\boxed{P = \\dfrac{3}{10} = 0{,}3}$$",
+            explanation: "On compte le nombre d'issues favorables (les multiples de $3$ dans l'univers), puis on divise par le nombre total d'issues équiprobables.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "rev2-l1-e11",
+            question: "Soit $A(1;2)$, $B(5;2)$ et $C(5;6)$ trois points du plan. Calcule la longueur $AC$ et précise la nature du triangle $ABC$.",
+            type: "open",
+            modelAnswer: "$$AC = \\sqrt{(5-1)^2+(6-2)^2} = \\sqrt{4^2+4^2} = \\sqrt{16+16} = \\sqrt{32} = 4\\sqrt{2}$$\n\nLe point $B(5;2)$ a la même ordonnée que $A$ (donc $(AB)$ est horizontale) et la même abscisse que $C$ (donc $(BC)$ est verticale) : les droites $(AB)$ et $(BC)$ sont donc perpendiculaires.\n\nLe triangle $ABC$ est donc **rectangle en $B$**.\n\n$$\\boxed{AC = 4\\sqrt{2} \\text{ ; le triangle } ABC \\text{ est rectangle en } B}$$",
+            explanation: "On utilise la formule de la distance entre deux points dans un repère, puis on observe que les coordonnées révèlent deux droites perpendiculaires (l'une horizontale, l'autre verticale), ce qui caractérise un triangle rectangle.",
+            difficulty: "expert",
+          },
+          {
+            id: "rev2-l1-e12",
+            question: "Résous le système suivant : $\\begin{cases} 2x+y=7 \\\\ x-y=-1 \\end{cases}$",
+            type: "open",
+            modelAnswer: "On additionne les deux équations pour éliminer $y$ :\n\n$$(2x+y)+(x-y) = 7+(-1)$$\n\n$$3x = 6 \\implies x=2$$\n\nOn substitue dans la deuxième équation : $2-y=-1 \\implies y=3$.\n\n**Vérification :** $2\\times2+3=7$ ✓ et $2-3=-1$ ✓\n\n$$\\boxed{x=2 \\text{ et } y=3}$$",
+            explanation: "On combine les deux équations (ici par addition, car les coefficients de $y$ sont opposés) pour obtenir une équation à une seule inconnue, puis on substitue pour trouver la seconde inconnue.",
+            difficulty: "expert",
+          },
+          {
+            id: "rev2-l1-e13",
+            question: "Une série statistique de $50$ valeurs a pour moyenne $\\bar{x}=12$ et écart-type $\\sigma=3$. On ajoute à chaque valeur de la série le nombre $5$. Quelles sont la nouvelle moyenne et le nouvel écart-type ?",
+            type: "open",
+            modelAnswer: "Ajouter une constante $5$ à toutes les valeurs **translate** la série : la moyenne est elle aussi augmentée de $5$, mais la dispersion autour de la moyenne (donc l'écart-type) reste **inchangée**.\n\n$$\\text{Nouvelle moyenne} = 12+5 = 17$$\n\n$$\\text{Nouvel écart-type} = 3 \\text{ (inchangé)}$$\n\n$$\\boxed{\\bar{x}_{\\text{nouvelle}} = 17 \\ ; \\ \\sigma_{\\text{nouveau}} = 3}$$",
+            explanation: "Une translation (ajout d'une constante à toutes les données) déplace la moyenne de cette même constante, mais ne modifie pas la dispersion des données entre elles, donc l'écart-type reste identique.",
+            difficulty: "expert",
+          },
+          {
+            id: "rev2-l1-e14",
+            question: "On lance deux dés équilibrés à $6$ faces. Soit $A$ l'événement \"obtenir un double\" (les deux dés affichent le même numéro) et $B$ l'événement \"la somme des deux dés vaut $8$\". Calcule $P(A)$, $P(B)$ et $P(A\\cap B)$.",
+            type: "open",
+            modelAnswer: "L'univers compte $36$ issues équiprobables (couples de résultats des deux dés).\n\n**Événement $A$ :** doubles $(1,1),(2,2),\\ldots,(6,6)$, soit $6$ issues. $$P(A) = \\dfrac{6}{36} = \\dfrac{1}{6}$$\n\n**Événement $B$ :** sommes égales à $8$ : $(2,6),(3,5),(4,4),(5,3),(6,2)$, soit $5$ issues. $$P(B) = \\dfrac{5}{36}$$\n\n**Événement $A\\cap B$ :** un double dont la somme vaut $8$, c'est-à-dire $(4,4)$ uniquement, soit $1$ issue. $$P(A\\cap B) = \\dfrac{1}{36}$$\n\n$$\\boxed{P(A)=\\dfrac{1}{6}\\ ;\\ P(B)=\\dfrac{5}{36}\\ ;\\ P(A\\cap B)=\\dfrac{1}{36}}$$",
+            explanation: "On liste explicitement les issues favorables à chaque événement parmi les $36$ couples possibles, en remarquant que $(4,4)$ est le seul couple qui est à la fois un double et de somme $8$.",
+            difficulty: "expert",
+          },
+          {
+            id: "rev2-l1-e15",
+            question: "Soit $f(x) = x^2 - 4x + 1$. Donne le sens de variation de $f$ sur $\\mathbb{R}$ en précisant les intervalles, sachant que la fonction carré atteint son minimum en $x=2$ pour cette expression (forme canonique : $f(x)=(x-2)^2-3$).",
+            type: "open",
+            modelAnswer: "On admet la forme canonique $f(x) = (x-2)^2-3$.\n\nComme $(x-2)^2 \\geqslant 0$ pour tout réel $x$, et que $(x-2)^2$ est minimal (égal à $0$) lorsque $x=2$, la fonction $f$ atteint son minimum $-3$ en $x=2$.\n\nLa fonction carré $u \\mapsto u^2$ est décroissante sur $]-\\infty;0]$ et croissante sur $[0;+\\infty[$ ; en composant avec $u=x-2$ (qui s'annule en $x=2$), on en déduit que $f$ est :\n\n- **décroissante** sur $]-\\infty;2]$,\n- **croissante** sur $[2;+\\infty[$.\n\n$$\\boxed{f \\text{ décroissante sur } ]-\\infty;2], \\text{ croissante sur } [2;+\\infty[}$$",
+            explanation: "On s'appuie sur la forme canonique pour identifier le sommet de la parabole (ici un minimum, car le coefficient devant le carré est positif), ce qui détermine directement les deux intervalles de variation de la fonction.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // 1ère — Algèbre
+  // ─────────────────────────────────────────────
   {
     id: "sec1-id",
     slug: "second-degre-1ere",
@@ -12576,7 +17306,7 @@ Cela découle directement de la forme canonique : $(x-\\alpha)^2 \\geqslant 0$, 
             id: "sec1-l1-e4",
             question: "Détermine la forme canonique de $f(x) = x^2+6x+5$ et précise les coordonnées du sommet de la parabole.",
             type: "open",
-            modelAnswer: "On factorise par $a=1$ et on utilise l'identité remarquable $x^2+6x = (x+3)^2-9$ :\\n\\n$$f(x) = x^2+6x+5 = (x+3)^2-9+5 = (x+3)^2-4$$\\n\\nLa forme canonique est donc $f(x) = (x+3)^2-4$, avec $\\alpha=-3$ et $\\beta=-4$.\\n\\nLe sommet de la parabole est donc le point $S(-3\\,;\\,-4)$.\\n\\n$$\\boxed{f(x) = (x+3)^2-4 \\quad ; \\quad S(-3\\,;\\,-4)}$$",
+            modelAnswer: "On factorise par $a=1$ et on utilise l'identité remarquable $x^2+6x = (x+3)^2-9$ :\n\n$$f(x) = x^2+6x+5 = (x+3)^2-9+5 = (x+3)^2-4$$\n\nLa forme canonique est donc $f(x) = (x+3)^2-4$, avec $\\alpha=-3$ et $\\beta=-4$.\n\nLe sommet de la parabole est donc le point $S(-3\\,;\\,-4)$.\n\n$$\\boxed{f(x) = (x+3)^2-4 \\quad ; \\quad S(-3\\,;\\,-4)}$$",
             explanation: "On cherche $(x+3)^2 = x^2+6x+9$, donc $x^2+6x = (x+3)^2-9$, puis on ajoute la constante restante.",
             difficulty: "intermediaire",
           },
@@ -12584,7 +17314,7 @@ Cela découle directement de la forme canonique : $(x-\\alpha)^2 \\geqslant 0$, 
             id: "sec1-l1-e5",
             question: "Soit $f(x) = -2x^2+8x-3$. Donne le tableau de variations de $f$ sur $\\mathbb{R}$, en précisant la valeur de l'extremum.",
             type: "open",
-            modelAnswer: "On met $f$ sous forme canonique : $\\alpha = -\\dfrac{b}{2a} = -\\dfrac{8}{2\\times(-2)} = -\\dfrac{8}{-4} = 2$.\\n\\n$$\\beta = f(2) = -2(2)^2+8(2)-3 = -8+16-3 = 5$$\\n\\nDonc $f(x) = -2(x-2)^2+5$, avec $a=-2<0$ : la parabole est tournée vers le bas, $f$ admet un **maximum** égal à $5$ atteint en $x=2$.\\n\\nTableau de variations :\\n\\n$f$ est croissante sur $]-\\infty\\,;\\,2]$ et décroissante sur $[2\\,;\\,+\\infty[$, avec un maximum de $5$ en $x=2$.\\n\\n$$\\boxed{\\text{Maximum } f(2)=5,\\ f \\text{ croît sur } ]-\\infty;2] \\text{ et décroît sur } [2;+\\infty[}$$",
+            modelAnswer: "On met $f$ sous forme canonique : $\\alpha = -\\dfrac{b}{2a} = -\\dfrac{8}{2\\times(-2)} = -\\dfrac{8}{-4} = 2$.\n\n$$\\beta = f(2) = -2(2)^2+8(2)-3 = -8+16-3 = 5$$\n\nDonc $f(x) = -2(x-2)^2+5$, avec $a=-2<0$ : la parabole est tournée vers le bas, $f$ admet un **maximum** égal à $5$ atteint en $x=2$.\n\nTableau de variations :\n\n$f$ est croissante sur $]-\\infty\\,;\\,2]$ et décroissante sur $[2\\,;\\,+\\infty[$, avec un maximum de $5$ en $x=2$.\n\n$$\\boxed{\\text{Maximum } f(2)=5,\\ f \\text{ croît sur } ]-\\infty;2] \\text{ et décroît sur } [2;+\\infty[}$$",
             explanation: "Comme $a<0$, la forme canonique donne directement un maximum égal à $\\beta$ atteint en $x=\\alpha$.",
             difficulty: "expert",
           },
@@ -12672,7 +17402,7 @@ Ces relations permettent parfois de retrouver rapidement des racines évidentes 
             id: "sec1-l2-e4",
             question: "Résous dans $\\mathbb{R}$ l'équation $3x^2-2x-1=0$.",
             type: "open",
-            modelAnswer: "On a $a=3$, $b=-2$, $c=-1$.\\n\\n$$\\Delta = (-2)^2-4\\times 3\\times(-1) = 4+12 = 16 > 0$$\\n\\nIl y a deux solutions distinctes. Comme $\\sqrt{\\Delta}=4$ :\\n\\n$$x_1 = \\dfrac{-(-2)-4}{2\\times 3} = \\dfrac{2-4}{6} = \\dfrac{-2}{6} = -\\dfrac{1}{3}$$\\n\\n$$x_2 = \\dfrac{-(-2)+4}{2\\times 3} = \\dfrac{2+4}{6} = \\dfrac{6}{6} = 1$$\\n\\n$$\\boxed{S = \\left\\{-\\dfrac{1}{3}\\,;\\,1\\right\\}}$$",
+            modelAnswer: "On a $a=3$, $b=-2$, $c=-1$.\n\n$$\\Delta = (-2)^2-4\\times 3\\times(-1) = 4+12 = 16 > 0$$\n\nIl y a deux solutions distinctes. Comme $\\sqrt{\\Delta}=4$ :\n\n$$x_1 = \\dfrac{-(-2)-4}{2\\times 3} = \\dfrac{2-4}{6} = \\dfrac{-2}{6} = -\\dfrac{1}{3}$$\n\n$$x_2 = \\dfrac{-(-2)+4}{2\\times 3} = \\dfrac{2+4}{6} = \\dfrac{6}{6} = 1$$\n\n$$\\boxed{S = \\left\\{-\\dfrac{1}{3}\\,;\\,1\\right\\}}$$",
             explanation: "On calcule $\\Delta$, on vérifie qu'il est positif, puis on applique les formules des deux racines.",
             difficulty: "intermediaire",
           },
@@ -12680,7 +17410,7 @@ Ces relations permettent parfois de retrouver rapidement des racines évidentes 
             id: "sec1-l2-e5",
             question: "On sait que l'équation $x^2-7x+c=0$ admet $x_1=2$ comme solution. Déduis-en la valeur de $c$ et l'autre solution $x_2$, en utilisant les relations entre coefficients et racines.",
             type: "open",
-            modelAnswer: "Avec $a=1$ et $b=-7$, la relation sur la somme des racines donne :\\n\\n$$x_1+x_2 = -\\dfrac{b}{a} = 7$$\\n\\nComme $x_1=2$, on a $x_2 = 7-2 = 5$.\\n\\nLa relation sur le produit donne $x_1\\times x_2 = \\dfrac{c}{a} = c$ (puisque $a=1$), donc :\\n\\n$$c = 2\\times 5 = 10$$\\n\\nVérification : $x^2-7x+10=0$ a bien pour discriminant $\\Delta = 49-40=9>0$, et $\\sqrt{9}=3$ donne $x=\\dfrac{7\\pm3}{2}$, soit $x=2$ ou $x=5$. Cohérent.\\n\\n$$\\boxed{c=10 \\quad ; \\quad x_2=5}$$",
+            modelAnswer: "Avec $a=1$ et $b=-7$, la relation sur la somme des racines donne :\n\n$$x_1+x_2 = -\\dfrac{b}{a} = 7$$\n\nComme $x_1=2$, on a $x_2 = 7-2 = 5$.\n\nLa relation sur le produit donne $x_1\\times x_2 = \\dfrac{c}{a} = c$ (puisque $a=1$), donc :\n\n$$c = 2\\times 5 = 10$$\n\nVérification : $x^2-7x+10=0$ a bien pour discriminant $\\Delta = 49-40=9>0$, et $\\sqrt{9}=3$ donne $x=\\dfrac{7\\pm3}{2}$, soit $x=2$ ou $x=5$. Cohérent.\n\n$$\\boxed{c=10 \\quad ; \\quad x_2=5}$$",
             explanation: "On exploite les relations $x_1+x_2=-b/a$ et $x_1x_2=c/a$ sans recalculer le discriminant.",
             difficulty: "expert",
           },
@@ -12771,7 +17501,7 @@ Résoudre $f(x) \\leqslant 0$ ou $f(x) \\geqslant 0$ revient à lire le tableau 
             id: "sec1-l3-e4",
             question: "Étudie le signe de $f(x) = x^2-2x-3$ sur $\\mathbb{R}$.",
             type: "open",
-            modelAnswer: "On calcule le discriminant : $a=1$, $b=-2$, $c=-3$.\\n\\n$$\\Delta = (-2)^2-4\\times1\\times(-3) = 4+12=16>0$$\\n\\n$\\sqrt{\\Delta}=4$, donc :\\n\\n$$x_1 = \\dfrac{2-4}{2}=-1 \\qquad x_2=\\dfrac{2+4}{2}=3$$\\n\\nComme $a=1>0$, le trinôme est positif à l'extérieur des racines et négatif entre elles.\\n\\nTableau de signes : $f(x)>0$ sur $]-\\infty\\,;\\,-1[\\,\\cup\\,]3\\,;\\,+\\infty[$, $f(x)=0$ pour $x=-1$ ou $x=3$, $f(x)<0$ sur $]-1\\,;\\,3[$.\\n\\n$$\\boxed{f(x)>0 \\text{ sur } ]-\\infty;-1[\\cup]3;+\\infty[\\,;\\ f(x)<0 \\text{ sur } ]-1;3[}$$",
+            modelAnswer: "On calcule le discriminant : $a=1$, $b=-2$, $c=-3$.\n\n$$\\Delta = (-2)^2-4\\times1\\times(-3) = 4+12=16>0$$\n\n$\\sqrt{\\Delta}=4$, donc :\n\n$$x_1 = \\dfrac{2-4}{2}=-1 \\qquad x_2=\\dfrac{2+4}{2}=3$$\n\nComme $a=1>0$, le trinôme est positif à l'extérieur des racines et négatif entre elles.\n\nTableau de signes : $f(x)>0$ sur $]-\\infty\\,;\\,-1[\\,\\cup\\,]3\\,;\\,+\\infty[$, $f(x)=0$ pour $x=-1$ ou $x=3$, $f(x)<0$ sur $]-1\\,;\\,3[$.\n\n$$\\boxed{f(x)>0 \\text{ sur } ]-\\infty;-1[\\cup]3;+\\infty[\\,;\\ f(x)<0 \\text{ sur } ]-1;3[}$$",
             explanation: "On détermine les racines puis on applique la règle du signe de $a$ à l'extérieur / signe opposé entre les racines.",
             difficulty: "intermediaire",
           },
@@ -12779,7 +17509,7 @@ Résoudre $f(x) \\leqslant 0$ ou $f(x) \\geqslant 0$ revient à lire le tableau 
             id: "sec1-l3-e5",
             question: "Un terrain rectangulaire a un périmètre fixé à $40$ m. On note $x$ la longueur d'un côté (en mètres, avec $0<x<20$). Exprime l'aire $\\mathcal{A}(x)$ du terrain en fonction de $x$, puis détermine la valeur de $x$ qui maximise cette aire, ainsi que l'aire maximale obtenue.",
             type: "open",
-            modelAnswer: "Si $x$ est la longueur d'un côté, l'autre côté mesure $20-x$ (car le demi-périmètre est $40/2=20$). L'aire est :\\n\\n$$\\mathcal{A}(x) = x(20-x) = -x^2+20x$$\\n\\nC'est une fonction du second degré avec $a=-1<0$, $b=20$. Le sommet de la parabole (donc le maximum) est atteint en :\\n\\n$$\\alpha = -\\dfrac{b}{2a} = -\\dfrac{20}{2\\times(-1)} = 10$$\\n\\nL'aire maximale vaut alors :\\n\\n$$\\mathcal{A}(10) = -10^2+20\\times 10 = -100+200=100$$\\n\\nLe terrain est donc un carré de côté $10$ m (cohérent avec la propriété classique : à périmètre fixé, le carré maximise l'aire), avec une aire maximale de $100\\ \\text{m}^2$.\\n\\n$$\\boxed{x=10 \\text{ m, aire maximale } = 100\\ \\text{m}^2}$$",
+            modelAnswer: "Si $x$ est la longueur d'un côté, l'autre côté mesure $20-x$ (car le demi-périmètre est $40/2=20$). L'aire est :\n\n$$\\mathcal{A}(x) = x(20-x) = -x^2+20x$$\n\nC'est une fonction du second degré avec $a=-1<0$, $b=20$. Le sommet de la parabole (donc le maximum) est atteint en :\n\n$$\\alpha = -\\dfrac{b}{2a} = -\\dfrac{20}{2\\times(-1)} = 10$$\n\nL'aire maximale vaut alors :\n\n$$\\mathcal{A}(10) = -10^2+20\\times 10 = -100+200=100$$\n\nLe terrain est donc un carré de côté $10$ m (cohérent avec la propriété classique : à périmètre fixé, le carré maximise l'aire), avec une aire maximale de $100\\ \\text{m}^2$.\n\n$$\\boxed{x=10 \\text{ m, aire maximale } = 100\\ \\text{m}^2}$$",
             explanation: "On modélise l'aire par une fonction du second degré à coefficient $a$ négatif, dont le maximum est lu au sommet de la parabole.",
             difficulty: "expert",
           },
@@ -12876,7 +17606,7 @@ $$y = 6(x-3)+9 = 6x-18+9 = 6x-9$$
             id: "der1-l1-e4",
             question: "Calcule le nombre dérivé de $f(x)=x^2$ en $a=-1$ en revenant à la définition (calcul du taux de variation puis de sa limite).",
             type: "open",
-            modelAnswer: "On calcule le taux de variation entre $a=-1$ et $a+h=-1+h$ :\\n\\n$$\\tau(h) = \\dfrac{f(-1+h)-f(-1)}{h} = \\dfrac{(-1+h)^2-(-1)^2}{h}$$\\n\\nOn développe $(-1+h)^2 = 1-2h+h^2$, donc :\\n\\n$$\\tau(h) = \\dfrac{1-2h+h^2-1}{h} = \\dfrac{-2h+h^2}{h} = \\dfrac{h(-2+h)}{h} = -2+h$$\\n\\n(pour $h\\neq 0$, on peut diviser par $h$).\\n\\nQuand $h\\to 0$, $\\tau(h) \\to -2$.\\n\\n$$\\boxed{f'(-1) = -2}$$",
+            modelAnswer: "On calcule le taux de variation entre $a=-1$ et $a+h=-1+h$ :\n\n$$\\tau(h) = \\dfrac{f(-1+h)-f(-1)}{h} = \\dfrac{(-1+h)^2-(-1)^2}{h}$$\n\nOn développe $(-1+h)^2 = 1-2h+h^2$, donc :\n\n$$\\tau(h) = \\dfrac{1-2h+h^2-1}{h} = \\dfrac{-2h+h^2}{h} = \\dfrac{h(-2+h)}{h} = -2+h$$\n\n(pour $h\\neq 0$, on peut diviser par $h$).\n\nQuand $h\\to 0$, $\\tau(h) \\to -2$.\n\n$$\\boxed{f'(-1) = -2}$$",
             explanation: "On forme le taux de variation, on factorise pour éliminer $h$ au dénominateur, puis on fait tendre $h$ vers $0$.",
             difficulty: "intermediaire",
           },
@@ -12884,7 +17614,7 @@ $$y = 6(x-3)+9 = 6x-18+9 = 6x-9$$
             id: "der1-l1-e5",
             question: "Soit $f(x) = x^2-3x+2$. On admet que $f'(x) = 2x-3$. Détermine une équation de la tangente à la courbe de $f$ au point d'abscisse $a=2$.",
             type: "open",
-            modelAnswer: "On calcule $f(2)$ et $f'(2)$.\\n\\n$$f(2) = 2^2-3\\times2+2 = 4-6+2 = 0$$\\n\\n$$f'(2) = 2\\times2-3 = 4-3=1$$\\n\\nL'équation de la tangente au point d'abscisse $a=2$ est :\\n\\n$$y = f'(2)(x-2)+f(2) = 1\\times(x-2)+0 = x-2$$\\n\\n$$\\boxed{T : y = x-2}$$",
+            modelAnswer: "On calcule $f(2)$ et $f'(2)$.\n\n$$f(2) = 2^2-3\\times2+2 = 4-6+2 = 0$$\n\n$$f'(2) = 2\\times2-3 = 4-3=1$$\n\nL'équation de la tangente au point d'abscisse $a=2$ est :\n\n$$y = f'(2)(x-2)+f(2) = 1\\times(x-2)+0 = x-2$$\n\n$$\\boxed{T : y = x-2}$$",
             explanation: "On applique directement la formule $y=f'(a)(x-a)+f(a)$ après avoir calculé $f(a)$ et $f'(a)$.",
             difficulty: "expert",
           },
@@ -12972,7 +17702,7 @@ $f(x) = 5x^3 \\implies f'(x) = 5\\times 3x^2 = 15x^2$.`,
             id: "der1-l2-e4",
             question: "Calcule la dérivée de $f(x) = 4x^3-2x^2+7x-1$.",
             type: "open",
-            modelAnswer: "On dérive terme à terme en utilisant la formule $(x^n)'=nx^{n-1}$ et la linéarité de la dérivation.\\n\\n- Dérivée de $4x^3$ : $4\\times 3x^2 = 12x^2$\\n- Dérivée de $-2x^2$ : $-2\\times 2x = -4x$\\n- Dérivée de $7x$ : $7$\\n- Dérivée de $-1$ : $0$\\n\\nEn additionnant :\\n\\n$$\\boxed{f'(x) = 12x^2-4x+7}$$",
+            modelAnswer: "On dérive terme à terme en utilisant la formule $(x^n)'=nx^{n-1}$ et la linéarité de la dérivation.\n\n- Dérivée de $4x^3$ : $4\\times 3x^2 = 12x^2$\n- Dérivée de $-2x^2$ : $-2\\times 2x = -4x$\n- Dérivée de $7x$ : $7$\n- Dérivée de $-1$ : $0$\n\nEn additionnant :\n\n$$\\boxed{f'(x) = 12x^2-4x+7}$$",
             explanation: "On applique la règle de dérivation de $x^n$ à chaque terme, en gardant les coefficients constants.",
             difficulty: "intermediaire",
           },
@@ -12980,7 +17710,7 @@ $f(x) = 5x^3 \\implies f'(x) = 5\\times 3x^2 = 15x^2$.`,
             id: "der1-l2-e5",
             question: "Soit $f(x) = (x^2+1)(3x-2)$. Calcule $f'(x)$ en utilisant la formule de dérivation d'un produit, puis vérifie le résultat en développant $f(x)$ avant de dériver.",
             type: "open",
-            modelAnswer: "**Méthode du produit.** On pose $u(x)=x^2+1$ donc $u'(x)=2x$, et $v(x)=3x-2$ donc $v'(x)=3$.\\n\\n$$f'(x) = u'(x)v(x)+u(x)v'(x) = 2x(3x-2)+(x^2+1)\\times 3$$\\n\\n$$f'(x) = 6x^2-4x+3x^2+3 = 9x^2-4x+3$$\\n\\n**Vérification par développement.** $f(x) = (x^2+1)(3x-2) = 3x^3-2x^2+3x-2$.\\n\\nEn dérivant terme à terme : $f'(x) = 9x^2-4x+3$.\\n\\nLes deux méthodes donnent le même résultat.\\n\\n$$\\boxed{f'(x) = 9x^2-4x+3}$$",
+            modelAnswer: "**Méthode du produit.** On pose $u(x)=x^2+1$ donc $u'(x)=2x$, et $v(x)=3x-2$ donc $v'(x)=3$.\n\n$$f'(x) = u'(x)v(x)+u(x)v'(x) = 2x(3x-2)+(x^2+1)\\times 3$$\n\n$$f'(x) = 6x^2-4x+3x^2+3 = 9x^2-4x+3$$\n\n**Vérification par développement.** $f(x) = (x^2+1)(3x-2) = 3x^3-2x^2+3x-2$.\n\nEn dérivant terme à terme : $f'(x) = 9x^2-4x+3$.\n\nLes deux méthodes donnent le même résultat.\n\n$$\\boxed{f'(x) = 9x^2-4x+3}$$",
             explanation: "On applique la formule $(uv)'=u'v+uv'$ puis on confirme par un développement direct, ce qui est une bonne pratique de vérification.",
             difficulty: "expert",
           },
@@ -13064,7 +17794,7 @@ $$f'(a) = \\dfrac{y_2-y_1}{x_2-x_1}$$
             id: "der1-l3-e4",
             question: "Soit $f(x) = x^2+2x-3$. Détermine une équation de la tangente à la courbe de $f$ au point d'abscisse $a=0$.",
             type: "open",
-            modelAnswer: "On calcule la dérivée : $f'(x) = 2x+2$.\\n\\nPuis on évalue en $a=0$ :\\n\\n$$f(0) = 0+0-3 = -3$$\\n\\n$$f'(0) = 2\\times0+2 = 2$$\\n\\nL'équation de la tangente est :\\n\\n$$y = f'(0)(x-0)+f(0) = 2x-3$$\\n\\n$$\\boxed{T : y = 2x-3}$$",
+            modelAnswer: "On calcule la dérivée : $f'(x) = 2x+2$.\n\nPuis on évalue en $a=0$ :\n\n$$f(0) = 0+0-3 = -3$$\n\n$$f'(0) = 2\\times0+2 = 2$$\n\nL'équation de la tangente est :\n\n$$y = f'(0)(x-0)+f(0) = 2x-3$$\n\n$$\\boxed{T : y = 2x-3}$$",
             explanation: "On suit la méthode en trois étapes : dériver, évaluer en $a$, puis écrire l'équation de la tangente.",
             difficulty: "intermediaire",
           },
@@ -13072,7 +17802,7 @@ $$f'(a) = \\dfrac{y_2-y_1}{x_2-x_1}$$
             id: "der1-l3-e5",
             question: "Soit $f(x) = x^2-6x+10$. Détermine les coordonnées du point de la courbe de $f$ où la tangente est horizontale, puis donne l'équation de cette tangente.",
             type: "open",
-            modelAnswer: "On dérive : $f'(x) = 2x-6$.\\n\\nLa tangente est horizontale lorsque $f'(x)=0$ :\\n\\n$$2x-6=0 \\iff x=3$$\\n\\nOn calcule l'ordonnée correspondante :\\n\\n$$f(3) = 3^2-6\\times3+10 = 9-18+10=1$$\\n\\nLe point recherché est donc $A(3\\,;\\,1)$.\\n\\nLa tangente horizontale en ce point a pour équation $y = f(3) = 1$ (coefficient directeur nul, ordonnée constante égale à $f(3)$).\\n\\n$$\\boxed{A(3\\,;\\,1) \\quad ; \\quad T : y = 1}$$",
+            modelAnswer: "On dérive : $f'(x) = 2x-6$.\n\nLa tangente est horizontale lorsque $f'(x)=0$ :\n\n$$2x-6=0 \\iff x=3$$\n\nOn calcule l'ordonnée correspondante :\n\n$$f(3) = 3^2-6\\times3+10 = 9-18+10=1$$\n\nLe point recherché est donc $A(3\\,;\\,1)$.\n\nLa tangente horizontale en ce point a pour équation $y = f(3) = 1$ (coefficient directeur nul, ordonnée constante égale à $f(3)$).\n\n$$\\boxed{A(3\\,;\\,1) \\quad ; \\quad T : y = 1}$$",
             explanation: "On résout $f'(x)=0$ pour trouver l'abscisse du point à tangente horizontale, puis on calcule l'ordonnée pour obtenir l'équation $y=f(a)$.",
             difficulty: "expert",
           },
@@ -13171,7 +17901,7 @@ Dans l'exemple précédent : en $x=-1$, $f'$ passe de $+$ à $-$, donc $f(-1)=(-
             id: "etf1-l1-e4",
             question: "Soit $f(x) = x^2-4x+3$ sur $\\mathbb{R}$. Étudie le signe de $f'(x)$ et donne le sens de variation de $f$.",
             type: "open",
-            modelAnswer: "On calcule la dérivée :\\n\\n$$f'(x) = 2x-4$$\\n\\nOn résout $f'(x)=0$ : $2x-4=0 \\iff x=2$.\\n\\n$f'(x) = 2x-4$ est une fonction affine de coefficient directeur $2>0$, donc croissante : $f'(x)<0$ pour $x<2$ et $f'(x)>0$ pour $x>2$.\\n\\nPar le théorème du signe de la dérivée : $f$ est décroissante sur $]-\\infty\\,;\\,2]$ et croissante sur $[2\\,;\\,+\\infty[$.\\n\\n$$\\boxed{f \\text{ décroît sur } ]-\\infty;2] \\text{ et croît sur } [2;+\\infty[}$$",
+            modelAnswer: "On calcule la dérivée :\n\n$$f'(x) = 2x-4$$\n\nOn résout $f'(x)=0$ : $2x-4=0 \\iff x=2$.\n\n$f'(x) = 2x-4$ est une fonction affine de coefficient directeur $2>0$, donc croissante : $f'(x)<0$ pour $x<2$ et $f'(x)>0$ pour $x>2$.\n\nPar le théorème du signe de la dérivée : $f$ est décroissante sur $]-\\infty\\,;\\,2]$ et croissante sur $[2\\,;\\,+\\infty[$.\n\n$$\\boxed{f \\text{ décroît sur } ]-\\infty;2] \\text{ et croît sur } [2;+\\infty[}$$",
             explanation: "On étudie le signe de la fonction affine $f'(x)=2x-4$ puis on applique le théorème du lien dérivée/variations.",
             difficulty: "intermediaire",
           },
@@ -13179,7 +17909,7 @@ Dans l'exemple précédent : en $x=-1$, $f'$ passe de $+$ à $-$, donc $f(-1)=(-
             id: "etf1-l1-e5",
             question: "Soit $f(x) = x^3-12x+1$ sur $\\mathbb{R}$. Détermine le signe de $f'(x)$, le sens de variation de $f$, et précise s'il existe des extremums locaux (en donnant leur valeur).",
             type: "open",
-            modelAnswer: "On calcule la dérivée :\\n\\n$$f'(x) = 3x^2-12 = 3(x^2-4) = 3(x-2)(x+2)$$\\n\\nC'est un trinôme du second degré de racines $-2$ et $2$, avec $a=3>0$ pour le facteur $x^2-4$ : $f'(x)$ est donc positif à l'extérieur de $[-2\\,;\\,2]$ et négatif à l'intérieur.\\n\\n- $f'(x)>0$ sur $]-\\infty\\,;\\,-2[$ et $]2\\,;\\,+\\infty[$ : $f$ y est croissante.\\n- $f'(x)<0$ sur $]-2\\,;\\,2[$ : $f$ y est décroissante.\\n\\nEn $x=-2$, $f'$ passe de $+$ à $-$ : maximum local. $f(-2) = (-2)^3-12(-2)+1 = -8+24+1=17$.\\n\\nEn $x=2$, $f'$ passe de $-$ à $+$ : minimum local. $f(2) = 2^3-12(2)+1 = 8-24+1=-15$.\\n\\n$$\\boxed{\\text{Maximum local } f(-2)=17\\,;\\ \\text{minimum local } f(2)=-15}$$",
+            modelAnswer: "On calcule la dérivée :\n\n$$f'(x) = 3x^2-12 = 3(x^2-4) = 3(x-2)(x+2)$$\n\nC'est un trinôme du second degré de racines $-2$ et $2$, avec $a=3>0$ pour le facteur $x^2-4$ : $f'(x)$ est donc positif à l'extérieur de $[-2\\,;\\,2]$ et négatif à l'intérieur.\n\n- $f'(x)>0$ sur $]-\\infty\\,;\\,-2[$ et $]2\\,;\\,+\\infty[$ : $f$ y est croissante.\n- $f'(x)<0$ sur $]-2\\,;\\,2[$ : $f$ y est décroissante.\n\nEn $x=-2$, $f'$ passe de $+$ à $-$ : maximum local. $f(-2) = (-2)^3-12(-2)+1 = -8+24+1=17$.\n\nEn $x=2$, $f'$ passe de $-$ à $+$ : minimum local. $f(2) = 2^3-12(2)+1 = 8-24+1=-15$.\n\n$$\\boxed{\\text{Maximum local } f(-2)=17\\,;\\ \\text{minimum local } f(2)=-15}$$",
             explanation: "On factorise la dérivée comme un trinôme du second degré, on étudie son signe, puis on identifie les changements de signe comme des extremums locaux.",
             difficulty: "expert",
           },
@@ -13267,7 +17997,7 @@ Un tableau de variations permet de répondre à des questions comme :
             id: "etf1-l2-e4",
             question: "Soit $f(x) = x^2-6x+5$ sur $\\mathbb{R}$. Construis le tableau de variations complet de $f$ (avec les valeurs numériques).",
             type: "open",
-            modelAnswer: "On dérive : $f'(x) = 2x-6$.\\n\\n$f'(x)=0 \\iff x=3$. Comme $f'$ est affine de coefficient $2>0$ : $f'(x)<0$ pour $x<3$ et $f'(x)>0$ pour $x>3$.\\n\\nOn calcule $f(3) = 3^2-6\\times3+5 = 9-18+5=-4$.\\n\\n**Tableau de variations :**\\n\\n| $x$ | $-\\infty$ | | $3$ | | $+\\infty$ |\\n|---|---|---|---|---|---|\\n| $f'(x)$ | | $-$ | $0$ | $+$ | |\\n| $f(x)$ | | $\\searrow$ | $-4$ | $\\nearrow$ | |\\n\\n$$\\boxed{f \\text{ décroît sur } ]-\\infty;3] \\text{ jusqu'à } -4, \\text{ puis croît sur } [3;+\\infty[}$$",
+            modelAnswer: "On dérive : $f'(x) = 2x-6$.\n\n$f'(x)=0 \\iff x=3$. Comme $f'$ est affine de coefficient $2>0$ : $f'(x)<0$ pour $x<3$ et $f'(x)>0$ pour $x>3$.\n\nOn calcule $f(3) = 3^2-6\\times3+5 = 9-18+5=-4$.\n\n**Tableau de variations :**\n\n| $x$ | $-\\infty$ | | $3$ | | $+\\infty$ |\n|---|---|---|---|---|---|\n| $f'(x)$ | | $-$ | $0$ | $+$ | |\n| $f(x)$ | | $\\searrow$ | $-4$ | $\\nearrow$ | |\n\n$$\\boxed{f \\text{ décroît sur } ]-\\infty;3] \\text{ jusqu'à } -4, \\text{ puis croît sur } [3;+\\infty[}$$",
             explanation: "On calcule la dérivée, on détermine son signe, puis on synthétise dans un tableau avec la valeur minimale $f(3)=-4$.",
             difficulty: "intermediaire",
           },
@@ -13275,7 +18005,7 @@ Un tableau de variations permet de répondre à des questions comme :
             id: "etf1-l2-e5",
             question: "On veut fabriquer une boîte sans couvercle à partir d'une plaque carrée de carton de côté $12$ cm, en découpant un carré de côté $x$ (en cm, $0<x<6$) à chaque coin puis en repliant. Le volume de la boîte est donné par $V(x) = x(12-2x)^2$. On admet que $V'(x) = 12(x-2)(x-6)$. Étudie le signe de $V'(x)$ sur $]0\\,;\\,6[$, dresse le tableau de variations de $V$, et donne la valeur de $x$ qui maximise le volume ainsi que ce volume maximal.",
             type: "open",
-            modelAnswer: "On étudie le signe de $V'(x) = 12(x-2)(x-6)$ sur $]0\\,;\\,6[$.\\n\\nLes racines du produit $(x-2)(x-6)$ sont $2$ et $6$. Sur l'intervalle $]0\\,;\\,6[$, on a $x-6<0$ toujours (car $x<6$), donc le signe de $(x-2)(x-6)$ dépend du signe de $(x-2)$ :\\n\\n- pour $0<x<2$ : $(x-2)<0$ et $(x-6)<0$, donc le produit est positif : $V'(x)>0$.\\n- pour $2<x<6$ : $(x-2)>0$ et $(x-6)<0$, donc le produit est négatif : $V'(x)<0$.\\n\\nOn calcule $V(2) = 2\\times(12-4)^2 = 2\\times 8^2 = 2\\times64=128$.\\n\\n**Tableau de variations sur $]0\\,;\\,6[$ :**\\n\\n| $x$ | $0$ | | $2$ | | $6$ |\\n|---|---|---|---|---|---|\\n| $V'(x)$ | | $+$ | $0$ | $-$ | |\\n| $V(x)$ | | $\\nearrow$ | $128$ | $\\searrow$ | |\\n\\n$V$ admet donc un maximum en $x=2$, valant $128\\ \\text{cm}^3$.\\n\\n$$\\boxed{x=2\\text{ cm donne le volume maximal } V(2)=128\\ \\text{cm}^3}$$",
+            modelAnswer: "On étudie le signe de $V'(x) = 12(x-2)(x-6)$ sur $]0\\,;\\,6[$.\n\nLes racines du produit $(x-2)(x-6)$ sont $2$ et $6$. Sur l'intervalle $]0\\,;\\,6[$, on a $x-6<0$ toujours (car $x<6$), donc le signe de $(x-2)(x-6)$ dépend du signe de $(x-2)$ :\n\n- pour $0<x<2$ : $(x-2)<0$ et $(x-6)<0$, donc le produit est positif : $V'(x)>0$.\n- pour $2<x<6$ : $(x-2)>0$ et $(x-6)<0$, donc le produit est négatif : $V'(x)<0$.\n\nOn calcule $V(2) = 2\\times(12-4)^2 = 2\\times 8^2 = 2\\times64=128$.\n\n**Tableau de variations sur $]0\\,;\\,6[$ :**\n\n| $x$ | $0$ | | $2$ | | $6$ |\n|---|---|---|---|---|---|\n| $V'(x)$ | | $+$ | $0$ | $-$ | |\n| $V(x)$ | | $\\nearrow$ | $128$ | $\\searrow$ | |\n\n$V$ admet donc un maximum en $x=2$, valant $128\\ \\text{cm}^3$.\n\n$$\\boxed{x=2\\text{ cm donne le volume maximal } V(2)=128\\ \\text{cm}^3}$$",
             explanation: "On étudie le signe du produit $(x-2)(x-6)$ en tenant compte de la restriction $0<x<6$ qui fixe le signe de l'un des deux facteurs, puis on lit le maximum dans le tableau.",
             difficulty: "expert",
           },
@@ -13354,7 +18084,7 @@ $B(20) = -2(400)+1600-150 = -800+1600-150=650$.
             id: "etf1-l3-e4",
             question: "On dispose de $100$ m de clôture pour entourer un enclos rectangulaire. On note $x$ la longueur d'un des côtés (en mètres, $0<x<50$). Exprime l'aire $\\mathcal{A}(x)$ de l'enclos, étudie ses variations, puis détermine la valeur de $x$ qui maximise l'aire et donne cette aire maximale.",
             type: "open",
-            modelAnswer: "Le périmètre est $100$ m, donc la somme d'une longueur et d'une largeur (demi-périmètre) est $50$ m. Si $x$ est un côté, l'autre vaut $50-x$.\\n\\n$$\\mathcal{A}(x) = x(50-x) = -x^2+50x$$\\n\\nOn dérive : $\\mathcal{A}'(x) = -2x+50$.\\n\\n$\\mathcal{A}'(x)=0 \\iff x=25$. Comme $\\mathcal{A}'$ est affine décroissante : $\\mathcal{A}'(x)>0$ pour $x<25$ et $\\mathcal{A}'(x)<0$ pour $x>25$ : maximum en $x=25$.\\n\\n$$\\mathcal{A}(25) = -25^2+50\\times25 = -625+1250=625$$\\n\\n$$\\boxed{x=25\\text{ m, aire maximale } = 625\\ \\text{m}^2}$$",
+            modelAnswer: "Le périmètre est $100$ m, donc la somme d'une longueur et d'une largeur (demi-périmètre) est $50$ m. Si $x$ est un côté, l'autre vaut $50-x$.\n\n$$\\mathcal{A}(x) = x(50-x) = -x^2+50x$$\n\nOn dérive : $\\mathcal{A}'(x) = -2x+50$.\n\n$\\mathcal{A}'(x)=0 \\iff x=25$. Comme $\\mathcal{A}'$ est affine décroissante : $\\mathcal{A}'(x)>0$ pour $x<25$ et $\\mathcal{A}'(x)<0$ pour $x>25$ : maximum en $x=25$.\n\n$$\\mathcal{A}(25) = -25^2+50\\times25 = -625+1250=625$$\n\n$$\\boxed{x=25\\text{ m, aire maximale } = 625\\ \\text{m}^2}$$",
             explanation: "On modélise l'aire avec la contrainte de périmètre fixé, on étudie le signe de la dérivée affine, puis on conclut sur le maximum.",
             difficulty: "intermediaire",
           },
@@ -13362,7 +18092,7 @@ $B(20) = -2(400)+1600-150 = -800+1600-150=650$.
             id: "etf1-l3-e5",
             question: "Une entreprise estime que son bénéfice (en milliers d'euros) pour la production de $x$ centaines d'objets ($0 \\leqslant x \\leqslant 10$) est $B(x) = -x^3+9x^2-15$. On admet que $B'(x) = -3x^2+18x = -3x(x-6)$. Étudie le signe de $B'(x)$ sur $[0\\,;\\,10]$, dresse le tableau de variations de $B$, et détermine la production qui maximise le bénéfice ainsi que ce bénéfice maximal.",
             type: "open",
-            modelAnswer: "On étudie le signe de $B'(x) = -3x(x-6)$ sur $[0\\,;\\,10]$.\\n\\nLes racines sont $0$ et $6$. Le coefficient principal de $-3x(x-6) = -3x^2+18x$ est négatif, donc le trinôme est positif entre les racines et négatif à l'extérieur :\\n\\n- $B'(x)>0$ sur $]0\\,;\\,6[$\\n- $B'(x)<0$ sur $]6\\,;\\,10[$\\n\\nOn calcule $B(6) = -6^3+9\\times6^2-15 = -216+324-15=93$.\\n\\nOn calcule aussi les bornes pour situer le maximum global : $B(0)=-15$ et $B(10) = -1000+900-15=-115$.\\n\\n**Tableau de variations sur $[0\\,;\\,10]$ :**\\n\\n| $x$ | $0$ | | $6$ | | $10$ |\\n|---|---|---|---|---|---|\\n| $B'(x)$ | | $+$ | $0$ | $-$ | |\\n| $B(x)$ | $-15$ | $\\nearrow$ | $93$ | $\\searrow$ | $-115$ |\\n\\nLe bénéfice est donc maximal pour $x=6$ (soit $600$ objets), avec un bénéfice de $93$ milliers d'euros, soit $93\\,000$ €.\\n\\n$$\\boxed{x=6 \\text{ (600 objets), bénéfice maximal } 93\\,000\\text{ €}}$$",
+            modelAnswer: "On étudie le signe de $B'(x) = -3x(x-6)$ sur $[0\\,;\\,10]$.\n\nLes racines sont $0$ et $6$. Le coefficient principal de $-3x(x-6) = -3x^2+18x$ est négatif, donc le trinôme est positif entre les racines et négatif à l'extérieur :\n\n- $B'(x)>0$ sur $]0\\,;\\,6[$\n- $B'(x)<0$ sur $]6\\,;\\,10[$\n\nOn calcule $B(6) = -6^3+9\\times6^2-15 = -216+324-15=93$.\n\nOn calcule aussi les bornes pour situer le maximum global : $B(0)=-15$ et $B(10) = -1000+900-15=-115$.\n\n**Tableau de variations sur $[0\\,;\\,10]$ :**\n\n| $x$ | $0$ | | $6$ | | $10$ |\n|---|---|---|---|---|---|\n| $B'(x)$ | | $+$ | $0$ | $-$ | |\n| $B(x)$ | $-15$ | $\\nearrow$ | $93$ | $\\searrow$ | $-115$ |\n\nLe bénéfice est donc maximal pour $x=6$ (soit $600$ objets), avec un bénéfice de $93$ milliers d'euros, soit $93\\,000$ €.\n\n$$\\boxed{x=6 \\text{ (600 objets), bénéfice maximal } 93\\,000\\text{ €}}$$",
             explanation: "On factorise la dérivée, on étudie son signe en tenant compte du coefficient principal négatif, puis on confirme avec les valeurs aux bornes que le maximum global est bien atteint en $x=6$.",
             difficulty: "expert",
           },
@@ -13462,7 +18192,7 @@ Le produit scalaire est :
             id: "psc1-l1-e4",
             question: "Calcule $\\vec{u}\\cdot\\vec{v}$ sachant que $\\|\\vec{u}\\|=6$, $\\|\\vec{v}\\|=3$ et que l'angle entre $\\vec{u}$ et $\\vec{v}$ mesure $120°$.",
             type: "open",
-            modelAnswer: "On utilise la formule avec angle et normes :\\n\\n$$\\vec{u}\\cdot\\vec{v} = \\|\\vec{u}\\|\\times\\|\\vec{v}\\|\\times\\cos\\theta$$\\n\\nOn sait que $\\cos(120°) = -\\dfrac{1}{2}$.\\n\\n$$\\vec{u}\\cdot\\vec{v} = 6\\times3\\times\\left(-\\dfrac{1}{2}\\right) = 18\\times\\left(-\\dfrac{1}{2}\\right) = -9$$\\n\\n$$\\boxed{\\vec{u}\\cdot\\vec{v} = -9}$$",
+            modelAnswer: "On utilise la formule avec angle et normes :\n\n$$\\vec{u}\\cdot\\vec{v} = \\|\\vec{u}\\|\\times\\|\\vec{v}\\|\\times\\cos\\theta$$\n\nOn sait que $\\cos(120°) = -\\dfrac{1}{2}$.\n\n$$\\vec{u}\\cdot\\vec{v} = 6\\times3\\times\\left(-\\dfrac{1}{2}\\right) = 18\\times\\left(-\\dfrac{1}{2}\\right) = -9$$\n\n$$\\boxed{\\vec{u}\\cdot\\vec{v} = -9}$$",
             explanation: "On applique directement la formule $\\|\\vec{u}\\|\\|\\vec{v}\\|\\cos\\theta$ en utilisant la valeur connue $\\cos(120°)=-1/2$.",
             difficulty: "intermediaire",
           },
@@ -13470,7 +18200,7 @@ Le produit scalaire est :
             id: "psc1-l1-e5",
             question: "Soient $\\vec{u}\\begin{pmatrix}4\\\\-3\\end{pmatrix}$ et $\\vec{v}\\begin{pmatrix}2\\\\6\\end{pmatrix}$. Calcule $\\vec{u}\\cdot\\vec{v}$ avec les coordonnées, puis calcule $\\|\\vec{u}\\|$ et $\\|\\vec{v}\\|$, et déduis-en la valeur de $\\cos\\theta$ où $\\theta$ est l'angle entre $\\vec{u}$ et $\\vec{v}$.",
             type: "open",
-            modelAnswer: "**Produit scalaire en coordonnées :**\\n\\n$$\\vec{u}\\cdot\\vec{v} = 4\\times2+(-3)\\times6 = 8-18=-10$$\\n\\n**Normes :**\\n\\n$$\\|\\vec{u}\\| = \\sqrt{4^2+(-3)^2} = \\sqrt{16+9}=\\sqrt{25}=5$$\\n\\n$$\\|\\vec{v}\\| = \\sqrt{2^2+6^2} = \\sqrt{4+36}=\\sqrt{40}=2\\sqrt{10}$$\\n\\n**Calcul de $\\cos\\theta$ :** on utilise $\\vec{u}\\cdot\\vec{v} = \\|\\vec{u}\\|\\|\\vec{v}\\|\\cos\\theta$, donc :\\n\\n$$\\cos\\theta = \\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|\\|\\vec{v}\\|} = \\dfrac{-10}{5\\times2\\sqrt{10}} = \\dfrac{-10}{10\\sqrt{10}} = -\\dfrac{1}{\\sqrt{10}}$$\\n\\n$$\\boxed{\\vec{u}\\cdot\\vec{v}=-10\\,;\\ \\|\\vec{u}\\|=5\\,;\\ \\|\\vec{v}\\|=2\\sqrt{10}\\,;\\ \\cos\\theta = -\\dfrac{1}{\\sqrt{10}}}$$",
+            modelAnswer: "**Produit scalaire en coordonnées :**\n\n$$\\vec{u}\\cdot\\vec{v} = 4\\times2+(-3)\\times6 = 8-18=-10$$\n\n**Normes :**\n\n$$\\|\\vec{u}\\| = \\sqrt{4^2+(-3)^2} = \\sqrt{16+9}=\\sqrt{25}=5$$\n\n$$\\|\\vec{v}\\| = \\sqrt{2^2+6^2} = \\sqrt{4+36}=\\sqrt{40}=2\\sqrt{10}$$\n\n**Calcul de $\\cos\\theta$ :** on utilise $\\vec{u}\\cdot\\vec{v} = \\|\\vec{u}\\|\\|\\vec{v}\\|\\cos\\theta$, donc :\n\n$$\\cos\\theta = \\dfrac{\\vec{u}\\cdot\\vec{v}}{\\|\\vec{u}\\|\\|\\vec{v}\\|} = \\dfrac{-10}{5\\times2\\sqrt{10}} = \\dfrac{-10}{10\\sqrt{10}} = -\\dfrac{1}{\\sqrt{10}}$$\n\n$$\\boxed{\\vec{u}\\cdot\\vec{v}=-10\\,;\\ \\|\\vec{u}\\|=5\\,;\\ \\|\\vec{v}\\|=2\\sqrt{10}\\,;\\ \\cos\\theta = -\\dfrac{1}{\\sqrt{10}}}$$",
             explanation: "On combine les deux formules du produit scalaire : celle en coordonnées pour calculer $\\vec{u}\\cdot\\vec{v}$, et celle avec angle/normes pour isoler $\\cos\\theta$.",
             difficulty: "expert",
           },
@@ -13553,7 +18283,7 @@ Un vecteur $\\vec{n}\\begin{pmatrix}a\\\\b\\end{pmatrix}$ non nul est dit **norm
             id: "psc1-l2-e4",
             question: "Détermine la valeur de $k$ pour que les vecteurs $\\vec{u}\\begin{pmatrix}3\\\\k\\end{pmatrix}$ et $\\vec{v}\\begin{pmatrix}2\\\\6\\end{pmatrix}$ soient orthogonaux.",
             type: "open",
-            modelAnswer: "Les vecteurs sont orthogonaux si et seulement si leur produit scalaire est nul :\\n\\n$$\\vec{u}\\cdot\\vec{v} = 3\\times2+k\\times6 = 6+6k$$\\n\\nOn résout :\\n\\n$$6+6k=0 \\iff 6k=-6 \\iff k=-1$$\\n\\nVérification : $\\vec{u}\\begin{pmatrix}3\\\\-1\\end{pmatrix}$ et $\\vec{v}\\begin{pmatrix}2\\\\6\\end{pmatrix}$ donnent $3\\times2+(-1)\\times6=6-6=0$. ✓\\n\\n$$\\boxed{k=-1}$$",
+            modelAnswer: "Les vecteurs sont orthogonaux si et seulement si leur produit scalaire est nul :\n\n$$\\vec{u}\\cdot\\vec{v} = 3\\times2+k\\times6 = 6+6k$$\n\nOn résout :\n\n$$6+6k=0 \\iff 6k=-6 \\iff k=-1$$\n\nVérification : $\\vec{u}\\begin{pmatrix}3\\\\-1\\end{pmatrix}$ et $\\vec{v}\\begin{pmatrix}2\\\\6\\end{pmatrix}$ donnent $3\\times2+(-1)\\times6=6-6=0$. ✓\n\n$$\\boxed{k=-1}$$",
             explanation: "On pose l'équation $\\vec{u}\\cdot\\vec{v}=0$ avec les coordonnées et on résout l'équation du premier degré en $k$.",
             difficulty: "intermediaire",
           },
@@ -13561,7 +18291,7 @@ Un vecteur $\\vec{n}\\begin{pmatrix}a\\\\b\\end{pmatrix}$ non nul est dit **norm
             id: "psc1-l2-e5",
             question: "Dans un repère orthonormé, on donne $A(1\\,;\\,2)$, $B(4\\,;\\,3)$ et $C(2\\,;\\,5)$. Calcule les vecteurs $\\vec{AB}$ et $\\vec{AC}$, puis détermine si le triangle $ABC$ est rectangle en $A$.",
             type: "open",
-            modelAnswer: "On calcule les coordonnées des vecteurs :\\n\\n$$\\vec{AB} = \\begin{pmatrix}4-1\\\\3-2\\end{pmatrix} = \\begin{pmatrix}3\\\\1\\end{pmatrix}$$\\n\\n$$\\vec{AC} = \\begin{pmatrix}2-1\\\\5-2\\end{pmatrix} = \\begin{pmatrix}1\\\\3\\end{pmatrix}$$\\n\\nLe triangle est rectangle en $A$ si et seulement si $\\vec{AB}$ et $\\vec{AC}$ sont orthogonaux, c'est-à-dire $\\vec{AB}\\cdot\\vec{AC}=0$.\\n\\n$$\\vec{AB}\\cdot\\vec{AC} = 3\\times1+1\\times3 = 3+3=6 \\neq 0$$\\n\\nLe produit scalaire n'est pas nul, donc le triangle $ABC$ n'est pas rectangle en $A$.\\n\\n$$\\boxed{\\vec{AB}\\cdot\\vec{AC}=6\\neq0 \\implies ABC \\text{ n'est pas rectangle en } A}$$",
+            modelAnswer: "On calcule les coordonnées des vecteurs :\n\n$$\\vec{AB} = \\begin{pmatrix}4-1\\\\3-2\\end{pmatrix} = \\begin{pmatrix}3\\\\1\\end{pmatrix}$$\n\n$$\\vec{AC} = \\begin{pmatrix}2-1\\\\5-2\\end{pmatrix} = \\begin{pmatrix}1\\\\3\\end{pmatrix}$$\n\nLe triangle est rectangle en $A$ si et seulement si $\\vec{AB}$ et $\\vec{AC}$ sont orthogonaux, c'est-à-dire $\\vec{AB}\\cdot\\vec{AC}=0$.\n\n$$\\vec{AB}\\cdot\\vec{AC} = 3\\times1+1\\times3 = 3+3=6 \\neq 0$$\n\nLe produit scalaire n'est pas nul, donc le triangle $ABC$ n'est pas rectangle en $A$.\n\n$$\\boxed{\\vec{AB}\\cdot\\vec{AC}=6\\neq0 \\implies ABC \\text{ n'est pas rectangle en } A}$$",
             explanation: "On utilise la caractérisation de l'orthogonalité par le produit scalaire nul pour tester si l'angle en $A$ est droit.",
             difficulty: "expert",
           },
@@ -13643,7 +18373,7 @@ $$\\vec{AB}\\cdot\\vec{AC} = 10\\times4=40$$`,
             id: "psc1-l3-e4",
             question: "Dans un triangle $ABC$, on donne $AB=4$, $AC=6$ et $\\widehat{A}=120°$. Calcule $BC$ à l'aide du théorème d'Al-Kashi (donne la valeur exacte).",
             type: "open",
-            modelAnswer: "On applique le théorème d'Al-Kashi :\\n\\n$$BC^2 = AB^2+AC^2-2\\times AB\\times AC\\times\\cos\\widehat{A}$$\\n\\nOn sait que $\\cos(120°)=-\\dfrac{1}{2}$, donc :\\n\\n$$BC^2 = 4^2+6^2-2\\times4\\times6\\times\\left(-\\dfrac{1}{2}\\right) = 16+36+24 = 76$$\\n\\n$$BC = \\sqrt{76} = \\sqrt{4\\times19} = 2\\sqrt{19}$$\\n\\n$$\\boxed{BC = 2\\sqrt{19}}$$",
+            modelAnswer: "On applique le théorème d'Al-Kashi :\n\n$$BC^2 = AB^2+AC^2-2\\times AB\\times AC\\times\\cos\\widehat{A}$$\n\nOn sait que $\\cos(120°)=-\\dfrac{1}{2}$, donc :\n\n$$BC^2 = 4^2+6^2-2\\times4\\times6\\times\\left(-\\dfrac{1}{2}\\right) = 16+36+24 = 76$$\n\n$$BC = \\sqrt{76} = \\sqrt{4\\times19} = 2\\sqrt{19}$$\n\n$$\\boxed{BC = 2\\sqrt{19}}$$",
             explanation: "On applique directement la formule d'Al-Kashi avec $\\cos(120°)=-1/2$, puis on simplifie la racine carrée obtenue.",
             difficulty: "intermediaire",
           },
@@ -13651,7 +18381,7 @@ $$\\vec{AB}\\cdot\\vec{AC} = 10\\times4=40$$`,
             id: "psc1-l3-e5",
             question: "Dans un triangle $ABC$, on donne $AB=7$, $BC=8$ et $AC=5$. Calcule $\\cos\\widehat{A}$ à l'aide du théorème d'Al-Kashi (en l'écrivant avec le sommet $A$), puis donne la valeur de l'angle $\\widehat{A}$ arrondie au degré (on donne $\\cos^{-1}(0{,}25) \\approx 75{,}5°$).",
             type: "open",
-            modelAnswer: "Le théorème d'Al-Kashi écrit avec le sommet $A$ (côté opposé $BC=a$) donne :\\n\\n$$BC^2 = AB^2+AC^2-2\\times AB\\times AC\\times\\cos\\widehat{A}$$\\n\\nOn isole $\\cos\\widehat{A}$ :\\n\\n$$\\cos\\widehat{A} = \\dfrac{AB^2+AC^2-BC^2}{2\\times AB\\times AC}$$\\n\\nOn remplace : $AB=7$, $AC=5$, $BC=8$.\\n\\n$$\\cos\\widehat{A} = \\dfrac{7^2+5^2-8^2}{2\\times7\\times5} = \\dfrac{49+25-64}{70} = \\dfrac{10}{70} = \\dfrac{1}{7} \\approx 0{,}143$$\\n\\nOn obtient $\\widehat{A} = \\cos^{-1}\\left(\\dfrac{1}{7}\\right) \\approx 81{,}8°$ (à l'aide de la calculatrice).\\n\\n$$\\boxed{\\cos\\widehat{A} = \\dfrac{1}{7} \\quad ; \\quad \\widehat{A} \\approx 81{,}8°}$$",
+            modelAnswer: "Le théorème d'Al-Kashi écrit avec le sommet $A$ (côté opposé $BC=a$) donne :\n\n$$BC^2 = AB^2+AC^2-2\\times AB\\times AC\\times\\cos\\widehat{A}$$\n\nOn isole $\\cos\\widehat{A}$ :\n\n$$\\cos\\widehat{A} = \\dfrac{AB^2+AC^2-BC^2}{2\\times AB\\times AC}$$\n\nOn remplace : $AB=7$, $AC=5$, $BC=8$.\n\n$$\\cos\\widehat{A} = \\dfrac{7^2+5^2-8^2}{2\\times7\\times5} = \\dfrac{49+25-64}{70} = \\dfrac{10}{70} = \\dfrac{1}{7} \\approx 0{,}143$$\n\nOn obtient $\\widehat{A} = \\cos^{-1}\\left(\\dfrac{1}{7}\\right) \\approx 81{,}8°$ (à l'aide de la calculatrice).\n\n$$\\boxed{\\cos\\widehat{A} = \\dfrac{1}{7} \\quad ; \\quad \\widehat{A} \\approx 81{,}8°}$$",
             explanation: "On isole le cosinus de l'angle dans la formule d'Al-Kashi, en faisant bien attention à associer le côté opposé au sommet considéré, puis on utilise la fonction $\\cos^{-1}$ pour obtenir l'angle.",
             difficulty: "expert",
           },
@@ -13749,7 +18479,7 @@ $$\\cos\\left(\\dfrac{2\\pi}{3}\\right) = \\cos\\left(\\pi-\\dfrac{\\pi}{3}\\rig
             id: "trg1-l1-e4",
             question: "Sachant que $\\cos x = \\dfrac{3}{5}$ et que $x \\in \\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, calcule $\\sin x$.",
             type: "open",
-            modelAnswer: "On utilise la relation fondamentale $\\cos^2 x+\\sin^2 x=1$ :\\n\\n$$\\sin^2 x = 1-\\cos^2 x = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25} = \\dfrac{16}{25}$$\\n\\nComme $x \\in \\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, on a $\\sin x \\geqslant 0$, donc :\\n\\n$$\\sin x = \\sqrt{\\dfrac{16}{25}} = \\dfrac{4}{5}$$\\n\\n$$\\boxed{\\sin x = \\dfrac{4}{5}}$$",
+            modelAnswer: "On utilise la relation fondamentale $\\cos^2 x+\\sin^2 x=1$ :\n\n$$\\sin^2 x = 1-\\cos^2 x = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25} = \\dfrac{16}{25}$$\n\nComme $x \\in \\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, on a $\\sin x \\geqslant 0$, donc :\n\n$$\\sin x = \\sqrt{\\dfrac{16}{25}} = \\dfrac{4}{5}$$\n\n$$\\boxed{\\sin x = \\dfrac{4}{5}}$$",
             explanation: "On utilise la relation fondamentale pour trouver $\\sin^2 x$, puis on choisit le signe positif car $x$ appartient au premier quadrant où $\\sin x\\geqslant0$.",
             difficulty: "intermediaire",
           },
@@ -13757,7 +18487,7 @@ $$\\cos\\left(\\dfrac{2\\pi}{3}\\right) = \\cos\\left(\\pi-\\dfrac{\\pi}{3}\\rig
             id: "trg1-l1-e5",
             question: "Calcule $\\cos\\left(\\dfrac{5\\pi}{6}\\right)$ et $\\sin\\left(\\dfrac{5\\pi}{6}\\right)$ en utilisant les formules des angles associés (on remarquera que $\\dfrac{5\\pi}{6} = \\pi - \\dfrac{\\pi}{6}$).",
             type: "open",
-            modelAnswer: "On écrit $\\dfrac{5\\pi}{6} = \\pi - \\dfrac{\\pi}{6}$, ce qui permet d'utiliser les formules des angles associés à $\\pi - x$ avec $x=\\dfrac{\\pi}{6}$.\\n\\n$$\\cos\\left(\\pi-\\dfrac{\\pi}{6}\\right) = -\\cos\\left(\\dfrac{\\pi}{6}\\right) = -\\dfrac{\\sqrt{3}}{2}$$\\n\\n$$\\sin\\left(\\pi-\\dfrac{\\pi}{6}\\right) = \\sin\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{1}{2}$$\\n\\n$$\\boxed{\\cos\\left(\\dfrac{5\\pi}{6}\\right) = -\\dfrac{\\sqrt{3}}{2} \\quad ; \\quad \\sin\\left(\\dfrac{5\\pi}{6}\\right) = \\dfrac{1}{2}}$$",
+            modelAnswer: "On écrit $\\dfrac{5\\pi}{6} = \\pi - \\dfrac{\\pi}{6}$, ce qui permet d'utiliser les formules des angles associés à $\\pi - x$ avec $x=\\dfrac{\\pi}{6}$.\n\n$$\\cos\\left(\\pi-\\dfrac{\\pi}{6}\\right) = -\\cos\\left(\\dfrac{\\pi}{6}\\right) = -\\dfrac{\\sqrt{3}}{2}$$\n\n$$\\sin\\left(\\pi-\\dfrac{\\pi}{6}\\right) = \\sin\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{1}{2}$$\n\n$$\\boxed{\\cos\\left(\\dfrac{5\\pi}{6}\\right) = -\\dfrac{\\sqrt{3}}{2} \\quad ; \\quad \\sin\\left(\\dfrac{5\\pi}{6}\\right) = \\dfrac{1}{2}}$$",
             explanation: "On reconnaît la forme $\\pi-x$ et on applique les formules du cours : le cosinus change de signe, le sinus reste identique.",
             difficulty: "expert",
           },
@@ -13843,7 +18573,7 @@ $$S = \\left\\{\\dfrac{\\pi}{4}\\,;\\,\\dfrac{3\\pi}{4}\\right\\}$$
             id: "trg1-l2-e4",
             question: "Résous l'équation $\\sin x = -\\dfrac{1}{2}$ sur $[0\\,;\\,2\\pi[$.",
             type: "open",
-            modelAnswer: "On sait que $\\sin\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{1}{2}$, donc une solution de référence pour $\\sin x = -\\dfrac{1}{2}$ est $a=-\\dfrac{\\pi}{6}$ (puisque $\\sin(-x)=-\\sin x$).\\n\\nLes solutions générales sur $\\mathbb{R}$ sont :\\n\\n$$x = -\\dfrac{\\pi}{6}+2k\\pi \\quad \\text{ou} \\quad x = \\pi-\\left(-\\dfrac{\\pi}{6}\\right)+2k\\pi = \\dfrac{7\\pi}{6}+2k\\pi$$\\n\\nOn restreint à $[0\\,;\\,2\\pi[$ :\\n\\n- Pour la première famille avec $k=1$ : $x=-\\dfrac{\\pi}{6}+2\\pi=\\dfrac{11\\pi}{6}$, qui appartient à $[0\\,;\\,2\\pi[$.\\n- Pour la deuxième famille avec $k=0$ : $x=\\dfrac{7\\pi}{6}$, qui appartient à $[0\\,;\\,2\\pi[$.\\n\\n$$\\boxed{S = \\left\\{\\dfrac{7\\pi}{6}\\,;\\,\\dfrac{11\\pi}{6}\\right\\}}$$",
+            modelAnswer: "On sait que $\\sin\\left(\\dfrac{\\pi}{6}\\right) = \\dfrac{1}{2}$, donc une solution de référence pour $\\sin x = -\\dfrac{1}{2}$ est $a=-\\dfrac{\\pi}{6}$ (puisque $\\sin(-x)=-\\sin x$).\n\nLes solutions générales sur $\\mathbb{R}$ sont :\n\n$$x = -\\dfrac{\\pi}{6}+2k\\pi \\quad \\text{ou} \\quad x = \\pi-\\left(-\\dfrac{\\pi}{6}\\right)+2k\\pi = \\dfrac{7\\pi}{6}+2k\\pi$$\n\nOn restreint à $[0\\,;\\,2\\pi[$ :\n\n- Pour la première famille avec $k=1$ : $x=-\\dfrac{\\pi}{6}+2\\pi=\\dfrac{11\\pi}{6}$, qui appartient à $[0\\,;\\,2\\pi[$.\n- Pour la deuxième famille avec $k=0$ : $x=\\dfrac{7\\pi}{6}$, qui appartient à $[0\\,;\\,2\\pi[$.\n\n$$\\boxed{S = \\left\\{\\dfrac{7\\pi}{6}\\,;\\,\\dfrac{11\\pi}{6}\\right\\}}$$",
             explanation: "On identifie une valeur de référence (ici $-\\pi/6$), on écrit les deux familles de solutions, puis on sélectionne celles qui tombent dans l'intervalle demandé.",
             difficulty: "expert",
           },
@@ -13851,7 +18581,7 @@ $$S = \\left\\{\\dfrac{\\pi}{4}\\,;\\,\\dfrac{3\\pi}{4}\\right\\}$$
             id: "trg1-l2-e5",
             question: "Résous l'équation $\\cos\\left(2x\\right) = \\dfrac{\\sqrt{2}}{2}$ sur $[0\\,;\\,2\\pi[$ (on pourra poser $X=2x$ et résoudre d'abord en $X$ sur l'intervalle adapté).",
             type: "open",
-            modelAnswer: "On pose $X=2x$. Comme $x \\in [0\\,;\\,2\\pi[$, on a $X \\in [0\\,;\\,4\\pi[$.\\n\\nOn résout $\\cos X = \\dfrac{\\sqrt{2}}{2}$ : on sait que $\\cos\\left(\\dfrac{\\pi}{4}\\right)=\\dfrac{\\sqrt{2}}{2}$, donc :\\n\\n$$X = \\dfrac{\\pi}{4}+2k\\pi \\quad \\text{ou} \\quad X = -\\dfrac{\\pi}{4}+2k\\pi,\\ k\\in\\mathbb{Z}$$\\n\\nOn cherche toutes les valeurs de $X$ dans $[0\\,;\\,4\\pi[$ :\\n\\n- Famille $\\dfrac{\\pi}{4}+2k\\pi$ : $k=0 \\Rightarrow X=\\dfrac{\\pi}{4}$ ; $k=1 \\Rightarrow X=\\dfrac{\\pi}{4}+2\\pi=\\dfrac{9\\pi}{4}$.\\n- Famille $-\\dfrac{\\pi}{4}+2k\\pi$ : $k=1 \\Rightarrow X=-\\dfrac{\\pi}{4}+2\\pi=\\dfrac{7\\pi}{4}$ ; $k=2 \\Rightarrow X=-\\dfrac{\\pi}{4}+4\\pi=\\dfrac{15\\pi}{4}$.\\n\\nOn obtient $X \\in \\left\\{\\dfrac{\\pi}{4}\\,;\\,\\dfrac{7\\pi}{4}\\,;\\,\\dfrac{9\\pi}{4}\\,;\\,\\dfrac{15\\pi}{4}\\right\\}$, donc en revenant à $x=\\dfrac{X}{2}$ :\\n\\n$$x \\in \\left\\{\\dfrac{\\pi}{8}\\,;\\,\\dfrac{7\\pi}{8}\\,;\\,\\dfrac{9\\pi}{8}\\,;\\,\\dfrac{15\\pi}{8}\\right\\}$$\\n\\n$$\\boxed{S = \\left\\{\\dfrac{\\pi}{8}\\,;\\,\\dfrac{7\\pi}{8}\\,;\\,\\dfrac{9\\pi}{8}\\,;\\,\\dfrac{15\\pi}{8}\\right\\}}$$",
+            modelAnswer: "On pose $X=2x$. Comme $x \\in [0\\,;\\,2\\pi[$, on a $X \\in [0\\,;\\,4\\pi[$.\n\nOn résout $\\cos X = \\dfrac{\\sqrt{2}}{2}$ : on sait que $\\cos\\left(\\dfrac{\\pi}{4}\\right)=\\dfrac{\\sqrt{2}}{2}$, donc :\n\n$$X = \\dfrac{\\pi}{4}+2k\\pi \\quad \\text{ou} \\quad X = -\\dfrac{\\pi}{4}+2k\\pi,\\ k\\in\\mathbb{Z}$$\n\nOn cherche toutes les valeurs de $X$ dans $[0\\,;\\,4\\pi[$ :\n\n- Famille $\\dfrac{\\pi}{4}+2k\\pi$ : $k=0 \\Rightarrow X=\\dfrac{\\pi}{4}$ ; $k=1 \\Rightarrow X=\\dfrac{\\pi}{4}+2\\pi=\\dfrac{9\\pi}{4}$.\n- Famille $-\\dfrac{\\pi}{4}+2k\\pi$ : $k=1 \\Rightarrow X=-\\dfrac{\\pi}{4}+2\\pi=\\dfrac{7\\pi}{4}$ ; $k=2 \\Rightarrow X=-\\dfrac{\\pi}{4}+4\\pi=\\dfrac{15\\pi}{4}$.\n\nOn obtient $X \\in \\left\\{\\dfrac{\\pi}{4}\\,;\\,\\dfrac{7\\pi}{4}\\,;\\,\\dfrac{9\\pi}{4}\\,;\\,\\dfrac{15\\pi}{4}\\right\\}$, donc en revenant à $x=\\dfrac{X}{2}$ :\n\n$$x \\in \\left\\{\\dfrac{\\pi}{8}\\,;\\,\\dfrac{7\\pi}{8}\\,;\\,\\dfrac{9\\pi}{8}\\,;\\,\\dfrac{15\\pi}{8}\\right\\}$$\n\n$$\\boxed{S = \\left\\{\\dfrac{\\pi}{8}\\,;\\,\\dfrac{7\\pi}{8}\\,;\\,\\dfrac{9\\pi}{8}\\,;\\,\\dfrac{15\\pi}{8}\\right\\}}$$",
             explanation: "Le changement de variable $X=2x$ élargit l'intervalle de recherche à $[0\\,;\\,4\\pi[$, ce qui double le nombre de solutions à trouver avant de revenir à $x$.",
             difficulty: "expert",
           },
@@ -13933,7 +18663,7 @@ $$= \\dfrac{\\sqrt{3}}{2}\\times\\dfrac{\\sqrt{2}}{2}+\\dfrac{1}{2}\\times\\dfra
             id: "trg1-l3-e4",
             question: "Calcule la valeur exacte de $\\cos\\left(\\dfrac{5\\pi}{12}\\right)$ en remarquant que $\\dfrac{5\\pi}{12} = \\dfrac{\\pi}{4}+\\dfrac{\\pi}{6}$.",
             type: "open",
-            modelAnswer: "On applique la formule $\\cos(a+b) = \\cos a\\cos b-\\sin a\\sin b$ avec $a=\\dfrac{\\pi}{4}$ et $b=\\dfrac{\\pi}{6}$ :\\n\\n$$\\cos\\left(\\dfrac{5\\pi}{12}\\right) = \\cos\\left(\\dfrac{\\pi}{4}\\right)\\cos\\left(\\dfrac{\\pi}{6}\\right)-\\sin\\left(\\dfrac{\\pi}{4}\\right)\\sin\\left(\\dfrac{\\pi}{6}\\right)$$\\n\\nOn remplace par les valeurs remarquables :\\n\\n$$= \\dfrac{\\sqrt{2}}{2}\\times\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\sqrt{2}}{2}\\times\\dfrac{1}{2} = \\dfrac{\\sqrt{6}}{4}-\\dfrac{\\sqrt{2}}{4} = \\dfrac{\\sqrt{6}-\\sqrt{2}}{4}$$\\n\\n$$\\boxed{\\cos\\left(\\dfrac{5\\pi}{12}\\right) = \\dfrac{\\sqrt{6}-\\sqrt{2}}{4}}$$",
+            modelAnswer: "On applique la formule $\\cos(a+b) = \\cos a\\cos b-\\sin a\\sin b$ avec $a=\\dfrac{\\pi}{4}$ et $b=\\dfrac{\\pi}{6}$ :\n\n$$\\cos\\left(\\dfrac{5\\pi}{12}\\right) = \\cos\\left(\\dfrac{\\pi}{4}\\right)\\cos\\left(\\dfrac{\\pi}{6}\\right)-\\sin\\left(\\dfrac{\\pi}{4}\\right)\\sin\\left(\\dfrac{\\pi}{6}\\right)$$\n\nOn remplace par les valeurs remarquables :\n\n$$= \\dfrac{\\sqrt{2}}{2}\\times\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\sqrt{2}}{2}\\times\\dfrac{1}{2} = \\dfrac{\\sqrt{6}}{4}-\\dfrac{\\sqrt{2}}{4} = \\dfrac{\\sqrt{6}-\\sqrt{2}}{4}$$\n\n$$\\boxed{\\cos\\left(\\dfrac{5\\pi}{12}\\right) = \\dfrac{\\sqrt{6}-\\sqrt{2}}{4}}$$",
             explanation: "On décompose l'angle comme somme de deux angles remarquables, puis on applique la formule d'addition du cosinus.",
             difficulty: "intermediaire",
           },
@@ -13941,7 +18671,7 @@ $$= \\dfrac{\\sqrt{3}}{2}\\times\\dfrac{\\sqrt{2}}{2}+\\dfrac{1}{2}\\times\\dfra
             id: "trg1-l3-e5",
             question: "On sait que $\\cos a = \\dfrac{3}{5}$ avec $a\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$ et $\\sin b = \\dfrac{4}{5}$ avec $b\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$. Calcule $\\sin a$, $\\cos b$, puis détermine la valeur exacte de $\\cos(a-b)$.",
             type: "open",
-            modelAnswer: "**Calcul de $\\sin a$ :** avec $\\cos^2 a+\\sin^2 a=1$ :\\n\\n$$\\sin^2 a = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25}=\\dfrac{16}{25}$$\\n\\nComme $a\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, $\\sin a\\geqslant0$, donc $\\sin a=\\dfrac{4}{5}$.\\n\\n**Calcul de $\\cos b$ :** avec $\\cos^2 b+\\sin^2 b=1$ :\\n\\n$$\\cos^2 b = 1-\\left(\\dfrac{4}{5}\\right)^2 = 1-\\dfrac{16}{25}=\\dfrac{9}{25}$$\\n\\nComme $b\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, $\\cos b\\geqslant0$, donc $\\cos b=\\dfrac{3}{5}$.\\n\\n**Calcul de $\\cos(a-b)$ :**\\n\\n$$\\cos(a-b) = \\cos a\\cos b+\\sin a\\sin b = \\dfrac{3}{5}\\times\\dfrac{3}{5}+\\dfrac{4}{5}\\times\\dfrac{4}{5} = \\dfrac{9}{25}+\\dfrac{16}{25}=\\dfrac{25}{25}=1$$\\n\\n$$\\boxed{\\sin a=\\dfrac{4}{5}\\,;\\ \\cos b=\\dfrac{3}{5}\\,;\\ \\cos(a-b)=1}$$",
+            modelAnswer: "**Calcul de $\\sin a$ :** avec $\\cos^2 a+\\sin^2 a=1$ :\n\n$$\\sin^2 a = 1-\\left(\\dfrac{3}{5}\\right)^2 = 1-\\dfrac{9}{25}=\\dfrac{16}{25}$$\n\nComme $a\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, $\\sin a\\geqslant0$, donc $\\sin a=\\dfrac{4}{5}$.\n\n**Calcul de $\\cos b$ :** avec $\\cos^2 b+\\sin^2 b=1$ :\n\n$$\\cos^2 b = 1-\\left(\\dfrac{4}{5}\\right)^2 = 1-\\dfrac{16}{25}=\\dfrac{9}{25}$$\n\nComme $b\\in\\left[0\\,;\\,\\dfrac{\\pi}{2}\\right]$, $\\cos b\\geqslant0$, donc $\\cos b=\\dfrac{3}{5}$.\n\n**Calcul de $\\cos(a-b)$ :**\n\n$$\\cos(a-b) = \\cos a\\cos b+\\sin a\\sin b = \\dfrac{3}{5}\\times\\dfrac{3}{5}+\\dfrac{4}{5}\\times\\dfrac{4}{5} = \\dfrac{9}{25}+\\dfrac{16}{25}=\\dfrac{25}{25}=1$$\n\n$$\\boxed{\\sin a=\\dfrac{4}{5}\\,;\\ \\cos b=\\dfrac{3}{5}\\,;\\ \\cos(a-b)=1}$$",
             explanation: "On détermine d'abord les valeurs manquantes via la relation fondamentale, puis on applique la formule d'addition ; le résultat $\\cos(a-b)=1$ signifie en fait que $a=b$ ici.",
             difficulty: "expert",
           },
@@ -14039,7 +18769,7 @@ Cela signifie qu'un tiers des sportifs ne font pas de musique.`,
             id: "pco1-l1-e4",
             question: "Dans un lycée, $55\\%$ des élèves sont des filles. Parmi les filles, $30\\%$ choisissent l'option \"art\". On note $F$ l'événement \"être une fille\" et $O$ l'événement \"choisir l'option art\". Calcule $P(F\\cap O)$.",
             type: "open",
-            modelAnswer: "On nous donne $P(F) = 0{,}55$ et $P_F(O) = 0{,}30$ (la probabilité de choisir l'option art **sachant** que l'élève est une fille).\\n\\nOn utilise la formule des probabilités composées :\\n\\n$$P(F\\cap O) = P(F)\\times P_F(O) = 0{,}55\\times0{,}30 = 0{,}165$$\\n\\n$$\\boxed{P(F\\cap O) = 0{,}165}$$",
+            modelAnswer: "On nous donne $P(F) = 0{,}55$ et $P_F(O) = 0{,}30$ (la probabilité de choisir l'option art **sachant** que l'élève est une fille).\n\nOn utilise la formule des probabilités composées :\n\n$$P(F\\cap O) = P(F)\\times P_F(O) = 0{,}55\\times0{,}30 = 0{,}165$$\n\n$$\\boxed{P(F\\cap O) = 0{,}165}$$",
             explanation: "On reconnaît une probabilité conditionnelle donnée dans l'énoncé ($P_F(O)$), et on applique la formule des probabilités composées pour obtenir l'intersection.",
             difficulty: "intermediaire",
           },
@@ -14047,7 +18777,7 @@ Cela signifie qu'un tiers des sportifs ne font pas de musique.`,
             id: "pco1-l1-e5",
             question: "On tire une carte au hasard dans un jeu de $32$ cartes (8 cartes par couleur : pique, cœur, carreau, trèfle). Soit $R$ l'événement \"la carte est un roi\" et $C$ l'événement \"la carte est un cœur\". Il y a $4$ rois dans le jeu et $1$ roi de cœur. Calcule $P(R)$, $P(R\\cap C)$, puis $P_R(C)$ et interprète ce résultat.",
             type: "open",
-            modelAnswer: "L'univers comporte $32$ cartes équiprobables.\\n\\n**Calcul de $P(R)$ :** il y a $4$ rois (un par couleur).\\n\\n$$P(R) = \\dfrac{4}{32} = \\dfrac{1}{8}$$\\n\\n**Calcul de $P(R\\cap C)$ :** il y a exactement $1$ roi de cœur.\\n\\n$$P(R\\cap C) = \\dfrac{1}{32}$$\\n\\n**Calcul de $P_R(C)$ :**\\n\\n$$P_R(C) = \\dfrac{P(R\\cap C)}{P(R)} = \\dfrac{1/32}{1/8} = \\dfrac{1}{32}\\times\\dfrac{8}{1} = \\dfrac{8}{32} = \\dfrac{1}{4}$$\\n\\n**Interprétation :** sachant que la carte tirée est un roi, la probabilité que ce soit aussi un cœur est $\\dfrac{1}{4}$, ce qui correspond bien à la proportion d'une couleur parmi les quatre (cohérent, puisqu'il y a un roi par couleur).\\n\\n$$\\boxed{P(R)=\\dfrac{1}{8}\\,;\\ P(R\\cap C)=\\dfrac{1}{32}\\,;\\ P_R(C)=\\dfrac{1}{4}}$$",
+            modelAnswer: "L'univers comporte $32$ cartes équiprobables.\n\n**Calcul de $P(R)$ :** il y a $4$ rois (un par couleur).\n\n$$P(R) = \\dfrac{4}{32} = \\dfrac{1}{8}$$\n\n**Calcul de $P(R\\cap C)$ :** il y a exactement $1$ roi de cœur.\n\n$$P(R\\cap C) = \\dfrac{1}{32}$$\n\n**Calcul de $P_R(C)$ :**\n\n$$P_R(C) = \\dfrac{P(R\\cap C)}{P(R)} = \\dfrac{1/32}{1/8} = \\dfrac{1}{32}\\times\\dfrac{8}{1} = \\dfrac{8}{32} = \\dfrac{1}{4}$$\n\n**Interprétation :** sachant que la carte tirée est un roi, la probabilité que ce soit aussi un cœur est $\\dfrac{1}{4}$, ce qui correspond bien à la proportion d'une couleur parmi les quatre (cohérent, puisqu'il y a un roi par couleur).\n\n$$\\boxed{P(R)=\\dfrac{1}{8}\\,;\\ P(R\\cap C)=\\dfrac{1}{32}\\,;\\ P_R(C)=\\dfrac{1}{4}}$$",
             explanation: "On calcule d'abord les probabilités \"brutes\" par comptage, puis on applique la définition de la probabilité conditionnelle pour obtenir $P_R(C)$, qu'on interprète concrètement.",
             difficulty: "expert",
           },
@@ -14129,7 +18859,7 @@ On retrouve bien la somme des deux chemins menant à $R$ dans l'arbre : $0{,}42+
             id: "pco1-l2-e4",
             question: "Une usine fabrique des pièces sur deux machines : la machine $M_1$ produit $60\\%$ des pièces avec un taux de défaut de $2\\%$, la machine $M_2$ produit $40\\%$ des pièces avec un taux de défaut de $5\\%$. On note $D$ l'événement \"la pièce est défectueuse\". Calcule $P(D)$ à l'aide de la formule des probabilités totales.",
             type: "open",
-            modelAnswer: "On a la partition $\\{M_1, M_2\\}$ avec $P(M_1)=0{,}6$ et $P(M_2)=0{,}4$, ainsi que $P_{M_1}(D)=0{,}02$ et $P_{M_2}(D)=0{,}05$.\\n\\nD'après la formule des probabilités totales :\\n\\n$$P(D) = P(M_1)\\times P_{M_1}(D) + P(M_2)\\times P_{M_2}(D)$$\\n\\n$$P(D) = 0{,}6\\times0{,}02+0{,}4\\times0{,}05 = 0{,}012+0{,}02=0{,}032$$\\n\\n$$\\boxed{P(D) = 0{,}032}$$",
+            modelAnswer: "On a la partition $\\{M_1, M_2\\}$ avec $P(M_1)=0{,}6$ et $P(M_2)=0{,}4$, ainsi que $P_{M_1}(D)=0{,}02$ et $P_{M_2}(D)=0{,}05$.\n\nD'après la formule des probabilités totales :\n\n$$P(D) = P(M_1)\\times P_{M_1}(D) + P(M_2)\\times P_{M_2}(D)$$\n\n$$P(D) = 0{,}6\\times0{,}02+0{,}4\\times0{,}05 = 0{,}012+0{,}02=0{,}032$$\n\n$$\\boxed{P(D) = 0{,}032}$$",
             explanation: "On identifie la partition formée par les deux machines, puis on applique directement la formule des probabilités totales avec les taux de défaut donnés.",
             difficulty: "intermediaire",
           },
@@ -14137,7 +18867,7 @@ On retrouve bien la somme des deux chemins menant à $R$ dans l'arbre : $0{,}42+
             id: "pco1-l2-e5",
             question: "Dans une population, $1\\%$ des personnes sont atteintes d'une maladie $M$. Un test de dépistage est positif chez $98\\%$ des malades, et positif (à tort) chez $3\\%$ des personnes non malades. On note $T$ l'événement \"le test est positif\". Construis l'arbre pondéré correspondant, calcule $P(T)$, puis calcule $P(M\\cap T)$.",
             type: "open",
-            modelAnswer: "On a $P(M) = 0{,}01$ donc $P(\\overline M) = 0{,}99$. Les probabilités conditionnelles données sont $P_M(T) = 0{,}98$ et $P_{\\overline M}(T) = 0{,}03$.\\n\\n**Arbre pondéré (description) :**\\n\\n- Racine → $M$ (probabilité $0{,}01$) → $T$ (probabilité $0{,}98$) : chemin $0{,}01\\times0{,}98=0{,}0098$\\n- Racine → $M$ (probabilité $0{,}01$) → $\\overline{T}$ (probabilité $0{,}02$) : chemin $0{,}01\\times0{,}02=0{,}0002$\\n- Racine → $\\overline{M}$ (probabilité $0{,}99$) → $T$ (probabilité $0{,}03$) : chemin $0{,}99\\times0{,}03=0{,}0297$\\n- Racine → $\\overline{M}$ (probabilité $0{,}99$) → $\\overline{T}$ (probabilité $0{,}97$) : chemin $0{,}99\\times0{,}97=0{,}9603$\\n\\n**Calcul de $P(T)$** par la formule des probabilités totales (partition $\\{M,\\overline M\\}$) :\\n\\n$$P(T) = P(M)P_M(T)+P(\\overline M)P_{\\overline M}(T) = 0{,}0098+0{,}0297 = 0{,}0395$$\\n\\n**Calcul de $P(M\\cap T)$** (déjà obtenu en construisant l'arbre, via les probabilités composées) :\\n\\n$$P(M\\cap T) = P(M)\\times P_M(T) = 0{,}01\\times0{,}98 = 0{,}0098$$\\n\\n$$\\boxed{P(T) = 0{,}0395 \\quad ; \\quad P(M\\cap T) = 0{,}0098}$$",
+            modelAnswer: "On a $P(M) = 0{,}01$ donc $P(\\overline M) = 0{,}99$. Les probabilités conditionnelles données sont $P_M(T) = 0{,}98$ et $P_{\\overline M}(T) = 0{,}03$.\n\n**Arbre pondéré (description) :**\n\n- Racine → $M$ (probabilité $0{,}01$) → $T$ (probabilité $0{,}98$) : chemin $0{,}01\\times0{,}98=0{,}0098$\n- Racine → $M$ (probabilité $0{,}01$) → $\\overline{T}$ (probabilité $0{,}02$) : chemin $0{,}01\\times0{,}02=0{,}0002$\n- Racine → $\\overline{M}$ (probabilité $0{,}99$) → $T$ (probabilité $0{,}03$) : chemin $0{,}99\\times0{,}03=0{,}0297$\n- Racine → $\\overline{M}$ (probabilité $0{,}99$) → $\\overline{T}$ (probabilité $0{,}97$) : chemin $0{,}99\\times0{,}97=0{,}9603$\n\n**Calcul de $P(T)$** par la formule des probabilités totales (partition $\\{M,\\overline M\\}$) :\n\n$$P(T) = P(M)P_M(T)+P(\\overline M)P_{\\overline M}(T) = 0{,}0098+0{,}0297 = 0{,}0395$$\n\n**Calcul de $P(M\\cap T)$** (déjà obtenu en construisant l'arbre, via les probabilités composées) :\n\n$$P(M\\cap T) = P(M)\\times P_M(T) = 0{,}01\\times0{,}98 = 0{,}0098$$\n\n$$\\boxed{P(T) = 0{,}0395 \\quad ; \\quad P(M\\cap T) = 0{,}0098}$$",
             explanation: "On construit l'arbre à deux niveaux (statut de la maladie, puis résultat du test), on multiplie le long des chemins, puis on additionne les chemins menant à $T$ pour obtenir $P(T)$ par la formule des probabilités totales.",
             difficulty: "expert",
           },
@@ -14228,7 +18958,7 @@ Les événements $F$ et $R$ sont donc indépendants dans cette classe.`,
             id: "pco1-l3-e4",
             question: "On tire une carte dans un jeu de 32 cartes. Soit $A$ : \"la carte est un cœur\" et $B$ : \"la carte est une figure (Roi, Dame ou Valet)\". On a $P(A)=\\dfrac{1}{4}$, $P(B)=\\dfrac{12}{32}=\\dfrac{3}{8}$, et $P(A\\cap B)=\\dfrac{3}{32}$ (3 figures de cœur). Les événements $A$ et $B$ sont-ils indépendants ? Justifie le calcul.",
             type: "open",
-            modelAnswer: "On calcule $P(A)\\times P(B)$ :\\n\\n$$P(A)\\times P(B) = \\dfrac{1}{4}\\times\\dfrac{3}{8} = \\dfrac{3}{32}$$\\n\\nOn compare à $P(A\\cap B) = \\dfrac{3}{32}$.\\n\\nLes deux valeurs sont égales : $P(A)\\times P(B) = P(A\\cap B) = \\dfrac{3}{32}$.\\n\\nDonc $A$ et $B$ **sont indépendants**.\\n\\n$$\\boxed{P(A)\\times P(B) = \\dfrac{3}{32} = P(A\\cap B) \\implies A \\text{ et } B \\text{ sont indépendants}}$$",
+            modelAnswer: "On calcule $P(A)\\times P(B)$ :\n\n$$P(A)\\times P(B) = \\dfrac{1}{4}\\times\\dfrac{3}{8} = \\dfrac{3}{32}$$\n\nOn compare à $P(A\\cap B) = \\dfrac{3}{32}$.\n\nLes deux valeurs sont égales : $P(A)\\times P(B) = P(A\\cap B) = \\dfrac{3}{32}$.\n\nDonc $A$ et $B$ **sont indépendants**.\n\n$$\\boxed{P(A)\\times P(B) = \\dfrac{3}{32} = P(A\\cap B) \\implies A \\text{ et } B \\text{ sont indépendants}}$$",
             explanation: "On calcule le produit des probabilités individuelles et on le compare à la probabilité de l'intersection ; l'égalité confirme l'indépendance.",
             difficulty: "intermediaire",
           },
@@ -14236,7 +18966,7 @@ Les événements $F$ et $R$ sont donc indépendants dans cette classe.`,
             id: "pco1-l3-e5",
             question: "On lance deux fois de suite une pièce équilibrée. Soit $A$ : \"on obtient Pile au premier lancer\" et $B$ : \"on obtient exactement un Pile sur les deux lancers\". Calcule $P(A)$, $P(B)$ et $P(A\\cap B)$, puis détermine si $A$ et $B$ sont indépendants.",
             type: "open",
-            modelAnswer: "L'univers des deux lancers est $\\{PP, PF, FP, FF\\}$, avec $4$ issues équiprobables.\\n\\n**Calcul de $P(A)$ :** \"$Pile$ au premier lancer\" correspond à $\\{PP, PF\\}$.\\n\\n$$P(A) = \\dfrac{2}{4} = \\dfrac{1}{2}$$\\n\\n**Calcul de $P(B)$ :** \"exactement un Pile\" correspond à $\\{PF, FP\\}$.\\n\\n$$P(B) = \\dfrac{2}{4} = \\dfrac{1}{2}$$\\n\\n**Calcul de $P(A\\cap B)$ :** \"Pile au premier lancer\" ET \"exactement un Pile\" correspond uniquement à $\\{PF\\}$.\\n\\n$$P(A\\cap B) = \\dfrac{1}{4}$$\\n\\n**Test d'indépendance :**\\n\\n$$P(A)\\times P(B) = \\dfrac{1}{2}\\times\\dfrac{1}{2} = \\dfrac{1}{4} = P(A\\cap B)$$\\n\\nL'égalité est vérifiée, donc $A$ et $B$ sont indépendants.\\n\\n$$\\boxed{P(A)=\\dfrac{1}{2}\\,;\\ P(B)=\\dfrac{1}{2}\\,;\\ P(A\\cap B)=\\dfrac{1}{4} \\implies A \\text{ et } B \\text{ indépendants}}$$",
+            modelAnswer: "L'univers des deux lancers est $\\{PP, PF, FP, FF\\}$, avec $4$ issues équiprobables.\n\n**Calcul de $P(A)$ :** \"$Pile$ au premier lancer\" correspond à $\\{PP, PF\\}$.\n\n$$P(A) = \\dfrac{2}{4} = \\dfrac{1}{2}$$\n\n**Calcul de $P(B)$ :** \"exactement un Pile\" correspond à $\\{PF, FP\\}$.\n\n$$P(B) = \\dfrac{2}{4} = \\dfrac{1}{2}$$\n\n**Calcul de $P(A\\cap B)$ :** \"Pile au premier lancer\" ET \"exactement un Pile\" correspond uniquement à $\\{PF\\}$.\n\n$$P(A\\cap B) = \\dfrac{1}{4}$$\n\n**Test d'indépendance :**\n\n$$P(A)\\times P(B) = \\dfrac{1}{2}\\times\\dfrac{1}{2} = \\dfrac{1}{4} = P(A\\cap B)$$\n\nL'égalité est vérifiée, donc $A$ et $B$ sont indépendants.\n\n$$\\boxed{P(A)=\\dfrac{1}{2}\\,;\\ P(B)=\\dfrac{1}{2}\\,;\\ P(A\\cap B)=\\dfrac{1}{4} \\implies A \\text{ et } B \\text{ indépendants}}$$",
             explanation: "On liste l'univers à 4 issues équiprobables, on dénombre chaque événement, puis on vérifie l'égalité caractéristique de l'indépendance (résultat parfois contre-intuitif mais correct ici).",
             difficulty: "expert",
           },
@@ -14335,7 +19065,7 @@ On définit aussi $V(X) = \\sum_i p_i(x_i-E(X))^2$ et $\\sigma(X)=\\sqrt{V(X)}$,
             id: "lbi1-l1-e4",
             question: "Un jeu consiste à tirer une carte dans un jeu de 32 cartes : on gagne $16$ € si c'est un As (il y en a 4), et on perd $2$ € sinon. Détermine la loi de probabilité du gain $X$, puis calcule $E(X)$ et indique si le jeu est favorable au joueur.",
             type: "open",
-            modelAnswer: "Il y a $4$ As sur $32$ cartes, donc $P(\\text{As}) = \\dfrac{4}{32} = \\dfrac{1}{8}$, et $P(\\text{pas As}) = \\dfrac{28}{32} = \\dfrac{7}{8}$.\\n\\n**Loi de probabilité de $X$ :**\\n\\n| $x_i$ | $-2$ | $16$ |\\n|---|---|---|\\n| $P(X=x_i)$ | $\\dfrac{7}{8}$ | $\\dfrac{1}{8}$ |\\n\\n**Calcul de l'espérance :**\\n\\n$$E(X) = (-2)\\times\\dfrac{7}{8}+16\\times\\dfrac{1}{8} = -\\dfrac{14}{8}+\\dfrac{16}{8} = \\dfrac{2}{8} = 0{,}25$$\\n\\nComme $E(X) = 0{,}25 > 0$, le jeu est favorable au joueur en moyenne (il gagne $0{,}25$ € par partie en moyenne sur un grand nombre de parties).\\n\\n$$\\boxed{E(X) = 0{,}25 \\text{ € (jeu favorable au joueur)}}$$",
+            modelAnswer: "Il y a $4$ As sur $32$ cartes, donc $P(\\text{As}) = \\dfrac{4}{32} = \\dfrac{1}{8}$, et $P(\\text{pas As}) = \\dfrac{28}{32} = \\dfrac{7}{8}$.\n\n**Loi de probabilité de $X$ :**\n\n| $x_i$ | $-2$ | $16$ |\n|---|---|---|\n| $P(X=x_i)$ | $\\dfrac{7}{8}$ | $\\dfrac{1}{8}$ |\n\n**Calcul de l'espérance :**\n\n$$E(X) = (-2)\\times\\dfrac{7}{8}+16\\times\\dfrac{1}{8} = -\\dfrac{14}{8}+\\dfrac{16}{8} = \\dfrac{2}{8} = 0{,}25$$\n\nComme $E(X) = 0{,}25 > 0$, le jeu est favorable au joueur en moyenne (il gagne $0{,}25$ € par partie en moyenne sur un grand nombre de parties).\n\n$$\\boxed{E(X) = 0{,}25 \\text{ € (jeu favorable au joueur)}}$$",
             explanation: "On établit la loi de probabilité à partir du comptage des cartes, puis on calcule l'espérance pour juger du caractère favorable ou non du jeu.",
             difficulty: "intermediaire",
           },
@@ -14343,7 +19073,7 @@ On définit aussi $V(X) = \\sum_i p_i(x_i-E(X))^2$ et $\\sigma(X)=\\sqrt{V(X)}$,
             id: "lbi1-l1-e5",
             question: "Un organisateur de loterie vend des billets à $5$ €. Sur $1000$ billets, il y a $1$ billet gagnant de $2000$ €, $10$ billets gagnants de $50$ € et les autres ne rapportent rien. Soit $X$ le gain net du joueur (gain obtenu moins le prix du billet). Détermine la loi de probabilité de $X$ et calcule $E(X)$. La loterie est-elle favorable à l'organisateur ?",
             type: "open",
-            modelAnswer: "Le prix du billet est $5$ €. Le gain net $X$ vaut :\\n\\n- pour le billet à $2000$ € : $X = 2000-5=1995$, avec probabilité $\\dfrac{1}{1000}$\\n- pour les $10$ billets à $50$ € : $X = 50-5=45$, avec probabilité $\\dfrac{10}{1000}=\\dfrac{1}{100}$\\n- pour les autres billets ($1000-1-10=989$ billets) : $X=-5$ (le joueur perd le prix du billet), avec probabilité $\\dfrac{989}{1000}$\\n\\n**Loi de probabilité de $X$ :**\\n\\n| $x_i$ | $-5$ | $45$ | $1995$ |\\n|---|---|---|---|\\n| $P(X=x_i)$ | $\\dfrac{989}{1000}$ | $\\dfrac{10}{1000}$ | $\\dfrac{1}{1000}$ |\\n\\n**Calcul de l'espérance :**\\n\\n$$E(X) = -5\\times\\dfrac{989}{1000}+45\\times\\dfrac{10}{1000}+1995\\times\\dfrac{1}{1000}$$\\n\\n$$= \\dfrac{-4945+450+1995}{1000} = \\dfrac{-2500}{1000} = -2{,}5$$\\n\\nComme $E(X) = -2{,}5 < 0$, le joueur perd en moyenne $2{,}5$ € par billet : la loterie est donc favorable à l'organisateur.\\n\\n$$\\boxed{E(X) = -2{,}5\\text{ € (loterie favorable à l'organisateur)}}$$",
+            modelAnswer: "Le prix du billet est $5$ €. Le gain net $X$ vaut :\n\n- pour le billet à $2000$ € : $X = 2000-5=1995$, avec probabilité $\\dfrac{1}{1000}$\n- pour les $10$ billets à $50$ € : $X = 50-5=45$, avec probabilité $\\dfrac{10}{1000}=\\dfrac{1}{100}$\n- pour les autres billets ($1000-1-10=989$ billets) : $X=-5$ (le joueur perd le prix du billet), avec probabilité $\\dfrac{989}{1000}$\n\n**Loi de probabilité de $X$ :**\n\n| $x_i$ | $-5$ | $45$ | $1995$ |\n|---|---|---|---|\n| $P(X=x_i)$ | $\\dfrac{989}{1000}$ | $\\dfrac{10}{1000}$ | $\\dfrac{1}{1000}$ |\n\n**Calcul de l'espérance :**\n\n$$E(X) = -5\\times\\dfrac{989}{1000}+45\\times\\dfrac{10}{1000}+1995\\times\\dfrac{1}{1000}$$\n\n$$= \\dfrac{-4945+450+1995}{1000} = \\dfrac{-2500}{1000} = -2{,}5$$\n\nComme $E(X) = -2{,}5 < 0$, le joueur perd en moyenne $2{,}5$ € par billet : la loterie est donc favorable à l'organisateur.\n\n$$\\boxed{E(X) = -2{,}5\\text{ € (loterie favorable à l'organisateur)}}$$",
             explanation: "On définit le gain net (gain brut moins prix du billet) pour chaque catégorie, on établit la loi de probabilité complète, puis on calcule l'espérance qui révèle l'avantage structurel de l'organisateur.",
             difficulty: "expert",
           },
@@ -14428,7 +19158,7 @@ Dans un schéma de Bernoulli à $n$ répétitions, on s'intéresse souvent à la
             id: "lbi1-l2-e4",
             question: "On tire au hasard, avec remise, une boule dans une urne contenant $3$ boules rouges et $7$ boules vertes, et on répète ce tirage $4$ fois. Justifie qu'il s'agit d'un schéma de Bernoulli et précise les paramètres $n$ et $p$ (succès = \"tirer une boule rouge\").",
             type: "open",
-            modelAnswer: "Chaque tirage est une épreuve de Bernoulli : succès = \"tirer une boule rouge\" avec probabilité $p=\\dfrac{3}{10}=0{,}3$, échec = \"tirer une boule verte\" avec probabilité $0{,}7$.\\n\\nComme le tirage se fait **avec remise**, la composition de l'urne reste identique à chaque tirage : la probabilité de succès $p=0{,}3$ ne change pas, et le résultat d'un tirage n'influence pas les autres (indépendance).\\n\\nLes deux conditions du schéma de Bernoulli sont donc vérifiées : épreuves identiques et indépendantes.\\n\\nLe schéma de Bernoulli a pour paramètres $n=4$ répétitions et $p=0{,}3$.\\n\\n$$\\boxed{n=4\\,;\\ p=0{,}3}$$",
+            modelAnswer: "Chaque tirage est une épreuve de Bernoulli : succès = \"tirer une boule rouge\" avec probabilité $p=\\dfrac{3}{10}=0{,}3$, échec = \"tirer une boule verte\" avec probabilité $0{,}7$.\n\nComme le tirage se fait **avec remise**, la composition de l'urne reste identique à chaque tirage : la probabilité de succès $p=0{,}3$ ne change pas, et le résultat d'un tirage n'influence pas les autres (indépendance).\n\nLes deux conditions du schéma de Bernoulli sont donc vérifiées : épreuves identiques et indépendantes.\n\nLe schéma de Bernoulli a pour paramètres $n=4$ répétitions et $p=0{,}3$.\n\n$$\\boxed{n=4\\,;\\ p=0{,}3}$$",
             explanation: "Le tirage avec remise garantit l'identité (même probabilité à chaque fois) et l'indépendance des répétitions, ce qui caractérise un schéma de Bernoulli.",
             difficulty: "intermediaire",
           },
@@ -14436,7 +19166,7 @@ Dans un schéma de Bernoulli à $n$ répétitions, on s'intéresse souvent à la
             id: "lbi1-l2-e5",
             question: "On dispose d'une urne contenant $5$ boules indiscernables au toucher : $2$ rouges et $3$ bleues. On tire successivement $3$ boules **sans remise**. Explique pourquoi cette expérience n'est pas un schéma de Bernoulli, puis indique comment modifier l'expérience pour qu'elle le devienne (en gardant les mêmes proportions initiales).",
             type: "open",
-            modelAnswer: "**Pourquoi ce n'est pas un schéma de Bernoulli :**\\n\\nSi on tire sans remise, la composition de l'urne change après chaque tirage. Par exemple, la probabilité de tirer une boule rouge au premier tirage est $\\dfrac{2}{5}$, mais au deuxième tirage, cette probabilité dépend du résultat du premier tirage : elle vaut $\\dfrac{1}{4}$ si une rouge a déjà été tirée, ou $\\dfrac{2}{4}$ sinon.\\n\\nLa probabilité de succès n'est donc ni constante (elle change d'un tirage à l'autre), ni indépendante des tirages précédents : les deux conditions du schéma de Bernoulli sont violées.\\n\\n**Comment corriger :**\\n\\nIl suffit d'effectuer les tirages **avec remise** : on tire une boule, on note sa couleur, puis on la replace dans l'urne avant le tirage suivant. Ainsi, la composition de l'urne (et donc la probabilité de succès $p=\\dfrac{2}{5}$) reste constante à chaque tirage, et les tirages deviennent indépendants : on obtient bien un schéma de Bernoulli de paramètres $n=3$ et $p=\\dfrac{2}{5}$.\\n\\n$$\\boxed{\\text{Tirer avec remise restaure l'indépendance et la constance de } p=\\dfrac{2}{5}}$$",
+            modelAnswer: "**Pourquoi ce n'est pas un schéma de Bernoulli :**\n\nSi on tire sans remise, la composition de l'urne change après chaque tirage. Par exemple, la probabilité de tirer une boule rouge au premier tirage est $\\dfrac{2}{5}$, mais au deuxième tirage, cette probabilité dépend du résultat du premier tirage : elle vaut $\\dfrac{1}{4}$ si une rouge a déjà été tirée, ou $\\dfrac{2}{4}$ sinon.\n\nLa probabilité de succès n'est donc ni constante (elle change d'un tirage à l'autre), ni indépendante des tirages précédents : les deux conditions du schéma de Bernoulli sont violées.\n\n**Comment corriger :**\n\nIl suffit d'effectuer les tirages **avec remise** : on tire une boule, on note sa couleur, puis on la replace dans l'urne avant le tirage suivant. Ainsi, la composition de l'urne (et donc la probabilité de succès $p=\\dfrac{2}{5}$) reste constante à chaque tirage, et les tirages deviennent indépendants : on obtient bien un schéma de Bernoulli de paramètres $n=3$ et $p=\\dfrac{2}{5}$.\n\n$$\\boxed{\\text{Tirer avec remise restaure l'indépendance et la constance de } p=\\dfrac{2}{5}}$$",
             explanation: "Le tirage sans remise change la composition de l'urne donc la probabilité de succès à chaque étape, ce qui viole les deux hypothèses (identité et indépendance) requises pour un schéma de Bernoulli ; remettre la boule tirée résout le problème.",
             difficulty: "expert",
           },
@@ -14523,7 +19253,7 @@ On vérifie que la situation est bien un **schéma de Bernoulli répété $n$ fo
             id: "lbi1-l3-e4",
             question: "Une question de QCM comporte $4$ propositions dont une seule est correcte. Un élève répond au hasard à $3$ questions indépendantes de ce type. Soit $X$ le nombre de bonnes réponses. Justifie que $X$ suit une loi binomiale en précisant ses paramètres, puis calcule $P(X=2)$ (on donne $\\dbinom{3}{2}=3$).",
             type: "open",
-            modelAnswer: "Chaque question est une épreuve de Bernoulli : succès = \"bonne réponse\" avec probabilité $p=\\dfrac{1}{4}=0{,}25$ (une chance sur 4), échec = \"mauvaise réponse\" avec probabilité $0{,}75$.\\n\\nComme les $3$ questions sont répondues indépendamment et que la probabilité de succès reste $0{,}25$ à chaque question, il s'agit d'un schéma de Bernoulli répété $n=3$ fois.\\n\\nDonc $X$ suit la loi binomiale $\\mathcal{B}(3\\,;\\,0{,}25)$.\\n\\n**Calcul de $P(X=2)$ :**\\n\\n$$P(X=2) = \\dbinom{3}{2}\\times0{,}25^2\\times0{,}75^1 = 3\\times0{,}0625\\times0{,}75$$\\n\\n$$= 3\\times0{,}046875 = 0{,}140625$$\\n\\n$$\\boxed{X \\sim \\mathcal{B}(3\\,;\\,0{,}25) \\quad ; \\quad P(X=2) = 0{,}140625}$$",
+            modelAnswer: "Chaque question est une épreuve de Bernoulli : succès = \"bonne réponse\" avec probabilité $p=\\dfrac{1}{4}=0{,}25$ (une chance sur 4), échec = \"mauvaise réponse\" avec probabilité $0{,}75$.\n\nComme les $3$ questions sont répondues indépendamment et que la probabilité de succès reste $0{,}25$ à chaque question, il s'agit d'un schéma de Bernoulli répété $n=3$ fois.\n\nDonc $X$ suit la loi binomiale $\\mathcal{B}(3\\,;\\,0{,}25)$.\n\n**Calcul de $P(X=2)$ :**\n\n$$P(X=2) = \\dbinom{3}{2}\\times0{,}25^2\\times0{,}75^1 = 3\\times0{,}0625\\times0{,}75$$\n\n$$= 3\\times0{,}046875 = 0{,}140625$$\n\n$$\\boxed{X \\sim \\mathcal{B}(3\\,;\\,0{,}25) \\quad ; \\quad P(X=2) = 0{,}140625}$$",
             explanation: "On identifie les paramètres $n$ et $p$ du schéma de Bernoulli, puis on applique directement la formule de la loi binomiale pour $k=2$.",
             difficulty: "expert",
           },
@@ -14531,7 +19261,7 @@ On vérifie que la situation est bien un **schéma de Bernoulli répété $n$ fo
             id: "lbi1-l3-e5",
             question: "Une machine produit des pièces, et chaque pièce a une probabilité $0{,}1$ d'être défectueuse, indépendamment des autres. On prélève un échantillon de $6$ pièces. Soit $X$ le nombre de pièces défectueuses dans l'échantillon. Donne la loi de $X$, calcule $P(X=0)$ (probabilité qu'aucune pièce ne soit défectueuse), puis calcule $E(X)$ et interprète ce résultat.",
             type: "open",
-            modelAnswer: "Chaque pièce constitue une épreuve de Bernoulli de paramètre $p=0{,}1$ (succès = \"pièce défectueuse\"), répétée de façon indépendante $n=6$ fois (un échantillon de $6$ pièces).\\n\\nDonc $X$ suit la loi binomiale $\\mathcal{B}(6\\,;\\,0{,}1)$.\\n\\n**Calcul de $P(X=0)$ :**\\n\\n$$P(X=0) = \\dbinom{6}{0}\\times0{,}1^0\\times0{,}9^6 = 1\\times1\\times0{,}9^6$$\\n\\nOn calcule $0{,}9^6 = 0{,}531441$ (en multipliant successivement : $0{,}9^2=0{,}81$, $0{,}9^3=0{,}729$, $0{,}9^6=0{,}729^2=0{,}531441$).\\n\\n$$P(X=0) \\approx 0{,}531$$\\n\\n**Calcul de l'espérance :**\\n\\n$$E(X) = np = 6\\times0{,}1=0{,}6$$\\n\\n**Interprétation :** sur un grand nombre d'échantillons de $6$ pièces, on observe en moyenne $0{,}6$ pièce défectueuse par échantillon ; et il y a environ $53{,}1\\%$ de chances qu'un échantillon donné ne contienne aucune pièce défectueuse.\\n\\n$$\\boxed{X\\sim\\mathcal{B}(6\\,;\\,0{,}1)\\,;\\ P(X=0)\\approx0{,}531\\,;\\ E(X)=0{,}6}$$",
+            modelAnswer: "Chaque pièce constitue une épreuve de Bernoulli de paramètre $p=0{,}1$ (succès = \"pièce défectueuse\"), répétée de façon indépendante $n=6$ fois (un échantillon de $6$ pièces).\n\nDonc $X$ suit la loi binomiale $\\mathcal{B}(6\\,;\\,0{,}1)$.\n\n**Calcul de $P(X=0)$ :**\n\n$$P(X=0) = \\dbinom{6}{0}\\times0{,}1^0\\times0{,}9^6 = 1\\times1\\times0{,}9^6$$\n\nOn calcule $0{,}9^6 = 0{,}531441$ (en multipliant successivement : $0{,}9^2=0{,}81$, $0{,}9^3=0{,}729$, $0{,}9^6=0{,}729^2=0{,}531441$).\n\n$$P(X=0) \\approx 0{,}531$$\n\n**Calcul de l'espérance :**\n\n$$E(X) = np = 6\\times0{,}1=0{,}6$$\n\n**Interprétation :** sur un grand nombre d'échantillons de $6$ pièces, on observe en moyenne $0{,}6$ pièce défectueuse par échantillon ; et il y a environ $53{,}1\\%$ de chances qu'un échantillon donné ne contienne aucune pièce défectueuse.\n\n$$\\boxed{X\\sim\\mathcal{B}(6\\,;\\,0{,}1)\\,;\\ P(X=0)\\approx0{,}531\\,;\\ E(X)=0{,}6}$$",
             explanation: "On reconnaît le schéma de Bernoulli répété, on utilise $\\binom{6}{0}=1$ pour simplifier le calcul de $P(X=0)$ à une simple puissance, puis on applique la formule de l'espérance $E(X)=np$.",
             difficulty: "expert",
           },
@@ -14614,7 +19344,7 @@ Les règles sont les mêmes que pour les fonctions : somme, produit, quotient de
             id: "lst1-l1-e3",
             question: "Détermine la limite de la suite $u_n = 5 + \\dfrac{3}{n}$ quand $n \\to +\\infty$.",
             type: "open",
-            modelAnswer: "On décompose la suite en deux termes : une constante et un terme qui tend vers $0$.\\n\\n$$\\lim_{n\\to+\\infty} \\dfrac{3}{n} = 0$$\\n\\ncar $\\dfrac{1}{n} \\to 0$ et $3$ est une constante multiplicative.\\n\\nPar somme des limites :\\n\\n$$\\lim_{n\\to+\\infty} u_n = 5 + 0 = 5$$\\n\\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = 5}$$",
+            modelAnswer: "On décompose la suite en deux termes : une constante et un terme qui tend vers $0$.\n\n$$\\lim_{n\\to+\\infty} \\dfrac{3}{n} = 0$$\n\ncar $\\dfrac{1}{n} \\to 0$ et $3$ est une constante multiplicative.\n\nPar somme des limites :\n\n$$\\lim_{n\\to+\\infty} u_n = 5 + 0 = 5$$\n\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = 5}$$",
             explanation: "On utilise la limite usuelle $\\dfrac{1}{n}\\to 0$ puis on applique la règle de la somme des limites.",
             difficulty: "debutant",
           },
@@ -14622,7 +19352,7 @@ Les règles sont les mêmes que pour les fonctions : somme, produit, quotient de
             id: "lst1-l1-e4",
             question: "Quelle est la limite de $u_n = n^2 - n$ quand $n \\to +\\infty$ ? (Attention à la forme indéterminée.)",
             type: "open",
-            modelAnswer: "On a $\\lim n^2 = +\\infty$ et $\\lim n = +\\infty$, donc $u_n$ est de la forme indéterminée $+\\infty - \\infty$. Il faut transformer l'écriture.\\n\\nOn factorise par le terme dominant $n^2$ :\\n\\n$$u_n = n^2 - n = n^2\\left(1 - \\dfrac{1}{n}\\right)$$\\n\\nQuand $n \\to +\\infty$ : $\\dfrac{1}{n} \\to 0$, donc $1 - \\dfrac{1}{n} \\to 1$.\\n\\nDe plus $n^2 \\to +\\infty$.\\n\\nPar produit des limites ($+\\infty \\times 1$) :\\n\\n$$\\lim_{n\\to+\\infty} u_n = +\\infty$$\\n\\n$$\\boxed{\\lim_{n\\to+\\infty}(n^2-n) = +\\infty}$$",
+            modelAnswer: "On a $\\lim n^2 = +\\infty$ et $\\lim n = +\\infty$, donc $u_n$ est de la forme indéterminée $+\\infty - \\infty$. Il faut transformer l'écriture.\n\nOn factorise par le terme dominant $n^2$ :\n\n$$u_n = n^2 - n = n^2\\left(1 - \\dfrac{1}{n}\\right)$$\n\nQuand $n \\to +\\infty$ : $\\dfrac{1}{n} \\to 0$, donc $1 - \\dfrac{1}{n} \\to 1$.\n\nDe plus $n^2 \\to +\\infty$.\n\nPar produit des limites ($+\\infty \\times 1$) :\n\n$$\\lim_{n\\to+\\infty} u_n = +\\infty$$\n\n$$\\boxed{\\lim_{n\\to+\\infty}(n^2-n) = +\\infty}$$",
             explanation: "Face à une forme indéterminée $\\infty - \\infty$, on factorise par le terme de plus haut degré pour lever l'indétermination.",
             difficulty: "intermediaire",
           },
@@ -14700,7 +19430,7 @@ Comme $-\\dfrac{1}{n} \\to 0$ et $\\dfrac{1}{n}\\to 0$, le théorème des gendar
             id: "lst1-l2-e3",
             question: "Soit $u_n = 3^n - 5$. Détermine la limite de $u_n$ quand $n \\to +\\infty$ et justifie en utilisant les opérations sur les limites.",
             type: "open",
-            modelAnswer: "On utilise la limite usuelle des suites géométriques : comme $q=3 > 1$,\\n\\n$$\\lim_{n\\to+\\infty} 3^n = +\\infty$$\\n\\nOr $-5$ est une constante, donc par somme des limites ($+\\infty$ plus une constante reste $+\\infty$) :\\n\\n$$\\lim_{n\\to+\\infty}(3^n - 5) = +\\infty$$\\n\\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = +\\infty}$$",
+            modelAnswer: "On utilise la limite usuelle des suites géométriques : comme $q=3 > 1$,\n\n$$\\lim_{n\\to+\\infty} 3^n = +\\infty$$\n\nOr $-5$ est une constante, donc par somme des limites ($+\\infty$ plus une constante reste $+\\infty$) :\n\n$$\\lim_{n\\to+\\infty}(3^n - 5) = +\\infty$$\n\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = +\\infty}$$",
             explanation: "On reconnaît une suite géométrique de raison $q=3>1$ qui tend vers $+\\infty$, puis on applique la règle de somme avec une constante.",
             difficulty: "intermediaire",
           },
@@ -14708,7 +19438,7 @@ Comme $-\\dfrac{1}{n} \\to 0$ et $\\dfrac{1}{n}\\to 0$, le théorème des gendar
             id: "lst1-l2-e4",
             question: "Soit $u_n = \\dfrac{(-1)^n}{n^2}$ pour $n \\geqslant 1$. En utilisant un encadrement, démontre que $\\lim_{n\\to+\\infty} u_n = 0$.",
             type: "open",
-            modelAnswer: "On sait que pour tout entier $n$, $-1 \\leqslant (-1)^n \\leqslant 1$.\\n\\nEn divisant les trois membres de cette inégalité par $n^2 > 0$ (ce qui ne change pas le sens des inégalités) :\\n\\n$$-\\dfrac{1}{n^2} \\leqslant \\dfrac{(-1)^n}{n^2} \\leqslant \\dfrac{1}{n^2}$$\\n\\nc'est-à-dire $-\\dfrac{1}{n^2} \\leqslant u_n \\leqslant \\dfrac{1}{n^2}$.\\n\\nOr on sait que $\\lim_{n\\to+\\infty} \\dfrac{1}{n^2} = 0$, donc aussi $\\lim_{n\\to+\\infty} \\left(-\\dfrac{1}{n^2}\\right) = 0$.\\n\\nLes deux suites encadrantes tendent vers la même limite $0$. D'après le **théorème des gendarmes**, on conclut :\\n\\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = 0}$$",
+            modelAnswer: "On sait que pour tout entier $n$, $-1 \\leqslant (-1)^n \\leqslant 1$.\n\nEn divisant les trois membres de cette inégalité par $n^2 > 0$ (ce qui ne change pas le sens des inégalités) :\n\n$$-\\dfrac{1}{n^2} \\leqslant \\dfrac{(-1)^n}{n^2} \\leqslant \\dfrac{1}{n^2}$$\n\nc'est-à-dire $-\\dfrac{1}{n^2} \\leqslant u_n \\leqslant \\dfrac{1}{n^2}$.\n\nOr on sait que $\\lim_{n\\to+\\infty} \\dfrac{1}{n^2} = 0$, donc aussi $\\lim_{n\\to+\\infty} \\left(-\\dfrac{1}{n^2}\\right) = 0$.\n\nLes deux suites encadrantes tendent vers la même limite $0$. D'après le **théorème des gendarmes**, on conclut :\n\n$$\\boxed{\\lim_{n\\to+\\infty} u_n = 0}$$",
             explanation: "On encadre la suite à l'aide de l'inégalité $-1\\leqslant(-1)^n\\leqslant1$, puis on applique le théorème des gendarmes car les deux bornes tendent vers la même limite.",
             difficulty: "expert",
           },
@@ -14787,7 +19517,7 @@ On utilise souvent la récurrence pour prouver qu'une suite est croissante, déc
             id: "lst1-l3-e3",
             question: "Démontre par récurrence que pour tout entier naturel $n$, $2^n \\geqslant n+1$.",
             type: "open",
-            modelAnswer: "On note $P(n)$ la propriété \"$2^n \\geqslant n+1$\".\\n\\n**Initialisation :** pour $n=0$, $2^0 = 1$ et $n+1 = 1$. On a bien $1 \\geqslant 1$, donc $P(0)$ est vraie.\\n\\n**Hérédité :** supposons $P(n)$ vraie pour un entier $n \\geqslant 0$, c'est-à-dire $2^n \\geqslant n+1$. Montrons que $P(n+1)$ est vraie, c'est-à-dire $2^{n+1} \\geqslant n+2$.\\n\\nOn a :\\n$$2^{n+1} = 2\\times 2^n \\geqslant 2(n+1)$$\\n\\nen utilisant l'hypothèse de récurrence et en multipliant par $2>0$.\\n\\nOr $2(n+1) = 2n+2 = (n+2) + n \\geqslant n+2$ car $n \\geqslant 0$.\\n\\nDonc $2^{n+1} \\geqslant n+2$, c'est-à-dire $P(n+1)$ est vraie.\\n\\n**Conclusion :** par le principe de récurrence, pour tout entier naturel $n$, $2^n \\geqslant n+1$.\\n\\n$$\\boxed{\\forall n \\in \\mathbb{N},\\ 2^n \\geqslant n+1}$$",
+            modelAnswer: "On note $P(n)$ la propriété \"$2^n \\geqslant n+1$\".\n\n**Initialisation :** pour $n=0$, $2^0 = 1$ et $n+1 = 1$. On a bien $1 \\geqslant 1$, donc $P(0)$ est vraie.\n\n**Hérédité :** supposons $P(n)$ vraie pour un entier $n \\geqslant 0$, c'est-à-dire $2^n \\geqslant n+1$. Montrons que $P(n+1)$ est vraie, c'est-à-dire $2^{n+1} \\geqslant n+2$.\n\nOn a :\n$$2^{n+1} = 2\\times 2^n \\geqslant 2(n+1)$$\n\nen utilisant l'hypothèse de récurrence et en multipliant par $2>0$.\n\nOr $2(n+1) = 2n+2 = (n+2) + n \\geqslant n+2$ car $n \\geqslant 0$.\n\nDonc $2^{n+1} \\geqslant n+2$, c'est-à-dire $P(n+1)$ est vraie.\n\n**Conclusion :** par le principe de récurrence, pour tout entier naturel $n$, $2^n \\geqslant n+1$.\n\n$$\\boxed{\\forall n \\in \\mathbb{N},\\ 2^n \\geqslant n+1}$$",
             explanation: "On applique scrupuleusement les trois étapes : initialisation au rang 0, hérédité en utilisant l'hypothèse de récurrence pour majorer $2^{n+1}$, puis conclusion.",
             difficulty: "intermediaire",
           },
@@ -14795,7 +19525,7 @@ On utilise souvent la récurrence pour prouver qu'une suite est croissante, déc
             id: "lst1-l3-e4",
             question: "Soit $(u_n)$ définie par $u_0 = 2$ et $u_{n+1} = \\dfrac{1}{2}u_n + 1$. Démontre par récurrence que pour tout $n$, $u_n \\leqslant 2$.",
             type: "open",
-            modelAnswer: "On note $P(n)$ la propriété \"$u_n \\leqslant 2$\".\\n\\n**Initialisation :** $u_0 = 2 \\leqslant 2$, donc $P(0)$ est vraie.\\n\\n**Hérédité :** supposons $u_n \\leqslant 2$ pour un entier $n$ quelconque. Montrons que $u_{n+1} \\leqslant 2$.\\n\\nOn a :\\n$$u_{n+1} = \\dfrac{1}{2}u_n + 1$$\\n\\nComme $u_n \\leqslant 2$, en multipliant par $\\dfrac{1}{2}>0$ (qui conserve le sens de l'inégalité) :\\n$$\\dfrac{1}{2}u_n \\leqslant \\dfrac{1}{2}\\times 2 = 1$$\\n\\nDonc :\\n$$u_{n+1} = \\dfrac{1}{2}u_n + 1 \\leqslant 1 + 1 = 2$$\\n\\nDonc $P(n+1)$ est vraie.\\n\\n**Conclusion :** par récurrence, pour tout entier naturel $n$, $u_n \\leqslant 2$.\\n\\n$$\\boxed{\\forall n \\in \\mathbb{N},\\ u_n \\leqslant 2}$$",
+            modelAnswer: "On note $P(n)$ la propriété \"$u_n \\leqslant 2$\".\n\n**Initialisation :** $u_0 = 2 \\leqslant 2$, donc $P(0)$ est vraie.\n\n**Hérédité :** supposons $u_n \\leqslant 2$ pour un entier $n$ quelconque. Montrons que $u_{n+1} \\leqslant 2$.\n\nOn a :\n$$u_{n+1} = \\dfrac{1}{2}u_n + 1$$\n\nComme $u_n \\leqslant 2$, en multipliant par $\\dfrac{1}{2}>0$ (qui conserve le sens de l'inégalité) :\n$$\\dfrac{1}{2}u_n \\leqslant \\dfrac{1}{2}\\times 2 = 1$$\n\nDonc :\n$$u_{n+1} = \\dfrac{1}{2}u_n + 1 \\leqslant 1 + 1 = 2$$\n\nDonc $P(n+1)$ est vraie.\n\n**Conclusion :** par récurrence, pour tout entier naturel $n$, $u_n \\leqslant 2$.\n\n$$\\boxed{\\forall n \\in \\mathbb{N},\\ u_n \\leqslant 2}$$",
             explanation: "On utilise l'hypothèse de récurrence $u_n \\leqslant 2$ pour majorer directement $u_{n+1}$ par composition avec la fonction affine croissante $x \\mapsto \\frac{1}{2}x+1$.",
             difficulty: "expert",
           },
@@ -14888,7 +19618,7 @@ Les règles de somme, produit et quotient des limites s'appliquent comme pour le
             id: "lcf1-l1-e3",
             question: "Détermine $\\lim_{x\\to+\\infty} (2x^2 - 3x)$.",
             type: "open",
-            modelAnswer: "On a $\\lim 2x^2 = +\\infty$ et $\\lim -3x = -\\infty$, donc on est face à une forme indéterminée $+\\infty - \\infty$.\\n\\nOn factorise par le terme de plus haut degré, $x^2$ :\\n\\n$$2x^2 - 3x = x^2\\left(2 - \\dfrac{3}{x}\\right)$$\\n\\nQuand $x \\to +\\infty$ : $\\dfrac{3}{x} \\to 0$, donc $2 - \\dfrac{3}{x} \\to 2$.\\n\\nDe plus $x^2 \\to +\\infty$.\\n\\nPar produit des limites :\\n\\n$$\\lim_{x\\to+\\infty}(2x^2-3x) = +\\infty$$\\n\\n$$\\boxed{\\lim_{x\\to+\\infty}(2x^2-3x) = +\\infty}$$",
+            modelAnswer: "On a $\\lim 2x^2 = +\\infty$ et $\\lim -3x = -\\infty$, donc on est face à une forme indéterminée $+\\infty - \\infty$.\n\nOn factorise par le terme de plus haut degré, $x^2$ :\n\n$$2x^2 - 3x = x^2\\left(2 - \\dfrac{3}{x}\\right)$$\n\nQuand $x \\to +\\infty$ : $\\dfrac{3}{x} \\to 0$, donc $2 - \\dfrac{3}{x} \\to 2$.\n\nDe plus $x^2 \\to +\\infty$.\n\nPar produit des limites :\n\n$$\\lim_{x\\to+\\infty}(2x^2-3x) = +\\infty$$\n\n$$\\boxed{\\lim_{x\\to+\\infty}(2x^2-3x) = +\\infty}$$",
             explanation: "On factorise par le terme dominant pour lever l'indétermination $\\infty-\\infty$, comme pour les suites.",
             difficulty: "intermediaire",
           },
@@ -14896,7 +19626,7 @@ Les règles de somme, produit et quotient des limites s'appliquent comme pour le
             id: "lcf1-l1-e4",
             question: "Soit $f(x) = \\dfrac{3x+1}{x-2}$. Détermine les asymptotes de la courbe représentative de $f$.",
             type: "open",
-            modelAnswer: "**Asymptote verticale :** $f$ n'est pas définie en $x=2$ (dénominateur nul). Étudions la limite en ce point.\\n\\nQuand $x \\to 2^+$, le numérateur tend vers $3\\times2+1=7>0$ et le dénominateur tend vers $0^+$, donc $\\lim_{x\\to2^+} f(x) = +\\infty$.\\n\\nQuand $x \\to 2^-$, le dénominateur tend vers $0^-$, donc $\\lim_{x\\to2^-} f(x) = -\\infty$.\\n\\nLa droite $x=2$ est donc **asymptote verticale**.\\n\\n**Asymptote horizontale :** en $+\\infty$, on factorise par $x$ au numérateur et au dénominateur :\\n\\n$$f(x) = \\dfrac{x\\left(3+\\frac{1}{x}\\right)}{x\\left(1-\\frac{2}{x}\\right)} = \\dfrac{3+\\frac{1}{x}}{1-\\frac{2}{x}}$$\\n\\nQuand $x\\to+\\infty$, $\\frac{1}{x}\\to0$ et $\\frac{2}{x}\\to0$, donc $f(x) \\to \\dfrac{3}{1} = 3$.\\n\\nLa droite $y=3$ est donc **asymptote horizontale** en $+\\infty$ (et de même en $-\\infty$).\\n\\n$$\\boxed{x=2 \\text{ (asymptote verticale)},\\ y=3 \\text{ (asymptote horizontale)}}$$",
+            modelAnswer: "**Asymptote verticale :** $f$ n'est pas définie en $x=2$ (dénominateur nul). Étudions la limite en ce point.\n\nQuand $x \\to 2^+$, le numérateur tend vers $3\\times2+1=7>0$ et le dénominateur tend vers $0^+$, donc $\\lim_{x\\to2^+} f(x) = +\\infty$.\n\nQuand $x \\to 2^-$, le dénominateur tend vers $0^-$, donc $\\lim_{x\\to2^-} f(x) = -\\infty$.\n\nLa droite $x=2$ est donc **asymptote verticale**.\n\n**Asymptote horizontale :** en $+\\infty$, on factorise par $x$ au numérateur et au dénominateur :\n\n$$f(x) = \\dfrac{x\\left(3+\\frac{1}{x}\\right)}{x\\left(1-\\frac{2}{x}\\right)} = \\dfrac{3+\\frac{1}{x}}{1-\\frac{2}{x}}$$\n\nQuand $x\\to+\\infty$, $\\frac{1}{x}\\to0$ et $\\frac{2}{x}\\to0$, donc $f(x) \\to \\dfrac{3}{1} = 3$.\n\nLa droite $y=3$ est donc **asymptote horizontale** en $+\\infty$ (et de même en $-\\infty$).\n\n$$\\boxed{x=2 \\text{ (asymptote verticale)},\\ y=3 \\text{ (asymptote horizontale)}}$$",
             explanation: "On cherche d'abord la valeur interdite pour l'asymptote verticale en étudiant le signe du dénominateur autour de cette valeur, puis on factorise par $x$ pour calculer la limite en $\\pm\\infty$.",
             difficulty: "expert",
           },
@@ -14970,7 +19700,7 @@ La fonction partie entière, ou une fonction définie par morceaux dont les morc
             id: "lcf1-l2-e3",
             question: "Explique pourquoi la fonction $f(x) = \\dfrac{1}{x}$ n'est pas continue sur $\\mathbb{R}$ tout entier, bien qu'elle soit continue sur $\\mathbb{R}^*$.",
             type: "open",
-            modelAnswer: "La fonction $f(x) = \\dfrac{1}{x}$ n'est tout simplement **pas définie en $x=0$** (division par zéro impossible).\\n\\nOr la continuité en un point $a$ exige que $f(a)$ existe et que $\\lim_{x\\to a} f(x) = f(a)$. Comme $f(0)$ n'existe pas, on ne peut même pas parler de continuité en $0$ : la question n'a pas de sens en ce point.\\n\\nEn revanche, sur $\\mathbb{R}^* = ]-\\infty;0[\\cup]0;+\\infty[$, c'est-à-dire en excluant $0$, la fonction $f$ est un quotient de fonctions continues (la fonction constante $1$ et la fonction $x\\mapsto x$) dont le dénominateur ne s'annule pas. Elle est donc continue sur cet ensemble.\\n\\n$$\\boxed{f \\text{ est continue sur } \\mathbb{R}^*, \\text{ mais } f(0) \\text{ n'existe pas, donc la continuité en } 0 \\text{ n'a pas de sens}}$$",
+            modelAnswer: "La fonction $f(x) = \\dfrac{1}{x}$ n'est tout simplement **pas définie en $x=0$** (division par zéro impossible).\n\nOr la continuité en un point $a$ exige que $f(a)$ existe et que $\\lim_{x\\to a} f(x) = f(a)$. Comme $f(0)$ n'existe pas, on ne peut même pas parler de continuité en $0$ : la question n'a pas de sens en ce point.\n\nEn revanche, sur $\\mathbb{R}^* = ]-\\infty;0[\\cup]0;+\\infty[$, c'est-à-dire en excluant $0$, la fonction $f$ est un quotient de fonctions continues (la fonction constante $1$ et la fonction $x\\mapsto x$) dont le dénominateur ne s'annule pas. Elle est donc continue sur cet ensemble.\n\n$$\\boxed{f \\text{ est continue sur } \\mathbb{R}^*, \\text{ mais } f(0) \\text{ n'existe pas, donc la continuité en } 0 \\text{ n'a pas de sens}}$$",
             explanation: "On distingue le domaine de définition (où la fonction existe) du critère de continuité (qui ne peut s'évaluer qu'aux points où la fonction est définie).",
             difficulty: "intermediaire",
           },
@@ -14978,7 +19708,7 @@ La fonction partie entière, ou une fonction définie par morceaux dont les morc
             id: "lcf1-l2-e4",
             question: "Soit $f$ définie par $f(x) = x+1$ si $x \\leqslant 1$ et $f(x) = 2x$ si $x>1$. La fonction $f$ est-elle continue en $x=1$ ? Justifie.",
             type: "open",
-            modelAnswer: "Pour étudier la continuité en $x=1$, il faut comparer la limite à gauche, la limite à droite, et la valeur de $f(1)$.\\n\\n**Valeur en $1$ :** comme $1 \\leqslant 1$, on utilise la première expression : $f(1) = 1+1 = 2$.\\n\\n**Limite à gauche** ($x \\to 1^-$, donc $x \\leqslant 1$, on utilise $f(x)=x+1$) :\\n$$\\lim_{x\\to1^-} f(x) = 1+1 = 2$$\\n\\n**Limite à droite** ($x \\to 1^+$, donc $x>1$, on utilise $f(x)=2x$) :\\n$$\\lim_{x\\to1^+} f(x) = 2\\times1 = 2$$\\n\\nLes limites à gauche et à droite sont égales entre elles et égales à $f(1)=2$. Donc :\\n\\n$$\\lim_{x\\to1} f(x) = f(1) = 2$$\\n\\n$$\\boxed{f \\text{ est continue en } x=1}$$",
+            modelAnswer: "Pour étudier la continuité en $x=1$, il faut comparer la limite à gauche, la limite à droite, et la valeur de $f(1)$.\n\n**Valeur en $1$ :** comme $1 \\leqslant 1$, on utilise la première expression : $f(1) = 1+1 = 2$.\n\n**Limite à gauche** ($x \\to 1^-$, donc $x \\leqslant 1$, on utilise $f(x)=x+1$) :\n$$\\lim_{x\\to1^-} f(x) = 1+1 = 2$$\n\n**Limite à droite** ($x \\to 1^+$, donc $x>1$, on utilise $f(x)=2x$) :\n$$\\lim_{x\\to1^+} f(x) = 2\\times1 = 2$$\n\nLes limites à gauche et à droite sont égales entre elles et égales à $f(1)=2$. Donc :\n\n$$\\lim_{x\\to1} f(x) = f(1) = 2$$\n\n$$\\boxed{f \\text{ est continue en } x=1}$$",
             explanation: "On vérifie la continuité en comparant limite à gauche, limite à droite et valeur de la fonction au point ; les trois valeurs coïncident donc il n'y a pas de saut.",
             difficulty: "expert",
           },
@@ -15050,7 +19780,7 @@ C'est ce corollaire qui permet de démontrer l'**existence et l'unicité d'une s
             id: "lcf1-l3-e3",
             question: "Soit $f(x) = x^3 - 2$ sur $[1;2]$. Montre que l'équation $f(x)=0$ admet une unique solution sur $[1;2]$.",
             type: "open",
-            modelAnswer: "**Continuité :** $f$ est une fonction polynôme, donc continue sur $\\mathbb{R}$, en particulier sur $[1;2]$.\\n\\n**Stricte monotonie :** $f(x)=x^3-2$ est strictement croissante sur $[1;2]$ car $x\\mapsto x^3$ est strictement croissante sur $\\mathbb{R}^+$ (et soustraire une constante ne change pas la monotonie).\\n\\n**Valeurs aux bornes :**\\n$$f(1) = 1^3-2 = -1 < 0$$\\n$$f(2) = 2^3-2 = 6 > 0$$\\n\\nComme $0$ est compris entre $f(1)=-1$ et $f(2)=6$, et que $f$ est continue et strictement croissante sur $[1;2]$, le théorème des valeurs intermédiaires (cas de la stricte monotonie) garantit qu'il existe une **unique** solution $c \\in [1;2]$ telle que $f(c)=0$.\\n\\n$$\\boxed{\\text{L'équation } f(x)=0 \\text{ admet une unique solution sur } [1;2]}$$",
+            modelAnswer: "**Continuité :** $f$ est une fonction polynôme, donc continue sur $\\mathbb{R}$, en particulier sur $[1;2]$.\n\n**Stricte monotonie :** $f(x)=x^3-2$ est strictement croissante sur $[1;2]$ car $x\\mapsto x^3$ est strictement croissante sur $\\mathbb{R}^+$ (et soustraire une constante ne change pas la monotonie).\n\n**Valeurs aux bornes :**\n$$f(1) = 1^3-2 = -1 < 0$$\n$$f(2) = 2^3-2 = 6 > 0$$\n\nComme $0$ est compris entre $f(1)=-1$ et $f(2)=6$, et que $f$ est continue et strictement croissante sur $[1;2]$, le théorème des valeurs intermédiaires (cas de la stricte monotonie) garantit qu'il existe une **unique** solution $c \\in [1;2]$ telle que $f(c)=0$.\n\n$$\\boxed{\\text{L'équation } f(x)=0 \\text{ admet une unique solution sur } [1;2]}$$",
             explanation: "On vérifie successivement continuité, stricte monotonie, puis on encadre $0$ entre $f(1)$ et $f(2)$ pour appliquer le corollaire du TVI garantissant l'unicité.",
             difficulty: "intermediaire",
           },
@@ -15058,7 +19788,7 @@ C'est ce corollaire qui permet de démontrer l'**existence et l'unicité d'une s
             id: "lcf1-l3-e4",
             question: "Soit $f(x) = x^5+x-3$. On donne le tableau de variations : $f$ est strictement croissante sur $\\mathbb{R}$, $f(1)=-1$ et $f(2)=31$. Combien l'équation $f(x)=10$ admet-elle de solutions sur $[1;2]$, et pourquoi ?",
             type: "open",
-            modelAnswer: "**Continuité :** $f$ est une fonction polynôme, donc continue sur $\\mathbb{R}$, en particulier sur $[1;2]$.\\n\\n**Stricte monotonie :** on nous donne que $f$ est strictement croissante sur $\\mathbb{R}$, donc en particulier sur $[1;2]$.\\n\\n**Position de $10$ :** on a $f(1)=-1$ et $f(2)=31$, et $-1 < 10 < 31$, donc $10$ est bien compris entre $f(1)$ et $f(2)$.\\n\\nD'après le théorème des valeurs intermédiaires (cas de la stricte monotonie), comme $f$ est continue et strictement croissante sur $[1;2]$ et que $10$ est compris entre $f(1)$ et $f(2)$, l'équation $f(x)=10$ admet une **unique** solution sur $[1;2]$.\\n\\n$$\\boxed{\\text{L'équation } f(x)=10 \\text{ admet exactement une solution sur } [1;2]}$$",
+            modelAnswer: "**Continuité :** $f$ est une fonction polynôme, donc continue sur $\\mathbb{R}$, en particulier sur $[1;2]$.\n\n**Stricte monotonie :** on nous donne que $f$ est strictement croissante sur $\\mathbb{R}$, donc en particulier sur $[1;2]$.\n\n**Position de $10$ :** on a $f(1)=-1$ et $f(2)=31$, et $-1 < 10 < 31$, donc $10$ est bien compris entre $f(1)$ et $f(2)$.\n\nD'après le théorème des valeurs intermédiaires (cas de la stricte monotonie), comme $f$ est continue et strictement croissante sur $[1;2]$ et que $10$ est compris entre $f(1)$ et $f(2)$, l'équation $f(x)=10$ admet une **unique** solution sur $[1;2]$.\n\n$$\\boxed{\\text{L'équation } f(x)=10 \\text{ admet exactement une solution sur } [1;2]}$$",
             explanation: "On applique le corollaire du TVI : continuité (polynôme) + stricte monotonie donnée + $10$ encadré par les valeurs aux bornes suffisent à conclure à l'unicité de la solution, sans avoir besoin de la calculer explicitement.",
             difficulty: "expert",
           },
@@ -15150,7 +19880,7 @@ $$f'(x) = 2\\times 3\\times(3x+1) = 6(3x+1) = 18x+6$$
             id: "cvx1-l1-e3",
             question: "Calcule la dérivée de $f(x) = (2x-1)^3$.",
             type: "open",
-            modelAnswer: "On pose $u(x) = 2x-1$, donc $u'(x) = 2$. On utilise la formule $\\left(u^n\\right)' = n\\times u' \\times u^{n-1}$ avec $n=3$ :\\n\\n$$f'(x) = 3\\times 2\\times(2x-1)^2 = 6(2x-1)^2$$\\n\\n$$\\boxed{f'(x) = 6(2x-1)^2}$$",
+            modelAnswer: "On pose $u(x) = 2x-1$, donc $u'(x) = 2$. On utilise la formule $\\left(u^n\\right)' = n\\times u' \\times u^{n-1}$ avec $n=3$ :\n\n$$f'(x) = 3\\times 2\\times(2x-1)^2 = 6(2x-1)^2$$\n\n$$\\boxed{f'(x) = 6(2x-1)^2}$$",
             explanation: "On applique directement la formule de dérivation de $u^n$ avec $u(x)=2x-1$ et $n=3$.",
             difficulty: "intermediaire",
           },
@@ -15158,7 +19888,7 @@ $$f'(x) = 2\\times 3\\times(3x+1) = 6(3x+1) = 18x+6$$
             id: "cvx1-l1-e4",
             question: "Calcule la dérivée de $f(x) = \\ln(x^2+1)$.",
             type: "open",
-            modelAnswer: "On pose $u(x) = x^2+1$, donc $u'(x) = 2x$. On utilise la formule $\\left(\\ln(u)\\right)' = \\dfrac{u'}{u}$ :\\n\\n$$f'(x) = \\dfrac{2x}{x^2+1}$$\\n\\nOn remarque que $x^2+1 > 0$ pour tout $x$, donc $f$ est bien définie et dérivable sur $\\mathbb{R}$ tout entier.\\n\\n$$\\boxed{f'(x) = \\dfrac{2x}{x^2+1}}$$",
+            modelAnswer: "On pose $u(x) = x^2+1$, donc $u'(x) = 2x$. On utilise la formule $\\left(\\ln(u)\\right)' = \\dfrac{u'}{u}$ :\n\n$$f'(x) = \\dfrac{2x}{x^2+1}$$\n\nOn remarque que $x^2+1 > 0$ pour tout $x$, donc $f$ est bien définie et dérivable sur $\\mathbb{R}$ tout entier.\n\n$$\\boxed{f'(x) = \\dfrac{2x}{x^2+1}}$$",
             explanation: "On applique la formule de dérivation du logarithme composé, en remarquant que le dénominateur $u(x)=x^2+1$ ne s'annule jamais, ce qui assure que $f$ est dérivable sur $\\mathbb{R}$.",
             difficulty: "intermediaire",
           },
@@ -15236,7 +19966,7 @@ Concrètement, étudier le signe de $f''$ permet de déterminer la convexité de
             id: "cvx1-l2-e3",
             question: "Soit $f(x) = x^3 - 6x^2 + 9x$. Calcule $f''(x)$ et détermine la convexité de $f$ sur $\\mathbb{R}$.",
             type: "open",
-            modelAnswer: "On calcule d'abord la dérivée première :\\n$$f'(x) = 3x^2 - 12x + 9$$\\n\\nPuis la dérivée seconde :\\n$$f''(x) = 6x - 12$$\\n\\nOn étudie le signe de $f''(x) = 6x-12 = 6(x-2)$ :\\n- pour $x < 2$ : $f''(x) < 0$, donc $f$ est **concave** sur $]-\\infty;2[$ ;\\n- pour $x > 2$ : $f''(x) > 0$, donc $f$ est **convexe** sur $]2;+\\infty[$.\\n\\nComme $f''$ change de signe en $x=2$, le point d'abscisse $2$ est un **point d'inflexion** de la courbe de $f$.\\n\\n$$\\boxed{f \\text{ est concave sur } ]-\\infty;2[ \\text{ et convexe sur } ]2;+\\infty[,\\ \\text{point d'inflexion en } x=2}$$",
+            modelAnswer: "On calcule d'abord la dérivée première :\n$$f'(x) = 3x^2 - 12x + 9$$\n\nPuis la dérivée seconde :\n$$f''(x) = 6x - 12$$\n\nOn étudie le signe de $f''(x) = 6x-12 = 6(x-2)$ :\n- pour $x < 2$ : $f''(x) < 0$, donc $f$ est **concave** sur $]-\\infty;2[$ ;\n- pour $x > 2$ : $f''(x) > 0$, donc $f$ est **convexe** sur $]2;+\\infty[$.\n\nComme $f''$ change de signe en $x=2$, le point d'abscisse $2$ est un **point d'inflexion** de la courbe de $f$.\n\n$$\\boxed{f \\text{ est concave sur } ]-\\infty;2[ \\text{ et convexe sur } ]2;+\\infty[,\\ \\text{point d'inflexion en } x=2}$$",
             explanation: "On calcule $f''$ puis on étudie son signe par un simple facteur affine ; le changement de signe en $x=2$ caractérise le point d'inflexion.",
             difficulty: "intermediaire",
           },
@@ -15244,7 +19974,7 @@ Concrètement, étudier le signe de $f''$ permet de déterminer la convexité de
             id: "cvx1-l2-e4",
             question: "Soit $f(x) = e^{-x^2}$. On donne $f'(x) = -2xe^{-x^2}$. Calcule $f''(x)$ et montre que $x=\\dfrac{1}{\\sqrt{2}}$ correspond à un changement de convexité (on admettra que c'est aussi le cas en $x=-\\dfrac{1}{\\sqrt2}$).",
             type: "open",
-            modelAnswer: "On dérive $f'(x) = -2xe^{-x^2}$, qui est un produit de deux fonctions : $-2x$ et $e^{-x^2}$.\\n\\nEn notant $v(x)=-2x$ et $w(x)=e^{-x^2}$, on a $v'(x)=-2$ et $w'(x) = -2x\\,e^{-x^2}$ (dérivée de composée avec $u(x)=-x^2$, $u'(x)=-2x$).\\n\\nPar la formule du produit $(vw)'=v'w+vw'$ :\\n\\n$$f''(x) = -2\\,e^{-x^2} + (-2x)\\times(-2x\\,e^{-x^2}) = -2e^{-x^2} + 4x^2e^{-x^2}$$\\n\\nOn factorise par $e^{-x^2}$ (toujours strictement positif) :\\n\\n$$f''(x) = e^{-x^2}(4x^2-2)$$\\n\\nLe signe de $f''(x)$ est celui de $4x^2-2$, qui s'annule quand $x^2=\\dfrac{1}{2}$, soit $x=\\dfrac{1}{\\sqrt2}$ ou $x=-\\dfrac{1}{\\sqrt2}$.\\n\\nPour $|x|<\\dfrac{1}{\\sqrt2}$ : $4x^2-2<0$, donc $f$ est concave. Pour $|x|>\\dfrac{1}{\\sqrt2}$ : $4x^2-2>0$, donc $f$ est convexe. Le signe change bien en $x=\\dfrac{1}{\\sqrt2}$ (et en $x=-\\dfrac1{\\sqrt2}$), confirmant deux points d'inflexion.\\n\\n$$\\boxed{f''(x) = e^{-x^2}(4x^2-2),\\ \\text{points d'inflexion en } x=\\pm\\dfrac{1}{\\sqrt2}}$$",
+            modelAnswer: "On dérive $f'(x) = -2xe^{-x^2}$, qui est un produit de deux fonctions : $-2x$ et $e^{-x^2}$.\n\nEn notant $v(x)=-2x$ et $w(x)=e^{-x^2}$, on a $v'(x)=-2$ et $w'(x) = -2x\\,e^{-x^2}$ (dérivée de composée avec $u(x)=-x^2$, $u'(x)=-2x$).\n\nPar la formule du produit $(vw)'=v'w+vw'$ :\n\n$$f''(x) = -2\\,e^{-x^2} + (-2x)\\times(-2x\\,e^{-x^2}) = -2e^{-x^2} + 4x^2e^{-x^2}$$\n\nOn factorise par $e^{-x^2}$ (toujours strictement positif) :\n\n$$f''(x) = e^{-x^2}(4x^2-2)$$\n\nLe signe de $f''(x)$ est celui de $4x^2-2$, qui s'annule quand $x^2=\\dfrac{1}{2}$, soit $x=\\dfrac{1}{\\sqrt2}$ ou $x=-\\dfrac{1}{\\sqrt2}$.\n\nPour $|x|<\\dfrac{1}{\\sqrt2}$ : $4x^2-2<0$, donc $f$ est concave. Pour $|x|>\\dfrac{1}{\\sqrt2}$ : $4x^2-2>0$, donc $f$ est convexe. Le signe change bien en $x=\\dfrac{1}{\\sqrt2}$ (et en $x=-\\dfrac1{\\sqrt2}$), confirmant deux points d'inflexion.\n\n$$\\boxed{f''(x) = e^{-x^2}(4x^2-2),\\ \\text{points d'inflexion en } x=\\pm\\dfrac{1}{\\sqrt2}}$$",
             explanation: "On utilise la formule de dérivation d'un produit pour obtenir $f''$, on factorise par le terme exponentiel toujours positif, puis on étudie le signe du polynôme restant.",
             difficulty: "expert",
           },
@@ -15318,7 +20048,7 @@ Pour comparer $f(x)$ et la tangente $T(x) = f'(a)(x-a)+f(a)$, on étudie le sign
             id: "cvx1-l3-e3",
             question: "Démontre que pour tout réel $x$, $e^x \\geqslant x+1$, en utilisant la convexité de la fonction exponentielle.",
             type: "open",
-            modelAnswer: "Soit $f(x)=e^x$. On a $f'(x)=e^x$ et $f''(x)=e^x$.\\n\\nComme $e^x>0$ pour tout réel $x$, on a $f''(x)>0$ sur $\\mathbb{R}$, donc $f$ est **convexe** sur $\\mathbb{R}$.\\n\\nLa tangente à la courbe de $f$ au point d'abscisse $0$ a pour équation :\\n$$y = f'(0)(x-0)+f(0) = 1\\times x + 1 = x+1$$\\n\\n(car $f(0)=e^0=1$ et $f'(0)=e^0=1$).\\n\\nComme $f$ est convexe sur $\\mathbb{R}$, sa courbe est entièrement au-dessus de chacune de ses tangentes, en particulier au-dessus de la tangente en $0$. Donc pour tout réel $x$ :\\n\\n$$f(x) \\geqslant x+1$$\\n\\n$$\\boxed{\\forall x \\in \\mathbb{R},\\ e^x \\geqslant x+1}$$",
+            modelAnswer: "Soit $f(x)=e^x$. On a $f'(x)=e^x$ et $f''(x)=e^x$.\n\nComme $e^x>0$ pour tout réel $x$, on a $f''(x)>0$ sur $\\mathbb{R}$, donc $f$ est **convexe** sur $\\mathbb{R}$.\n\nLa tangente à la courbe de $f$ au point d'abscisse $0$ a pour équation :\n$$y = f'(0)(x-0)+f(0) = 1\\times x + 1 = x+1$$\n\n(car $f(0)=e^0=1$ et $f'(0)=e^0=1$).\n\nComme $f$ est convexe sur $\\mathbb{R}$, sa courbe est entièrement au-dessus de chacune de ses tangentes, en particulier au-dessus de la tangente en $0$. Donc pour tout réel $x$ :\n\n$$f(x) \\geqslant x+1$$\n\n$$\\boxed{\\forall x \\in \\mathbb{R},\\ e^x \\geqslant x+1}$$",
             explanation: "On établit la convexité de l'exponentielle via $f''(x)=e^x>0$, on calcule l'équation de la tangente en $0$, puis on applique le théorème de position de la courbe par rapport à la tangente.",
             difficulty: "expert",
           },
@@ -15326,7 +20056,7 @@ Pour comparer $f(x)$ et la tangente $T(x) = f'(a)(x-a)+f(a)$, on étudie le sign
             id: "cvx1-l3-e4",
             question: "Soit $f(x) = x^3$. Détermine l'équation de la tangente $T$ à la courbe de $f$ au point d'abscisse $a=1$, puis étudie la position de la courbe par rapport à $T$ au voisinage de $x=1$.",
             type: "open",
-            modelAnswer: "On a $f(x)=x^3$, donc $f'(x)=3x^2$ et $f''(x)=6x$.\\n\\n**Équation de la tangente en $a=1$ :** $f(1)=1$ et $f'(1)=3$, donc :\\n$$T: y = 3(x-1)+1 = 3x-2$$\\n\\n**Étude de la convexité au voisinage de $1$ :** $f''(x)=6x$ est strictement positif pour $x>0$, donc $f$ est convexe sur $]0;+\\infty[$, intervalle qui contient $a=1$.\\n\\nD'après le théorème de position, comme $f$ est convexe au voisinage de $x=1$, la courbe de $f$ est **au-dessus** de la tangente $T$ au voisinage de ce point.\\n\\nOn peut vérifier directement : $g(x)=f(x)-T(x) = x^3-3x+2 = (x-1)^2(x+2)$, qui est positif pour $x>-2$, donc en particulier au voisinage de $x=1$.\\n\\n$$\\boxed{T: y=3x-2,\\ \\text{courbe au-dessus de } T \\text{ au voisinage de } x=1}$$",
+            modelAnswer: "On a $f(x)=x^3$, donc $f'(x)=3x^2$ et $f''(x)=6x$.\n\n**Équation de la tangente en $a=1$ :** $f(1)=1$ et $f'(1)=3$, donc :\n$$T: y = 3(x-1)+1 = 3x-2$$\n\n**Étude de la convexité au voisinage de $1$ :** $f''(x)=6x$ est strictement positif pour $x>0$, donc $f$ est convexe sur $]0;+\\infty[$, intervalle qui contient $a=1$.\n\nD'après le théorème de position, comme $f$ est convexe au voisinage de $x=1$, la courbe de $f$ est **au-dessus** de la tangente $T$ au voisinage de ce point.\n\nOn peut vérifier directement : $g(x)=f(x)-T(x) = x^3-3x+2 = (x-1)^2(x+2)$, qui est positif pour $x>-2$, donc en particulier au voisinage de $x=1$.\n\n$$\\boxed{T: y=3x-2,\\ \\text{courbe au-dessus de } T \\text{ au voisinage de } x=1}$$",
             explanation: "On calcule l'équation de la tangente avec $f(a)$ et $f'(a)$, on établit la convexité locale via $f''$, puis on conclut sur la position relative ; la factorisation de $g(x)$ confirme le résultat.",
             difficulty: "expert",
           },
@@ -15416,7 +20146,7 @@ $$e^a = e^b \\iff a=b \\qquad\\qquad e^a < e^b \\iff a<b$$
             id: "exp1-l1-e3",
             question: "Simplifie l'expression $A = \\dfrac{e^{5}\\times e^{-2}}{e^{1}}$.",
             type: "open",
-            modelAnswer: "On utilise les règles de calcul sur les exposants : $e^a\\times e^b = e^{a+b}$ et $\\dfrac{e^a}{e^b}=e^{a-b}$.\\n\\nD'abord le numérateur :\\n$$e^5\\times e^{-2} = e^{5+(-2)} = e^3$$\\n\\nPuis le quotient :\\n$$A = \\dfrac{e^3}{e^1} = e^{3-1} = e^2$$\\n\\n$$\\boxed{A = e^2}$$",
+            modelAnswer: "On utilise les règles de calcul sur les exposants : $e^a\\times e^b = e^{a+b}$ et $\\dfrac{e^a}{e^b}=e^{a-b}$.\n\nD'abord le numérateur :\n$$e^5\\times e^{-2} = e^{5+(-2)} = e^3$$\n\nPuis le quotient :\n$$A = \\dfrac{e^3}{e^1} = e^{3-1} = e^2$$\n\n$$\\boxed{A = e^2}$$",
             explanation: "On applique successivement les règles $e^a\\times e^b=e^{a+b}$ puis $\\dfrac{e^a}{e^b}=e^{a-b}$ pour simplifier l'expression en une seule puissance de $e$.",
             difficulty: "intermediaire",
           },
@@ -15424,7 +20154,7 @@ $$e^a = e^b \\iff a=b \\qquad\\qquad e^a < e^b \\iff a<b$$
             id: "exp1-l1-e4",
             question: "Résous l'équation $e^{3x+2} = e^{x-4}$.",
             type: "open",
-            modelAnswer: "Comme la fonction exponentielle est strictement croissante, donc injective, on a :\\n\\n$$e^{3x+2} = e^{x-4} \\iff 3x+2 = x-4$$\\n\\nOn résout cette équation du premier degré :\\n$$3x+2 = x-4$$\\n$$3x - x = -4-2$$\\n$$2x = -6$$\\n$$x = -3$$\\n\\n$$\\boxed{x=-3}$$",
+            modelAnswer: "Comme la fonction exponentielle est strictement croissante, donc injective, on a :\n\n$$e^{3x+2} = e^{x-4} \\iff 3x+2 = x-4$$\n\nOn résout cette équation du premier degré :\n$$3x+2 = x-4$$\n$$3x - x = -4-2$$\n$$2x = -6$$\n$$x = -3$$\n\n$$\\boxed{x=-3}$$",
             explanation: "On utilise le fait que $e^a=e^b \\iff a=b$ pour transformer l'équation exponentielle en une simple équation affine.",
             difficulty: "intermediaire",
           },
@@ -15508,7 +20238,7 @@ Cela signifie que **l'exponentielle "l'emporte" toujours sur les puissances de $
             id: "exp1-l2-e3",
             question: "Calcule la dérivée de $f(x) = e^{x^2}$.",
             type: "open",
-            modelAnswer: "On pose $u(x)=x^2$, donc $u'(x)=2x$. On applique la formule $\\left(e^{u(x)}\\right)' = u'(x)\\times e^{u(x)}$ :\\n\\n$$f'(x) = 2x\\times e^{x^2}$$\\n\\n$$\\boxed{f'(x) = 2xe^{x^2}}$$",
+            modelAnswer: "On pose $u(x)=x^2$, donc $u'(x)=2x$. On applique la formule $\\left(e^{u(x)}\\right)' = u'(x)\\times e^{u(x)}$ :\n\n$$f'(x) = 2x\\times e^{x^2}$$\n\n$$\\boxed{f'(x) = 2xe^{x^2}}$$",
             explanation: "On applique directement la formule de dérivation de la composée avec l'exponentielle, en identifiant $u(x)=x^2$.",
             difficulty: "intermediaire",
           },
@@ -15516,7 +20246,7 @@ Cela signifie que **l'exponentielle "l'emporte" toujours sur les puissances de $
             id: "exp1-l2-e4",
             question: "Déterminer $\\lim_{x\\to+\\infty} (x^2 - e^x)$. Justifie ta réponse en utilisant les croissances comparées.",
             type: "open",
-            modelAnswer: "On a $\\lim x^2 = +\\infty$ et $\\lim e^x = +\\infty$, donc on est face à la forme indéterminée $+\\infty - \\infty$.\\n\\nOn factorise par $e^x$ :\\n\\n$$x^2 - e^x = e^x\\left(\\dfrac{x^2}{e^x} - 1\\right)$$\\n\\nD'après le théorème des croissances comparées, $\\lim_{x\\to+\\infty} \\dfrac{e^x}{x^2} = +\\infty$, donc par passage à l'inverse :\\n\\n$$\\lim_{x\\to+\\infty} \\dfrac{x^2}{e^x} = 0$$\\n\\nDonc $\\dfrac{x^2}{e^x} - 1 \\to -1$ quand $x\\to+\\infty$.\\n\\nOr $\\lim_{x\\to+\\infty} e^x = +\\infty$.\\n\\nPar produit des limites ($+\\infty \\times (-1)$) :\\n\\n$$\\lim_{x\\to+\\infty}(x^2-e^x) = -\\infty$$\\n\\n$$\\boxed{\\lim_{x\\to+\\infty}(x^2-e^x) = -\\infty}$$",
+            modelAnswer: "On a $\\lim x^2 = +\\infty$ et $\\lim e^x = +\\infty$, donc on est face à la forme indéterminée $+\\infty - \\infty$.\n\nOn factorise par $e^x$ :\n\n$$x^2 - e^x = e^x\\left(\\dfrac{x^2}{e^x} - 1\\right)$$\n\nD'après le théorème des croissances comparées, $\\lim_{x\\to+\\infty} \\dfrac{e^x}{x^2} = +\\infty$, donc par passage à l'inverse :\n\n$$\\lim_{x\\to+\\infty} \\dfrac{x^2}{e^x} = 0$$\n\nDonc $\\dfrac{x^2}{e^x} - 1 \\to -1$ quand $x\\to+\\infty$.\n\nOr $\\lim_{x\\to+\\infty} e^x = +\\infty$.\n\nPar produit des limites ($+\\infty \\times (-1)$) :\n\n$$\\lim_{x\\to+\\infty}(x^2-e^x) = -\\infty$$\n\n$$\\boxed{\\lim_{x\\to+\\infty}(x^2-e^x) = -\\infty}$$",
             explanation: "On factorise par le terme exponentiel dominant pour lever l'indétermination, en utilisant le théorème des croissances comparées qui garantit que l'exponentielle l'emporte sur $x^2$.",
             difficulty: "expert",
           },
@@ -15592,7 +20322,7 @@ $$f'(x) = 1\\times e^{-x} + x\\times(-e^{-x}) = e^{-x}(1-x)$$
             id: "exp1-l3-e3",
             question: "Soit $f(x) = (x-2)e^x$. Calcule $f'(x)$ et factorise le résultat.",
             type: "open",
-            modelAnswer: "On utilise la formule du produit avec $u(x)=x-2$ ($u'(x)=1$) et $v(x)=e^x$ ($v'(x)=e^x$) :\\n\\n$$f'(x) = u'(x)v(x) + u(x)v'(x) = 1\\times e^x + (x-2)\\times e^x$$\\n\\nOn factorise par $e^x$ :\\n\\n$$f'(x) = e^x\\left(1 + x - 2\\right) = e^x(x-1)$$\\n\\n$$\\boxed{f'(x) = e^x(x-1)}$$",
+            modelAnswer: "On utilise la formule du produit avec $u(x)=x-2$ ($u'(x)=1$) et $v(x)=e^x$ ($v'(x)=e^x$) :\n\n$$f'(x) = u'(x)v(x) + u(x)v'(x) = 1\\times e^x + (x-2)\\times e^x$$\n\nOn factorise par $e^x$ :\n\n$$f'(x) = e^x\\left(1 + x - 2\\right) = e^x(x-1)$$\n\n$$\\boxed{f'(x) = e^x(x-1)}$$",
             explanation: "On applique la formule de dérivation d'un produit, puis on factorise systématiquement par le terme exponentiel commun pour simplifier l'expression.",
             difficulty: "intermediaire",
           },
@@ -15600,7 +20330,7 @@ $$f'(x) = 1\\times e^{-x} + x\\times(-e^{-x}) = e^{-x}(1-x)$$
             id: "exp1-l3-e4",
             question: "Pour la fonction $f(x) = (x-2)e^x$ de l'exercice précédent (avec $f'(x)=e^x(x-1)$), dresse le tableau de variations de $f$ sur $\\mathbb{R}$ et donne la valeur de l'éventuel extremum.",
             type: "open",
-            modelAnswer: "On a établi $f'(x) = e^x(x-1)$.\\n\\n**Signe de $f'(x)$ :** comme $e^x>0$ toujours, le signe de $f'(x)$ est celui de $(x-1)$ :\\n- pour $x<1$ : $f'(x)<0$, donc $f$ est strictement décroissante ;\\n- pour $x>1$ : $f'(x)>0$, donc $f$ est strictement croissante.\\n\\n**Tableau de variations :** $f$ décroît sur $]-\\infty;1]$ puis croît sur $[1;+\\infty[$. Elle admet donc un **minimum** en $x=1$.\\n\\n**Valeur du minimum :**\\n$$f(1) = (1-2)e^1 = -e$$\\n\\n**Limites :** quand $x\\to-\\infty$, par croissances comparées $(x-2)e^x \\to 0$ (le terme polynomial est dominé par l'exponentielle qui tend vers $0$). Quand $x\\to+\\infty$, $(x-2)\\to+\\infty$ et $e^x\\to+\\infty$, donc par produit $f(x)\\to+\\infty$.\\n\\n$$\\boxed{f \\text{ admet un minimum global en } x=1,\\ \\text{valant } f(1)=-e}$$",
+            modelAnswer: "On a établi $f'(x) = e^x(x-1)$.\n\n**Signe de $f'(x)$ :** comme $e^x>0$ toujours, le signe de $f'(x)$ est celui de $(x-1)$ :\n- pour $x<1$ : $f'(x)<0$, donc $f$ est strictement décroissante ;\n- pour $x>1$ : $f'(x)>0$, donc $f$ est strictement croissante.\n\n**Tableau de variations :** $f$ décroît sur $]-\\infty;1]$ puis croît sur $[1;+\\infty[$. Elle admet donc un **minimum** en $x=1$.\n\n**Valeur du minimum :**\n$$f(1) = (1-2)e^1 = -e$$\n\n**Limites :** quand $x\\to-\\infty$, par croissances comparées $(x-2)e^x \\to 0$ (le terme polynomial est dominé par l'exponentielle qui tend vers $0$). Quand $x\\to+\\infty$, $(x-2)\\to+\\infty$ et $e^x\\to+\\infty$, donc par produit $f(x)\\to+\\infty$.\n\n$$\\boxed{f \\text{ admet un minimum global en } x=1,\\ \\text{valant } f(1)=-e}$$",
             explanation: "On étudie le signe de $f'$ grâce au facteur exponentiel toujours positif, on en déduit les variations, puis on calcule la valeur exacte du minimum et les limites aux bornes en utilisant les croissances comparées.",
             difficulty: "expert",
           },
@@ -15690,7 +20420,7 @@ $$\\ln(a)=\\ln(b) \\iff a=b \\qquad\\qquad \\ln(a)<\\ln(b) \\iff a<b$$
             id: "lnt1-l1-e3",
             question: "Simplifie l'expression $B = \\ln(12) - \\ln(3)$.",
             type: "open",
-            modelAnswer: "On utilise la propriété $\\ln(a)-\\ln(b) = \\ln\\left(\\dfrac{a}{b}\\right)$ :\\n\\n$$B = \\ln(12)-\\ln(3) = \\ln\\left(\\dfrac{12}{3}\\right) = \\ln(4)$$\\n\\nOn peut aussi écrire $\\ln(4)=\\ln(2^2)=2\\ln(2)$.\\n\\n$$\\boxed{B = \\ln(4) = 2\\ln(2)}$$",
+            modelAnswer: "On utilise la propriété $\\ln(a)-\\ln(b) = \\ln\\left(\\dfrac{a}{b}\\right)$ :\n\n$$B = \\ln(12)-\\ln(3) = \\ln\\left(\\dfrac{12}{3}\\right) = \\ln(4)$$\n\nOn peut aussi écrire $\\ln(4)=\\ln(2^2)=2\\ln(2)$.\n\n$$\\boxed{B = \\ln(4) = 2\\ln(2)}$$",
             explanation: "On applique la règle de transformation d'une différence de logarithmes en logarithme d'un quotient, puis on simplifie en utilisant $4=2^2$.",
             difficulty: "intermediaire",
           },
@@ -15698,7 +20428,7 @@ $$\\ln(a)=\\ln(b) \\iff a=b \\qquad\\qquad \\ln(a)<\\ln(b) \\iff a<b$$
             id: "lnt1-l1-e4",
             question: "Résous l'équation $\\ln(2x-3) = \\ln(7)$, en vérifiant les conditions de validité.",
             type: "open",
-            modelAnswer: "**Condition de validité :** il faut que $2x-3>0$, soit $x>\\dfrac{3}{2}$.\\n\\n**Résolution :** comme $\\ln$ est injective sur $]0;+\\infty[$ :\\n\\n$$\\ln(2x-3)=\\ln(7) \\iff 2x-3=7$$\\n\\n$$2x = 10$$\\n$$x=5$$\\n\\n**Vérification de la condition :** $5 > \\dfrac{3}{2}$, donc cette solution est valide.\\n\\n$$\\boxed{x=5}$$",
+            modelAnswer: "**Condition de validité :** il faut que $2x-3>0$, soit $x>\\dfrac{3}{2}$.\n\n**Résolution :** comme $\\ln$ est injective sur $]0;+\\infty[$ :\n\n$$\\ln(2x-3)=\\ln(7) \\iff 2x-3=7$$\n\n$$2x = 10$$\n$$x=5$$\n\n**Vérification de la condition :** $5 > \\dfrac{3}{2}$, donc cette solution est valide.\n\n$$\\boxed{x=5}$$",
             explanation: "On commence toujours par poser la condition d'existence du logarithme avant de résoudre, puis on utilise l'injectivité de $\\ln$ pour transformer l'équation, et on vérifie enfin que la solution respecte la condition initiale.",
             difficulty: "intermediaire",
           },
@@ -15781,7 +20511,7 @@ Cela signifie que **$\\ln(x)$ "perd" toujours face à $x$** : même si $\\ln(x)\
             id: "lnt1-l2-e3",
             question: "Calcule la dérivée de $f(x) = \\ln(3x-1)$ et précise son ensemble de définition.",
             type: "open",
-            modelAnswer: "**Ensemble de définition :** il faut $3x-1>0$, soit $x>\\dfrac{1}{3}$. Donc $D_f = \\left]\\dfrac{1}{3};+\\infty\\right[$.\\n\\n**Dérivée :** on pose $u(x)=3x-1$, donc $u'(x)=3$. On applique $\\left(\\ln(u)\\right)'=\\dfrac{u'}{u}$ :\\n\\n$$f'(x) = \\dfrac{3}{3x-1}$$\\n\\n$$\\boxed{f'(x) = \\dfrac{3}{3x-1} \\text{ sur } \\left]\\dfrac{1}{3};+\\infty\\right[}$$",
+            modelAnswer: "**Ensemble de définition :** il faut $3x-1>0$, soit $x>\\dfrac{1}{3}$. Donc $D_f = \\left]\\dfrac{1}{3};+\\infty\\right[$.\n\n**Dérivée :** on pose $u(x)=3x-1$, donc $u'(x)=3$. On applique $\\left(\\ln(u)\\right)'=\\dfrac{u'}{u}$ :\n\n$$f'(x) = \\dfrac{3}{3x-1}$$\n\n$$\\boxed{f'(x) = \\dfrac{3}{3x-1} \\text{ sur } \\left]\\dfrac{1}{3};+\\infty\\right[}$$",
             explanation: "On vérifie d'abord le domaine de définition du logarithme, puis on applique la formule de dérivation de la composée avec $u(x)=3x-1$.",
             difficulty: "intermediaire",
           },
@@ -15789,7 +20519,7 @@ Cela signifie que **$\\ln(x)$ "perd" toujours face à $x$** : même si $\\ln(x)\
             id: "lnt1-l2-e4",
             question: "Soit $f(x) = x - \\ln(x)$ sur $]0;+\\infty[$. Calcule $f'(x)$, étudie son signe et dresse le tableau de variations de $f$.",
             type: "open",
-            modelAnswer: "**Dérivée :** $f'(x) = 1 - \\dfrac{1}{x}$, que l'on peut réécrire au même dénominateur :\\n\\n$$f'(x) = \\dfrac{x-1}{x}$$\\n\\n**Signe de $f'(x)$ :** sur $]0;+\\infty[$, le dénominateur $x$ est toujours positif, donc le signe de $f'(x)$ est celui de $(x-1)$ :\\n- pour $0<x<1$ : $f'(x)<0$, donc $f$ est strictement décroissante ;\\n- pour $x>1$ : $f'(x)>0$, donc $f$ est strictement croissante.\\n\\n**Tableau de variations :** $f$ décroît sur $]0;1]$ puis croît sur $[1;+\\infty[$. Elle admet donc un **minimum** en $x=1$.\\n\\n**Valeur du minimum :** $f(1) = 1 - \\ln(1) = 1 - 0 = 1$.\\n\\n**Limites :** $\\lim_{x\\to0^+} f(x) = +\\infty$ (car $-\\ln(x)\\to+\\infty$ et $x\\to0$) ; $\\lim_{x\\to+\\infty} f(x) = +\\infty$ (car $x$ domine $\\ln(x)$ par croissances comparées).\\n\\n$$\\boxed{f \\text{ admet un minimum global en } x=1,\\ \\text{valant } f(1)=1}$$",
+            modelAnswer: "**Dérivée :** $f'(x) = 1 - \\dfrac{1}{x}$, que l'on peut réécrire au même dénominateur :\n\n$$f'(x) = \\dfrac{x-1}{x}$$\n\n**Signe de $f'(x)$ :** sur $]0;+\\infty[$, le dénominateur $x$ est toujours positif, donc le signe de $f'(x)$ est celui de $(x-1)$ :\n- pour $0<x<1$ : $f'(x)<0$, donc $f$ est strictement décroissante ;\n- pour $x>1$ : $f'(x)>0$, donc $f$ est strictement croissante.\n\n**Tableau de variations :** $f$ décroît sur $]0;1]$ puis croît sur $[1;+\\infty[$. Elle admet donc un **minimum** en $x=1$.\n\n**Valeur du minimum :** $f(1) = 1 - \\ln(1) = 1 - 0 = 1$.\n\n**Limites :** $\\lim_{x\\to0^+} f(x) = +\\infty$ (car $-\\ln(x)\\to+\\infty$ et $x\\to0$) ; $\\lim_{x\\to+\\infty} f(x) = +\\infty$ (car $x$ domine $\\ln(x)$ par croissances comparées).\n\n$$\\boxed{f \\text{ admet un minimum global en } x=1,\\ \\text{valant } f(1)=1}$$",
             explanation: "On met la dérivée au même dénominateur pour faciliter l'étude du signe, on en déduit les variations, puis on calcule la valeur exacte du minimum et les limites en utilisant les croissances comparées.",
             difficulty: "expert",
           },
@@ -15872,7 +20602,7 @@ Le couple exponentielle/logarithme intervient naturellement dans les modèles de
             id: "lnt1-l3-e3",
             question: "Résous l'équation $3e^x - 1 = 5$.",
             type: "open",
-            modelAnswer: "On isole le terme exponentiel :\\n\\n$$3e^x = 6$$\\n$$e^x = 2$$\\n\\nComme $2>0$, on peut appliquer le logarithme aux deux membres :\\n\\n$$x = \\ln(2)$$\\n\\n$$\\boxed{x = \\ln(2)}$$",
+            modelAnswer: "On isole le terme exponentiel :\n\n$$3e^x = 6$$\n$$e^x = 2$$\n\nComme $2>0$, on peut appliquer le logarithme aux deux membres :\n\n$$x = \\ln(2)$$\n\n$$\\boxed{x = \\ln(2)}$$",
             explanation: "On isole d'abord l'exponentielle, puis on applique le logarithme népérien (la réciproque de l'exponentielle) pour résoudre, en vérifiant que le second membre est strictement positif.",
             difficulty: "intermediaire",
           },
@@ -15880,7 +20610,7 @@ Le couple exponentielle/logarithme intervient naturellement dans les modèles de
             id: "lnt1-l3-e4",
             question: "Une quantité de substance radioactive suit la loi $N(t) = N_0 e^{-0{,}1t}$ où $t$ est le temps en années. Déterminer la demi-vie $T$ de la substance, c'est-à-dire la valeur de $t$ pour laquelle $N(t) = \\dfrac{N_0}{2}$.",
             type: "open",
-            modelAnswer: "On cherche $T$ tel que $N(T) = \\dfrac{N_0}{2}$, c'est-à-dire :\\n\\n$$N_0 e^{-0{,}1T} = \\dfrac{N_0}{2}$$\\n\\nOn divise les deux membres par $N_0 \\neq 0$ :\\n\\n$$e^{-0{,}1T} = \\dfrac{1}{2}$$\\n\\nComme $\\dfrac{1}{2}>0$, on applique le logarithme népérien aux deux membres :\\n\\n$$-0{,}1T = \\ln\\left(\\dfrac{1}{2}\\right) = -\\ln(2)$$\\n\\nOn isole $T$ :\\n\\n$$T = \\dfrac{-\\ln(2)}{-0{,}1} = \\dfrac{\\ln(2)}{0{,}1} = 10\\ln(2)$$\\n\\nNumériquement, $\\ln(2)\\approx0{,}693$, donc $T \\approx 6{,}93$ années.\\n\\n$$\\boxed{T = 10\\ln(2) \\approx 6{,}93 \\text{ ans}}$$",
+            modelAnswer: "On cherche $T$ tel que $N(T) = \\dfrac{N_0}{2}$, c'est-à-dire :\n\n$$N_0 e^{-0{,}1T} = \\dfrac{N_0}{2}$$\n\nOn divise les deux membres par $N_0 \\neq 0$ :\n\n$$e^{-0{,}1T} = \\dfrac{1}{2}$$\n\nComme $\\dfrac{1}{2}>0$, on applique le logarithme népérien aux deux membres :\n\n$$-0{,}1T = \\ln\\left(\\dfrac{1}{2}\\right) = -\\ln(2)$$\n\nOn isole $T$ :\n\n$$T = \\dfrac{-\\ln(2)}{-0{,}1} = \\dfrac{\\ln(2)}{0{,}1} = 10\\ln(2)$$\n\nNumériquement, $\\ln(2)\\approx0{,}693$, donc $T \\approx 6{,}93$ années.\n\n$$\\boxed{T = 10\\ln(2) \\approx 6{,}93 \\text{ ans}}$$",
             explanation: "On isole le terme exponentiel, on applique le logarithme népérien en utilisant $\\ln(1/2)=-\\ln(2)$, puis on résout l'équation affine en $T$ pour obtenir la demi-vie exacte puis sa valeur approchée.",
             difficulty: "expert",
           },
@@ -15968,7 +20698,7 @@ Donc $48\\%$ des élèves de la classe sont à la fois sportifs et ont la moyenn
             id: "pin1-l1-e3",
             question: "Sachant que $P(A) = 0{,}4$ et $P(A\\cap B) = 0{,}12$, calcule $P_A(B)$.",
             type: "open",
-            modelAnswer: "On utilise la formule de définition de la probabilité conditionnelle :\\n\\n$$P_A(B) = \\dfrac{P(A\\cap B)}{P(A)}$$\\n\\nOn remplace par les valeurs données :\\n\\n$$P_A(B) = \\dfrac{0{,}12}{0{,}4} = 0{,}3$$\\n\\n$$\\boxed{P_A(B) = 0{,}3}$$",
+            modelAnswer: "On utilise la formule de définition de la probabilité conditionnelle :\n\n$$P_A(B) = \\dfrac{P(A\\cap B)}{P(A)}$$\n\nOn remplace par les valeurs données :\n\n$$P_A(B) = \\dfrac{0{,}12}{0{,}4} = 0{,}3$$\n\n$$\\boxed{P_A(B) = 0{,}3}$$",
             explanation: "On applique directement la formule $P_A(B)=\\dfrac{P(A\\cap B)}{P(A)}$ avec les données numériques de l'énoncé.",
             difficulty: "debutant",
           },
@@ -15976,7 +20706,7 @@ Donc $48\\%$ des élèves de la classe sont à la fois sportifs et ont la moyenn
             id: "pin1-l1-e4",
             question: "Dans un lycée, $70\\%$ des élèves sont en filière générale ($G$). Parmi eux, $30\\%$ suivent l'option mathématiques expertes ($E$). Calcule la probabilité qu'un élève pris au hasard soit en filière générale ET suive l'option mathématiques expertes.",
             type: "open",
-            modelAnswer: "On modélise la situation avec $P(G) = 0{,}7$ (probabilité d'être en filière générale) et $P_G(E) = 0{,}3$ (probabilité de suivre l'option, sachant qu'on est en filière générale).\\n\\nOn applique la formule des probabilités composées :\\n\\n$$P(G\\cap E) = P(G) \\times P_G(E)$$\\n\\n$$P(G\\cap E) = 0{,}7 \\times 0{,}3 = 0{,}21$$\\n\\n$$\\boxed{P(G\\cap E) = 0{,}21}$$",
+            modelAnswer: "On modélise la situation avec $P(G) = 0{,}7$ (probabilité d'être en filière générale) et $P_G(E) = 0{,}3$ (probabilité de suivre l'option, sachant qu'on est en filière générale).\n\nOn applique la formule des probabilités composées :\n\n$$P(G\\cap E) = P(G) \\times P_G(E)$$\n\n$$P(G\\cap E) = 0{,}7 \\times 0{,}3 = 0{,}21$$\n\n$$\\boxed{P(G\\cap E) = 0{,}21}$$",
             explanation: "On traduit l'énoncé en termes de probabilité conditionnelle, puis on applique la formule des probabilités composées pour obtenir la probabilité de l'intersection.",
             difficulty: "intermediaire",
           },
@@ -16045,7 +20775,7 @@ Lorsqu'on répète plusieurs fois une même expérience de façon **indépendant
             id: "pin1-l2-e3",
             question: "On tire une carte au hasard dans un jeu de 32 cartes. Soit $A$ = \"la carte est un cœur\" et $B$ = \"la carte est une figure (Roi, Dame ou Valet)\". Sachant $P(A)=\\dfrac{1}{4}$, $P(B)=\\dfrac{3}{8}$ et $P(A\\cap B)=\\dfrac{3}{32}$, les événements $A$ et $B$ sont-ils indépendants ?",
             type: "open",
-            modelAnswer: "On calcule le produit $P(A)\\times P(B)$ et on le compare à $P(A\\cap B)$.\\n\\n$$P(A)\\times P(B) = \\dfrac{1}{4}\\times\\dfrac{3}{8} = \\dfrac{3}{32}$$\\n\\nOr on nous donne $P(A\\cap B) = \\dfrac{3}{32}$.\\n\\nComme $P(A\\cap B) = P(A)\\times P(B)$, les événements $A$ et $B$ sont **indépendants**.\\n\\n$$\\boxed{A \\text{ et } B \\text{ sont indépendants}}$$",
+            modelAnswer: "On calcule le produit $P(A)\\times P(B)$ et on le compare à $P(A\\cap B)$.\n\n$$P(A)\\times P(B) = \\dfrac{1}{4}\\times\\dfrac{3}{8} = \\dfrac{3}{32}$$\n\nOr on nous donne $P(A\\cap B) = \\dfrac{3}{32}$.\n\nComme $P(A\\cap B) = P(A)\\times P(B)$, les événements $A$ et $B$ sont **indépendants**.\n\n$$\\boxed{A \\text{ et } B \\text{ sont indépendants}}$$",
             explanation: "On vérifie la caractérisation de l'indépendance en comparant $P(A\\cap B)$ au produit $P(A)\\times P(B)$ ; l'égalité confirme l'indépendance.",
             difficulty: "intermediaire",
           },
@@ -16053,7 +20783,7 @@ Lorsqu'on répète plusieurs fois une même expérience de façon **indépendant
             id: "pin1-l2-e4",
             question: "Une urne contient des boules dont $40\\%$ sont rouges. On tire une boule, on note sa couleur, on la remet dans l'urne, puis on tire une seconde boule. Soit $A$ = \"la première boule est rouge\" et $B$ = \"la deuxième boule est rouge\". Calcule $P(A\\cap B)$ en justifiant l'indépendance des deux tirages.",
             type: "open",
-            modelAnswer: "Comme on **remet la boule dans l'urne** après le premier tirage, la composition de l'urne est identique pour le second tirage : le résultat du premier tirage n'influence donc pas le second. Les événements $A$ et $B$ sont donc **indépendants**.\\n\\nOn a $P(A) = 0{,}4$ (proportion de boules rouges) et de même $P(B)=0{,}4$ (l'urne ayant la même composition lors du second tirage).\\n\\nComme $A$ et $B$ sont indépendants, on applique la formule :\\n\\n$$P(A\\cap B) = P(A)\\times P(B) = 0{,}4\\times0{,}4 = 0{,}16$$\\n\\n$$\\boxed{P(A\\cap B) = 0{,}16}$$",
+            modelAnswer: "Comme on **remet la boule dans l'urne** après le premier tirage, la composition de l'urne est identique pour le second tirage : le résultat du premier tirage n'influence donc pas le second. Les événements $A$ et $B$ sont donc **indépendants**.\n\nOn a $P(A) = 0{,}4$ (proportion de boules rouges) et de même $P(B)=0{,}4$ (l'urne ayant la même composition lors du second tirage).\n\nComme $A$ et $B$ sont indépendants, on applique la formule :\n\n$$P(A\\cap B) = P(A)\\times P(B) = 0{,}4\\times0{,}4 = 0{,}16$$\n\n$$\\boxed{P(A\\cap B) = 0{,}16}$$",
             explanation: "Le tirage avec remise garantit l'indépendance des deux tirages successifs (composition de l'urne inchangée), ce qui justifie d'appliquer directement la formule du produit des probabilités.",
             difficulty: "expert",
           },
@@ -16132,7 +20862,7 @@ Donc $6{,}2\\%$ des pièces reçues sont défectueuses, toutes provenances confo
             id: "pin1-l3-e3",
             question: "Une urne contient $70\\%$ de boules rouges et $30\\%$ de boules vertes. Parmi les rouges, $20\\%$ sont marquées d'une étoile ; parmi les vertes, $50\\%$ sont marquées d'une étoile. Calcule la probabilité qu'une boule tirée au hasard soit marquée d'une étoile.",
             type: "open",
-            modelAnswer: "On note $R$ = \"la boule est rouge\", $V$ = \"la boule est verte\", $E$ = \"la boule est marquée d'une étoile\".\\n\\nOn a $P(R)=0{,}7$, $P(V)=0{,}3$ (et $R,V$ forment une partition de l'univers), $P_R(E)=0{,}2$, $P_V(E)=0{,}5$.\\n\\nOn applique la formule des probabilités totales :\\n\\n$$P(E) = P(R)\\times P_R(E) + P(V)\\times P_V(E)$$\\n\\n$$P(E) = 0{,}7\\times0{,}2 + 0{,}3\\times0{,}5 = 0{,}14 + 0{,}15 = 0{,}29$$\\n\\n$$\\boxed{P(E) = 0{,}29}$$",
+            modelAnswer: "On note $R$ = \"la boule est rouge\", $V$ = \"la boule est verte\", $E$ = \"la boule est marquée d'une étoile\".\n\nOn a $P(R)=0{,}7$, $P(V)=0{,}3$ (et $R,V$ forment une partition de l'univers), $P_R(E)=0{,}2$, $P_V(E)=0{,}5$.\n\nOn applique la formule des probabilités totales :\n\n$$P(E) = P(R)\\times P_R(E) + P(V)\\times P_V(E)$$\n\n$$P(E) = 0{,}7\\times0{,}2 + 0{,}3\\times0{,}5 = 0{,}14 + 0{,}15 = 0{,}29$$\n\n$$\\boxed{P(E) = 0{,}29}$$",
             explanation: "On reconnaît une partition de l'univers (rouge/vert) et on applique la formule des probabilités totales en sommant les deux chemins de l'arbre menant à l'événement $E$.",
             difficulty: "intermediaire",
           },
@@ -16140,7 +20870,7 @@ Donc $6{,}2\\%$ des pièces reçues sont défectueuses, toutes provenances confo
             id: "pin1-l3-e4",
             question: "Dans un test de dépistage, $2\\%$ de la population est porteuse d'une maladie ($M$). Le test est positif ($T$) chez $98\\%$ des porteurs et chez $3\\%$ des non-porteurs. Calcule la probabilité qu'une personne prise au hasard ait un test positif, puis calcule $P_T(M)$, la probabilité qu'une personne soit réellement porteuse sachant que son test est positif.",
             type: "open",
-            modelAnswer: "On a $P(M)=0{,}02$, $P(\\overline M)=0{,}98$, $P_M(T)=0{,}98$, $P_{\\overline M}(T)=0{,}03$.\\n\\n**Calcul de $P(T)$ par la formule des probabilités totales** ($M$ et $\\overline M$ forment une partition) :\\n\\n$$P(T) = P(M)\\times P_M(T) + P(\\overline M)\\times P_{\\overline M}(T)$$\\n\\n$$P(T) = 0{,}02\\times0{,}98 + 0{,}98\\times0{,}03 = 0{,}0196+0{,}0294 = 0{,}049$$\\n\\n**Calcul de $P_T(M)$** à l'aide de la définition de la probabilité conditionnelle :\\n\\n$$P_T(M) = \\dfrac{P(M\\cap T)}{P(T)} = \\dfrac{P(M)\\times P_M(T)}{P(T)} = \\dfrac{0{,}0196}{0{,}049}$$\\n\\n$$P_T(M) = 0{,}4$$\\n\\n**Interprétation :** même avec un test positif, seulement $40\\%$ des personnes sont réellement porteuses de la maladie — ce résultat contre-intuitif s'explique par la faible prévalence ($2\\%$) de la maladie dans la population.\\n\\n$$\\boxed{P(T) = 0{,}049 \\ ;\\ P_T(M) = 0{,}4}$$",
+            modelAnswer: "On a $P(M)=0{,}02$, $P(\\overline M)=0{,}98$, $P_M(T)=0{,}98$, $P_{\\overline M}(T)=0{,}03$.\n\n**Calcul de $P(T)$ par la formule des probabilités totales** ($M$ et $\\overline M$ forment une partition) :\n\n$$P(T) = P(M)\\times P_M(T) + P(\\overline M)\\times P_{\\overline M}(T)$$\n\n$$P(T) = 0{,}02\\times0{,}98 + 0{,}98\\times0{,}03 = 0{,}0196+0{,}0294 = 0{,}049$$\n\n**Calcul de $P_T(M)$** à l'aide de la définition de la probabilité conditionnelle :\n\n$$P_T(M) = \\dfrac{P(M\\cap T)}{P(T)} = \\dfrac{P(M)\\times P_M(T)}{P(T)} = \\dfrac{0{,}0196}{0{,}049}$$\n\n$$P_T(M) = 0{,}4$$\n\n**Interprétation :** même avec un test positif, seulement $40\\%$ des personnes sont réellement porteuses de la maladie — ce résultat contre-intuitif s'explique par la faible prévalence ($2\\%$) de la maladie dans la population.\n\n$$\\boxed{P(T) = 0{,}049 \\ ;\\ P_T(M) = 0{,}4}$$",
             explanation: "On calcule d'abord $P(T)$ par la formule des probabilités totales en sommant les deux chemins de l'arbre (porteur/non-porteur), puis on utilise la définition de la probabilité conditionnelle pour inverser le sens du conditionnement et obtenir $P_T(M)$.",
             difficulty: "expert",
           },
@@ -16241,7 +20971,7 @@ $$\\sigma(X) = \\sqrt{0{,}49} = 0{,}7$$`,
             id: "vab1-l1-e3",
             question: "Soit $X$ la variable aléatoire donnant le gain (en euros) d'un jeu : $P(X=-2)=0{,}6$, $P(X=5)=0{,}3$, $P(X=10)=0{,}1$. Calcule l'espérance $E(X)$ et interprète le résultat.",
             type: "open",
-            modelAnswer: "On applique la formule de l'espérance :\\n\\n$$E(X) = (-2)\\times0{,}6 + 5\\times0{,}3 + 10\\times0{,}1$$\\n\\n$$E(X) = -1{,}2 + 1{,}5 + 1 = 1{,}3$$\\n\\n**Interprétation :** en moyenne, sur un grand nombre de parties, le joueur gagne $1{,}3$ euro par partie. Le jeu est donc favorable au joueur.\\n\\n$$\\boxed{E(X) = 1{,}3 \\text{ euro}}$$",
+            modelAnswer: "On applique la formule de l'espérance :\n\n$$E(X) = (-2)\\times0{,}6 + 5\\times0{,}3 + 10\\times0{,}1$$\n\n$$E(X) = -1{,}2 + 1{,}5 + 1 = 1{,}3$$\n\n**Interprétation :** en moyenne, sur un grand nombre de parties, le joueur gagne $1{,}3$ euro par partie. Le jeu est donc favorable au joueur.\n\n$$\\boxed{E(X) = 1{,}3 \\text{ euro}}$$",
             explanation: "On applique directement la formule de l'espérance en multipliant chaque gain par sa probabilité puis en sommant, et on interprète le signe positif comme un jeu favorable au joueur.",
             difficulty: "intermediaire",
           },
@@ -16249,7 +20979,7 @@ $$\\sigma(X) = \\sqrt{0{,}49} = 0{,}7$$`,
             id: "vab1-l1-e4",
             question: "Pour la variable aléatoire $X$ de l'exercice précédent ($P(X=-2)=0{,}6$, $P(X=5)=0{,}3$, $P(X=10)=0{,}1$, $E(X)=1{,}3$), calcule la variance $V(X)$ et l'écart-type $\\sigma(X)$ à l'aide de la formule de König-Huygens.",
             type: "open",
-            modelAnswer: "On calcule d'abord $E(X^2)$ :\\n\\n$$E(X^2) = (-2)^2\\times0{,}6 + 5^2\\times0{,}3 + 10^2\\times0{,}1$$\\n\\n$$E(X^2) = 4\\times0{,}6 + 25\\times0{,}3 + 100\\times0{,}1 = 2{,}4+7{,}5+10 = 19{,}9$$\\n\\nOn applique la formule de König-Huygens :\\n\\n$$V(X) = E(X^2) - (E(X))^2 = 19{,}9 - 1{,}3^2 = 19{,}9 - 1{,}69 = 18{,}21$$\\n\\nOn en déduit l'écart-type :\\n\\n$$\\sigma(X) = \\sqrt{18{,}21} \\approx 4{,}27$$\\n\\n$$\\boxed{V(X) = 18{,}21\\ ;\\ \\sigma(X) \\approx 4{,}27}$$",
+            modelAnswer: "On calcule d'abord $E(X^2)$ :\n\n$$E(X^2) = (-2)^2\\times0{,}6 + 5^2\\times0{,}3 + 10^2\\times0{,}1$$\n\n$$E(X^2) = 4\\times0{,}6 + 25\\times0{,}3 + 100\\times0{,}1 = 2{,}4+7{,}5+10 = 19{,}9$$\n\nOn applique la formule de König-Huygens :\n\n$$V(X) = E(X^2) - (E(X))^2 = 19{,}9 - 1{,}3^2 = 19{,}9 - 1{,}69 = 18{,}21$$\n\nOn en déduit l'écart-type :\n\n$$\\sigma(X) = \\sqrt{18{,}21} \\approx 4{,}27$$\n\n$$\\boxed{V(X) = 18{,}21\\ ;\\ \\sigma(X) \\approx 4{,}27}$$",
             explanation: "On calcule $E(X^2)$ en sommant les carrés des valeurs pondérés par leurs probabilités, puis on applique la formule de König-Huygens, plus rapide que la définition directe par écarts à la moyenne.",
             difficulty: "expert",
           },
@@ -16331,7 +21061,7 @@ On s'attend donc, en moyenne, à environ $3{,}33$ apparitions du $6$ sur $20$ la
             id: "vab1-l2-e3",
             question: "Une variable aléatoire $X$ suit la loi $\\mathcal{B}(50\\,;\\,0{,}2)$. Calcule $E(X)$ et $V(X)$.",
             type: "open",
-            modelAnswer: "On applique directement les formules de l'espérance et de la variance de la loi binomiale, avec $n=50$ et $p=0{,}2$.\\n\\n**Espérance :**\\n$$E(X) = np = 50\\times0{,}2 = 10$$\\n\\n**Variance :**\\n$$V(X) = np(1-p) = 50\\times0{,}2\\times0{,}8 = 8$$\\n\\n$$\\boxed{E(X) = 10 \\ ;\\ V(X) = 8}$$",
+            modelAnswer: "On applique directement les formules de l'espérance et de la variance de la loi binomiale, avec $n=50$ et $p=0{,}2$.\n\n**Espérance :**\n$$E(X) = np = 50\\times0{,}2 = 10$$\n\n**Variance :**\n$$V(X) = np(1-p) = 50\\times0{,}2\\times0{,}8 = 8$$\n\n$$\\boxed{E(X) = 10 \\ ;\\ V(X) = 8}$$",
             explanation: "On applique directement les formules $E(X)=np$ et $V(X)=np(1-p)$ avec les paramètres donnés.",
             difficulty: "intermediaire",
           },
@@ -16339,7 +21069,7 @@ On s'attend donc, en moyenne, à environ $3{,}33$ apparitions du $6$ sur $20$ la
             id: "vab1-l2-e4",
             question: "Un questionnaire à choix multiples comporte $30$ questions, chacune avec $4$ réponses possibles dont une seule est correcte. Un candidat répond entièrement au hasard. Soit $X$ le nombre de bonnes réponses. Justifie que $X$ suit une loi binomiale, donne ses paramètres, puis calcule $E(X)$ et $\\sigma(X)$.",
             type: "open",
-            modelAnswer: "**Justification de la loi binomiale :** chaque question constitue une épreuve de Bernoulli, où le \"succès\" est \"répondre correctement\" avec probabilité $p=\\dfrac14$ (une bonne réponse sur quatre possibles), répétée $n=30$ fois de façon indépendante (les réponses sont données au hasard, indépendamment les unes des autres).\\n\\nDonc $X \\sim \\mathcal{B}\\left(30\\,;\\,\\dfrac14\\right)$.\\n\\n**Espérance :**\\n$$E(X) = np = 30\\times\\dfrac14 = 7{,}5$$\\n\\n**Variance :**\\n$$V(X) = np(1-p) = 30\\times\\dfrac14\\times\\dfrac34 = \\dfrac{90}{16} = 5{,}625$$\\n\\n**Écart-type :**\\n$$\\sigma(X) = \\sqrt{5{,}625} \\approx 2{,}37$$\\n\\n**Interprétation :** en répondant au hasard, un candidat obtient en moyenne $7{,}5$ bonnes réponses sur $30$, avec un écart-type d'environ $2{,}37$.\\n\\n$$\\boxed{X\\sim\\mathcal{B}\\left(30;\\dfrac14\\right)\\ ;\\ E(X)=7{,}5\\ ;\\ \\sigma(X)\\approx2{,}37}$$",
+            modelAnswer: "**Justification de la loi binomiale :** chaque question constitue une épreuve de Bernoulli, où le \"succès\" est \"répondre correctement\" avec probabilité $p=\\dfrac14$ (une bonne réponse sur quatre possibles), répétée $n=30$ fois de façon indépendante (les réponses sont données au hasard, indépendamment les unes des autres).\n\nDonc $X \\sim \\mathcal{B}\\left(30\\,;\\,\\dfrac14\\right)$.\n\n**Espérance :**\n$$E(X) = np = 30\\times\\dfrac14 = 7{,}5$$\n\n**Variance :**\n$$V(X) = np(1-p) = 30\\times\\dfrac14\\times\\dfrac34 = \\dfrac{90}{16} = 5{,}625$$\n\n**Écart-type :**\n$$\\sigma(X) = \\sqrt{5{,}625} \\approx 2{,}37$$\n\n**Interprétation :** en répondant au hasard, un candidat obtient en moyenne $7{,}5$ bonnes réponses sur $30$, avec un écart-type d'environ $2{,}37$.\n\n$$\\boxed{X\\sim\\mathcal{B}\\left(30;\\dfrac14\\right)\\ ;\\ E(X)=7{,}5\\ ;\\ \\sigma(X)\\approx2{,}37}$$",
             explanation: "On justifie soigneusement les conditions d'application de la loi binomiale (répétition indépendante d'épreuves de Bernoulli identiques) avant de calculer espérance, variance et écart-type avec les formules du cours.",
             difficulty: "expert",
           },
@@ -16421,7 +21151,7 @@ Comme $f=0{,}13 \\notin I_{400}$ (car $0{,}13 > 0{,}1294$), la fréquence observ
             id: "vab1-l3-e3",
             question: "Une proportion théorique annoncée est $p=0{,}2$, sur un échantillon de taille $n=900$. Vérifie les conditions d'application de l'intervalle de fluctuation asymptotique, puis calcule l'intervalle $I_n$.",
             type: "open",
-            modelAnswer: "**Vérification des conditions :** $n=900\\geqslant30$ ✓ ; $np=900\\times0{,}2=180\\geqslant5$ ✓ ; $n(1-p)=900\\times0{,}8=720\\geqslant5$ ✓. Les trois conditions sont vérifiées.\\n\\n**Calcul de l'écart-type relatif :**\\n$$\\sqrt{\\dfrac{p(1-p)}{n}} = \\sqrt{\\dfrac{0{,}2\\times0{,}8}{900}} = \\sqrt{\\dfrac{0{,}16}{900}} = \\sqrt{0{,}0001\\overline{7}}\\approx 0{,}01333$$\\n\\n**Calcul de l'intervalle :**\\n$$I_n = [0{,}2 - 1{,}96\\times0{,}01333\\,;\\ 0{,}2+1{,}96\\times0{,}01333]$$\\n\\n$$I_n \\approx [0{,}2 - 0{,}0261\\,;\\ 0{,}2+0{,}0261] = [0{,}1739\\,;\\ 0{,}2261]$$\\n\\n$$\\boxed{I_n \\approx [0{,}174\\,;\\ 0{,}226]}$$",
+            modelAnswer: "**Vérification des conditions :** $n=900\\geqslant30$ ✓ ; $np=900\\times0{,}2=180\\geqslant5$ ✓ ; $n(1-p)=900\\times0{,}8=720\\geqslant5$ ✓. Les trois conditions sont vérifiées.\n\n**Calcul de l'écart-type relatif :**\n$$\\sqrt{\\dfrac{p(1-p)}{n}} = \\sqrt{\\dfrac{0{,}2\\times0{,}8}{900}} = \\sqrt{\\dfrac{0{,}16}{900}} = \\sqrt{0{,}0001\\overline{7}}\\approx 0{,}01333$$\n\n**Calcul de l'intervalle :**\n$$I_n = [0{,}2 - 1{,}96\\times0{,}01333\\,;\\ 0{,}2+1{,}96\\times0{,}01333]$$\n\n$$I_n \\approx [0{,}2 - 0{,}0261\\,;\\ 0{,}2+0{,}0261] = [0{,}1739\\,;\\ 0{,}2261]$$\n\n$$\\boxed{I_n \\approx [0{,}174\\,;\\ 0{,}226]}$$",
             explanation: "On commence systématiquement par vérifier les trois conditions d'application avant de calculer l'intervalle, en suivant scrupuleusement la formule du cours.",
             difficulty: "intermediaire",
           },
@@ -16429,7 +21159,7 @@ Comme $f=0{,}13 \\notin I_{400}$ (car $0{,}13 > 0{,}1294$), la fréquence observ
             id: "vab1-l3-e4",
             question: "Un fabricant affirme que $95\\%$ de ses produits sont conformes ($p=0{,}95$). Sur un échantillon de $n=500$ produits, on observe $465$ produits conformes. Calcule la fréquence observée $f$, vérifie les conditions d'application, calcule l'intervalle de fluctuation $I_n$, et conclus si l'affirmation du fabricant semble crédible.",
             type: "open",
-            modelAnswer: "**Fréquence observée :**\\n$$f = \\dfrac{465}{500} = 0{,}93$$\\n\\n**Vérification des conditions :** $n=500\\geqslant30$ ✓ ; $np=500\\times0{,}95=475\\geqslant5$ ✓ ; $n(1-p)=500\\times0{,}05=25\\geqslant5$ ✓. Conditions vérifiées.\\n\\n**Calcul de l'intervalle :**\\n$$\\sqrt{\\dfrac{p(1-p)}{n}} = \\sqrt{\\dfrac{0{,}95\\times0{,}05}{500}} = \\sqrt{\\dfrac{0{,}0475}{500}} = \\sqrt{0{,}000095} \\approx 0{,}00975$$\\n\\n$$I_n \\approx [0{,}95-1{,}96\\times0{,}00975\\,;\\ 0{,}95+1{,}96\\times0{,}00975]$$\\n\\n$$I_n \\approx [0{,}95-0{,}0191\\,;\\ 0{,}95+0{,}0191] = [0{,}9309\\,;\\ 0{,}9691]$$\\n\\n**Conclusion :** la fréquence observée $f=0{,}93$ n'appartient pas à l'intervalle $[0{,}9309\\,;\\ 0{,}9691]$ car $0{,}93 < 0{,}9309$. On peut donc **rejeter** l'affirmation du fabricant au seuil de $95\\%$ : la proportion réelle de produits conformes semble inférieure à $95\\%$.\\n\\n$$\\boxed{f=0{,}93 \\notin I_n \\approx [0{,}931\\,;\\ 0{,}969],\\ \\text{l'affirmation du fabricant est remise en cause}}$$",
+            modelAnswer: "**Fréquence observée :**\n$$f = \\dfrac{465}{500} = 0{,}93$$\n\n**Vérification des conditions :** $n=500\\geqslant30$ ✓ ; $np=500\\times0{,}95=475\\geqslant5$ ✓ ; $n(1-p)=500\\times0{,}05=25\\geqslant5$ ✓. Conditions vérifiées.\n\n**Calcul de l'intervalle :**\n$$\\sqrt{\\dfrac{p(1-p)}{n}} = \\sqrt{\\dfrac{0{,}95\\times0{,}05}{500}} = \\sqrt{\\dfrac{0{,}0475}{500}} = \\sqrt{0{,}000095} \\approx 0{,}00975$$\n\n$$I_n \\approx [0{,}95-1{,}96\\times0{,}00975\\,;\\ 0{,}95+1{,}96\\times0{,}00975]$$\n\n$$I_n \\approx [0{,}95-0{,}0191\\,;\\ 0{,}95+0{,}0191] = [0{,}9309\\,;\\ 0{,}9691]$$\n\n**Conclusion :** la fréquence observée $f=0{,}93$ n'appartient pas à l'intervalle $[0{,}9309\\,;\\ 0{,}9691]$ car $0{,}93 < 0{,}9309$. On peut donc **rejeter** l'affirmation du fabricant au seuil de $95\\%$ : la proportion réelle de produits conformes semble inférieure à $95\\%$.\n\n$$\\boxed{f=0{,}93 \\notin I_n \\approx [0{,}931\\,;\\ 0{,}969],\\ \\text{l'affirmation du fabricant est remise en cause}}$$",
             explanation: "On suit la méthode complète : calcul de la fréquence observée, vérification des conditions, calcul de l'intervalle, puis comparaison de $f$ aux bornes pour prendre une décision statistique.",
             difficulty: "expert",
           },

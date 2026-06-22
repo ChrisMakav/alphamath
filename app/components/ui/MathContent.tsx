@@ -15,7 +15,9 @@ function renderMath(text: string): string {
   // substitution, then splice the real HTML back in at the end.
   const mathChunks: string[] = [];
   function stash(html: string): string {
-    const token = ` MATH${mathChunks.length} `;
+    // Use a non-whitespace sentinel so table-cell trimming (below) can't
+    // strip it before the splice-back at the end of this function.
+    const token = `\u0000MATH${mathChunks.length}\u0000`;
     mathChunks.push(html);
     return token;
   }
@@ -57,7 +59,7 @@ function renderMath(text: string): string {
     .replace(/\n/g, "<br/>");
 
   // Splice the real KaTeX HTML back in, now that it's safe from mangling.
-  result = result.replace(/ MATH(\d+) /g, (_match, index) => mathChunks[Number(index)]);
+  result = result.replace(/\u0000MATH(\d+)\u0000/g, (_match, index) => mathChunks[Number(index)]);
 
   return `<p>${result}</p>`;
 }
