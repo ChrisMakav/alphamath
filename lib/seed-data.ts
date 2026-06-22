@@ -38,6 +38,7 @@ export interface Course {
   difficulty: Difficulty;
   isFree: boolean;
   thumbnailEmoji: string;
+  thumbnailImage?: string;
   lessons: Lesson[];
 }
 
@@ -738,6 +739,7 @@ $$V = \\pi \\int_{-R}^{R} (R^2 - x^2)\\, dx = \\pi \\left[R^2 x - \\frac{x^3}{3}
     difficulty: "Avancé",
     isFree: false,
     thumbnailEmoji: "⊗",
+    thumbnailImage: "/algebre-lineaire.png",
     lessons: [
       {
         id: "al-1",

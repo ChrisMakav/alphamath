@@ -5,6 +5,7 @@ import { LevelBadge } from "../../../components/ui/Badge";
 import { Button } from "../../../components/ui/Button";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
 import { ProgressBar } from "../../../components/ui/ProgressBar";
+import Image from "next/image";
 import { BookOpen, Clock, CheckCircle, Lock } from "lucide-react";
 import { createClient } from "../../../../lib/supabase/server";
 import { enrollInCourse } from "../../../actions/progress";
@@ -75,9 +76,27 @@ export default async function CourseDetailPage({ params }: Props) {
             background: "linear-gradient(135deg, var(--am-bg-elevated) 0%, var(--am-bg-overlay) 100%)",
           }}
         >
-          <span className="absolute right-8 text-8xl font-black select-none opacity-10" aria-hidden>
-            {course.thumbnailEmoji}
-          </span>
+          {course.thumbnailImage ? (
+            <>
+              <Image
+                src={course.thumbnailImage}
+                alt=""
+                fill
+                className="object-cover opacity-40"
+                aria-hidden
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(135deg, var(--am-bg-elevated) 10%, transparent 90%)",
+                }}
+              />
+            </>
+          ) : (
+            <span className="absolute right-8 text-8xl font-black select-none opacity-10" aria-hidden>
+              {course.thumbnailEmoji}
+            </span>
+          )}
           <div className="relative flex flex-col gap-3">
             <div className="flex gap-2 flex-wrap">
               <LevelBadge level={course.schoolLevel as string} />
