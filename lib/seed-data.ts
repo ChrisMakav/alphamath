@@ -5,7 +5,7 @@ export type SchoolLevel =
   | "6eme" | "5eme" | "4eme" | "3eme"
   | "2nde" | "1ere" | "terminale"
   | "L1" | "L2" | "L3";
-export type Subject = "geometrie" | "algebre" | "analyse" | "probabilites" | "arithmetique";
+export type Subject = "geometrie" | "algebre" | "analyse" | "probabilites" | "arithmetique" | "informatique" | "statistiques";
 
 export interface Exercise {
   id: string;
@@ -24400,6 +24400,8 @@ export function getSubjectLabel(subject: Subject): string {
     analyse: "Analyse",
     probabilites: "Probabilités",
     arithmetique: "Arithmétique",
+    informatique: "Informatique",
+    statistiques: "Statistiques",
   };
   return map[subject];
 }

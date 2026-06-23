@@ -1353,6 +1353,257 @@ La dérivée $n$-ième de $f$ est notée $f^{(n)}$. Une fonction est de **classe
     thumbnailEmoji: "⊕",
     lessons: [
       {
+        id: "alg1-l1-0",
+        slug: "calcul-matriciel-addition-multiplication-transposition",
+        title: "Calcul matriciel : addition, multiplication, transposition",
+        durationMinutes: 50,
+        content: `## Calcul matriciel : addition, multiplication, transposition
+
+  ### 1. Définitions de base
+
+  Une **matrice** $A$ de taille $m \\times n$ (à coefficients réels) est un tableau de $m$ lignes et $n$ colonnes :
+  $$A = (a_{ij})_{1 \\leq i \\leq m,\\, 1 \\leq j \\leq n} = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & & & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}$$
+
+  On note $\\mathcal{M}_{m,n}(\\mathbb{R})$ l'ensemble des matrices $m \\times n$. Si $m=n$, on parle de **matrice carrée** d'ordre $n$, et on note $\\mathcal{M}_n(\\mathbb{R})$.
+
+  Cas particuliers : une matrice $n \\times 1$ est un **vecteur colonne**, une matrice $1 \\times n$ un **vecteur ligne**. La **matrice nulle** $0_{m,n}$ a tous ses coefficients égaux à $0$. La **matrice identité** $I_n$ est carrée d'ordre $n$, avec des $1$ sur la diagonale et des $0$ ailleurs : $(I_n)_{ij} = \\delta_{ij}$ (symbole de Kronecker).
+
+  ### 2. Addition de matrices et multiplication par un scalaire
+
+  Deux matrices ne peuvent s'additionner que si elles ont **la même taille**. Si $A, B \\in \\mathcal{M}_{m,n}(\\mathbb{R})$, la somme $A+B$ est définie coefficient par coefficient :
+  $$(A+B)_{ij} = a_{ij} + b_{ij}$$
+
+  Pour $\\lambda \\in \\mathbb{R}$, la multiplication par un scalaire est $(\\lambda A)_{ij} = \\lambda \\, a_{ij}$.
+
+  **Propriétés** (qui font de $\\mathcal{M}_{m,n}(\\mathbb{R})$ un espace vectoriel) : pour toutes matrices $A, B, C$ de même taille et tous scalaires $\\lambda, \\mu$ :
+  - $A + B = B + A$ (commutativité) ;
+  - $(A+B)+C = A+(B+C)$ (associativité) ;
+  - $A + 0_{m,n} = A$ ;
+  - $\\lambda(A+B) = \\lambda A + \\lambda B$ et $(\\lambda+\\mu)A = \\lambda A + \\mu A$.
+
+  **Exemple :** $A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}$, $B = \\begin{pmatrix} 4 & -1 \\\\ 2 & 1 \\end{pmatrix}$. Alors $A+B = \\begin{pmatrix} 5 & 1 \\\\ 2 & 4 \\end{pmatrix}$ et $2A = \\begin{pmatrix} 2 & 4 \\\\ 0 & 6 \\end{pmatrix}$.
+
+  ### 3. Produit matriciel
+
+  Le produit $AB$ n'est défini que si le **nombre de colonnes de $A$** égale le **nombre de lignes de $B$**. Si $A \\in \\mathcal{M}_{m,n}(\\mathbb{R})$ et $B \\in \\mathcal{M}_{n,p}(\\mathbb{R})$, alors $AB \\in \\mathcal{M}_{m,p}(\\mathbb{R})$ avec :
+  $$(AB)_{ij} = \\sum_{k=1}^{n} a_{ik} \\, b_{kj}$$
+
+  Autrement dit, le coefficient $(i,j)$ de $AB$ s'obtient en faisant le produit scalaire de la $i$-ième ligne de $A$ avec la $j$-ième colonne de $B$.
+
+  **Exemple résolu :** $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 0 \\end{pmatrix}$, $B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 4 \\end{pmatrix}$.
+  $$AB = \\begin{pmatrix} 1\\times 2 + 2\\times 1 & 1\\times 1 + 2\\times 4 \\\\ 3\\times 2 + 0\\times 1 & 3\\times 1 + 0\\times 4 \\end{pmatrix} = \\begin{pmatrix} 4 & 9 \\\\ 6 & 3 \\end{pmatrix}$$
+
+  **Propriétés du produit :**
+  - **Associativité :** $(AB)C = A(BC)$ ;
+  - **Distributivité :** $A(B+C) = AB+AC$ et $(A+B)C = AC+BC$ ;
+  - **Élément neutre :** $A\\, I_n = I_n\\, A = A$ pour $A$ carrée d'ordre $n$ ;
+  - **Non-commutativité :** en général $AB \\neq BA$, et l'un des deux produits peut même ne pas être défini si les tailles ne correspondent pas ;
+  - **Présence de diviseurs de zéro :** $AB = 0$ n'implique pas $A=0$ ou $B=0$. Exemple : $\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$ alors qu'aucun des deux facteurs n'est nul.
+
+  ### 4. Transposition
+
+  La **transposée** $A^T$ (ou $A^{\\top}$) d'une matrice $A \\in \\mathcal{M}_{m,n}(\\mathbb{R})$ est la matrice de $\\mathcal{M}_{n,m}(\\mathbb{R})$ obtenue en échangeant lignes et colonnes : $(A^T)_{ij} = a_{ji}$.
+
+  **Exemple :** si $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}$, alors $A^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}$.
+
+  **Propriétés de la transposition :**
+  - $(A^T)^T = A$ ;
+  - $(A+B)^T = A^T + B^T$ ;
+  - $(\\lambda A)^T = \\lambda A^T$ ;
+  - $(AB)^T = B^T A^T$ (attention à l'**inversion de l'ordre** des facteurs) ;
+  - une matrice carrée $A$ est dite **symétrique** si $A^T = A$, et **antisymétrique** si $A^T = -A$ (dans ce cas, sa diagonale est nécessairement nulle).
+
+  **Exemple résolu (preuve de $(AB)^T = B^TA^T$ via les coefficients) :** Pour $A \\in \\mathcal{M}_{m,n}$, $B \\in \\mathcal{M}_{n,p}$ :
+  $$\\big((AB)^T\\big)_{ji} = (AB)_{ij} = \\sum_{k=1}^n a_{ik}b_{kj} = \\sum_{k=1}^n (A^T)_{ki}(B^T)_{jk} = \\sum_{k=1}^n (B^T)_{jk}(A^T)_{ki} = (B^TA^T)_{ji}$$
+  Les deux matrices ont donc les mêmes coefficients : $(AB)^T = B^TA^T$. $\\square$
+
+  ### 5. Puissances de matrices carrées
+
+  Pour $A$ carrée d'ordre $n$, on définit $A^0 = I_n$, $A^1 = A$, et $A^{k+1} = A^k \\cdot A$ pour $k \\geq 1$. Comme le produit matriciel est associatif, les règles usuelles s'appliquent : $A^k A^l = A^{k+l}$. **Attention :** en général $(AB)^k \\neq A^k B^k$ si $AB \\neq BA$, et $(A+B)^2 \\neq A^2 + 2AB + B^2$ sauf si $A$ et $B$ commutent.
+
+  ### 6. Résumé méthodologique
+
+  | Opération | Condition de taille | Résultat |
+  |---|---|---|
+  | $A+B$ | même taille $m \\times n$ | taille $m \\times n$ |
+  | $\\lambda A$ | aucune (toute matrice) | même taille que $A$ |
+  | $AB$ | colonnes de $A$ = lignes de $B$ | taille (lignes de $A$) $\\times$ (colonnes de $B$) |
+  | $A^T$ | aucune | taille $n \\times m$ si $A$ est $m \\times n$ |`,
+        exercises: [
+          {
+            id: "alg1-l1-0-e1",
+            question: "Soit $A$ une matrice $2 \\times 3$ et $B$ une matrice $3 \\times 4$. Quelle est la taille de $AB$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2 \\times 4$" },
+              { id: "B", text: "$3 \\times 3$" },
+              { id: "C", text: "$2 \\times 3$" },
+              { id: "D", text: "Le produit $AB$ n'est pas défini" },
+            ],
+            correctId: "A",
+            explanation: "Le produit $AB$ est défini car le nombre de colonnes de $A$ ($3$) égale le nombre de lignes de $B$ ($3$). Le résultat a pour taille (lignes de $A$) $\\times$ (colonnes de $B$) $= 2 \\times 4$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "alg1-l1-0-e2",
+            question: "Calculer $A+B$ pour $A = \\begin{pmatrix} 2 & -1 \\\\ 0 & 3 \\end{pmatrix}$ et $B = \\begin{pmatrix} 1 & 4 \\\\ 5 & -2 \\end{pmatrix}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\begin{pmatrix} 3 & 3 \\\\ 5 & 1 \\end{pmatrix}$" },
+              { id: "B", text: "$\\begin{pmatrix} 1 & -5 \\\\ -5 & 5 \\end{pmatrix}$" },
+              { id: "C", text: "$\\begin{pmatrix} 2 & -4 \\\\ 0 & -6 \\end{pmatrix}$" },
+              { id: "D", text: "$\\begin{pmatrix} 3 & 5 \\\\ 3 & 1 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "On additionne coefficient par coefficient : $(2+1, -1+4 ; 0+5, 3-2) = \\begin{pmatrix} 3 & 3 \\\\ 5 & 1 \\end{pmatrix}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "alg1-l1-0-e3",
+            question: "Vrai ou faux : pour toutes matrices carrées $A$ et $B$ de même taille, $AB = BA$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. Le produit matriciel n'est en général pas commutatif. Par exemple $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ et $B = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$ donnent $AB = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$ et $BA = \\begin{pmatrix} 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$, qui sont différentes.",
+            difficulty: "debutant",
+          },
+          {
+            id: "alg1-l1-0-e4",
+            question: "Quelle est la matrice identité $I_2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$" },
+              { id: "B", text: "$\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$" },
+              { id: "C", text: "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$" },
+              { id: "D", text: "$\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "$I_2$ est la matrice carrée d'ordre $2$ avec des $1$ sur la diagonale et des $0$ ailleurs : c'est l'élément neutre du produit matriciel.",
+            difficulty: "debutant",
+          },
+          {
+            id: "alg1-l1-0-e5",
+            question: "Soit $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}$. Quelle est la taille de $A^T$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$3 \\times 2$" },
+              { id: "B", text: "$2 \\times 3$" },
+              { id: "C", text: "$2 \\times 2$" },
+              { id: "D", text: "$3 \\times 3$" },
+            ],
+            correctId: "A",
+            explanation: "$A$ est de taille $2 \\times 3$ (2 lignes, 3 colonnes), donc sa transposée $A^T$ échange lignes et colonnes : elle est de taille $3 \\times 2$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "alg1-l1-0-e6",
+            question: "Calculer le produit $AB$ pour $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 0 \\end{pmatrix}$ et $B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 4 \\end{pmatrix}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\begin{pmatrix} 4 & 9 \\\\ 6 & 3 \\end{pmatrix}$" },
+              { id: "B", text: "$\\begin{pmatrix} 3 & 3 \\\\ 4 & 4 \\end{pmatrix}$" },
+              { id: "C", text: "$\\begin{pmatrix} 2 & 2 \\\\ 3 & 0 \\end{pmatrix}$" },
+              { id: "D", text: "$\\begin{pmatrix} 4 & 6 \\\\ 9 & 3 \\end{pmatrix}$" },
+            ],
+            correctId: "A",
+            explanation: "$(AB)_{11} = 1\\times2+2\\times1=4$, $(AB)_{12}=1\\times1+2\\times4=9$, $(AB)_{21}=3\\times2+0\\times1=6$, $(AB)_{22}=3\\times1+0\\times4=3$. D'où $AB=\\begin{pmatrix} 4 & 9 \\\\ 6 & 3 \\end{pmatrix}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "alg1-l1-0-e7",
+            question: "Vrai ou faux : $(A+B)^T = A^T + B^T$ pour toutes matrices $A, B$ de même taille.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. $\\big((A+B)^T\\big)_{ji} = (A+B)_{ij} = a_{ij}+b_{ij} = (A^T)_{ji}+(B^T)_{ji} = (A^T+B^T)_{ji}$ pour tous $i,j$, donc les deux matrices sont égales.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "alg1-l1-0-e8",
+            question: "Soit $A = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$. Que vaut $A^2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-I_2$" },
+              { id: "B", text: "$I_2$" },
+              { id: "C", text: "$0_{2,2}$" },
+              { id: "D", text: "$A$" },
+            ],
+            correctId: "A",
+            explanation: "$A^2 = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix} = \\begin{pmatrix} -1 & 0 \\\\ 0 & -1 \\end{pmatrix} = -I_2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "alg1-l1-0-e9",
+            question: "Pour quelle(s) tailles de matrices carrées $A$ et $B$ a-t-on toujours $(AB)^T = B^TA^T$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Pour toutes tailles compatibles avec le produit $AB$" },
+              { id: "B", text: "Seulement si $A$ et $B$ sont symétriques" },
+              { id: "C", text: "Seulement si $A=B$" },
+              { id: "D", text: "Jamais, l'ordre ne s'inverse pas" },
+            ],
+            correctId: "A",
+            explanation: "La propriété $(AB)^T = B^TA^T$ est toujours vraie dès que le produit $AB$ est défini (et alors $B^TA^T$ l'est aussi), quelles que soient les matrices considérées.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "alg1-l1-0-e10",
+            question: "Soit $A$ une matrice antisymétrique ($A^T=-A$). Que peut-on dire de sa diagonale ?",
+            type: "open",
+            modelAnswer: "Les coefficients diagonaux a_ii vérifient a_ii = -a_ii, donc 2a_ii = 0, donc a_ii = 0 pour tout i : la diagonale est nulle.",
+            explanation: "Pour $A^T = -A$, on a $(A^T)_{ii} = -A_{ii}$. Mais $(A^T)_{ii} = a_{ii}$ (la transposition ne change pas la diagonale). Donc $a_{ii} = -a_{ii}$, soit $2a_{ii}=0$, donc $a_{ii}=0$ pour tout $i$ : tous les coefficients diagonaux d'une matrice antisymétrique sont nuls.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "alg1-l1-0-e11",
+            question: "Démontrer que toute matrice carrée $A$ s'écrit de manière unique comme somme d'une matrice symétrique $S$ et d'une matrice antisymétrique $T$.",
+            type: "open",
+            modelAnswer: "On pose S = (A+A^T)/2 et T = (A-A^T)/2. Alors S^T = S, T^T = -T, et S+T = A. L'unicité se montre comme pour les fonctions paires/impaires via une analyse-synthèse.",
+            explanation: "**Analyse :** si $A = S+T$ avec $S^T=S$ et $T^T=-T$, alors $A^T = S^T+T^T = S-T$. On obtient le système $A=S+T$, $A^T=S-T$, d'où nécessairement $S=\\dfrac{A+A^T}{2}$ et $T=\\dfrac{A-A^T}{2}$ : le candidat est déterminé, ce qui prouve l'unicité.\n\n**Synthèse :** posons $S=\\dfrac{A+A^T}{2}$, $T=\\dfrac{A-A^T}{2}$. Alors $S^T = \\dfrac{A^T+A}{2}=S$ (symétrique), $T^T=\\dfrac{A^T-A}{2}=-T$ (antisymétrique), et $S+T = \\dfrac{A+A^T}{2}+\\dfrac{A-A^T}{2}=A$. Ceci prouve l'existence. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "alg1-l1-0-e12",
+            question: "Soit $A \\in \\mathcal{M}_n(\\mathbb{R})$ telle que $A^2 = 0$ mais $A \\neq 0$ (matrice nilpotente d'ordre $2$). Que peut-on en déduire sur l'inversibilité de $A$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$A$ n'est pas inversible" },
+              { id: "B", text: "$A$ est inversible et $A^{-1}=A$" },
+              { id: "C", text: "$A$ est inversible et $A^{-1}=-A$" },
+              { id: "D", text: "On ne peut rien conclure" },
+            ],
+            correctId: "A",
+            explanation: "Si $A$ était inversible, on pourrait multiplier $A^2=0$ par $A^{-1}$ à gauche pour obtenir $A = A^{-1}A^2 = A^{-1}\\cdot 0 = 0$, ce qui contredit $A \\neq 0$. Donc $A$ n'est pas inversible. Exemple : $A=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ vérifie $A^2=0$ et n'est pas inversible.",
+            difficulty: "expert",
+          },
+          {
+            id: "alg1-l1-0-e13",
+            question: "Vrai ou faux : si $A$ et $B$ sont deux matrices carrées symétriques de même taille, alors $AB$ est nécessairement symétrique.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux en général. $(AB)^T = B^TA^T = BA$ (car $A,B$ symétriques). Donc $AB$ est symétrique **si et seulement si** $AB=BA$, ce qui n'est pas garanti. Contre-exemple : $A=\\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$, $B=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ sont symétriques, mais $AB=\\begin{pmatrix}0&1\\\\0&0\\end{pmatrix}$ n'est pas symétrique.",
+            difficulty: "expert",
+          },
+          {
+            id: "alg1-l1-0-e14",
+            question: "Soit $A$ une matrice carrée telle que $A^3=A$. Donner un exemple non trivial (différent de $0$ et $I_n$) d'une telle matrice $2\\times 2$, et vérifier la propriété.",
+            type: "open",
+            modelAnswer: "Exemple : A = (1 0 ; 0 -1). A^2 = I_2, donc A^3 = A·A^2 = A·I_2 = A. La propriété est vérifiée.",
+            explanation: "Prenons $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$. Alors $A^2 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I_2$, donc $A^3 = A \\cdot A^2 = A \\cdot I_2 = A$. La propriété $A^3=A$ est bien vérifiée, et $A$ n'est ni nulle ni égale à $I_2$.",
+            difficulty: "expert",
+          },
+          {
+            id: "alg1-l1-0-e15",
+            question: "Démontrer que pour toutes matrices $A,B$ telles que le produit $(AB)$ a un sens, et pour $C$ telle que $BC$ a un sens, on a $(ABC)^T = C^TB^TA^T$.",
+            type: "open",
+            modelAnswer: "On applique deux fois la règle (XY)^T = Y^TX^T : (ABC)^T = ((AB)C)^T = C^T(AB)^T = C^T(B^TA^T) = C^TB^TA^T.",
+            explanation: "On utilise la propriété $(XY)^T = Y^TX^T$ appliquée successivement. En posant $X=AB$ et $Y=C$ : $(ABC)^T = \\big((AB)C\\big)^T = C^T(AB)^T$. Puis en appliquant à nouveau la règle à $(AB)^T$ : $(AB)^T = B^TA^T$. En combinant : $(ABC)^T = C^T B^T A^T$. Plus généralement, la transposée d'un produit quelconque de matrices est le produit des transposées **dans l'ordre inverse**. $\\square$",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
         id: "alg1-l1-1",
         slug: "systemes-equations-lineaires-gauss",
         title: "Systèmes d'équations linéaires et méthode de Gauss",
@@ -3217,6 +3468,241 @@ C.I. : $y(0)=1=-1/C$, $C=-1$. Solution : $y=1/(1-x)$ (définie sur $]-\\infty,1[
           },
         ],
       },
+      {
+        id: "anal2-l2-4",
+        slug: "suites-series-fonctions-convergence-simple-uniforme",
+        title: "Suites et séries de fonctions : convergence simple et uniforme",
+        durationMinutes: 60,
+        content: `## Suites et séries de fonctions : convergence simple et uniforme
+
+  ### 1. Convergence simple
+
+  Soit $(f_n)_{n\\in\\mathbb{N}}$ une suite de fonctions définies sur un intervalle $I$. On dit que $(f_n)$ **converge simplement** vers $f : I \\to \\mathbb{R}$ si, pour **chaque** $x \\in I$ fixé, la suite numérique $(f_n(x))_n$ converge vers $f(x)$ :
+  $$\\forall x \\in I,\\; \\forall \\varepsilon>0,\\; \\exists N(\\varepsilon, x) \\in \\mathbb{N},\\; \\forall n \\geq N(\\varepsilon,x),\\; |f_n(x)-f(x)|<\\varepsilon$$
+
+  Le point clé : le rang $N$ peut dépendre **à la fois** de $\\varepsilon$ et de $x$. C'est une convergence « point par point », qui ne contrôle pas la vitesse de convergence uniformément sur $I$.
+
+  **Exemple classique :** $f_n(x) = x^n$ sur $I=[0,1]$. Pour $x\\in[0,1[$, $f_n(x)\\to 0$. Pour $x=1$, $f_n(1)=1\\to 1$. La suite converge simplement vers la fonction $f$ définie par $f(x)=0$ si $x<1$ et $f(1)=1$ : **chaque $f_n$ est continue, mais la limite simple $f$ ne l'est pas** — la convergence simple ne préserve pas la continuité.
+
+  ### 2. Convergence uniforme
+
+  $(f_n)$ **converge uniformément** vers $f$ sur $I$ si le rang $N$ peut être choisi **indépendamment de $x$** :
+  $$\\forall \\varepsilon>0,\\; \\exists N(\\varepsilon) \\in \\mathbb{N},\\; \\forall n \\geq N(\\varepsilon),\\; \\forall x \\in I,\\; |f_n(x)-f(x)|<\\varepsilon$$
+
+  De façon équivalente, en posant $\\|f_n-f\\|_\\infty = \\displaystyle\\sup_{x\\in I} |f_n(x)-f(x)|$ :
+  $$(f_n) \\text{ converge uniformément vers } f \\iff \\|f_n-f\\|_\\infty \\xrightarrow[n\\to+\\infty]{} 0$$
+
+  **Méthode pratique :** pour étudier la convergence uniforme, on calcule (ou on majore) $\\sup_{x\\in I}|f_n(x)-f(x)|$ et on regarde si cette quantité tend vers $0$.
+
+  **La convergence uniforme implique la convergence simple**, mais la réciproque est fausse (cf. exemple $x^n$ ci-dessus, où la convergence n'est pas uniforme sur $[0,1]$, alors qu'elle est simple).
+
+  **Exemple résolu :** $f_n(x) = \\dfrac{x}{1+nx^2}$ sur $I=\\mathbb{R}$. Convergence simple : pour $x$ fixé, $f_n(x) \\to 0$. Convergence uniforme : on cherche $\\sup_{x\\in\\mathbb{R}} |f_n(x)|$. En dérivant, $f_n'(x) = \\dfrac{1-nx^2}{(1+nx^2)^2}$ s'annule en $x=\\pm\\dfrac{1}{\\sqrt n}$, où $|f_n(x)| = \\dfrac{1/\\sqrt n}{2} = \\dfrac{1}{2\\sqrt n}$. Donc $\\|f_n-0\\|_\\infty = \\dfrac{1}{2\\sqrt n} \\to 0$ : la convergence est **uniforme** sur $\\mathbb{R}$.
+
+  ### 3. Critère de Cauchy uniforme
+
+  $(f_n)$ converge uniformément sur $I$ (vers une certaine limite $f$) **si et seulement si** elle vérifie le **critère de Cauchy uniforme** :
+  $$\\forall \\varepsilon>0,\\; \\exists N \\in \\mathbb{N},\\; \\forall p,q \\geq N,\\; \\forall x \\in I,\\; |f_p(x)-f_q(x)| < \\varepsilon$$
+
+  Ce critère est très utile car il permet de prouver la convergence uniforme **sans connaître explicitement la limite $f$** — exactement comme le critère de Cauchy pour les suites numériques.
+
+  ### 4. Propriétés transmises par la convergence uniforme
+
+  Si $(f_n)$ converge uniformément vers $f$ sur $I$, et si chaque $f_n$ vérifie une certaine propriété, alors $f$ la vérifie aussi, dans les cas suivants :
+
+  - **Continuité :** si chaque $f_n$ est continue sur $I$, alors $f$ est continue sur $I$.
+  - **Limite et interversion :** si $x_0$ est une extrémité de $I$ et que $\\lim_{x\\to x_0} f_n(x) = \\ell_n$ existe pour chaque $n$, alors $\\displaystyle\\lim_{x\\to x_0}\\lim_{n\\to\\infty} f_n(x) = \\lim_{n\\to\\infty}\\lim_{x\\to x_0} f_n(x)$ (les deux limites s'intervertissent).
+  - **Intégration sur un segment :** si chaque $f_n$ est continue sur $[a,b]$, alors $\\displaystyle\\int_a^b f_n(x)\\,dx \\to \\int_a^b f(x)\\,dx$.
+  - **Dérivation (plus délicat) :** si $(f_n)$ converge simplement vers $f$, que chaque $f_n$ est $C^1$, et que $(f_n')$ converge **uniformément** vers une fonction $g$, alors $f$ est $C^1$ et $f'=g$.
+
+  **Contre-exemple sans uniformité (continuité non préservée) :** reprendre $f_n(x)=x^n$ sur $[0,1]$ : la convergence est simple mais non uniforme, et la limite $f$ n'est pas continue en $1$. Ceci illustre que **l'hypothèse d'uniformité est essentielle**, pas une simple commodité technique.
+
+  ### 5. Séries de fonctions : convergence simple, uniforme, normale
+
+  Pour une série de fonctions $\\displaystyle\\sum_{n} u_n(x)$, on définit les sommes partielles $S_N(x) = \\displaystyle\\sum_{n=0}^N u_n(x)$.
+
+  - **Convergence simple** de la série : pour chaque $x$, la suite numérique $(S_N(x))_N$ converge.
+  - **Convergence uniforme** de la série : la suite de fonctions $(S_N)$ converge uniformément vers la somme $S$.
+  - **Convergence normale (critère le plus utilisé en pratique) :** la série $\\displaystyle\\sum_n \\|u_n\\|_\\infty$ converge (où $\\|u_n\\|_\\infty = \\sup_{x\\in I}|u_n(x)|$).
+
+  **Théorème :** convergence normale $\\Rightarrow$ convergence uniforme $\\Rightarrow$ convergence simple. (Les implications réciproques sont fausses en général.)
+
+  **Exemple résolu :** $\\displaystyle\\sum_{n\\geq 1} \\dfrac{\\sin(nx)}{n^2}$ sur $\\mathbb{R}$. On a $\\left|\\dfrac{\\sin(nx)}{n^2}\\right| \\leq \\dfrac{1}{n^2}$ pour tout $x$, donc $\\|u_n\\|_\\infty \\leq \\dfrac{1}{n^2}$. Comme $\\displaystyle\\sum \\dfrac{1}{n^2}$ converge (série de Riemann, exposant $2>1$), la série converge **normalement**, donc uniformément, donc simplement, sur $\\mathbb{R}$. Par le théorème de continuité, sa somme est continue sur $\\mathbb{R}$.
+
+  ### 6. Résumé méthodologique
+
+  | Type de convergence | Définition clé | Implique |
+  |---|---|---|
+  | Simple | $N$ dépend de $x$ et $\\varepsilon$ | — |
+  | Uniforme | $N$ ne dépend que de $\\varepsilon$ ; $\\|f_n-f\\|_\\infty\\to 0$ | convergence simple, continuité, intégration terme à terme |
+  | Normale (séries) | $\\sum \\|u_n\\|_\\infty$ converge | convergence uniforme |`,
+        exercises: [
+          {
+            id: "anal2-l2-4-e1",
+            question: "Quelle est la différence essentielle entre convergence simple et convergence uniforme d'une suite de fonctions ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Dans la convergence uniforme, le rang $N$ ne dépend que de $\\varepsilon$, pas de $x$" },
+              { id: "B", text: "La convergence uniforme concerne seulement les fonctions continues" },
+              { id: "C", text: "Il n'y a aucune différence, les deux notions sont équivalentes" },
+              { id: "D", text: "La convergence simple est plus forte que la convergence uniforme" },
+            ],
+            correctId: "A",
+            explanation: "Dans la convergence simple, $N$ peut dépendre de $x$ : chaque point de l'intervalle peut converger à sa propre vitesse. Dans la convergence uniforme, on exige un $N$ valable simultanément pour tous les $x$ de l'intervalle.",
+            difficulty: "debutant",
+          },
+          {
+            id: "anal2-l2-4-e2",
+            question: "Vrai ou faux : la convergence uniforme implique la convergence simple.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $N(\\varepsilon)$ convient pour tout $x$ simultanément, il convient en particulier pour chaque $x$ fixé : la convergence uniforme est une condition plus forte qui entraîne automatiquement la convergence simple.",
+            difficulty: "debutant",
+          },
+          {
+            id: "anal2-l2-4-e3",
+            question: "Quelle quantité doit tendre vers $0$ pour avoir convergence uniforme de $(f_n)$ vers $f$ sur $I$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\displaystyle\\sup_{x\\in I} |f_n(x)-f(x)|$" },
+              { id: "B", text: "$f_n(x_0)-f(x_0)$ pour un seul point $x_0$" },
+              { id: "C", text: "$\\displaystyle\\int_I f_n(x)\\,dx$" },
+              { id: "D", text: "$f_n'(x)$" },
+            ],
+            correctId: "A",
+            explanation: "La convergence uniforme équivaut à $\\|f_n-f\\|_\\infty = \\sup_{x\\in I}|f_n(x)-f(x)| \\to 0$, c'est-à-dire que l'écart maximal entre $f_n$ et $f$ sur tout l'intervalle tend vers $0$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "anal2-l2-4-e4",
+            question: "Pour $f_n(x)=x^n$ sur $[0,1]$, vers quelle fonction $(f_n)$ converge-t-elle simplement ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$f(x)=0$ pour $x<1$ et $f(1)=1$" },
+              { id: "B", text: "$f(x)=0$ pour tout $x\\in[0,1]$" },
+              { id: "C", text: "$f(x)=1$ pour tout $x\\in[0,1]$" },
+              { id: "D", text: "La suite ne converge pas simplement" },
+            ],
+            correctId: "A",
+            explanation: "Pour $x\\in[0,1[$, $x^n\\to 0$. Pour $x=1$, $1^n=1\\to 1$. La limite simple est donc la fonction discontinue $f(x)=0$ si $x<1$, $f(1)=1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "anal2-l2-4-e5",
+            question: "Quelle propriété la convergence uniforme transmet-elle, que la convergence simple ne transmet pas en général ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "La continuité de la limite" },
+              { id: "B", text: "La positivité" },
+              { id: "C", text: "La parité" },
+              { id: "D", text: "Le caractère polynomial" },
+            ],
+            correctId: "A",
+            explanation: "Si chaque $f_n$ est continue et $(f_n)$ converge **uniformément** vers $f$, alors $f$ est continue. Avec seulement la convergence simple, la limite peut être discontinue (exemple $x^n$ sur $[0,1]$).",
+            difficulty: "debutant",
+          },
+          {
+            id: "anal2-l2-4-e6",
+            question: "Étudier la convergence uniforme de $f_n(x) = \\dfrac{x}{1+nx^2}$ sur $\\mathbb{R}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Convergence uniforme vers $0$, car $\\|f_n\\|_\\infty = \\frac{1}{2\\sqrt n} \\to 0$" },
+              { id: "B", text: "Convergence simple seulement, pas uniforme" },
+              { id: "C", text: "La suite diverge" },
+              { id: "D", text: "Convergence uniforme vers $f(x)=x$" },
+            ],
+            correctId: "A",
+            explanation: "En étudiant les variations de $f_n$, son maximum en valeur absolue est atteint en $x=\\pm 1/\\sqrt n$ et vaut $\\dfrac{1}{2\\sqrt n}$, qui tend vers $0$ : la convergence est uniforme vers $0$ sur $\\mathbb{R}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "anal2-l2-4-e7",
+            question: "Vrai ou faux : le critère de Cauchy uniforme permet de prouver la convergence uniforme sans connaître explicitement la fonction limite.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Comme pour les suites numériques, le critère de Cauchy uniforme ($\\sup_x|f_p(x)-f_q(x)|\\to 0$ quand $p,q\\to\\infty$) est équivalent à la convergence uniforme, sans nécessiter de connaître la limite à l'avance.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "anal2-l2-4-e8",
+            question: "Quelle est la relation entre convergence normale et convergence uniforme pour une série de fonctions $\\sum u_n$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Convergence normale $\\Rightarrow$ convergence uniforme (réciproque fausse en général)" },
+              { id: "B", text: "Les deux notions sont équivalentes" },
+              { id: "C", text: "Convergence uniforme $\\Rightarrow$ convergence normale toujours" },
+              { id: "D", text: "Aucun lien entre les deux notions" },
+            ],
+            correctId: "A",
+            explanation: "La convergence normale ($\\sum \\|u_n\\|_\\infty$ converge) est une condition suffisante mais pas nécessaire de convergence uniforme : elle implique la convergence uniforme, mais il existe des séries uniformément convergentes qui ne sont pas normalement convergentes.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "anal2-l2-4-e9",
+            question: "Montrer que $\\displaystyle\\sum_{n\\geq 1}\\dfrac{\\sin(nx)}{n^2}$ converge normalement sur $\\mathbb{R}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$|u_n(x)|\\leq 1/n^2$ pour tout $x$, et $\\sum 1/n^2$ converge (Riemann)" },
+              { id: "B", text: "La série diverge pour certaines valeurs de $x$" },
+              { id: "C", text: "On ne peut rien dire sans calculer la somme exacte" },
+              { id: "D", text: "La convergence est seulement simple, pas normale" },
+            ],
+            correctId: "A",
+            explanation: "$|\\sin(nx)|\\leq 1$ pour tout $x$ et tout $n$, donc $\\|u_n\\|_\\infty \\leq 1/n^2$. La série de Riemann $\\sum 1/n^2$ converge (exposant $2>1$), donc $\\sum\\|u_n\\|_\\infty$ converge : c'est la convergence normale.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "anal2-l2-4-e10",
+            question: "Si $(f_n)$ converge uniformément vers $f$ sur $[a,b]$ et que chaque $f_n$ est continue, que peut-on dire de $\\int_a^b f_n(x)\\,dx$ ?",
+            type: "open",
+            modelAnswer: "L'intégrale de f_n converge vers l'intégrale de f : ∫f_n → ∫f, car la convergence uniforme sur un segment permet d'intervertir limite et intégrale.",
+            explanation: "On a $\\left|\\displaystyle\\int_a^b f_n(x)\\,dx - \\int_a^b f(x)\\,dx\\right| \\leq \\displaystyle\\int_a^b |f_n(x)-f(x)|\\,dx \\leq (b-a)\\|f_n-f\\|_\\infty \\to 0$. Donc $\\displaystyle\\int_a^b f_n(x)\\,dx \\to \\int_a^b f(x)\\,dx$ : on peut intervertir limite et intégrale sur un segment grâce à la convergence uniforme.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "anal2-l2-4-e11",
+            question: "Démontrer que $(f_n)$ avec $f_n(x)=x^n$ ne converge pas uniformément sur $[0,1]$, bien qu'elle converge simplement.",
+            type: "open",
+            modelAnswer: "Si la convergence était uniforme, la limite f serait continue (car chaque f_n est continue), or f(x)=0 pour x<1 et f(1)=1 est discontinue en 1. Contradiction, donc la convergence n'est pas uniforme. On peut aussi calculer sup|f_n-f| qui ne tend pas vers 0.",
+            explanation: "**Méthode 1 (par contraposée de la propriété de continuité) :** chaque $f_n(x)=x^n$ est continue sur $[0,1]$. Si la convergence était uniforme, la limite $f$ serait nécessairement continue. Or $f(x)=0$ pour $x\\in[0,1[$ et $f(1)=1$ est discontinue en $1$. C'est une contradiction : la convergence n'est donc pas uniforme.\n\n**Méthode 2 (calcul direct) :** $\\sup_{x\\in[0,1[}|f_n(x)-f(x)| = \\sup_{x\\in[0,1[} x^n = 1$ (la borne sup n'est pas atteinte mais on s'en approche autant qu'on veut en prenant $x$ proche de $1$). Cette quantité vaut $1$ pour tout $n$, donc ne tend pas vers $0$ : ce n'est pas une convergence uniforme. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "anal2-l2-4-e12",
+            question: "Soit $f_n(x) = n x e^{-nx^2}$ sur $[0,1]$. Étudier la convergence simple, puis montrer que la convergence n'est pas uniforme en comparant $\\lim_n \\int_0^1 f_n$ et $\\int_0^1 \\lim_n f_n$.",
+            type: "open",
+            modelAnswer: "Convergence simple vers 0 pour tout x fixé (pour x=0 c'est trivial, pour x>0, e^{-nx²} décroît plus vite que n croît). Mais ∫₀¹ f_n(x)dx = [-e^{-nx²}/2]₀¹ = (1-e^{-n})/2 → 1/2 ≠ ∫₀¹ 0 dx = 0. Comme les limites ne s'intervertissent pas avec l'intégrale, la convergence n'est pas uniforme.",
+            explanation: "**Convergence simple :** pour $x=0$, $f_n(0)=0$ pour tout $n$. Pour $x>0$ fixé, on compare la croissance de $n$ à la décroissance exponentielle de $e^{-nx^2}$ : par croissances comparées, $n e^{-nx^2} \\to 0$. Donc $(f_n)$ converge simplement vers la fonction nulle sur $[0,1]$.\n\n**Calcul de l'intégrale :** $\\displaystyle\\int_0^1 nxe^{-nx^2}\\,dx = \\left[-\\frac{1}{2}e^{-nx^2}\\right]_0^1 = \\frac{1-e^{-n}}{2} \\xrightarrow[n\\to\\infty]{} \\frac{1}{2}$.\n\nOr $\\displaystyle\\int_0^1 \\Big(\\lim_n f_n(x)\\Big)\\,dx = \\int_0^1 0\\,dx = 0 \\neq \\frac12$.\n\nComme $\\displaystyle\\lim_n \\int_0^1 f_n \\neq \\int_0^1 \\lim_n f_n$, l'interversion limite-intégrale échoue : par contraposée du théorème d'intégration sous convergence uniforme, **la convergence ne peut pas être uniforme** sur $[0,1]$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "anal2-l2-4-e13",
+            question: "Vrai ou faux : si $(f_n)$ converge simplement vers $f$, que chaque $f_n$ est $C^1$, et que $(f_n')$ converge uniformément vers $g$, alors $f$ est $C^1$ et $f'=g$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. C'est le théorème de dérivation sous convergence uniforme : contrairement à la continuité (où l'on a besoin que $(f_n)$ elle-même converge uniformément), pour la dérivation, il suffit que ce soit la suite des **dérivées** $(f_n')$ qui converge uniformément, la convergence simple de $(f_n)$ suffisant pour $f$ elle-même.",
+            difficulty: "expert",
+          },
+          {
+            id: "anal2-l2-4-e14",
+            question: "Donner un exemple de série de fonctions convergeant uniformément mais pas normalement sur son domaine (justifier brièvement le principe, sans calcul exhaustif).",
+            type: "open",
+            modelAnswer: "Exemple classique : u_n(x)=(-1)^n x^n/n sur [0,1]. La convergence est uniforme par le critère des séries alternées uniforme (le reste est majoré par le premier terme négligé, indépendamment de x), mais ||u_n||_∞ = 1/n et Σ1/n diverge (série harmonique) : pas de convergence normale.",
+            explanation: "**Exemple :** $u_n(x) = \\dfrac{(-1)^n x^n}{n}$ sur $[0,1]$, pour $n\\geq 1$.\n\n**Convergence uniforme :** c'est une série alternée en $n$ pour $x$ fixé (le terme $x^n/n$ décroît vers $0$), donc par le critère des séries alternées, le reste $|R_N(x)| \\leq \\dfrac{x^{N+1}}{N+1} \\leq \\dfrac{1}{N+1}$, **indépendamment de $x\\in[0,1]$**. Donc $\\sup_x |R_N(x)| \\to 0$ : convergence uniforme.\n\n**Pas de convergence normale :** $\\|u_n\\|_\\infty = \\sup_{x\\in[0,1]} \\dfrac{x^n}{n} = \\dfrac{1}{n}$ (atteint en $x=1$). La série $\\sum \\dfrac1n$ est la série harmonique, qui **diverge**. Donc $\\sum \\|u_n\\|_\\infty$ diverge : pas de convergence normale, bien que la convergence soit uniforme. Cet exemple montre que l'implication normale $\\Rightarrow$ uniforme n'est pas réversible.",
+            difficulty: "expert",
+          },
+          {
+            id: "anal2-l2-4-e15",
+            question: "Démontrer que si $(f_n)$ et $(g_n)$ convergent uniformément vers $f$ et $g$ respectivement sur $I$, alors $(f_n+g_n)$ converge uniformément vers $f+g$ sur $I$.",
+            type: "open",
+            modelAnswer: "Par inégalité triangulaire, sup|f_n+g_n-(f+g)| ≤ sup|f_n-f| + sup|g_n-g| → 0+0 = 0, donc convergence uniforme de la somme.",
+            explanation: "Pour tout $x \\in I$ :\n$$|(f_n+g_n)(x) - (f+g)(x)| = |(f_n(x)-f(x)) + (g_n(x)-g(x))| \\leq |f_n(x)-f(x)| + |g_n(x)-g(x)|$$\n\nEn passant au supremum sur $x \\in I$ :\n$$\\|(f_n+g_n)-(f+g)\\|_\\infty \\leq \\|f_n-f\\|_\\infty + \\|g_n-g\\|_\\infty$$\n\nPar hypothèse, $\\|f_n-f\\|_\\infty \\to 0$ et $\\|g_n-g\\|_\\infty \\to 0$. Donc le majorant tend vers $0$, et par encadrement, $\\|(f_n+g_n)-(f+g)\\|_\\infty \\to 0$ : $(f_n+g_n)$ converge uniformément vers $f+g$ sur $I$. $\\square$",
+            difficulty: "expert",
+          },
+        ],
+      },
     ],
   },
   // ─────────────────────────────────────────────
@@ -4996,6 +5482,310 @@ où $|J_\\Phi|$ est le **jacobien** (valeur absolue du déterminant jacobien).
             difficulty: "expert",
           },
         ],
+      },
+      {
+id: "anal3-l3-4",
+  slug: "series-de-fourier",
+  title: "Séries de Fourier",
+  durationMinutes: 60,
+  content: `## Séries de Fourier
+
+### 1. Fonctions périodiques et cadre général
+
+Une fonction $f:\\mathbb{R}\\to\\mathbb{C}$ est **$T$-périodique** ($T>0$) si $f(x+T)=f(x)$ pour tout $x\\in\\mathbb{R}$. On pose $\\omega=\\dfrac{2\\pi}{T}$ la **pulsation**. On suppose $f$ continue par morceaux sur une période (intégrable au sens de Riemann), ce qui couvre tous les exemples usuels (créneau, dents de scie, triangle).
+
+L'idée centrale des séries de Fourier est de décomposer $f$ comme une somme (éventuellement infinie) de sinusoïdes :
+$$f(x) \\;\\text{(formellement)}=\\; \\frac{a_0}{2} + \\sum_{n=1}^{+\\infty} \\big(a_n\\cos(n\\omega x) + b_n\\sin(n\\omega x)\\big)$$
+
+Pour simplifier les écritures, tout le cours est rédigé pour $T=2\\pi$ (donc $\\omega=1$) ; il suffit de remplacer $x$ par $\\omega x = \\dfrac{2\\pi x}{T}$ pour revenir au cas général.
+
+### 2. Coefficients de Fourier trigonométriques
+
+Pour $f$ **$2\\pi$-périodique**, continue par morceaux, on définit ses **coefficients de Fourier** par intégration sur une période complète (n'importe quel intervalle de longueur $2\\pi$, par exemple $[-\\pi,\\pi]$ ou $[0,2\\pi]$) :
+
+$$a_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\cos(nx)\\,dx \\quad (n \\geq 0) \\qquad\\qquad b_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(x)\\sin(nx)\\,dx \\quad (n \\geq 1)$$
+
+Le terme $a_0$ vérifie $\\dfrac{a_0}{2} = \\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,dx$, c'est-à-dire la **valeur moyenne** de $f$ sur une période — d'où la convention d'écrire $a_0/2$ (et non $a_0$) dans la série, pour que la formule de $a_n$ reste valable en $n=0$.
+
+La **série de Fourier** associée à $f$ est alors la série de fonctions :
+$$S_N f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{N} \\big(a_n\\cos(nx) + b_n\\sin(nx)\\big)$$
+
+### 3. Forme exponentielle complexe
+
+En posant $c_n = \\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,e^{-inx}\\,dx$ pour $n \\in \\mathbb{Z}$, la série de Fourier s'écrit de façon équivalente et souvent plus maniable :
+$$S_N f(x) = \\sum_{n=-N}^{N} c_n\\, e^{inx}$$
+
+**Lien entre les deux formes** (en développant $e^{\\pm inx}=\\cos(nx)\\pm i\\sin(nx)$) :
+$$c_0 = \\frac{a_0}{2} \\qquad\\qquad c_n = \\frac{a_n - ib_n}{2} \\ (n\\geq 1) \\qquad\\qquad c_{-n} = \\frac{a_n + ib_n}{2} = \\overline{c_n} \\ (n\\geq 1)$$
+
+et réciproquement $a_n = c_n + c_{-n}$, $b_n = i(c_n - c_{-n})$. Si $f$ est à valeurs réelles, on a toujours $c_{-n}=\\overline{c_n}$, ce qui garantit que $\\sum c_n e^{inx}$ est bien réelle.
+
+### 4. Parité et simplifications
+
+Si $f$ est **paire** ($f(-x)=f(x)$), alors $x\\mapsto f(x)\\sin(nx)$ est impaire, donc $b_n=0$ pour tout $n$ : la série ne contient que des cosinus, et on peut calculer $a_n$ en intégrant seulement sur $[0,\\pi]$ et en doublant :
+$$a_n = \\frac{2}{\\pi}\\int_0^{\\pi} f(x)\\cos(nx)\\,dx$$
+
+Si $f$ est **impaire** ($f(-x)=-f(x)$), alors $x\\mapsto f(x)\\cos(nx)$ est impaire, donc $a_n=0$ pour tout $n$ (y compris $a_0=0$) : la série ne contient que des sinus, avec
+$$b_n = \\frac{2}{\\pi}\\int_0^{\\pi} f(x)\\sin(nx)\\,dx$$
+
+Ces simplifications sont systématiquement exploitées dans les calculs ci-dessous.
+
+### 5. Exemple résolu — fonction créneau
+
+Soit $f$ la fonction $2\\pi$-périodique impaire définie sur $]-\\pi,\\pi[$ par $f(x)=1$ si $x\\in\\,]0,\\pi[$ et $f(x)=-1$ si $x\\in\\,]-\\pi,0[$ (et $f(0)=0$, valeur sans incidence sur l'intégrale).
+
+$f$ étant impaire, $a_n=0$ pour tout $n$. Calculons $b_n$ :
+$$b_n = \\frac{2}{\\pi}\\int_0^{\\pi} \\sin(nx)\\,dx = \\frac{2}{\\pi}\\left[-\\frac{\\cos(nx)}{n}\\right]_0^{\\pi} = \\frac{2}{n\\pi}\\big(1-\\cos(n\\pi)\\big) = \\frac{2}{n\\pi}\\big(1-(-1)^n\\big)$$
+
+Si $n$ est **pair**, $(-1)^n=1$ donc $b_n=0$. Si $n$ est **impair**, $(-1)^n=-1$ donc $b_n=\\dfrac{4}{n\\pi}$. En posant $n=2k+1$ :
+$$f(x) \\sim \\frac{4}{\\pi}\\sum_{k=0}^{+\\infty} \\frac{\\sin\\big((2k+1)x\\big)}{2k+1}$$
+
+(le symbole $\\sim$ signifie ici « a pour série de Fourier » — la convergence précise est étudiée au paragraphe 7).
+
+### 6. Exemples résolus — dents de scie et triangle
+
+**Dents de scie.** Soit $g$ la fonction $2\\pi$-périodique impaire définie par $g(x)=x$ sur $]-\\pi,\\pi[$. Comme $g$ est impaire, $a_n=0$. On calcule $b_n$ par intégration par parties, avec $u=x,\\ dv=\\sin(nx)dx$, donc $du=dx,\\ v=-\\dfrac{\\cos(nx)}{n}$ :
+$$\\int_0^{\\pi} x\\sin(nx)\\,dx = \\left[-\\frac{x\\cos(nx)}{n}\\right]_0^{\\pi} + \\frac{1}{n}\\int_0^{\\pi}\\cos(nx)\\,dx = -\\frac{\\pi\\cos(n\\pi)}{n} + \\frac{1}{n}\\left[\\frac{\\sin(nx)}{n}\\right]_0^{\\pi} = -\\frac{\\pi(-1)^n}{n} + 0$$
+
+D'où $b_n = \\dfrac{2}{\\pi}\\cdot\\left(-\\dfrac{\\pi(-1)^n}{n}\\right) = \\dfrac{2(-1)^{n+1}}{n}$, et :
+$$g(x) \\sim \\sum_{n=1}^{+\\infty} \\frac{2(-1)^{n+1}}{n}\\sin(nx) = 2\\sin x - \\sin(2x) + \\frac{2}{3}\\sin(3x) - \\cdots$$
+
+**Triangle.** Soit $h$ la fonction $2\\pi$-périodique paire définie par $h(x)=|x|$ sur $[-\\pi,\\pi]$. Comme $h$ est paire, $b_n=0$. La valeur moyenne donne :
+$$a_0 = \\frac{2}{\\pi}\\int_0^{\\pi} x\\,dx = \\frac{2}{\\pi}\\cdot\\frac{\\pi^2}{2} = \\pi$$
+
+Pour $n\\geq1$, intégration par parties avec $u=x,\\ dv=\\cos(nx)dx$, donc $v=\\dfrac{\\sin(nx)}{n}$ :
+$$\\int_0^{\\pi} x\\cos(nx)\\,dx = \\left[\\frac{x\\sin(nx)}{n}\\right]_0^{\\pi} - \\frac{1}{n}\\int_0^{\\pi}\\sin(nx)\\,dx = 0 + \\frac{1}{n}\\left[\\frac{\\cos(nx)}{n}\\right]_0^{\\pi} = \\frac{(-1)^n-1}{n^2}$$
+
+D'où $a_n = \\dfrac{2}{\\pi}\\cdot\\dfrac{(-1)^n-1}{n^2}$. Si $n$ est pair, $a_n=0$ ; si $n$ est impair, $(-1)^n-1=-2$ donc $a_n = -\\dfrac{4}{\\pi n^2}$. Avec $n=2k+1$ :
+$$h(x) \\sim \\frac{\\pi}{2} - \\frac{4}{\\pi}\\sum_{k=0}^{+\\infty} \\frac{\\cos\\big((2k+1)x\\big)}{(2k+1)^2}$$
+
+### 7. Théorème de Dirichlet (convergence ponctuelle)
+
+**Théorème (Dirichlet) :** Soit $f$ une fonction $2\\pi$-périodique, de classe $\\mathcal{C}^1$ par morceaux sur $[-\\pi,\\pi]$ (c'est-à-dire $\\mathcal{C}^1$ sauf en un nombre fini de points, où $f$ et $f'$ admettent des limites à gauche et à droite finies). Alors, pour tout $x\\in\\mathbb{R}$, la série de Fourier de $f$ converge et :
+
+$$\\lim_{N\\to+\\infty} S_N f(x) = \\frac{f(x^-)+f(x^+)}{2}$$
+
+où $f(x^-)$ et $f(x^+)$ désignent les limites à gauche et à droite de $f$ en $x$. En particulier :
+- en tout point $x$ où $f$ est **continue**, $f(x^-)=f(x^+)=f(x)$, et la série de Fourier converge vers $f(x)$ exactement ;
+- en un point de **discontinuité** $x_0$, la série converge vers la **demi-somme des limites** $\\dfrac{f(x_0^-)+f(x_0^+)}{2}$ (le « milieu du saut »), et non vers $f(x_0)$ en général.
+
+**Application au créneau (§5) :** au point $x=0$, $f$ est discontinue avec $f(0^-)=-1$ et $f(0^+)=1$. La série de Fourier vaut $0$ en $x=0$ (chaque $\\sin(0)=0$), ce qui coïncide bien avec la demi-somme $\\dfrac{-1+1}{2}=0$ — conforme au théorème, alors que $f(0)$ lui-même a été fixé arbitrairement à $0$ (et est en fait sans importance, car un point isolé ne change pas les intégrales).
+
+**Application classique — calcul de $\\sum \\dfrac{(-1)^{n+1}}{2n-1}$ :** dans le créneau du §5, évaluons la série en $x=\\dfrac{\\pi}{2}$, point de continuité de $f$ (et $f(\\pi/2)=1$) :
+$$1 = \\frac{4}{\\pi}\\sum_{k=0}^{+\\infty} \\frac{\\sin\\big((2k+1)\\frac{\\pi}{2}\\big)}{2k+1}$$
+
+Comme $\\sin\\big((2k+1)\\frac\\pi2\\big)$ vaut alternativement $1,-1,1,-1,\\dots$, on obtient $1 = \\dfrac{4}{\\pi}\\left(1-\\dfrac13+\\dfrac15-\\dfrac17+\\cdots\\right)$, soit la formule de Leibniz $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{(-1)^k}{2k+1} = \\frac{\\pi}{4}$.
+
+### 8. Égalité de Parseval
+
+**Théorème (Parseval) :** Si $f$ est $T$-périodique, continue par morceaux et de carré intégrable sur une période, alors :
+$$\\frac{1}{T}\\int_0^{T} f(x)^2\\,dx = \\frac{a_0^2}{4} + \\frac{1}{2}\\sum_{n=1}^{+\\infty}\\big(a_n^2+b_n^2\\big) = \\sum_{n=-\\infty}^{+\\infty} |c_n|^2$$
+
+Cette égalité exprime que l'**énergie moyenne** de $f$ sur une période est entièrement répartie entre ses harmoniques — c'est l'analogue, pour les séries de Fourier, du théorème de Pythagore dans l'espace des fonctions de carré intégrable muni du produit scalaire $\\langle f,g\\rangle = \\frac{1}{T}\\int_0^T fg$.
+
+**Application — retrouver $\\boldsymbol{\\sum 1/n^2 = \\pi^2/6}$.** Reprenons le créneau $f$ du §5 ($T=2\\pi$, $a_n=0$, $b_{2k+1}=\\dfrac{4}{(2k+1)\\pi}$, $b_{2k}=0$).
+
+*Membre de gauche :* $f(x)^2=1$ pour tout $x$ (puisque $f$ vaut $\\pm1$), donc $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)^2\\,dx = \\dfrac{1}{2\\pi}\\cdot 2\\pi = 1$.
+
+*Membre de droite :* $a_0=0$ donc $\\dfrac{a_0^2}{4}=0$, et :
+$$\\frac{1}{2}\\sum_{n=1}^{+\\infty} b_n^2 = \\frac{1}{2}\\sum_{k=0}^{+\\infty} \\left(\\frac{4}{(2k+1)\\pi}\\right)^2 = \\frac{1}{2}\\cdot\\frac{16}{\\pi^2}\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2} = \\frac{8}{\\pi^2}\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}$$
+
+L'égalité de Parseval donne $1 = \\dfrac{8}{\\pi^2}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{1}{(2k+1)^2}$, d'où :
+$$\\sum_{k=0}^{+\\infty} \\frac{1}{(2k+1)^2} = \\frac{\\pi^2}{8}$$
+
+Il reste à passer des entiers impairs à tous les entiers. En séparant la somme $\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$ en termes impairs et pairs ($n=2p$) :
+$$\\sum_{n=1}^{+\\infty}\\frac{1}{n^2} = \\underbrace{\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}}_{=\\,\\pi^2/8} \\;+\\; \\sum_{p=1}^{+\\infty}\\frac{1}{(2p)^2} = \\frac{\\pi^2}{8} + \\frac{1}{4}\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$$
+
+En notant $S=\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$, cette relation s'écrit $S = \\dfrac{\\pi^2}{8}+\\dfrac{S}{4}$, soit $\\dfrac{3S}{4}=\\dfrac{\\pi^2}{8}$, donc :
+$$\\sum_{n=1}^{+\\infty} \\frac{1}{n^2} = \\frac{\\pi^2}{6}$$
+
+C'est le célèbre **problème de Bâle**, résolu ici par une méthode purement analytique (sans les outils d'Euler d'origine).
+
+### 9. Récapitulatif des formules essentielles
+
+| Notion | Formule |
+|---|---|
+| Coefficients trigonométriques | $a_n=\\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)\\cos(nx)dx,\\ \\ b_n=\\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)\\sin(nx)dx$ |
+| Coefficients complexes | $c_n=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)e^{-inx}dx$ |
+| $f$ paire | $b_n=0$ pour tout $n$ |
+| $f$ impaire | $a_n=0$ pour tout $n$ |
+| Dirichlet (point de continuité) | $S_\\infty f(x)=f(x)$ |
+| Dirichlet (point de discontinuité) | $S_\\infty f(x)=\\dfrac{f(x^-)+f(x^+)}{2}$ |
+| Parseval | $\\dfrac{1}{T}\\displaystyle\\int_0^{T}f^2=\\dfrac{a_0^2}{4}+\\dfrac{1}{2}\\sum(a_n^2+b_n^2)$ |`,
+  exercises: [
+    {
+      id: "anal3-l3-4-e1",
+      question: "Quelle formule donne le coefficient $a_0$ d'une fonction $f$ $2\\pi$-périodique ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$a_0 = \\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,dx$" },
+        { id: "B", text: "$a_0 = \\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,dx$" },
+        { id: "C", text: "$a_0 = \\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,dx$" },
+        { id: "D", text: "$a_0 = \\dfrac{2}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi} f(x)\\,dx$" },
+      ],
+      correctId: "A",
+      explanation: "Par définition, $a_n=\\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)\\cos(nx)dx$ pour tout $n\\geq0$, y compris $n=0$ (où $\\cos(0\\cdot x)=1$). Donc $a_0=\\dfrac{1}{\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)\\,dx$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "anal3-l3-4-e2",
+      question: "Vrai ou faux : si $f$ est une fonction paire, sa série de Fourier ne contient que des termes en cosinus.",
+      type: "true_false",
+      options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+      correctId: "V",
+      explanation: "Vrai. Si $f$ est paire, la fonction $x\\mapsto f(x)\\sin(nx)$ est impaire (produit d'une fonction paire et d'une fonction impaire), donc son intégrale sur $[-\\pi,\\pi]$ est nulle : $b_n=0$ pour tout $n$. La série ne contient donc que le terme constant $a_0/2$ et les cosinus.",
+      difficulty: "debutant",
+    },
+    {
+      id: "anal3-l3-4-e3",
+      question: "Quelle est la relation entre les coefficients complexes $c_n$ et les coefficients trigonométriques $a_n, b_n$ pour $n\\geq1$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$c_n = a_n + ib_n$" },
+        { id: "B", text: "$c_n = \\dfrac{a_n - ib_n}{2}$" },
+        { id: "C", text: "$c_n = a_n - b_n$" },
+        { id: "D", text: "$c_n = \\dfrac{a_n + ib_n}{2}$" },
+      ],
+      correctId: "B",
+      explanation: "En développant $c_n=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi f(x)e^{-inx}dx=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi f(x)(\\cos(nx)-i\\sin(nx))dx$, on identifie $c_n=\\dfrac{1}{2}\\left(\\dfrac{1}{\\pi}\\displaystyle\\int f\\cos(nx)dx\\right)-\\dfrac{i}{2}\\left(\\dfrac{1}{\\pi}\\displaystyle\\int f\\sin(nx)dx\\right)=\\dfrac{a_n-ib_n}{2}$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "anal3-l3-4-e4",
+      question: "Pour la fonction créneau $f$ ($2\\pi$-périodique, impaire, $f=1$ sur $]0,\\pi[$, $f=-1$ sur $]-\\pi,0[$), que vaut $b_2$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\dfrac{4}{\\pi}$" },
+        { id: "B", text: "$\\dfrac{2}{\\pi}$" },
+        { id: "C", text: "$0$" },
+        { id: "D", text: "$\\dfrac{4}{2\\pi}$" },
+      ],
+      correctId: "C",
+      explanation: "On a $b_n=\\dfrac{2}{n\\pi}(1-(-1)^n)$. Pour $n=2$ (pair), $(-1)^2=1$, donc $b_2=\\dfrac{2}{2\\pi}(1-1)=0$. Seuls les indices impairs donnent un coefficient non nul pour cette fonction créneau.",
+      difficulty: "debutant",
+    },
+    {
+      id: "anal3-l3-4-e5",
+      question: "Vrai ou faux : pour une fonction impaire, on a toujours $a_0=0$.",
+      type: "true_false",
+      options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+      correctId: "V",
+      explanation: "Vrai. $a_0$ est un cas particulier de $a_n$ (avec $n=0$), donc la règle « $f$ impaire $\\Rightarrow a_n=0$ pour tout $n$ » s'applique aussi à $n=0$. Cela correspond au fait que la valeur moyenne d'une fonction impaire sur une période symétrique est nulle.",
+      difficulty: "debutant",
+    },
+    {
+      id: "anal3-l3-4-e6",
+      question: "Pour la fonction dents de scie $g(x)=x$ sur $]-\\pi,\\pi[$ ($2\\pi$-périodique), que vaut $b_3$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\dfrac{2}{3}$" },
+        { id: "B", text: "$-\\dfrac{2}{3}$" },
+        { id: "C", text: "$2$" },
+        { id: "D", text: "$-2$" },
+      ],
+      correctId: "A",
+      explanation: "On a établi $b_n=\\dfrac{2(-1)^{n+1}}{n}$. Pour $n=3$ : $(-1)^{4}=1$, donc $b_3=\\dfrac{2\\times1}{3}=\\dfrac{2}{3}$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "anal3-l3-4-e7",
+      question: "Pour la fonction triangle $h(x)=|x|$ sur $[-\\pi,\\pi]$ ($2\\pi$-périodique), que vaut $a_3$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$0$" },
+        { id: "B", text: "$-\\dfrac{4}{9\\pi}$" },
+        { id: "C", text: "$\\dfrac{4}{9\\pi}$" },
+        { id: "D", text: "$-\\dfrac{4}{3\\pi}$" },
+      ],
+      correctId: "B",
+      explanation: "On a $a_n=-\\dfrac{4}{\\pi n^2}$ pour $n$ impair. Pour $n=3$ : $a_3=-\\dfrac{4}{\\pi\\cdot9}=-\\dfrac{4}{9\\pi}$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "anal3-l3-4-e8",
+      question: "La fonction créneau du cours présente une discontinuité en $x=\\pi$ (saut entre $f(\\pi^-)=1$ et $f(-\\pi^+)=-1$, par périodicité). Vers quelle valeur converge sa série de Fourier en ce point ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$1$" },
+        { id: "B", text: "$-1$" },
+        { id: "C", text: "$0$" },
+        { id: "D", text: "La série diverge en ce point" },
+      ],
+      correctId: "C",
+      explanation: "Par le théorème de Dirichlet, en un point de discontinuité la série de Fourier converge vers la demi-somme des limites à gauche et à droite : $\\dfrac{f(\\pi^-)+f(\\pi^+)}{2}=\\dfrac{1+(-1)}{2}=0$ (en utilisant $f(\\pi^+)=f(-\\pi^+)=-1$ par $2\\pi$-périodicité).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "anal3-l3-4-e9",
+      question: "Vrai ou faux : le théorème de Dirichlet exige seulement que $f$ soit continue par morceaux (pas nécessairement $\\mathcal{C}^1$ par morceaux) pour garantir la convergence ponctuelle de la série de Fourier vers la demi-somme des limites.",
+      type: "true_false",
+      options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+      correctId: "F",
+      explanation: "Faux. L'énoncé usuel du théorème de Dirichlet requiert que $f$ soit $\\mathcal{C}^1$ par morceaux (c'est-à-dire que $f$ ET $f'$ admettent des limites à gauche/à droite finies en tout point). La seule continuité par morceaux ne suffit pas à garantir la convergence ponctuelle (il existe des contre-exemples de fonctions continues dont la série de Fourier diverge en certains points).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "anal3-l3-4-e10",
+      question: "En évaluant la série de Fourier de la fonction créneau en $x=\\dfrac{\\pi}{2}$ (point de continuité où $f(\\pi/2)=1$), quelle identité classique obtient-on ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{(-1)^k}{2k+1}=\\frac{\\pi}{4}$" },
+        { id: "B", text: "$\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{(-1)^k}{2k+1}=\\frac{\\pi}{2}$" },
+        { id: "C", text: "$\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}=\\frac{\\pi^2}{6}$" },
+        { id: "D", text: "$\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}$" },
+      ],
+      correctId: "A",
+      explanation: "En $x=\\pi/2$, $\\sin((2k+1)\\pi/2)$ vaut alternativement $1,-1,1,-1,\\dots$, donc $1=\\dfrac{4}{\\pi}\\left(1-\\dfrac13+\\dfrac15-\\cdots\\right)$, soit la formule de Leibniz $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{(-1)^k}{2k+1}=\\frac{\\pi}{4}$. Les options C et D sont vraies mais s'obtiennent par Parseval, pas par évaluation ponctuelle de Dirichlet.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "anal3-l3-4-e11",
+      question: "Démontrer, à partir de l'égalité de Parseval appliquée à la fonction créneau du cours, que $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}$.",
+      type: "open",
+      modelAnswer: "Le membre de gauche de Parseval vaut 1 car f²=1 partout. Le membre de droite vaut (1/2)·Σb_n² avec b_{2k+1}=4/((2k+1)π) et b_{2k}=0, donc (1/2)·(16/π²)·Σ1/(2k+1)² = (8/π²)Σ1/(2k+1)². L'égalité 1=(8/π²)Σ1/(2k+1)² donne Σ1/(2k+1)²=π²/8.",
+      explanation: "**Rappel des données :** pour le créneau, $a_n=0$ pour tout $n$, $b_{2k}=0$, $b_{2k+1}=\\dfrac{4}{(2k+1)\\pi}$.\n\n**Membre de gauche de Parseval :** $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}f(x)^2dx$. Comme $f(x)=\\pm1$, on a $f(x)^2=1$ pour tout $x$, donc $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}1\\,dx=\\dfrac{1}{2\\pi}\\cdot2\\pi=1$.\n\n**Membre de droite de Parseval :** $\\dfrac{a_0^2}{4}+\\dfrac12\\displaystyle\\sum_{n=1}^{+\\infty}(a_n^2+b_n^2)=0+\\dfrac12\\displaystyle\\sum_{k=0}^{+\\infty}b_{2k+1}^2$ (les termes pairs et les $a_n$ sont nuls).\n\n$$\\frac12\\sum_{k=0}^{+\\infty}\\left(\\frac{4}{(2k+1)\\pi}\\right)^2=\\frac12\\cdot\\frac{16}{\\pi^2}\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}=\\frac{8}{\\pi^2}\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}$$\n\n**Conclusion :** l'égalité des deux membres donne $1=\\dfrac{8}{\\pi^2}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{1}{(2k+1)^2}$, d'où $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}$. $\\square$",
+      difficulty: "expert",
+    },
+    {
+      id: "anal3-l3-4-e12",
+      question: "En partant du résultat $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}=\\frac{\\pi^2}{8}$, démontrer que $\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}=\\frac{\\pi^2}{6}$.",
+      type: "open",
+      modelAnswer: "On sépare la somme S=Σ1/n² en termes impairs (= π²/8) et termes pairs n=2p (= (1/4)Σ1/p² = S/4). Donc S = π²/8 + S/4, soit (3/4)S = π²/8, donc S = π²/6.",
+      explanation: "**Idée :** séparer la somme sur tous les entiers en indices impairs et indices pairs.\n\nNotons $S=\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$. On écrit $\\mathbb{N}^*=\\{\\text{impairs}\\}\\cup\\{\\text{pairs}\\}$ :\n\n$$S=\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^2}+\\sum_{p=1}^{+\\infty}\\frac{1}{(2p)^2}$$\n\nLe premier terme vaut $\\dfrac{\\pi^2}{8}$ par le résultat précédent. Le second se factorise :\n$$\\sum_{p=1}^{+\\infty}\\frac{1}{(2p)^2}=\\sum_{p=1}^{+\\infty}\\frac{1}{4p^2}=\\frac14\\sum_{p=1}^{+\\infty}\\frac{1}{p^2}=\\frac{S}{4}$$\n\nOn obtient donc l'équation $S=\\dfrac{\\pi^2}{8}+\\dfrac{S}{4}$, soit $S-\\dfrac{S}{4}=\\dfrac{\\pi^2}{8}$, c'est-à-dire $\\dfrac{3S}{4}=\\dfrac{\\pi^2}{8}$.\n\nEn multipliant par $\\dfrac{4}{3}$ : $S=\\dfrac{4}{3}\\cdot\\dfrac{\\pi^2}{8}=\\dfrac{\\pi^2}{6}$. $\\square$\n\nC'est le célèbre **problème de Bâle**.",
+      difficulty: "expert",
+    },
+    {
+      id: "anal3-l3-4-e13",
+      question: "Soit $h(x)=|x|$ sur $[-\\pi,\\pi]$ ($2\\pi$-périodique, $a_0=\\pi$, $a_{2k+1}=-\\dfrac{4}{\\pi(2k+1)^2}$, $a_{2k}=0$ pour $k\\geq1$, $b_n=0$). Que vaut $\\displaystyle\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^4}$ d'après Parseval ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\dfrac{\\pi^4}{96}$" },
+        { id: "B", text: "$\\dfrac{\\pi^4}{48}$" },
+        { id: "C", text: "$\\dfrac{\\pi^2}{8}$" },
+        { id: "D", text: "$\\dfrac{\\pi^4}{16}$" },
+      ],
+      correctId: "A",
+      explanation: "Membre de gauche : $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi x^2dx=\\dfrac{1}{2\\pi}\\cdot\\dfrac{2\\pi^3}{3}=\\dfrac{\\pi^2}{3}$. Membre de droite : $\\dfrac{a_0^2}{4}+\\dfrac12\\displaystyle\\sum_{k=0}^{+\\infty}a_{2k+1}^2=\\dfrac{\\pi^2}{4}+\\dfrac12\\cdot\\dfrac{16}{\\pi^2}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{1}{(2k+1)^4}$. En égalant : $\\dfrac{\\pi^2}{3}-\\dfrac{\\pi^2}{4}=\\dfrac{8}{\\pi^2}\\displaystyle\\sum\\dfrac{1}{(2k+1)^4}$, soit $\\dfrac{\\pi^2}{12}=\\dfrac{8}{\\pi^2}\\displaystyle\\sum\\dfrac{1}{(2k+1)^4}$, d'où $\\displaystyle\\sum\\dfrac{1}{(2k+1)^4}=\\dfrac{\\pi^4}{96}$.",
+      difficulty: "expert",
+    },
+    {
+      id: "anal3-l3-4-e14",
+      question: "Vrai ou faux : pour toute fonction $f$ $2\\pi$-périodique de classe $\\mathcal{C}^1$ par morceaux et continue partout, la série de Fourier de $f$ converge vers $f(x)$ en TOUT point $x$, sans exception.",
+      type: "true_false",
+      options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+      correctId: "V",
+      explanation: "Vrai. Si $f$ est continue en tout point (pas seulement $\\mathcal{C}^1$ par morceaux mais sans aucune discontinuité), alors pour tout $x$, $f(x^-)=f(x^+)=f(x)$, donc la demi-somme de Dirichlet $\\dfrac{f(x^-)+f(x^+)}{2}$ vaut exactement $f(x)$. C'est le cas par exemple de la fonction triangle $h(x)=|x|$ du cours, qui est continue partout (contrairement au créneau).",
+      difficulty: "expert",
+    },
+    {
+      id: "anal3-l3-4-e15",
+      question: "Démontrer, en utilisant l'égalité de Parseval appliquée à la fonction triangle $h(x)=|x|$ sur $[-\\pi,\\pi]$ (avec $a_0=\\pi$, $a_n=0$ pour $n$ pair $\\geq2$, $a_{2k+1}=-\\frac{4}{\\pi(2k+1)^2}$, $b_n=0$), que $\\displaystyle\\sum_{n=1}^{+\\infty}\\frac{1}{n^4}=\\frac{\\pi^4}{90}$.",
+      type: "open",
+      modelAnswer: "Parseval donne Σ1/(2k+1)⁴=π⁴/96 (calcul direct). En séparant S=Σ1/n⁴ en impairs (π⁴/96) et pairs n=2p (=(1/16)S), on obtient S=π⁴/96+S/16, donc (15/16)S=π⁴/96, d'où S=(16/15)(π⁴/96)=π⁴/90.",
+      explanation: "**Étape 1 — Parseval sur le triangle.** Membre de gauche : $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi x^2\\,dx=\\dfrac{1}{2\\pi}\\left[\\dfrac{x^3}{3}\\right]_{-\\pi}^{\\pi}=\\dfrac{1}{2\\pi}\\cdot\\dfrac{2\\pi^3}{3}=\\dfrac{\\pi^2}{3}$.\n\nMembre de droite : $\\dfrac{a_0^2}{4}+\\dfrac12\\displaystyle\\sum_{k=0}^{+\\infty}a_{2k+1}^2=\\dfrac{\\pi^2}{4}+\\dfrac12\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{16}{\\pi^2(2k+1)^4}=\\dfrac{\\pi^2}{4}+\\dfrac{8}{\\pi^2}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{1}{(2k+1)^4}$.\n\nEn égalant : $\\dfrac{\\pi^2}{3}-\\dfrac{\\pi^2}{4}=\\dfrac{8}{\\pi^2}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{1}{(2k+1)^4}$, soit $\\dfrac{\\pi^2}{12}=\\dfrac{8}{\\pi^2}\\displaystyle\\sum\\dfrac{1}{(2k+1)^4}$, d'où :\n$$\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^4}=\\frac{\\pi^4}{96}$$\n\n**Étape 2 — séparation pairs/impairs.** Notons $S=\\displaystyle\\sum_{n=1}^{+\\infty}\\dfrac{1}{n^4}$. Comme précédemment :\n$$S=\\sum_{k=0}^{+\\infty}\\frac{1}{(2k+1)^4}+\\sum_{p=1}^{+\\infty}\\frac{1}{(2p)^4}=\\frac{\\pi^4}{96}+\\frac{1}{16}\\sum_{p=1}^{+\\infty}\\frac{1}{p^4}=\\frac{\\pi^4}{96}+\\frac{S}{16}$$\n\n**Étape 3 — résolution.** $S-\\dfrac{S}{16}=\\dfrac{\\pi^4}{96}$, soit $\\dfrac{15S}{16}=\\dfrac{\\pi^4}{96}$, d'où :\n$$S=\\frac{16}{15}\\cdot\\frac{\\pi^4}{96}=\\frac{16\\pi^4}{1440}=\\frac{\\pi^4}{90}$$\n\nOn retrouve ainsi $\\zeta(4)=\\displaystyle\\sum_{n=1}^{+\\infty}\\dfrac{1}{n^4}=\\dfrac{\\pi^4}{90}$, par une méthode entièrement analogue à celle utilisée pour $\\zeta(2)=\\pi^2/6$. $\\square$",
+      difficulty: "expert",
+    },
+  ],
       },
     ],
   },
@@ -7021,6 +7811,254 @@ Tout idéal maximal est premier. Dans $\\mathbb{Z}$ : les idéaux premiers non n
           },
         ],
       },
+      {
+        id: "log1-l1-4",
+        slug: "ensembles-numeriques-valeur-absolue-bornes",
+        title: "Ensembles numériques : ℕ, ℤ, ℚ, ℝ, ℂ, valeur absolue, majorants et minorants",
+        durationMinutes: 55,
+        content: `## Ensembles numériques : ℕ, ℤ, ℚ, ℝ, ℂ, valeur absolue, majorants et minorants
+
+  ### 1. La hiérarchie des ensembles de nombres
+
+  Les ensembles de nombres usuels s'emboîtent : $\\mathbb{N} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R} \\subset \\mathbb{C}$.
+
+  - $\\mathbb{N} = \\{0, 1, 2, 3, \\ldots\\}$ : les **entiers naturels**, stables par addition et multiplication, mais pas par soustraction ($2-5 \\notin \\mathbb{N}$).
+  - $\\mathbb{Z} = \\{\\ldots, -2,-1,0,1,2,\\ldots\\}$ : les **entiers relatifs**, obtenus en ajoutant les opposés des éléments de $\\mathbb{N}$. Stable par addition, soustraction, multiplication, mais pas par division ($1/2 \\notin \\mathbb{Z}$).
+  - $\\mathbb{Q} = \\left\\{ \\dfrac{p}{q} \\;\\middle|\\; p \\in \\mathbb{Z},\\, q \\in \\mathbb{Z}^*\\right\\}$ : les **rationnels**, quotients d'entiers. Stable par les quatre opérations (division par un non-nul). Mais $\\mathbb{Q}$ a des « trous » : $\\sqrt{2}$ n'est pas rationnel (preuve par l'absurde classique, voir leçon 3).
+  - $\\mathbb{R}$ : les **réels**, qui « complètent » $\\mathbb{Q}$ en lui ajoutant tous les irrationnels (comme $\\sqrt 2$, $\\pi$, $e$). C'est un corps **totalement ordonné** et **complet** (toute partie non vide majorée admet une borne supérieure — voir section 4).
+  - $\\mathbb{C} = \\{a+ib \\mid a,b\\in\\mathbb{R}\\}$, avec $i^2=-1$ : les **complexes**, qui complètent $\\mathbb{R}$ pour que toute équation polynomiale non constante ait une solution (théorème de d'Alembert-Gauss). En contrepartie, $\\mathbb{C}$ **n'est pas totalement ordonné** : on ne peut pas comparer deux complexes non réels avec $\\leq$ de façon compatible avec les opérations.
+
+  **Densité de $\\mathbb{Q}$ dans $\\mathbb{R}$ :** entre deux réels distincts quelconques, même très proches, il existe toujours un rationnel (et même une infinité). C'est une conséquence de la propriété d'Archimède.
+
+  ### 2. Valeur absolue dans $\\mathbb{R}$
+
+  Pour $x \\in \\mathbb{R}$, la **valeur absolue** est définie par :
+  $$|x| = \\begin{cases} x & \\text{si } x \\geq 0 \\\\ -x & \\text{si } x < 0 \\end{cases}$$
+
+  Elle représente la distance de $x$ à $0$ sur la droite réelle, et plus généralement $|x-y|$ est la distance entre $x$ et $y$.
+
+  **Propriétés fondamentales :** pour tous $x, y \\in \\mathbb{R}$ :
+  - $|x| \\geq 0$, et $|x|=0 \\iff x=0$ ;
+  - $|{-x}| = |x|$ ;
+  - $|xy| = |x|\\,|y|$ ;
+  - $|x| \\leq M \\iff -M \\leq x \\leq M$ (pour $M \\geq 0$) — très utile pour résoudre des inégalités ;
+  - **Inégalité triangulaire :** $|x+y| \\leq |x|+|y|$, avec égalité si et seulement si $x$ et $y$ sont de même signe ;
+  - **Inégalité triangulaire inverse :** $\\big||x|-|y|\\big| \\leq |x-y|$.
+
+  **Preuve de l'inégalité triangulaire :** on a $-|x|\\leq x\\leq |x|$ et $-|y|\\leq y\\leq |y|$ ; en additionnant : $-(|x|+|y|) \\leq x+y \\leq |x|+|y|$, ce qui équivaut exactement à $|x+y|\\leq |x|+|y|$ d'après la propriété ci-dessus (avec $M=|x|+|y|$). $\\square$
+
+  **Module dans $\\mathbb{C}$ :** pour $z=a+ib$, le **module** $|z| = \\sqrt{a^2+b^2}$ généralise la valeur absolue (et coïncide avec elle si $z$ est réel, $b=0$). Il vérifie les mêmes propriétés : $|z_1z_2|=|z_1||z_2|$, $|z_1+z_2|\\leq|z_1|+|z_2|$.
+
+  ### 3. Majorants, minorants
+
+  Soit $A \\subset \\mathbb{R}$ une partie non vide.
+
+  - $M \\in \\mathbb{R}$ est un **majorant** de $A$ si $\\forall a \\in A,\\; a \\leq M$. On dit alors que $A$ est **majorée**.
+  - $m \\in \\mathbb{R}$ est un **minorant** de $A$ si $\\forall a \\in A,\\; a \\geq m$. On dit alors que $A$ est **minorée**.
+  - $A$ est **bornée** si elle est à la fois majorée et minorée.
+
+  Un majorant n'est pas nécessairement unique : si $M$ majore $A$, tout réel $M' \\geq M$ majore aussi $A$. **Le maximum** de $A$, noté $\\max A$, est un majorant qui appartient à $A$ ; il n'existe pas toujours (ex : $A=[0,1[$ n'a pas de maximum).
+
+  ### 4. Borne supérieure et borne inférieure
+
+  La **borne supérieure** de $A$, notée $\\sup A$, est le **plus petit des majorants** de $A$ (si elle existe). Formellement, $S = \\sup A$ vérifie :
+  1. $S$ est un majorant de $A$ : $\\forall a \\in A,\\; a \\leq S$ ;
+  2. $S$ est le plus petit : $\\forall \\varepsilon > 0,\\; \\exists a \\in A,\\; a > S - \\varepsilon$ (aucun réel strictement inférieur à $S$ ne majore $A$).
+
+  De même, la **borne inférieure** $\\inf A$ est le plus grand des minorants, caractérisée par $\\forall \\varepsilon>0,\\;\\exists a\\in A,\\; a < \\inf A + \\varepsilon$.
+
+  **Propriété de la borne supérieure (axiome de complétude de $\\mathbb{R}$) :** toute partie non vide et **majorée** de $\\mathbb{R}$ admet une borne supérieure dans $\\mathbb{R}$. C'est cette propriété qui distingue fondamentalement $\\mathbb{R}$ de $\\mathbb{Q}$ : l'ensemble $A=\\{x\\in\\mathbb{Q} \\mid x^2<2\\}$ est majoré dans $\\mathbb{Q}$ mais n'a pas de borne supérieure **rationnelle** (sa borne supérieure réelle serait $\\sqrt 2 \\notin \\mathbb{Q}$).
+
+  **Différence $\\sup$ / $\\max$ :** si $\\sup A \\in A$, alors $\\sup A = \\max A$. Sinon, $A$ n'a pas de maximum mais a tout de même une borne supérieure. Exemple : $A = [0,1[$ : $\\sup A = 1 \\notin A$ (pas de maximum), tandis que $\\inf A = \\min A = 0 \\in A$.
+
+  **Exemple résolu :** Déterminer $\\sup A$ pour $A = \\left\\{ 1 - \\dfrac{1}{n} \\;\\middle|\\; n \\in \\mathbb{N}^*\\right\\}$.
+
+  Pour tout $n\\geq 1$, $1-\\dfrac1n < 1$, donc $1$ est un majorant. Montrons que c'est le plus petit : soit $\\varepsilon>0$. Par la propriété d'Archimède, il existe $n\\in\\mathbb{N}^*$ tel que $n > \\dfrac{1}{\\varepsilon}$, donc $\\dfrac1n<\\varepsilon$, donc $1-\\dfrac1n > 1-\\varepsilon$. On a donc trouvé un élément de $A$ strictement supérieur à $1-\\varepsilon$ : aucun réel $<1$ ne majore $A$. Conclusion : $\\sup A = 1$, et comme $1\\notin A$, $A$ n'a pas de maximum.
+
+  ### 5. Résumé des distinctions clés
+
+  | Notion | Définition courte |
+  |---|---|
+  | Majorant | $M$ tel que tous les éléments de $A$ sont $\\leq M$ |
+  | $\\max A$ | majorant qui appartient à $A$ (n'existe pas toujours) |
+  | $\\sup A$ | plus petit des majorants (existe toujours si $A$ est non vide et majorée, par complétude de $\\mathbb{R}$) |
+  | $\\mathbb{Q}$ | dense dans $\\mathbb{R}$ mais **non complet** (pas de propriété de la borne sup) |
+  | $\\mathbb{C}$ | complet algébriquement (d'Alembert-Gauss) mais **non ordonné** |`,
+        exercises: [
+          {
+            id: "log1-l1-4-e1",
+            question: "Lequel des ensembles suivants n'est pas stable par soustraction ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\mathbb{N}$" },
+              { id: "B", text: "$\\mathbb{Z}$" },
+              { id: "C", text: "$\\mathbb{Q}$" },
+              { id: "D", text: "$\\mathbb{R}$" },
+            ],
+            correctId: "A",
+            explanation: "$\\mathbb{N}$ n'est pas stable par soustraction : par exemple $2-5=-3 \\notin \\mathbb{N}$. En revanche $\\mathbb{Z}$, $\\mathbb{Q}$ et $\\mathbb{R}$ sont tous stables par soustraction.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-4-e2",
+            question: "Calculer $|-7|$ et $|3-8|$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$7$ et $5$" },
+              { id: "B", text: "$-7$ et $5$" },
+              { id: "C", text: "$7$ et $-5$" },
+              { id: "D", text: "$7$ et $11$" },
+            ],
+            correctId: "A",
+            explanation: "$|-7| = 7$ car $-7<0$. $|3-8| = |-5| = 5$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-4-e3",
+            question: "Vrai ou faux : $\\sqrt 2$ est un nombre rationnel.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. $\\sqrt 2$ est irrationnel, comme démontré par l'absurde dans la leçon 3 : s'il s'écrivait $p/q$ irréductible, on aboutirait à une contradiction (p et q tous deux pairs).",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-4-e4",
+            question: "Soit $A = [-2, 5[$. Quels sont $\\max A$ et $\\sup A$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\max A$ n'existe pas, $\\sup A = 5$" },
+              { id: "B", text: "$\\max A = 5$, $\\sup A = 5$" },
+              { id: "C", text: "$\\max A = -2$, $\\sup A = 5$" },
+              { id: "D", text: "$\\max A$ et $\\sup A$ n'existent pas" },
+            ],
+            correctId: "A",
+            explanation: "$5 \\notin A$ (intervalle semi-ouvert), donc $A$ n'a pas de maximum. Mais $5$ est le plus petit majorant : pour tout $\\varepsilon>0$, on trouve des éléments de $A$ strictement supérieurs à $5-\\varepsilon$. Donc $\\sup A = 5$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-4-e5",
+            question: "Quel ensemble n'est pas totalement ordonné de façon compatible avec ses opérations ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\mathbb{C}$" },
+              { id: "B", text: "$\\mathbb{R}$" },
+              { id: "C", text: "$\\mathbb{Q}$" },
+              { id: "D", text: "$\\mathbb{Z}$" },
+            ],
+            correctId: "A",
+            explanation: "$\\mathbb{C}$ n'est pas totalement ordonné de façon compatible avec ses opérations : on ne peut pas définir une relation d'ordre total sur $\\mathbb{C}$ qui respecte addition et multiplication, contrairement à $\\mathbb{N}, \\mathbb{Z}, \\mathbb{Q}, \\mathbb{R}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-4-e6",
+            question: "Résoudre l'inéquation $|x-3| \\leq 2$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x \\in [1,5]$" },
+              { id: "B", text: "$x \\in [-2,2]$" },
+              { id: "C", text: "$x \\in [3,5]$" },
+              { id: "D", text: "$x \\in [1,3]$" },
+            ],
+            correctId: "A",
+            explanation: "$|x-3|\\leq 2 \\iff -2\\leq x-3\\leq 2 \\iff 1\\leq x\\leq 5$, donc $x\\in[1,5]$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-4-e7",
+            question: "Vrai ou faux : toute partie non vide et minorée de $\\mathbb{R}$ admet une borne inférieure dans $\\mathbb{R}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. C'est la version symétrique de la propriété de la borne supérieure : si $A$ est non vide et minorée, alors $-A=\\{-a \\mid a\\in A\\}$ est non vide et majorée, donc admet une borne supérieure $S$, et $\\inf A = -S$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-4-e8",
+            question: "Déterminer $\\sup A$ pour $A = \\left\\{ \\dfrac{1}{n} \\;\\middle|\\; n \\in \\mathbb{N}^* \\right\\}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$ (et c'est aussi le maximum)" },
+              { id: "B", text: "$0$" },
+              { id: "C", text: "$+\\infty$" },
+              { id: "D", text: "$1/2$" },
+            ],
+            correctId: "A",
+            explanation: "Le plus grand élément de $A$ est obtenu pour $n=1$, donnant $1$. Comme $1\\in A$ et que c'est un majorant (tous les autres termes $1/n \\leq 1$), on a $\\max A=\\sup A=1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-4-e9",
+            question: "Démontrer l'inégalité triangulaire inverse $\\big||x|-|y|\\big| \\leq |x-y|$ à partir de l'inégalité triangulaire $|a+b|\\leq|a|+|b|$.",
+            type: "open",
+            modelAnswer: "On écrit x = (x-y)+y, donc |x| ≤ |x-y|+|y|, soit |x|-|y| ≤ |x-y|. En échangeant les rôles de x et y, |y|-|x| ≤ |y-x| = |x-y|. Donc -(|x-y|) ≤ |x|-|y| ≤ |x-y|, ce qui équivaut à ||x|-|y|| ≤ |x-y|.",
+            explanation: "On écrit $x = (x-y)+y$. Par l'inégalité triangulaire : $|x| = |(x-y)+y| \\leq |x-y|+|y|$, donc $|x|-|y| \\leq |x-y|$.\n\nEn échangeant les rôles de $x$ et $y$ : $|y|-|x| \\leq |y-x| = |x-y|$ (car $|y-x|=|-(x-y)|=|x-y|$).\n\nCombinant les deux : $-|x-y| \\leq |x|-|y| \\leq |x-y|$, ce qui équivaut exactement à $\\big||x|-|y|\\big| \\leq |x-y|$. $\\square$",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-4-e10",
+            question: "Vrai ou faux : $\\mathbb{Q}$ vérifie la propriété de la borne supérieure (toute partie non vide et majorée de $\\mathbb{Q}$ admet une borne supérieure dans $\\mathbb{Q}$).",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. C'est précisément ce qui distingue $\\mathbb{Q}$ de $\\mathbb{R}$. Contre-exemple : $A=\\{x\\in\\mathbb{Q}\\mid x^2<2,\\ x>0\\}$ est non vide ($1\\in A$) et majorée par $2$ dans $\\mathbb{Q}$, mais sa borne supérieure réelle est $\\sqrt 2$, qui n'est pas rationnel : $A$ n'a pas de borne supérieure dans $\\mathbb{Q}$.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-4-e11",
+            question: "Soit $A,B$ deux parties non vides et majorées de $\\mathbb{R}$ telles que $A \\subset B$. Comparer $\\sup A$ et $\\sup B$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\sup A \\leq \\sup B$" },
+              { id: "B", text: "$\\sup A \\geq \\sup B$" },
+              { id: "C", text: "$\\sup A = \\sup B$ toujours" },
+              { id: "D", text: "On ne peut rien dire" },
+            ],
+            correctId: "A",
+            explanation: "$\\sup B$ majore $B$, donc majore aussi $A$ (car $A\\subset B$). Comme $\\sup A$ est le plus petit des majorants de $A$, on a $\\sup A \\leq \\sup B$.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-4-e12",
+            question: "Démontrer que $\\sup(A\\cup B) = \\max(\\sup A, \\sup B)$ pour $A, B$ non vides et majorées.",
+            type: "open",
+            modelAnswer: "Soit M = max(sup A, sup B). M majore A et B donc A∪B, donc sup(A∪B) ≤ M. Réciproquement sup A ≤ sup(A∪B) et sup B ≤ sup(A∪B) car A,B ⊂ A∪B, donc M ≤ sup(A∪B). D'où l'égalité.",
+            explanation: "Posons $M = \\max(\\sup A, \\sup B)$.\n\n**$\\sup(A\\cup B) \\leq M$ :** $M \\geq \\sup A \\geq a$ pour tout $a\\in A$, et $M\\geq \\sup B \\geq b$ pour tout $b \\in B$. Donc $M$ majore $A\\cup B$, donc $\\sup(A\\cup B) \\leq M$ (car $\\sup(A\\cup B)$ est le plus petit majorant).\n\n**$M \\leq \\sup(A\\cup B)$ :** comme $A \\subset A\\cup B$, l'exercice précédent donne $\\sup A \\leq \\sup(A\\cup B)$. De même $\\sup B \\leq \\sup(A\\cup B)$. Donc $M=\\max(\\sup A,\\sup B) \\leq \\sup(A\\cup B)$.\n\nLes deux inégalités donnent $\\sup(A\\cup B) = M = \\max(\\sup A, \\sup B)$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-4-e13",
+            question: "Vrai ou faux : pour tout $z \\in \\mathbb{C}$ réel, le module $|z|$ coïncide avec la valeur absolue usuelle.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $z=a+i0=a$ avec $a\\in\\mathbb{R}$, alors $|z|=\\sqrt{a^2+0^2}=\\sqrt{a^2}=|a|$, qui est exactement la valeur absolue de $a$.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-4-e14",
+            question: "Soit $A = \\{x \\in \\mathbb{R} \\mid x^3 < 8\\}$. L'ensemble $A$ est-il majoré ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Non, car $A = ]-\\infty, 2[$ n'est pas majoré" },
+              { id: "B", text: "Oui, $\\sup A = 2$" },
+              { id: "C", text: "Oui, $\\sup A = 8$" },
+              { id: "D", text: "Non, car $A$ est vide" },
+            ],
+            correctId: "A",
+            explanation: "$x^3<8 \\iff x<2$ (la fonction cube est strictement croissante sur $\\mathbb{R}$), donc $A=]-\\infty,2[$. Cet ensemble contient tous les réels arbitrairement négatifs et n'est donc pas majoré : il n'a pas de borne supérieure finie.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-4-e15",
+            question: "Démontrer que toute partie finie et non vide de $\\mathbb{R}$ admet un maximum.",
+            type: "open",
+            modelAnswer: "Récurrence sur le cardinal n de A. Si n=1, A={a}, max A=a. Si la propriété est vraie pour n, soit A de cardinal n+1 : on retire un élément x, B=A\\{x} a un maximum m par hypothèse de récurrence ; alors max A = max(m,x).",
+            explanation: "**Récurrence sur le cardinal $n$ de $A$.**\n\n*Initialisation* ($n=1$) : $A=\\{a\\}$, alors $\\max A = a$ trivialement.\n\n*Hérédité* : supposons que toute partie de cardinal $n$ admette un maximum. Soit $A$ de cardinal $n+1$. Choisissons $x \\in A$ et posons $B = A \\setminus \\{x\\}$, de cardinal $n$. Par hypothèse de récurrence, $B$ admet un maximum $m$. Alors $\\max(A) = \\max(m, x)$ : en effet, cette valeur appartient à $A$ (c'est $m$ ou $x$) et majore tous les éléments de $A = B \\cup \\{x\\}$ (elle majore $B$ car $\\geq m$, et majore $\\{x\\}$ car $\\geq x$).\n\n*Conclusion* : par récurrence, toute partie finie non vide de $\\mathbb{R}$ admet un maximum. (Ceci contraste avec le cas infini, où une partie bornée n'a pas toujours de maximum, cf. exercice 4.) $\\square$",
+            difficulty: "expert",
+          },
+        ],
+      },
     ],
   },
   // ─────────────────────────────────────────────
@@ -8783,5 +9821,9675 @@ Tout idéal maximal est premier. Dans $\\mathbb{Z}$ : les idéaux premiers non n
       },
     ],
   },
-];
+  // ─────────────────────────────────────────────
+  // L1 — Géométrie analytique et vectorielle
+  // ─────────────────────────────────────────────
+  {
+    id: "geometrie-l1",
+    slug: "geometrie-l1-analytique-vectorielle",
+    title: "Géométrie L1 — Géométrie analytique et vectorielle",
+    description: "Droites et plans dans l'espace, produit scalaire et orthogonalité, bases orthonormées et projections orthogonales.",
+    schoolLevel: "L1",
+    subject: "geometrie",
+    difficulty: "Intermédiaire",
+    isFree: false,
+    thumbnailEmoji: "📐",
+    lessons: [
+      {
+        id: "geo1-l1-1",
+        slug: "droites-plans-espace",
+        title: "Droites et plans dans l'espace",
+        durationMinutes: 55,
+        content: `## Droites et plans dans l'espace
 
+  ### 1. Représentation paramétrique d'une droite
+
+  Une droite $\\mathcal{D}$ de $\\mathbb{R}^3$ passant par un point $A(x_0,y_0,z_0)$ et de **vecteur directeur** $\\vec{u}=(a,b,c)$ (non nul) admet la représentation paramétrique :
+  $$\\mathcal{D} : \\begin{cases} x = x_0 + ta \\\\ y = y_0 + tb \\\\ z = z_0 + tc \\end{cases} \\qquad t \\in \\mathbb{R}$$
+
+  Un point $M(x,y,z)$ appartient à $\\mathcal{D}$ si et seulement s'il existe $t\\in\\mathbb{R}$ tel que $\\overrightarrow{AM} = t\\vec u$.
+
+  **Exemple :** la droite passant par $A(1,2,-1)$ de vecteur directeur $\\vec u=(2,0,1)$ a pour représentation $x=1+2t,\\ y=2,\\ z=-1+t$.
+
+  ### 2. Équation cartésienne d'un plan
+
+  Un plan $\\mathcal{P}$ passant par $A(x_0,y_0,z_0)$ et de **vecteur normal** $\\vec n=(a,b,c)$ (non nul, orthogonal au plan) admet l'équation cartésienne :
+  $$\\mathcal{P} : a(x-x_0)+b(y-y_0)+c(z-z_0)=0 \\quad \\text{soit} \\quad ax+by+cz+d=0$$
+  avec $d=-(ax_0+by_0+cz_0)$.
+
+  **Représentation paramétrique d'un plan :** à partir d'un point $A$ et de deux vecteurs directeurs $\\vec u,\\vec v$ **non colinéaires** :
+  $$\\mathcal{P} : \\begin{cases} x=x_0+s a_1+t a_2 \\\\ y=y_0+s b_1+t b_2 \\\\ z=z_0+s c_1+t c_2\\end{cases} \\qquad s,t\\in\\mathbb{R}$$
+
+  **Lien entre les deux représentations :** le vecteur normal $\\vec n$ du plan engendré par $\\vec u, \\vec v$ s'obtient via le produit vectoriel $\\vec n = \\vec u \\wedge \\vec v$.
+
+  **Exemple résolu :** trouver l'équation cartésienne du plan passant par $A(1,0,0)$, $B(0,1,0)$, $C(0,0,1)$.
+
+  On forme $\\vec{AB}=(-1,1,0)$ et $\\vec{AC}=(-1,0,1)$. Le vecteur normal $\\vec n = \\vec{AB}\\wedge\\vec{AC} = (1\\times1-0\\times0,\\ 0\\times(-1)-(-1)\\times1,\\ (-1)\\times0-1\\times(-1)) = (1,1,1)$. L'équation est $1(x-1)+1(y-0)+1(z-0)=0$, soit $x+y+z-1=0$.
+
+  ### 3. Position relative de deux droites
+
+  Deux droites $\\mathcal{D}_1$ (vecteur directeur $\\vec{u_1}$) et $\\mathcal{D}_2$ (vecteur directeur $\\vec{u_2}$) dans l'espace peuvent être :
+
+  - **parallèles** si $\\vec{u_1}$ et $\\vec{u_2}$ sont colinéaires (confondues si en plus elles partagent un point, strictement parallèles sinon) ;
+  - **sécantes** si $\\vec{u_1}, \\vec{u_2}$ ne sont pas colinéaires et que les droites ont un point commun (elles sont alors coplanaires) ;
+  - **non coplanaires** (gauches) si $\\vec{u_1}, \\vec{u_2}$ ne sont pas colinéaires et qu'elles n'ont aucun point commun.
+
+  **Méthode :** on teste d'abord la colinéarité des vecteurs directeurs ; si non colinéaires, on résout le système formé par les deux représentations paramétriques pour chercher un point commun.
+
+  ### 4. Position relative droite/plan, plan/plan
+
+  Une droite $\\mathcal{D}$ (vecteur directeur $\\vec u$) et un plan $\\mathcal{P}$ (vecteur normal $\\vec n$) sont :
+  - **parallèles** si $\\vec u \\cdot \\vec n = 0$ (la droite est incluse dans $\\mathcal{P}$, ou strictement parallèle, selon qu'un point de $\\mathcal D$ vérifie ou non l'équation de $\\mathcal P$) ;
+  - **sécants** en un point sinon (on substitue la représentation paramétrique de $\\mathcal{D}$ dans l'équation de $\\mathcal P$ et on résout en $t$).
+
+  Deux plans $\\mathcal P_1$ (normal $\\vec{n_1}$) et $\\mathcal P_2$ (normal $\\vec{n_2}$) sont **parallèles** si $\\vec{n_1}, \\vec{n_2}$ sont colinéaires (confondus ou strictement parallèles), et **sécants suivant une droite** sinon.
+
+  ### 5. Distance d'un point à une droite, à un plan
+
+  **Distance d'un point $M$ à un plan $\\mathcal P : ax+by+cz+d=0$ :**
+  $$d(M,\\mathcal P) = \\frac{|ax_M+by_M+cz_M+d|}{\\sqrt{a^2+b^2+c^2}}$$
+
+  **Distance d'un point $M$ à une droite $\\mathcal D$** passant par $A$ de vecteur directeur $\\vec u$ :
+  $$d(M,\\mathcal D) = \\frac{\\|\\overrightarrow{AM} \\wedge \\vec u\\|}{\\|\\vec u\\|}$$
+
+  **Exemple résolu :** distance de $M(1,1,1)$ au plan $\\mathcal P : x+y+z-1=0$.
+  $$d(M,\\mathcal P) = \\frac{|1+1+1-1|}{\\sqrt{1^2+1^2+1^2}} = \\frac{2}{\\sqrt 3} = \\frac{2\\sqrt3}{3}$$
+
+  ### 6. Résumé méthodologique
+
+  | Objet | Donnée nécessaire | Représentation |
+  |---|---|---|
+  | Droite | 1 point + 1 vecteur directeur | paramétrique |
+  | Plan | 1 point + 1 vecteur normal | cartésienne |
+  | Plan | 1 point + 2 vecteurs directeurs non colinéaires | paramétrique |`,
+        exercises: [
+          {
+            id: "geo1-l1-1-e1",
+            question: "Quelle donnée permet de définir une droite par une représentation paramétrique ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Un point et un vecteur directeur" },
+              { id: "B", text: "Trois points alignés" },
+              { id: "C", text: "Un vecteur normal seulement" },
+              { id: "D", text: "Deux vecteurs orthogonaux" },
+            ],
+            correctId: "A",
+            explanation: "Une droite est entièrement déterminée par un point qu'elle traverse et un vecteur directeur (non nul) qui indique sa direction.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-1-e2",
+            question: "Donner l'équation cartésienne du plan passant par $A(0,0,0)$ de vecteur normal $\\vec n=(1,2,3)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x+2y+3z=0$" },
+              { id: "B", text: "$x+2y+3z=1$" },
+              { id: "C", text: "$2x+y+3z=0$" },
+              { id: "D", text: "$x+y+z=0$" },
+            ],
+            correctId: "A",
+            explanation: "L'équation est $1(x-0)+2(y-0)+3(z-0)=0$, soit $x+2y+3z=0$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-1-e3",
+            question: "Vrai ou faux : deux droites de l'espace ayant des vecteurs directeurs colinéaires sont nécessairement confondues.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. Elles sont parallèles (même direction), mais peuvent être strictement parallèles (sans aucun point commun) si elles ne partagent pas de point.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-1-e4",
+            question: "Quelle formule donne la distance d'un point $M(x_M,y_M,z_M)$ au plan $ax+by+cz+d=0$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{|ax_M+by_M+cz_M+d|}{\\sqrt{a^2+b^2+c^2}}$" },
+              { id: "B", text: "$ax_M+by_M+cz_M+d$" },
+              { id: "C", text: "$\\sqrt{a^2+b^2+c^2}$" },
+              { id: "D", text: "$\\dfrac{a+b+c}{x_M+y_M+z_M}$" },
+            ],
+            correctId: "A",
+            explanation: "La distance d'un point à un plan se calcule en substituant les coordonnées du point dans l'équation cartésienne, en valeur absolue, divisée par la norme du vecteur normal.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-1-e5",
+            question: "Deux plans de vecteurs normaux $\\vec{n_1}=(1,1,1)$ et $\\vec{n_2}=(2,2,2)$ sont :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Parallèles (confondus ou strictement parallèles)" },
+              { id: "B", text: "Sécants suivant une droite" },
+              { id: "C", text: "Orthogonaux" },
+              { id: "D", text: "On ne peut rien dire sans plus d'informations" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec{n_2}=2\\vec{n_1}$ : les deux vecteurs normaux sont colinéaires, donc les plans sont parallèles.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-1-e6",
+            question: "Calculer la distance du point $M(1,1,1)$ au plan $\\mathcal P: x+y+z-1=0$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{2\\sqrt3}{3}$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$\\sqrt 3$" },
+              { id: "D", text: "$\\dfrac{1}{\\sqrt3}$" },
+            ],
+            correctId: "A",
+            explanation: "$d(M,\\mathcal P)=\\dfrac{|1+1+1-1|}{\\sqrt{1^2+1^2+1^2}}=\\dfrac{2}{\\sqrt3}=\\dfrac{2\\sqrt3}{3}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-1-e7",
+            question: "Vrai ou faux : une droite et un plan dans l'espace sont toujours sécants ou parallèles, jamais « gauches » l'un par rapport à l'autre.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Contrairement à deux droites (qui peuvent être non coplanaires), une droite et un plan sont toujours soit parallèles ($\\vec u \\cdot \\vec n = 0$), soit sécants en exactement un point.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-1-e8",
+            question: "Trouver le vecteur normal du plan passant par $A(1,0,0)$, $B(0,1,0)$, $C(0,0,1)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(1,1,1)$" },
+              { id: "B", text: "$(1,0,0)$" },
+              { id: "C", text: "$(1,-1,1)$" },
+              { id: "D", text: "$(0,0,1)$" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec{AB}=(-1,1,0)$, $\\vec{AC}=(-1,0,1)$, et $\\vec n=\\vec{AB}\\wedge\\vec{AC}=(1,1,1)$ (calcul détaillé dans le cours).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-1-e9",
+            question: "Soient $\\mathcal D_1$ de vecteur directeur $(1,0,0)$ passant par $(0,0,0)$, et $\\mathcal D_2$ de vecteur directeur $(0,1,0)$ passant par $(0,0,1)$. Ces droites sont-elles coplanaires ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Non, elles sont non coplanaires (gauches)" },
+              { id: "B", text: "Oui, elles sont sécantes" },
+              { id: "C", text: "Oui, elles sont parallèles" },
+              { id: "D", text: "Elles sont confondues" },
+            ],
+            correctId: "A",
+            explanation: "Les vecteurs directeurs ne sont pas colinéaires. On cherche un point commun : $(t,0,0)=(0,s,1)$ impose $t=0, 0=s, 0=1$ — contradiction sur la 3e coordonnée. Aucun point commun : les droites sont non coplanaires.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-1-e10",
+            question: "Calculer la distance du point $M(0,0,0)$ à la droite $\\mathcal D$ passant par $A(1,0,0)$ de vecteur directeur $\\vec u=(0,1,0)$.",
+            type: "open",
+            modelAnswer: "AM=(-1,0,0), AM∧u = (0×0-0×1, 0×0-(-1)×0, -1×1-0×0)=(0,0,-1), norme 1. ||u||=1. Distance = 1/1 = 1.",
+            explanation: "$\\overrightarrow{AM}=(-1,0,0)$. $\\overrightarrow{AM}\\wedge\\vec u = (-1,0,0)\\wedge(0,1,0) = (0\\times0-0\\times1,\\ 0\\times0-(-1)\\times0,\\ (-1)\\times1-0\\times0)=(0,0,-1)$, de norme $1$. Comme $\\|\\vec u\\|=1$, $d(M,\\mathcal D)=\\dfrac{1}{1}=1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-1-e11",
+            question: "Démontrer la formule de distance d'un point à un plan $d(M,\\mathcal P)=\\dfrac{|ax_M+by_M+cz_M+d|}{\\sqrt{a^2+b^2+c^2}}$ en utilisant la projection orthogonale de $M$ sur $\\mathcal P$.",
+            type: "open",
+            modelAnswer: "Soit H le projeté orthogonal de M sur P. MH est colinéaire à n (vecteur normal), donc MH = k·n/||n||. H∈P donne une équation en k, on trouve |k|=|axM+byM+czM+d|/||n||, qui est la distance MH.",
+            explanation: "Soit $H$ le projeté orthogonal de $M$ sur $\\mathcal P$. Par définition, $\\overrightarrow{MH}$ est colinéaire au vecteur normal $\\vec n=(a,b,c)$ : $\\overrightarrow{MH} = k\\,\\dfrac{\\vec n}{\\|\\vec n\\|}$ pour un certain $k\\in\\mathbb{R}$, et $d(M,\\mathcal P)=\\|\\overrightarrow{MH}\\|=|k|$.\n\nComme $H\\in\\mathcal P$ : $a x_H+by_H+cz_H+d=0$. En écrivant $H=M+k\\vec n/\\|\\vec n\\|$ :\n$$a\\left(x_M+\\frac{ka}{\\|\\vec n\\|}\\right)+b\\left(y_M+\\frac{kb}{\\|\\vec n\\|}\\right)+c\\left(z_M+\\frac{kc}{\\|\\vec n\\|}\\right)+d=0$$\n$$\\big(ax_M+by_M+cz_M+d\\big) + \\frac{k(a^2+b^2+c^2)}{\\|\\vec n\\|} = 0 \\;\\Rightarrow\\; k = -\\frac{ax_M+by_M+cz_M+d}{\\|\\vec n\\|}$$\nDonc $d(M,\\mathcal P)=|k|=\\dfrac{|ax_M+by_M+cz_M+d|}{\\|\\vec n\\|}=\\dfrac{|ax_M+by_M+cz_M+d|}{\\sqrt{a^2+b^2+c^2}}$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-1-e12",
+            question: "Soit $\\mathcal D$ la droite d'intersection des plans $\\mathcal P_1: x+y+z=1$ et $\\mathcal P_2: x-y+z=0$. Donner un vecteur directeur de $\\mathcal D$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(2,0,-2)$ ou tout vecteur colinéaire comme $(1,0,-1)$" },
+              { id: "B", text: "$(1,1,1)$" },
+              { id: "C", text: "$(1,-1,1)$" },
+              { id: "D", text: "$(0,1,0)$" },
+            ],
+            correctId: "A",
+            explanation: "Le vecteur directeur de la droite d'intersection est orthogonal aux deux normaux $\\vec{n_1}=(1,1,1)$ et $\\vec{n_2}=(1,-1,1)$, donc colinéaire à $\\vec{n_1}\\wedge\\vec{n_2}=(1\\times1-1\\times(-1),\\ 1\\times1-1\\times1,\\ 1\\times(-1)-1\\times1)=(2,0,-2)$.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-1-e13",
+            question: "Vrai ou faux : si une droite $\\mathcal D$ vérifie $\\vec u \\cdot \\vec n = 0$ pour un plan $\\mathcal P$ de normal $\\vec n$, alors $\\mathcal D$ est nécessairement incluse dans $\\mathcal P$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. $\\vec u\\cdot\\vec n=0$ signifie seulement que $\\mathcal D$ est parallèle à $\\mathcal P$ (même direction que le plan). Elle peut être incluse dans $\\mathcal P$ (si un de ses points vérifie l'équation du plan) ou strictement parallèle (disjointe).",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-1-e14",
+            question: "Déterminer le point d'intersection de la droite $\\mathcal D: x=t, y=t, z=1+t$ et du plan $\\mathcal P: x+y-z=0$.",
+            type: "open",
+            modelAnswer: "On substitue : t+t-(1+t)=0, soit t-1=0, t=1. Le point est (1,1,2).",
+            explanation: "On substitue la représentation paramétrique dans l'équation du plan : $t+t-(1+t)=0 \\Leftrightarrow t-1=0 \\Leftrightarrow t=1$. Le point d'intersection est donc $(1,1,1+1)=(1,1,2)$.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-1-e15",
+            question: "Démontrer que la distance entre deux droites non coplanaires $\\mathcal D_1$ (point $A_1$, direction $\\vec{u_1}$) et $\\mathcal D_2$ (point $A_2$, direction $\\vec{u_2}$) est donnée par $d=\\dfrac{|\\overrightarrow{A_1A_2}\\cdot(\\vec{u_1}\\wedge\\vec{u_2})|}{\\|\\vec{u_1}\\wedge\\vec{u_2}\\|}$.",
+            type: "open",
+            modelAnswer: "Le vecteur u1∧u2 est orthogonal aux deux directions, donc donne la direction commune perpendiculaire aux deux droites. La distance entre les droites est la longueur de la projection de A1A2 sur cette direction commune, ce qui donne la formule par projection scalaire.",
+            explanation: "Le vecteur $\\vec w = \\vec{u_1}\\wedge\\vec{u_2}$ est orthogonal simultanément à $\\vec{u_1}$ et $\\vec{u_2}$ (propriété du produit vectoriel) : c'est la direction commune perpendiculaire aux deux droites, qui réalise la plus courte distance entre elles.\n\nLa distance entre $\\mathcal D_1$ et $\\mathcal D_2$ est la longueur du segment porté par $\\vec w$ reliant les deux droites, ce qui correspond exactement à la valeur absolue de la projection scalaire de $\\overrightarrow{A_1A_2}$ sur la direction unitaire $\\vec w/\\|\\vec w\\|$ :\n$$d = \\left|\\overrightarrow{A_1A_2}\\cdot\\frac{\\vec w}{\\|\\vec w\\|}\\right| = \\frac{|\\overrightarrow{A_1A_2}\\cdot(\\vec{u_1}\\wedge\\vec{u_2})|}{\\|\\vec{u_1}\\wedge\\vec{u_2}\\|}$$\nCette formule généralise la distance point-droite : ici, on projette le vecteur reliant les deux droites sur la perpendiculaire commune. $\\square$",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "geo1-l1-2",
+        slug: "produit-scalaire-orthogonalite",
+        title: "Produit scalaire et orthogonalité",
+        durationMinutes: 50,
+        content: `## Produit scalaire et orthogonalité
+
+  ### 1. Définition du produit scalaire
+
+  Pour $\\vec u=(u_1,u_2,u_3)$ et $\\vec v=(v_1,v_2,v_3)$ dans $\\mathbb{R}^3$, le **produit scalaire** est :
+  $$\\vec u \\cdot \\vec v = u_1v_1+u_2v_2+u_3v_3$$
+
+  Géométriquement, $\\vec u\\cdot\\vec v = \\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta$, où $\\theta$ est l'angle (non orienté) entre $\\vec u$ et $\\vec v$, et $\\|\\vec u\\|=\\sqrt{u_1^2+u_2^2+u_3^2}$ est la **norme** de $\\vec u$.
+
+  ### 2. Propriétés du produit scalaire
+
+  Pour tous vecteurs $\\vec u,\\vec v,\\vec w$ et tout scalaire $\\lambda$ :
+  - **Symétrie :** $\\vec u\\cdot\\vec v = \\vec v\\cdot\\vec u$ ;
+  - **Bilinéarité :** $\\vec u\\cdot(\\vec v+\\vec w)=\\vec u\\cdot\\vec v+\\vec u\\cdot\\vec w$ et $(\\lambda\\vec u)\\cdot\\vec v=\\lambda(\\vec u\\cdot\\vec v)$ ;
+  - **Positivité :** $\\vec u\\cdot\\vec u = \\|\\vec u\\|^2 \\geq 0$, avec égalité si et seulement si $\\vec u=\\vec 0$ ;
+  - **Inégalité de Cauchy-Schwarz :** $|\\vec u\\cdot\\vec v| \\leq \\|\\vec u\\|\\,\\|\\vec v\\|$, avec égalité si et seulement si $\\vec u,\\vec v$ sont colinéaires.
+
+  ### 3. Vecteurs orthogonaux
+
+  Deux vecteurs $\\vec u,\\vec v$ sont **orthogonaux** si $\\vec u\\cdot\\vec v=0$ (notation $\\vec u\\perp\\vec v$). Le vecteur nul est orthogonal à tout vecteur.
+
+  **Exemple :** $\\vec u=(1,2,-1)$ et $\\vec v=(3,-1,1)$ : $\\vec u\\cdot\\vec v = 3-2-1=0$, donc $\\vec u\\perp\\vec v$.
+
+  ### 4. Calcul d'angles
+
+  L'angle $\\theta\\in[0,\\pi]$ entre deux vecteurs non nuls $\\vec u,\\vec v$ se calcule par :
+  $$\\cos\\theta = \\frac{\\vec u\\cdot\\vec v}{\\|\\vec u\\|\\,\\|\\vec v\\|}$$
+
+  **Exemple résolu :** angle entre $\\vec u=(1,0,0)$ et $\\vec v=(1,1,0)$.
+  $$\\cos\\theta = \\frac{1\\times1+0\\times1+0\\times0}{1\\times\\sqrt2} = \\frac{1}{\\sqrt2} \\;\\Rightarrow\\; \\theta=\\frac{\\pi}{4}$$
+
+  ### 5. Droites et plans orthogonaux
+
+  - Une droite $\\mathcal D$ de vecteur directeur $\\vec u$ est **orthogonale** à un plan $\\mathcal P$ de vecteur normal $\\vec n$ si $\\vec u$ et $\\vec n$ sont **colinéaires** (la droite est alors perpendiculaire au plan, et $\\vec u$ peut servir de vecteur normal à $\\mathcal P$).
+  - Deux plans $\\mathcal P_1$ (normal $\\vec{n_1}$), $\\mathcal P_2$ (normal $\\vec{n_2}$) sont **orthogonaux** si $\\vec{n_1}\\cdot\\vec{n_2}=0$.
+  - Deux droites de vecteurs directeurs $\\vec{u_1},\\vec{u_2}$ sont **orthogonales** si $\\vec{u_1}\\cdot\\vec{u_2}=0$ (qu'elles soient sécantes ou non coplanaires : l'orthogonalité ne concerne que les directions).
+
+  **Exemple résolu :** le plan $\\mathcal P: x+y+z=1$ a pour normal $\\vec n=(1,1,1)$. La droite de vecteur directeur $\\vec u=(1,1,1)$ (colinéaire à $\\vec n$) est donc orthogonale à $\\mathcal P$.
+
+  ### 6. Preuve de Cauchy-Schwarz
+
+  Pour $\\vec u,\\vec v$ non nuls et $t\\in\\mathbb{R}$, considérons $f(t) = \\|\\vec u+t\\vec v\\|^2 = \\|\\vec v\\|^2t^2+2(\\vec u\\cdot\\vec v)t+\\|\\vec u\\|^2 \\geq 0$ pour tout $t$ (positivité du produit scalaire). C'est un trinôme du second degré en $t$, toujours $\\geq 0$, donc son discriminant est $\\leq 0$ :
+  $$4(\\vec u\\cdot\\vec v)^2 - 4\\|\\vec v\\|^2\\|\\vec u\\|^2 \\leq 0 \\;\\Longrightarrow\\; (\\vec u\\cdot\\vec v)^2 \\leq \\|\\vec u\\|^2\\|\\vec v\\|^2$$
+  En prenant la racine carrée : $|\\vec u\\cdot\\vec v|\\leq\\|\\vec u\\|\\|\\vec v\\|$. $\\square$
+
+  ### 7. Résumé
+
+  | Configuration | Condition |
+  |---|---|
+  | $\\vec u \\perp \\vec v$ | $\\vec u\\cdot\\vec v=0$ |
+  | Droite $\\perp$ plan | vecteur directeur colinéaire au normal |
+  | Plan $\\perp$ plan | produit scalaire des normaux nul |
+  | Cauchy-Schwarz | $|\\vec u\\cdot\\vec v|\\leq\\|\\vec u\\|\\|\\vec v\\|$ |`,
+        exercises: [
+          {
+            id: "geo1-l1-2-e1",
+            question: "Calculer le produit scalaire de $\\vec u=(1,2,3)$ et $\\vec v=(4,-1,0)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$4$" },
+              { id: "C", text: "$0$" },
+              { id: "D", text: "$-2$" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec u\\cdot\\vec v = 1\\times4+2\\times(-1)+3\\times0 = 4-2+0=2$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-2-e2",
+            question: "Vrai ou faux : le produit scalaire est commutatif, $\\vec u\\cdot\\vec v=\\vec v\\cdot\\vec u$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai, c'est la propriété de symétrie du produit scalaire, immédiate à partir de sa formule $u_1v_1+u_2v_2+u_3v_3$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-2-e3",
+            question: "Quels vecteurs sont orthogonaux parmi $\\vec u=(1,2,-1)$ et $\\vec v=(3,-1,1)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Ils sont orthogonaux, car $\\vec u\\cdot\\vec v=0$" },
+              { id: "B", text: "Ils ne sont pas orthogonaux" },
+              { id: "C", text: "Ils sont colinéaires" },
+              { id: "D", text: "Le produit scalaire n'est pas défini" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec u\\cdot\\vec v = 1\\times3+2\\times(-1)+(-1)\\times1=3-2-1=0$ : les vecteurs sont orthogonaux.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-2-e4",
+            question: "Quelle est la norme du vecteur $\\vec u=(3,4,0)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5$" },
+              { id: "B", text: "$7$" },
+              { id: "C", text: "$12$" },
+              { id: "D", text: "$25$" },
+            ],
+            correctId: "A",
+            explanation: "$\\|\\vec u\\|=\\sqrt{3^2+4^2+0^2}=\\sqrt{25}=5$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-2-e5",
+            question: "Deux plans de vecteurs normaux $\\vec{n_1}=(1,0,0)$ et $\\vec{n_2}=(0,1,0)$ sont :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Orthogonaux, car $\\vec{n_1}\\cdot\\vec{n_2}=0$" },
+              { id: "B", text: "Parallèles" },
+              { id: "C", text: "Confondus" },
+              { id: "D", text: "On ne peut rien dire" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec{n_1}\\cdot\\vec{n_2}=1\\times0+0\\times1+0\\times0=0$ : les normaux sont orthogonaux, donc les plans sont orthogonaux.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-2-e6",
+            question: "Calculer l'angle entre $\\vec u=(1,0,0)$ et $\\vec v=(1,1,0)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\pi/4$" },
+              { id: "B", text: "$\\pi/2$" },
+              { id: "C", text: "$\\pi/3$" },
+              { id: "D", text: "$0$" },
+            ],
+            correctId: "A",
+            explanation: "$\\cos\\theta = \\dfrac{1}{1\\times\\sqrt2}=\\dfrac{1}{\\sqrt2}$, donc $\\theta=\\pi/4$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-2-e7",
+            question: "Vrai ou faux : l'inégalité de Cauchy-Schwarz $|\\vec u\\cdot\\vec v|\\leq\\|\\vec u\\|\\|\\vec v\\|$ devient une égalité si et seulement si $\\vec u$ et $\\vec v$ sont colinéaires.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. L'égalité correspond à un discriminant nul dans la preuve, c'est-à-dire à l'existence d'un $t$ tel que $\\vec u+t\\vec v=\\vec 0$ : $\\vec u$ et $\\vec v$ sont colinéaires.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-2-e8",
+            question: "Pour quelle valeur de $k$ les vecteurs $\\vec u=(2,k,1)$ et $\\vec v=(1,-1,3)$ sont-ils orthogonaux ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$k=5$" },
+              { id: "B", text: "$k=-5$" },
+              { id: "C", text: "$k=1$" },
+              { id: "D", text: "$k=3$" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec u\\cdot\\vec v=2\\times1+k\\times(-1)+1\\times3=2-k+3=5-k$. On veut $5-k=0$, soit $k=5$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-2-e9",
+            question: "Une droite de vecteur directeur $\\vec u=(2,2,2)$ est-elle orthogonale au plan $\\mathcal P: x+y+z=5$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Oui, car $\\vec u$ est colinéaire au vecteur normal $(1,1,1)$" },
+              { id: "B", text: "Non, ils sont parallèles" },
+              { id: "C", text: "On ne peut rien dire sans plus de calculs" },
+              { id: "D", text: "Non, ils sont sécants sans être orthogonaux" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec u=(2,2,2)=2(1,1,1)$ est colinéaire au vecteur normal du plan $(1,1,1)$ : la droite est donc orthogonale au plan.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-2-e10",
+            question: "Démontrer que pour tous vecteurs $\\vec u,\\vec v$, $\\|\\vec u+\\vec v\\|^2 = \\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$.",
+            type: "open",
+            modelAnswer: "(u+v)·(u+v) = u·u + u·v + v·u + v·v = ||u||² + 2u·v + ||v||² par bilinéarité et symétrie du produit scalaire.",
+            explanation: "$\\|\\vec u+\\vec v\\|^2 = (\\vec u+\\vec v)\\cdot(\\vec u+\\vec v)$. Par bilinéarité : $=\\vec u\\cdot\\vec u+\\vec u\\cdot\\vec v+\\vec v\\cdot\\vec u+\\vec v\\cdot\\vec v$. Par symétrie, $\\vec u\\cdot\\vec v=\\vec v\\cdot\\vec u$, donc $=\\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$. $\\square$",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-2-e11",
+            question: "En déduire de l'exercice précédent que $\\vec u\\perp\\vec v \\iff \\|\\vec u+\\vec v\\|^2=\\|\\vec u\\|^2+\\|\\vec v\\|^2$ (théorème de Pythagore vectoriel).",
+            type: "open",
+            modelAnswer: "D'après l'identité ||u+v||²=||u||²+2u·v+||v||², on a ||u+v||²=||u||²+||v||² si et seulement si 2u·v=0, c'est-à-dire u·v=0, soit u⊥v.",
+            explanation: "D'après l'exercice précédent, $\\|\\vec u+\\vec v\\|^2=\\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$. Cette quantité vaut $\\|\\vec u\\|^2+\\|\\vec v\\|^2$ si et seulement si $2\\vec u\\cdot\\vec v=0$, c'est-à-dire $\\vec u\\cdot\\vec v=0$, soit exactement $\\vec u\\perp\\vec v$. C'est la version vectorielle du théorème de Pythagore. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-2-e12",
+            question: "Vrai ou faux : si $\\vec u\\cdot\\vec v=\\vec u\\cdot\\vec w$ pour un vecteur $\\vec u\\neq\\vec 0$ donné, alors nécessairement $\\vec v=\\vec w$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. On a seulement $\\vec u\\cdot(\\vec v-\\vec w)=0$, c'est-à-dire $\\vec v-\\vec w$ orthogonal à $\\vec u$, ce qui n'implique pas $\\vec v-\\vec w=\\vec 0$. Contre-exemple : $\\vec u=(1,0,0)$, $\\vec v=(0,1,0)$, $\\vec w=(0,0,1)$ : $\\vec u\\cdot\\vec v=\\vec u\\cdot\\vec w=0$ mais $\\vec v\\neq\\vec w$.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-2-e13",
+            question: "Démontrer l'inégalité triangulaire pour les vecteurs : $\\|\\vec u+\\vec v\\|\\leq\\|\\vec u\\|+\\|\\vec v\\|$, à partir de Cauchy-Schwarz.",
+            type: "open",
+            modelAnswer: "||u+v||² = ||u||²+2u·v+||v||² ≤ ||u||²+2||u||·||v||+||v||² (par Cauchy-Schwarz) = (||u||+||v||)². En prenant la racine carrée (quantités positives), ||u+v|| ≤ ||u||+||v||.",
+            explanation: "$\\|\\vec u+\\vec v\\|^2 = \\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2$. Par Cauchy-Schwarz, $\\vec u\\cdot\\vec v \\leq |\\vec u\\cdot\\vec v| \\leq \\|\\vec u\\|\\|\\vec v\\|$. Donc :\n$$\\|\\vec u+\\vec v\\|^2 \\leq \\|\\vec u\\|^2+2\\|\\vec u\\|\\|\\vec v\\|+\\|\\vec v\\|^2 = (\\|\\vec u\\|+\\|\\vec v\\|)^2$$\nLes deux membres étant positifs, on peut prendre la racine carrée (fonction croissante sur $\\mathbb R_+$) : $\\|\\vec u+\\vec v\\|\\leq\\|\\vec u\\|+\\|\\vec v\\|$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-2-e14",
+            question: "Soit $\\vec u,\\vec v,\\vec w$ trois vecteurs deux à deux orthogonaux et non nuls. Démontrer qu'ils sont linéairement indépendants.",
+            type: "open",
+            modelAnswer: "Supposons au+bv+cw=0. En prenant le produit scalaire avec u : a||u||²+b(u·v)+c(u·w)=0, soit a||u||²=0 (car u·v=u·w=0), donc a=0 (u≠0). De même b=0, c=0 en multipliant par v puis w.",
+            explanation: "Supposons $a\\vec u+b\\vec v+c\\vec w=\\vec 0$. Prenons le produit scalaire avec $\\vec u$ : $a(\\vec u\\cdot\\vec u)+b(\\vec v\\cdot\\vec u)+c(\\vec w\\cdot\\vec u)=0$. Comme $\\vec u\\perp\\vec v$ et $\\vec u\\perp\\vec w$, les deux derniers termes sont nuls : $a\\|\\vec u\\|^2=0$. Comme $\\vec u\\neq\\vec 0$, $\\|\\vec u\\|^2>0$, donc $a=0$.\n\nOn procède de même en multipliant par $\\vec v$ puis $\\vec w$ pour obtenir $b=0$ et $c=0$. La seule combinaison linéaire nulle est triviale : $\\vec u,\\vec v,\\vec w$ sont linéairement indépendants. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-2-e15",
+            question: "Soit $\\mathcal P_1: x+y-z=0$ et $\\mathcal P_2: 2x-y+z=0$. Calculer l'angle entre leurs vecteurs normaux et en déduire si les plans sont orthogonaux.",
+            type: "open",
+            modelAnswer: "n1=(1,1,-1), n2=(2,-1,1). n1·n2=2-1-1=0. Donc les normaux sont orthogonaux : les plans sont orthogonaux (angle π/2).",
+            explanation: "$\\vec{n_1}=(1,1,-1)$, $\\vec{n_2}=(2,-1,1)$. $\\vec{n_1}\\cdot\\vec{n_2}=1\\times2+1\\times(-1)+(-1)\\times1=2-1-1=0$. Le produit scalaire des normaux est nul, donc l'angle entre eux est $\\pi/2$ : les deux plans $\\mathcal P_1$ et $\\mathcal P_2$ sont orthogonaux.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "geo1-l1-3",
+        slug: "bases-orthonormees-projections",
+        title: "Bases orthonormées et projections orthogonales",
+        durationMinutes: 55,
+        content: `## Bases orthonormées et projections orthogonales
+
+  ### 1. Bases orthogonales et orthonormées
+
+  Une famille de vecteurs $(\\vec{e_1},\\ldots,\\vec{e_n})$ est **orthogonale** si les vecteurs sont deux à deux orthogonaux : $\\vec{e_i}\\cdot\\vec{e_j}=0$ pour $i\\neq j$. Elle est **orthonormée** si, en plus, chaque vecteur est **unitaire** : $\\|\\vec{e_i}\\|=1$ pour tout $i$, c'est-à-dire $\\vec{e_i}\\cdot\\vec{e_j}=\\delta_{ij}$ (symbole de Kronecker).
+
+  Une famille orthogonale de vecteurs **non nuls** est automatiquement libre (exercice de la leçon précédente), donc une famille orthonormée de $n$ vecteurs dans un espace de dimension $n$ en est une **base orthonormée**.
+
+  **Coordonnées dans une base orthonormée :** si $(\\vec{e_1},\\ldots,\\vec{e_n})$ est une base orthonormée, tout vecteur $\\vec x$ s'écrit $\\vec x = \\sum_{i=1}^n x_i\\vec{e_i}$ avec $x_i = \\vec x\\cdot\\vec{e_i}$ (chaque coordonnée se calcule simplement par un produit scalaire, contrairement à une base quelconque qui nécessite de résoudre un système).
+
+  ### 2. Procédé de Gram-Schmidt (cas simple, 2 puis 3 vecteurs)
+
+  Le procédé de **Gram-Schmidt** transforme une base quelconque $(\\vec{u_1},\\vec{u_2})$ en une base orthonormée $(\\vec{e_1},\\vec{e_2})$ du même espace :
+
+  1. $\\vec{v_1} = \\vec{u_1}$, puis $\\vec{e_1} = \\dfrac{\\vec{v_1}}{\\|\\vec{v_1}\\|}$ (normalisation) ;
+  2. $\\vec{v_2} = \\vec{u_2} - (\\vec{u_2}\\cdot\\vec{e_1})\\,\\vec{e_1}$ (on retire à $\\vec{u_2}$ sa composante selon $\\vec{e_1}$, ce qui le rend orthogonal à $\\vec{e_1}$), puis $\\vec{e_2}=\\dfrac{\\vec{v_2}}{\\|\\vec{v_2}\\|}$.
+
+  Pour 3 vecteurs $(\\vec{u_1},\\vec{u_2},\\vec{u_3})$, on poursuit : $\\vec{v_3}=\\vec{u_3}-(\\vec{u_3}\\cdot\\vec{e_1})\\vec{e_1}-(\\vec{u_3}\\cdot\\vec{e_2})\\vec{e_2}$, puis $\\vec{e_3}=\\vec{v_3}/\\|\\vec{v_3}\\|$.
+
+  **Exemple résolu :** orthonormaliser $\\vec{u_1}=(1,1,0)$, $\\vec{u_2}=(1,0,1)$.
+
+  $\\vec{e_1} = \\dfrac{(1,1,0)}{\\sqrt2} = \\left(\\dfrac{1}{\\sqrt2},\\dfrac{1}{\\sqrt2},0\\right)$.
+
+  $\\vec{u_2}\\cdot\\vec{e_1} = \\dfrac{1}{\\sqrt2}$. Donc $\\vec{v_2} = (1,0,1) - \\dfrac{1}{\\sqrt2}\\left(\\dfrac{1}{\\sqrt2},\\dfrac{1}{\\sqrt2},0\\right) = \\left(\\dfrac12,-\\dfrac12,1\\right)$.
+
+  $\\|\\vec{v_2}\\| = \\sqrt{\\frac14+\\frac14+1}=\\sqrt{\\frac32}$, donc $\\vec{e_2} = \\dfrac{1}{\\sqrt{3/2}}\\left(\\dfrac12,-\\dfrac12,1\\right)$.
+
+  ### 3. Projection orthogonale sur une droite
+
+  La **projection orthogonale** d'un vecteur $\\vec x$ sur la droite vectorielle dirigée par $\\vec u$ (non nul) est :
+  $$\\text{proj}_{\\vec u}(\\vec x) = \\frac{\\vec x\\cdot\\vec u}{\\|\\vec u\\|^2}\\,\\vec u$$
+
+  C'est l'unique vecteur colinéaire à $\\vec u$ tel que $\\vec x - \\text{proj}_{\\vec u}(\\vec x)$ soit orthogonal à $\\vec u$.
+
+  **Exemple :** projeter $\\vec x=(3,4)$ sur la droite dirigée par $\\vec u=(1,0)$ : $\\text{proj}_{\\vec u}(\\vec x) = \\dfrac{3\\times1+4\\times0}{1}(1,0) = (3,0)$.
+
+  ### 4. Projection orthogonale sur un plan
+
+  Pour projeter $\\vec x$ orthogonalement sur un plan $\\mathcal P$ engendré par une base orthonormée $(\\vec{e_1},\\vec{e_2})$ de $\\mathcal P$ :
+  $$\\text{proj}_{\\mathcal P}(\\vec x) = (\\vec x\\cdot\\vec{e_1})\\vec{e_1} + (\\vec x\\cdot\\vec{e_2})\\vec{e_2}$$
+
+  **Méthode alternative (via le vecteur normal) :** si $\\vec n$ est un vecteur normal au plan, $\\text{proj}_{\\mathcal P}(\\vec x) = \\vec x - \\text{proj}_{\\vec n}(\\vec x)$ (on retire la composante normale).
+
+  **Exemple résolu :** projeter $\\vec x=(1,2,3)$ sur le plan $\\mathcal P$ d'équation $z=0$ (le plan $xOy$, de normal $\\vec n=(0,0,1)$).
+
+  $\\text{proj}_{\\vec n}(\\vec x) = \\dfrac{1\\times0+2\\times0+3\\times1}{1}(0,0,1)=(0,0,3)$. Donc $\\text{proj}_{\\mathcal P}(\\vec x) = (1,2,3)-(0,0,3)=(1,2,0)$ — résultat cohérent avec l'intuition (on annule juste la coordonnée $z$).
+
+  ### 5. Propriétés des projections orthogonales
+
+  - La projection orthogonale est **linéaire** ;
+  - $\\text{proj}_{\\vec u}(\\text{proj}_{\\vec u}(\\vec x)) = \\text{proj}_{\\vec u}(\\vec x)$ (projeter deux fois ne change rien : c'est un **projecteur**, idempotent) ;
+  - $\\vec x - \\text{proj}_{\\mathcal P}(\\vec x)$ est orthogonal à **tout** vecteur de $\\mathcal P$ ;
+  - $\\|\\text{proj}_{\\mathcal P}(\\vec x)\\| \\leq \\|\\vec x\\|$, avec égalité si et seulement si $\\vec x \\in \\mathcal P$ (la projection orthogonale est la **meilleure approximation** de $\\vec x$ dans $\\mathcal P$ au sens de la distance euclidienne).
+
+  ### 6. Résumé méthodologique
+
+  | Tâche | Formule |
+  |---|---|
+  | Coordonnée dans une BON | $x_i=\\vec x\\cdot\\vec{e_i}$ |
+  | Gram-Schmidt (étape $k$) | retirer les composantes selon $\\vec{e_1},\\ldots,\\vec{e_{k-1}}$, puis normaliser |
+  | Projection sur une droite $\\vec u$ | $\\dfrac{\\vec x\\cdot\\vec u}{\\|\\vec u\\|^2}\\vec u$ |
+  | Projection sur un plan (via normal $\\vec n$) | $\\vec x - \\text{proj}_{\\vec n}(\\vec x)$ |`,
+        exercises: [
+          {
+            id: "geo1-l1-3-e1",
+            question: "Qu'est-ce qu'une base orthonormée ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une famille de vecteurs deux à deux orthogonaux et tous unitaires" },
+              { id: "B", text: "Une famille de vecteurs colinéaires" },
+              { id: "C", text: "N'importe quelle base de l'espace" },
+              { id: "D", text: "Une famille de vecteurs unitaires sans condition d'orthogonalité" },
+            ],
+            correctId: "A",
+            explanation: "Une base orthonormée combine deux conditions : les vecteurs sont deux à deux orthogonaux ET chacun a une norme égale à $1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-3-e2",
+            question: "Dans une base orthonormée $(\\vec{e_1},\\vec{e_2},\\vec{e_3})$, comment calcule-t-on la $i$-ième coordonnée d'un vecteur $\\vec x$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x_i = \\vec x\\cdot\\vec{e_i}$" },
+              { id: "B", text: "$x_i = \\|\\vec x\\|/\\|\\vec{e_i}\\|$" },
+              { id: "C", text: "$x_i = \\vec x \\wedge \\vec{e_i}$" },
+              { id: "D", text: "Il faut résoudre un système linéaire" },
+            ],
+            correctId: "A",
+            explanation: "Dans une base orthonormée, chaque coordonnée s'obtient directement par un produit scalaire avec le vecteur de base correspondant — c'est l'avantage principal de ce type de base.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-3-e3",
+            question: "Calculer la projection orthogonale de $\\vec x=(3,4)$ sur la droite dirigée par $\\vec u=(1,0)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(3,0)$" },
+              { id: "B", text: "$(0,4)$" },
+              { id: "C", text: "$(3,4)$" },
+              { id: "D", text: "$(0,0)$" },
+            ],
+            correctId: "A",
+            explanation: "$\\text{proj}_{\\vec u}(\\vec x)=\\dfrac{3\\times1+4\\times0}{1^2}(1,0)=3(1,0)=(3,0)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-3-e4",
+            question: "Vrai ou faux : projeter deux fois orthogonalement sur la même droite donne le même résultat qu'une seule projection.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. La projection orthogonale est un projecteur idempotent : $\\text{proj}_{\\vec u}(\\text{proj}_{\\vec u}(\\vec x))=\\text{proj}_{\\vec u}(\\vec x)$, car le projeté est déjà sur la droite et sa propre projection sur elle-même ne change rien.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-3-e5",
+            question: "Que vaut $\\|\\vec{e_i}\\|$ pour un vecteur $\\vec{e_i}$ d'une base orthonormée ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$0$" },
+              { id: "C", text: "Dépend du vecteur" },
+              { id: "D", text: "$\\sqrt 2$" },
+            ],
+            correctId: "A",
+            explanation: "Par définition d'une base orthonormée, chaque vecteur de la base est unitaire, donc de norme $1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "geo1-l1-3-e6",
+            question: "Normaliser le vecteur $\\vec u_1=(1,1,0)$ pour obtenir $\\vec e_1$ (première étape de Gram-Schmidt).",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\left(\\dfrac{1}{\\sqrt2},\\dfrac{1}{\\sqrt2},0\\right)$" },
+              { id: "B", text: "$(1,1,0)$" },
+              { id: "C", text: "$\\left(\\dfrac12,\\dfrac12,0\\right)$" },
+              { id: "D", text: "$(0,0,1)$" },
+            ],
+            correctId: "A",
+            explanation: "$\\|\\vec u_1\\|=\\sqrt{1^2+1^2}=\\sqrt2$, donc $\\vec e_1=\\vec u_1/\\|\\vec u_1\\| = (1/\\sqrt2, 1/\\sqrt2, 0)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-3-e7",
+            question: "Projeter $\\vec x=(1,2,3)$ sur le plan $z=0$ (plan $xOy$).",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(1,2,0)$" },
+              { id: "B", text: "$(0,0,3)$" },
+              { id: "C", text: "$(1,2,3)$" },
+              { id: "D", text: "$(0,2,0)$" },
+            ],
+            correctId: "A",
+            explanation: "Le vecteur normal au plan $z=0$ est $(0,0,1)$. La composante normale de $\\vec x$ est $(0,0,3)$, donc la projection sur le plan est $(1,2,3)-(0,0,3)=(1,2,0)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-3-e8",
+            question: "Vrai ou faux : la projection orthogonale d'un vecteur $\\vec x$ sur un sous-espace $F$ est l'élément de $F$ le plus proche de $\\vec x$ (au sens de la norme euclidienne).",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. C'est la propriété de meilleure approximation : $\\text{proj}_F(\\vec x)$ minimise $\\|\\vec x - \\vec y\\|$ parmi tous les $\\vec y \\in F$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-3-e9",
+            question: "Soit $\\vec x=(2,2,2)$ et le plan $\\mathcal P$ de normal $\\vec n=(1,1,1)$. Calculer la composante normale $\\text{proj}_{\\vec n}(\\vec x)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(2,2,2)$" },
+              { id: "B", text: "$(0,0,0)$" },
+              { id: "C", text: "$(1,1,1)$" },
+              { id: "D", text: "$(6,6,6)$" },
+            ],
+            correctId: "A",
+            explanation: "$\\text{proj}_{\\vec n}(\\vec x)=\\dfrac{\\vec x\\cdot\\vec n}{\\|\\vec n\\|^2}\\vec n = \\dfrac{2+2+2}{3}(1,1,1)=2(1,1,1)=(2,2,2)$. (Cohérent : $\\vec x$ est ici colinéaire à $\\vec n$, donc égal à sa propre projection normale.)",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-3-e10",
+            question: "Démontrer que $\\vec x - \\text{proj}_{\\vec u}(\\vec x)$ est orthogonal à $\\vec u$.",
+            type: "open",
+            modelAnswer: "(x - proj_u(x))·u = x·u - [(x·u)/||u||²]·(u·u) = x·u - (x·u) = 0.",
+            explanation: "$\\big(\\vec x-\\text{proj}_{\\vec u}(\\vec x)\\big)\\cdot\\vec u = \\vec x\\cdot\\vec u - \\dfrac{\\vec x\\cdot\\vec u}{\\|\\vec u\\|^2}(\\vec u\\cdot\\vec u) = \\vec x\\cdot\\vec u - \\dfrac{\\vec x\\cdot\\vec u}{\\|\\vec u\\|^2}\\|\\vec u\\|^2 = \\vec x\\cdot\\vec u - \\vec x\\cdot\\vec u = 0$. $\\square$",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "geo1-l1-3-e11",
+            question: "Effectuer la 2e étape de Gram-Schmidt pour $\\vec u_2=(1,0,1)$ sachant $\\vec e_1=\\left(\\frac{1}{\\sqrt2},\\frac{1}{\\sqrt2},0\\right)$ : calculer $\\vec v_2$ avant normalisation.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\left(\\dfrac12,-\\dfrac12,1\\right)$" },
+              { id: "B", text: "$(1,0,1)$" },
+              { id: "C", text: "$\\left(\\dfrac{1}{\\sqrt2},\\dfrac{1}{\\sqrt2},0\\right)$" },
+              { id: "D", text: "$(0,0,1)$" },
+            ],
+            correctId: "A",
+            explanation: "$\\vec u_2\\cdot\\vec e_1 = \\frac{1}{\\sqrt2}$. $\\vec v_2 = (1,0,1) - \\frac1{\\sqrt2}\\left(\\frac1{\\sqrt2},\\frac1{\\sqrt2},0\\right) = (1-\\frac12, 0-\\frac12, 1) = \\left(\\frac12,-\\frac12,1\\right)$.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-3-e12",
+            question: "Démontrer que la projection orthogonale $\\text{proj}_{\\vec u}$ est linéaire : $\\text{proj}_{\\vec u}(\\vec x+\\vec y)=\\text{proj}_{\\vec u}(\\vec x)+\\text{proj}_{\\vec u}(\\vec y)$.",
+            type: "open",
+            modelAnswer: "proj_u(x+y) = [(x+y)·u/||u||²]u = [(x·u+y·u)/||u||²]u = (x·u/||u||²)u + (y·u/||u||²)u = proj_u(x)+proj_u(y), par bilinéarité du produit scalaire.",
+            explanation: "$\\text{proj}_{\\vec u}(\\vec x+\\vec y) = \\dfrac{(\\vec x+\\vec y)\\cdot\\vec u}{\\|\\vec u\\|^2}\\vec u$. Par bilinéarité du produit scalaire, $(\\vec x+\\vec y)\\cdot\\vec u = \\vec x\\cdot\\vec u+\\vec y\\cdot\\vec u$. Donc $\\text{proj}_{\\vec u}(\\vec x+\\vec y) = \\dfrac{\\vec x\\cdot\\vec u}{\\|\\vec u\\|^2}\\vec u + \\dfrac{\\vec y\\cdot\\vec u}{\\|\\vec u\\|^2}\\vec u = \\text{proj}_{\\vec u}(\\vec x)+\\text{proj}_{\\vec u}(\\vec y)$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-3-e13",
+            question: "Vrai ou faux : si $(\\vec{e_1},\\vec{e_2})$ est une base orthonormée d'un plan $\\mathcal P$, alors pour tout $\\vec x\\in\\mathcal P$, $\\|\\vec x\\|^2=(\\vec x\\cdot\\vec{e_1})^2+(\\vec x\\cdot\\vec{e_2})^2$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai, c'est l'identité de Parseval (cas particulier du théorème de Pythagore généralisé) : en écrivant $\\vec x=(\\vec x\\cdot\\vec{e_1})\\vec{e_1}+(\\vec x\\cdot\\vec{e_2})\\vec{e_2}$, l'orthonormalité de la base donne directement $\\|\\vec x\\|^2$ comme somme des carrés des coordonnées.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-3-e14",
+            question: "Soit $\\mathcal P$ le plan d'équation $x+y+z=0$ et $\\vec x=(3,0,0)$. Calculer la projection orthogonale de $\\vec x$ sur $\\mathcal P$ via le vecteur normal $\\vec n=(1,1,1)$.",
+            type: "open",
+            modelAnswer: "proj_n(x) = (3/3)(1,1,1) = (1,1,1). proj_P(x) = x - proj_n(x) = (3,0,0)-(1,1,1) = (2,-1,-1).",
+            explanation: "$\\text{proj}_{\\vec n}(\\vec x) = \\dfrac{\\vec x\\cdot\\vec n}{\\|\\vec n\\|^2}\\vec n = \\dfrac{3+0+0}{3}(1,1,1)=(1,1,1)$. Donc $\\text{proj}_{\\mathcal P}(\\vec x) = \\vec x - \\text{proj}_{\\vec n}(\\vec x) = (3,0,0)-(1,1,1)=(2,-1,-1)$. Vérification : $2-1-1=0$, le résultat appartient bien au plan $\\mathcal P$.",
+            difficulty: "expert",
+          },
+          {
+            id: "geo1-l1-3-e15",
+            question: "Démontrer que $\\|\\text{proj}_{\\mathcal P}(\\vec x)\\| \\leq \\|\\vec x\\|$, avec égalité si et seulement si $\\vec x\\in\\mathcal P$.",
+            type: "open",
+            modelAnswer: "x = proj_P(x) + (x - proj_P(x)), et ces deux termes sont orthogonaux (le second est orthogonal à P par construction). Par Pythagore vectoriel, ||x||² = ||proj_P(x)||² + ||x-proj_P(x)||² ≥ ||proj_P(x)||², avec égalité ssi x-proj_P(x)=0, i.e. x∈P.",
+            explanation: "Écrivons $\\vec x = \\text{proj}_{\\mathcal P}(\\vec x) + \\big(\\vec x - \\text{proj}_{\\mathcal P}(\\vec x)\\big)$. Le second terme est orthogonal à tout vecteur de $\\mathcal P$, donc en particulier orthogonal à $\\text{proj}_{\\mathcal P}(\\vec x) \\in \\mathcal P$.\n\nPar le théorème de Pythagore vectoriel (établi dans la leçon précédente) :\n$$\\|\\vec x\\|^2 = \\|\\text{proj}_{\\mathcal P}(\\vec x)\\|^2 + \\|\\vec x-\\text{proj}_{\\mathcal P}(\\vec x)\\|^2 \\geq \\|\\text{proj}_{\\mathcal P}(\\vec x)\\|^2$$\nd'où $\\|\\text{proj}_{\\mathcal P}(\\vec x)\\|\\leq\\|\\vec x\\|$.\n\n**Égalité :** elle a lieu si et seulement si $\\|\\vec x-\\text{proj}_{\\mathcal P}(\\vec x)\\|^2=0$, c'est-à-dire $\\vec x=\\text{proj}_{\\mathcal P}(\\vec x)\\in\\mathcal P$. $\\square$",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L1 — Informatique : Introduction à Python
+  // ─────────────────────────────────────────────
+  {
+    id: "info-l1",
+    slug: "informatique-l1-introduction-python-mathematiques",
+    title: "Informatique L1 — Introduction à Python pour les mathématiques",
+    description: "Premiers pas en programmation Python appliquée aux mathématiques : variables, structures de contrôle, fonctions, listes et algorithmes simples.",
+    schoolLevel: "L1",
+    subject: "informatique",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "🐍",
+    lessons: [
+      {
+        id: "info1-l1-1",
+        slug: "variables-types-structures-controle",
+        title: "Variables, types et structures de contrôle",
+        durationMinutes: 50,
+        content: `## Variables, types et structures de contrôle
+
+  ### 1. Variables et affectation
+
+  En Python, une **variable** est un nom associé à une valeur, créée par l'opérateur d'affectation \`=\` :
+
+  > x = 5
+  > nom = "Alice"
+  > pi_approx = 3.14
+
+  Contrairement à certains langages, Python n'exige pas de déclarer le type d'une variable à l'avance : le type est déduit automatiquement de la valeur affectée (typage dynamique).
+
+  ### 2. Types de base
+
+  | Type | Nom Python | Exemple |
+  |---|---|---|
+  | Entier | \`int\` | \`x = 5\` |
+  | Flottant (décimal) | \`float\` | \`y = 3.14\` |
+  | Booléen | \`bool\` | \`b = True\` ou \`b = False\` |
+  | Chaîne de caractères | \`str\` | \`s = "bonjour"\` |
+
+  La fonction \`type(x)\` renvoie le type de la variable \`x\`. On peut convertir entre types avec \`int(...)\`, \`float(...)\`, \`str(...)\` (ex : \`int("5")\` donne l'entier \`5\`).
+
+  **Opérateurs arithmétiques :** \`+\`, \`-\`, \`*\`, \`/\` (division réelle), \`//\` (division entière, quotient), \`%\` (modulo, reste de la division euclidienne), \`**\` (puissance).
+
+  > 7 // 2   donne 3
+  > 7 % 2    donne 1
+  > 2 ** 10  donne 1024
+
+  ### 3. Opérateurs de comparaison et booléens
+
+  Les opérateurs de comparaison renvoient un booléen : \`==\` (égalité), \`!=\` (différence), \`<\`, \`>\`, \`<=\`, \`>=\`. Les opérateurs logiques combinent des booléens : \`and\`, \`or\`, \`not\`.
+
+  > (3 < 5) and (7 > 2)   donne True
+  > not (3 == 3)          donne False
+
+  ### 4. Structure conditionnelle if / elif / else
+
+  La structure conditionnelle exécute un bloc de code selon qu'une condition est vraie ou fausse :
+
+  > if condition1:
+  >     instruction A
+  > elif condition2:
+  >     instruction B
+  > else:
+  >     instruction C
+
+  En Python, **l'indentation** (généralement 4 espaces) délimite les blocs de code — il n'y a pas d'accolades ni de mot-clé \`end\`.
+
+  **Exemple résolu :** déterminer le signe d'un nombre \`n\`.
+
+  > if n > 0:
+  >     print("positif")
+  > elif n < 0:
+  >     print("négatif")
+  > else:
+  >     print("nul")
+
+  ### 5. Boucle for
+
+  La boucle \`for\` répète un bloc pour chaque élément d'une séquence, souvent générée par \`range(...)\` :
+
+  > for i in range(5):
+  >     print(i)
+
+  affiche \`0, 1, 2, 3, 4\` (range(5) génère les entiers de $0$ à $4$ inclus, soit $5$ valeurs, en excluant la borne supérieure). \`range(a, b)\` génère les entiers de $a$ à $b-1$ ; \`range(a, b, pas)\` ajoute un pas.
+
+  ### 6. Boucle while
+
+  La boucle \`while\` répète un bloc **tant qu'une condition reste vraie** :
+
+  > n = 10
+  > while n > 0:
+  >     n = n - 1
+
+  Contrairement à \`for\` (nombre d'itérations souvent connu à l'avance), \`while\` convient quand le nombre de répétitions dépend d'une condition évaluée dynamiquement. **Attention** : une condition toujours vraie produit une **boucle infinie**.
+
+  **Exemple résolu :** calculer la somme des entiers de $1$ à $n$ avec une boucle \`while\`.
+
+  > n = 10
+  > s = 0
+  > i = 1
+  > while i <= n:
+  >     s = s + i
+  >     i = i + 1
+  > print(s)
+
+  Ce programme affiche $55 = \\dfrac{10\\times11}{2}$, conformément à la formule de la somme arithmétique.
+
+  ### 7. Résumé méthodologique
+
+  | Outil | Usage |
+  |---|---|
+  | \`if / elif / else\` | exécuter un bloc selon une condition |
+  | \`for ... in range(...)\` | répéter un nombre **connu** de fois |
+  | \`while condition:\` | répéter **tant que** la condition est vraie (nombre inconnu a priori) |`,
+        exercises: [
+          {
+            id: "info1-l1-1-e1",
+            question: "Quel est le type de la valeur produite par \`5 / 2\` en Python ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`float\` (égal à 2.5)" },
+              { id: "B", text: "\`int\` (égal à 2)" },
+              { id: "C", text: "\`str\`" },
+              { id: "D", text: "\`bool\`" },
+            ],
+            correctId: "A",
+            explanation: "En Python 3, l'opérateur \`/\` effectue toujours une division réelle et renvoie un \`float\`, même si le résultat est un entier exact. \`5/2\` donne \`2.5\`. Pour obtenir le quotient entier, on utilise \`//\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-1-e2",
+            question: "Que vaut \`17 % 5\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$3$" },
+              { id: "C", text: "$5$" },
+              { id: "D", text: "$0$" },
+            ],
+            correctId: "A",
+            explanation: "\`%\` calcule le reste de la division euclidienne : $17 = 3\\times5+2$, donc \`17 % 5\` vaut $2$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-1-e3",
+            question: "Vrai ou faux : en Python, l'indentation du code est purement esthétique et n'a aucun effet sur l'exécution.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. En Python, l'indentation délimite syntaxiquement les blocs de code (corps d'un \`if\`, d'une boucle, d'une fonction). Une indentation incorrecte provoque une erreur ou change le comportement du programme.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-1-e4",
+            question: "Combien de valeurs génère \`range(3, 8)\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5$ (les entiers $3,4,5,6,7$)" },
+              { id: "B", text: "$6$ (les entiers $3$ à $8$)" },
+              { id: "C", text: "$8$" },
+              { id: "D", text: "$3$" },
+            ],
+            correctId: "A",
+            explanation: "\`range(a, b)\` génère les entiers de $a$ inclus à $b$ **exclu**. Ici, $3,4,5,6,7$ : soit $8-3=5$ valeurs.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-1-e5",
+            question: "Quelle structure utiliser pour répéter un bloc tant qu'une condition reste vraie, sans connaître à l'avance le nombre d'itérations ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`while\`" },
+              { id: "B", text: "\`for\`" },
+              { id: "C", text: "\`if\`" },
+              { id: "D", text: "\`print\`" },
+            ],
+            correctId: "A",
+            explanation: "La boucle \`while\` est adaptée quand le nombre de répétitions dépend d'une condition dynamique, contrairement à \`for\` qui itère sur une séquence de taille généralement connue.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-1-e6",
+            question: "Quelle est la sortie du code suivant ?\n\n> n = -3\n> if n > 0:\n>     print(\"positif\")\n> elif n < 0:\n>     print(\"négatif\")\n> else:\n>     print(\"nul\")",
+            type: "mcq",
+            options: [
+              { id: "A", text: "négatif" },
+              { id: "B", text: "positif" },
+              { id: "C", text: "nul" },
+              { id: "D", text: "Aucune sortie (erreur)" },
+            ],
+            correctId: "A",
+            explanation: "Comme $n=-3<0$, la première condition \`n > 0\` est fausse, la deuxième \`n < 0\` est vraie : le programme affiche \`négatif\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-1-e7",
+            question: "Vrai ou faux : l'expression \`(3 < 5) and (2 > 7)\` s'évalue à \`True\`.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. \`3 < 5\` est \`True\`, mais \`2 > 7\` est \`False\`. L'opérateur \`and\` exige que **les deux** conditions soient vraies, donc le résultat global est \`False\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-1-e8",
+            question: "Quelle est la valeur finale de \`s\` après ce code ?\n\n> s = 0\n> for i in range(1, 5):\n>     s = s + i",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$10$" },
+              { id: "B", text: "$15$" },
+              { id: "C", text: "$4$" },
+              { id: "D", text: "$5$" },
+            ],
+            correctId: "A",
+            explanation: "\`range(1,5)\` génère $1,2,3,4$. La somme accumulée est $1+2+3+4=10$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-1-e9",
+            question: "Que produit \`int(\"7\") + 3\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$10$ (entier)" },
+              { id: "B", text: "\"73\" (chaîne)" },
+              { id: "C", text: "Une erreur" },
+              { id: "D", text: "$7.3$" },
+            ],
+            correctId: "A",
+            explanation: "\`int(\"7\")\` convertit la chaîne \`\"7\"\` en entier $7$. Puis $7+3=10$, un entier.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-1-e10",
+            question: "Écrire (en pseudo-code Python) une boucle \`while\` qui affiche les puissances de $2$ inférieures à $100$ (c'est-à-dire $1, 2, 4, 8, \\ldots$ jusqu'à la dernière strictement inférieure à $100$).",
+            type: "open",
+            modelAnswer: "p = 1\nwhile p < 100:\n    print(p)\n    p = p * 2",
+            explanation: "Une solution possible :\n\n> p = 1\n> while p < 100:\n>     print(p)\n>     p = p * 2\n\nCe code affiche $1, 2, 4, 8, 16, 32, 64$ : dès que \`p\` atteint ou dépasse $100$ (ici $128$), la condition devient fausse et la boucle s'arrête.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-1-e11",
+            question: "Quelle est la sortie de ce code ?\n\n> total = 0\n> i = 1\n> while i <= 5:\n>     if i % 2 == 0:\n>         total = total + i\n>     i = i + 1\n> print(total)",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$6$" },
+              { id: "B", text: "$15$" },
+              { id: "C", text: "$9$" },
+              { id: "D", text: "$5$" },
+            ],
+            correctId: "A",
+            explanation: "On parcourt $i=1,2,3,4,5$ et on additionne seulement les valeurs paires : $2+4=6$. \`total\` vaut donc $6$ à la fin.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-1-e12",
+            question: "Vrai ou faux : le code suivant produit une boucle infinie.\n\n> n = 5\n> while n != 0:\n>     n = n - 2",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. La suite des valeurs de \`n\` est $5,3,1,-1,-3,\\ldots$ : elle décroît de $2$ en $2$ à partir d'un nombre impair, donc ne passe jamais exactement par $0$. La condition \`n != 0\` reste indéfiniment vraie : boucle infinie.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-1-e13",
+            question: "Combien de fois le mot \`print\` est-il exécuté dans le code suivant ?\n\n> for i in range(3):\n>     for j in range(4):\n>         print(i, j)",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$12$" },
+              { id: "B", text: "$7$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$4$" },
+            ],
+            correctId: "A",
+            explanation: "La boucle externe s'exécute $3$ fois ($i=0,1,2$), et pour chaque valeur de $i$, la boucle interne s'exécute $4$ fois ($j=0,1,2,3$). Total : $3\\times4=12$ exécutions de \`print\`.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-1-e14",
+            question: "Écrire un morceau de code Python qui compte le nombre d'entiers entre $1$ et $n$ (inclus) divisibles par $3$.",
+            type: "open",
+            modelAnswer: "compteur = 0\nfor i in range(1, n+1):\n    if i % 3 == 0:\n        compteur = compteur + 1",
+            explanation: "Une solution possible :\n\n> compteur = 0\n> for i in range(1, n+1):\n>     if i % 3 == 0:\n>         compteur = compteur + 1\n\nOn parcourt tous les entiers de $1$ à $n$ avec \`range(1, n+1)\` (la borne $n+1$ exclue rend $n$ inclus), et on incrémente \`compteur\` chaque fois que le reste de la division par $3$ est nul.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-1-e15",
+            question: "Que vaut \`total\` après l'exécution de ce code, et pourquoi le résultat surprend-il souvent les débutants ?\n\n> total = 0\n> for i in range(5):\n>     if i == 3:\n>         break\n>     total = total + i",
+            type: "open",
+            modelAnswer: "total = 0+1+2 = 3, car break interrompt la boucle dès que i==3 (avant d'exécuter total=total+i pour i=3), donc seules les itérations i=0,1,2 contribuent.",
+            explanation: "L'instruction \`break\` interrompt **immédiatement** la boucle dès que sa condition est vérifiée, **avant** d'exécuter le reste du corps de boucle pour cette itération. Donc pour $i=0,1,2$, on ajoute $0,1,2$ à \`total\` (total successif $0,1,3$). Quand $i=3$, le test \`i==3\` est vrai : \`break\` est exécuté immédiatement, **sans** exécuter \`total = total + i\` pour $i=3$. Le résultat final est $\\text{total}=0+1+2=3$. C'est une source d'erreur fréquente : on oublie que \`break\` agit avant le reste du bloc.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "info1-l1-2",
+        slug: "fonctions-et-listes",
+        title: "Fonctions et listes",
+        durationMinutes: 55,
+        content: `## Fonctions et listes
+
+  ### 1. Définir une fonction
+
+  Une **fonction** se définit avec le mot-clé \`def\`, suivi du nom, des paramètres entre parenthèses, et de \`:\` :
+
+  > def carre(x):
+  >     return x ** 2
+
+  Le mot-clé \`return\` renvoie une valeur et **termine immédiatement** l'exécution de la fonction. Une fonction sans \`return\` explicite renvoie \`None\`.
+
+  **Appel de la fonction :** \`carre(5)\` renvoie $25$. Les paramètres peuvent avoir des **valeurs par défaut** :
+
+  > def puissance(x, n=2):
+  >     return x ** n
+
+  \`puissance(3)\` donne $9$ (utilise $n=2$ par défaut), \`puissance(3, 3)\` donne $27$.
+
+  ### 2. Portée des variables
+
+  Une variable définie **à l'intérieur** d'une fonction (variable **locale**) n'est pas accessible à l'extérieur. Une fonction peut lire une variable **globale** (définie hors de toute fonction), mais pour la modifier, il faut le mot-clé \`global\` (rarement recommandé en pratique — on préfère retourner une valeur).
+
+  ### 3. Listes : création et indexation
+
+  Une **liste** Python est une séquence ordonnée et modifiable d'éléments, créée avec des crochets :
+
+  > L = [3, 7, 1, 9, 4]
+
+  L'**indexation** commence à $0$ : \`L[0]\` vaut $3$, \`L[1]\` vaut $7$. Les indices **négatifs** comptent depuis la fin : \`L[-1]\` vaut $4$ (dernier élément), \`L[-2]\` vaut $9$.
+
+  Le **découpage** (slicing) \`L[a:b]\` extrait les éléments d'indices $a$ à $b-1$ : \`L[1:3]\` donne \`[7, 1]\`.
+
+  La fonction \`len(L)\` renvoie le nombre d'éléments de la liste (ici $5$).
+
+  ### 4. Parcourir une liste
+
+  > for x in L:
+  >     print(x)
+
+  parcourt chaque élément de \`L\` directement (sans passer par les indices). Si l'on a besoin de l'indice **et** de la valeur, on utilise \`enumerate\` :
+
+  > for i, x in enumerate(L):
+  >     print(i, x)
+
+  ### 5. Méthodes courantes sur les listes
+
+  | Méthode / fonction | Effet |
+  |---|---|
+  | \`L.append(x)\` | ajoute \`x\` à la fin de \`L\` |
+  | \`L.pop()\` | retire et renvoie le dernier élément |
+  | \`L.sort()\` | trie \`L\` en place (ordre croissant) |
+  | \`sum(L)\` | somme des éléments |
+  | \`max(L)\`, \`min(L)\` | valeur maximale, minimale |
+  | \`x in L\` | renvoie \`True\` si \`x\` appartient à \`L\` |
+
+  **Exemple résolu :** écrire une fonction qui renvoie la moyenne des éléments d'une liste.
+
+  > def moyenne(L):
+  >     return sum(L) / len(L)
+
+  \`moyenne([2, 4, 6, 8])\` renvoie $\\dfrac{20}{4}=5{,}0$.
+
+  ### 6. Construire une liste avec une boucle
+
+  Pour construire une nouvelle liste à partir d'un calcul répété, on initialise une liste vide et on utilise \`append\` :
+
+  > carres = []
+  > for i in range(5):
+  >     carres.append(i ** 2)
+
+  Donne \`carres = [0, 1, 4, 9, 16]\`. (Il existe une syntaxe plus compacte, la **liste en compréhension** \`[i**2 for i in range(5)]\`, équivalente mais non indispensable au niveau L1.)
+
+  ### 7. Résumé méthodologique
+
+  | Concept | Syntaxe clé |
+  |---|---|
+  | Définir une fonction | \`def nom(params): ... return ...\` |
+  | Indexer une liste | \`L[i]\` (depuis $0$), \`L[-1]\` (dernier élément) |
+  | Découper une liste | \`L[a:b]\` (de $a$ inclus à $b$ exclu) |
+  | Ajouter un élément | \`L.append(x)\` |`,
+        exercises: [
+          {
+            id: "info1-l1-2-e1",
+            question: "Que renvoie l'appel \`carre(4)\` pour la fonction \`def carre(x): return x ** 2\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$16$" },
+              { id: "B", text: "$8$" },
+              { id: "C", text: "$4$" },
+              { id: "D", text: "Une erreur" },
+            ],
+            correctId: "A",
+            explanation: "La fonction calcule \`x**2\`, soit $4^2=16$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-2-e2",
+            question: "Soit \`L = [10, 20, 30, 40]\`. Que vaut \`L[1]\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$20$" },
+              { id: "B", text: "$10$" },
+              { id: "C", text: "$30$" },
+              { id: "D", text: "Une erreur, les indices commencent à $1$" },
+            ],
+            correctId: "A",
+            explanation: "L'indexation Python commence à $0$ : \`L[0]=10\`, \`L[1]=20\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-2-e3",
+            question: "Vrai ou faux : une fonction Python sans instruction \`return\` renvoie automatiquement \`None\`.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. En l'absence de \`return\` explicite, Python renvoie la valeur spéciale \`None\` à la fin de l'exécution de la fonction.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-2-e4",
+            question: "Que vaut \`len([5, 8, 2, 9, 1])\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5$" },
+              { id: "B", text: "$9$" },
+              { id: "C", text: "$25$" },
+              { id: "D", text: "$1$" },
+            ],
+            correctId: "A",
+            explanation: "\`len\` renvoie le nombre d'éléments de la liste, ici $5$ éléments.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-2-e5",
+            question: "Quelle méthode ajoute un élément à la fin d'une liste \`L\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`L.append(x)\`" },
+              { id: "B", text: "\`L.add(x)\`" },
+              { id: "C", text: "\`L.insert(x)\`" },
+              { id: "D", text: "\`L + x\`" },
+            ],
+            correctId: "A",
+            explanation: "\`append\` est la méthode standard pour ajouter un élément à la fin d'une liste Python.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-2-e6",
+            question: "Soit \`L = [3, 7, 1, 9, 4]\`. Que vaut \`L[-1]\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4$" },
+              { id: "B", text: "$3$" },
+              { id: "C", text: "$9$" },
+              { id: "D", text: "Une erreur" },
+            ],
+            correctId: "A",
+            explanation: "L'indice $-1$ désigne le dernier élément de la liste, ici $4$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-2-e7",
+            question: "Que vaut \`L[1:3]\` pour \`L = [3, 7, 1, 9, 4]\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[7, 1]$" },
+              { id: "B", text: "$[7, 1, 9]$" },
+              { id: "C", text: "$[3, 7]$" },
+              { id: "D", text: "$[1, 9]$" },
+            ],
+            correctId: "A",
+            explanation: "\`L[1:3]\` extrait les éléments d'indices $1$ et $2$ (la borne $3$ est exclue) : \`[7, 1]\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-2-e8",
+            question: "Que renvoie \`puissance(2, 5)\` pour \`def puissance(x, n=2): return x ** n\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$32$" },
+              { id: "B", text: "$4$" },
+              { id: "C", text: "$25$" },
+              { id: "D", text: "$10$" },
+            ],
+            correctId: "A",
+            explanation: "Les deux arguments sont fournis explicitement, \`x=2\` et \`n=5\` (la valeur par défaut $n=2$ n'est utilisée que si \`n\` n'est pas précisé). $2^5=32$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-2-e9",
+            question: "Vrai ou faux : une variable définie à l'intérieur d'une fonction est accessible depuis l'extérieur de cette fonction.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. Une variable définie dans une fonction est **locale** : elle n'existe que pendant l'exécution de la fonction et n'est pas visible à l'extérieur.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-2-e10",
+            question: "Écrire une fonction Python \`somme_carres(L)\` qui renvoie la somme des carrés des éléments d'une liste \`L\`.",
+            type: "open",
+            modelAnswer: "def somme_carres(L):\n    s = 0\n    for x in L:\n        s = s + x ** 2\n    return s",
+            explanation: "Une solution possible :\n\n> def somme_carres(L):\n>     s = 0\n>     for x in L:\n>         s = s + x ** 2\n>     return s\n\nOn initialise un accumulateur \`s\` à $0$, on parcourt chaque élément \`x\` de la liste, on ajoute son carré à \`s\`, puis on renvoie le résultat final.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-2-e11",
+            question: "Quelle est la sortie de ce code ?\n\n> def f(x):\n>     x = x + 1\n>     return x\n> y = 5\n> z = f(y)\n> print(y, z)",
+            type: "mcq",
+            options: [
+              { id: "A", text: "5 6" },
+              { id: "B", text: "6 6" },
+              { id: "C", text: "5 5" },
+              { id: "D", text: "6 5" },
+            ],
+            correctId: "A",
+            explanation: "À l'intérieur de \`f\`, le paramètre \`x\` est une copie locale : le modifier (\`x = x + 1\`) ne change pas la variable \`y\` du programme principal. \`y\` reste $5$, et \`z\` reçoit la valeur renvoyée $6$.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-2-e12",
+            question: "Écrire une fonction \`maximum(L)\` qui renvoie le plus grand élément d'une liste \`L\` non vide, **sans utiliser** la fonction native \`max\`.",
+            type: "open",
+            modelAnswer: "def maximum(L):\n    m = L[0]\n    for x in L:\n        if x > m:\n            m = x\n    return m",
+            explanation: "Une solution possible :\n\n> def maximum(L):\n>     m = L[0]\n>     for x in L:\n>         if x > m:\n>             m = x\n>     return m\n\nOn initialise \`m\` avec le premier élément (hypothèse de liste non vide essentielle), puis on parcourt la liste en mettant à jour \`m\` chaque fois qu'on trouve un élément strictement plus grand.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-2-e13",
+            question: "Que vaut \`L\` après l'exécution de ce code ?\n\n> L = [1, 2, 3]\n> L.append(4)\n> L.pop()\n> L.append(10)",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[1, 2, 3, 10]$" },
+              { id: "B", text: "$[1, 2, 3, 4, 10]$" },
+              { id: "C", text: "$[1, 2, 3]$" },
+              { id: "D", text: "$[10, 1, 2, 3]$" },
+            ],
+            correctId: "A",
+            explanation: "Après \`append(4)\` : $[1,2,3,4]$. Après \`pop()\` (retire le dernier élément, $4$) : $[1,2,3]$. Après \`append(10)\` : $[1,2,3,10]$.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-2-e14",
+            question: "Vrai ou faux : \`enumerate(L)\` permet d'obtenir à la fois l'indice et la valeur de chaque élément lors d'un parcours de liste.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. \`for i, x in enumerate(L):\` donne à chaque itération l'indice \`i\` et la valeur correspondante \`x = L[i]\`, évitant d'avoir à écrire \`L[i]\` manuellement.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-2-e15",
+            question: "Écrire une fonction \`compte_occurrences(L, valeur)\` qui renvoie le nombre de fois que \`valeur\` apparaît dans la liste \`L\`, en justifiant pourquoi on ne peut pas simplement utiliser \`L.index(valeur)\` pour ce besoin.",
+            type: "open",
+            modelAnswer: "def compte_occurrences(L, valeur):\n    n = 0\n    for x in L:\n        if x == valeur:\n            n = n + 1\n    return n\n\nL.index(valeur) renvoie seulement l'indice de la PREMIÈRE occurrence, pas le nombre total d'occurrences.",
+            explanation: "Une solution possible :\n\n> def compte_occurrences(L, valeur):\n>     n = 0\n>     for x in L:\n>         if x == valeur:\n>             n = n + 1\n>     return n\n\n\`L.index(valeur)\` renvoie uniquement l'**indice de la première occurrence** de \`valeur\` dans \`L\` (et lève une erreur si \`valeur\` est absente) — elle ne compte pas les occurrences. Pour compter, il faut parcourir explicitement toute la liste et incrémenter un compteur à chaque correspondance (la méthode native \`L.count(valeur)\` fait exactement cela, mais l'exercice demande de la réimplémenter).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "info1-l1-3",
+        slug: "algorithmes-simples",
+        title: "Algorithmes simples",
+        durationMinutes: 55,
+        content: `## Algorithmes simples
+
+  ### 1. Recherche dans une liste (recherche séquentielle)
+
+  Pour savoir si une valeur \`v\` se trouve dans une liste \`L\`, on parcourt la liste élément par élément :
+
+  > def recherche(L, v):
+  >     for x in L:
+  >         if x == v:
+  >             return True
+  >     return False
+
+  Cette méthode, appelée **recherche séquentielle**, a un coût proportionnel à la longueur de la liste dans le pire cas (la valeur n'est pas présente, ou se trouve en dernière position) : on dit qu'elle est de **complexité linéaire**, $O(n)$ où $n=\\text{len}(L)$.
+
+  **Variante : trouver l'indice d'une valeur.**
+
+  > def indice(L, v):
+  >     for i in range(len(L)):
+  >         if L[i] == v:
+  >             return i
+  >     return -1
+
+  On renvoie souvent $-1$ par convention pour signaler que la valeur n'a pas été trouvée.
+
+  ### 2. Tri par sélection
+
+  Le **tri par sélection** construit la liste triée en répétant le principe suivant : trouver le plus petit élément restant et le placer en tête.
+
+  > def tri_selection(L):
+  >     n = len(L)
+  >     for i in range(n):
+  >         indice_min = i
+  >         for j in range(i+1, n):
+  >             if L[j] < L[indice_min]:
+  >                 indice_min = j
+  >         L[i], L[indice_min] = L[indice_min], L[i]
+  >     return L
+
+  À chaque étape $i$, on cherche le minimum parmi les éléments d'indices $i, i+1, \\ldots, n-1$ (la partie non encore triée), puis on l'échange avec l'élément d'indice $i$.
+
+  **Exemple résolu :** trier $[5, 2, 8, 1, 9]$.
+
+  - $i=0$ : minimum de $[5,2,8,1,9]$ est $1$ (indice $3$) → échange : $[1,2,8,5,9]$
+  - $i=1$ : minimum de $[2,8,5,9]$ (indices $1$ à $4$) est $2$, déjà en place : $[1,2,8,5,9]$
+  - $i=2$ : minimum de $[8,5,9]$ est $5$ (indice $3$) → échange : $[1,2,5,8,9]$
+  - $i=3$ : minimum de $[8,9]$ est $8$, déjà en place : $[1,2,5,8,9]$ (trié)
+
+  ### 3. Tri par insertion (alternative)
+
+  Le **tri par insertion** construit la partie triée en insérant chaque nouvel élément à sa bonne place parmi les éléments déjà triés :
+
+  > def tri_insertion(L):
+  >     for i in range(1, len(L)):
+  >         cle = L[i]
+  >         j = i - 1
+  >         while j >= 0 and L[j] > cle:
+  >             L[j+1] = L[j]
+  >             j = j - 1
+  >         L[j+1] = cle
+  >     return L
+
+  ### 4. Calcul de moyenne et de somme
+
+  > def somme(L):
+  >     s = 0
+  >     for x in L:
+  >         s = s + x
+  >     return s
+  >
+  > def moyenne(L):
+  >     return somme(L) / len(L)
+
+  ### 5. Calcul itératif du PGCD (algorithme d'Euclide)
+
+  Le **PGCD** (plus grand commun diviseur) de deux entiers $a$ et $b$ se calcule par l'**algorithme d'Euclide**, fondé sur la propriété $\\text{pgcd}(a,b)=\\text{pgcd}(b, a \\bmod b)$, avec $\\text{pgcd}(a,0)=a$ :
+
+  > def pgcd(a, b):
+  >     while b != 0:
+  >         a, b = b, a % b
+  >     return a
+
+  **Exemple résolu :** $\\text{pgcd}(48, 18)$.
+
+  - $(a,b)=(48,18)$ : $48 \\bmod 18 = 12$ → nouveau couple $(18, 12)$
+  - $(18,12)$ : $18 \\bmod 12 = 6$ → $(12, 6)$
+  - $(12,6)$ : $12 \\bmod 6 = 0$ → $(6, 0)$
+  - $b=0$ : on renvoie $a=6$.
+
+  Donc $\\text{pgcd}(48,18)=6$.
+
+  ### 6. Résumé des complexités
+
+  | Algorithme | Complexité (pire cas) |
+  |---|---|
+  | Recherche séquentielle | $O(n)$ |
+  | Tri par sélection | $O(n^2)$ |
+  | Tri par insertion | $O(n^2)$ |
+  | Algorithme d'Euclide | $O(\\log(\\min(a,b)))$ |`,
+        exercises: [
+          {
+            id: "info1-l1-3-e1",
+            question: "Que renvoie \`recherche([3, 7, 1], 7)\` pour la fonction de recherche séquentielle du cours ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\`True\`" },
+              { id: "B", text: "\`False\`" },
+              { id: "C", text: "$1$ (l'indice)" },
+              { id: "D", text: "Une erreur" },
+            ],
+            correctId: "A",
+            explanation: "La valeur $7$ est présente dans la liste (à l'indice $1$), donc la fonction \`recherche\` (qui renvoie un booléen, pas un indice) renvoie \`True\`.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-3-e2",
+            question: "Quel est le pgcd de $48$ et $18$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$6$" },
+              { id: "B", text: "$3$" },
+              { id: "C", text: "$12$" },
+              { id: "D", text: "$18$" },
+            ],
+            correctId: "A",
+            explanation: "Par l'algorithme d'Euclide détaillé dans le cours : $\\text{pgcd}(48,18)=\\text{pgcd}(18,12)=\\text{pgcd}(12,6)=\\text{pgcd}(6,0)=6$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-3-e3",
+            question: "Vrai ou faux : le tri par sélection trouve, à chaque étape, le plus petit élément restant et le place en tête de la partie non triée.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai, c'est exactement le principe du tri par sélection : à l'étape $i$, on sélectionne le minimum de la sous-liste $L[i:]$ et on l'échange avec $L[i]$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-3-e4",
+            question: "Quelle valeur renvoie la fonction \`indice(L, v)\` du cours si \`v\` n'est pas présent dans \`L\` ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-1$" },
+              { id: "B", text: "\`False\`" },
+              { id: "C", text: "$0$" },
+              { id: "D", text: "Une erreur systématique" },
+            ],
+            correctId: "A",
+            explanation: "Par convention, la fonction renvoie $-1$ lorsque la valeur recherchée n'a été trouvée à aucun indice de la liste, après avoir parcouru tous les éléments.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-3-e5",
+            question: "Quelle est la complexité (en pire cas) de la recherche séquentielle dans une liste de longueur $n$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$O(n)$" },
+              { id: "B", text: "$O(1)$" },
+              { id: "C", text: "$O(n^2)$" },
+              { id: "D", text: "$O(\\log n)$" },
+            ],
+            correctId: "A",
+            explanation: "Dans le pire cas (valeur absente, ou en dernière position), la recherche séquentielle examine les $n$ éléments de la liste : complexité linéaire $O(n)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "info1-l1-3-e6",
+            question: "Après la première itération ($i=0$) du tri par sélection sur $[5,2,8,1,9]$, quel est l'état de la liste ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$[1,2,8,5,9]$" },
+              { id: "B", text: "$[2,5,8,1,9]$" },
+              { id: "C", text: "$[1,2,5,8,9]$" },
+              { id: "D", text: "$[5,2,8,1,9]$ (inchangée)" },
+            ],
+            correctId: "A",
+            explanation: "Le minimum de toute la liste est $1$, à l'indice $3$. On l'échange avec l'élément d'indice $0$ (qui est $5$) : $[1,2,8,5,9]$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-3-e7",
+            question: "Vrai ou faux : \`a, b = b, a % b\` en Python échange et met à jour simultanément les deux variables, en utilisant l'ancienne valeur de \`a\` pour calculer le modulo.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. En Python, l'affectation multiple \`a, b = expr1, expr2\` évalue d'abord **toutes** les expressions à droite avec les valeurs courantes, puis effectue les affectations. Donc \`a % b\` utilise bien l'ancienne valeur de \`a\` (et de \`b\`) avant toute modification.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-3-e8",
+            question: "Quelle est la complexité (pire cas) du tri par sélection sur une liste de $n$ éléments ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$O(n^2)$" },
+              { id: "B", text: "$O(n)$" },
+              { id: "C", text: "$O(n\\log n)$" },
+              { id: "D", text: "$O(1)$" },
+            ],
+            correctId: "A",
+            explanation: "Le tri par sélection effectue, pour chacune des $n$ étapes, une recherche du minimum parmi en moyenne $n/2$ éléments restants : le nombre total de comparaisons est de l'ordre de $n^2/2$, soit $O(n^2)$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-3-e9",
+            question: "Calculer la moyenne de la liste $[4, 8, 6, 2]$ à l'aide des fonctions \`somme\` et \`moyenne\` du cours.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5{,}0$" },
+              { id: "B", text: "$4{,}0$" },
+              { id: "C", text: "$20$" },
+              { id: "D", text: "$6{,}0$" },
+            ],
+            correctId: "A",
+            explanation: "$\\text{somme}=4+8+6+2=20$. $\\text{moyenne}=20/4=5{,}0$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-3-e10",
+            question: "Modifier la fonction \`recherche\` pour qu'elle compte le nombre de comparaisons effectuées avant de trouver la valeur (ou avant de conclure son absence). Donner le code modifié.",
+            type: "open",
+            modelAnswer: "def recherche_comptee(L, v):\n    compteur = 0\n    for x in L:\n        compteur = compteur + 1\n        if x == v:\n            return True, compteur\n    return False, compteur",
+            explanation: "Une solution possible :\n\n> def recherche_comptee(L, v):\n>     compteur = 0\n>     for x in L:\n>         compteur = compteur + 1\n>         if x == v:\n>             return True, compteur\n>     return False, compteur\n\nOn incrémente un compteur à chaque comparaison effectuée (à chaque tour de boucle), et on le renvoie en plus du résultat booléen. Python permet de renvoyer plusieurs valeurs sous forme de tuple avec \`return a, b\`.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "info1-l1-3-e11",
+            question: "Dérouler le tri par insertion sur la liste $[3, 1, 4, 2]$ étape par étape ($i=1,2,3$) et donner le résultat final.",
+            type: "open",
+            modelAnswer: "i=1: clé=1, insérée avant 3 -> [1,3,4,2]. i=2: clé=4, déjà bien placée -> [1,3,4,2]. i=3: clé=2, insérée entre 1 et 3 -> [1,2,3,4]. Résultat final: [1,2,3,4].",
+            explanation: "**$i=1$** : clé $=L[1]=1$. On compare à $L[0]=3 > 1$, donc on décale $3$ vers la droite et on insère $1$ en tête : $[1,3,4,2]$.\n\n**$i=2$** : clé $=L[2]=4$. On compare à $L[1]=3$ : $3 < 4$, pas de décalage : $[1,3,4,2]$ inchangée.\n\n**$i=3$** : clé $=L[3]=2$. On compare à $L[2]=4>2$ : décalage, puis à $L[1]=3>2$ : décalage, puis à $L[0]=1 \\leq 2$ : on insère $2$ juste après : $[1,2,3,4]$.\n\nLe résultat final est la liste triée $[1,2,3,4]$.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-3-e12",
+            question: "Démontrer que l'algorithme d'Euclide se termine toujours en un nombre fini d'étapes, pour tous entiers $a \\geq b > 0$ donnés au départ.",
+            type: "open",
+            modelAnswer: "À chaque étape, b devient a mod b, qui est strictement inférieur à l'ancien b (propriété du modulo) et reste un entier ≥0. La suite des valeurs de b est donc strictement décroissante d'entiers naturels, ce qui ne peut durer indéfiniment : elle atteint nécessairement 0 en un nombre fini d'étapes.",
+            explanation: "À chaque itération de la boucle \`while b != 0\`, le couple $(a,b)$ devient $(b,\\, a\\bmod b)$. Or, par définition du reste de la division euclidienne, $0 \\leq a\\bmod b < b$ (strictement).\n\nDonc la **nouvelle** valeur de $b$ (qui est $a \\bmod b$) est strictement inférieure à l'**ancienne** valeur de $b$. La suite des valeurs successives de $b$ est donc une suite **strictement décroissante d'entiers naturels**.\n\nUne telle suite ne peut pas décroître indéfiniment (elle est minorée par $0$) : elle atteint nécessairement la valeur $0$ après un nombre fini d'étapes, ce qui termine la boucle \`while\`. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-3-e13",
+            question: "Pourquoi le tri par sélection effectue-t-il toujours environ $n^2/2$ comparaisons, indépendamment de l'ordre initial de la liste (contrairement au tri par insertion) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Car la recherche du minimum à chaque étape examine systématiquement tous les éléments restants, quel que soit leur ordre" },
+              { id: "B", text: "Car il s'arrête dès que la liste est triée" },
+              { id: "C", text: "Car il utilise une recherche binaire à chaque étape" },
+              { id: "D", text: "Ce n'est pas vrai, le tri par sélection est aussi sensible à l'ordre initial" },
+            ],
+            correctId: "A",
+            explanation: "La boucle interne du tri par sélection (recherche du minimum dans la partie restante) s'exécute toujours sur **tous** les éléments restants, sans condition d'arrêt anticipée, quel que soit leur ordre. C'est pourquoi sa complexité est toujours $\\Theta(n^2)$, alors que le tri par insertion peut s'arrêter plus tôt (boucle \`while\`) si la liste est déjà presque triée.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-3-e14",
+            question: "Écrire une fonction \`est_trie(L)\` qui renvoie \`True\` si la liste \`L\` est triée par ordre croissant, \`False\` sinon.",
+            type: "open",
+            modelAnswer: "def est_trie(L):\n    for i in range(len(L) - 1):\n        if L[i] > L[i+1]:\n            return False\n    return True",
+            explanation: "Une solution possible :\n\n> def est_trie(L):\n>     for i in range(len(L) - 1):\n>         if L[i] > L[i+1]:\n>             return False\n>     return True\n\nOn parcourt les paires d'éléments consécutifs ; dès qu'on en trouve une dans le mauvais ordre ($L[i]>L[i+1]$), on renvoie \`False\` immédiatement. Si aucune paire n'est dans le mauvais ordre après le parcours complet, la liste est triée : on renvoie \`True\`. On utilise \`range(len(L)-1)\` pour éviter une erreur d'indice hors limites en comparant le dernier élément à un suivant inexistant.",
+            difficulty: "expert",
+          },
+          {
+            id: "info1-l1-3-e15",
+            question: "On veut calculer le PGCD de **trois** entiers $a, b, c$. Proposer une fonction \`pgcd3(a, b, c)\` réutilisant la fonction \`pgcd\` du cours, en justifiant l'identité mathématique utilisée.",
+            type: "open",
+            modelAnswer: "def pgcd3(a, b, c):\n    return pgcd(pgcd(a, b), c)\nJustification: pgcd(a,b,c) = pgcd(pgcd(a,b), c) car tout diviseur commun de a,b,c divise pgcd(a,b) et c, et réciproquement.",
+            explanation: "Une solution possible :\n\n> def pgcd3(a, b, c):\n>     return pgcd(pgcd(a, b), c)\n\n**Justification :** un entier $d$ divise simultanément $a, b, c$ si et seulement si $d$ divise $\\text{pgcd}(a,b)$ **et** $d$ divise $c$ (car $d \\mid a$ et $d\\mid b \\iff d \\mid \\text{pgcd}(a,b)$). Donc l'ensemble des diviseurs communs à $a,b,c$ est exactement l'ensemble des diviseurs communs à $\\text{pgcd}(a,b)$ et $c$, ce qui donne $\\text{pgcd}(a,b,c) = \\text{pgcd}(\\text{pgcd}(a,b),\\,c)$. Cette associativité permet de réduire le calcul du pgcd de $n$ nombres à des appels successifs de la fonction à deux arguments.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  {
+  id: "euclidien-l2",
+  slug: "espaces-euclidiens-l2",
+  title: "Espaces euclidiens et produit scalaire",
+  description:
+    "Produit scalaire, normes et inégalités de Cauchy-Schwarz, orthogonalité et procédé de Gram-Schmidt, projections orthogonales et matrices orthogonales : les fondements de la géométrie euclidienne en dimension finie.",
+  schoolLevel: "L2",
+  subject: "geometrie",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "⊥",
+  lessons: [
+    {
+      id: "eucl-l2-1",
+      slug: "produit-scalaire-normes-inegalites",
+      title: "Produit scalaire, normes et inégalités",
+      durationMinutes: 50,
+      content: `## Produit scalaire, normes et inégalités
+
+### 1. Définition axiomatique du produit scalaire
+
+Soit $E$ un $\\mathbb{R}$-espace vectoriel. Une application $\\langle \\cdot, \\cdot \\rangle : E \\times E \\to \\mathbb{R}$ est un **produit scalaire** sur $E$ si elle vérifie :
+
+1. **Bilinéarité :** pour tout $x, y, z \\in E$ et $\\lambda \\in \\mathbb{R}$,
+$$\\langle \\lambda x + y, z \\rangle = \\lambda \\langle x,z \\rangle + \\langle y,z \\rangle \\qquad \\text{et} \\qquad \\langle x, \\lambda y + z \\rangle = \\lambda \\langle x,y \\rangle + \\langle x,z \\rangle$$
+2. **Symétrie :** $\\langle x,y \\rangle = \\langle y,x \\rangle$ pour tout $x,y \\in E$.
+3. **Positivité :** $\\langle x,x \\rangle \\geq 0$ pour tout $x \\in E$.
+4. **Définie (séparation) :** $\\langle x,x \\rangle = 0 \\Rightarrow x = 0$.
+
+Un espace vectoriel réel de dimension finie muni d'un produit scalaire est appelé **espace euclidien**.
+
+**Exemple fondamental — produit scalaire canonique sur $\\mathbb{R}^n$ :** pour $x=(x_1,\\dots,x_n)$ et $y=(y_1,\\dots,y_n)$,
+$$\\langle x,y \\rangle = \\sum_{i=1}^{n} x_i y_i = x_1y_1 + x_2y_2 + \\cdots + x_ny_n$$
+
+On vérifie immédiatement la bilinéarité (linéarité de la somme), la symétrie ($x_iy_i = y_ix_i$), et $\\langle x,x \\rangle = \\sum x_i^2 \\geq 0$, avec égalité si et seulement si chaque $x_i = 0$, donc $x = 0$.
+
+### 2. Autres exemples de produits scalaires sur $\\mathbb{R}^n$
+
+Le produit scalaire canonique n'est pas le seul possible. Sur $\\mathbb{R}^2$, on peut définir, pour $u=(u_1,u_2)$ et $v=(v_1,v_2)$ :
+$$\\langle u,v \\rangle_M = 2u_1v_1 + u_1v_2 + u_2v_1 + u_2v_2$$
+
+Cette forme correspond à $\\langle u,v\\rangle_M = {}^tU\\,M\\,V$ où $M = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$ est symétrique. Elle est bilinéaire et symétrique par construction. Pour la positivité, on calcule $\\langle u,u\\rangle_M = 2u_1^2 + 2u_1u_2 + u_2^2 = u_1^2 + (u_1+u_2)^2 \\geq 0$, somme de deux carrés, nulle seulement si $u_1=0$ et $u_1+u_2=0$, donc $u=(0,0)$. C'est bien un produit scalaire, distinct du produit canonique.
+
+**Exemple numérique :** pour $u=(1,2)$, $\\langle u,u\\rangle_M = 2(1)^2+2(1)(2)+(2)^2 = 2+4+4=10$, alors que le produit canonique donnerait $\\langle u,u\\rangle = 1+4=5$. Les deux produits scalaires sur le même espace vectoriel donnent des géométries différentes (longueurs et angles distincts).
+
+**Critère général :** une matrice symétrique $M$ définit un produit scalaire $\\langle u,v\\rangle_M = {}^tU MV$ si et seulement si $M$ est **symétrique définie positive**, c'est-à-dire \${}^tX M X > 0$ pour tout $X \\neq 0$.
+
+### 3. Norme associée à un produit scalaire
+
+Si $\\langle \\cdot,\\cdot \\rangle$ est un produit scalaire sur $E$, on définit la **norme euclidienne** associée par :
+$$\\|x\\| = \\sqrt{\\langle x,x \\rangle}$$
+
+Cette quantité est bien définie (positivité du produit scalaire) et vérifie $\\|x\\| = 0 \\iff x = 0$ (séparation). Pour le produit scalaire canonique sur $\\mathbb{R}^n$ :
+$$\\|x\\| = \\sqrt{x_1^2 + x_2^2 + \\cdots + x_n^2}$$
+
+**Propriété d'homogénéité :** $\\|\\lambda x\\| = |\\lambda| \\, \\|x\\|$ pour tout $\\lambda \\in \\mathbb{R}$, car $\\langle \\lambda x, \\lambda x\\rangle = \\lambda^2 \\langle x,x\\rangle$.
+
+**Identité remarquable (développement du carré) :** pour tous $x,y \\in E$,
+$$\\|x+y\\|^2 = \\langle x+y,x+y\\rangle = \\|x\\|^2 + 2\\langle x,y\\rangle + \\|y\\|^2$$
+
+C'est cette identité, combinée à l'inégalité de Cauchy-Schwarz, qui permettra d'établir l'inégalité triangulaire.
+
+### 4. Inégalité de Cauchy-Schwarz
+
+**Théorème (Cauchy-Schwarz) :** pour tous $x,y \\in E$,
+$$|\\langle x,y \\rangle| \\leq \\|x\\| \\, \\|y\\|$$
+avec égalité si et seulement si $x$ et $y$ sont colinéaires (liés).
+
+**Démonstration :** si $y = 0$, l'inégalité est triviale ($0 \\leq 0$). Supposons $y \\neq 0$. Pour tout $t \\in \\mathbb{R}$, posons $\\varphi(t) = \\|x - ty\\|^2 \\geq 0$ par positivité du produit scalaire. En développant :
+$$\\varphi(t) = \\langle x-ty, x-ty\\rangle = \\|x\\|^2 - 2t\\langle x,y\\rangle + t^2\\|y\\|^2$$
+
+C'est un trinôme du second degré en $t$, de coefficient dominant $\\|y\\|^2 > 0$, qui reste $\\geq 0$ pour tout $t$. Son discriminant doit donc être $\\leq 0$ :
+$$\\Delta = 4\\langle x,y\\rangle^2 - 4\\|x\\|^2\\|y\\|^2 \\leq 0 \\quad \\Longrightarrow \\quad \\langle x,y\\rangle^2 \\leq \\|x\\|^2\\|y\\|^2$$
+
+En prenant la racine carrée (positive), on obtient $|\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\|$. $\\square$
+
+**Cas d'égalité :** l'égalité $\\Delta = 0$ correspond à une racine double $t_0$ telle que $\\varphi(t_0) = 0$, c'est-à-dire $\\|x - t_0 y\\| = 0$, donc $x = t_0 y$ : $x$ et $y$ sont colinéaires. Réciproquement, si $x = \\lambda y$, alors $\\langle x,y\\rangle = \\lambda \\|y\\|^2$ et $\\|x\\|\\|y\\| = |\\lambda|\\|y\\|^2$, donc $|\\langle x,y\\rangle| = \\|x\\|\\|y\\|$.
+
+**Exemple numérique :** soit $u=(1,2,-1)$ et $v=(3,0,4)$ dans $\\mathbb{R}^3$ canonique. On calcule $\\langle u,v\\rangle = 1\\times3 + 2\\times0 + (-1)\\times4 = 3+0-4=-1$. Par ailleurs $\\|u\\|^2 = 1+4+1=6$ donc $\\|u\\|=\\sqrt6$, et $\\|v\\|^2=9+0+16=25$ donc $\\|v\\|=5$. On vérifie $|\\langle u,v\\rangle| = 1 \\leq \\sqrt6 \\times 5 = 5\\sqrt6 \\approx 12{,}25$ : l'inégalité de Cauchy-Schwarz est bien satisfaite (de façon large, $u$ et $v$ n'étant pas colinéaires).
+
+### 5. Inégalité triangulaire (inégalité de Minkowski)
+
+**Théorème :** pour tous $x,y \\in E$, $\\|x+y\\| \\leq \\|x\\| + \\|y\\|$.
+
+**Démonstration :** en utilisant l'identité du paragraphe 3 puis Cauchy-Schwarz :
+$$\\|x+y\\|^2 = \\|x\\|^2 + 2\\langle x,y\\rangle + \\|y\\|^2 \\leq \\|x\\|^2 + 2\\|x\\|\\|y\\| + \\|y\\|^2 = (\\|x\\|+\\|y\\|)^2$$
+
+Comme $\\|x+y\\| \\geq 0$ et $\\|x\\|+\\|y\\| \\geq 0$, on peut prendre la racine carrée de chaque membre pour conclure $\\|x+y\\| \\leq \\|x\\|+\\|y\\|$. $\\square$
+
+**Vérification numérique avec l'exemple précédent :** $u+v=(4,2,3)$, donc $\\|u+v\\|^2 = 16+4+9=29$, soit $\\|u+v\\|=\\sqrt{29}\\approx 5{,}385$. Par ailleurs $\\|u\\|+\\|v\\| = \\sqrt6+5 \\approx 2{,}449+5=7{,}449$. On a bien $5{,}385 \\leq 7{,}449$.
+
+### 6. Identité du parallélogramme et angle entre deux vecteurs
+
+**Identité du parallélogramme :** pour tous $x,y \\in E$,
+$$\\|x+y\\|^2 + \\|x-y\\|^2 = 2\\|x\\|^2 + 2\\|y\\|^2$$
+
+Elle découle directement du développement des deux carrés et de l'annulation des termes croisés $\\pm 2\\langle x,y\\rangle$.
+
+Grâce à Cauchy-Schwarz, pour $x,y$ non nuls, le rapport $\\dfrac{\\langle x,y\\rangle}{\\|x\\|\\,\\|y\\|}$ appartient à $[-1,1]$, ce qui permet de définir l'**angle géométrique** $\\theta \\in [0,\\pi]$ entre $x$ et $y$ par :
+$$\\cos \\theta = \\dfrac{\\langle x,y\\rangle}{\\|x\\|\\,\\|y\\|}$$
+
+Deux vecteurs non nuls sont dits **orthogonaux** lorsque $\\langle x,y\\rangle = 0$, c'est-à-dire $\\theta = \\dfrac{\\pi}{2}$.
+
+### 7. Distance euclidienne
+
+La norme induit une **distance** sur $E$ par $d(x,y) = \\|x-y\\|$. Elle vérifie les axiomes attendus : $d(x,y) \\geq 0$ avec égalité si et seulement si $x=y$ (séparation de la norme), $d(x,y)=d(y,x)$ (homogénéité avec $\\lambda=-1$), et l'inégalité triangulaire $d(x,z) \\leq d(x,y)+d(y,z)$, qui se déduit de l'inégalité triangulaire sur la norme appliquée à $(x-y)+(y-z)=x-z$.
+
+### 8. Synthèse
+
+Un produit scalaire sur $E$ permet de définir simultanément une **norme** (longueur), une **distance**, et un **angle**. Cauchy-Schwarz est l'inégalité pivot : elle borne le produit scalaire par le produit des normes, garantit que $\\cos\\theta$ est bien défini dans $[-1,1]$, et permet de démontrer l'inégalité triangulaire. Ces outils sont la base de toute la géométrie euclidienne abstraite développée dans les deux leçons suivantes (orthogonalité, projections).`,
+      exercises: [
+        {
+          id: "eucl-l2-1-e1",
+          question: "Pour le produit scalaire canonique sur $\\mathbb{R}^3$, que vaut $\\langle x,y \\rangle$ pour $x=(2,-1,3)$ et $y=(1,4,0)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$-2$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$9$" },
+            { id: "D", text: "$5$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle x,y\\rangle = 2\\times1 + (-1)\\times4 + 3\\times0 = 2-4+0=-2$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-1-e2",
+          question: "Quelle est la norme euclidienne (canonique) du vecteur $x=(3,4)$ dans $\\mathbb{R}^2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$7$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$\\sqrt7$" },
+            { id: "D", text: "$25$" },
+          ],
+          correctId: "B",
+          explanation: "$\\|x\\| = \\sqrt{3^2+4^2} = \\sqrt{9+16} = \\sqrt{25} = 5$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-1-e3",
+          question: "Vrai ou faux : un produit scalaire doit nécessairement vérifier $\\langle x,x \\rangle \\geq 0$ pour tout $x$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'axiome de positivité, l'un des quatre axiomes définissant un produit scalaire (avec la bilinéarité, la symétrie et la séparation).",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-1-e4",
+          question: "Deux vecteurs non nuls $x$ et $y$ sont dits orthogonaux lorsque :",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\|x\\| = \\|y\\|$" },
+            { id: "B", text: "$\\langle x,y \\rangle = 1$" },
+            { id: "C", text: "$\\langle x,y \\rangle = 0$" },
+            { id: "D", text: "$x = -y$" },
+          ],
+          correctId: "C",
+          explanation: "Par définition, $x$ et $y$ sont orthogonaux si et seulement si $\\langle x,y\\rangle = 0$, ce qui correspond à un angle $\\theta = \\pi/2$ entre eux.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-1-e5",
+          question: "Vrai ou faux : l'inégalité de Cauchy-Schwarz s'écrit $\\langle x,y\\rangle \\leq \\|x\\|\\,\\|y\\|$ (sans valeur absolue).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. L'énoncé correct de Cauchy-Schwarz porte sur la valeur absolue : $|\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\|$. Sans la valeur absolue, l'énoncé proposé ne contrôlerait pas le cas $\\langle x,y\\rangle$ très négatif vis-à-vis de $-\\|x\\|\\|y\\|$ : c'est bien la borne sur $|\\langle x,y\\rangle|$, dans les deux sens, qui constitue le théorème.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-1-e6",
+          question: "Soit $u=(1,1)$ et $v=(1,-1)$ dans $\\mathbb{R}^2$ canonique. Que vaut $\\langle u,v \\rangle$ et que peut-on en déduire ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\langle u,v\\rangle = 2$, non orthogonaux" },
+            { id: "B", text: "$\\langle u,v\\rangle = 0$, $u$ et $v$ sont orthogonaux" },
+            { id: "C", text: "$\\langle u,v\\rangle = -2$, non orthogonaux" },
+            { id: "D", text: "$\\langle u,v\\rangle = 1$, non orthogonaux" },
+          ],
+          correctId: "B",
+          explanation: "$\\langle u,v\\rangle = 1\\times1 + 1\\times(-1) = 1-1=0$. Le produit scalaire est nul, donc $u$ et $v$ sont orthogonaux.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-1-e7",
+          question: "Pour le produit scalaire $\\langle u,v\\rangle_M = 2u_1v_1+u_1v_2+u_2v_1+u_2v_2$ sur $\\mathbb{R}^2$, que vaut $\\langle u,u\\rangle_M$ pour $u=(1,2)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$8$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$6$" },
+          ],
+          correctId: "C",
+          explanation: "$\\langle u,u\\rangle_M = 2(1)^2 + (1)(2) + (2)(1) + (2)^2 = 2+2+2+4=10$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-1-e8",
+          question: "Soit $x,y \\in E$ avec $\\|x\\|=3$, $\\|y\\|=4$ et $\\langle x,y\\rangle = 12$. Que peut-on en conclure ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$x$ et $y$ sont orthogonaux" },
+            { id: "B", text: "$x$ et $y$ sont colinéaires (cas d'égalité de Cauchy-Schwarz)" },
+            { id: "C", text: "C'est impossible, l'inégalité de Cauchy-Schwarz est violée" },
+            { id: "D", text: "On ne peut rien conclure sans connaître la dimension de $E$" },
+          ],
+          correctId: "B",
+          explanation: "On a $\\|x\\|\\,\\|y\\| = 3\\times4=12 = \\langle x,y\\rangle$ : c'est exactement le cas d'égalité de Cauchy-Schwarz, qui caractérise la colinéarité de $x$ et $y$ (et ici avec un coefficient de proportionnalité positif puisque le produit scalaire est positif).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-1-e9",
+          question: "Vrai ou faux : pour tous $x,y$, $\\|x+y\\|^2 = \\|x\\|^2+\\|y\\|^2$ si et seulement si $x$ et $y$ sont orthogonaux.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. D'après l'identité $\\|x+y\\|^2 = \\|x\\|^2+2\\langle x,y\\rangle+\\|y\\|^2$, l'égalité $\\|x+y\\|^2=\\|x\\|^2+\\|y\\|^2$ équivaut à $2\\langle x,y\\rangle = 0$, c'est-à-dire $\\langle x,y\\rangle=0$ : c'est le théorème de Pythagore, valable dans les deux sens.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-1-e10",
+          question: "Soit $u=(2,0)$ et $v=(1,\\sqrt3)$ dans $\\mathbb{R}^2$ canonique. Quel est l'angle $\\theta \\in [0,\\pi]$ entre $u$ et $v$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\dfrac{\\pi}{6}$" },
+            { id: "B", text: "$\\dfrac{\\pi}{3}$" },
+            { id: "C", text: "$\\dfrac{\\pi}{2}$" },
+            { id: "D", text: "$\\dfrac{2\\pi}{3}$" },
+          ],
+          correctId: "B",
+          explanation: "$\\langle u,v\\rangle = 2\\times1+0\\times\\sqrt3=2$. $\\|u\\|=2$, $\\|v\\|=\\sqrt{1+3}=2$. Donc $\\cos\\theta = \\dfrac{2}{2\\times2}=\\dfrac12$, soit $\\theta=\\dfrac{\\pi}{3}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-1-e11",
+          question: "Démontrer l'inégalité de Cauchy-Schwarz $|\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\|$ pour $x,y$ dans un espace euclidien $E$, en détaillant le rôle du discriminant.",
+          type: "open",
+          modelAnswer: "Si y=0 c'est trivial. Sinon on pose φ(t)=||x-ty||²=||x||²-2t⟨x,y⟩+t²||y||², qui est ≥0 pour tout t car c'est une norme au carré. C'est un trinôme en t de coefficient dominant ||y||²>0 toujours positif, donc son discriminant Δ=4⟨x,y⟩²-4||x||²||y||² doit être ≤0, ce qui donne ⟨x,y⟩²≤||x||²||y||², puis en prenant la racine |⟨x,y⟩|≤||x||·||y||.",
+          explanation: "**Preuve complète :**\n\nSi $y=0$, l'inégalité $|\\langle x,0\\rangle| \\leq \\|x\\|\\cdot 0$ s'écrit $0\\leq 0$, trivialement vraie.\n\nSupposons $y \\neq 0$. Pour $t \\in \\mathbb{R}$, posons $\\varphi(t) = \\|x-ty\\|^2$. Par positivité de la norme au carré, $\\varphi(t) \\geq 0$ pour tout $t$. En développant grâce à la bilinéarité et la symétrie du produit scalaire :\n$$\\varphi(t) = \\langle x-ty,x-ty\\rangle = \\|x\\|^2 - 2t\\langle x,y\\rangle + t^2\\|y\\|^2$$\n\nC'est un polynôme du second degré en $t$ dont le coefficient dominant $\\|y\\|^2$ est strictement positif (car $y\\neq0$). Un tel trinôme reste positif ou nul pour tout $t$ réel si et seulement si son discriminant est négatif ou nul :\n$$\\Delta = (-2\\langle x,y\\rangle)^2 - 4\\|y\\|^2\\|x\\|^2 = 4\\langle x,y\\rangle^2 - 4\\|x\\|^2\\|y\\|^2 \\leq 0$$\n\nDonc $\\langle x,y\\rangle^2 \\leq \\|x\\|^2\\|y\\|^2$. Les deux membres étant positifs, on peut prendre la racine carrée : $|\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\|$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-1-e12",
+          question: "Soit $x=(1,-2,2)$ dans $\\mathbb{R}^3$ canonique. Que vaut $\\|x\\|$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$\\sqrt5$" },
+            { id: "C", text: "$9$" },
+            { id: "D", text: "$\\sqrt7$" },
+          ],
+          correctId: "A",
+          explanation: "$\\|x\\|^2 = 1^2+(-2)^2+2^2 = 1+4+4=9$, donc $\\|x\\|=\\sqrt9=3$.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-1-e13",
+          question: "Démontrer l'inégalité triangulaire $\\|x+y\\| \\leq \\|x\\|+\\|y\\|$ à partir de l'inégalité de Cauchy-Schwarz.",
+          type: "open",
+          modelAnswer: "On développe ||x+y||²=||x||²+2⟨x,y⟩+||y||², on majore ⟨x,y⟩ par ||x||·||y|| via Cauchy-Schwarz, ce qui donne ||x+y||²≤(||x||+||y||)², puis on prend la racine carrée des deux membres positifs.",
+          explanation: "**Preuve :** D'après l'identité de développement du carré (bilinéarité et symétrie) :\n$$\\|x+y\\|^2 = \\langle x+y,x+y\\rangle = \\|x\\|^2 + 2\\langle x,y\\rangle + \\|y\\|^2$$\n\nPar l'inégalité de Cauchy-Schwarz, $\\langle x,y\\rangle \\leq |\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\|$. En substituant :\n$$\\|x+y\\|^2 \\leq \\|x\\|^2 + 2\\|x\\|\\|y\\| + \\|y\\|^2 = (\\|x\\|+\\|y\\|)^2$$\n\nComme $\\|x+y\\| \\geq 0$ et $\\|x\\|+\\|y\\| \\geq 0$, la fonction racine carrée étant croissante sur $[0,+\\infty[$, on peut prendre la racine carrée des deux membres de l'inégalité $\\|x+y\\|^2 \\leq (\\|x\\|+\\|y\\|)^2$ sans changer le sens :\n$$\\|x+y\\| \\leq \\|x\\| + \\|y\\|$$ $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-1-e14",
+          question: "Soit $E=\\mathbb{R}^2$ muni de $\\langle u,v\\rangle_M = 2u_1v_1+u_1v_2+u_2v_1+u_2v_2$ (matrice $M=\\begin{pmatrix}2&1\\\\1&1\\end{pmatrix}$). Pourquoi cette forme est-elle bien un produit scalaire ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Parce que $\\det M = 1 \\neq 0$ uniquement" },
+            { id: "B", text: "Parce que $M$ est symétrique et $\\langle u,u\\rangle_M = u_1^2+(u_1+u_2)^2 \\geq 0$ avec égalité seulement si $u=0$" },
+            { id: "C", text: "Parce que $M$ est diagonale" },
+            { id: "D", text: "Parce que $\\mathrm{tr}(M) = 3$" },
+          ],
+          correctId: "B",
+          explanation: "La bilinéarité et la symétrie viennent de la forme $\\langle u,v\\rangle_M = {}^tUMV$ avec $M$ symétrique. La positivité définie se vérifie en écrivant $\\langle u,u\\rangle_M = 2u_1^2+2u_1u_2+u_2^2 = u_1^2+(u_1+u_2)^2$, somme de deux carrés qui ne s'annule que si $u_1=0$ et $u_1+u_2=0$, soit $u=(0,0)$.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-1-e15",
+          question: "Démontrer l'identité du parallélogramme $\\|x+y\\|^2+\\|x-y\\|^2 = 2\\|x\\|^2+2\\|y\\|^2$ pour $x,y$ dans un espace euclidien.",
+          type: "open",
+          modelAnswer: "On développe les deux carrés avec la bilinéarité : ||x+y||²=||x||²+2⟨x,y⟩+||y||² et ||x-y||²=||x||²-2⟨x,y⟩+||y||². En additionnant, les termes croisés s'annulent et il reste 2||x||²+2||y||².",
+          explanation: "**Preuve :** par bilinéarité et symétrie du produit scalaire :\n$$\\|x+y\\|^2 = \\langle x+y,x+y\\rangle = \\|x\\|^2 + 2\\langle x,y\\rangle + \\|y\\|^2$$\n$$\\|x-y\\|^2 = \\langle x-y,x-y\\rangle = \\|x\\|^2 - 2\\langle x,y\\rangle + \\|y\\|^2$$\n\nEn additionnant membre à membre ces deux égalités, les termes $+2\\langle x,y\\rangle$ et $-2\\langle x,y\\rangle$ s'annulent :\n$$\\|x+y\\|^2 + \\|x-y\\|^2 = 2\\|x\\|^2 + 2\\|y\\|^2$$ $\\square$\n\nCette identité traduit géométriquement que la somme des carrés des diagonales d'un parallélogramme égale la somme des carrés des quatre côtés.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "eucl-l2-2",
+      slug: "orthogonalite-bases-orthonormees-gram-schmidt",
+      title: "Orthogonalité, bases orthonormées et procédé de Gram-Schmidt",
+      durationMinutes: 50,
+      content: `## Orthogonalité, bases orthonormées et procédé de Gram-Schmidt
+
+### 1. Vecteurs orthogonaux et familles orthogonales
+
+Dans un espace euclidien $E$, deux vecteurs $x,y$ sont **orthogonaux** si $\\langle x,y\\rangle = 0$, ce que l'on note $x \\perp y$. Une famille $(e_1,\\dots,e_p)$ de vecteurs est dite **orthogonale** si les vecteurs sont deux à deux orthogonaux et tous non nuls :
+$$\\forall i \\neq j, \\quad \\langle e_i,e_j\\rangle = 0$$
+
+Elle est dite **orthonormée** (ou orthonormale) si, de plus, chaque vecteur est de norme $1$ :
+$$\\langle e_i,e_j\\rangle = \\delta_{ij} = \\begin{cases} 1 & \\text{si } i=j \\\\ 0 & \\text{si } i \\neq j \\end{cases}$$
+
+**Théorème :** toute famille orthogonale (de vecteurs non nuls) est libre.
+
+**Démonstration :** soit $(e_1,\\dots,e_p)$ orthogonale et $\\lambda_1 e_1 + \\cdots + \\lambda_p e_p = 0$. En prenant le produit scalaire avec $e_i$ :
+$$\\left\\langle \\sum_{k=1}^p \\lambda_k e_k,\\, e_i \\right\\rangle = \\sum_{k=1}^p \\lambda_k \\langle e_k,e_i\\rangle = \\lambda_i \\|e_i\\|^2 = \\langle 0,e_i\\rangle = 0$$
+Comme $e_i \\neq 0$, on a $\\|e_i\\|^2 \\neq 0$, donc $\\lambda_i = 0$. Ceci pour tout $i$, donc la famille est libre. $\\square$
+
+### 2. Théorème de Pythagore généralisé
+
+**Théorème :** si $x_1,\\dots,x_p$ sont deux à deux orthogonaux, alors
+$$\\left\\| \\sum_{k=1}^p x_k \\right\\|^2 = \\sum_{k=1}^p \\|x_k\\|^2$$
+
+**Démonstration :** en développant par bilinéarité,
+$$\\left\\|\\sum_k x_k\\right\\|^2 = \\sum_{k} \\sum_{l} \\langle x_k, x_l \\rangle = \\sum_k \\|x_k\\|^2 + \\sum_{k \\neq l} \\langle x_k,x_l\\rangle$$
+Les termes croisés $\\langle x_k,x_l\\rangle$ pour $k \\neq l$ sont tous nuls par orthogonalité, donc seule reste la somme des $\\|x_k\\|^2$. $\\square$
+
+Pour $p=2$, c'est le théorème de Pythagore usuel : $\\|x+y\\|^2 = \\|x\\|^2+\\|y\\|^2$ lorsque $x \\perp y$.
+
+### 3. Coordonnées dans une base orthonormée
+
+**Propriété clé :** si $(e_1,\\dots,e_n)$ est une base orthonormée de $E$ (de dimension $n$), alors pour tout $x \\in E$ :
+$$x = \\sum_{i=1}^n \\langle x,e_i\\rangle \\, e_i \\qquad \\text{et} \\qquad \\|x\\|^2 = \\sum_{i=1}^n \\langle x,e_i\\rangle^2$$
+
+C'est-à-dire que la $i$-ème coordonnée de $x$ dans cette base est simplement $\\langle x,e_i\\rangle$ — il n'y a pas besoin de résoudre un système linéaire, contrairement à une base quelconque. Cette simplicité est la principale motivation pour construire des bases orthonormées.
+
+### 4. Le procédé de Gram-Schmidt : principe
+
+**Théorème (Gram-Schmidt) :** soit $(v_1,\\dots,v_p)$ une famille libre de $E$. Il existe une famille orthogonale $(u_1,\\dots,u_p)$ telle que, pour tout $k \\in \\{1,\\dots,p\\}$, $\\mathrm{vect}(u_1,\\dots,u_k) = \\mathrm{vect}(v_1,\\dots,v_k)$. En normalisant chaque $u_k$, on obtient une famille orthonormée $(e_1,\\dots,e_p)$ engendrant les mêmes sous-espaces emboîtés.
+
+**Construction (algorithme) :** on pose $u_1 = v_1$, puis pour $k = 2,\\dots,p$ :
+$$u_k = v_k - \\sum_{i=1}^{k-1} \\frac{\\langle v_k, u_i\\rangle}{\\|u_i\\|^2}\\, u_i$$
+
+c'est-à-dire que l'on soustrait à $v_k$ sa projection orthogonale sur $\\mathrm{vect}(u_1,\\dots,u_{k-1})$ (notion détaillée dans la leçon suivante). Le vecteur $u_k$ ainsi obtenu est orthogonal à $u_1,\\dots,u_{k-1}$, et non nul puisque $(v_1,\\dots,v_k)$ est libre. On normalise ensuite : $e_k = u_k / \\|u_k\\|$.
+
+### 5. Exemple résolu complet
+
+Orthonormalisons par Gram-Schmidt la base $v_1=(1,1,0)$, $v_2=(1,0,1)$, $v_3=(0,1,1)$ de $\\mathbb{R}^3$ (produit scalaire canonique).
+
+**Étape 1 :** $u_1 = v_1 = (1,1,0)$, avec $\\|u_1\\|^2 = 1+1+0=2$.
+
+**Étape 2 :** on calcule $\\langle v_2,u_1\\rangle = 1\\times1+0\\times1+1\\times0 = 1$. Le coefficient de projection est $\\dfrac{\\langle v_2,u_1\\rangle}{\\|u_1\\|^2} = \\dfrac12$. Donc :
+$$u_2 = v_2 - \\frac12 u_1 = (1,0,1) - \\frac12(1,1,0) = \\left(\\frac12,\\,-\\frac12,\\,1\\right)$$
+On vérifie $\\langle u_2,u_1\\rangle = \\frac12\\times1 + (-\\frac12)\\times1 + 1\\times0 = \\frac12-\\frac12=0$ : orthogonal, comme attendu. On a $\\|u_2\\|^2 = \\frac14+\\frac14+1=\\frac32$.
+
+**Étape 3 :** on calcule $\\langle v_3,u_1\\rangle = 0\\times1+1\\times1+1\\times0=1$ et $\\langle v_3,u_2\\rangle = 0\\times\\frac12+1\\times(-\\frac12)+1\\times1 = -\\frac12+1=\\frac12$. Les coefficients sont $\\dfrac{1}{2}$ (pour $u_1$, $\\|u_1\\|^2=2$) et $\\dfrac{1/2}{3/2}=\\dfrac13$ (pour $u_2$). Donc :
+$$u_3 = v_3 - \\frac12 u_1 - \\frac13 u_2 = (0,1,1) - \\frac12(1,1,0) - \\frac13\\left(\\frac12,-\\frac12,1\\right) = \\left(-\\frac23,\\,\\frac23,\\,\\frac23\\right)$$
+On vérifie $\\langle u_3,u_1\\rangle = -\\frac23+\\frac23+0=0$ et $\\langle u_3,u_2\\rangle = -\\frac13+(-\\frac13)+\\frac23 = 0$ : les trois vecteurs sont bien deux à deux orthogonaux. On a $\\|u_3\\|^2 = \\frac49+\\frac49+\\frac49=\\frac{12}{9}=\\frac43$.
+
+**Normalisation :** la base orthonormée obtenue est $e_1 = \\dfrac{1}{\\sqrt2}(1,1,0)$, $e_2 = \\dfrac{1}{\\sqrt{3/2}}\\left(\\frac12,-\\frac12,1\\right)$, $e_3 = \\dfrac{1}{\\sqrt{4/3}}\\left(-\\frac23,\\frac23,\\frac23\\right)$.
+
+### 6. Existence de bases orthonormées
+
+**Corollaire :** tout espace euclidien de dimension finie $n \\geq 1$ possède une base orthonormée. En effet, il suffit de partir d'une base quelconque (qui existe toujours en dimension finie) et de lui appliquer le procédé de Gram-Schmidt.
+
+**Théorème de la base orthonormée incomplète :** toute famille orthonormée d'un espace euclidien peut être complétée en une base orthonormée de l'espace tout entier.
+
+### 7. Sous-espaces orthogonaux et orthogonal d'un sous-espace
+
+Soit $F$ un sous-espace vectoriel de $E$. L'**orthogonal de $F$**, noté $F^\\perp$, est l'ensemble des vecteurs orthogonaux à tous les éléments de $F$ :
+$$F^\\perp = \\{ x \\in E \\;:\\; \\forall y \\in F,\\; \\langle x,y\\rangle = 0\\}$$
+
+$F^\\perp$ est lui-même un sous-espace vectoriel de $E$ (intersection de noyaux des formes linéaires $y \\mapsto \\langle x,y\\rangle$... plus directement : combinaison linéaire de vecteurs orthogonaux à $F$ reste orthogonale à $F$ par bilinéarité).
+
+**Théorème (supplémentaire orthogonal) :** si $E$ est de dimension finie $n$ et $F$ un sous-espace de dimension $p$, alors :
+$$E = F \\oplus F^\\perp \\qquad \\text{et} \\qquad \\dim F^\\perp = n - p$$
+
+**Démonstration (existence de la somme directe) :** $F \\cap F^\\perp = \\{0\\}$ car si $x \\in F \\cap F^\\perp$, alors $x$ est orthogonal à lui-même : $\\langle x,x\\rangle=0$, donc $x=0$ par séparation. Pour montrer que $F+F^\\perp=E$, on complète une base orthonormée $(e_1,\\dots,e_p)$ de $F$ (obtenue par Gram-Schmidt) en une base orthonormée $(e_1,\\dots,e_n)$ de $E$ ; alors $\\mathrm{vect}(e_{p+1},\\dots,e_n) \\subset F^\\perp$ et tout $x \\in E$ se décompose selon cette base, donnant $x = x_F + x_{F^\\perp}$.
+
+On en déduit également $(F^\\perp)^\\perp = F$.
+
+### 8. Synthèse
+
+Le procédé de Gram-Schmidt transforme algorithmiquement n'importe quelle base en une base orthonormée, sans changer les sous-espaces engendrés à chaque étape. Cette construction garantit l'existence de bases orthonormées en dimension finie et permet de décomposer tout espace euclidien en somme directe orthogonale $E = F \\oplus F^\\perp$. Ces résultats sont la clé de la leçon suivante, consacrée aux projections orthogonales.`,
+      exercises: [
+        {
+          id: "eucl-l2-2-e1",
+          question: "Soit $u_1=(1,0,0)$ et $u_2=(0,1,0)$ dans $\\mathbb{R}^3$. La famille $(u_1,u_2)$ est-elle orthonormée ?",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. $\\langle u_1,u_2\\rangle = 0$ (orthogonaux) et $\\|u_1\\|=\\|u_2\\|=1$ (normés). La famille est donc orthonormée.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-2-e2",
+          question: "Soit $x=(3,4)$ et $y=(2,1)$ tels que $x \\perp y'$ avec $y'=(4,-3)$. Vérifier : $\\langle x,y'\\rangle$ vaut :",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$12$" },
+            { id: "C", text: "$24$" },
+            { id: "D", text: "$-12$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle x,y'\\rangle = 3\\times4+4\\times(-3)=12-12=0$. Les vecteurs sont bien orthogonaux.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-2-e3",
+          question: "Vrai ou faux : toute famille orthogonale de vecteurs non nuls est libre.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est un théorème du cours : en prenant le produit scalaire d'une combinaison linéaire nulle avec chaque vecteur $e_i$ de la famille, on obtient $\\lambda_i \\|e_i\\|^2=0$, donc $\\lambda_i=0$ car $e_i \\neq 0$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-2-e4",
+          question: "Si $x \\perp y$ avec $\\|x\\|=3$ et $\\|y\\|=4$, que vaut $\\|x+y\\|$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$7$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$1$" },
+            { id: "D", text: "$\\sqrt7$" },
+          ],
+          correctId: "B",
+          explanation: "Par le théorème de Pythagore généralisé (valable car $x\\perp y$), $\\|x+y\\|^2 = \\|x\\|^2+\\|y\\|^2 = 9+16=25$, donc $\\|x+y\\|=5$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-2-e5",
+          question: "Dans le procédé de Gram-Schmidt appliqué à $(v_1,v_2)$, comment définit-on $u_2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$u_2 = v_2 + v_1$" },
+            { id: "B", text: "$u_2 = v_2 - \\dfrac{\\langle v_2,u_1\\rangle}{\\|u_1\\|^2}\\,u_1$" },
+            { id: "C", text: "$u_2 = v_2 / \\|v_2\\|$" },
+            { id: "D", text: "$u_2 = v_1 - \\dfrac{\\langle v_1,v_2\\rangle}{\\|v_2\\|^2}\\,v_2$" },
+          ],
+          correctId: "B",
+          explanation: "On soustrait à $v_2$ sa projection orthogonale sur $u_1$, donnée par $\\dfrac{\\langle v_2,u_1\\rangle}{\\|u_1\\|^2}u_1$, afin d'obtenir un vecteur orthogonal à $u_1$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-2-e6",
+          question: "On applique Gram-Schmidt à $v_1=(1,1,0)$, $v_2=(1,0,1)$. Que vaut $u_2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\left(\\dfrac12,-\\dfrac12,1\\right)$" },
+            { id: "B", text: "$(1,-1,1)$" },
+            { id: "C", text: "$(0,-1,1)$" },
+            { id: "D", text: "$\\left(-\\dfrac12,\\dfrac12,1\\right)$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle v_2,u_1\\rangle = 1\\times1+0\\times1+1\\times0=1$, $\\|u_1\\|^2=2$, coefficient $\\frac12$. Donc $u_2 = (1,0,1) - \\frac12(1,1,0) = \\left(\\frac12,-\\frac12,1\\right)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-2-e7",
+          question: "Soit $F = \\mathrm{vect}((1,0,0))$ dans $\\mathbb{R}^3$. Quelle est la dimension de $F^\\perp$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$2$" },
+            { id: "D", text: "$3$" },
+          ],
+          correctId: "C",
+          explanation: "Comme $E=\\mathbb{R}^3$ est de dimension $3$ et $\\dim F = 1$, le théorème du supplémentaire orthogonal donne $\\dim F^\\perp = 3-1=2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-2-e8",
+          question: "Vrai ou faux : pour tout sous-espace $F$ d'un espace euclidien de dimension finie, $(F^\\perp)^\\perp = F$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai, c'est une conséquence du théorème $E = F \\oplus F^\\perp$ (valable en dimension finie) : appliqué deux fois, on retrouve $F$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-2-e9",
+          question: "Dans une base orthonormée $(e_1,e_2,e_3)$, soit $x$ tel que $\\langle x,e_1\\rangle=2$, $\\langle x,e_2\\rangle=-1$, $\\langle x,e_3\\rangle=2$. Que vaut $\\|x\\|$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$\\sqrt5$" },
+            { id: "C", text: "$9$" },
+            { id: "D", text: "$\\sqrt3$" },
+          ],
+          correctId: "A",
+          explanation: "Dans une base orthonormée, $\\|x\\|^2 = \\sum_i \\langle x,e_i\\rangle^2 = 2^2+(-1)^2+2^2 = 4+1+4=9$, donc $\\|x\\|=3$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-2-e10",
+          question: "Vrai ou faux : la famille $(1,1,0)/\\sqrt2$ et $(1,-1,0)/\\sqrt2$ est une famille orthonormée de $\\mathbb{R}^3$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Le produit scalaire des deux vecteurs non normalisés est $1\\times1+1\\times(-1)+0\\times0=0$ (orthogonaux), et chacun a pour norme $\\sqrt{1^2+1^2+0^2}=\\sqrt2$, donc après division par $\\sqrt2$, chacun est de norme $1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-2-e11",
+          question: "Démontrer le théorème de Pythagore généralisé : si $x_1,\\dots,x_p$ sont deux à deux orthogonaux, alors $\\left\\|\\sum_k x_k\\right\\|^2 = \\sum_k \\|x_k\\|^2$.",
+          type: "open",
+          modelAnswer: "On développe la norme au carré de la somme en double somme grâce à la bilinéarité, ce qui donne la somme des ||x_k||² plus les termes croisés ⟨x_k,x_l⟩ pour k≠l, qui sont tous nuls par orthogonalité.",
+          explanation: "**Preuve :** par bilinéarité et symétrie du produit scalaire,\n$$\\left\\|\\sum_{k=1}^p x_k\\right\\|^2 = \\left\\langle \\sum_{k=1}^p x_k, \\sum_{l=1}^p x_l \\right\\rangle = \\sum_{k=1}^p \\sum_{l=1}^p \\langle x_k,x_l\\rangle$$\n\nOn sépare les termes diagonaux ($k=l$) des termes croisés ($k\\neq l$) :\n$$= \\sum_{k=1}^p \\langle x_k,x_k\\rangle + \\sum_{k\\neq l} \\langle x_k,x_l\\rangle = \\sum_{k=1}^p \\|x_k\\|^2 + \\sum_{k\\neq l}\\langle x_k,x_l\\rangle$$\n\nPar hypothèse, les $x_k$ sont deux à deux orthogonaux, donc $\\langle x_k,x_l\\rangle = 0$ pour tout $k \\neq l$. Tous les termes croisés s'annulent, et il reste :\n$$\\left\\|\\sum_{k=1}^p x_k\\right\\|^2 = \\sum_{k=1}^p \\|x_k\\|^2$$ $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-2-e12",
+          question: "On applique Gram-Schmidt à $v_1=(1,1,0)$, $v_2=(1,0,1)$, $v_3=(0,1,1)$ dans $\\mathbb{R}^3$. Que vaut $\\|u_3\\|^2$ après orthogonalisation (avant normalisation) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$\\dfrac43$" },
+            { id: "C", text: "$\\dfrac32$" },
+            { id: "D", text: "$2$" },
+          ],
+          correctId: "B",
+          explanation: "On a calculé $u_3 = \\left(-\\dfrac23,\\dfrac23,\\dfrac23\\right)$, donc $\\|u_3\\|^2 = \\dfrac49+\\dfrac49+\\dfrac49 = \\dfrac{12}{9} = \\dfrac43$.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-2-e13",
+          question: "Effectuer entièrement le procédé de Gram-Schmidt sur $v_1=(1,1,0)$, $v_2=(1,0,1)$, $v_3=(0,1,1)$ dans $\\mathbb{R}^3$ canonique, et donner la base orthonormée obtenue.",
+          type: "open",
+          modelAnswer: "u1=v1=(1,1,0), ||u1||²=2. u2=v2-(1/2)u1=(1/2,-1/2,1), ||u2||²=3/2. u3=v3-(1/2)u1-(1/3)u2=(-2/3,2/3,2/3), ||u3||²=4/3. Base orthonormée : e1=(1,1,0)/√2, e2=(1/2,-1/2,1)/√(3/2), e3=(-2/3,2/3,2/3)/√(4/3).",
+          explanation: "**Étape 1 :** $u_1=v_1=(1,1,0)$, $\\|u_1\\|^2=2$.\n\n**Étape 2 :** $\\langle v_2,u_1\\rangle = 1\\times1+0\\times1+1\\times0=1$, coefficient $\\dfrac{1}{2}$. $u_2 = (1,0,1)-\\dfrac12(1,1,0) = \\left(\\dfrac12,-\\dfrac12,1\\right)$, $\\|u_2\\|^2=\\dfrac14+\\dfrac14+1=\\dfrac32$.\n\n**Étape 3 :** $\\langle v_3,u_1\\rangle = 0+1+0=1$ (coefficient $\\dfrac12$), $\\langle v_3,u_2\\rangle = 0\\times\\frac12+1\\times(-\\frac12)+1\\times1=\\dfrac12$ (coefficient $\\dfrac{1/2}{3/2}=\\dfrac13$). Donc $u_3 = (0,1,1)-\\dfrac12(1,1,0)-\\dfrac13\\left(\\dfrac12,-\\dfrac12,1\\right) = \\left(-\\dfrac23,\\dfrac23,\\dfrac23\\right)$, $\\|u_3\\|^2=\\dfrac43$.\n\n**Vérification d'orthogonalité :** $\\langle u_3,u_1\\rangle=-\\frac23+\\frac23+0=0$ ; $\\langle u_3,u_2\\rangle=-\\frac13-\\frac13+\\frac23=0$.\n\n**Base orthonormée :**\n$$e_1=\\frac{1}{\\sqrt2}(1,1,0), \\quad e_2=\\sqrt{\\frac23}\\left(\\frac12,-\\frac12,1\\right), \\quad e_3=\\frac{\\sqrt3}{2}\\left(-\\frac23,\\frac23,\\frac23\\right)$$ $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-2-e14",
+          question: "Soit $F$ un sous-espace de dimension $2$ d'un espace euclidien $E$ de dimension $5$. Que vaut $\\dim F^\\perp$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$3$" },
+            { id: "C", text: "$5$" },
+            { id: "D", text: "$7$" },
+          ],
+          correctId: "B",
+          explanation: "Par le théorème $\\dim F^\\perp = \\dim E - \\dim F = 5-2=3$.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-2-e15",
+          question: "Démontrer que $F \\cap F^\\perp = \\{0\\}$ pour tout sous-espace $F$ d'un espace euclidien $E$.",
+          type: "open",
+          modelAnswer: "Si x appartient à F et à F^perp, alors x est orthogonal à tous les éléments de F, en particulier à lui-même, donc ⟨x,x⟩=0, ce qui implique x=0 par séparation du produit scalaire.",
+          explanation: "**Preuve :** soit $x \\in F \\cap F^\\perp$. Comme $x \\in F^\\perp$, $x$ est orthogonal à tout élément de $F$ : $\\forall y \\in F,\\, \\langle x,y\\rangle=0$. Or $x \\in F$ également, donc on peut choisir $y=x$ dans cette propriété :\n$$\\langle x,x\\rangle = 0$$\nPar l'axiome de séparation du produit scalaire, $\\langle x,x\\rangle=0 \\Rightarrow x=0$. Donc $F \\cap F^\\perp \\subset \\{0\\}$, et comme $0 \\in F \\cap F^\\perp$ trivialement (les deux sont des sous-espaces vectoriels), on conclut $F \\cap F^\\perp = \\{0\\}$. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "eucl-l2-3",
+      slug: "projections-orthogonales-matrices-isometries",
+      title: "Projections orthogonales, matrices orthogonales et isométries",
+      durationMinutes: 50,
+      content: `## Projections orthogonales, matrices orthogonales et isométries
+
+### 1. Définition de la projection orthogonale sur un sous-espace
+
+Soit $E$ un espace euclidien de dimension finie et $F$ un sous-espace de $E$. D'après le théorème du supplémentaire orthogonal, $E = F \\oplus F^\\perp$, donc tout $x \\in E$ s'écrit de façon **unique** $x = x_F + x_{F^\\perp}$ avec $x_F \\in F$ et $x_{F^\\perp} \\in F^\\perp$. Le vecteur $x_F$ est appelé **projection orthogonale de $x$ sur $F$**, notée $p_F(x)$.
+
+**Formule pratique :** si $(e_1,\\dots,e_p)$ est une base orthonormée de $F$, alors :
+$$p_F(x) = \\sum_{i=1}^{p} \\langle x,e_i\\rangle\\, e_i$$
+
+Si l'on dispose seulement d'une base orthogonale (non normée) $(u_1,\\dots,u_p)$ de $F$, la formule devient :
+$$p_F(x) = \\sum_{i=1}^{p} \\frac{\\langle x,u_i\\rangle}{\\|u_i\\|^2}\\, u_i$$
+
+**Cas d'une droite :** si $F = \\mathrm{vect}(a)$ avec $a \\neq 0$, $p_F(x) = \\dfrac{\\langle x,a\\rangle}{\\|a\\|^2}\\, a$.
+
+### 2. Exemple résolu : projection sur une droite
+
+Projetons $x=(3,2,1)$ sur la droite $F=\\mathrm{vect}(a)$ avec $a=(1,1,1)$ dans $\\mathbb{R}^3$ canonique.
+
+On calcule $\\langle x,a\\rangle = 3+2+1=6$ et $\\|a\\|^2 = 1+1+1=3$. Donc :
+$$p_F(x) = \\frac{6}{3}\\,(1,1,1) = (2,2,2)$$
+
+Le résidu (composante orthogonale) est $x - p_F(x) = (3,2,1)-(2,2,2) = (1,0,-1)$. On vérifie $\\langle (1,0,-1), a\\rangle = 1+0-1=0$ : le résidu est bien orthogonal à $F$, ce qui confirme le calcul.
+
+### 3. Exemple résolu : projection sur un plan
+
+Projetons $w=(2,-1,3)$ sur le plan $H = \\{(x,y,z) : x+y+z=0\\}$, qui est l'orthogonal de la droite $\\mathrm{vect}(a)$ avec $a=(1,1,1)$.
+
+Méthode : $H = (\\mathrm{vect}(a))^\\perp$, donc $p_H(w) = w - p_{\\mathrm{vect}(a)}(w)$. On calcule $\\langle w,a\\rangle = 2-1+3=4$ et $\\|a\\|^2=3$, donc $p_{\\mathrm{vect}(a)}(w) = \\dfrac{4}{3}(1,1,1)$. Ainsi :
+$$p_H(w) = (2,-1,3) - \\frac43(1,1,1) = \\left(\\frac23,\\,-\\frac73,\\,\\frac53\\right)$$
+
+Vérification : la somme des coordonnées de $p_H(w)$ vaut $\\dfrac23-\\dfrac73+\\dfrac53 = \\dfrac{2-7+5}{3}=0$ : le projeté appartient bien à $H$.
+
+### 4. Caractérisation par minimisation de la distance
+
+**Théorème :** pour $x \\in E$ et $F$ sous-espace de $E$, le projeté $p_F(x)$ est l'unique point de $F$ qui minimise la distance à $x$ :
+$$\\|x - p_F(x)\\| = \\min_{y \\in F} \\|x-y\\|$$
+
+**Démonstration :** pour tout $y \\in F$, écrivons $x - y = (x-p_F(x)) + (p_F(x)-y)$. Le premier terme appartient à $F^\\perp$ (par définition de $p_F(x)$) et le second à $F$ (différence de deux éléments de $F$) : ces deux vecteurs sont donc orthogonaux. Par le théorème de Pythagore :
+$$\\|x-y\\|^2 = \\|x-p_F(x)\\|^2 + \\|p_F(x)-y\\|^2 \\geq \\|x-p_F(x)\\|^2$$
+avec égalité si et seulement si $\\|p_F(x)-y\\|=0$, c'est-à-dire $y = p_F(x)$. $\\square$
+
+Ce résultat est le principe de la **méthode des moindres carrés** : pour résoudre approximativement un système linéaire \${}Ax=b$ sans solution exacte, on cherche $x$ qui minimise $\\|Ax-b\\|$, ce qui revient à projeter $b$ orthogonalement sur l'image de $A$.
+
+### 5. Exemple résolu : moindres carrés en aperçu
+
+Reprenons $F = \\mathrm{vect}(e_1,u_2)$ avec $e_1=(1,1,0)$ et $u_2 = \\left(\\frac12,-\\frac12,1\\right)$ (base orthogonale obtenue par Gram-Schmidt dans la leçon précédente), et projetons $w=(1,2,3)$ sur $F$.
+
+On calcule $\\langle w,e_1\\rangle = 1+2+0=3$, $\\|e_1\\|^2=2$, coefficient $\\dfrac32$. Puis $\\langle w,u_2\\rangle = \\frac12 - 1 + 3 = \\dfrac52$, $\\|u_2\\|^2=\\dfrac32$, coefficient $\\dfrac{5/2}{3/2}=\\dfrac53$. Donc :
+$$p_F(w) = \\frac32(1,1,0) + \\frac53\\left(\\frac12,-\\frac12,1\\right) = \\left(\\frac73,\\,\\frac23,\\,\\frac53\\right)$$
+
+Le résidu est $w - p_F(w) = \\left(\\frac13-\\frac43, \\dots\\right)$, plus précisément $\\left(1-\\frac73,\\, 2-\\frac23,\\, 3-\\frac53\\right) = \\left(-\\frac43,\\,\\frac43,\\,\\frac43\\right)$, de norme au carré $\\dfrac{16}{9}\\times3=\\dfrac{16}{3}$. Cette quantité $\\|w-p_F(w)\\|^2 = \\dfrac{16}{3}$ est la distance au carré minimale de $w$ à $F$.
+
+### 6. Matrices orthogonales
+
+Une matrice $A \\in \\mathcal{M}_n(\\mathbb{R})$ est dite **orthogonale** si \${}^tA\\, A = I_n$, ce qui équivaut à $A\\,{}^tA = I_n$ et donc à $A^{-1} = {}^tA$.
+
+**Théorème :** $A$ est orthogonale si et seulement si ses colonnes (vues comme vecteurs de $\\mathbb{R}^n$) forment une base orthonormée de $\\mathbb{R}^n$ pour le produit scalaire canonique.
+
+**Conséquence sur le déterminant :** si $A$ est orthogonale, $\\det({}^tA\\,A) = \\det(A)^2 = \\det(I_n)=1$, donc $\\det A = \\pm1$. On distingue les matrices orthogonales **directes** ($\\det A = 1$, rotations) des **indirectes** ($\\det A = -1$, réflexions/symétries).
+
+### 7. Propriétés : conservation du produit scalaire et des normes
+
+**Théorème :** si $A$ est une matrice orthogonale, alors pour tous $X,Y \\in \\mathbb{R}^n$ :
+$$\\langle AX,AY\\rangle = \\langle X,Y\\rangle \\qquad \\text{et} \\qquad \\|AX\\| = \\|X\\|$$
+
+**Démonstration :** $\\langle AX,AY\\rangle = {}^t(AX)(AY) = {}^tX\\,{}^tA\\,A\\,Y = {}^tX\\,I_n\\,Y = {}^tX\\,Y = \\langle X,Y\\rangle$. En prenant $Y=X$, on obtient $\\|AX\\|^2 = \\|X\\|^2$, soit $\\|AX\\|=\\|X\\|$. $\\square$
+
+Une application linéaire qui conserve le produit scalaire (ou, de façon équivalente, qui conserve les normes) est appelée **isométrie vectorielle**. Les matrices orthogonales sont exactement les matrices des isométries vectorielles de $\\mathbb{R}^n$ exprimées dans une base orthonormée.
+
+### 8. Exemples en dimension 2 : rotation et symétrie
+
+**Rotation d'angle $\\theta$ :** la matrice $R_\\theta = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}$ est orthogonale : on vérifie \${}^tR_\\theta R_\\theta = I_2$ car $\\cos^2\\theta+\\sin^2\\theta=1$. Son déterminant est $\\cos^2\\theta+\\sin^2\\theta=1$ : c'est une isométrie directe.
+
+**Exemple numérique :** pour $\\theta = 60° = \\dfrac{\\pi}{3}$, $\\cos\\theta = \\dfrac12$ et $\\sin\\theta = \\dfrac{\\sqrt3}{2}$, donc $R_\\theta = \\begin{pmatrix} \\frac12 & -\\frac{\\sqrt3}{2} \\\\ \\frac{\\sqrt3}{2} & \\frac12 \\end{pmatrix}$. Appliquée au vecteur $(1,0)$, elle donne $\\left(\\frac12, \\frac{\\sqrt3}{2}\\right)$, qui est bien de norme $\\sqrt{\\frac14+\\frac34}=1$ comme $(1,0)$.
+
+**Symétrie orthogonale par rapport à la droite $y=x$ :** la matrice $S = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$ est orthogonale (\${}^tS\\,S = S^2 = I_2$ car $S$ échange les coordonnées deux fois de suite redonne l'identité). Son déterminant est $0\\times0-1\\times1=-1$ : c'est une isométrie indirecte.
+
+### 9. Synthèse
+
+La projection orthogonale sur un sous-espace $F$ réalise le meilleur compromis (au sens de la distance euclidienne) entre un vecteur quelconque et le sous-espace $F$ — c'est le principe fondateur des moindres carrés. Les matrices orthogonales, caractérisées par \${}^tA A = I_n$, représentent exactement les isométries vectorielles : elles préservent à la fois le produit scalaire et les normes, et se classent en rotations ($\\det = 1$) et réflexions ($\\det = -1$). Ces trois leçons forment ainsi un socle cohérent : produit scalaire $\\to$ orthogonalité $\\to$ projections et isométries, qui structure toute la géométrie euclidienne en dimension finie.`,
+      exercises: [
+        {
+          id: "eucl-l2-3-e1",
+          question: "Soit $F=\\mathrm{vect}(a)$ avec $a=(1,0,0)$ dans $\\mathbb{R}^3$. Que vaut $p_F(x)$ pour $x=(5,3,2)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(5,0,0)$" },
+            { id: "B", text: "$(0,3,2)$" },
+            { id: "C", text: "$(5,3,2)$" },
+            { id: "D", text: "$(1,0,0)$" },
+          ],
+          correctId: "A",
+          explanation: "$p_F(x) = \\dfrac{\\langle x,a\\rangle}{\\|a\\|^2}a = \\dfrac{5}{1}(1,0,0) = (5,0,0)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-3-e2",
+          question: "Vrai ou faux : une matrice orthogonale $A$ vérifie $A^{-1} = {}^tA$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Par définition, \${}^tA\\,A=I_n$, ce qui signifie exactement que \${}^tA$ est l'inverse de $A$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-3-e3",
+          question: "Quel est le déterminant possible d'une matrice orthogonale $A \\in \\mathcal{M}_n(\\mathbb{R})$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\det A = 1$ uniquement" },
+            { id: "B", text: "$\\det A \\in \\{-1,1\\}$" },
+            { id: "C", text: "$\\det A$ peut être n'importe quel réel" },
+            { id: "D", text: "$\\det A = 0$" },
+          ],
+          correctId: "B",
+          explanation: "De \${}^tA A=I_n$, on tire $(\\det A)^2 = \\det({}^tA)\\det A = \\det(I_n)=1$, donc $\\det A = \\pm1$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-3-e4",
+          question: "Vrai ou faux : la projection orthogonale $p_F(x)$ minimise la distance entre $x$ et les points de $F$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est le théorème de caractérisation par minimisation : $\\|x-p_F(x)\\| = \\min_{y\\in F}\\|x-y\\|$, démontré via le théorème de Pythagore appliqué à $x-y = (x-p_F(x))+(p_F(x)-y)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-3-e5",
+          question: "Soit $a=(1,1,1)$ et $x=(3,2,1)$ dans $\\mathbb{R}^3$. Que vaut $p_{\\mathrm{vect}(a)}(x)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(1,1,1)$" },
+            { id: "B", text: "$(2,2,2)$" },
+            { id: "C", text: "$(3,2,1)$" },
+            { id: "D", text: "$(6,6,6)$" },
+          ],
+          correctId: "B",
+          explanation: "$\\langle x,a\\rangle = 3+2+1=6$, $\\|a\\|^2=3$, donc $p_{\\mathrm{vect}(a)}(x) = \\dfrac63(1,1,1)=(2,2,2)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "eucl-l2-3-e6",
+          question: "Pour la rotation $R_\\theta = \\begin{pmatrix}\\cos\\theta & -\\sin\\theta\\\\ \\sin\\theta&\\cos\\theta\\end{pmatrix}$ avec $\\theta=\\dfrac{\\pi}{3}$, quelle est l'image du vecteur $(1,0)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\left(\\dfrac12,\\dfrac{\\sqrt3}{2}\\right)$" },
+            { id: "B", text: "$\\left(\\dfrac{\\sqrt3}{2},\\dfrac12\\right)$" },
+            { id: "C", text: "$(1,0)$" },
+            { id: "D", text: "$(0,1)$" },
+          ],
+          correctId: "A",
+          explanation: "$R_\\theta(1,0) = (\\cos\\theta, \\sin\\theta) = \\left(\\dfrac12, \\dfrac{\\sqrt3}{2}\\right)$ pour $\\theta=\\pi/3$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-3-e7",
+          question: "Vrai ou faux : une matrice orthogonale conserve toujours les normes mais pas nécessairement le produit scalaire.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Une matrice orthogonale conserve simultanément le produit scalaire ($\\langle AX,AY\\rangle=\\langle X,Y\\rangle$) et, par conséquent, les normes ($\\|AX\\|=\\|X\\|$) : la conservation des normes découle de celle du produit scalaire en prenant $Y=X$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-3-e8",
+          question: "Soit $S=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$, la symétrie par rapport à la droite $y=x$. Que vaut $\\det S$ et qu'en déduit-on ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\det S = 1$, isométrie directe" },
+            { id: "B", text: "$\\det S = -1$, isométrie indirecte" },
+            { id: "C", text: "$\\det S = 0$, $S$ n'est pas orthogonale" },
+            { id: "D", text: "$\\det S=-1$, $S$ n'est pas orthogonale" },
+          ],
+          correctId: "B",
+          explanation: "$\\det S = 0\\times0-1\\times1=-1$. Comme $S$ est orthogonale (\${}^tS S = S^2=I_2$) avec déterminant $-1$, c'est une isométrie indirecte (réflexion).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-3-e9",
+          question: "Soit $H=\\{(x,y,z):x+y+z=0\\}$ et $w=(2,-1,3)$. Que vaut $p_H(w)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\left(\\dfrac23,-\\dfrac73,\\dfrac53\\right)$" },
+            { id: "B", text: "$\\left(\\dfrac43,\\dfrac43,\\dfrac43\\right)$" },
+            { id: "C", text: "$(2,-1,3)$" },
+            { id: "D", text: "$\\left(-\\dfrac23,\\dfrac73,-\\dfrac53\\right)$" },
+          ],
+          correctId: "A",
+          explanation: "$H=(\\mathrm{vect}(1,1,1))^\\perp$. On calcule $\\langle w,(1,1,1)\\rangle=2-1+3=4$, donc $p_{\\mathrm{vect}(1,1,1)}(w)=\\dfrac43(1,1,1)$, puis $p_H(w)=w-\\dfrac43(1,1,1)=\\left(\\dfrac23,-\\dfrac73,\\dfrac53\\right)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-3-e10",
+          question: "Vrai ou faux : si $A$ et $B$ sont deux matrices orthogonales de même taille, alors $AB$ est aussi orthogonale.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. \${}^t(AB)(AB) = {}^tB\\,{}^tA\\,A\\,B = {}^tB\\,I_n\\,B = {}^tB B = I_n$ : l'ensemble des matrices orthogonales forme un groupe pour la multiplication (le groupe orthogonal $O(n)$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "eucl-l2-3-e11",
+          question: "Démontrer que si $A$ est une matrice orthogonale, alors $\\langle AX,AY\\rangle = \\langle X,Y\\rangle$ pour tous $X,Y \\in \\mathbb{R}^n$.",
+          type: "open",
+          modelAnswer: "On écrit ⟨AX,AY⟩ = (AX)^t(AY) = X^t A^t A Y, puis on utilise A^tA=I_n pour obtenir X^tY = ⟨X,Y⟩.",
+          explanation: "**Preuve :** en notant le produit scalaire canonique $\\langle U,V\\rangle = {}^tU\\,V$, on a :\n$$\\langle AX,AY\\rangle = {}^t(AX)\\,(AY) = ({}^tX\\,{}^tA)(AY) = {}^tX\\,({}^tA\\,A)\\,Y$$\nCar $A$ est orthogonale, \${}^tA\\,A = I_n$, donc :\n$$\\langle AX,AY\\rangle = {}^tX\\,I_n\\,Y = {}^tX\\,Y = \\langle X,Y\\rangle$$ $\\square$\n\nEn particulier, en prenant $Y=X$, on obtient $\\|AX\\|^2=\\langle AX,AX\\rangle=\\langle X,X\\rangle=\\|X\\|^2$, donc $\\|AX\\|=\\|X\\|$ : les matrices orthogonales conservent aussi les normes.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-3-e12",
+          question: "Soit $F=\\mathrm{vect}(e_1,u_2)$ avec $e_1=(1,1,0)$, $u_2=\\left(\\frac12,-\\frac12,1\\right)$ (orthogonaux) et $w=(1,2,3)$. Que vaut $p_F(w)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\left(\\dfrac73,\\dfrac23,\\dfrac53\\right)$" },
+            { id: "B", text: "$\\left(-\\dfrac43,\\dfrac43,\\dfrac43\\right)$" },
+            { id: "C", text: "$(1,2,3)$" },
+            { id: "D", text: "$\\left(\\dfrac32,\\dfrac53,0\\right)$" },
+          ],
+          correctId: "A",
+          explanation: "Coefficient sur $e_1$ : $\\dfrac{\\langle w,e_1\\rangle}{\\|e_1\\|^2}=\\dfrac{3}{2}$. Coefficient sur $u_2$ : $\\dfrac{\\langle w,u_2\\rangle}{\\|u_2\\|^2}=\\dfrac{5/2}{3/2}=\\dfrac53$. Donc $p_F(w)=\\dfrac32(1,1,0)+\\dfrac53\\left(\\dfrac12,-\\dfrac12,1\\right)=\\left(\\dfrac73,\\dfrac23,\\dfrac53\\right)$.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-3-e13",
+          question: "Démontrer le théorème de minimisation : pour $x\\in E$ et $F$ sous-espace, $\\|x-p_F(x)\\| = \\min_{y\\in F}\\|x-y\\|$, en explicitant le rôle du théorème de Pythagore.",
+          type: "open",
+          modelAnswer: "On décompose x-y = (x-p_F(x)) + (p_F(x)-y), où le premier terme est dans F^perp et le second dans F donc ils sont orthogonaux ; par Pythagore ||x-y||² = ||x-p_F(x)||² + ||p_F(x)-y||² ≥ ||x-p_F(x)||², avec égalité ssi y=p_F(x).",
+          explanation: "**Preuve :** soit $y \\in F$ quelconque. On décompose :\n$$x-y = (x-p_F(x)) + (p_F(x)-y)$$\nLe vecteur $x-p_F(x)$ appartient à $F^\\perp$ par définition de la projection orthogonale. Le vecteur $p_F(x)-y$ appartient à $F$ (différence de deux éléments de $F$, sous-espace vectoriel). Ces deux vecteurs sont donc orthogonaux.\n\nPar le théorème de Pythagore généralisé :\n$$\\|x-y\\|^2 = \\|x-p_F(x)\\|^2 + \\|p_F(x)-y\\|^2$$\nComme $\\|p_F(x)-y\\|^2 \\geq 0$, on a $\\|x-y\\|^2 \\geq \\|x-p_F(x)\\|^2$ pour tout $y \\in F$, c'est-à-dire $\\|x-y\\| \\geq \\|x-p_F(x)\\|$.\n\nL'égalité a lieu si et seulement si $\\|p_F(x)-y\\|=0$, c'est-à-dire $y=p_F(x)$. Donc $p_F(x)$ est l'unique point de $F$ réalisant le minimum de $\\|x-y\\|$ sur $F$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-3-e14",
+          question: "Soit $A$ une matrice orthogonale de $\\mathcal{M}_2(\\mathbb{R})$ avec $\\det A = -1$. Quelle est la nature géométrique de l'application associée ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une rotation" },
+            { id: "B", text: "Une réflexion (symétrie orthogonale par rapport à une droite)" },
+            { id: "C", text: "Une homothétie" },
+            { id: "D", text: "Une projection" },
+          ],
+          correctId: "B",
+          explanation: "En dimension 2, les isométries orthogonales se classent en deux familles : déterminant $+1$ (rotations) et déterminant $-1$ (réflexions par rapport à une droite passant par l'origine). Avec $\\det A=-1$, c'est une réflexion.",
+          difficulty: "expert",
+        },
+        {
+          id: "eucl-l2-3-e15",
+          question: "Démontrer que si $A$ et $B$ sont des matrices orthogonales de $\\mathcal{M}_n(\\mathbb{R})$, alors $AB$ est orthogonale.",
+          type: "open",
+          modelAnswer: "On calcule (AB)^t(AB) = B^t A^t A B = B^t I_n B = B^t B = I_n, en utilisant successivement A^tA=I_n puis B^tB=I_n.",
+          explanation: "**Preuve :** on calcule \${}^t(AB)(AB)$ en utilisant la règle de transposition d'un produit, \${}^t(AB) = {}^tB\\,{}^tA$ :\n$\${}^t(AB)(AB) = ({}^tB\\,{}^tA)(AB) = {}^tB\\,({}^tA\\,A)\\,B$$\nComme $A$ est orthogonale, \${}^tA\\,A = I_n$, donc :\n$\${}^t(AB)(AB) = {}^tB\\,I_n\\,B = {}^tB\\,B$$\nComme $B$ est orthogonale, \${}^tB\\,B = I_n$. Donc \${}^t(AB)(AB) = I_n$ : $AB$ est bien orthogonale. $\\square$\n\nCeci montre que l'ensemble des matrices orthogonales $O(n)$ est stable par produit (c'est en fait un groupe, le groupe orthogonal).",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  {
+  id: "stats-l2",
+  slug: "statistique-estimation-tests-l2",
+  title: "Statistique : estimation et tests d'hypothèses",
+  description:
+    "Statistique inférentielle de niveau L2 : échantillonnage et estimateurs, intervalles de confiance pour une moyenne et une proportion, tests d'hypothèses (Student, comparaison de moyennes).",
+  schoolLevel: "L2",
+  subject: "statistiques",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "σ",
+  lessons: [
+    {
+      id: "stat-l2-1",
+      slug: "echantillonnage-et-estimateurs",
+      title: "Échantillonnage et estimateurs",
+      durationMinutes: 50,
+      content: `## Échantillonnage et estimateurs
+
+### 1. Population, échantillon, statistique
+
+On appelle **population** l'ensemble des individus sur lequel porte une étude, et l'on cherche à connaître une caractéristique inconnue de cette population, par exemple sa moyenne $\\mu$ ou sa variance $\\sigma^2$. Comme il est en général impossible d'observer toute la population, on observe un **échantillon**.
+
+Un **échantillon aléatoire simple de taille $n$** est une suite $X_1, X_2, \\dots, X_n$ de variables aléatoires **indépendantes et identiquement distribuées (i.i.d.)**, de même loi que la variable $X$ étudiée sur la population (de moyenne $\\mu = E[X]$ et de variance $\\sigma^2 = \\text{Var}(X)$, supposées finies).
+
+Une **statistique** est une variable aléatoire $T_n = g(X_1, \\dots, X_n)$, fonction de l'échantillon, qui ne dépend d'aucun paramètre inconnu. Une fois l'échantillon observé (valeurs numériques $x_1, \\dots, x_n$), on obtient une **réalisation** $t_n = g(x_1, \\dots, x_n)$ de la statistique.
+
+**Exemples de statistiques :**
+- La **moyenne empirique** : $\\overline{X}_n = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^{n} X_i$
+- La **variance empirique** : $\\widehat{\\sigma}^2_n = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^{n} (X_i - \\overline{X}_n)^2$
+
+### 2. Estimateur ponctuel
+
+Un **estimateur ponctuel** d'un paramètre inconnu $\\theta$ (par exemple $\\mu$ ou $\\sigma^2$) est une statistique $\\widehat{\\theta}_n = g(X_1, \\dots, X_n)$ destinée à approcher $\\theta$. C'est une variable aléatoire (elle dépend de l'échantillon, donc varie d'un échantillon à l'autre) ; sa réalisation numérique sur un échantillon donné s'appelle une **estimation**.
+
+On évalue la qualité d'un estimateur à l'aide de plusieurs critères : son **biais**, sa **variance**, sa **convergence**, et son **erreur quadratique moyenne**.
+
+### 3. Biais d'un estimateur
+
+**Définition.** Le **biais** de l'estimateur $\\widehat{\\theta}_n$ de $\\theta$ est :
+$$b(\\widehat{\\theta}_n) = E[\\widehat{\\theta}_n] - \\theta$$
+
+L'estimateur $\\widehat{\\theta}_n$ est dit **sans biais** (ou non biaisé) si $b(\\widehat{\\theta}_n) = 0$, c'est-à-dire si $E[\\widehat{\\theta}_n] = \\theta$ pour toute valeur de $\\theta$. Sinon, il est dit **biaisé**.
+
+**Théorème — la moyenne empirique est un estimateur sans biais de $\\mu$.**
+
+Soit $X_1, \\dots, X_n$ i.i.d. d'espérance $\\mu$. Alors :
+$$E[\\overline{X}_n] = E\\left[\\frac{1}{n}\\sum_{i=1}^n X_i\\right] = \\frac{1}{n}\\sum_{i=1}^n E[X_i] = \\frac{1}{n} \\cdot n\\mu = \\mu$$
+
+Donc $b(\\overline{X}_n) = E[\\overline{X}_n] - \\mu = 0$ : $\\overline{X}_n$ est un estimateur **sans biais** de $\\mu$.
+
+### 4. Variance empirique : biaisée vs corrigée
+
+**La variance empirique $\\widehat{\\sigma}^2_n = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n (X_i - \\overline{X}_n)^2$ est un estimateur biaisé de $\\sigma^2$.**
+
+On démontre (calcul classique, en développant et en utilisant l'indépendance des $X_i$) que :
+$$E[\\widehat{\\sigma}^2_n] = \\frac{n-1}{n}\\,\\sigma^2$$
+
+Le biais est donc $b(\\widehat{\\sigma}^2_n) = \\dfrac{n-1}{n}\\sigma^2 - \\sigma^2 = -\\dfrac{\\sigma^2}{n} \\neq 0$ : l'estimateur sous-estime systématiquement la variance (en moyenne).
+
+**Variance empirique corrigée (estimateur sans biais).** On définit :
+$$S_n^2 = \\frac{1}{n-1}\\sum_{i=1}^n (X_i - \\overline{X}_n)^2 = \\frac{n}{n-1}\\,\\widehat{\\sigma}^2_n$$
+
+Alors $E[S_n^2] = \\dfrac{n}{n-1} \\cdot E[\\widehat{\\sigma}^2_n] = \\dfrac{n}{n-1} \\cdot \\dfrac{n-1}{n}\\sigma^2 = \\sigma^2$ : $S_n^2$ est un estimateur **sans biais** de $\\sigma^2$. C'est cette correction (division par $n-1$ et non par $n$) qui est utilisée en pratique pour estimer une variance à partir d'un échantillon ; le facteur $n-1$ s'appelle le nombre de **degrés de liberté**.
+
+**Exemple numérique.** Échantillon $x_1, \\dots, x_5 = 2, 4, 4, 6, 9$ (population fictive). On a $\\overline{x} = \\dfrac{2+4+4+6+9}{5} = \\dfrac{25}{5} = 5$. Les écarts au carré : $(2-5)^2=9$, $(4-5)^2=1$, $(4-5)^2=1$, $(6-5)^2=1$, $(9-5)^2=16$, somme $= 28$. Donc $\\widehat{\\sigma}^2_5 = \\dfrac{28}{5} = 5{,}6$ tandis que $s_5^2 = \\dfrac{28}{4} = 7$ : l'estimation corrigée est bien supérieure, conformément au facteur $\\dfrac{n}{n-1} = \\dfrac{5}{4}$.
+
+### 5. Convergence d'un estimateur
+
+**Définition.** L'estimateur $\\widehat{\\theta}_n$ est **convergent** (ou consistant) si $\\widehat{\\theta}_n$ converge en probabilité vers $\\theta$ quand $n \\to +\\infty$, c'est-à-dire :
+$$\\forall \\varepsilon > 0,\\quad \\lim_{n\\to+\\infty} P\\big(|\\widehat{\\theta}_n - \\theta| > \\varepsilon\\big) = 0$$
+
+**Théorème (loi des grands nombres).** Si $X_1, \\dots, X_n$ sont i.i.d. d'espérance $\\mu$ finie, alors $\\overline{X}_n$ converge en probabilité (et même presque sûrement) vers $\\mu$ : $\\overline{X}_n$ est un estimateur **convergent** de $\\mu$.
+
+On montre de même que $\\widehat{\\sigma}^2_n$ et $S_n^2$ sont tous deux des estimateurs convergents de $\\sigma^2$ : bien que $\\widehat{\\sigma}^2_n$ soit biaisé, son biais $-\\sigma^2/n$ tend vers $0$ quand $n \\to +\\infty$, et sa variance tend également vers $0$. **Un estimateur biaisé peut donc être convergent** (le biais n'empêche pas la convergence, à condition qu'il s'annule asymptotiquement).
+
+### 6. Erreur quadratique moyenne (EQM)
+
+Pour comparer des estimateurs (notamment lorsque l'un est biaisé), on utilise l'**erreur quadratique moyenne** :
+$$\\text{EQM}(\\widehat{\\theta}_n) = E\\big[(\\widehat{\\theta}_n - \\theta)^2\\big]$$
+
+**Décomposition biais-variance.** On a l'identité fondamentale :
+$$\\text{EQM}(\\widehat{\\theta}_n) = \\text{Var}(\\widehat{\\theta}_n) + b(\\widehat{\\theta}_n)^2$$
+
+*Démonstration.* En notant $m = E[\\widehat\\theta_n]$ :
+$$E[(\\widehat\\theta_n-\\theta)^2] = E[((\\widehat\\theta_n - m) + (m-\\theta))^2] = E[(\\widehat\\theta_n-m)^2] + 2(m-\\theta)\\,E[\\widehat\\theta_n - m] + (m-\\theta)^2$$
+Le terme croisé est nul car $E[\\widehat\\theta_n - m] = 0$, et $E[(\\widehat\\theta_n - m)^2] = \\text{Var}(\\widehat\\theta_n)$, $(m-\\theta)^2 = b(\\widehat\\theta_n)^2$. D'où le résultat. $\\square$
+
+**Conséquence pratique.** Si $\\widehat\\theta_n$ est sans biais, $\\text{EQM}(\\widehat\\theta_n) = \\text{Var}(\\widehat\\theta_n)$ : pour des estimateurs sans biais, minimiser l'EQM équivaut à minimiser la variance. Mais un estimateur **légèrement biaisé** peut avoir une EQM plus petite qu'un estimateur sans biais s'il a une variance beaucoup plus faible — ce compromis biais/variance est central en statistique.
+
+### 7. Variance de la moyenne empirique
+
+Pour $X_1, \\dots, X_n$ i.i.d. de variance $\\sigma^2$, par indépendance :
+$$\\text{Var}(\\overline{X}_n) = \\text{Var}\\left(\\frac{1}{n}\\sum_{i=1}^n X_i\\right) = \\frac{1}{n^2}\\sum_{i=1}^n \\text{Var}(X_i) = \\frac{1}{n^2}\\cdot n\\sigma^2 = \\frac{\\sigma^2}{n}$$
+
+On retrouve ainsi que $\\text{EQM}(\\overline{X}_n) = \\text{Var}(\\overline{X}_n) = \\dfrac{\\sigma^2}{n}$ (puisque $\\overline{X}_n$ est sans biais), qui tend vers $0$ quand $n \\to +\\infty$ : ceci redémontre la convergence de $\\overline{X}_n$ vers $\\mu$ (via l'inégalité de Bienaymé-Tchebychev). L'écart-type de l'estimateur, $\\dfrac{\\sigma}{\\sqrt n}$, s'appelle l'**erreur-type** (standard error) de la moyenne empirique ; c'est elle qui contrôlera la largeur des intervalles de confiance étudiés dans la leçon suivante.
+
+### 8. Synthèse
+
+| Estimateur | Paramètre estimé | Biais | Convergent ? |
+|---|---|---|---|
+| $\\overline{X}_n$ | $\\mu$ | sans biais | oui |
+| $\\widehat\\sigma^2_n = \\frac1n\\sum(X_i-\\overline X_n)^2$ | $\\sigma^2$ | biaisé ($-\\sigma^2/n$) | oui |
+| $S_n^2 = \\frac{1}{n-1}\\sum(X_i-\\overline X_n)^2$ | $\\sigma^2$ | sans biais | oui |
+
+Retenir : pour estimer une variance à partir de données, on utilise **toujours** $S_n^2$ (division par $n-1$) en pratique, car c'est l'estimateur sans biais ; c'est lui qui apparaît dans les formules d'intervalles de confiance et de tests basés sur la loi de Student, objets des deux prochaines leçons.`,
+      exercises: [
+        {
+          id: "stat-l2-1-e1",
+          question: "Qu'est-ce qu'une statistique $T_n = g(X_1, \\dots, X_n)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une fonction de l'échantillon qui ne dépend d'aucun paramètre inconnu" },
+            { id: "B", text: "Le paramètre inconnu $\\theta$ lui-même" },
+            { id: "C", text: "Une fonction qui dépend nécessairement de $\\mu$" },
+            { id: "D", text: "Un nombre fixe, non aléatoire" },
+          ],
+          correctId: "A",
+          explanation: "Une statistique est, par définition, une variable aléatoire fonction de l'échantillon $(X_1,\\dots,X_n)$ uniquement, sans dépendre des paramètres inconnus de la population (sinon on ne pourrait pas la calculer à partir des données observées).",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-1-e2",
+          question: "Quelle est la formule de la moyenne empirique $\\overline{X}_n$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\overline{X}_n = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n X_i$" },
+            { id: "B", text: "$\\overline{X}_n = \\displaystyle\\sum_{i=1}^n X_i$" },
+            { id: "C", text: "$\\overline{X}_n = \\dfrac{1}{n-1}\\displaystyle\\sum_{i=1}^n X_i$" },
+            { id: "D", text: "$\\overline{X}_n = \\max(X_1,\\dots,X_n)$" },
+          ],
+          correctId: "A",
+          explanation: "La moyenne empirique est la moyenne arithmétique des observations : $\\overline{X}_n = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n X_i$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-1-e3",
+          question: "Vrai ou faux : la moyenne empirique $\\overline{X}_n$ est un estimateur sans biais de $\\mu = E[X]$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Par linéarité de l'espérance, $E[\\overline{X}_n] = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n E[X_i] = \\dfrac{1}{n}\\cdot n\\mu = \\mu$, donc le biais $E[\\overline X_n]-\\mu$ est nul.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-1-e4",
+          question: "Quelle est la formule de la variance empirique corrigée $S_n^2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$S_n^2 = \\dfrac{1}{n-1}\\displaystyle\\sum_{i=1}^n (X_i-\\overline{X}_n)^2$" },
+            { id: "B", text: "$S_n^2 = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n (X_i-\\overline{X}_n)^2$" },
+            { id: "C", text: "$S_n^2 = \\dfrac{1}{n+1}\\displaystyle\\sum_{i=1}^n (X_i-\\overline{X}_n)^2$" },
+            { id: "D", text: "$S_n^2 = \\dfrac{1}{n-1}\\displaystyle\\sum_{i=1}^n X_i^2$" },
+          ],
+          correctId: "A",
+          explanation: "La variance empirique corrigée divise la somme des écarts au carré par $n-1$ (et non $n$), ce qui rend l'estimateur sans biais pour $\\sigma^2$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-1-e5",
+          question: "Que signifie « $\\widehat{\\theta}_n$ est un estimateur sans biais de $\\theta$ » ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$E[\\widehat\\theta_n] = \\theta$" },
+            { id: "B", text: "$\\widehat\\theta_n = \\theta$ pour tout échantillon" },
+            { id: "C", text: "$\\text{Var}(\\widehat\\theta_n) = 0$" },
+            { id: "D", text: "$\\widehat\\theta_n$ converge vers $\\theta$" },
+          ],
+          correctId: "A",
+          explanation: "Le biais est défini par $b(\\widehat\\theta_n) = E[\\widehat\\theta_n]-\\theta$. L'estimateur est sans biais lorsque cette quantité est nulle, c'est-à-dire $E[\\widehat\\theta_n]=\\theta$ — en moyenne sur tous les échantillons possibles, et non sur un échantillon particulier.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-1-e6",
+          question: "Échantillon $x_1,\\dots,x_4 = 1, 3, 5, 7$. Que vaut la variance empirique non corrigée $\\widehat\\sigma_4^2 = \\frac{1}{4}\\sum(x_i-\\overline x)^2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$6{,}67$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$20$" },
+          ],
+          correctId: "A",
+          explanation: "$\\overline x = \\dfrac{1+3+5+7}{4} = 4$. Écarts au carré : $(1-4)^2=9$, $(3-4)^2=1$, $(5-4)^2=1$, $(7-4)^2=9$, somme $=20$. Donc $\\widehat\\sigma_4^2 = \\dfrac{20}{4} = 5$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-1-e7",
+          question: "Pour le même échantillon $1, 3, 5, 7$, que vaut la variance corrigée $s_4^2 = \\frac{1}{3}\\sum(x_i-\\overline x)^2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$6{,}67$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$10$" },
+            { id: "D", text: "$3{,}75$" },
+          ],
+          correctId: "A",
+          explanation: "On a calculé $\\sum(x_i-\\overline x)^2 = 20$ (exercice précédent). Donc $s_4^2 = \\dfrac{20}{3} \\approx 6{,}67$. On vérifie la relation $s_4^2 = \\dfrac{n}{n-1}\\widehat\\sigma_4^2 = \\dfrac{4}{3}\\times 5 = \\dfrac{20}{3} \\approx 6{,}67$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-1-e8",
+          question: "Quelle est la relation entre $E[\\widehat\\sigma_n^2]$ et $\\sigma^2$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$E[\\widehat\\sigma_n^2] = \\dfrac{n-1}{n}\\sigma^2$" },
+            { id: "B", text: "$E[\\widehat\\sigma_n^2] = \\sigma^2$" },
+            { id: "C", text: "$E[\\widehat\\sigma_n^2] = \\dfrac{n+1}{n}\\sigma^2$" },
+            { id: "D", text: "$E[\\widehat\\sigma_n^2] = n\\sigma^2$" },
+          ],
+          correctId: "A",
+          explanation: "C'est le résultat clé établissant le biais de la variance empirique non corrigée : $E[\\widehat\\sigma_n^2] = \\dfrac{n-1}{n}\\sigma^2 < \\sigma^2$, donc $\\widehat\\sigma_n^2$ sous-estime systématiquement la variance en moyenne.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-1-e9",
+          question: "Vrai ou faux : un estimateur biaisé ne peut jamais être convergent.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. L'exemple de $\\widehat\\sigma_n^2$ le montre : son biais $-\\sigma^2/n$ est non nul pour tout $n$ fini, mais il tend vers $0$ quand $n\\to+\\infty$, et sa variance tend aussi vers $0$ ; $\\widehat\\sigma_n^2$ est donc biaisé mais convergent.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-1-e10",
+          question: "Quelle est la formule de l'erreur quadratique moyenne $\\text{EQM}(\\widehat\\theta_n)$ en fonction du biais et de la variance ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\text{EQM}(\\widehat\\theta_n) = \\text{Var}(\\widehat\\theta_n) + b(\\widehat\\theta_n)^2$" },
+            { id: "B", text: "$\\text{EQM}(\\widehat\\theta_n) = \\text{Var}(\\widehat\\theta_n) - b(\\widehat\\theta_n)^2$" },
+            { id: "C", text: "$\\text{EQM}(\\widehat\\theta_n) = \\text{Var}(\\widehat\\theta_n) \\times b(\\widehat\\theta_n)$" },
+            { id: "D", text: "$\\text{EQM}(\\widehat\\theta_n) = b(\\widehat\\theta_n)$" },
+          ],
+          correctId: "A",
+          explanation: "C'est la décomposition biais-variance : $\\text{EQM}(\\widehat\\theta_n) = E[(\\widehat\\theta_n-\\theta)^2] = \\text{Var}(\\widehat\\theta_n) + b(\\widehat\\theta_n)^2$, obtenue en ajoutant et soustrayant $E[\\widehat\\theta_n]$ dans le carré.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-1-e11",
+          question: "Soit $X_1,\\dots,X_n$ i.i.d. de variance $\\sigma^2=9$ et $n=36$. Que vaut $\\text{Var}(\\overline X_n)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0{,}25$" },
+            { id: "B", text: "$9$" },
+            { id: "C", text: "$0{,}5$" },
+            { id: "D", text: "$324$" },
+          ],
+          correctId: "A",
+          explanation: "$\\text{Var}(\\overline X_n) = \\dfrac{\\sigma^2}{n} = \\dfrac{9}{36} = 0{,}25$.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-1-e12",
+          question: "Démontrer que $E[\\widehat\\sigma_n^2] = \\dfrac{n-1}{n}\\sigma^2$, où $\\widehat\\sigma_n^2 = \\dfrac{1}{n}\\sum_{i=1}^n (X_i-\\overline X_n)^2$, pour $X_1,\\dots,X_n$ i.i.d. d'espérance $\\mu$ et de variance $\\sigma^2$.",
+          type: "open",
+          modelAnswer: "On développe la somme des carrés en utilisant l'identité algébrique liant les écarts à la moyenne empirique et à mu, on prend l'espérance terme à terme en utilisant l'indépendance, puis on simplifie pour obtenir (n-1)/n * sigma^2.",
+          explanation: "**Preuve.** On part de l'identité algébrique (valable pour toute suite de réels) :\n$$\\sum_{i=1}^n (X_i-\\overline X_n)^2 = \\sum_{i=1}^n (X_i-\\mu)^2 - n(\\overline X_n - \\mu)^2$$\n*Vérification de l'identité :* $\\sum (X_i-\\overline X_n)^2 = \\sum\\big((X_i-\\mu)-(\\overline X_n-\\mu)\\big)^2 = \\sum(X_i-\\mu)^2 - 2(\\overline X_n-\\mu)\\sum(X_i-\\mu) + n(\\overline X_n-\\mu)^2$. Comme $\\sum(X_i-\\mu) = n(\\overline X_n-\\mu)$, le terme du milieu vaut $-2n(\\overline X_n-\\mu)^2$, d'où le résultat après simplification.\n\nOn prend l'espérance des deux membres :\n$$E\\left[\\sum_{i=1}^n (X_i-\\overline X_n)^2\\right] = \\sum_{i=1}^n E[(X_i-\\mu)^2] - n\\,E[(\\overline X_n-\\mu)^2]$$\n\nOr $E[(X_i-\\mu)^2] = \\sigma^2$ pour chaque $i$, donc le premier terme vaut $n\\sigma^2$. Et $E[(\\overline X_n-\\mu)^2] = \\text{Var}(\\overline X_n) = \\dfrac{\\sigma^2}{n}$ (car $\\overline X_n$ est sans biais). Donc le second terme vaut $n \\cdot \\dfrac{\\sigma^2}{n} = \\sigma^2$.\n\nOn obtient :\n$$E\\left[\\sum_{i=1}^n (X_i-\\overline X_n)^2\\right] = n\\sigma^2 - \\sigma^2 = (n-1)\\sigma^2$$\n\nEn divisant par $n$ :\n$$E[\\widehat\\sigma_n^2] = \\frac{1}{n}\\cdot(n-1)\\sigma^2 = \\frac{n-1}{n}\\sigma^2 \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-1-e13",
+          question: "On compare deux estimateurs de $\\mu$ : $\\widehat\\mu_1 = \\overline X_n$ (sans biais, variance $\\sigma^2/n$) et $\\widehat\\mu_2 = \\frac{n}{n+1}\\overline X_n$ (biaisé). Lequel a la plus petite EQM si $\\mu=10$, $\\sigma^2=4$, $n=4$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\widehat\\mu_2$" },
+            { id: "B", text: "$\\widehat\\mu_1$" },
+            { id: "C", text: "Les deux ont la même EQM" },
+            { id: "D", text: "On ne peut pas comparer sans plus d'information" },
+          ],
+          correctId: "A",
+          explanation: "$\\text{EQM}(\\widehat\\mu_1) = \\sigma^2/n = 4/4 = 1$. Pour $\\widehat\\mu_2$ : $E[\\widehat\\mu_2] = \\frac{n}{n+1}\\mu = \\frac{4}{5}\\times 10 = 8$, donc biais $b=8-10=-2$, et $\\text{Var}(\\widehat\\mu_2) = \\left(\\frac{n}{n+1}\\right)^2\\frac{\\sigma^2}{n} = \\left(\\frac{4}{5}\\right)^2 \\times 1 = 0{,}64$. Donc $\\text{EQM}(\\widehat\\mu_2) = 0{,}64 + (-2)^2 = 0{,}64+4=4{,}64 > 1$. Ici $\\widehat\\mu_1$ a la plus petite EQM (le biais introduit par $\\widehat\\mu_2$ domine largement le faible gain de variance) — la bonne réponse est donc B, $\\widehat\\mu_1$.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-1-e14",
+          question: "Soit $X_1,\\dots,X_n$ i.i.d. de loi de Bernoulli de paramètre $p$ (donc $\\mu=p$, $\\sigma^2=p(1-p)$). Montrer que $\\widehat p = \\overline X_n$ est un estimateur sans biais et convergent de $p$, et donner sa variance.",
+          type: "open",
+          modelAnswer: "Comme E[Xi]=p, la moyenne empirique est sans biais par linéarité de l'espérance. Sa variance vaut p(1-p)/n qui tend vers 0, donc convergence par l'inégalité de Bienaymé-Tchebychev (ou par la loi des grands nombres).",
+          explanation: "**Sans biais :** $E[\\widehat p] = E[\\overline X_n] = \\dfrac{1}{n}\\displaystyle\\sum_{i=1}^n E[X_i] = \\dfrac{1}{n}\\cdot np = p$. Le biais est donc nul.\n\n**Variance :** comme les $X_i$ sont indépendantes de variance commune $\\sigma^2=p(1-p)$ :\n$$\\text{Var}(\\widehat p) = \\text{Var}(\\overline X_n) = \\frac{\\sigma^2}{n} = \\frac{p(1-p)}{n}$$\n\n**Convergence :** par l'inégalité de Bienaymé-Tchebychev, pour tout $\\varepsilon>0$ :\n$$P(|\\widehat p - p| > \\varepsilon) \\leq \\frac{\\text{Var}(\\widehat p)}{\\varepsilon^2} = \\frac{p(1-p)}{n\\varepsilon^2} \\xrightarrow[n\\to+\\infty]{} 0$$\nDonc $\\widehat p \\xrightarrow{P} p$ : $\\widehat p$ est un estimateur convergent de $p$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-1-e15",
+          question: "Vrai ou faux : si $\\widehat\\theta_n$ est un estimateur sans biais de $\\theta$, alors minimiser son erreur quadratique moyenne équivaut à minimiser sa variance.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. D'après la décomposition $\\text{EQM}(\\widehat\\theta_n)=\\text{Var}(\\widehat\\theta_n)+b(\\widehat\\theta_n)^2$, si $b(\\widehat\\theta_n)=0$ (estimateur sans biais), alors $\\text{EQM}(\\widehat\\theta_n)=\\text{Var}(\\widehat\\theta_n)$ : les deux quantités coïncident exactement, donc minimiser l'une revient à minimiser l'autre.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "stat-l2-2",
+      slug: "intervalles-de-confiance",
+      title: "Intervalles de confiance",
+      durationMinutes: 50,
+      content: `## Intervalles de confiance
+
+### 1. Pourquoi un intervalle plutôt qu'une seule valeur ?
+
+Une estimation ponctuelle comme $\\overline{x}_n$ ne donne aucune indication sur sa précision : changer d'échantillon change la valeur obtenue. On préfère donc associer à l'estimation une **fourchette de valeurs plausibles** pour le paramètre inconnu, accompagnée d'un niveau de confiance.
+
+**Définition.** Soit $\\theta$ un paramètre inconnu et $\\alpha \\in (0,1)$ un seuil fixé (typiquement $\\alpha = 0{,}05$ ou $\\alpha=0{,}01$). Un **intervalle de confiance au niveau $1-\\alpha$** pour $\\theta$ est un intervalle aléatoire $[A_n, B_n]$, construit à partir de l'échantillon, tel que :
+$$P\\big(A_n \\leq \\theta \\leq B_n\\big) = 1-\\alpha$$
+
+**Interprétation fréquentiste — point essentiel à ne jamais confondre :** ce n'est **pas** $\\theta$ qui est aléatoire, mais l'intervalle $[A_n,B_n]$ (il dépend de l'échantillon tiré). Si l'on répète l'expérience un grand nombre de fois et que l'on construit l'intervalle à chaque fois, **environ $(1-\\alpha)\\times 100\\%$** des intervalles obtenus contiendront la vraie valeur $\\theta$. Pour un échantillon particulier, l'intervalle calculé soit contient $\\theta$, soit ne le contient pas — on ne dit jamais « $\\theta$ a 95% de chances d'être dans cet intervalle ».
+
+### 2. Intervalle de confiance pour une moyenne, variance connue
+
+On suppose $X_1,\\dots,X_n$ i.i.d. de loi $\\mathcal N(\\mu,\\sigma^2)$ (ou $n$ assez grand pour invoquer le théorème central limite), avec $\\sigma^2$ **connue**. On sait que :
+$$\\overline X_n \\sim \\mathcal N\\left(\\mu, \\frac{\\sigma^2}{n}\\right) \\quad\\Longrightarrow\\quad Z = \\frac{\\overline X_n - \\mu}{\\sigma/\\sqrt n} \\sim \\mathcal N(0,1)$$
+
+En notant $z_{\\alpha/2}$ le quantile de la loi $\\mathcal N(0,1)$ tel que $P(Z>z_{\\alpha/2})=\\alpha/2$ (donc $P(-z_{\\alpha/2} \\leq Z \\leq z_{\\alpha/2}) = 1-\\alpha$ par symétrie de la loi normale), on a :
+$$P\\left(-z_{\\alpha/2} \\leq \\frac{\\overline X_n-\\mu}{\\sigma/\\sqrt n} \\leq z_{\\alpha/2}\\right) = 1-\\alpha$$
+
+En isolant $\\mu$ dans la double inégalité :
+$$P\\left(\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\leq \\mu \\leq \\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\right) = 1-\\alpha$$
+
+**Intervalle de confiance (variance connue) :**
+$$IC_{1-\\alpha}(\\mu) = \\left[\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\;;\\; \\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\right]$$
+
+**Valeurs usuelles de $z_{\\alpha/2}$ :**
+
+| Niveau $1-\\alpha$ | $\\alpha$ | $z_{\\alpha/2}$ |
+|---|---|---|
+| $90\\%$ | $0{,}10$ | $1{,}645$ |
+| $95\\%$ | $0{,}05$ | $1{,}960$ |
+| $99\\%$ | $0{,}01$ | $2{,}576$ |
+
+**Exemple résolu.** Une étude mesure la taille de $n=36$ individus et obtient $\\overline x = 170$ cm. On suppose connu $\\sigma = 12$ cm. Construire un IC à $95\\%$ pour $\\mu$.
+
+On a $z_{0{,}025} = 1{,}960$, et $\\dfrac{\\sigma}{\\sqrt n} = \\dfrac{12}{\\sqrt{36}} = \\dfrac{12}{6} = 2$. La marge d'erreur est $z_{0{,}025}\\cdot\\dfrac{\\sigma}{\\sqrt n} = 1{,}960 \\times 2 = 3{,}92$. L'intervalle est :
+$$IC_{95\\%}(\\mu) = [170 - 3{,}92\\;;\\;170+3{,}92] = [166{,}08\\;;\\;173{,}92]$$
+
+### 3. Intervalle de confiance pour une moyenne, variance inconnue (loi de Student)
+
+En pratique, $\\sigma^2$ est presque toujours inconnue : on la remplace par son estimateur sans biais $S_n^2 = \\dfrac{1}{n-1}\\displaystyle\\sum_{i=1}^n(X_i-\\overline X_n)^2$ (vu en leçon précédente). On perd alors la normalité exacte du pivot, mais on dispose du résultat suivant.
+
+**Théorème.** Si $X_1,\\dots,X_n$ sont i.i.d. de loi $\\mathcal N(\\mu,\\sigma^2)$, alors :
+$$T = \\frac{\\overline X_n - \\mu}{S_n/\\sqrt n} \\sim \\mathcal T(n-1)$$
+suit une **loi de Student à $n-1$ degrés de liberté**. (La loi de Student a des queues plus épaisses que la loi normale, ce qui traduit l'incertitude supplémentaire due à l'estimation de $\\sigma$.)
+
+En notant $t_{\\alpha/2,\\,n-1}$ le quantile de la loi $\\mathcal T(n-1)$ tel que $P(T>t_{\\alpha/2,\\,n-1})=\\alpha/2$, le même raisonnement qu'en section 2 donne :
+
+**Intervalle de confiance (variance inconnue) :**
+$$IC_{1-\\alpha}(\\mu) = \\left[\\overline X_n - t_{\\alpha/2,\\,n-1}\\frac{S_n}{\\sqrt n}\\;;\\; \\overline X_n + t_{\\alpha/2,\\,n-1}\\frac{S_n}{\\sqrt n}\\right]$$
+
+Pour $n$ grand (typiquement $n \\geq 30$), la loi de Student $\\mathcal T(n-1)$ est très proche de $\\mathcal N(0,1)$, et l'on peut utiliser $z_{\\alpha/2}$ à la place de $t_{\\alpha/2,n-1}$ sans erreur pratique significative ; pour $n$ petit, l'usage de la loi de Student est indispensable.
+
+**Exemple résolu.** Sur un échantillon de $n=16$ pièces, on mesure une longueur moyenne $\\overline x = 25$ cm avec un écart-type corrigé $s = 4$ cm. Construire un IC à $95\\%$ pour $\\mu$ (on suppose la longueur gaussienne).
+
+Degrés de liberté : $n-1=15$. Dans la table de Student, $t_{0{,}025,\\,15} = 2{,}131$. La marge d'erreur est $t_{0{,}025,15}\\cdot\\dfrac{s}{\\sqrt n} = 2{,}131 \\times \\dfrac{4}{\\sqrt{16}} = 2{,}131 \\times 1 = 2{,}131$. L'intervalle est :
+$$IC_{95\\%}(\\mu) = [25-2{,}131\\;;\\;25+2{,}131] = [22{,}87\\;;\\;27{,}13]$$
+
+### 4. Intervalle de confiance pour une proportion
+
+Soit $X_1,\\dots,X_n$ i.i.d. de loi de Bernoulli de paramètre $p$ inconnu (par exemple : un individu possède ou non une caractéristique). L'estimateur naturel est $\\widehat p = \\overline X_n$, de variance $\\dfrac{p(1-p)}{n}$ (vu en leçon précédente).
+
+Pour $n$ assez grand (condition usuelle : $n\\widehat p \\geq 5$ et $n(1-\\widehat p)\\geq 5$), le théorème central limite permet d'approcher la loi de $\\widehat p$ par une loi normale, et l'on remplace $p(1-p)$ (inconnu) par son estimation $\\widehat p(1-\\widehat p)$ :
+
+**Intervalle de confiance pour une proportion (approximation normale) :**
+$$IC_{1-\\alpha}(p) = \\left[\\widehat p - z_{\\alpha/2}\\sqrt{\\frac{\\widehat p(1-\\widehat p)}{n}}\\;;\\;\\widehat p + z_{\\alpha/2}\\sqrt{\\frac{\\widehat p(1-\\widehat p)}{n}}\\right]$$
+
+**Exemple résolu.** Un sondage auprès de $n=400$ personnes trouve $\\widehat p = 0{,}45$ d'opinions favorables. Construire un IC à $95\\%$ pour la proportion réelle $p$ dans la population.
+
+Vérification des conditions : $n\\widehat p = 180 \\geq 5$ et $n(1-\\widehat p)=220\\geq 5$, l'approximation normale est valide. On a $\\sqrt{\\dfrac{\\widehat p(1-\\widehat p)}{n}} = \\sqrt{\\dfrac{0{,}45\\times 0{,}55}{400}} = \\sqrt{\\dfrac{0{,}2475}{400}} = \\sqrt{0{,}00061875} \\approx 0{,}02487$. La marge d'erreur est $1{,}960 \\times 0{,}02487 \\approx 0{,}0488$. L'intervalle est :
+$$IC_{95\\%}(p) \\approx [0{,}45-0{,}0488\\;;\\;0{,}45+0{,}0488] = [0{,}401\\;;\\;0{,}499]$$
+
+### 5. Largeur de l'intervalle et taille de l'échantillon
+
+La **largeur** (ou amplitude) d'un IC est $2\\times(\\text{marge d'erreur})$. Elle diminue :
+- quand $n$ augmente (en $1/\\sqrt n$, donc lentement : il faut multiplier $n$ par $4$ pour diviser la largeur par $2$) ;
+- quand le niveau de confiance $1-\\alpha$ diminue (un IC à $90\\%$ est plus étroit qu'un IC à $99\\%$, car on accepte davantage de risque de se tromper) ;
+- quand la dispersion ($\\sigma$ ou $\\sigma^2$) diminue.
+
+**Détermination de la taille d'échantillon minimale.** Pour garantir une marge d'erreur $e$ au plus avec une proportion (cas le plus défavorable $p=0{,}5$, qui maximise $p(1-p)$), on résout $z_{\\alpha/2}\\sqrt{\\dfrac{0{,}25}{n}} \\leq e$, soit :
+$$n \\geq \\frac{z_{\\alpha/2}^2 \\times 0{,}25}{e^2}$$
+
+**Exemple résolu.** Quelle taille d'échantillon minimale pour garantir une marge d'erreur d'au plus $3\\%$ au niveau $95\\%$, dans le cas le plus défavorable ?
+
+$n \\geq \\dfrac{1{,}960^2 \\times 0{,}25}{0{,}03^2} = \\dfrac{3{,}8416\\times 0{,}25}{0{,}0009} = \\dfrac{0{,}9604}{0{,}0009} \\approx 1067{,}1$. On arrondit **à l'entier supérieur** (il faut toujours arrondir vers le haut pour une taille d'échantillon, car arrondir vers le bas ne garantirait plus la précision visée) : $n \\geq 1068$.
+
+### 6. Synthèse
+
+| Paramètre estimé | Hypothèse | Intervalle de confiance |
+|---|---|---|
+| $\\mu$, $\\sigma^2$ connue | normalité (ou $n$ grand) | $\\overline X_n \\pm z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}$ |
+| $\\mu$, $\\sigma^2$ inconnue | normalité | $\\overline X_n \\pm t_{\\alpha/2,n-1}\\dfrac{S_n}{\\sqrt n}$ |
+| $p$ (proportion) | $n\\widehat p\\geq5$, $n(1-\\widehat p)\\geq5$ | $\\widehat p \\pm z_{\\alpha/2}\\sqrt{\\dfrac{\\widehat p(1-\\widehat p)}{n}}$ |
+
+Retenir la structure commune : **estimation $\\pm$ quantile $\\times$ erreur-type**. C'est ce schéma général qui sera réinterprété, dans la leçon suivante, comme la « région de non-rejet » d'un test d'hypothèses.`,
+      exercises: [
+        {
+          id: "stat-l2-2-e1",
+          question: "Que signifie « intervalle de confiance au niveau $95\\%$ pour $\\mu$ » ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Si on répète l'expérience un grand nombre de fois, environ $95\\%$ des intervalles construits contiendront $\\mu$" },
+            { id: "B", text: "$\\mu$ a $95\\%$ de chances d'appartenir à l'intervalle calculé" },
+            { id: "C", text: "$95\\%$ des observations de l'échantillon sont dans l'intervalle" },
+            { id: "D", text: "L'intervalle contient $95\\%$ de la population" },
+          ],
+          correctId: "A",
+          explanation: "L'aléa porte sur l'intervalle (qui dépend de l'échantillon tiré), pas sur $\\mu$ qui est une constante inconnue mais fixe. L'interprétation correcte est fréquentiste : sur un grand nombre de répétitions de l'échantillonnage, environ $95\\%$ des intervalles construits contiendraient la vraie valeur $\\mu$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-2-e2",
+          question: "Quelle est la valeur de $z_{\\alpha/2}$ pour un niveau de confiance de $95\\%$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1{,}960$" },
+            { id: "B", text: "$1{,}645$" },
+            { id: "C", text: "$2{,}576$" },
+            { id: "D", text: "$0{,}05$" },
+          ],
+          correctId: "A",
+          explanation: "Pour $1-\\alpha=0{,}95$, on a $\\alpha/2=0{,}025$, et le quantile de la loi $\\mathcal N(0,1)$ correspondant est $z_{0{,}025}=1{,}960$ (valeur usuelle à connaître par cœur).",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-2-e3",
+          question: "Vrai ou faux : plus le niveau de confiance $1-\\alpha$ augmente, plus l'intervalle de confiance est large (à $n$ et $\\sigma$ fixés).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Augmenter le niveau de confiance (par exemple passer de $95\\%$ à $99\\%$) augmente le quantile $z_{\\alpha/2}$ (de $1{,}960$ à $2{,}576$), donc augmente la marge d'erreur et donc la largeur de l'intervalle : on gagne en confiance mais on perd en précision.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-2-e4",
+          question: "Pour construire un IC pour une moyenne avec variance inconnue, quelle loi utilise-t-on pour le pivot $T = \\dfrac{\\overline X_n-\\mu}{S_n/\\sqrt n}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "La loi de Student à $n-1$ degrés de liberté" },
+            { id: "B", text: "La loi normale centrée réduite" },
+            { id: "C", text: "La loi du Khi-deux à $n$ degrés de liberté" },
+            { id: "D", text: "La loi de Poisson de paramètre $n$" },
+          ],
+          correctId: "A",
+          explanation: "Lorsque $\\sigma^2$ est inconnue et remplacée par son estimateur sans biais $S_n^2$, le pivot $T=\\dfrac{\\overline X_n-\\mu}{S_n/\\sqrt n}$ suit, pour un échantillon gaussien, une loi de Student à $n-1$ degrés de liberté (et non une loi normale, qui ne s'applique que lorsque $\\sigma$ est connue).",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-2-e5",
+          question: "Quelle est la formule générale de l'IC pour une proportion $p$ par approximation normale ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\widehat p \\pm z_{\\alpha/2}\\sqrt{\\dfrac{\\widehat p(1-\\widehat p)}{n}}$" },
+            { id: "B", text: "$\\widehat p \\pm t_{\\alpha/2,n-1}\\sqrt{\\dfrac{\\widehat p(1-\\widehat p)}{n}}$" },
+            { id: "C", text: "$\\widehat p \\pm z_{\\alpha/2}\\dfrac{\\widehat p(1-\\widehat p)}{n}$" },
+            { id: "D", text: "$\\widehat p \\pm z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}$" },
+          ],
+          correctId: "A",
+          explanation: "On utilise le quantile de la loi normale (et non de Student, réservée à la moyenne avec variance estimée), avec l'erreur-type $\\sqrt{\\widehat p(1-\\widehat p)/n}$ propre à l'estimateur d'une proportion.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-2-e6",
+          question: "Un échantillon de $n=64$ mesures donne $\\overline x = 50$ avec $\\sigma=8$ connu. Quelle est la marge d'erreur de l'IC à $95\\%$ pour $\\mu$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1{,}96$" },
+            { id: "B", text: "$0{,}245$" },
+            { id: "C", text: "$15{,}68$" },
+            { id: "D", text: "$8$" },
+          ],
+          correctId: "A",
+          explanation: "Marge $= z_{0{,}025}\\cdot\\dfrac{\\sigma}{\\sqrt n} = 1{,}960 \\times \\dfrac{8}{\\sqrt{64}} = 1{,}960\\times\\dfrac{8}{8} = 1{,}960 \\times 1 = 1{,}96$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-2-e7",
+          question: "Avec les données de l'exercice précédent ($\\overline x=50$, marge $=1{,}96$), quel est l'IC à $95\\%$ pour $\\mu$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$[48{,}04\\,;\\,51{,}96]$" },
+            { id: "B", text: "$[42\\,;\\,58]$" },
+            { id: "C", text: "$[49{,}75\\,;\\,50{,}25]$" },
+            { id: "D", text: "$[48{,}5\\,;\\,51{,}5]$" },
+          ],
+          correctId: "A",
+          explanation: "$IC_{95\\%}(\\mu) = [50-1{,}96\\,;\\,50+1{,}96] = [48{,}04\\,;\\,51{,}96]$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-2-e8",
+          question: "Pour un échantillon de taille $n=10$, quel est le nombre de degrés de liberté de la loi de Student utilisée pour un IC sur une moyenne (variance inconnue) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$9$" },
+            { id: "B", text: "$10$" },
+            { id: "C", text: "$11$" },
+            { id: "D", text: "$1$" },
+          ],
+          correctId: "A",
+          explanation: "Le nombre de degrés de liberté pour le pivot de Student est $n-1$ : ici $n-1 = 10-1 = 9$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-2-e9",
+          question: "Vrai ou faux : pour $n$ grand (par exemple $n\\geq 30$), la loi de Student $\\mathcal T(n-1)$ est très proche de la loi normale $\\mathcal N(0,1)$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Quand le nombre de degrés de liberté augmente, les queues de la loi de Student s'amincissent et la loi converge vers la loi normale centrée réduite ; pour $n\\geq30$, l'approximation par $z_{\\alpha/2}$ est en pratique très bonne.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-2-e10",
+          question: "Un sondage sur $n=200$ personnes trouve $\\widehat p=0{,}6$ d'avis favorables. Que vaut $\\sqrt{\\dfrac{\\widehat p(1-\\widehat p)}{n}}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\approx 0{,}0346$" },
+            { id: "B", text: "$\\approx 0{,}24$" },
+            { id: "C", text: "$\\approx 0{,}0012$" },
+            { id: "D", text: "$\\approx 0{,}6$" },
+          ],
+          correctId: "A",
+          explanation: "$\\dfrac{\\widehat p(1-\\widehat p)}{n} = \\dfrac{0{,}6\\times0{,}4}{200} = \\dfrac{0{,}24}{200} = 0{,}0012$, donc $\\sqrt{0{,}0012}\\approx 0{,}0346$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-2-e11",
+          question: "Un échantillon de $n=25$ donne $\\overline x=100$, avec $\\sigma=15$ supposé connu. Construire l'IC à $90\\%$ pour $\\mu$ (utiliser $z_{0{,}05}=1{,}645$).",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$[95{,}07\\,;\\,104{,}93]$" },
+            { id: "B", text: "$[94{,}12\\,;\\,105{,}88]$" },
+            { id: "C", text: "$[97{,}06\\,;\\,102{,}94]$" },
+            { id: "D", text: "$[91{,}2\\,;\\,108{,}8]$" },
+          ],
+          correctId: "A",
+          explanation: "Erreur-type $=\\dfrac{15}{\\sqrt{25}}=\\dfrac{15}{5}=3$. Marge $=1{,}645\\times3=4{,}935$. $IC_{90\\%}(\\mu)=[100-4{,}935\\,;\\,100+4{,}935]=[95{,}07\\,;\\,104{,}93]$ (arrondi au centième).",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-2-e12",
+          question: "Un échantillon de $n=10$ valeurs (loi supposée gaussienne) donne $\\overline x = 12$ et $s=3$ (écart-type corrigé). Sachant que $t_{0{,}025,9}=2{,}262$, construire l'IC à $95\\%$ pour $\\mu$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$[9{,}85\\,;\\,14{,}15]$" },
+            { id: "B", text: "$[10{,}14\\,;\\,13{,}86]$" },
+            { id: "C", text: "$[6{,}78\\,;\\,17{,}22]$" },
+            { id: "D", text: "$[11{,}07\\,;\\,12{,}93]$" },
+          ],
+          correctId: "A",
+          explanation: "Erreur-type $= \\dfrac{s}{\\sqrt n} = \\dfrac{3}{\\sqrt{10}}\\approx 0{,}9487$. Marge $= t_{0{,}025,9}\\times 0{,}9487 = 2{,}262\\times0{,}9487\\approx2{,}146$. $IC_{95\\%}(\\mu)=[12-2{,}146\\,;\\,12+2{,}146]=[9{,}85\\,;\\,14{,}15]$ (arrondi au centième).",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-2-e13",
+          question: "Démontrer, à partir de la loi de $Z=\\dfrac{\\overline X_n-\\mu}{\\sigma/\\sqrt n} \\sim \\mathcal N(0,1)$, la formule de l'intervalle de confiance $IC_{1-\\alpha}(\\mu) = \\left[\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\,;\\,\\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\right]$.",
+          type: "open",
+          modelAnswer: "On part de P(-z_alpha/2 <= Z <= z_alpha/2) = 1-alpha par symétrie de la loi normale, on remplace Z par son expression, puis on isole mu au centre de la double inégalité par des manipulations algébriques équivalentes (multiplication par sigma/racine(n), changement de signe qui inverse les inégalités).",
+          explanation: "**Étape 1 :** Par définition de $z_{\\alpha/2}$, on a $P(Z > z_{\\alpha/2}) = \\alpha/2$, et par symétrie de la loi $\\mathcal N(0,1)$, $P(Z<-z_{\\alpha/2})=\\alpha/2$. Donc $P(-z_{\\alpha/2}\\leq Z \\leq z_{\\alpha/2}) = 1 - \\alpha/2-\\alpha/2 = 1-\\alpha$.\n\n**Étape 2 :** On remplace $Z$ par son expression :\n$$P\\left(-z_{\\alpha/2} \\leq \\frac{\\overline X_n-\\mu}{\\sigma/\\sqrt n} \\leq z_{\\alpha/2}\\right) = 1-\\alpha$$\n\n**Étape 3 :** On multiplie les trois membres de la double inégalité par $\\dfrac{\\sigma}{\\sqrt n}>0$ (ce qui ne change pas le sens des inégalités) :\n$$-z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\leq \\overline X_n - \\mu \\leq z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}$$\n\n**Étape 4 :** On soustrait $\\overline X_n$ aux trois membres :\n$$-\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\leq -\\mu \\leq -\\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}$$\n\n**Étape 5 :** On multiplie par $-1$, ce qui inverse le sens des deux inégalités :\n$$\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\leq \\mu \\leq \\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}$$\n\nOn a donc bien $P\\left(\\overline X_n - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n} \\leq \\mu \\leq \\overline X_n + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}\\right) = 1-\\alpha$, ce qui établit la formule de l'intervalle de confiance. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-2-e14",
+          question: "On veut un IC pour une proportion avec une marge d'erreur d'au plus $5\\%$ au niveau $95\\%$, dans le cas le plus défavorable ($p=0{,}5$). Quelle taille d'échantillon minimale faut-il (utiliser $z_{0{,}025}=1{,}960$) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$385$" },
+            { id: "B", text: "$100$" },
+            { id: "C", text: "$1068$" },
+            { id: "D", text: "$20$" },
+          ],
+          correctId: "A",
+          explanation: "$n \\geq \\dfrac{z_{\\alpha/2}^2\\times0{,}25}{e^2} = \\dfrac{1{,}960^2\\times0{,}25}{0{,}05^2} = \\dfrac{3{,}8416\\times0{,}25}{0{,}0025} = \\dfrac{0{,}9604}{0{,}0025} = 384{,}16$. On arrondit à l'entier supérieur : $n\\geq385$.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-2-e15",
+          question: "On dispose de deux IC à $95\\%$ pour la même moyenne $\\mu$, obtenus sur deux échantillons indépendants de même taille $n$ : $IC_1=[10,2\\,;\\,14,8]$ et $IC_2=[20,1\\,;\\,24,5]$, qui ne se recouvrent pas. Que peut-on raisonnablement en conclure, et avec quelle prudence ?",
+          type: "open",
+          modelAnswer: "Si les deux intervalles, construits à partir de deux populations ou conditions différentes, ne se recouvrent pas, cela suggère (sans le prouver formellement, car ce n'est pas un test statistique rigoureux) que les deux moyennes sous-jacentes sont probablement différentes ; pour une conclusion rigoureuse il faudrait un test de comparaison de deux moyennes.",
+          explanation: "**Interprétation :** des intervalles de confiance non superposés pour deux populations distinctes constituent un indice visuel fort que les moyennes $\\mu_1$ et $\\mu_2$ sous-jacentes diffèrent, car il serait peu probable, si $\\mu_1=\\mu_2$, d'observer deux échantillons donnant des intervalles aussi éloignés.\n\n**Prudence nécessaire :** ce raisonnement par non-recouvrement d'IC n'est **pas** strictement équivalent à un test statistique formel de comparaison de deux moyennes (deux IC peuvent se recouvrir légèrement alors que la différence est significative à un test direct, et réciproquement dans des cas limites). La méthode rigoureuse, qui sera développée dans la leçon suivante, consiste à construire directement un test d'hypothèses sur la différence $\\mu_1-\\mu_2$, en utilisant l'erreur-type de cette différence plutôt que celle de chaque moyenne séparément.\n\n**Conclusion :** l'absence de recouvrement est un indice qualitatif utile pour une première lecture des résultats, mais la conclusion définitive doit s'appuyer sur le test formel approprié, et non sur la simple comparaison visuelle des intervalles.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "stat-l2-3",
+      slug: "tests-d-hypotheses",
+      title: "Tests d'hypothèses",
+      durationMinutes: 50,
+      content: `## Tests d'hypothèses
+
+### 1. Principe général : hypothèse nulle et hypothèse alternative
+
+Un **test d'hypothèses** est une procédure statistique permettant de trancher, à partir d'un échantillon, entre deux hypothèses concurrentes sur un paramètre $\\theta$ de la population :
+
+- **Hypothèse nulle $H_0$** : l'hypothèse « par défaut », que l'on suppose vraie a priori (par exemple $H_0 : \\mu = \\mu_0$) ;
+- **Hypothèse alternative $H_1$** : l'hypothèse que l'on retiendrait si les données fournissent des preuves suffisantes contre $H_0$ (par exemple $H_1 : \\mu \\neq \\mu_0$, ou $H_1 : \\mu > \\mu_0$, ou $H_1 : \\mu < \\mu_0$).
+
+On parle de **test bilatéral** quand $H_1 : \\theta \\neq \\theta_0$, et de **test unilatéral** quand $H_1 : \\theta > \\theta_0$ (unilatéral à droite) ou $H_1 : \\theta < \\theta_0$ (unilatéral à gauche).
+
+**Logique du test :** on ne « prouve » jamais $H_0$ ; on cherche seulement si les données sont **incompatibles** avec $H_0$ au point de la rejeter. Si ce n'est pas le cas, on dit que l'on **ne rejette pas $H_0$** (et non « on accepte $H_0$ », formulation à éviter).
+
+### 2. Statistique de test et région de rejet
+
+On construit une **statistique de test** $T_n$, fonction de l'échantillon, dont on connaît la loi **sous l'hypothèse $H_0$**. On fixe un seuil $\\alpha \\in (0,1)$, appelé **niveau de signification** (ou risque de première espèce), typiquement $\\alpha = 0{,}05$.
+
+La **région de rejet** (ou région critique) $R$ est l'ensemble des valeurs de $T_n$ pour lesquelles on rejette $H_0$, choisie de sorte que :
+$$P(T_n \\in R \\mid H_0 \\text{ vraie}) = \\alpha$$
+
+**Règle de décision :**
+- si la valeur observée de $T_n$ tombe dans $R$ : on **rejette $H_0$** au profit de $H_1$, au niveau $\\alpha$ ;
+- sinon : on **ne rejette pas $H_0$**.
+
+### 3. Erreurs de première et deuxième espèce
+
+Un test peut se tromper de deux façons :
+
+| | $H_0$ vraie | $H_0$ fausse |
+|---|---|---|
+| **On rejette $H_0$** | Erreur de 1ère espèce (risque $\\alpha$) | Décision correcte (puissance $1-\\beta$) |
+| **On ne rejette pas $H_0$** | Décision correcte | Erreur de 2ème espèce (risque $\\beta$) |
+
+- **Erreur de première espèce ($\\alpha$)** : rejeter $H_0$ alors qu'elle est vraie. C'est le risque que l'on **contrôle** explicitement en fixant le niveau du test (c'est pourquoi $\\alpha$ s'appelle aussi le « niveau » du test).
+- **Erreur de deuxième espèce ($\\beta$)** : ne pas rejeter $H_0$ alors qu'elle est fausse. La quantité $1-\\beta$ s'appelle la **puissance** du test : c'est la capacité du test à détecter un effet réel quand il existe.
+
+**Remarque importante :** à taille d'échantillon fixée, diminuer $\\alpha$ (être plus exigeant pour rejeter $H_0$) augmente généralement $\\beta$ (on devient moins capable de détecter un effet réel) : il y a un compromis entre les deux types d'erreur. La seule façon de réduire les deux simultanément est d'augmenter la taille de l'échantillon $n$.
+
+### 4. La $p$-valeur
+
+La **$p$-valeur** (ou valeur-$p$) est la probabilité, **sous l'hypothèse $H_0$**, d'observer une statistique de test au moins aussi extrême (dans le sens de $H_1$) que celle effectivement observée sur l'échantillon.
+
+**Règle de décision équivalente à la région de rejet :**
+$$p\\text{-valeur} < \\alpha \\quad\\Longleftrightarrow\\quad \\text{on rejette } H_0 \\text{ au niveau } \\alpha$$
+
+**Interprétation :** une $p$-valeur petite signifie que les données observées seraient très improbables si $H_0$ était vraie — ce qui constitue une preuve contre $H_0$. À l'inverse, une $p$-valeur grande (proche de $1$) signifie que les données sont parfaitement compatibles avec $H_0$. **La $p$-valeur n'est pas la probabilité que $H_0$ soit vraie** — c'est une erreur d'interprétation fréquente à éviter absolument.
+
+### 5. Test de Student pour une moyenne (comparaison à une valeur de référence)
+
+On veut tester $H_0 : \\mu = \\mu_0$ contre $H_1 : \\mu \\neq \\mu_0$ (test bilatéral), à partir d'un échantillon $X_1,\\dots,X_n$ supposé gaussien, de variance $\\sigma^2$ **inconnue**.
+
+**Statistique de test (sous $H_0$) :**
+$$T = \\frac{\\overline X_n - \\mu_0}{S_n/\\sqrt n} \\quad\\underset{H_0}{\\sim}\\quad \\mathcal T(n-1)$$
+
+**Région de rejet bilatérale au niveau $\\alpha$ :** on rejette $H_0$ si $|T| > t_{\\alpha/2,\\,n-1}$ (le même quantile que celui de l'intervalle de confiance — ce qui n'est pas un hasard : le test bilatéral au niveau $\\alpha$ rejette $H_0:\\mu=\\mu_0$ exactement quand $\\mu_0$ n'appartient pas à l'IC à $1-\\alpha$ pour $\\mu$).
+
+**Pour un test unilatéral** $H_1 : \\mu > \\mu_0$, on rejette $H_0$ si $T > t_{\\alpha,\\,n-1}$ (quantile à $\\alpha$, non $\\alpha/2$, car tout le risque est concentré du côté droit) ; symétriquement pour $H_1 : \\mu < \\mu_0$, on rejette si $T < -t_{\\alpha,\\,n-1}$.
+
+**Exemple résolu (test bilatéral).** Un fabricant affirme que ses sachets de farine pèsent en moyenne $\\mu_0 = 50$ g (référence). Sur un échantillon de $n=25$ sachets, on mesure $\\overline x = 52$ g et $s = 6$ g (écart-type corrigé). Au niveau $\\alpha = 0{,}05$, peut-on rejeter l'affirmation du fabricant ?
+
+*Hypothèses :* $H_0 : \\mu = 50$ contre $H_1 : \\mu \\neq 50$.
+
+*Statistique de test :* $T = \\dfrac{\\overline x - \\mu_0}{s/\\sqrt n} = \\dfrac{52-50}{6/\\sqrt{25}} = \\dfrac{2}{6/5} = \\dfrac{2}{1{,}2} = 1{,}667$ (valeur observée).
+
+*Valeur critique :* $t_{0{,}025,\\,24} = 2{,}064$ (loi de Student à $24$ degrés de liberté).
+
+*Décision :* $|T| = 1{,}667 < 2{,}064 = t_{0{,}025,24}$ : on **ne rejette pas $H_0$** au niveau $5\\%$. La $p$-valeur associée est $p \\approx 0{,}109$ (calculée comme $2\\times P(\\mathcal T(24) > 1{,}667)$), et l'on a bien $p = 0{,}109 > 0{,}05 = \\alpha$, ce qui confirme la décision de non-rejet.
+
+*Conclusion :* l'écart observé ($52$ g contre $50$ g) n'est pas statistiquement significatif au niveau $5\\%$ ; il est compatible avec une simple fluctuation d'échantillonnage autour de $\\mu_0=50$.
+
+### 6. Test de comparaison de deux moyennes (échantillons indépendants)
+
+On veut tester $H_0 : \\mu_1 = \\mu_2$ contre $H_1 : \\mu_1 \\neq \\mu_2$, à partir de deux échantillons **indépendants** : $(X_1,\\dots,X_{n_1})$ de moyenne $\\overline X_{n_1}$ et variance estimée $S_1^2$, et $(Y_1,\\dots,Y_{n_2})$ de moyenne $\\overline Y_{n_2}$ et variance estimée $S_2^2$.
+
+**Statistique de test (cas des grands échantillons, ou variances supposées différentes — approximation de Welch) :**
+$$T = \\frac{\\overline X_{n_1} - \\overline Y_{n_2}}{\\sqrt{\\dfrac{S_1^2}{n_1} + \\dfrac{S_2^2}{n_2}}}$$
+
+Sous $H_0$, $T$ suit approximativement une loi de Student dont le nombre de degrés de liberté $\\nu$ est donné par la **formule de Welch-Satterthwaite** :
+$$\\nu = \\frac{\\left(\\dfrac{S_1^2}{n_1}+\\dfrac{S_2^2}{n_2}\\right)^2}{\\dfrac{(S_1^2/n_1)^2}{n_1-1}+\\dfrac{(S_2^2/n_2)^2}{n_2-1}}$$
+
+(En pratique, $\\nu$ est arrondi à l'entier inférieur, et pour $n_1,n_2$ grands on peut directement utiliser $z_{\\alpha/2}$.)
+
+**Exemple résolu.** On compare le temps de résolution (en minutes) d'un exercice entre deux méthodes pédagogiques. Méthode 1 : $n_1=40$, $\\overline x_1=78$, $s_1=10$. Méthode 2 : $n_2=35$, $\\overline x_2=82$, $s_2=12$. Tester $H_0:\\mu_1=\\mu_2$ contre $H_1:\\mu_1\\neq\\mu_2$ au niveau $\\alpha=0{,}05$.
+
+*Erreur-type de la différence :* $\\sqrt{\\dfrac{10^2}{40}+\\dfrac{12^2}{35}} = \\sqrt{\\dfrac{100}{40}+\\dfrac{144}{35}} = \\sqrt{2{,}5+4{,}1143} = \\sqrt{6{,}6143} \\approx 2{,}572$.
+
+*Statistique de test :* $T = \\dfrac{78-82}{2{,}572} = \\dfrac{-4}{2{,}572} \\approx -1{,}555$.
+
+*Degrés de liberté (Welch) :* $\\nu \\approx 66{,}5$, arrondi à $66$ ; pour ce $\\nu$, $t_{0{,}025,66}\\approx 1{,}996$.
+
+*Décision :* $|T| = 1{,}555 < 1{,}996$ : on **ne rejette pas $H_0$** au niveau $5\\%$. La $p$-valeur associée est $p\\approx 0{,}125 > 0{,}05$, ce qui confirme la conclusion : la différence observée de $4$ minutes entre les deux méthodes n'est pas statistiquement significative à ce niveau, avec ces tailles d'échantillon.
+
+### 7. Démarche complète d'un test d'hypothèses (méthode à retenir)
+
+1. **Formuler $H_0$ et $H_1$** clairement, en lien avec la question posée (bilatéral ou unilatéral).
+2. **Choisir la statistique de test** adaptée (Student pour une moyenne avec variance inconnue, etc.) et identifier sa loi sous $H_0$.
+3. **Fixer le niveau $\\alpha$** (en général $0{,}05$, sauf indication contraire).
+4. **Calculer la valeur observée** de la statistique de test à partir des données.
+5. **Déterminer la région de rejet** (ou calculer la $p$-valeur).
+6. **Conclure** : rejeter ou ne pas rejeter $H_0$, et formuler la conclusion en termes du problème concret (pas seulement en termes statistiques).
+
+### 8. Lien entre intervalle de confiance et test bilatéral
+
+Il existe une **dualité exacte** entre IC et test bilatéral : pour un test $H_0:\\theta=\\theta_0$ contre $H_1:\\theta\\neq\\theta_0$ au niveau $\\alpha$, on a :
+$$\\text{on rejette } H_0 \\text{ au niveau } \\alpha \\quad\\Longleftrightarrow\\quad \\theta_0 \\notin IC_{1-\\alpha}(\\theta)$$
+
+C'est une façon pratique de retenir les deux notions ensemble : un intervalle de confiance à $1-\\alpha$ peut se lire comme « l'ensemble des valeurs $\\theta_0$ que le test bilatéral au niveau $\\alpha$ ne rejetterait pas ».
+
+### 9. Synthèse
+
+| Test | $H_0$ | Statistique | Loi sous $H_0$ |
+|---|---|---|---|
+| Moyenne vs référence | $\\mu=\\mu_0$ | $T=\\dfrac{\\overline X_n-\\mu_0}{S_n/\\sqrt n}$ | $\\mathcal T(n-1)$ |
+| Comparaison de deux moyennes | $\\mu_1=\\mu_2$ | $T=\\dfrac{\\overline X_{n_1}-\\overline Y_{n_2}}{\\sqrt{S_1^2/n_1+S_2^2/n_2}}$ | $\\mathcal T(\\nu)$ (Welch) |
+
+Retenir : un test d'hypothèses est toujours une comparaison entre une statistique observée et un seuil critique déterminé par la loi de cette statistique **sous l'hypothèse nulle**, au niveau de risque $\\alpha$ que l'on a choisi d'accepter.`,
+      exercises: [
+        {
+          id: "stat-l2-3-e1",
+          question: "Quelle est l'erreur de première espèce dans un test d'hypothèses ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Rejeter $H_0$ alors qu'elle est vraie" },
+            { id: "B", text: "Ne pas rejeter $H_0$ alors qu'elle est fausse" },
+            { id: "C", text: "Rejeter $H_1$ alors qu'elle est vraie" },
+            { id: "D", text: "Calculer une $p$-valeur incorrecte" },
+          ],
+          correctId: "A",
+          explanation: "L'erreur de première espèce, de probabilité $\\alpha$, consiste à rejeter $H_0$ alors que $H_0$ est en réalité vraie. C'est le risque que l'on fixe explicitement (le niveau du test).",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-3-e2",
+          question: "Vrai ou faux : si la $p$-valeur d'un test est inférieure à $\\alpha$, on rejette $H_0$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La règle de décision par la $p$-valeur est : $p\\text{-valeur} < \\alpha \\Rightarrow$ rejet de $H_0$ au niveau $\\alpha$. C'est équivalent à dire que la statistique observée tombe dans la région de rejet.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-3-e3",
+          question: "Que représente la puissance d'un test, $1-\\beta$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "La probabilité de rejeter $H_0$ à juste titre, quand $H_0$ est fausse" },
+            { id: "B", text: "La probabilité de ne pas rejeter $H_0$ quand elle est vraie" },
+            { id: "C", text: "Le niveau $\\alpha$ du test" },
+            { id: "D", text: "La probabilité que $H_0$ soit vraie" },
+          ],
+          correctId: "A",
+          explanation: "La puissance $1-\\beta$ est la probabilité de détecter correctement un effet réel, c'est-à-dire de rejeter $H_0$ lorsque $H_0$ est effectivement fausse. C'est le complément de l'erreur de deuxième espèce $\\beta$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-3-e4",
+          question: "Pour tester $H_0:\\mu=\\mu_0$ contre $H_1:\\mu\\neq\\mu_0$ avec variance inconnue, quelle est la statistique de test, et sous quelle loi (sous $H_0$) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$T=\\dfrac{\\overline X_n-\\mu_0}{S_n/\\sqrt n} \\sim \\mathcal T(n-1)$" },
+            { id: "B", text: "$T=\\dfrac{\\overline X_n-\\mu_0}{\\sigma/\\sqrt n} \\sim \\mathcal N(0,1)$" },
+            { id: "C", text: "$T=\\overline X_n - \\mu_0 \\sim \\mathcal N(0,\\sigma^2)$" },
+            { id: "D", text: "$T=\\dfrac{S_n^2}{\\sigma^2}\\sim\\mathcal T(n-1)$" },
+          ],
+          correctId: "A",
+          explanation: "Avec variance inconnue, on utilise l'estimateur sans biais $S_n^2$ dans le pivot, ce qui donne une statistique de Student à $n-1$ degrés de liberté sous $H_0$ (et non une loi normale, réservée au cas variance connue).",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-3-e5",
+          question: "Vrai ou faux : « ne pas rejeter $H_0$ » signifie que l'on a prouvé que $H_0$ est vraie.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Un test ne « prouve » jamais $H_0$ ; il indique seulement que les données ne fournissent pas de preuve suffisante pour la rejeter au niveau choisi. $H_0$ pourrait être fausse mais l'échantillon n'a pas eu une puissance suffisante pour le détecter.",
+          difficulty: "debutant",
+        },
+        {
+          id: "stat-l2-3-e6",
+          question: "Un test de Student bilatéral donne $T=2{,}5$ sur un échantillon de $n=20$ (donc $\\nu=19$ degrés de liberté), avec $t_{0{,}025,19}=2{,}093$. Quelle est la décision au niveau $\\alpha=0{,}05$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "On rejette $H_0$, car $|T| > t_{0{,}025,19}$" },
+            { id: "B", text: "On ne rejette pas $H_0$, car $|T| < t_{0{,}025,19}$" },
+            { id: "C", text: "On ne peut pas conclure sans connaître $\\overline x$" },
+            { id: "D", text: "On rejette $H_1$" },
+          ],
+          correctId: "A",
+          explanation: "On compare $|T|=2{,}5$ au seuil $t_{0{,}025,19}=2{,}093$. Comme $2{,}5 > 2{,}093$, la statistique observée est dans la région de rejet : on rejette $H_0$ au niveau $5\\%$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-3-e7",
+          question: "Sur un échantillon de $n=16$, on observe $\\overline x=49$ avec $s=4$, et l'on teste $H_0:\\mu=50$ contre $H_1:\\mu<50$ (unilatéral à gauche). Que vaut la statistique de test $T$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$-1$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$-4$" },
+            { id: "D", text: "$-0{,}25$" },
+          ],
+          correctId: "A",
+          explanation: "$T = \\dfrac{\\overline x-\\mu_0}{s/\\sqrt n} = \\dfrac{49-50}{4/\\sqrt{16}} = \\dfrac{-1}{4/4} = \\dfrac{-1}{1} = -1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-3-e8",
+          question: "Avec les données de l'exercice précédent ($T=-1$, $n=16$, test unilatéral à gauche, $\\alpha=0{,}05$), sachant que $t_{0{,}05,15}=1{,}753$, quelle est la décision ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "On ne rejette pas $H_0$, car $T=-1 > -1{,}753$" },
+            { id: "B", text: "On rejette $H_0$, car $T=-1 < -1{,}753$" },
+            { id: "C", text: "On rejette $H_0$ car $|T|<t_{0{,}05,15}$" },
+            { id: "D", text: "Le test est non concluant sans la $p$-valeur" },
+          ],
+          correctId: "A",
+          explanation: "Pour un test unilatéral à gauche, la région de rejet est $T < -t_{\\alpha,n-1} = -1{,}753$. Ici $T=-1$, qui n'est pas inférieur à $-1{,}753$ (en effet $-1 > -1{,}753$ sur la droite des réels). La statistique n'est donc pas dans la région de rejet : on ne rejette pas $H_0$ au niveau $5\\%$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-3-e9",
+          question: "Vrai ou faux : pour un test unilatéral à droite ($H_1:\\mu>\\mu_0$) au niveau $\\alpha$, le quantile critique utilisé est $t_{\\alpha,n-1}$ (et non $t_{\\alpha/2,n-1}$).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Dans un test unilatéral, tout le risque $\\alpha$ est concentré d'un seul côté de la distribution, donc le quantile utilisé est $t_{\\alpha,n-1}$ ; dans un test bilatéral, le risque $\\alpha$ est partagé en deux ($\\alpha/2$ de chaque côté), d'où l'usage de $t_{\\alpha/2,n-1}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-3-e10",
+          question: "On teste $H_0:\\mu_1=\\mu_2$ contre $H_1:\\mu_1\\neq\\mu_2$ avec deux échantillons indépendants : $n_1=50,\\overline x_1=100,s_1=10$ et $n_2=50,\\overline x_2=104,s_2=10$. Que vaut l'erreur-type $\\sqrt{S_1^2/n_1+S_2^2/n_2}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$4$" },
+            { id: "C", text: "$0{,}2$" },
+            { id: "D", text: "$10$" },
+          ],
+          correctId: "A",
+          explanation: "$\\sqrt{\\dfrac{10^2}{50}+\\dfrac{10^2}{50}} = \\sqrt{\\dfrac{100}{50}+\\dfrac{100}{50}} = \\sqrt{2+2} = \\sqrt 4 = 2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "stat-l2-3-e11",
+          question: "Avec les données de l'exercice précédent (erreur-type $=2$), que vaut la statistique de test $T$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$-2$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$-4$" },
+            { id: "D", text: "$-0{,}5$" },
+          ],
+          correctId: "A",
+          explanation: "$T = \\dfrac{\\overline x_1-\\overline x_2}{\\text{erreur-type}} = \\dfrac{100-104}{2} = \\dfrac{-4}{2} = -2$.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-3-e12",
+          question: "Démontrer la dualité entre intervalle de confiance et test bilatéral : montrer que, pour $H_0:\\mu=\\mu_0$ contre $H_1:\\mu\\neq\\mu_0$ avec variance connue, « rejeter $H_0$ au niveau $\\alpha$ » équivaut exactement à « $\\mu_0 \\notin IC_{1-\\alpha}(\\mu)$ ».",
+          type: "open",
+          modelAnswer: "On rejette H0 quand |Z|>z_alpha/2, c'est-à-dire quand mu0 est à plus de z_alpha/2 * sigma/racine(n) de la moyenne empirique ; or c'est précisément la condition pour que mu0 soit en dehors de l'intervalle [xbar - z_alpha/2*sigma/racine(n), xbar + z_alpha/2*sigma/racine(n)], donc les deux conditions sont logiquement équivalentes.",
+          explanation: "**Mise en place :** sous $H_0:\\mu=\\mu_0$, la statistique $Z=\\dfrac{\\overline X_n-\\mu_0}{\\sigma/\\sqrt n}$ suit $\\mathcal N(0,1)$. On rejette $H_0$ au niveau $\\alpha$ si et seulement si :\n$$|Z| > z_{\\alpha/2} \\quad\\Longleftrightarrow\\quad \\left|\\frac{\\overline X_n-\\mu_0}{\\sigma/\\sqrt n}\\right| > z_{\\alpha/2}$$\n\n**Reformulation :** cette inégalité équivaut à :\n$$|\\overline X_n - \\mu_0| > z_{\\alpha/2}\\frac{\\sigma}{\\sqrt n}$$\nc'est-à-dire $\\mu_0 < \\overline X_n - z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}$ **ou** $\\mu_0 > \\overline X_n + z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}$.\n\n**Conclusion :** ces deux conditions disjointes signifient exactement que $\\mu_0$ est strictement à l'extérieur de l'intervalle $\\left[\\overline X_n - z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}\\,;\\,\\overline X_n + z_{\\alpha/2}\\dfrac{\\sigma}{\\sqrt n}\\right] = IC_{1-\\alpha}(\\mu)$.\n\nDonc : $|Z|>z_{\\alpha/2}$ (on rejette $H_0$) $\\;\\Longleftrightarrow\\;$ $\\mu_0 \\notin IC_{1-\\alpha}(\\mu)$. La même démonstration s'adapte au cas variance inconnue en remplaçant $z_{\\alpha/2}$ et $\\sigma$ par $t_{\\alpha/2,n-1}$ et $S_n$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-3-e13",
+          question: "Un laboratoire teste un nouveau médicament censé réduire la tension artérielle. Sur $n=30$ patients, on observe une baisse moyenne $\\overline x = 8$ mmHg avec $s=5$ mmHg. On teste $H_0:\\mu=0$ (pas d'effet) contre $H_1:\\mu>0$ (effet bénéfique), au niveau $\\alpha=0{,}05$, avec $t_{0{,}05,29}=1{,}699$. Quelle est la conclusion ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "On rejette $H_0$ : l'effet est statistiquement significatif" },
+            { id: "B", text: "On ne rejette pas $H_0$ : pas de preuve d'effet" },
+            { id: "C", text: "Le test est bilatéral, donc non applicable ici" },
+            { id: "D", text: "On ne peut rien conclure sans connaître $\\sigma$" },
+          ],
+          correctId: "A",
+          explanation: "$T = \\dfrac{8-0}{5/\\sqrt{30}} = \\dfrac{8}{0{,}9129} \\approx 8{,}76$. Comme $T\\approx8{,}76 \\gg t_{0{,}05,29}=1{,}699$, la statistique est largement dans la région de rejet (unilatérale à droite) : on rejette $H_0$ au niveau $5\\%$, la baisse de tension observée est statistiquement significative.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-3-e14",
+          question: "Expliquer pourquoi, à taille d'échantillon fixée, diminuer le risque $\\alpha$ (par exemple passer de $0{,}05$ à $0{,}01$) augmente en général le risque $\\beta$ (erreur de deuxième espèce).",
+          type: "open",
+          modelAnswer: "Diminuer alpha élargit la région de non-rejet (le seuil critique s'éloigne de la valeur de référence sous H0), donc il devient plus difficile de rejeter H0 même quand H0 est fausse : la probabilité de ne pas détecter un effet réel (beta) augmente, sauf si on compense par une augmentation de la taille de l'échantillon.",
+          explanation: "**Mécanisme :** diminuer $\\alpha$ revient à augmenter le quantile critique (par exemple $t_{\\alpha/2,n-1}$ augmente quand $\\alpha$ diminue), donc à élargir la région de non-rejet de $H_0$ : il faut un écart plus grand entre la statistique observée et la valeur de référence sous $H_0$ pour parvenir à rejeter $H_0$.\n\n**Conséquence sur $\\beta$ :** si $H_0$ est en réalité fausse (il existe un vrai effet), élargir la région de non-rejet rend plus probable que la statistique de test, bien que tirée d'une situation où $H_1$ est vraie, tombe malgré tout dans cette région élargie de non-rejet. La probabilité de cet événement (ne pas rejeter $H_0$ alors qu'elle est fausse) est précisément $\\beta$, qui augmente donc mécaniquement.\n\n**Compromis et solution :** ce compromis $\\alpha$ contre $\\beta$ est inévitable à taille d'échantillon fixée. La seule manière de réduire $\\alpha$ et $\\beta$ **simultanément** est d'augmenter la taille de l'échantillon $n$ : cela réduit l'erreur-type de la statistique de test (qui décroît en $1/\\sqrt n$), ce qui rend le test plus précis et donc plus apte à distinguer $H_0$ de $H_1$ sans dégrader aucun des deux risques.",
+          difficulty: "expert",
+        },
+        {
+          id: "stat-l2-3-e15",
+          question: "Vrai ou faux : la $p$-valeur d'un test est la probabilité que l'hypothèse alternative $H_1$ soit vraie.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. La $p$-valeur est, par définition, la probabilité — calculée **sous l'hypothèse $H_0$** — d'observer une statistique de test au moins aussi extrême que celle effectivement obtenue. Ce n'est en aucun cas une probabilité portant sur la véracité de $H_0$ ou $H_1$, qui sont des affirmations sur un paramètre fixé (non aléatoire) ; confondre la $p$-valeur avec $P(H_1\\text{ vraie})$ est une erreur d'interprétation classique à éviter.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  {
+  id: "algebre-abstraite-l2",
+  slug: "algebre-abstraite-l2-groupes-anneaux-corps",
+  title: "Algèbre abstraite L2 — Groupes, anneaux et corps",
+  description:
+    "Introduction aux structures algébriques fondamentales : groupes (sous-groupes, morphismes), anneaux (idéaux, quotients) et corps (corps finis, corps de fractions).",
+  schoolLevel: "L2",
+  subject: "algebre",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "⊕",
+  lessons: [
+    {
+      id: "alg-abs-l2-1",
+      slug: "groupes-sous-groupes-morphismes",
+      title: "Groupes, sous-groupes et morphismes",
+      durationMinutes: 55,
+      content: `## Groupes, sous-groupes et morphismes
+
+### 1. Loi de composition interne
+
+Soit $E$ un ensemble. Une **loi de composition interne** sur $E$ est une application
+$$\\ast : E \\times E \\to E, \\qquad (x,y) \\mapsto x \\ast y.$$
+
+Autrement dit, c'est une façon de combiner deux éléments de $E$ pour produire un troisième élément de $E$ (on dit que $E$ est **stable** pour $\\ast$). Exemples : $+$ et $\\times$ sur $\\mathbb{Z}$, la composition $\\circ$ sur l'ensemble des bijections d'un ensemble.
+
+### 2. Définition d'un groupe
+
+Un **groupe** est un couple $(G, \\ast)$ où $G$ est un ensemble et $\\ast$ une loi de composition interne sur $G$ vérifiant :
+
+1. **Associativité :** pour tout $x,y,z \\in G$, $(x \\ast y) \\ast z = x \\ast (y \\ast z)$.
+2. **Existence d'un élément neutre :** il existe $e \\in G$ tel que pour tout $x \\in G$, $e \\ast x = x \\ast e = x$.
+3. **Existence d'un inverse :** pour tout $x \\in G$, il existe $x^{-1} \\in G$ tel que $x \\ast x^{-1} = x^{-1} \\ast x = e$.
+
+Si de plus $x \\ast y = y \\ast x$ pour tout $x,y \\in G$, on dit que le groupe est **commutatif** (ou **abélien**).
+
+**Unicité du neutre et de l'inverse.** Le neutre $e$ est unique : si $e'$ vérifie aussi la propriété 2, alors $e' = e' \\ast e = e$. De même, l'inverse de $x$ est unique : si $y$ et $z$ vérifient $x \\ast y = e$ et $z \\ast x = e$, alors $z = z \\ast e = z \\ast (x \\ast y) = (z \\ast x) \\ast y = e \\ast y = y$.
+
+### 3. Exemples fondamentaux
+
+- $(\\mathbb{Z}, +)$, $(\\mathbb{Q}, +)$, $(\\mathbb{R}, +)$, $(\\mathbb{C}, +)$ sont des groupes abéliens (neutre $0$, inverse de $x$ : $-x$).
+- $(\\mathbb{Q}^*, \\times)$, $(\\mathbb{R}^*, \\times)$ sont des groupes abéliens (neutre $1$, inverse de $x$ : $1/x$). Attention : $(\\mathbb{Z}, \\times)$ n'est **pas** un groupe (les seuls éléments inversibles sont $1$ et $-1$).
+- $(\\mathbb{Z}/n\\mathbb{Z}, +)$ : l'ensemble des classes de congruence modulo $n$, muni de l'addition des classes, est un groupe abélien fini à $n$ éléments. C'est l'exemple de référence des **groupes cycliques**.
+- Le **groupe symétrique** $(\\mathfrak{S}_n, \\circ)$ : l'ensemble des permutations (bijections) de $\\{1, \\dots, n\\}$, muni de la composition. C'est un groupe **non commutatif** dès que $n \\geq 3$, de cardinal $n!$.
+- Le **groupe linéaire** $GL_n(\\mathbb{R})$ : l'ensemble des matrices carrées $n\\times n$ inversibles, muni de la multiplication matricielle. Neutre : $I_n$. Non commutatif dès que $n \\geq 2$.
+
+### 4. Sous-groupes
+
+Une partie $H \\subset G$ est un **sous-groupe** de $(G,\\ast)$ si $(H, \\ast)$ est lui-même un groupe, c'est-à-dire si $H$ est stable pour $\\ast$, contient le neutre, et est stable par passage à l'inverse.
+
+**Critère pratique (caractérisation par 3 conditions) :** $H$ est un sous-groupe de $G$ si et seulement si :
+1. $H \\neq \\varnothing$ (en pratique, on vérifie souvent $e \\in H$) ;
+2. pour tout $x,y \\in H$, $x \\ast y \\in H$ (stabilité) ;
+3. pour tout $x \\in H$, $x^{-1} \\in H$ (stabilité par inverse).
+
+**Critère condensé.** $H$ est un sous-groupe de $G$ si et seulement si $H \\neq \\varnothing$ et pour tout $x,y \\in H$, $x \\ast y^{-1} \\in H$.
+
+**Exemples :** $n\\mathbb{Z} = \\{nk : k \\in \\mathbb{Z}\\}$ est un sous-groupe de $(\\mathbb{Z},+)$ pour tout $n \\in \\mathbb{N}$ ; réciproquement, on montre que **tous** les sous-groupes de $(\\mathbb{Z},+)$ sont de cette forme. Le groupe $\\{I_n\\}$ et $G$ lui-même sont toujours des sous-groupes (dits **triviaux**) de $G$.
+
+### 5. Morphismes de groupes
+
+Soient $(G,\\ast)$ et $(G',\\star)$ deux groupes. Une application $f : G \\to G'$ est un **morphisme de groupes** si pour tout $x,y \\in G$ :
+$$f(x \\ast y) = f(x) \\star f(y).$$
+
+**Conséquences immédiates :** $f(e_G) = e_{G'}$ et $f(x^{-1}) = f(x)^{-1}$ pour tout $x \\in G$.
+
+On définit :
+- le **noyau** : $\\ker f = \\{x \\in G : f(x) = e_{G'}\\}$, c'est un sous-groupe de $G$ ;
+- l'**image** : $\\text{Im}\\, f = \\{f(x) : x \\in G\\}$, c'est un sous-groupe de $G'$.
+
+Un morphisme bijectif est appelé **isomorphisme** : les deux groupes ont alors « la même structure » (même table de multiplication, à renommage des éléments près). Un résultat fondamental : $f$ est **injectif** si et seulement si $\\ker f = \\{e_G\\}$ (si $f(x)=f(y)$ alors $f(xy^{-1}) = e_{G'}$ donc $xy^{-1} \\in \\ker f = \\{e_G\\}$, donc $x=y$).
+
+**Exemple :** $f : (\\mathbb{Z}, +) \\to (\\mathbb{Z}/n\\mathbb{Z}, +)$, $k \\mapsto \\overline{k}$ (classe de $k$ modulo $n$) est un morphisme surjectif de noyau $n\\mathbb{Z}$.
+
+### Résumé
+
+| Notion | Définition clé |
+|---|---|
+| Groupe | loi associative, neutre, inverses |
+| Sous-groupe | $e \\in H$, stable pour $\\ast$ et l'inverse |
+| Morphisme | $f(x\\ast y) = f(x)\\star f(y)$ |
+| Noyau | $\\ker f = \\{x : f(x) = e'\\}$, sous-groupe de $G$ |
+| Isomorphisme | morphisme bijectif |`,
+      exercises: [
+        {
+          id: "alg-abs-l2-1-e1",
+          question: "Quelles sont les trois propriétés caractérisant un groupe $(G, \\ast)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Associativité, existence d'un neutre, existence d'inverses" },
+            { id: "B", text: "Commutativité, associativité, existence d'un neutre" },
+            { id: "C", text: "Associativité, distributivité, existence d'inverses" },
+            { id: "D", text: "Existence d'un neutre, existence d'inverses, commutativité" },
+          ],
+          correctId: "A",
+          explanation: "Un groupe nécessite : associativité de la loi, existence d'un élément neutre, et existence d'un inverse pour chaque élément. La commutativité n'est PAS requise (elle caractérise les groupes abéliens, un cas particulier).",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-1-e2",
+          question: "Vrai ou faux : $(\\mathbb{Z}, \\times)$ est un groupe.",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. Bien que $\\times$ soit associative et que $1$ soit neutre, la plupart des entiers n'ont pas d'inverse dans $\\mathbb{Z}$ pour la multiplication (par exemple $2$ n'a pas d'inverse entier). Seuls $1$ et $-1$ sont inversibles dans $(\\mathbb{Z}, \\times)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-1-e3",
+          question: "Dans un groupe $(G, \\ast)$, l'élément neutre est-il unique ?",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. Si $e$ et $e'$ sont deux neutres, alors $e' = e' \\ast e = e$ (en utilisant que $e$ est neutre à droite pour $e'$, puis que $e'$ est neutre à gauche pour $e$).",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-1-e4",
+          question: "Quel est l'ordre (cardinal) du groupe symétrique $\\mathfrak{S}_4$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$4! = 24$" },
+            { id: "B", text: "$4^4 = 256$" },
+            { id: "C", text: "$2^4 = 16$" },
+            { id: "D", text: "$4 \\times 3 = 12$" },
+          ],
+          correctId: "A",
+          explanation: "Le groupe $\\mathfrak{S}_n$ des permutations de $\\{1,\\dots,n\\}$ a pour cardinal $n!$ : il y a $n!$ bijections de $\\{1,\\dots,n\\}$ dans lui-même. Pour $n=4$ : $4! = 24$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-1-e5",
+          question: "Le groupe $\\mathfrak{S}_3$ est-il commutatif ?",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. Dès que $n \\geq 3$, le groupe symétrique $\\mathfrak{S}_n$ n'est pas commutatif : par exemple deux transpositions distinctes ne commutent pas en général. C'est l'exemple le plus simple de groupe fini non abélien.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-1-e6",
+          question: "Montrer que $H = \\{z \\in \\mathbb{C}^* : |z| = 1\\}$ est un sous-groupe de $(\\mathbb{C}^*, \\times)$.",
+          type: "open",
+          modelAnswer: "1 est dans H. Si z,w dans H, |zw|=|z||w|=1 donc zw dans H. Si z dans H, |1/z|=1/|z|=1 donc 1/z dans H. H est donc un sous-groupe.",
+          explanation: "On applique le critère par 3 conditions. **(1)** $H \\neq \\varnothing$ : $1 \\in H$ car $|1|=1$. **(2) Stabilité :** si $z,w \\in H$, alors $|zw| = |z||w| = 1 \\times 1 = 1$, donc $zw \\in H$. **(3) Stabilité par inverse :** si $z \\in H$, alors $\\left|\\dfrac{1}{z}\\right| = \\dfrac{1}{|z|} = 1$, donc $z^{-1} \\in H$. Les trois conditions sont vérifiées : $H$ est un sous-groupe de $(\\mathbb{C}^*,\\times)$ (c'est le **cercle unité**, souvent noté $\\mathbb{U}$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-1-e7",
+          question: "Soit $f : (\\mathbb{R}, +) \\to (\\mathbb{R}^*_+, \\times)$ définie par $f(x) = e^x$. Vérifier que $f$ est un morphisme de groupes et déterminer son noyau.",
+          type: "open",
+          modelAnswer: "f(x+y) = e^(x+y) = e^x * e^y = f(x)f(y), c'est un morphisme. ker f = {x : e^x = 1} = {0}.",
+          explanation: "Pour tout $x,y \\in \\mathbb{R}$ : $f(x+y) = e^{x+y} = e^x e^y = f(x) \\times f(y)$, ce qui est exactement la propriété de morphisme entre $(\\mathbb{R},+)$ et $(\\mathbb{R}^*_+,\\times)$. Le noyau est $\\ker f = \\{x \\in \\mathbb{R} : e^x = 1\\} = \\{0\\}$ (le neutre de $(\\mathbb{R}^*_+,\\times)$ est $1$). Comme $\\ker f = \\{0\\}$ (le neutre de $(\\mathbb{R},+)$), $f$ est injectif ; et $f$ est surjectif (tout réel strictement positif a un logarithme) : c'est donc un **isomorphisme**, d'inverse $\\ln$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-1-e8",
+          question: "Quels sont, à l'aide du critère de sous-groupe, les sous-groupes de $(\\mathbb{Z}, +)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Exactement les ensembles $n\\mathbb{Z}$ pour $n \\in \\mathbb{N}$" },
+            { id: "B", text: "Uniquement $\\{0\\}$ et $\\mathbb{Z}$" },
+            { id: "C", text: "Tous les ensembles de la forme $\\{0, n, 2n\\}$" },
+            { id: "D", text: "Toutes les parties finies de $\\mathbb{Z}$" },
+          ],
+          correctId: "A",
+          explanation: "Un théorème classique affirme que les sous-groupes de $(\\mathbb{Z},+)$ sont exactement les ensembles $n\\mathbb{Z} = \\{nk : k\\in\\mathbb{Z}\\}$, pour $n \\in \\mathbb{N}$ (avec $n=0$ donnant $\\{0\\}$ et $n=1$ donnant $\\mathbb{Z}$ tout entier). C'est une conséquence de la division euclidienne.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-1-e9",
+          question: "Soit $f : G \\to G'$ un morphisme de groupes. Démontrer que $\\ker f$ est un sous-groupe de $G$.",
+          type: "open",
+          modelAnswer: "e_G appartient à ker f car f(e_G)=e_G'. Si x,y dans ker f, f(xy)=f(x)f(y)=e'e'=e' donc xy dans ker f. Si x dans ker f, f(x^-1)=f(x)^-1=e'^-1=e' donc x^-1 dans ker f.",
+          explanation: "On vérifie les 3 conditions. **(1)** $e_G \\in \\ker f$ car tout morphisme envoie le neutre sur le neutre : $f(e_G) = e_{G'}$. **(2) Stabilité :** si $x,y \\in \\ker f$, alors $f(xy) = f(x)f(y) = e_{G'} \\cdot e_{G'} = e_{G'}$, donc $xy \\in \\ker f$. **(3) Stabilité par inverse :** si $x \\in \\ker f$, alors $f(x^{-1}) = f(x)^{-1} = e_{G'}^{-1} = e_{G'}$, donc $x^{-1} \\in \\ker f$. Les trois conditions sont vérifiées : $\\ker f$ est un sous-groupe de $G$. $\\blacksquare$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-1-e10",
+          question: "Dans $GL_2(\\mathbb{R})$, l'ensemble $SL_2(\\mathbb{R}) = \\{M \\in GL_2(\\mathbb{R}) : \\det(M) = 1\\}$ est-il un sous-groupe ?",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. $I_2 \\in SL_2(\\mathbb{R})$ car $\\det(I_2)=1$. Si $\\det(A)=\\det(B)=1$, alors $\\det(AB) = \\det(A)\\det(B) = 1$, donc $AB \\in SL_2(\\mathbb{R})$. Et $\\det(A^{-1}) = 1/\\det(A) = 1$, donc $A^{-1} \\in SL_2(\\mathbb{R})$. C'est le **groupe spécial linéaire**, sous-groupe de $GL_2(\\mathbb{R})$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-1-e11",
+          question: "Soit $G$ un groupe fini et $f : G \\to G'$ un morphisme injectif. Que peut-on dire de $|\\text{Im}\\,f|$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$|\\text{Im}\\,f| = |G|$" },
+            { id: "B", text: "$|\\text{Im}\\,f| < |G|$ nécessairement" },
+            { id: "C", text: "$|\\text{Im}\\,f|$ divise $|G|$ strictement" },
+            { id: "D", text: "On ne peut rien dire sans connaître $G'$" },
+          ],
+          correctId: "A",
+          explanation: "Comme $f$ est injectif, $f$ réalise une bijection de $G$ vers $\\text{Im}\\,f$ (par définition de l'image, $f$ est surjectif sur $\\text{Im}\\,f$, et il est injectif par hypothèse). Donc $|\\text{Im}\\,f| = |G|$ : $G$ est isomorphe à son image.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-1-e12",
+          question: "Démontrer que dans un groupe $(G,\\ast)$, l'inverse de $x \\ast y$ est $y^{-1} \\ast x^{-1}$ (et non $x^{-1}\\ast y^{-1}$ en général).",
+          type: "open",
+          modelAnswer: "(x*y)*(y^-1*x^-1) = x*(y*y^-1)*x^-1 = x*e*x^-1 = x*x^-1 = e. De même dans l'autre sens. Donc y^-1*x^-1 est l'inverse de x*y.",
+          explanation: "On calcule, en utilisant l'associativité : $(x \\ast y) \\ast (y^{-1} \\ast x^{-1}) = x \\ast (y \\ast y^{-1}) \\ast x^{-1} = x \\ast e \\ast x^{-1} = x \\ast x^{-1} = e$. De même, $(y^{-1}\\ast x^{-1}) \\ast (x \\ast y) = y^{-1}\\ast(x^{-1}\\ast x)\\ast y = y^{-1}\\ast e \\ast y = y^{-1} \\ast y = e$. Par unicité de l'inverse, $(x\\ast y)^{-1} = y^{-1}\\ast x^{-1}$. **Attention :** si le groupe n'est pas commutatif, $y^{-1}\\ast x^{-1} \\neq x^{-1}\\ast y^{-1}$ en général — l'ordre s'inverse, comme pour la transposée d'un produit de matrices $(AB)^T = B^T A^T$.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-1-e13",
+          question: "Soit $G$ un groupe et $H_1, H_2$ deux sous-groupes de $G$. Démontrer que $H_1 \\cap H_2$ est un sous-groupe de $G$.",
+          type: "open",
+          modelAnswer: "e appartient à H1 et H2 donc à l'intersection. Si x,y dans H1∩H2, alors xy dans H1 (sous-groupe) et dans H2, donc dans l'intersection. De même pour l'inverse. Donc H1∩H2 est un sous-groupe.",
+          explanation: "**(1)** $e \\in H_1$ et $e \\in H_2$ (ce sont des sous-groupes), donc $e \\in H_1 \\cap H_2$ : l'intersection est non vide. **(2) Stabilité :** si $x,y \\in H_1\\cap H_2$, alors $x,y \\in H_1$ donc $xy \\in H_1$ (car $H_1$ sous-groupe) ; de même $xy \\in H_2$. Donc $xy \\in H_1\\cap H_2$. **(3) Inverse :** si $x \\in H_1\\cap H_2$, alors $x^{-1}\\in H_1$ et $x^{-1}\\in H_2$ (sous-groupes), donc $x^{-1} \\in H_1\\cap H_2$. Les trois conditions étant vérifiées, $H_1\\cap H_2$ est un sous-groupe de $G$. (Attention : ce résultat est **faux** pour la réunion $H_1\\cup H_2$ en général.)",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-1-e14",
+          question: "Le groupe $(\\mathbb{Z}/4\\mathbb{Z}, +)$ et le sous-groupe $\\{0,2\\}$ de $\\mathbb{Z}/4\\mathbb{Z}$ : ce sous-groupe est-il isomorphe à $\\mathbb{Z}/2\\mathbb{Z}$ ?",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. L'application $\\{0,2\\} \\to \\mathbb{Z}/2\\mathbb{Z}$, $0 \\mapsto \\overline{0}$, $2 \\mapsto \\overline{1}$ est une bijection qui respecte l'addition ($2+2=4\\equiv 0$ correspond à $\\overline{1}+\\overline{1}=\\overline{0}$) : c'est un isomorphisme. Tout groupe à 2 éléments est isomorphe à $\\mathbb{Z}/2\\mathbb{Z}$, car la table de composition d'un groupe à 2 éléments est entièrement déterminée par les axiomes de groupe.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-1-e15",
+          question: "Soit $f : G \\to G'$ un morphisme de groupes surjectif. Montrer que si $G$ est abélien, alors $G'$ est abélien.",
+          type: "open",
+          modelAnswer: "Soient a,b dans G'. Par surjectivité, il existe x,y dans G tels que f(x)=a, f(y)=b. Alors ab = f(x)f(y) = f(xy) = f(yx) (car G abélien) = f(y)f(x) = ba.",
+          explanation: "Soient $a,b \\in G'$. Comme $f$ est surjectif, il existe $x,y \\in G$ tels que $f(x)=a$ et $f(y)=b$. Alors, en utilisant que $f$ est un morphisme puis que $G$ est abélien : $$a\\star b = f(x)\\star f(y) = f(x\\ast y) = f(y\\ast x) = f(y)\\star f(x) = b \\star a.$$ Donc $G'$ est abélien. **Remarque :** la réciproque est fausse — l'image d'un groupe non abélien par un morphisme surjectif peut être abélienne (par exemple un morphisme vers le groupe trivial).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "alg-abs-l2-2",
+      slug: "anneaux-et-ideaux",
+      title: "Anneaux et idéaux",
+      durationMinutes: 55,
+      content: `## Anneaux et idéaux
+
+### 1. Définition d'un anneau
+
+Un **anneau** est un triplet $(A, +, \\times)$ où $+$ et $\\times$ sont deux lois de composition interne sur $A$ telles que :
+
+1. $(A, +)$ est un **groupe abélien** (de neutre noté $0$) ;
+2. $\\times$ est **associative** ;
+3. $\\times$ est **distributive** par rapport à $+$ : pour tout $x,y,z \\in A$,
+$$x \\times (y+z) = x\\times y + x \\times z \\qquad \\text{et} \\qquad (x+y) \\times z = x \\times z + y \\times z.$$
+
+Si de plus $\\times$ admet un élément neutre (noté $1$), on dit que l'anneau est **unitaire**. Si $\\times$ est commutative, on dit que l'anneau est **commutatif**. Dans ce cours, « anneau » désignera presque toujours un anneau **commutatif unitaire** (sauf mention contraire, comme pour les matrices).
+
+**Exemples :** $(\\mathbb{Z}, +, \\times)$, $(\\mathbb{Q}, +, \\times)$, $(\\mathbb{R}, +, \\times)$, $(\\mathbb{C}, +, \\times)$ sont des anneaux commutatifs unitaires. $(\\mathbb{Z}/n\\mathbb{Z}, +, \\times)$ également. L'ensemble $\\mathcal{M}_n(\\mathbb{R})$ des matrices carrées, muni de $+$ et $\\times$ matricielles, est un anneau unitaire **non commutatif** dès que $n \\geq 2$.
+
+### 2. Diviseurs de zéro et anneaux intègres
+
+Un élément $a \\in A$, $a \\neq 0$, est un **diviseur de zéro** s'il existe $b \\in A$, $b \\neq 0$, tel que $a \\times b = 0$.
+
+Un anneau commutatif unitaire $A$ (avec $1 \\neq 0$) est **intègre** s'il n'a aucun diviseur de zéro, c'est-à-dire :
+$$\\forall a,b \\in A, \\quad a\\times b = 0 \\implies a=0 \\text{ ou } b = 0.$$
+
+**Exemples :** $\\mathbb{Z}$, $\\mathbb{Q}$, $\\mathbb{R}$, $\\mathbb{C}$ sont intègres. En revanche, $\\mathbb{Z}/6\\mathbb{Z}$ **n'est pas intègre** : $\\overline{2} \\times \\overline{3} = \\overline{6} = \\overline{0}$, alors que $\\overline{2} \\neq \\overline{0}$ et $\\overline{3} \\neq \\overline{0}$. Plus généralement, $\\mathbb{Z}/n\\mathbb{Z}$ est intègre si et seulement si $n$ est premier (on verra dans la leçon suivante que c'est alors même un **corps**).
+
+### 3. Idéaux
+
+Soit $A$ un anneau commutatif. Une partie $I \\subset A$ est un **idéal** de $A$ si :
+
+1. $I$ est un sous-groupe de $(A,+)$ (en particulier $0 \\in I$) ;
+2. $I$ est **absorbant** : pour tout $a \\in A$ et $x \\in I$, $a \\times x \\in I$.
+
+La condition d'absorption est plus forte que la simple stabilité par $\\times$ : on multiplie par **n'importe quel** élément de l'anneau, pas seulement par des éléments de $I$. C'est ce qui distingue un idéal d'un simple « sous-anneau ».
+
+**Idéal principal.** Pour $a \\in A$, l'ensemble $aA = \\{a \\times x : x \\in A\\}$ (souvent noté $(a)$) est un idéal, appelé **idéal principal engendré par $a$**. Dans $\\mathbb{Z}$, on retrouve exactement les sous-groupes $n\\mathbb{Z}$ : les idéaux de $\\mathbb{Z}$ sont donc exactement les $n\\mathbb{Z}$, $n \\in \\mathbb{N}$ — on dit que $\\mathbb{Z}$ est un **anneau principal**.
+
+**Exemple détaillé.** Dans $A=\\mathbb{Z}$, l'idéal $(6) = 6\\mathbb{Z} = \\{\\dots,-12,-6,0,6,12,\\dots\\}$. On vérifie l'absorption : si $x \\in 6\\mathbb{Z}$ (donc $x=6k$) et $a \\in \\mathbb{Z}$ quelconque, alors $ax = 6(ak) \\in 6\\mathbb{Z}$.
+
+### 4. Anneau quotient (intuition)
+
+L'idée du **quotient** $A/I$ est de « rendre nuls » tous les éléments de l'idéal $I$, c'est-à-dire de considérer deux éléments $x,y \\in A$ comme **équivalents** dès que $x-y \\in I$ (on note $x \\equiv y \\pmod I$). On regroupe ainsi $A$ en classes d'équivalence, et $A/I$ est l'ensemble de ces classes, muni des lois $+$ et $\\times$ héritées de $A$.
+
+C'est exactement la construction déjà rencontrée pour $\\mathbb{Z}/n\\mathbb{Z}$ : c'est le quotient de l'anneau $\\mathbb{Z}$ par son idéal $n\\mathbb{Z}$. Le fait que $I$ soit un idéal (et pas seulement un sous-groupe) garantit que la multiplication des classes est **bien définie** (ne dépend pas du représentant choisi dans chaque classe) — c'est précisément la condition d'absorption qui assure cette compatibilité.
+
+### Résumé
+
+| Notion | Définition clé |
+|---|---|
+| Anneau | $(A,+)$ groupe abélien, $\\times$ associative et distributive sur $+$ |
+| Diviseur de zéro | $a\\neq0$, $\\exists b\\neq0$, $ab=0$ |
+| Anneau intègre | aucun diviseur de zéro |
+| Idéal | sous-groupe additif + absorbant ($aI \\subset I$ pour tout $a\\in A$) |
+| Idéal principal $(a)$ | $\\{ax : x\\in A\\}$ |
+| Quotient $A/I$ | classes modulo $I$ : $x\\equiv y \\iff x-y\\in I$ |`,
+      exercises: [
+        {
+          id: "alg-abs-l2-2-e1",
+          question: "Quelles sont les deux lois requises pour définir un anneau $(A,+,\\times)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$+$ pour laquelle $A$ est un groupe abélien, et $\\times$ associative et distributive sur $+$" },
+            { id: "B", text: "$+$ et $\\times$ doivent toutes deux être commutatives" },
+            { id: "C", text: "$\\times$ doit avoir un inverse pour chaque élément non nul" },
+            { id: "D", text: "$+$ doit être distributive sur $\\times$" },
+          ],
+          correctId: "A",
+          explanation: "Un anneau requiert que $(A,+)$ soit un groupe abélien, et que $\\times$ soit associative et distributive par rapport à $+$. La commutativité de $\\times$ et l'inversibilité ne sont pas exigées en général (sauf pour les corps).",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-2-e2",
+          question: "Vrai ou faux : $(\\mathcal{M}_2(\\mathbb{R}), +, \\times)$ est un anneau commutatif.",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. C'est bien un anneau (unitaire, de neutre $I_2$ pour $\\times$), mais la multiplication matricielle n'est **pas commutative** en général : $AB \\neq BA$ pour des matrices quelconques.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-2-e3",
+          question: "Dans $\\mathbb{Z}/6\\mathbb{Z}$, donner un exemple de diviseur de zéro.",
+          type: "open",
+          modelAnswer: "2 et 3 sont des diviseurs de zéro car 2x3=6=0 dans Z/6Z, alors que 2 et 3 sont non nuls.",
+          explanation: "$\\overline{2}$ (ou $\\overline{3}$, ou $\\overline{4}$) convient : $\\overline{2} \\times \\overline{3} = \\overline{6} = \\overline{0}$ alors que $\\overline{2} \\neq \\overline{0}$ et $\\overline{3} \\neq \\overline{0}$. Ce sont des diviseurs de zéro car $6 = 2\\times3$ n'est pas premier.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-2-e4",
+          question: "Vrai ou faux : tout idéal d'un anneau $A$ est, en particulier, un sous-groupe de $(A,+)$.",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai, c'est la première condition de la définition d'un idéal. La seconde condition (absorption : $aI\\subset I$ pour tout $a\\in A$) est ce qui distingue un idéal d'un simple sous-groupe additif.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-2-e5",
+          question: "Quel est l'idéal principal $(3)$ engendré par $3$ dans $\\mathbb{Z}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3\\mathbb{Z} = \\{\\dots,-6,-3,0,3,6,\\dots\\}$" },
+            { id: "B", text: "$\\{0,3\\}$" },
+            { id: "C", text: "$\\{3\\}$" },
+            { id: "D", text: "$\\mathbb{Z}$ tout entier" },
+          ],
+          correctId: "A",
+          explanation: "Par définition, $(3) = 3\\mathbb{Z} = \\{3k : k \\in \\mathbb{Z}\\}$, c'est-à-dire l'ensemble de tous les multiples de $3$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-2-e6",
+          question: "Montrer que dans un anneau intègre $A$, on peut « simplifier » : si $a\\neq 0$ et $ab = ac$, alors $b=c$.",
+          type: "open",
+          modelAnswer: "ab=ac donc ab-ac=0 donc a(b-c)=0. Comme A est intègre et a≠0, on a b-c=0 donc b=c.",
+          explanation: "De $ab=ac$, on tire $ab-ac=0$, soit (par distributivité) $a(b-c)=0$. Comme $A$ est intègre et que $a \\neq 0$, l'absence de diviseurs de zéro impose $b-c=0$, c'est-à-dire $b=c$. **Remarque :** cette « règle de simplification » est fausse dans un anneau non intègre, par exemple dans $\\mathbb{Z}/6\\mathbb{Z}$ : $\\overline{2}\\times\\overline{1} = \\overline{2}\\times\\overline{4} = \\overline{2}$ alors que $\\overline{1}\\neq\\overline{4}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-2-e7",
+          question: "Soit $I = \\{f \\in \\mathbb{R}[X] : f(0) = 0\\}$, l'ensemble des polynômes sans terme constant. Montrer que $I$ est un idéal de $\\mathbb{R}[X]$.",
+          type: "open",
+          modelAnswer: "0 appartient à I car 0(0)=0. Si f,g dans I, (f+g)(0)=f(0)+g(0)=0 donc f+g dans I. Si f dans I et a dans R[X], (af)(0)=a(0)f(0)=a(0)*0=0 donc af dans I.",
+          explanation: "**(1)** Le polynôme nul vérifie $0(0)=0$, donc $0 \\in I$. **(2) Sous-groupe additif :** si $f,g \\in I$, $(f+g)(0) = f(0)+g(0) = 0+0=0$, donc $f+g \\in I$ ; et $(-f)(0) = -f(0) = 0$, donc $-f \\in I$. **(3) Absorption :** si $f \\in I$ et $a \\in \\mathbb{R}[X]$ quelconque, $(a\\times f)(0) = a(0)\\times f(0) = a(0)\\times 0 = 0$, donc $af \\in I$. Les trois conditions sont vérifiées : $I$ est un idéal. (En fait $I = (X)$, l'idéal principal engendré par $X$.)",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-2-e8",
+          question: "Vrai ou faux : l'ensemble des matrices inversibles de $\\mathcal{M}_n(\\mathbb{R})$ est un idéal de $\\mathcal{M}_n(\\mathbb{R})$.",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. L'ensemble des matrices inversibles ne contient pas $0$ (la matrice nulle n'est pas inversible) alors qu'un idéal doit contenir $0$. De plus, ce n'est même pas un sous-groupe additif (la somme de deux matrices inversibles n'est pas forcément inversible, par exemple $I_n$ et $-I_n$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-2-e9",
+          question: "Pourquoi $\\mathbb{Z}/n\\mathbb{Z}$ n'est-il pas intègre lorsque $n$ n'est pas premier (et $n>1$) ?",
+          type: "open",
+          modelAnswer: "Si n=ab avec 1<a,b<n, alors dans Z/nZ, a-barre et b-barre sont non nuls mais leur produit a-barre*b-barre = n-barre = 0-barre, donc a et b sont diviseurs de zéro.",
+          explanation: "Si $n$ n'est pas premier et $n>1$, on peut écrire $n = a \\times b$ avec $1 < a,b < n$. Alors $\\overline{a} \\neq \\overline{0}$ et $\\overline{b}\\neq\\overline{0}$ dans $\\mathbb{Z}/n\\mathbb{Z}$ (car $0<a,b<n$), mais $\\overline{a}\\times\\overline{b} = \\overline{ab} = \\overline{n} = \\overline{0}$. Donc $\\overline{a}$ et $\\overline{b}$ sont des diviseurs de zéro : $\\mathbb{Z}/n\\mathbb{Z}$ n'est pas intègre. À l'inverse, on montre que si $n=p$ est premier, $\\mathbb{Z}/p\\mathbb{Z}$ est intègre (et c'est même un corps, voir leçon suivante).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-2-e10",
+          question: "Soient $I$ et $J$ deux idéaux d'un anneau commutatif $A$. Montrer que $I \\cap J$ est un idéal de $A$.",
+          type: "open",
+          modelAnswer: "I∩J est un sous-groupe additif (intersection de sous-groupes). Si x dans I∩J et a dans A, ax dans I (idéal) et ax dans J (idéal), donc ax dans I∩J. Donc I∩J est absorbant, c'est un idéal.",
+          explanation: "$I\\cap J$ est déjà un sous-groupe de $(A,+)$ (intersection de deux sous-groupes, résultat classique de théorie des groupes). Reste l'absorption : soit $x \\in I\\cap J$ et $a \\in A$. Comme $x \\in I$ et $I$ est un idéal, $ax \\in I$ ; comme $x\\in J$ et $J$ est un idéal, $ax \\in J$. Donc $ax \\in I\\cap J$. Les deux conditions étant vérifiées, $I\\cap J$ est un idéal de $A$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-2-e11",
+          question: "Dans $\\mathbb{Z}$, quel est l'idéal $(4) \\cap (6)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(12)$" },
+            { id: "B", text: "$(2)$" },
+            { id: "C", text: "$(24)$" },
+            { id: "D", text: "$(4)$" },
+          ],
+          correctId: "A",
+          explanation: "$(4)\\cap(6)$ est l'ensemble des entiers multiples à la fois de $4$ et de $6$, c'est-à-dire multiples du PPCM$(4,6)=12$. Donc $(4)\\cap(6) = (12) = 12\\mathbb{Z}$.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-2-e12",
+          question: "Soit $A$ un anneau commutatif et $I=(a)$, $J=(b)$ deux idéaux principaux. Montrer que $(a) \\subset (b)$ si et seulement si $b$ divise $a$.",
+          type: "open",
+          modelAnswer: "Si b|a, a=bk donc tout multiple de a est multiple de b, donc (a) inclus dans (b). Réciproquement si (a) inclus dans (b), a appartient à (b) donc a=bk pour un certain k, donc b divise a.",
+          explanation: "**($\\Leftarrow$)** Si $b\\mid a$, alors $a = bk$ pour un certain $k\\in A$. Tout élément de $(a)$ s'écrit $ax = bkx \\in (b)$. Donc $(a)\\subset(b)$. **($\\Rightarrow$)** Si $(a)\\subset(b)$, alors en particulier $a \\in (a) \\subset (b)$, donc $a = b k$ pour un certain $k \\in A$, c'est-à-dire $b \\mid a$. Cette équivalence justifie pourquoi, dans $\\mathbb{Z}$, $(4)\\subset(2)$ : $2$ divise $4$, et l'idéal engendré par un nombre est « plus petit » que celui engendré par ses diviseurs.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-2-e13",
+          question: "Pourquoi la condition d'absorption ($aI \\subset I$ pour tout $a \\in A$, pas seulement $a \\in I$) est-elle essentielle pour que la multiplication soit bien définie dans le quotient $A/I$ ?",
+          type: "open",
+          modelAnswer: "Pour que le produit des classes [x]*[y]=[xy] ne dépende pas du choix des représentants, il faut que si x'=x+i (i dans I) alors x'y - xy = iy soit dans I : c'est exactement la condition d'absorption appliquée à a=y.",
+          explanation: "Supposons que l'on choisisse un autre représentant $x' = x + i$ (avec $i \\in I$) pour la classe de $x$. On veut que $x'y$ et $xy$ représentent la même classe, c'est-à-dire $x'y - xy \\in I$. Or $x'y - xy = (x+i)y - xy = iy$. Pour que $iy \\in I$ **quel que soit** $y \\in A$ et $i \\in I$, il faut précisément la condition d'absorption $Ay\\subset I$, soit $aI\\subset I$ pour tout $a\\in A$. Sans cette condition (par exemple si $I$ n'était qu'un sous-groupe additif), le produit des classes dépendrait du représentant choisi et ne serait pas une opération bien définie sur $A/I$.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-2-e14",
+          question: "Vrai ou faux : dans un anneau commutatif unitaire $A$, l'idéal $A$ tout entier est l'idéal principal $(1)$.",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. $(1) = \\{1\\times x : x\\in A\\} = \\{x : x \\in A\\} = A$. C'est l'idéal « le plus grand » possible (avec $A$ comme seul idéal le contenant strictement étant... lui-même, il n'y en a pas de plus grand).",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-2-e15",
+          question: "Soit $A=\\mathbb{Z}$ et $I=(5)$. Combien d'éléments distincts (classes) compte le quotient $A/I = \\mathbb{Z}/5\\mathbb{Z}$, et pourquoi ?",
+          type: "open",
+          modelAnswer: "5 classes : 0,1,2,3,4 (les restes possibles de la division euclidienne par 5). Tout entier est congru modulo 5 à exactement un de ces 5 restes, par unicité du reste dans la division euclidienne.",
+          explanation: "Le quotient $\\mathbb{Z}/5\\mathbb{Z}$ compte exactement $5$ classes : $\\overline{0},\\overline{1},\\overline{2},\\overline{3},\\overline{4}$. En effet, par le théorème de la division euclidienne, tout entier $n$ s'écrit de façon unique $n = 5q+r$ avec $r \\in \\{0,1,2,3,4\\}$, et $n \\equiv r \\pmod 5$ (car $n-r=5q \\in (5)$). Les classes sont donc indexées exactement par les restes possibles $\\{0,1,2,3,4\\}$, ce qui donne $5 = |I|$-classes (plus généralement, $|\\mathbb{Z}/n\\mathbb{Z}| = n$).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "alg-abs-l2-3",
+      slug: "corps-corps-finis-corps-de-fractions",
+      title: "Corps, corps finis et corps de fractions",
+      durationMinutes: 55,
+      content: `## Corps, corps finis et corps de fractions
+
+### 1. Définition d'un corps
+
+Un **corps** est un anneau commutatif unitaire $(K,+,\\times)$, avec $1 \\neq 0$, dans lequel **tout élément non nul est inversible** pour $\\times$ :
+$$\\forall x \\in K \\setminus \\{0\\}, \\quad \\exists x^{-1} \\in K, \\quad x \\times x^{-1} = 1.$$
+
+De manière équivalente : $(K,+)$ est un groupe abélien, et $(K\\setminus\\{0\\}, \\times)$ est aussi un groupe abélien.
+
+**Conséquence immédiate :** tout corps est intègre. En effet, si $xy=0$ avec $x\\neq0$, on multiplie par $x^{-1}$ : $x^{-1}(xy) = x^{-1}\\times 0 = 0$, soit $(x^{-1}x)y = y = 0$. Donc $xy=0 \\Rightarrow x=0$ ou $y=0$.
+
+**Exemples :** $\\mathbb{Q}$, $\\mathbb{R}$, $\\mathbb{C}$ sont des corps. $\\mathbb{Z}$ n'est **pas** un corps (aucun entier autre que $\\pm1$ n'a d'inverse entier). $\\mathbb{R}[X]$ (les polynômes) n'est pas un corps non plus : $X$ n'a pas d'inverse polynomial.
+
+### 2. Corps finis $\\mathbb{F}_p$
+
+**Théorème.** Pour $p$ premier, $\\mathbb{Z}/p\\mathbb{Z}$ est un corps, noté $\\mathbb{F}_p$.
+
+**Idée de la démonstration.** On sait déjà que $\\mathbb{Z}/p\\mathbb{Z}$ est intègre lorsque $p$ est premier (leçon précédente). Il reste à montrer que tout $\\overline{a}\\neq\\overline{0}$ (avec $0<a<p$) est inversible. Comme $p$ est premier et $0 < a < p$, on a $\\text{pgcd}(a,p)=1$. Par le **théorème de Bézout**, il existe $u,v \\in \\mathbb{Z}$ tels que $au + pv = 1$. En passant aux classes modulo $p$ : $\\overline{a}\\times\\overline{u} = \\overline{1}$ (car $\\overline{pv}=\\overline{0}$). Donc $\\overline{u}$ est l'inverse de $\\overline{a}$. $\\blacksquare$
+
+**Exemple : inverses dans $\\mathbb{F}_7$.** On cherche l'inverse de $\\overline{3}$. On résout $3u \\equiv 1 \\pmod 7$ : $3\\times 5 = 15 = 14+1 \\equiv 1 \\pmod 7$. Donc $\\overline{3}^{-1} = \\overline{5}$ dans $\\mathbb{F}_7$.
+
+**Contre-exemple : $\\mathbb{Z}/4\\mathbb{Z}$ n'est pas un corps.** $4$ n'est pas premier ($4=2\\times2$), donc $\\overline{2}$ est un diviseur de zéro ($\\overline{2}\\times\\overline{2}=\\overline{4}=\\overline{0}$) et ne peut pas être inversible (un diviseur de zéro non nul n'est jamais inversible dans un anneau, car s'il l'était on retrouverait l'intégrité par le même argument que ci-dessus).
+
+### 3. Corps de fractions d'un anneau intègre
+
+**Idée directrice : $\\mathbb{Z} \\to \\mathbb{Q}$.** $\\mathbb{Z}$ est un anneau intègre mais n'est pas un corps. On construit $\\mathbb{Q}$ en formant des **fractions** $a/b$ avec $a,b \\in \\mathbb{Z}$, $b \\neq 0$, et en identifiant $a/b$ et $a'/b'$ dès que $ab' = a'b$ (« produit en croix »). On définit alors :
+$$\\frac{a}{b} + \\frac{c}{d} = \\frac{ad+bc}{bd}, \\qquad \\frac{a}{b} \\times \\frac{c}{d} = \\frac{ac}{bd}.$$
+
+Ces opérations font de $\\mathbb{Q}$ un corps : l'inverse de $a/b$ (avec $a\\neq0$) est $b/a$.
+
+**Construction générale.** Soit $A$ un anneau commutatif **intègre**. On construit son **corps de fractions** $K = \\text{Frac}(A)$ exactement sur ce modèle :
+- on considère les couples $(a,b)$ avec $a,b\\in A$, $b\\neq 0$, notés formellement $\\dfrac{a}{b}$ ;
+- on identifie $\\dfrac{a}{b}$ et $\\dfrac{a'}{b'}$ dès que $ab'=a'b$ (c'est ici que l'**intégrité** de $A$ est utilisée, pour que cette relation soit bien une relation d'équivalence compatible avec les opérations) ;
+- on définit $+$ et $\\times$ comme ci-dessus.
+
+L'anneau $A$ se plonge dans $K$ via $a \\mapsto a/1$, et $K$ est le « plus petit » corps contenant (une copie de) $A$.
+
+**Exemple : corps des fractions rationnelles.** Si $A = \\mathbb{R}[X]$ (intègre), son corps de fractions est $\\mathbb{R}(X)$, le corps des **fractions rationnelles** $\\dfrac{P(X)}{Q(X)}$ avec $Q\\neq0$ — exactement comme $\\mathbb{Q}$ est construit à partir de $\\mathbb{Z}$.
+
+### 4. Pourquoi l'intégrité est-elle nécessaire ?
+
+Si $A$ avait des diviseurs de zéro, la construction échouerait : on ne pourrait pas définir d'inverse cohérent. Par exemple, dans $\\mathbb{Z}/6\\mathbb{Z}$, $\\overline{2}\\times\\overline{3}=\\overline{0}$ ; si l'on essayait de « diviser par $\\overline{2}$ », on serait bloqué car $\\overline{2}$ n'est ni nul ni inversible. C'est pourquoi le corps de fractions n'existe (sous cette forme) que pour les anneaux **intègres**.
+
+### Résumé
+
+| Notion | Définition clé |
+|---|---|
+| Corps | anneau commutatif unitaire où tout $x\\neq0$ est inversible |
+| Corps $\\Rightarrow$ intègre | $xy=0, x\\neq0 \\Rightarrow y = x^{-1}\\cdot 0 = 0$ |
+| $\\mathbb{F}_p$ | $\\mathbb{Z}/p\\mathbb{Z}$ est un corps $\\iff$ $p$ premier (via Bézout) |
+| Corps de fractions | construit à partir d'un anneau intègre $A$, modèle $\\mathbb{Z}\\to\\mathbb{Q}$ |`,
+      exercises: [
+        {
+          id: "alg-abs-l2-3-e1",
+          question: "Quelle est la différence essentielle entre un anneau et un corps ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Dans un corps, tout élément non nul est inversible pour la multiplication" },
+            { id: "B", text: "Un corps n'a pas d'élément neutre pour l'addition" },
+            { id: "C", text: "Un anneau est toujours commutatif, un corps ne l'est jamais" },
+            { id: "D", text: "Un corps n'a pas de structure additive" },
+          ],
+          correctId: "A",
+          explanation: "Un corps est un anneau commutatif unitaire ($1\\neq0$) dans lequel, en plus, tout élément non nul possède un inverse multiplicatif. C'est exactement ce qui manque à un anneau quelconque comme $\\mathbb{Z}$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-3-e2",
+          question: "Vrai ou faux : $\\mathbb{Z}$ est un corps.",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. Dans $\\mathbb{Z}$, seuls $1$ et $-1$ sont inversibles pour $\\times$ ; par exemple $2$ n'a pas d'inverse entier ($1/2 \\notin \\mathbb{Z}$). $\\mathbb{Z}$ est un anneau intègre, mais pas un corps.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-3-e3",
+          question: "Pour quelles valeurs de $n$ l'anneau $\\mathbb{Z}/n\\mathbb{Z}$ est-il un corps ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Lorsque $n$ est un nombre premier" },
+            { id: "B", text: "Pour tout $n \\geq 2$" },
+            { id: "C", text: "Uniquement lorsque $n=2$" },
+            { id: "D", text: "Lorsque $n$ est impair" },
+          ],
+          correctId: "A",
+          explanation: "$\\mathbb{Z}/n\\mathbb{Z}$ est un corps si et seulement si $n$ est premier — c'est le théorème central de cette leçon, démontré via le théorème de Bézout.",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-3-e4",
+          question: "Vrai ou faux : tout corps est un anneau intègre.",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. Si $xy=0$ avec $x\\neq0$ dans un corps, on multiplie par $x^{-1}$ (qui existe) pour obtenir $y=0$. Tout corps est donc intègre — mais la réciproque est fausse ($\\mathbb{Z}$ est intègre, pas un corps).",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-3-e5",
+          question: "Calculer l'inverse de $\\overline{4}$ dans $\\mathbb{F}_7 = \\mathbb{Z}/7\\mathbb{Z}$.",
+          type: "open",
+          modelAnswer: "4*2=8=1 mod 7, donc l'inverse de 4 est 2.",
+          explanation: "On cherche $u$ tel que $4u \\equiv 1 \\pmod 7$. On teste : $4\\times 2 = 8 \\equiv 1 \\pmod 7$ (car $8 = 7+1$). Donc $\\overline{4}^{-1} = \\overline{2}$ dans $\\mathbb{F}_7$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-3-e6",
+          question: "Dans la construction du corps de fractions de $A=\\mathbb{Z}$, pourquoi exige-t-on $b \\neq 0$ dans les couples $(a,b)$ représentant $a/b$ ?",
+          type: "open",
+          modelAnswer: "Parce que diviser par 0 n'a pas de sens : la fraction a/b doit pouvoir être interprétée comme la solution de bx=a, ce qui n'a de sens (et d'unicité) que si b est non nul.",
+          explanation: "La fraction $a/b$ est censée représenter l'élément $x$ tel que $bx=a$. Si $b=0$, cette équation devient $0\\times x=a$ : soit elle n'a pas de solution (si $a\\neq0$), soit toute valeur de $x$ convient (si $a=0$), donc le couple $(a,0)$ ne désigne pas un élément bien défini. C'est pourquoi on exclut systématiquement $b=0$ dans la construction.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-3-e7",
+          question: "Vrai ou faux : $\\mathbb{R}[X]$ (polynômes à coefficients réels) est un corps.",
+          type: "true_false",
+          correctId: "false",
+          explanation: "Faux. $\\mathbb{R}[X]$ est un anneau intègre, mais le polynôme $X$ n'a pas d'inverse dans $\\mathbb{R}[X]$ : il n'existe aucun polynôme $Q$ tel que $X \\times Q(X) = 1$ (les degrés ne correspondraient pas : $\\deg(XQ) \\geq 1 \\neq \\deg(1) = 0$). Son corps de fractions est $\\mathbb{R}(X)$, le corps des fractions rationnelles.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-3-e8",
+          question: "Pourquoi $\\overline{2}$ n'est-il pas inversible dans $\\mathbb{Z}/4\\mathbb{Z}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Car $\\overline{2}$ est un diviseur de zéro ($\\overline{2}\\times\\overline{2}=\\overline{0}$), et un diviseur de zéro non nul n'est jamais inversible" },
+            { id: "B", text: "Car $4$ est impair" },
+            { id: "C", text: "Car $\\mathbb{Z}/4\\mathbb{Z}$ n'a pas d'élément neutre pour $\\times$" },
+            { id: "D", text: "Car $2$ est strictement supérieur à $4/2$" },
+          ],
+          correctId: "A",
+          explanation: "$\\overline{2}\\times\\overline{2}=\\overline{4}=\\overline{0}$ : $\\overline{2}$ est un diviseur de zéro. Or, dans un anneau, un diviseur de zéro non nul ne peut jamais être inversible (sinon, comme dans la preuve « corps $\\Rightarrow$ intègre », on en déduirait $\\overline{2}=\\overline{0}$, contradiction).",
+          difficulty: "debutant",
+        },
+        {
+          id: "alg-abs-l2-3-e9",
+          question: "Soit $K$ un corps. Démontrer que l'ensemble $K^* = K \\setminus \\{0\\}$, muni de $\\times$, est un groupe.",
+          type: "open",
+          modelAnswer: "1 appartient à K* (1≠0). Si x,y dans K*, xy≠0 (corps intègre) donc xy dans K*. Tout x dans K* a un inverse x^-1 qui est aussi non nul (sinon x*x^-1=0≠1), donc x^-1 dans K*. Donc (K*,x) est un groupe.",
+          explanation: "**Stabilité :** si $x,y \\in K^*$ (donc $x,y\\neq0$), alors $xy \\neq 0$ car $K$ est intègre (corps $\\Rightarrow$ intègre) ; donc $xy \\in K^*$. **Neutre :** $1 \\in K^*$ car $1\\neq0$ (axiome de corps). **Inverses :** pour $x\\in K^*$, l'inverse $x^{-1}$ existe par définition d'un corps, et $x^{-1}\\neq0$ (sinon $x\\times x^{-1}=x\\times0=0\\neq1$, contradiction), donc $x^{-1}\\in K^*$. **Associativité** : héritée de celle de $K$. Toutes les conditions sont vérifiées : $(K^*,\\times)$ est un groupe (abélien si $K$ est commutatif).",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-3-e10",
+          question: "En utilisant Bézout, déterminer l'inverse de $\\overline{9}$ dans $\\mathbb{F}_{11}$.",
+          type: "open",
+          modelAnswer: "pgcd(9,11)=1. Bézout : 11 = 1*9+2, 9=4*2+1. Donc 1=9-4*2=9-4*(11-9)=5*9-4*11. Donc 9*5≡1 mod 11, l'inverse de 9 est 5.",
+          explanation: "On applique l'algorithme d'Euclide étendu : $11 = 1\\times9+2$, puis $9=4\\times2+1$. En remontant : $1 = 9-4\\times2 = 9-4\\times(11-9) = 5\\times9-4\\times11$. En passant modulo $11$ : $5\\times\\overline{9} \\equiv \\overline{1}$. **Vérification directe :** $9\\times5=45=44+1\\equiv1\\pmod{11}$ ✓. Donc $\\overline{9}^{-1}=\\overline{5}$ dans $\\mathbb{F}_{11}$.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-3-e11",
+          question: "Vrai ou faux : le corps de fractions $\\text{Frac}(A)$ d'un anneau intègre $A$ qui est déjà un corps est isomorphe à $A$ lui-même.",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. Si $A$ est déjà un corps, tout $a/b$ (avec $b\\neq0$) peut s'écrire $a\\times b^{-1} \\in A$ (puisque $b$ est déjà inversible dans $A$), donc la construction ne produit rien de nouveau : $\\text{Frac}(A) \\cong A$. Par exemple, $\\text{Frac}(\\mathbb{Q}) \\cong \\mathbb{Q}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-3-e12",
+          question: "Pourquoi le corps $\\mathbb{F}_4$ ne peut-il PAS être (en tant qu'anneau) égal à $\\mathbb{Z}/4\\mathbb{Z}$, bien que les deux aient 4 éléments ?",
+          type: "open",
+          modelAnswer: "Z/4Z n'est pas un corps car 4 n'est pas premier (2 est diviseur de zéro). F4 existe bien comme corps à 4 éléments mais ce n'est pas Z/4Z : c'est un corps de caractéristique 2 construit différemment (extension de F2), pas un quotient de Z par un idéal.",
+          explanation: "$\\mathbb{Z}/4\\mathbb{Z}$ n'est **pas un corps** car $4=2\\times2$ n'est pas premier : $\\overline{2}$ y est un diviseur de zéro non inversible. Le corps $\\mathbb{F}_4$ (qui existe bel et bien, à $4=2^2$ éléments) n'est donc pas obtenu comme quotient $\\mathbb{Z}/4\\mathbb{Z}$ : il se construit autrement, comme **extension** du corps $\\mathbb{F}_2$ (par exemple via un polynôme irréductible sur $\\mathbb{F}_2$). Ceci illustre que les corps finis n'existent, parmi les $\\mathbb{Z}/n\\mathbb{Z}$, que pour $n$ premier ; les corps de cardinal $p^k$ ($k\\geq2$) demandent une construction différente, hors du cadre de ce cours.",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-3-e13",
+          question: "Soit $A$ un anneau intègre fini. Montrer que $A$ est nécessairement un corps (un résultat remarquable : intégrité + finitude $\\Rightarrow$ corps).",
+          type: "open",
+          modelAnswer: "Soit a≠0 dans A. L'application x↦ax est injective (car A intègre : ax=ax' implique a(x-x')=0 donc x=x'). Comme A est fini, une application injective de A dans A est surjective. Donc il existe x tel que ax=1 : a est inversible.",
+          explanation: "Soit $a \\in A$, $a\\neq0$. Considérons l'application $\\varphi_a : A \\to A$, $x \\mapsto ax$. Elle est **injective** : si $ax=ax'$, alors $a(x-x')=0$, et comme $A$ est intègre et $a\\neq0$, on a $x-x'=0$, soit $x=x'$. Or une application injective d'un ensemble **fini** dans lui-même est automatiquement **surjective** (principe des tiroirs / cardinalité). Donc $\\varphi_a$ est surjective : il existe $x \\in A$ tel que $\\varphi_a(x) = ax = 1$. Ainsi $a$ est inversible. Comme $a$ était un élément non nul arbitraire, **tout** élément non nul de $A$ est inversible : $A$ est un corps. $\\blacksquare$ (Ce résultat explique directement pourquoi $\\mathbb{Z}/p\\mathbb{Z}$, intègre et fini, est un corps dès que $p$ est premier — sans même invoquer Bézout.)",
+          difficulty: "expert",
+        },
+        {
+          id: "alg-abs-l2-3-e14",
+          question: "Dans $\\mathbb{F}_5$, résoudre l'équation $3x + 2 = 0$ (trouver toutes les solutions).",
+          type: "open",
+          modelAnswer: "3x=-2=3 mod 5. Inverse de 3 mod 5 : 3*2=6=1, donc inverse de 3 est 2. x=2*3=6=1 mod 5. Solution unique x=1.",
+          explanation: "On a $3x=-2\\equiv3\\pmod5$. On cherche l'inverse de $\\overline{3}$ dans $\\mathbb{F}_5$ : $3\\times2=6\\equiv1\\pmod5$, donc $\\overline{3}^{-1}=\\overline{2}$. On multiplie l'équation par $\\overline{2}$ : $x \\equiv 2\\times3 = 6 \\equiv 1 \\pmod 5$. Comme $\\mathbb{F}_5$ est un corps, l'équation $3x=c$ a une **unique** solution pour tout $c$ (car $3$ est inversible) : $x=\\overline{1}$ est l'unique solution. **Vérification :** $3\\times1+2=5\\equiv0\\pmod5$ ✓.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "alg-abs-l2-3-e15",
+          question: "Vrai ou faux : dans un corps fini $\\mathbb{F}_p$, l'équation $x^2=1$ admet exactement deux solutions ($\\overline{1}$ et $\\overline{-1}$) lorsque $p$ est premier impair.",
+          type: "true_false",
+          correctId: "true",
+          explanation: "Vrai. $x^2=1 \\iff x^2-1=0 \\iff (x-1)(x+1)=0$. Comme $\\mathbb{F}_p$ est un corps (donc intègre), ceci équivaut à $x=\\overline{1}$ ou $x=\\overline{-1}$. Ces deux solutions sont **distinctes** lorsque $p$ est impair (car $\\overline{1}=\\overline{-1}$ équivaudrait à $p\\mid2$, donc $p=2$). Pour $p=2$ en revanche, $\\overline{1}=\\overline{-1}$ et il n'y a qu'une seule solution.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L2 — Analyse : Topologie des espaces métriques
+  // ─────────────────────────────────────────────
+  {
+    id: "topologie-l2",
+    slug: "topologie-l2-espaces-metriques",
+    title: "Topologie L2 — Espaces métriques",
+    description: "Distances et normes, ouverts, fermés et voisinages, compacité et connexité : les bases topologiques indispensables avant l'analyse fonctionnelle.",
+    schoolLevel: "L2",
+    subject: "analyse",
+    difficulty: "Avancé",
+    isFree: false,
+    thumbnailEmoji: "𝒯",
+    lessons: [
+      {
+  id: "topo-l2-1",
+  slug: "distances-et-normes",
+  title: "Distances et normes",
+  durationMinutes: 50,
+  content: `## Distances et normes
+
+### 1. Définition axiomatique d'une distance
+
+Soit $E$ un ensemble non vide. Une **distance** (ou **métrique**) sur $E$ est une application
+$$d : E \\times E \\to \\mathbb{R}_+$$
+vérifiant, pour tous $x, y, z \\in E$ :
+
+1. **Séparation :** $d(x,y) = 0 \\iff x = y$ ;
+2. **Symétrie :** $d(x,y) = d(y,x)$ ;
+3. **Inégalité triangulaire :** $d(x,z) \\leq d(x,y) + d(y,z)$.
+
+Le couple $(E,d)$ est appelé **espace métrique**. La positivité $d(x,y) \\geq 0$ pour tous $x,y$ n'est pas un axiome indépendant : elle se déduit des trois précédents. En effet, en appliquant l'inégalité triangulaire à $x,y,x$ : $d(x,x) \\leq d(x,y) + d(y,x) = 2d(x,y)$, et $d(x,x) = 0$ par séparation, donc $0 \\leq 2d(x,y)$, soit $d(x,y) \\geq 0$.
+
+**Conséquence utile (seconde inégalité triangulaire) :** pour tous $x,y,z \\in E$,
+$$|d(x,z) - d(y,z)| \\leq d(x,y)$$
+*Preuve :* $d(x,z) \\leq d(x,y)+d(y,z)$ donne $d(x,z)-d(y,z) \\leq d(x,y)$. En échangeant $x$ et $y$ : $d(y,z)-d(x,z) \\leq d(x,y)$. Les deux inégalités donnent $|d(x,z)-d(y,z)| \\leq d(x,y)$.
+
+### 2. Exemples fondamentaux de distances
+
+**Distance euclidienne usuelle sur $\\mathbb{R}^n$ :** pour $x=(x_1,\\ldots,x_n)$, $y=(y_1,\\ldots,y_n)$,
+$$d_2(x,y) = \\sqrt{\\sum_{i=1}^n (x_i-y_i)^2}$$
+C'est la distance "à vol d'oiseau". Sur $\\mathbb{R}$ ($n=1$), $d_2(x,y) = |x-y|$.
+
+**Distance discrète :** sur un ensemble $E$ quelconque, on pose $d(x,y) = 0$ si $x=y$ et $d(x,y)=1$ sinon. On vérifie aisément les trois axiomes (l'inégalité triangulaire est immédiate : si $x \\neq z$, alors $x \\neq y$ ou $y \\neq z$, donc $d(x,y)+d(y,z) \\geq 1 = d(x,z)$).
+
+**Distances $d_1$, $d_2$, $d_\\infty$ sur $\\mathbb{R}^n$ :**
+$$d_1(x,y) = \\sum_{i=1}^n |x_i-y_i| \\qquad d_2(x,y) = \\sqrt{\\sum_{i=1}^n (x_i-y_i)^2} \\qquad d_\\infty(x,y) = \\max_{1\\leq i \\leq n} |x_i-y_i|$$
+
+Ces trois distances vérifient l'encadrement suivant, pour tous $x,y \\in \\mathbb{R}^n$ :
+$$d_\\infty(x,y) \\leq d_2(x,y) \\leq d_1(x,y) \\leq n \\, d_\\infty(x,y)$$
+
+*Preuve de $d_\\infty \\leq d_2$ :* notons $k$ l'indice réalisant le maximum, $|x_k-y_k| = d_\\infty(x,y)$. Alors $d_\\infty(x,y)^2 = |x_k-y_k|^2 \\leq \\sum_{i=1}^n |x_i-y_i|^2 = d_2(x,y)^2$, d'où $d_\\infty(x,y) \\leq d_2(x,y)$ (les deux membres sont positifs).
+
+*Preuve de $d_2 \\leq d_1$ :* posons $a_i = |x_i-y_i| \\geq 0$. On a $d_2(x,y)^2 = \\sum_i a_i^2 \\leq \\sum_i a_i^2 + \\sum_{i\\neq j} a_i a_j = \\left(\\sum_i a_i\\right)^2 = d_1(x,y)^2$ car les doubles produits $a_i a_j$ ($i \\neq j$) sont positifs. D'où $d_2(x,y) \\leq d_1(x,y)$.
+
+*Preuve de $d_1 \\leq n\\,d_\\infty$ :* $d_1(x,y) = \\sum_{i=1}^n |x_i-y_i| \\leq \\sum_{i=1}^n d_\\infty(x,y) = n\\, d_\\infty(x,y)$.
+
+Ces trois distances sont donc **équivalentes** : elles définissent la même notion de convergence et la même topologie sur $\\mathbb{R}^n$ (une suite converge pour l'une si et seulement si elle converge pour les autres, vers la même limite).
+
+### 3. Norme et distance associée
+
+Soit $E$ un $\\mathbb{R}$-espace vectoriel. Une **norme** sur $E$ est une application $\\|\\cdot\\| : E \\to \\mathbb{R}_+$ vérifiant, pour tous $x,y \\in E$ et $\\lambda \\in \\mathbb{R}$ :
+
+1. **Séparation :** $\\|x\\| = 0 \\iff x = 0$ ;
+2. **Homogénéité :** $\\|\\lambda x\\| = |\\lambda| \\, \\|x\\|$ ;
+3. **Inégalité triangulaire (sous-additivité) :** $\\|x+y\\| \\leq \\|x\\| + \\|y\\|$.
+
+**Proposition :** Si $\\|\\cdot\\|$ est une norme sur $E$, alors $d(x,y) := \\|x-y\\|$ définit une distance sur $E$, dite **distance associée à la norme** (ou **distance induite**).
+
+*Preuve :* Séparation : $d(x,y)=0 \\iff \\|x-y\\|=0 \\iff x-y=0 \\iff x=y$. Symétrie : $d(y,x) = \\|y-x\\| = \\|-(x-y)\\| = |-1|\\,\\|x-y\\| = \\|x-y\\| = d(x,y)$. Inégalité triangulaire : $d(x,z) = \\|x-z\\| = \\|(x-y)+(y-z)\\| \\leq \\|x-y\\|+\\|y-z\\| = d(x,y)+d(y,z)$.
+
+Une distance associée à une norme possède deux propriétés supplémentaires que n'a pas une distance quelconque : l'**invariance par translation** ($d(x+a,y+a)=d(x,y)$) et l'**homogénéité** ($d(\\lambda x, \\lambda y) = |\\lambda|\\,d(x,y)$). La distance discrète, par exemple, n'est associée à aucune norme sur un espace vectoriel non nul, car elle ne vérifie pas l'homogénéité (sauf cas trivial).
+
+Les normes usuelles sur $\\mathbb{R}^n$ sont $\\|x\\|_1 = \\sum |x_i|$, $\\|x\\|_2 = \\sqrt{\\sum x_i^2}$, $\\|x\\|_\\infty = \\max_i |x_i|$, dont les distances associées sont précisément $d_1$, $d_2$, $d_\\infty$.
+
+### 4. Boules ouvertes et fermées
+
+Soit $(E,d)$ un espace métrique, $a \\in E$ et $r > 0$.
+
+**Boule ouverte de centre $a$ et de rayon $r$ :** $B(a,r) = \\{x \\in E : d(a,x) < r\\}$.
+
+**Boule fermée de centre $a$ et de rayon $r$ :** $\\overline{B}(a,r) = \\{x \\in E : d(a,x) \\leq r\\}$.
+
+**Sphère de centre $a$ et de rayon $r$ :** $S(a,r) = \\{x \\in E : d(a,x) = r\\}$.
+
+**Exemple :** dans $(\\mathbb{R}^2, d_\\infty)$, la boule ouverte $B(0,1)$ est un carré ouvert de côté $2$ (sans son bord), centré en l'origine, à côtés parallèles aux axes — car $d_\\infty(0,x) < 1 \\iff \\max(|x_1|,|x_2|) < 1 \\iff |x_1|<1 \\text{ et } |x_2|<1$. Dans $(\\mathbb{R}^2,d_1)$, $B(0,1)$ est un carré "tourné à 45°" (un losange) de sommets $(\\pm 1,0)$ et $(0,\\pm 1)$. Dans $(\\mathbb{R}^2,d_2)$, c'est le disque ouvert usuel.
+
+Dans l'espace discret, pour $0 < r \\leq 1$, $B(a,r) = \\{a\\}$ : toute boule de rayon assez petit est réduite à son centre.
+
+### 5. Distance d'un point à une partie
+
+Soit $A \\subset E$ une partie non vide et $x \\in E$. On définit la **distance de $x$ à $A$** par
+$$d(x,A) = \\inf_{a \\in A} d(x,a)$$
+Cette borne inférieure existe toujours dans $\\mathbb{R}_+$ car l'ensemble $\\{d(x,a) : a \\in A\\}$ est non vide et minoré par $0$.
+
+**Propriété :** $d(x,A) = 0$ si et seulement si pour tout $\\varepsilon>0$, il existe $a \\in A$ tel que $d(x,a) < \\varepsilon$ — c'est-à-dire $x$ est "infiniment proche" de $A$ sans nécessairement appartenir à $A$. (Ce critère sera relié à l'adhérence de $A$ dans la leçon suivante.)
+
+**Exemple résolu :** dans $(\\mathbb{R}, |\\cdot|)$, soit $A = \\,]0,1[$ et $x=1$. Alors $d(1,A) = \\inf_{a \\in ]0,1[} |1-a| = \\inf_{a\\in]0,1[} (1-a) = 0$, atteint à la limite quand $a \\to 1^-$ mais jamais réalisé puisque $1 \\notin A$. On a bien $d(1,A)=0$ bien que $1 \\notin A$.
+
+### 6. Distance entre deux parties, diamètre, parties bornées
+
+**Distance entre deux parties** $A, B \\subset E$ non vides : $d(A,B) = \\inf_{a\\in A, b \\in B} d(a,b)$. Attention, $d(A,B)=0$ n'implique pas $A \\cap B \\neq \\emptyset$ (par exemple $A=\\,]0,1[$ et $B=\\,]1,2[$ dans $\\mathbb{R}$ : $d(A,B)=0$ mais $A \\cap B = \\emptyset$).
+
+**Diamètre d'une partie :** $\\operatorname{diam}(A) = \\sup_{x,y \\in A} d(x,y) \\in \\mathbb{R}_+ \\cup \\{+\\infty\\}$.
+
+**Partie bornée :** $A \\subset E$ est **bornée** si $\\operatorname{diam}(A) < +\\infty$, ce qui équivaut à : il existe $a \\in E$ et $R>0$ tels que $A \\subset \\overline{B}(a,R)$.
+
+*Preuve de l'équivalence :* si $A \\subset \\overline{B}(a,R)$, alors pour $x,y \\in A$, $d(x,y) \\leq d(x,a)+d(a,y) \\leq 2R$ par inégalité triangulaire, donc $\\operatorname{diam}(A) \\leq 2R < +\\infty$. Réciproquement, si $\\operatorname{diam}(A) = D < +\\infty$ et $a \\in A$ fixé (si $A\\neq\\emptyset$), alors pour tout $x \\in A$, $d(a,x) \\leq D$, donc $A \\subset \\overline{B}(a,D)$.
+
+### 7. Exemple résolu de synthèse
+
+**Énoncé :** Montrer que dans $(\\mathbb{R}^2, d_2)$, le disque ouvert $A = B(0,1)$ est borné et calculer $\\operatorname{diam}(A)$.
+
+**Résolution :** Pour tous $x,y \\in A$, $d_2(x,y) \\leq d_2(x,0) + d_2(0,y) < 1+1 = 2$ par inégalité triangulaire, donc $\\operatorname{diam}(A) \\leq 2$ et $A$ est bornée (incluse dans $\\overline{B}(0,1)$). Montrons que $\\operatorname{diam}(A) = 2$ exactement : pour $\\varepsilon \\in \\,]0,1[$, prenons $x_\\varepsilon = (1-\\varepsilon, 0)$ et $y_\\varepsilon = (-(1-\\varepsilon), 0)$, qui appartiennent bien à $A$ (leur norme est $1-\\varepsilon<1$). On a $d_2(x_\\varepsilon,y_\\varepsilon) = 2(1-\\varepsilon) \\to 2$ quand $\\varepsilon \\to 0$. Donc $\\sup_{x,y\\in A} d_2(x,y) \\geq 2(1-\\varepsilon)$ pour tout $\\varepsilon>0$, d'où $\\operatorname{diam}(A) \\geq 2$. Conclusion : $\\operatorname{diam}(A) = 2$ (ce supremum n'est pas atteint par deux points de $A$, mais c'est bien la valeur du diamètre).`,
+  exercises: [
+    {
+      id: "topo-l2-1-e1",
+      question: "Parmi les conditions suivantes, laquelle n'est PAS un axiome de distance ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$d(x,y) = 0 \\iff x=y$" },
+        { id: "B", text: "$d(x,y) = d(y,x)$" },
+        { id: "C", text: "$d(x,z) \\leq d(x,y)+d(y,z)$" },
+        { id: "D", text: "$d(x,y) \\leq 1$ pour tous $x,y$" },
+      ],
+      correctId: "D",
+      explanation: "Les trois axiomes d'une distance sont la séparation, la symétrie et l'inégalité triangulaire. Rien n'impose que $d$ soit bornée par $1$ : la distance euclidienne sur $\\mathbb{R}$, par exemple, prend des valeurs arbitrairement grandes.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-1-e2",
+      question: "Calculer $d_1((0,0),(3,4))$, $d_2((0,0),(3,4))$ et $d_\\infty((0,0),(3,4))$ dans $\\mathbb{R}^2$.",
+      type: "open",
+      modelAnswer: "d1 = |3|+|4| = 7. d2 = sqrt(9+16) = sqrt(25) = 5. d_infty = max(3,4) = 4.",
+      explanation: "$d_1((0,0),(3,4)) = |3-0|+|4-0| = 7$. $d_2((0,0),(3,4)) = \\sqrt{3^2+4^2} = \\sqrt{25} = 5$ (le célèbre triangle $3$-$4$-$5$). $d_\\infty((0,0),(3,4)) = \\max(3,4) = 4$. On vérifie l'encadrement $d_\\infty \\leq d_2 \\leq d_1$ : $4 \\leq 5 \\leq 7$. ✓",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-1-e3",
+      question: "Vrai ou faux : la distance discrète sur un ensemble $E$ à au moins deux éléments est associée à une norme.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Une distance associée à une norme doit être homogène : $d(\\lambda x,\\lambda y) = |\\lambda| d(x,y)$. Pour la distance discrète, $d(x,y)\\in\\{0,1\\}$ toujours, ce qui contredit l'homogénéité dès que $|\\lambda|\\neq1$ et $x\\neq y$ (par exemple $d(2x,2y)$ devrait être $2d(x,y)=2$, impossible puisque $d$ ne vaut que $0$ ou $1$).",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-1-e4",
+      question: "Dans $(\\mathbb{R}^2,d_\\infty)$, quelle est la forme géométrique de la boule ouverte $B((0,0),1)$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "Un disque ouvert" },
+        { id: "B", text: "Un carré ouvert à côtés parallèles aux axes" },
+        { id: "C", text: "Un losange (carré tourné de 45°)" },
+        { id: "D", text: "Un segment" },
+      ],
+      correctId: "B",
+      explanation: "$d_\\infty(0,x)<1 \\iff \\max(|x_1|,|x_2|)<1 \\iff |x_1|<1$ et $|x_2|<1$. C'est exactement l'intérieur du carré $]-1,1[\\times]-1,1[$, à côtés parallèles aux axes.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-1-e5",
+      question: "Soit $A=\\{1,2,3\\}\\subset\\mathbb{R}$. Calculer $\\operatorname{diam}(A)$ pour la distance usuelle.",
+      type: "open",
+      modelAnswer: "diam(A) = max des |x-y| pour x,y dans A = |3-1| = 2.",
+      explanation: "$\\operatorname{diam}(A) = \\sup_{x,y\\in A}|x-y|$. Comme $A$ est fini, ce sup est un max, atteint entre les deux points les plus éloignés : $1$ et $3$. $\\operatorname{diam}(A) = |3-1| = 2$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-1-e6",
+      question: "Montrer que $d(x,y) = |x^3-y^3|$ définit une distance sur $\\mathbb{R}$.",
+      type: "open",
+      modelAnswer: "Séparation : |x^3-y^3|=0 ssi x^3=y^3 ssi x=y (car t->t^3 est bijective sur R). Symétrie : évidente par valeur absolue. Triangulaire : |x^3-z^3| <= |x^3-y^3|+|y^3-z^3| car c'est l'inégalité triangulaire de la valeur absolue usuelle appliquée à x^3, y^3, z^3.",
+      explanation: "Posons $\\varphi(t)=t^3$. Comme $\\varphi$ est une bijection strictement croissante de $\\mathbb{R}$ dans $\\mathbb{R}$, on vérifie : **Séparation :** $d(x,y)=0 \\iff |x^3-y^3|=0 \\iff x^3=y^3 \\iff x=y$ (par injectivité de $\\varphi$). **Symétrie :** $|x^3-y^3|=|y^3-x^3|$, immédiat. **Inégalité triangulaire :** $d(x,z)=|x^3-z^3| = |(x^3-y^3)+(y^3-z^3)| \\leq |x^3-y^3|+|y^3-z^3| = d(x,y)+d(y,z)$, par l'inégalité triangulaire de $|\\cdot|$ sur $\\mathbb{R}$. Les trois axiomes sont vérifiés : $d$ est bien une distance (ce n'est pas la distance associée à une norme car elle n'est pas homogène : $d(\\lambda x,0)=|\\lambda|^3|x|^3 \\neq |\\lambda| d(x,0)$ en général).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-1-e7",
+      question: "Vrai ou faux : pour tous $x,y\\in\\mathbb{R}^n$, on a toujours $d_1(x,y) \\leq n\\,d_2(x,y)$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. On sait que $d_\\infty \\leq d_2 \\leq d_1 \\leq n\\,d_\\infty$. En particulier $d_1 \\leq n\\,d_\\infty \\leq n\\,d_2$ (car $d_\\infty\\leq d_2$). Donc $d_1(x,y)\\leq n\\,d_2(x,y)$ est bien vérifié, même si ce n'est pas la meilleure constante possible dans tous les cas.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-1-e8",
+      question: "Soit $A=\\,]0,2[\\,\\cup\\,]3,5[$ dans $\\mathbb{R}$. Calculer $d(1,A)$ et $d(2{,}5,A)$.",
+      type: "open",
+      modelAnswer: "d(1,A)=0 car 1 appartient à A. d(2,5,A) = min(distance à ]0,2[, distance à ]3,5[) = min(0.5, 0.5) = 0.5.",
+      explanation: "Comme $1 \\in \\,]0,2[\\subset A$, on a $d(1,A)=0$ (un point de $A$ est à distance nulle de lui-même). Pour $x=2{,}5$ : $d(2{,}5,\\,]0,2[) = \\inf_{a<2}|2{,}5-a| = 2{,}5-2 = 0{,}5$ (approché en $a\\to2^-$), et $d(2{,}5,\\,]3,5[) = \\inf_{a>3}|2{,}5-a| = 3-2{,}5 = 0{,}5$ (approché en $a\\to3^+$). Donc $d(2{,}5,A) = \\min(0{,}5\\,;\\,0{,}5) = 0{,}5$, non atteint dans $A$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-1-e9",
+      question: "Soit $E=\\mathbb{R}^2$ muni de $d_1$. Calculer le diamètre de la boule fermée $\\overline{B}((0,0),1)$.",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$1$" },
+        { id: "B", text: "$2$" },
+        { id: "C", text: "$\\sqrt{2}$" },
+        { id: "D", text: "$4$" },
+      ],
+      correctId: "B",
+      explanation: "$\\overline{B}(0,1)$ pour $d_1$ est le losange de sommets $(\\pm1,0)$, $(0,\\pm1)$. Les deux points les plus éloignés selon $d_1$ sont par exemple $(1,0)$ et $(-1,0)$ : $d_1((1,0),(-1,0))=|1-(-1)|+|0-0|=2$. On peut vérifier qu'aucune paire de points de la boule ne donne une distance $d_1$ supérieure à $2$ (inégalité triangulaire), donc $\\operatorname{diam}=2$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-1-e10",
+      question: "Montrer que pour toute partie bornée non vide $A$ et tout $x\\in E$, on a $d(x,A) \\leq d(x,a_0) $ pour un certain $a_0 \\in A$, et que $d(x,A) \\leq \\operatorname{diam}(A) + d(x,a_0)$ n'est pas la bonne majoration : donner la majoration correcte de $d(x,A)$ en fonction de $d(x,a_0)$ uniquement.",
+      type: "open",
+      modelAnswer: "d(x,A) = inf des d(x,a) pour a dans A, donc en particulier pour a0 fixé dans A, d(x,A) <= d(x,a0). C'est la définition même de la borne inférieure : elle est inférieure ou égale à toute valeur particulière de l'ensemble.",
+      explanation: "Par définition $d(x,A) = \\inf_{a\\in A} d(x,a)$. Pour tout $a_0 \\in A$ fixé, $d(x,a_0)$ est une valeur particulière de l'ensemble $\\{d(x,a): a\\in A\\}$, et la borne inférieure est par définition $\\leq$ à toute valeur de cet ensemble. Donc $d(x,A) \\leq d(x,a_0)$, sans terme additif de diamètre : c'est la majoration la plus simple et la plus utile en pratique (elle ne nécessite de connaître qu'un seul point de $A$).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-1-e11",
+      question: "Soit $(E,d)$ un espace métrique et $A,B$ deux parties bornées non vides. Montrer que $A\\cup B$ est bornée et que $\\operatorname{diam}(A\\cup B) \\leq \\operatorname{diam}(A)+\\operatorname{diam}(B)+d(A,B)$.",
+      type: "open",
+      modelAnswer: "Pour x dans A, y dans B : d(x,y) <= d(x,a)+d(a,b)+d(b,y) pour a dans A, b dans B bien choisis, en passant à l'inf sur a,b on approche d(A,B). Plus rigoureusement on utilise l'inégalité triangulaire via un point a de A et un point b de B presque optimaux pour d(A,B), puis on majore.",
+      explanation: "Soient $x,y \\in A\\cup B$. Trois cas : si $x,y\\in A$, $d(x,y)\\leq\\operatorname{diam}(A)$. Si $x,y\\in B$, $d(x,y)\\leq\\operatorname{diam}(B)$. Si $x\\in A, y\\in B$ (ou inversement) : fixons $\\varepsilon>0$ et choisissons (par définition de l'inf) $a\\in A, b\\in B$ tels que $d(a,b) \\leq d(A,B)+\\varepsilon$. Par inégalité triangulaire répétée, $d(x,y) \\leq d(x,a)+d(a,b)+d(b,y) \\leq \\operatorname{diam}(A) + (d(A,B)+\\varepsilon) + \\operatorname{diam}(B)$. Comme $\\varepsilon>0$ est arbitraire, $d(x,y) \\leq \\operatorname{diam}(A)+\\operatorname{diam}(B)+d(A,B)$. Dans tous les cas, $d(x,y)$ est majoré par cette quantité finie (car $A,B$ bornées), donc $A\\cup B$ est bornée et $\\operatorname{diam}(A\\cup B) \\leq \\operatorname{diam}(A)+\\operatorname{diam}(B)+d(A,B)$.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-1-e12",
+      question: "Soit $E=\\mathcal{C}([0,1],\\mathbb{R})$ et $d_\\infty(f,g) = \\sup_{t\\in[0,1]}|f(t)-g(t)|$. Vérifier que $d_\\infty$ est bien définie (finie) et que c'est une distance.",
+      type: "open",
+      modelAnswer: "Le sup est fini car f-g est continue sur le compact [0,1] donc bornée. Les trois axiomes de distance se vérifient comme pour la valeur absolue, point par point puis en passant au sup.",
+      explanation: "**Finitude :** $f,g$ continues sur $[0,1]$ compact, donc $f-g$ est continue sur $[0,1]$, donc bornée (théorème des bornes atteintes), donc le $\\sup_{t}|f(t)-g(t)|$ est bien un réel fini. **Séparation :** $d_\\infty(f,g)=0 \\iff \\sup_t|f(t)-g(t)|=0 \\iff \\forall t, f(t)=g(t) \\iff f=g$. **Symétrie :** évidente. **Inégalité triangulaire :** pour tout $t$, $|f(t)-h(t)| \\leq |f(t)-g(t)|+|g(t)-h(t)| \\leq d_\\infty(f,g)+d_\\infty(g,h)$ ; en passant au sup sur $t$ à gauche, $d_\\infty(f,h) \\leq d_\\infty(f,g)+d_\\infty(g,h)$. C'est la distance de la convergence uniforme, fondamentale en analyse fonctionnelle.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-1-e13",
+      question: "Soit $A\\subset E$ une partie non vide d'un espace métrique. Montrer que l'application $x \\mapsto d(x,A)$ est $1$-lipschitzienne, c'est-à-dire $|d(x,A)-d(y,A)| \\leq d(x,y)$ pour tous $x,y \\in E$.",
+      type: "open",
+      modelAnswer: "Pour tout a dans A, d(x,A) <= d(x,a) <= d(x,y)+d(y,a). En passant à l'inf sur a, d(x,A) <= d(x,y)+d(y,A). Par symétrie des rôles, d(y,A) <= d(x,y)+d(x,A). Les deux inégalités donnent le résultat.",
+      explanation: "Pour tout $a\\in A$, l'inégalité triangulaire donne $d(x,a) \\leq d(x,y)+d(y,a)$. Donc $d(x,A) \\leq d(x,a) \\leq d(x,y)+d(y,a)$ pour tout $a$ ; en passant à la borne inférieure sur $a\\in A$ dans le membre de droite, $d(x,A) \\leq d(x,y) + d(y,A)$. En échangeant les rôles de $x$ et $y$ (la situation est symétrique) : $d(y,A) \\leq d(x,y)+d(x,A)$. Ces deux inégalités se réécrivent $d(x,A)-d(y,A) \\leq d(x,y)$ et $d(y,A)-d(x,A) \\leq d(x,y)$, soit $|d(x,A)-d(y,A)|\\leq d(x,y)$. Cette propriété (la fonction distance à une partie est $1$-lipschitzienne, donc continue) est centrale pour la suite du cours de topologie.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-1-e14",
+      question: "Vrai ou faux : si $A$ et $B$ sont deux parties bornées de $(E,d)$ avec $A\\cap B \\neq \\emptyset$, alors $\\operatorname{diam}(A\\cup B) \\leq \\operatorname{diam}(A)+\\operatorname{diam}(B)$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Soit $c \\in A\\cap B$. Pour $x\\in A, y\\in B$ : $d(x,y) \\leq d(x,c)+d(c,y) \\leq \\operatorname{diam}(A)+\\operatorname{diam}(B)$ (car $x,c\\in A$ et $c,y\\in B$). Combiné aux cas $x,y$ tous deux dans $A$ ou tous deux dans $B$ (majorés respectivement par $\\operatorname{diam}(A)$ et $\\operatorname{diam}(B)$, donc par la somme), on obtient $\\operatorname{diam}(A\\cup B)\\leq\\operatorname{diam}(A)+\\operatorname{diam}(B)$. C'est un cas particulier (plus précis) de l'exercice avec $d(A,B)=0$ puisque $A\\cap B\\neq\\emptyset$.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-1-e15",
+      question: "Soit $E=\\mathbb{R}^2$. Construire un exemple de deux distances $d$ et $d'$ sur $E$ qui ne sont PAS équivalentes au sens où elles ne définissent pas la même notion de partie bornée (indication : utiliser une distance bornée du type $d'(x,y)=\\min(1,d_2(x,y))$ et comparer les parties bornées).",
+      type: "open",
+      modelAnswer: "Avec d'(x,y)=min(1,d2(x,y)), tout l'espace R^2 devient borné pour d' (diamètre <= 1) alors que R^2 n'est pas borné pour d2 (diamètre infini). d et d' sont topologiquement équivalentes (mêmes ouverts) mais pas équivalentes au sens des distances bornées/Lipschitz.",
+      explanation: "Posons $d'(x,y) = \\min(1, d_2(x,y))$. On vérifie que $d'$ est bien une distance (les axiomes se vérifient sans difficulté, l'inégalité triangulaire utilisant que $\\min(1,\\cdot)$ est sous-additive sur les sommes de réels positifs). Pour $d'$, l'espace $E=\\mathbb{R}^2$ tout entier est **borné** : $\\operatorname{diam}_{d'}(E) \\leq 1$, car $d'(x,y)\\leq1$ toujours. En revanche, pour $d_2$, $E$ n'est **pas borné** : $\\operatorname{diam}_{d_2}(E) = +\\infty$ (on peut prendre $x,y$ arbitrairement loin). Ainsi $d_2$ et $d'$ ne sont pas équivalentes au sens de la notion de partie bornée, même si elles engendrent les mêmes ouverts (même topologie) — ce qui montre que l'équivalence topologique (mêmes ouverts) est une notion strictement plus faible que l'équivalence métrique au sens de bi-lipschitzianité.",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "topo-l2-2",
+  slug: "ouverts-fermes-voisinages",
+  title: "Ouverts, fermés et voisinages",
+  durationMinutes: 55,
+  content: `## Ouverts, fermés et voisinages
+
+### 1. Parties ouvertes
+
+Soit $(E,d)$ un espace métrique. Une partie $U \\subset E$ est **ouverte** (ou un **ouvert**) si pour tout $x \\in U$, il existe $r>0$ tel que $B(x,r) \\subset U$. Intuitivement, autour de chaque point de $U$, il y a encore un peu de marge dans $U$.
+
+**Exemples :** toute boule ouverte $B(a,\\rho)$ est un ouvert (si $x\\in B(a,\\rho)$, poser $r=\\rho-d(a,x)>0$ ; pour $y\\in B(x,r)$, $d(a,y)\\leq d(a,x)+d(x,y) < d(a,x)+r=\\rho$, donc $y\\in B(a,\\rho)$). L'ensemble vide $\\emptyset$ et $E$ tout entier sont toujours ouverts.
+
+**Propriétés fondamentales :**
+1. Une **réunion quelconque** d'ouverts est un ouvert.
+2. Une **intersection finie** d'ouverts est un ouvert.
+
+*Preuve de 1 :* soit $(U_i)_{i\\in I}$ une famille d'ouverts, $U=\\bigcup_i U_i$, et $x\\in U$. Alors $x\\in U_{i_0}$ pour un certain $i_0$, donc il existe $r>0$ avec $B(x,r)\\subset U_{i_0} \\subset U$.
+
+*Preuve de 2 :* soient $U_1,\\ldots,U_n$ ouverts, $U=\\bigcap_{k=1}^n U_k$, et $x\\in U$. Pour chaque $k$, il existe $r_k>0$ avec $B(x,r_k)\\subset U_k$. Posons $r=\\min(r_1,\\ldots,r_n)>0$ (minimum d'un nombre **fini** de réels strictement positifs). Alors $B(x,r)\\subset B(x,r_k)\\subset U_k$ pour tout $k$, donc $B(x,r)\\subset U$.
+
+**Attention :** une intersection infinie d'ouverts n'est pas forcément ouverte. Exemple : $\\bigcap_{n\\geq1}\\,]-1/n,1/n[ = \\{0\\}$ dans $\\mathbb{R}$, qui n'est pas ouvert.
+
+### 2. Parties fermées
+
+Une partie $F \\subset E$ est **fermée** si son complémentaire $E\\setminus F$ est ouvert.
+
+**Exemples :** toute boule fermée $\\overline{B}(a,\\rho)$ est fermée. Un singleton $\\{a\\}$ est fermé. $\\emptyset$ et $E$ sont fermés (et ouverts).
+
+**Propriétés (duales des ouverts, par passage au complémentaire) :**
+1. Une **intersection quelconque** de fermés est fermée.
+2. Une **réunion finie** de fermés est fermée.
+
+**Attention :** une partie peut n'être ni ouverte ni fermée (ex : $[0,1[$ dans $\\mathbb{R}$), ou être à la fois ouverte et fermée (ex : $E$ tout entier, ou $\\emptyset$, ou dans l'espace discret, **toute** partie est à la fois ouverte et fermée).
+
+**Caractérisation séquentielle des fermés :** $F$ est fermée si et seulement si pour toute suite $(x_n)$ d'éléments de $F$ qui converge dans $E$ vers une limite $\\ell$, on a $\\ell \\in F$ (autrement dit, $F$ est "stable par passage à la limite").
+
+### 3. Intérieur et adhérence
+
+Soit $A \\subset E$ une partie quelconque.
+
+**Intérieur de $A$ :** $\\mathring{A}$ (ou $\\operatorname{int}(A)$) est le plus grand ouvert contenu dans $A$ : $\\mathring{A} = \\{x \\in A : \\exists r>0, B(x,r)\\subset A\\}$. C'est la réunion de tous les ouverts inclus dans $A$.
+
+**Adhérence de $A$ :** $\\overline{A}$ est le plus petit fermé contenant $A$ : $\\overline{A} = \\{x\\in E : \\forall r>0, B(x,r)\\cap A \\neq \\emptyset\\}$. C'est l'intersection de tous les fermés contenant $A$.
+
+**Lien avec la distance :** $x \\in \\overline{A} \\iff d(x,A)=0$. (C'est la propriété annoncée à la fin de la leçon précédente.)
+
+**Caractérisation séquentielle :** $x \\in \\overline{A}$ si et seulement s'il existe une suite $(a_n)$ d'éléments de $A$ telle que $a_n \\to x$.
+
+**Relation de dualité :** $E \\setminus \\overline{A} = \\operatorname{int}(E\\setminus A)$ et $E\\setminus\\mathring{A} = \\overline{E\\setminus A}$.
+
+**Exemple :** dans $\\mathbb{R}$, pour $A=\\,]0,1[$, on a $\\mathring{A}=\\,]0,1[$ (déjà ouvert) et $\\overline{A}=[0,1]$. Pour $A=\\mathbb{Q}$, $\\mathring{A}=\\emptyset$ (aucun intervalle ouvert n'est inclus dans $\\mathbb{Q}$) et $\\overline{A}=\\mathbb{R}$ (densité de $\\mathbb{Q}$ dans $\\mathbb{R}$).
+
+**Frontière :** $\\partial A = \\overline{A}\\setminus\\mathring{A}$. C'est l'ensemble des points "au bord" de $A$. Pour $A=\\,]0,1[$, $\\partial A=\\{0,1\\}$.
+
+### 4. Voisinages
+
+Une partie $V\\subset E$ est un **voisinage** du point $x$ si $V$ contient un ouvert contenant $x$ — de façon équivalente, s'il existe $r>0$ tel que $B(x,r)\\subset V$.
+
+**Remarque :** un ouvert $U$ est voisinage de chacun de ses points (c'est même la définition d'un ouvert reformulée). Un voisinage n'a pas besoin d'être ouvert lui-même : par exemple $[-1,1]$ est un voisinage de $0$ dans $\\mathbb{R}$ (il contient $B(0,1)=\\,]-1,1[$) bien qu'il ne soit pas ouvert.
+
+**Caractérisation de l'adhérence via les voisinages :** $x\\in\\overline{A}$ si et seulement si tout voisinage de $x$ rencontre $A$.
+
+### 5. Exemple résolu de synthèse
+
+**Énoncé :** Dans $\\mathbb{R}$, déterminer $\\mathring{A}$, $\\overline{A}$ et $\\partial A$ pour $A = \\,]0,1] \\cup \\{2\\}$.
+
+**Résolution :** L'intérieur : tout point de $]0,1[$ admet une boule (un intervalle) incluse dans $A$, donc $]0,1[\\subset\\mathring A$. Le point $1$ n'est pas intérieur : toute boule $]1-r,1+r[$ contient des points $>1$ qui ne sont pas dans $A$. Le point $2$ n'est pas non plus intérieur (c'est un point isolé). Donc $\\mathring{A}=\\,]0,1[$. L'adhérence : $\\overline{]0,1]} = [0,1]$ (il faut ajouter le point $0$, limite de points de $A$), et $\\{2\\}$ est déjà fermé. Donc $\\overline{A} = [0,1]\\cup\\{2\\}$. La frontière : $\\partial A = \\overline{A}\\setminus\\mathring{A} = \\{0,1,2\\}$.`,
+  exercises: [
+    {
+      id: "topo-l2-2-e1",
+      question: "Dans $\\mathbb{R}$, l'intervalle $[0,1[$ est-il ouvert, fermé, ni l'un ni l'autre ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "Ouvert" },
+        { id: "B", text: "Fermé" },
+        { id: "C", text: "Ni ouvert ni fermé" },
+        { id: "D", text: "Les deux à la fois" },
+      ],
+      correctId: "C",
+      explanation: "$[0,1[$ n'est pas ouvert car aucune boule centrée en $0$ n'est incluse dans $[0,1[$ (toute boule $]-r,r[$ contient des points négatifs). Il n'est pas fermé car son complémentaire $]-\\infty,0[\\cup[1,+\\infty[$ n'est pas ouvert (le point $1$ n'a pas de boule incluse dans ce complémentaire, puisque les points juste avant $1$ sont dans $[0,1[$).",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-2-e2",
+      question: "Vrai ou faux : une réunion infinie d'ouverts est toujours un ouvert.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est une propriété valable pour une réunion quelconque (finie ou infinie) d'ouverts, contrairement à l'intersection où seul le cas fini est garanti.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-2-e3",
+      question: "Vrai ou faux : une intersection infinie d'ouverts est toujours un ouvert.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Contre-exemple classique : $\\bigcap_{n\\geq1}\\,]-1/n,1/n[ = \\{0\\}$, qui n'est pas ouvert dans $\\mathbb{R}$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-2-e4",
+      question: "Dans $\\mathbb{R}$, que vaut l'adhérence $\\overline{\\mathbb{Q}}$ de l'ensemble des rationnels ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\mathbb{Q}$" },
+        { id: "B", text: "$\\mathbb{R}$" },
+        { id: "C", text: "$\\emptyset$" },
+        { id: "D", text: "$\\mathbb{Z}$" },
+      ],
+      correctId: "B",
+      explanation: "$\\mathbb{Q}$ est dense dans $\\mathbb{R}$ : tout réel est limite d'une suite de rationnels (par exemple ses troncatures décimales). Donc $\\overline{\\mathbb{Q}}=\\mathbb{R}$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-2-e5",
+      question: "Donner un exemple de partie de $\\mathbb{R}$ qui est à la fois ouverte et fermée, autre que $\\emptyset$ et $\\mathbb{R}$, ou justifier qu'il n'en existe pas.",
+      type: "open",
+      modelAnswer: "Il n'en existe pas d'autre dans R muni de la distance usuelle : R est connexe, donc les seules parties à la fois ouvertes et fermées sont l'ensemble vide et R tout entier.",
+      explanation: "Il n'existe pas d'autre exemple dans $(\\mathbb{R},|\\cdot|)$. C'est une conséquence du fait que $\\mathbb{R}$ est **connexe** (notion vue dans la leçon suivante) : dans un espace connexe, les seules parties simultanément ouvertes et fermées sont $\\emptyset$ et l'espace entier. (Dans un espace discret en revanche, toute partie est ouverte et fermée — la situation est très différente.)",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-2-e6",
+      question: "Déterminer l'intérieur, l'adhérence et la frontière de $A=\\mathbb{Z}$ dans $\\mathbb{R}$.",
+      type: "open",
+      modelAnswer: "Intérieur vide car aucun intervalle ouvert n'est inclus dans Z (entre deux entiers il y a toujours des non-entiers). Z est déjà fermé donc adhérence = Z. Frontière = adhérence moins intérieur = Z.",
+      explanation: "**Intérieur :** $\\mathring{\\mathbb{Z}}=\\emptyset$ car tout intervalle ouvert non vide contient des nombres non entiers, donc aucune boule n'est incluse dans $\\mathbb{Z}$. **Adhérence :** $\\mathbb{Z}$ est fermé (son complémentaire $\\bigcup_{n}\\,]n,n+1[$ est une réunion d'ouverts, donc ouvert), donc $\\overline{\\mathbb{Z}}=\\mathbb{Z}$. **Frontière :** $\\partial\\mathbb{Z}=\\overline{\\mathbb{Z}}\\setminus\\mathring{\\mathbb{Z}}=\\mathbb{Z}\\setminus\\emptyset=\\mathbb{Z}$. Chaque point de $\\mathbb{Z}$ est donc un point frontière, ce qui est cohérent avec l'intuition de points isolés.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-2-e7",
+      question: "Montrer que dans un espace métrique $(E,d)$, le singleton $\\{a\\}$ est toujours fermé.",
+      type: "open",
+      modelAnswer: "Le complémentaire de {a} est {x : x != a}. Pour tout x != a, on pose r = d(x,a) > 0 (par séparation) ; alors B(x,r) ne contient pas a (sinon d(x,a)<r=d(x,a), absurde), donc B(x,r) est incluse dans le complémentaire. Le complémentaire est donc ouvert, donc {a} est fermé.",
+      explanation: "Soit $x \\neq a$. Par séparation, $d(x,a)>0$ ; posons $r=d(x,a)$. Si $y\\in B(x,r)$, alors $d(x,y)<r=d(x,a)$, donc $y\\neq a$ (sinon $d(x,y)=d(x,a)=r$, ce qui contredirait $d(x,y)<r$). Ainsi $B(x,r)\\subset E\\setminus\\{a\\}$ : le complémentaire de $\\{a\\}$ est ouvert (chacun de ses points possède une boule incluse dans lui), donc $\\{a\\}$ est fermé.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-2-e8",
+      question: "Vrai ou faux : si $V$ est un voisinage de $x$ et $V\\subset W$, alors $W$ est aussi un voisinage de $x$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. $V$ voisinage de $x$ signifie qu'il existe $r>0$ avec $B(x,r)\\subset V$. Comme $V\\subset W$, on a aussi $B(x,r)\\subset W$, donc $W$ est un voisinage de $x$. Les voisinages d'un point forment un système stable par sur-ensemble.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-2-e9",
+      question: "Soit $A,B$ deux parties de $E$. Montrer que $\\overline{A\\cup B} = \\overline{A}\\cup\\overline{B}$.",
+      type: "open",
+      modelAnswer: "Inclusion directe : A union B inclus dans adhérence A union adhérence B (qui est fermé), donc l'adhérence de A union B (le plus petit fermé contenant A union B) est incluse dans cette réunion. Inclusion réciproque : adhérence(A) inclus adhérence(A union B) car A inclus A union B, de même pour B, donc la réunion des deux adhérences est incluse dans l'adhérence de l'union.",
+      explanation: "**Sens $\\subset$ :** $\\overline{A}\\cup\\overline{B}$ est une réunion finie de deux fermés, donc c'est un fermé contenant $A\\cup B$. Comme $\\overline{A\\cup B}$ est le **plus petit** fermé contenant $A\\cup B$, on a $\\overline{A\\cup B}\\subset\\overline{A}\\cup\\overline{B}$. **Sens $\\supset$ :** $A\\subset A\\cup B$ donc $\\overline{A}\\subset\\overline{A\\cup B}$ (l'adhérence est croissante pour l'inclusion, car le plus petit fermé contenant un sur-ensemble contient le plus petit fermé contenant le sous-ensemble). De même $\\overline{B}\\subset\\overline{A\\cup B}$. Donc $\\overline{A}\\cup\\overline{B}\\subset\\overline{A\\cup B}$. Les deux inclusions donnent l'égalité. (Attention : ce résultat est **faux** pour une réunion infinie, par exemple $\\overline{\\bigcup_n \\{1/n\\}} = \\{1/n : n\\geq1\\}\\cup\\{0\\}$ alors que $\\bigcup_n\\overline{\\{1/n\\}}=\\{1/n:n\\geq1\\}$ ne contient pas $0$.)",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-2-e10",
+      question: "Montrer que $\\mathring{A}\\cap\\mathring{B} = \\operatorname{int}(A\\cap B)$ pour toutes parties $A,B$ de $E$.",
+      type: "open",
+      modelAnswer: "int(A inter B) inclus dans int(A) inter int(B) car A inter B inclus dans A et dans B (croissance de int). Réciproquement, int(A) inter int(B) est un ouvert (intersection finie d'ouverts) inclus dans A inter B, donc inclus dans le plus grand ouvert inclus dans A inter B, qui est int(A inter B).",
+      explanation: "**Sens $\\subset$ :** comme $A\\cap B\\subset A$, on a $\\operatorname{int}(A\\cap B)\\subset\\mathring A$ (croissance de l'opérateur intérieur). De même $\\operatorname{int}(A\\cap B)\\subset\\mathring B$. Donc $\\operatorname{int}(A\\cap B)\\subset\\mathring A\\cap\\mathring B$. **Sens $\\supset$ :** $\\mathring A\\cap\\mathring B$ est une intersection **finie** de deux ouverts, donc c'est un ouvert. Il est inclus dans $A\\cap B$ (car $\\mathring A\\subset A$ et $\\mathring B\\subset B$). Comme $\\operatorname{int}(A\\cap B)$ est le plus grand ouvert inclus dans $A\\cap B$, on a $\\mathring A\\cap\\mathring B\\subset\\operatorname{int}(A\\cap B)$. D'où l'égalité (contrairement à la réunion, ce résultat est valable même si l'on remplace l'intersection finie par une intersection... non, attention, ceci reste vrai seulement pour un nombre fini d'ensembles, par dualité avec le résultat sur $\\overline{A\\cup B}$).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-2-e11",
+      question: "Soit $A\\subset E$. Montrer que $\\partial A = \\partial(E\\setminus A)$ (la frontière d'un ensemble égale la frontière de son complémentaire).",
+      type: "open",
+      modelAnswer: "Frontière de A = adhérence(A) moins intérieur(A). Par dualité, intérieur(A) = E moins adhérence(complémentaire de A), et adhérence(A) = E moins intérieur(complémentaire de A). On réinjecte et on simplifie : frontière(A) = adhérence(complémentaire(A)) moins intérieur(complémentaire(A)) = frontière(complémentaire(A)).",
+      explanation: "Rappel des relations de dualité : $\\overline{A} = E\\setminus\\operatorname{int}(E\\setminus A)$ et $\\mathring{A} = E\\setminus\\overline{E\\setminus A}$. Alors $\\partial A = \\overline{A}\\setminus\\mathring{A} = \\overline{A}\\cap(E\\setminus\\mathring{A}) = \\overline{A}\\cap\\overline{E\\setminus A}$ (en utilisant $E\\setminus\\mathring A=\\overline{E\\setminus A}$). Cette expression est symétrique en $A$ et $E\\setminus A$ : $\\overline{A}\\cap\\overline{E\\setminus A} = \\overline{E\\setminus A}\\cap\\overline{E\\setminus(E\\setminus A)} = \\partial(E\\setminus A)$. Donc $\\partial A=\\partial(E\\setminus A)$. Intuitivement, la frontière sépare $A$ de son complémentaire, donc elle est commune aux deux.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-2-e12",
+      question: "Vrai ou faux : $x \\in \\mathring A$ si et seulement si $A$ est un voisinage de $x$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Par définition, $A$ est un voisinage de $x$ s'il existe $r>0$ tel que $B(x,r)\\subset A$ — c'est exactement la définition de $x\\in\\mathring A$. Les deux notions coïncident.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-2-e13",
+      question: "Soit $E=\\mathbb{R}^2$ et $A=\\{(x,y) : x^2+y^2<1\\}$ (disque ouvert unité). Déterminer $\\partial A$.",
+      type: "open",
+      modelAnswer: "A est déjà ouvert donc int(A)=A. Son adhérence est le disque fermé. La frontière est le disque fermé moins le disque ouvert, c'est-à-dire le cercle unité x^2+y^2=1.",
+      explanation: "$A$ est ouvert (boule ouverte pour $d_2$), donc $\\mathring A=A$. Son adhérence est $\\overline{A}=\\{(x,y):x^2+y^2\\leq1\\}$ (le disque fermé : tout point du cercle est limite de points de $A$, par exemple en suivant le rayon depuis l'origine). Donc $\\partial A=\\overline{A}\\setminus\\mathring A=\\{(x,y):x^2+y^2=1\\}$, le cercle unité — conforme à l'intuition géométrique de « bord » du disque.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-2-e14",
+      question: "Montrer que dans l'espace discret $(E,d)$ (où $d(x,y)=1$ pour $x\\neq y$), toute partie $A\\subset E$ est à la fois ouverte et fermée.",
+      type: "open",
+      modelAnswer: "Pour tout x de A, la boule B(x,1/2) = {x} (puisque toute distance à un autre point vaut 1 > 1/2) est incluse dans A. Donc A est ouvert. Comme ceci vaut pour toute partie, le complémentaire de A est aussi ouvert, donc A est fermé.",
+      explanation: "Soit $x \\in A$. La boule $B(x,1/2) = \\{y : d(x,y)<1/2\\}$. Or pour $y\\neq x$, $d(x,y)=1 \\not<1/2$. Donc $B(x,1/2)=\\{x\\}\\subset A$. Ceci montre que $A$ est ouvert, quel que soit $A$. Comme tout sous-ensemble de $E$ est ouvert, en particulier $E\\setminus A$ est ouvert, donc $A$ est aussi fermé. Conclusion : dans l'espace discret, **toutes** les parties sont simultanément ouvertes et fermées — la topologie discrète est l'opposé de la topologie connexe de $\\mathbb{R}$.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-2-e15",
+      question: "Soit $(F_n)_{n\\geq1}$ une suite de fermés non vides de $\\mathbb{R}$, emboîtés ($F_{n+1}\\subset F_n$) et bornés, avec $\\operatorname{diam}(F_n)\\to0$. Que peut-on dire de $\\bigcap_{n\\geq1}F_n$ ? (Théorème des fermés emboîtés, admis pour $\\mathbb{R}$ complet.)",
+      type: "open",
+      modelAnswer: "L'intersection est un singleton (un seul point). C'est le théorème des fermés emboîtés, conséquence de la complétude de R : les fermés non vides, emboîtés, de diamètre tendant vers 0, ont une intersection réduite à exactement un point.",
+      explanation: "$\\bigcap_{n\\geq1}F_n$ est réduite à **exactement un point**. C'est le théorème des fermés emboîtés (ou théorème de Cantor), valable car $\\mathbb{R}$ est **complet**. Idée de preuve : on choisit $x_n\\in F_n$ pour chaque $n$ ; comme $F_n$ sont emboîtés et de diamètre tendant vers $0$, $(x_n)$ est une suite de Cauchy, donc converge (complétude) vers une limite $\\ell$. Comme chaque $F_n$ est fermé et contient $x_k$ pour tout $k\\geq n$, on a $\\ell\\in F_n$ pour tout $n$ (caractérisation séquentielle des fermés), donc $\\ell\\in\\bigcap_n F_n$. L'unicité vient du diamètre qui tend vers $0$ : deux points de l'intersection seraient à distance $\\leq\\operatorname{diam}(F_n)$ pour tout $n$, donc à distance $0$. Ce théorème est l'un des outils centraux qui permettront de prouver la compacité des fermés bornés de $\\mathbb{R}^n$ dans la leçon suivante.",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "topo-l2-3",
+  slug: "compacite-et-connexite",
+  title: "Compacité et connexité",
+  durationMinutes: 55,
+  content: `## Compacité et connexité
+
+### 1. Compacité séquentielle
+
+Soit $(E,d)$ un espace métrique. Une partie $K\\subset E$ est **compacte** (au sens séquentiel — c'est l'approche la plus pédagogique en espace métrique, équivalente à la compacité par recouvrements ouverts) si **toute suite d'éléments de $K$ admet une sous-suite convergeant vers un élément de $K$**.
+
+**Définition par recouvrements (équivalente, pour information) :** $K$ est compacte si de tout recouvrement de $K$ par des ouverts, on peut extraire un sous-recouvrement **fini**. En dimension finie, les deux définitions coïncident (théorème de Borel-Lebesgue) ; nous privilégions ici la formulation séquentielle, plus maniable au niveau L2.
+
+**Propriété immédiate :** un compact est nécessairement **fermé** et **borné**.
+
+*Idée de preuve (fermé) :* si $x_n\\in K$ converge vers $\\ell\\in E$, alors toute sous-suite converge aussi vers $\\ell$ ; par compacité une sous-suite converge vers un élément de $K$, donc $\\ell\\in K$ par unicité de la limite. *Idée de preuve (borné) :* si $K$ n'était pas bornée, on pourrait construire une suite $(x_n)$ de $K$ avec $d(x_n,x_0)\\to\\infty$, qui n'admettrait alors aucune sous-suite convergente.
+
+### 2. Théorème de Heine-Borel (admis)
+
+**Théorème (Heine-Borel, cas $\\mathbb{R}^n$) :** une partie $K\\subset\\mathbb{R}^n$ est compacte si et seulement si elle est **fermée et bornée**.
+
+C'est un résultat spécifique à la dimension finie (et plus généralement à $\\mathbb{R}^n$ muni de la distance euclidienne, ou de toute distance équivalente comme $d_1,d_2,d_\\infty$) : en dimension infinie, fermé + borné ne suffit plus à garantir la compacité.
+
+**Théorème de Bolzano-Weierstrass (admis) :** toute suite bornée de $\\mathbb{R}^n$ admet une sous-suite convergente. C'est essentiellement le cœur de la preuve de Heine-Borel : sur un fermé borné, toute suite est bornée donc (Bolzano-Weierstrass) admet une sous-suite convergente, dont la limite reste dans le fermé.
+
+**Exemples :** $[0,1]$, $[a,b]$, toute boule fermée $\\overline{B}(x_0,r)$ dans $\\mathbb{R}^n$, tout ensemble fini, sont compacts. En revanche, $\\mathbb{R}$ n'est pas compact (non borné), $]0,1[$ n'est pas compact (non fermé : la suite $1/n\\to0\\notin\\,]0,1[$ n'a pas de sous-suite convergeant **dans** $]0,1[$), $\\mathbb{Q}\\cap[0,1]$ n'est pas compact (non fermé dans $\\mathbb{R}$, bien que borné).
+
+### 3. Propriétés des compacts
+
+**Image continue d'un compact :** si $f:K\\to F$ est continue et $K$ compact, alors $f(K)$ est compact. En particulier, si $f:K\\to\\mathbb{R}$ est continue sur un compact, $f$ est **bornée et atteint ses bornes** (théorème des bornes atteintes, généralisation du résultat connu sur $[a,b]$).
+
+**Intersection et réunion :** une intersection quelconque de compacts est compacte (c'est un fermé inclus dans un compact donné, donc borné). Une réunion **finie** de compacts est compacte.
+
+### 4. Connexité
+
+Une partie $A\\subset E$ (ou l'espace $E$ tout entier) est **connexe** si elle ne peut pas s'écrire comme réunion de deux ouverts (relatifs à $A$) non vides et disjoints. De façon équivalente, $A$ est connexe si les seules parties de $A$ à la fois ouvertes et fermées dans $A$ sont $\\emptyset$ et $A$ lui-même.
+
+**Intuition :** un connexe est "fait d'un seul morceau", on ne peut pas le séparer en deux ouverts disjoints non vides.
+
+**Théorème :** les parties connexes de $\\mathbb{R}$ sont exactement les **intervalles** (y compris $\\mathbb{R}$, les demi-droites, les singletons, $\\emptyset$).
+
+*Idée de preuve (intervalle $\\Rightarrow$ connexe) :* si $I$ n'était pas connexe, $I=U_1\\cup U_2$ avec $U_1,U_2$ ouverts relatifs non vides disjoints. En prenant $a\\in U_1$, $b\\in U_2$ (disons $a<b$), et $c=\\sup\\{x\\in[a,b]: x\\in U_1\\}$, on montre que $c$ ne peut être ni dans $U_1$ ni dans $U_2$, contredisant $c\\in I=U_1\\cup U_2$ (c'est l'argument standard utilisant la propriété de la borne supérieure de $\\mathbb{R}$). *Idée de preuve (non-intervalle $\\Rightarrow$ non connexe) :* si $A$ n'est pas un intervalle, il existe $a<c<b$ avec $a,b\\in A$ et $c\\notin A$ ; alors $A\\cap\\,]-\\infty,c[$ et $A\\cap\\,]c,+\\infty[$ forment une partition de $A$ en deux ouverts relatifs non vides disjoints.
+
+**Image continue d'un connexe :** si $f$ est continue sur $A$ connexe, alors $f(A)$ est connexe. C'est la formulation topologique du **théorème des valeurs intermédiaires** : l'image d'un intervalle par une fonction continue est un intervalle.
+
+### 5. Connexité par arcs (notion complémentaire)
+
+$A$ est **connexe par arcs** si pour tous $x,y\\in A$, il existe un chemin continu $\\gamma:[0,1]\\to A$ avec $\\gamma(0)=x$, $\\gamma(1)=y$. La connexité par arcs implique la connexité (mais la réciproque est fausse en général — exemple classique : le "peigne du topologue", hors-programme ici). Pour les parties usuelles de $\\mathbb{R}^n$ (ouverts, convexes), les deux notions coïncident en pratique.
+
+### 6. Exemple résolu de synthèse
+
+**Énoncé :** $A=[0,1]\\cup[2,3]\\subset\\mathbb{R}$ est-il compact ? Est-il connexe ?
+
+**Résolution :** $A$ est **compact** : c'est une réunion finie de deux compacts $[0,1]$ et $[2,3]$ (fermés bornés de $\\mathbb{R}$, donc compacts par Heine-Borel), donc $A$ est compact (réunion finie de compacts). En revanche $A$ n'est **pas connexe** : $A = (A\\cap\\,]-1,1{,}5[) \\cup (A\\cap\\,]1{,}5,4[) = [0,1]\\cup[2,3]$, qui sont deux ouverts relatifs de $A$, non vides, disjoints. $A$ n'est d'ailleurs pas un intervalle, ce qui confirme par le théorème de caractérisation qu'il n'est pas connexe.`,
+  exercises: [
+    {
+      id: "topo-l2-3-e1",
+      question: "Parmi les parties suivantes de $\\mathbb{R}$, laquelle est compacte ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$]0,1[$" },
+        { id: "B", text: "$\\mathbb{R}$" },
+        { id: "C", text: "$[0,1]$" },
+        { id: "D", text: "$\\mathbb{Q}\\cap[0,1]$" },
+      ],
+      correctId: "C",
+      explanation: "$[0,1]$ est fermé et borné, donc compact par Heine-Borel. $]0,1[$ n'est pas fermé, $\\mathbb{R}$ n'est pas borné, $\\mathbb{Q}\\cap[0,1]$ n'est pas fermé dans $\\mathbb{R}$ (son adhérence est $[0,1]$, plus grande).",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-3-e2",
+      question: "Vrai ou faux : tout compact est fermé et borné.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai, c'est une propriété générale des compacts dans tout espace métrique (la réciproque, elle, n'est vraie qu'en dimension finie, par le théorème de Heine-Borel).",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-3-e3",
+      question: "L'intervalle $]0,2]$ est-il un connexe de $\\mathbb{R}$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "Oui, car c'est un intervalle" },
+        { id: "B", text: "Non, car il n'est pas fermé" },
+        { id: "C", text: "Non, car il n'est pas borné" },
+        { id: "D", text: "Oui, mais seulement s'il est compact" },
+      ],
+      correctId: "A",
+      explanation: "Les parties connexes de $\\mathbb{R}$ sont exactement les intervalles, qu'ils soient ouverts, fermés, semi-ouverts ou non bornés. $]0,2]$ est un intervalle, donc il est connexe — la connexité ne dépend pas du caractère ouvert/fermé/compact.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-3-e4",
+      question: "Vrai ou faux : $\\{0,1\\}\\subset\\mathbb{R}$ (muni de la distance usuelle) est connexe.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. $\\{0,1\\}$ n'est pas un intervalle (il manque tous les réels entre $0$ et $1$), donc il n'est pas connexe : on peut le séparer en $\\{0\\}=\\{0,1\\}\\cap\\,]-1,0{,}5[$ et $\\{1\\}=\\{0,1\\}\\cap\\,]0{,}5,2[$, deux ouverts relatifs disjoints non vides.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-3-e5",
+      question: "Une fonction continue $f:[0,1]\\to\\mathbb{R}$ est-elle nécessairement bornée et atteint-elle ses bornes ?",
+      type: "open",
+      modelAnswer: "Oui, car [0,1] est compact (fermé borné dans R) et l'image continue d'un compact est compacte ; un compact de R est fermé et borné, donc f([0,1]) est fermé borné, donc contient son sup et son inf : les bornes sont atteintes.",
+      explanation: "Oui. $[0,1]$ est compact (Heine-Borel : fermé et borné). L'image continue d'un compact est compacte, donc $f([0,1])$ est un compact de $\\mathbb{R}$, donc fermé et borné. Étant fermé et borné, $f([0,1])$ contient $\\sup f([0,1])$ et $\\inf f([0,1])$ (un fermé borné non vide de $\\mathbb{R}$ contient toujours son sup et son inf). Donc $f$ est bornée et atteint ses deux bornes : c'est le théorème des bornes atteintes.",
+      difficulty: "debutant",
+    },
+    {
+      id: "topo-l2-3-e6",
+      question: "Montrer que $A=\\{1/n : n\\geq1\\}\\subset\\mathbb{R}$ n'est pas compact, mais que $A\\cup\\{0\\}$ l'est.",
+      type: "open",
+      modelAnswer: "A n'est pas fermé car la suite 1/n converge vers 0 qui n'appartient pas à A, donc A n'est pas compact. A union {0} est fermé (on a ajouté l'unique point limite manquant) et borné (inclus dans [0,1]), donc compact par Heine-Borel.",
+      explanation: "**$A$ n'est pas compact :** la suite $(1/n)_{n\\geq1}$ est à valeurs dans $A$ et converge vers $0$ dans $\\mathbb{R}$, mais $0\\notin A$. Aucune sous-suite de $(1/n)$ ne peut donc converger vers un élément de $A$ (toute sous-suite d'une suite convergente converge vers la même limite $0$). Donc $A$ n'est pas séquentiellement compact ; de façon équivalente $A$ n'est pas fermé. **$A\\cup\\{0\\}$ est compact :** il est borné (inclus dans $[0,1]$) et fermé (on a ajouté le seul point d'accumulation manquant, donc toute suite convergente d'éléments de $A\\cup\\{0\\}$ a sa limite dans $A\\cup\\{0\\}$). Par Heine-Borel, $A\\cup\\{0\\}$ est compact.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-3-e7",
+      question: "Vrai ou faux : une réunion infinie de compacts de $\\mathbb{R}$ est toujours compacte.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Seule une réunion **finie** de compacts est garantie compacte. Contre-exemple : $\\bigcup_{n\\geq1}[n,n+1]$ (réunion infinie de segments compacts) n'est pas bornée, donc pas compacte.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-3-e8",
+      question: "L'ensemble $K=\\{(x,y)\\in\\mathbb{R}^2 : x^2+y^2\\leq4\\}$ est-il compact ? Justifier par Heine-Borel.",
+      type: "open",
+      modelAnswer: "Oui. K est fermé (c'est l'image réciproque du fermé [0,4] par la fonction continue (x,y)->x^2+y^2) et borné (inclus dans la boule de rayon 2). Par Heine-Borel dans R^2, K est donc compact.",
+      explanation: "$K$ est le disque fermé de rayon $2$. **Fermé :** $K$ est l'image réciproque de $[0,4]$ (fermé de $\\mathbb{R}$) par l'application continue $(x,y)\\mapsto x^2+y^2$, donc $K$ est fermé. **Borné :** pour $(x,y)\\in K$, $d_2((x,y),(0,0))=\\sqrt{x^2+y^2}\\leq2$, donc $K\\subset\\overline{B}(0,2)$ : $K$ est borné. Par le théorème de Heine-Borel (valable dans $\\mathbb{R}^n$, ici $n=2$), fermé + borné $\\Rightarrow$ compact. Donc $K$ est compact.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-3-e9",
+      question: "Pourquoi le théorème de Heine-Borel (fermé+borné $\\iff$ compact) est-il spécifique à la dimension finie ?",
+      type: "open",
+      modelAnswer: "En dimension infinie, il existe des parties fermées et bornées qui ne sont pas compactes, par exemple la boule unité fermée d'un espace de fonctions continues n'est pas compacte (on peut y construire des suites sans sous-suite convergente). Ce résultat (théorème de Riesz) montre que fermé+borné n'implique compacité qu'en dimension finie.",
+      explanation: "En dimension infinie, le théorème de Riesz affirme que la boule unité fermée d'un espace vectoriel normé n'est compacte que si l'espace est de dimension finie. Par exemple, dans $\\mathcal C([0,1],\\mathbb R)$ muni de $\\|\\cdot\\|_\\infty$, on peut construire une suite de fonctions dans la boule unité fermée qui n'admet aucune sous-suite convergente (pas assez de \\\"place\\\" pour que les suites s'accumulent, contrairement à $\\mathbb{R}^n$ où Bolzano-Weierstrass garantit toujours une sous-suite convergente pour une suite bornée). C'est pourquoi le programme de L3 (analyse fonctionnelle) doit redéfinir des notions de compacité plus fines (compacité faible, etc.) en dimension infinie.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-3-e10",
+      question: "Montrer que si $K_1,K_2$ sont compacts dans $(E,d)$, alors $K_1\\cup K_2$ est compact (en utilisant la définition séquentielle).",
+      type: "open",
+      modelAnswer: "Soit (x_n) une suite de K1 union K2. L'un des deux ensembles contient une infinité de termes de la suite (principe des tiroirs), donc on peut extraire une sous-suite à valeurs dans ce compact, qui admet alors une sous-sous-suite convergente vers un élément de ce compact, donc de K1 union K2.",
+      explanation: "Soit $(x_n)$ une suite à valeurs dans $K_1\\cup K_2$. Par le principe des tiroirs, au moins l'un des deux ensembles, disons $K_1$, contient une infinité de termes $x_{n_k}$ de la suite. On extrait ainsi une sous-suite $(x_{n_k})$ à valeurs dans $K_1$. Comme $K_1$ est compact, cette sous-suite admet elle-même une sous-suite $(x_{n_{k_j}})$ convergente vers un élément de $K_1\\subset K_1\\cup K_2$. On a donc extrait de $(x_n)$ une sous-suite convergente vers un élément de $K_1\\cup K_2$. Ceci étant vrai pour toute suite de $K_1\\cup K_2$, l'ensemble est (séquentiellement) compact.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "topo-l2-3-e11",
+      question: "Soit $f:\\mathbb{R}\\to\\mathbb{R}$ continue. Montrer que $f(\\mathbb{R})$ est un intervalle (utiliser la connexité).",
+      type: "open",
+      modelAnswer: "R est connexe (c'est un intervalle). L'image continue d'un connexe est connexe, donc f(R) est connexe dans R. Les connexes de R sont exactement les intervalles, donc f(R) est un intervalle.",
+      explanation: "$\\mathbb{R}$ est un intervalle, donc connexe (théorème de caractérisation des connexes de $\\mathbb{R}$). Par le théorème \\\"image continue d'un connexe est connexe\\\", $f(\\mathbb{R})$ est une partie connexe de $\\mathbb{R}$. Or les parties connexes de $\\mathbb{R}$ sont exactement les intervalles. Donc $f(\\mathbb{R})$ est un intervalle. C'est une reformulation purement topologique du théorème des valeurs intermédiaires : $f$ ne peut pas \\\"sauter\\\" de valeurs.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-3-e12",
+      question: "Vrai ou faux : si $A$ et $B$ sont deux parties connexes de $\\mathbb{R}^n$ avec $A\\cap B\\neq\\emptyset$, alors $A\\cup B$ est connexe.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est une propriété générale de la connexité : deux connexes d'intersection non vide ont une réunion connexe. Intuitivement, le point commun \\\"relie\\\" les deux morceaux, empêchant toute séparation en deux ouverts disjoints non vides de $A\\cup B$.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-3-e13",
+      question: "Le groupe des matrices orthogonales $O(2)=\\{M\\in\\mathcal{M}_2(\\mathbb{R}) : M^TM=I\\}$ est-il compact ? Est-il connexe ?",
+      type: "open",
+      modelAnswer: "O(2) est compact : fermé (défini par une égalité de matrices, donc image réciproque d'un fermé par une application continue) et borné (les coefficients des matrices orthogonales sont bornés par 1). Il n'est pas connexe : il a deux composantes, les rotations (déterminant +1) et les réflexions (déterminant -1), qui forment deux fermés disjoints non vides dont la réunion est O(2).",
+      explanation: "**Compact :** $O(2)$ est l'image réciproque de la matrice identité $I$ par l'application continue $M\\mapsto M^TM$, donc $O(2)$ est fermé dans $\\mathcal M_2(\\mathbb R)\\cong\\mathbb R^4$. Il est borné car les colonnes de $M\\in O(2)$ sont des vecteurs unitaires, donc les coefficients de $M$ sont bornés par $1$. Par Heine-Borel (dans $\\mathbb R^4$), $O(2)$ est compact. **Non connexe :** l'application $\\det:O(2)\\to\\mathbb R$ est continue et ne prend que les valeurs $+1$ (rotations $SO(2)$) ou $-1$ (réflexions). Si $O(2)$ était connexe, son image par $\\det$ (continue) serait un intervalle, or $\\{-1,+1\\}$ n'est pas un intervalle — contradiction. Donc $O(2)$ n'est pas connexe ; il a exactement deux composantes connexes, $SO(2)$ et son complémentaire.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-3-e14",
+      question: "Soit $K$ un compact non vide de $\\mathbb{R}$. Montrer que $\\sup K$ et $\\inf K$ appartiennent à $K$.",
+      type: "open",
+      modelAnswer: "K est borné donc sup K et inf K existent dans R. Par définition du sup, il existe une suite de K convergeant vers sup K. K étant fermé (car compact), cette limite appartient à K. Même raisonnement pour inf K.",
+      explanation: "$K$ compact $\\Rightarrow$ $K$ fermé et borné, donc $\\sup K$ et $\\inf K$ existent (borne supérieure/inférieure d'un ensemble borné non vide de $\\mathbb{R}$). Par caractérisation du sup, pour tout $\\varepsilon=1/n$, il existe $x_n\\in K$ avec $\\sup K - 1/n < x_n \\leq \\sup K$. La suite $(x_n)$ converge donc vers $\\sup K$. Comme $K$ est fermé, et que $(x_n)$ est une suite de $K$ convergente (dans $\\mathbb{R}$), sa limite $\\sup K$ appartient à $K$ (caractérisation séquentielle des fermés). Même argument pour $\\inf K$.",
+      difficulty: "expert",
+    },
+    {
+      id: "topo-l2-3-e15",
+      question: "Donner un exemple de partie de $\\mathbb{R}^2$ qui est connexe mais pas compacte, et un exemple qui est compacte mais pas connexe.",
+      type: "open",
+      modelAnswer: "Connexe non compacte : R^2 tout entier, ou une droite, ou un disque ouvert (connexe car convexe, non compacte car non fermée ou non bornée). Compacte non connexe : deux disques fermés disjoints, par exemple la réunion de la boule fermée centrée en (0,0) de rayon 1 et de la boule fermée centrée en (10,0) de rayon 1.",
+      explanation: "**Connexe non compacte :** le disque ouvert $B((0,0),1)\\subset\\mathbb{R}^2$. Il est connexe (convexe, donc connexe par arcs, donc connexe), mais non compact car non fermé (la suite $(1-1/n,0)$ converge vers $(1,0)$, hors du disque ouvert). Autre exemple plus simple : $\\mathbb{R}^2$ tout entier, connexe mais non borné donc non compact. **Compacte non connexe :** $K=\\overline{B}((0,0),1)\\cup\\overline{B}((10,0),1)$, réunion de deux disques fermés disjoints et bien séparés. $K$ est compact (réunion finie de compacts), mais non connexe : on peut séparer $K$ en deux ouverts relatifs disjoints non vides, par exemple via les ouverts $\\{x<5\\}$ et $\\{x>5\\}$ de $\\mathbb{R}^2$ intersectés avec $K$.",
+      difficulty: "expert",
+    },
+  ],
+},
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L2 — Analyse : Calcul différentiel (plusieurs variables)
+  // ─────────────────────────────────────────────
+  {
+    id: "calcul-diff-l2",
+    slug: "calcul-diff-l2-fonctions-plusieurs-variables",
+    title: "Calcul différentiel L2 — Fonctions de plusieurs variables et optimisation",
+    description: "Dérivées partielles, gradient, matrice hessienne et extrema libres ou liés (multiplicateurs de Lagrange) pour les fonctions de plusieurs variables.",
+    schoolLevel: "L2",
+    subject: "analyse",
+    difficulty: "Intermédiaire",
+    isFree: false,
+    thumbnailEmoji: "∇",
+    lessons: [
+      {
+  id: "cd-l2-1",
+  slug: "derivees-partielles-et-gradient",
+  title: "Dérivées partielles et gradient",
+  durationMinutes: 50,
+  content: `## Dérivées partielles et gradient
+
+### 1. Fonctions de plusieurs variables
+
+On étudie ici des fonctions $f:\\mathbb{R}^n\\to\\mathbb{R}$, le plus souvent $n=2$ ou $n=3$ pour fixer les idées (par exemple $f(x,y)$ ou $f(x,y,z)$). Une telle fonction associe un nombre réel à un point de $\\mathbb{R}^n$ — pensez à une altitude $f(x,y)$ au-dessus d'un point $(x,y)$ d'une carte.
+
+### 2. Dérivée partielle
+
+Soit $f:\\mathbb{R}^2\\to\\mathbb{R}$ et $(a,b)\\in\\mathbb{R}^2$. La **dérivée partielle de $f$ par rapport à $x$** en $(a,b)$ est
+$$\\frac{\\partial f}{\\partial x}(a,b) = \\lim_{h\\to0} \\frac{f(a+h,b)-f(a,b)}{h}$$
+quand cette limite existe. C'est la dérivée usuelle de la fonction d'une seule variable $x\\mapsto f(x,b)$ obtenue en **figeant** $y=b$. De même pour $\\frac{\\partial f}{\\partial y}(a,b)$, en figeant $x=a$.
+
+**Méthode pratique :** pour calculer $\\partial f/\\partial x$, on dérive $f$ par rapport à $x$ en traitant $y$ (et les autres variables) comme des constantes.
+
+**Exemple :** $f(x,y) = x^2y + 3y^3$. On a $\\dfrac{\\partial f}{\\partial x} = 2xy$ (on dérive $x^2y$ comme $x^2\\times(\\text{constante } y)$, et $3y^3$ est constant en $x$ donc sa dérivée par rapport à $x$ est nulle). Et $\\dfrac{\\partial f}{\\partial y} = x^2 + 9y^2$ (on dérive $x^2y$ comme $(\\text{constante } x^2)\\times y$, et $3y^3$ donne $9y^2$).
+
+### 3. Le vecteur gradient
+
+Le **gradient** de $f:\\mathbb{R}^n\\to\\mathbb{R}$ en un point $a$, lorsque toutes les dérivées partielles existent, est le vecteur
+$$\\nabla f(a) = \\left(\\frac{\\partial f}{\\partial x_1}(a), \\ldots, \\frac{\\partial f}{\\partial x_n}(a)\\right)$$
+Pour $n=2$ : $\\nabla f(a,b) = \\left(\\dfrac{\\partial f}{\\partial x}(a,b), \\dfrac{\\partial f}{\\partial y}(a,b)\\right)$.
+
+**Exemple (suite) :** pour $f(x,y)=x^2y+3y^3$, $\\nabla f(x,y) = (2xy,\\, x^2+9y^2)$. Au point $(1,2)$ : $\\nabla f(1,2) = (2\\times1\\times2,\\, 1+9\\times4) = (4, 37)$.
+
+### 4. Interprétation géométrique du gradient
+
+**Direction de plus forte pente :** $\\nabla f(a)$ pointe dans la direction où $f$ croît le plus rapidement au voisinage de $a$, et $\\|\\nabla f(a)\\|$ mesure cette pente maximale. C'est pourquoi en optimisation, on utilise l'algorithme de "descente de gradient" : pour minimiser $f$, on se déplace dans la direction $-\\nabla f$.
+
+**Dérivée directionnelle :** dans une direction unitaire $\\vec{u}$, le taux de variation de $f$ en $a$ est
+$$D_{\\vec u}f(a) = \\nabla f(a)\\cdot \\vec u$$
+(produit scalaire). Cette quantité est maximale (égale à $\\|\\nabla f(a)\\|$) lorsque $\\vec u$ est colinéaire à $\\nabla f(a)$ et de même sens, et minimale (vaut $-\\|\\nabla f(a)\\|$) dans le sens opposé.
+
+**Lien avec les lignes de niveau :** le gradient $\\nabla f(a)$ est orthogonal à la ligne (ou surface) de niveau de $f$ passant par $a$, c'est-à-dire à l'ensemble $\\{x : f(x)=f(a)\\}$.
+
+### 5. Différentiabilité
+
+$f$ est **différentiable en $a$** s'il existe une application linéaire $L:\\mathbb{R}^n\\to\\mathbb{R}$ (nécessairement $L(h) = \\nabla f(a)\\cdot h$ si elle existe) telle que
+$$f(a+h) = f(a) + L(h) + o(\\|h\\|) \\quad \\text{quand } h\\to0$$
+Autrement dit, $f$ admet une "meilleure approximation affine" au voisinage de $a$ : le plan tangent au graphe de $f$ en $a$.
+
+**Lien différentiabilité $\\Leftrightarrow$ dérivées partielles :**
+- Si $f$ est différentiable en $a$, alors $f$ admet toutes ses dérivées partielles en $a$, et $L(h)=\\nabla f(a)\\cdot h$.
+- La réciproque est **fausse** en général : l'existence des dérivées partielles n'entraîne pas la différentiabilité.
+- **Théorème (condition suffisante pratique) :** si les dérivées partielles de $f$ existent et sont **continues** sur un voisinage de $a$, alors $f$ est différentiable en $a$. On dit alors que $f$ est de classe $\\mathcal{C}^1$. C'est le critère utilisé en pratique dans la quasi-totalité des exemples concrets (polynômes, fonctions usuelles).
+
+**Exemple de non-différentiabilité malgré l'existence des dérivées partielles :** $f(x,y) = \\dfrac{xy}{x^2+y^2}$ pour $(x,y)\\neq(0,0)$, $f(0,0)=0$. On calcule $\\frac{\\partial f}{\\partial x}(0,0) = \\lim_{h\\to0}\\frac{f(h,0)-f(0,0)}{h} = \\lim_{h\\to0}\\frac{0-0}{h}=0$ (car $f(h,0)=0$ pour $h\\neq0$). De même $\\frac{\\partial f}{\\partial y}(0,0)=0$. Pourtant $f$ n'est même pas **continue** en $(0,0)$ (en suivant $y=x$, $f(x,x)=\\frac{x^2}{2x^2}=\\frac12$ ne tend pas vers $f(0,0)=0$), donc $f$ ne peut pas être différentiable en $(0,0)$ (la différentiabilité implique la continuité).
+
+### 6. Plan tangent
+
+Si $f:\\mathbb{R}^2\\to\\mathbb{R}$ est différentiable en $(a,b)$, le graphe de $f$ admet un **plan tangent** en $(a,b,f(a,b))$ d'équation
+$$z = f(a,b) + \\frac{\\partial f}{\\partial x}(a,b)(x-a) + \\frac{\\partial f}{\\partial y}(a,b)(y-b)$$
+
+**Exemple résolu :** soit $f(x,y) = x^2+y^2$. Au point $(1,1)$ : $f(1,1)=2$, $\\nabla f(1,1) = (2,2)$. Le plan tangent a pour équation $z = 2 + 2(x-1)+2(y-1) = 2x+2y-2$.`,
+  exercises: [
+    {
+      id: "cd-l2-1-e1",
+      question: "Calculer $\\dfrac{\\partial f}{\\partial x}$ et $\\dfrac{\\partial f}{\\partial y}$ pour $f(x,y) = 3x^2y - 2y^3$.",
+      type: "open",
+      modelAnswer: "df/dx = 6xy (y constant). df/dy = 3x^2 - 6y^2 (x constant).",
+      explanation: "On dérive par rapport à $x$ en traitant $y$ comme constant : $\\dfrac{\\partial f}{\\partial x} = 6xy$. On dérive par rapport à $y$ en traitant $x$ comme constant : $\\dfrac{\\partial f}{\\partial y} = 3x^2 - 6y^2$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-1-e2",
+      question: "Le gradient de $f(x,y)=x^2+y^2$ au point $(3,4)$ est :",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$(3,4)$" },
+        { id: "B", text: "$(6,8)$" },
+        { id: "C", text: "$(9,16)$" },
+        { id: "D", text: "$(2,2)$" },
+      ],
+      correctId: "B",
+      explanation: "$\\nabla f(x,y) = (2x, 2y)$. Au point $(3,4)$ : $\\nabla f(3,4) = (6,8)$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-1-e3",
+      question: "Vrai ou faux : le gradient d'une fonction pointe dans la direction de plus forte décroissance.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Le gradient pointe dans la direction de plus forte **croissance**. C'est l'opposé du gradient, $-\\nabla f$, qui pointe dans la direction de plus forte décroissance (utilisé en descente de gradient).",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-1-e4",
+      question: "Calculer le gradient de $f(x,y,z) = xyz$ au point $(1,2,3)$.",
+      type: "open",
+      modelAnswer: "df/dx = yz, df/dy = xz, df/dz = xy. Au point (1,2,3) : (2*3, 1*3, 1*2) = (6,3,2).",
+      explanation: "$\\dfrac{\\partial f}{\\partial x}=yz$, $\\dfrac{\\partial f}{\\partial y}=xz$, $\\dfrac{\\partial f}{\\partial z}=xy$. Au point $(1,2,3)$ : $\\nabla f(1,2,3) = (2\\times3,\\,1\\times3,\\,1\\times2) = (6,3,2)$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-1-e5",
+      question: "Vrai ou faux : si $f$ est différentiable en $a$, alors $f$ est continue en $a$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. La différentiabilité s'écrit $f(a+h)=f(a)+L(h)+o(\\|h\\|)$ ; quand $h\\to0$, $L(h)\\to0$ (application linéaire continue en dimension finie) et $o(\\|h\\|)\\to0$, donc $f(a+h)\\to f(a)$ : $f$ est continue en $a$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-1-e6",
+      question: "Calculer la dérivée directionnelle de $f(x,y)=x^2+2y^2$ en $(1,1)$ dans la direction du vecteur unitaire $\\vec u = (1/\\sqrt2, 1/\\sqrt2)$.",
+      type: "open",
+      modelAnswer: "Gradient en (1,1) = (2,4). D_u f = (2,4) . (1/√2, 1/√2) = (2+4)/√2 = 6/√2 = 3√2.",
+      explanation: "$\\nabla f(1,1) = (2x,4y)|_{(1,1)} = (2,4)$. $D_{\\vec u}f(1,1) = \\nabla f(1,1)\\cdot\\vec u = 2\\times\\frac{1}{\\sqrt2} + 4\\times\\frac{1}{\\sqrt2} = \\frac{6}{\\sqrt2} = 3\\sqrt2$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-1-e7",
+      question: "Donner l'équation du plan tangent au graphe de $f(x,y)=x^2-y^2$ au point $(2,1)$.",
+      type: "open",
+      modelAnswer: "f(2,1)=3. Gradient=(2x,-2y)=(4,-2). Plan tangent : z = 3 + 4(x-2) - 2(y-1) = 4x-2y-3.",
+      explanation: "$f(2,1)=4-1=3$. $\\nabla f(x,y)=(2x,-2y)$, donc $\\nabla f(2,1)=(4,-2)$. Le plan tangent : $z = f(2,1) + 4(x-2) -2(y-1) = 3+4x-8-2y+2 = 4x-2y-3$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-1-e8",
+      question: "Dans quelle direction unitaire la dérivée directionnelle de $f(x,y)=xy$ en $(2,3)$ est-elle maximale, et quelle est sa valeur ?",
+      type: "open",
+      modelAnswer: "Gradient en (2,3) = (3,2). Direction de plus forte pente = gradient normalisé = (3,2)/√13. Valeur maximale = norme du gradient = √13.",
+      explanation: "$\\nabla f(2,3) = (y,x)|_{(2,3)} = (3,2)$. La direction de plus forte croissance est $\\vec u = \\dfrac{(3,2)}{\\|(3,2)\\|} = \\dfrac{(3,2)}{\\sqrt{13}}$, et la valeur maximale de la dérivée directionnelle est $\\|\\nabla f(2,3)\\| = \\sqrt{9+4}=\\sqrt{13}$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-1-e9",
+      question: "Vrai ou faux : si les dérivées partielles de $f$ existent en un point $a$, alors $f$ est nécessairement différentiable en $a$.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. L'existence des dérivées partielles ne suffit pas. Contre-exemple classique : $f(x,y)=\\frac{xy}{x^2+y^2}$ (prolongée par $0$ en l'origine) admet des dérivées partielles nulles en $(0,0)$ mais n'est même pas continue en $(0,0)$, donc pas différentiable.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-1-e10",
+      question: "Soit $f(x,y) = \\sqrt{x^2+y^2}$. Calculer $\\nabla f$ en un point $(x,y)\\neq(0,0)$ et interpréter géométriquement sa direction.",
+      type: "open",
+      modelAnswer: "df/dx = x/sqrt(x^2+y^2), df/dy = y/sqrt(x^2+y^2). Le gradient est le vecteur (x,y) normalisé : il pointe radialement vers l'extérieur, ce qui est cohérent car f est la distance à l'origine, qui croît le plus vite en s'éloignant radialement.",
+      explanation: "$\\dfrac{\\partial f}{\\partial x} = \\dfrac{x}{\\sqrt{x^2+y^2}}$, $\\dfrac{\\partial f}{\\partial y} = \\dfrac{y}{\\sqrt{x^2+y^2}}$ (dérivation de $\\sqrt{u}$). Donc $\\nabla f(x,y) = \\dfrac{(x,y)}{\\|(x,y)\\|}$ : c'est le vecteur unitaire radial. Géométriquement, $f$ représente la distance à l'origine, dont les lignes de niveau sont des cercles ; le gradient, orthogonal aux lignes de niveau, pointe donc radialement vers l'extérieur — la direction où l'on s'éloigne le plus vite de l'origine.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-1-e11",
+      question: "Montrer, en utilisant la définition par la limite, que $f(x,y)=x^2+y^2$ est différentiable en $(0,0)$ avec $L(h_1,h_2)=0$.",
+      type: "open",
+      modelAnswer: "f(h1,h2) - f(0,0) - 0 = h1^2+h2^2 = ||h||^2. On a ||h||^2 / ||h|| = ||h|| -> 0 quand h->0, donc le reste est bien o(||h||). Donc f est différentiable en (0,0) avec L=0 (cohérent avec gradient nul en (0,0)).",
+      explanation: "On veut écrire $f(h_1,h_2) = f(0,0) + L(h_1,h_2) + o(\\|h\\|)$ avec $L=0$ (car $\\nabla f(0,0)=(0,0)$ pour $f(x,y)=x^2+y^2$). On calcule le reste : $f(h_1,h_2) - f(0,0) - 0 = h_1^2+h_2^2 = \\|h\\|^2$. Or $\\dfrac{\\|h\\|^2}{\\|h\\|} = \\|h\\| \\xrightarrow[h\\to0]{} 0$, donc le reste est bien un $o(\\|h\\|)$. La définition de la différentiabilité est vérifiée avec $L=0$, ce qui est cohérent avec le fait que $(0,0)$ est un minimum de $f$ (le plan tangent y est horizontal).",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-1-e12",
+      question: "Soit $f(x,y) = x^3 - 3xy^2$. Montrer que les courbes de niveau de $f$ et les directions du gradient sont orthogonales en tout point où $\\nabla f \\neq 0$, en illustrant sur le point $(1,1)$.",
+      type: "open",
+      modelAnswer: "Le gradient est toujours orthogonal aux lignes de niveau par construction théorique. En (1,1) : df/dx = 3x^2-3y^2 = 0, df/dy = -6xy = -6. Gradient = (0,-6), qui est bien orthogonal à la tangente à la ligne de niveau en ce point (propriété générale, pas seulement vérifiée numériquement ici).",
+      explanation: "**Propriété générale :** si $\\gamma(t)$ est une courbe paramétrée incluse dans la ligne de niveau $\\{f=c\\}$ (donc $f(\\gamma(t))=c$ constant), alors en dérivant par rapport à $t$ via la règle de la chaîne, $\\nabla f(\\gamma(t))\\cdot\\gamma'(t) = 0$ : le gradient est orthogonal au vecteur tangent $\\gamma'(t)$ de la ligne de niveau, donc orthogonal à la ligne de niveau elle-même. **Vérification numérique en $(1,1)$ :** $\\dfrac{\\partial f}{\\partial x}=3x^2-3y^2$, qui vaut $3-3=0$ en $(1,1)$ ; $\\dfrac{\\partial f}{\\partial y}=-6xy$, qui vaut $-6$ en $(1,1)$. Donc $\\nabla f(1,1)=(0,-6)$, vecteur vertical, qui serait bien orthogonal à la tangente horizontale de la ligne de niveau si celle-ci était horizontale en ce point (ce que l'on peut vérifier en dérivant implicitement $f(x,y)=c$).",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-1-e13",
+      question: "Vrai ou faux : pour une fonction $\\mathcal C^1$ sur $\\mathbb{R}^2$, le plan tangent au graphe en un point $a$ est l'unique plan affine tel que $f(a+h)-[\\text{plan}](a+h) \\to 0$ plus vite que $\\|h\\|$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est précisément la définition de la différentiabilité : le plan tangent (donné par l'approximation affine $f(a)+\\nabla f(a)\\cdot h$) est l'unique approximation affine telle que le reste soit un $o(\\|h\\|)$. Cette unicité justifie le nom \\\"meilleure approximation affine\\\".",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-1-e14",
+      question: "Soit $f(x,y) = |x|$. Étudier la différentiabilité de $f$ en $(0,0)$.",
+      type: "open",
+      modelAnswer: "df/dx(0,0) n'existe pas (la fonction |x| n'est pas dérivable en 0), donc f n'est pas différentiable en (0,0), même si df/dy(0,0)=0 existe.",
+      explanation: "$\\dfrac{\\partial f}{\\partial x}(0,0) = \\lim_{h\\to0}\\dfrac{|h|-0}{h}$, qui n'existe pas car cette limite vaut $1$ si $h\\to0^+$ et $-1$ si $h\\to0^-$. Comme une dérivée partielle nécessaire à la différentiabilité fait déjà défaut, $f$ n'est pas différentiable en $(0,0)$ (bien que $\\dfrac{\\partial f}{\\partial y}(0,0)=0$ existe, car $f$ ne dépend pas de $y$). Géométriquement, le graphe de $f$ présente une arête vive le long de l'axe $y$, donc aucun plan tangent n'y est défini.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-1-e15",
+      question: "Calculer le gradient de $f(x,y) = e^{xy}$ et déterminer en quels points $\\nabla f = (0,0)$.",
+      type: "open",
+      modelAnswer: "df/dx = y*e^{xy}, df/dy = x*e^{xy}. Le gradient est nul ssi y*e^{xy}=0 et x*e^{xy}=0. Comme e^{xy} ne s'annule jamais, il faut x=0 et y=0. Le seul point critique est (0,0).",
+      explanation: "$\\dfrac{\\partial f}{\\partial x} = y\\,e^{xy}$, $\\dfrac{\\partial f}{\\partial y} = x\\,e^{xy}$ (dérivation de l'exponentielle composée). Comme $e^{xy}>0$ pour tout $(x,y)$, on a $\\nabla f(x,y)=(0,0) \\iff y\\,e^{xy}=0 \\text{ et } x\\,e^{xy}=0 \\iff y=0 \\text{ et } x=0$ (puisque $e^{xy}\\neq0$). Le seul point critique de $f$ est donc $(0,0)$, où $f(0,0)=1$.",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "cd-l2-2",
+  slug: "matrice-hessienne",
+  title: "Matrice hessienne",
+  durationMinutes: 50,
+  content: `## Matrice hessienne
+
+### 1. Dérivées partielles secondes
+
+Soit $f:\\mathbb{R}^2\\to\\mathbb{R}$ admettant des dérivées partielles. On peut dériver à nouveau ces dérivées partielles : on obtient les **dérivées partielles secondes**, notées
+$$\\frac{\\partial^2 f}{\\partial x^2}, \\quad \\frac{\\partial^2 f}{\\partial y^2}, \\quad \\frac{\\partial^2 f}{\\partial x\\partial y} = \\frac{\\partial}{\\partial x}\\left(\\frac{\\partial f}{\\partial y}\\right), \\quad \\frac{\\partial^2 f}{\\partial y\\partial x} = \\frac{\\partial}{\\partial y}\\left(\\frac{\\partial f}{\\partial x}\\right)$$
+On note aussi $f_{xx}$, $f_{yy}$, $f_{xy}$, $f_{yx}$.
+
+**Exemple :** $f(x,y) = x^3y^2$. On a $f_x = 3x^2y^2$, $f_y=2x^3y$. Puis $f_{xx} = 6xy^2$, $f_{yy}=2x^3$, $f_{xy} = \\frac{\\partial}{\\partial x}(2x^3y) = 6x^2y$, et $f_{yx} = \\frac{\\partial}{\\partial y}(3x^2y^2) = 6x^2y$. On remarque $f_{xy}=f_{yx}$.
+
+### 2. Théorème de Schwarz
+
+**Théorème (Schwarz) :** si $f$ admet des dérivées partielles secondes $f_{xy}$ et $f_{yx}$ **continues** au voisinage d'un point $a$, alors elles sont égales en $a$ :
+$$\\frac{\\partial^2 f}{\\partial x\\partial y}(a) = \\frac{\\partial^2 f}{\\partial y\\partial x}(a)$$
+On dit que les **dérivées croisées** coïncident. Pour toutes les fonctions usuelles (polynômes, exponentielles, fonctions trigonométriques et leurs combinaisons), cette hypothèse de continuité est automatiquement satisfaite, donc on a toujours $f_{xy}=f_{yx}$ en pratique dans ce cours.
+
+**Contre-exemple (hors hypothèses de Schwarz, pour la culture) :** il existe des fonctions exotiques pour lesquelles $f_{xy}(0,0)\\neq f_{yx}(0,0)$ — cela ne peut se produire que lorsque ces dérivées secondes ne sont pas continues en ce point.
+
+### 3. La matrice hessienne
+
+La **matrice hessienne** de $f:\\mathbb{R}^n\\to\\mathbb{R}$ en un point $a$ est la matrice carrée $n\\times n$ des dérivées partielles secondes :
+$$H_f(a) = \\begin{pmatrix} \\dfrac{\\partial^2 f}{\\partial x_1^2}(a) & \\cdots & \\dfrac{\\partial^2 f}{\\partial x_1\\partial x_n}(a) \\\\ \\vdots & \\ddots & \\vdots \\\\ \\dfrac{\\partial^2 f}{\\partial x_n\\partial x_1}(a) & \\cdots & \\dfrac{\\partial^2 f}{\\partial x_n^2}(a) \\end{pmatrix}$$
+Par le théorème de Schwarz (sous hypothèse de continuité, presque toujours vérifiée en pratique), $H_f(a)$ est une matrice **symétrique**.
+
+**Exemple (suite) :** pour $f(x,y)=x^3y^2$, en un point général $(x,y)$ :
+$$H_f(x,y) = \\begin{pmatrix} 6xy^2 & 6x^2y \\\\ 6x^2y & 2x^3 \\end{pmatrix}$$
+
+### 4. Formule de Taylor à l'ordre 2
+
+Si $f$ est deux fois différentiable en $a$, on a le développement de Taylor :
+$$f(a+h) = f(a) + \\nabla f(a)\\cdot h + \\frac12\\, h^T H_f(a)\\, h + o(\\|h\\|^2)$$
+où $h^T H_f(a) h$ est une **forme quadratique** en $h$. C'est cette forme quadratique qui va déterminer, au voisinage d'un point critique ($\\nabla f(a)=0$), si $f$ présente un minimum, un maximum, ou un point-selle — c'est l'objet de la leçon suivante.
+
+### 5. Signe d'une forme quadratique en dimension 2
+
+Pour $n=2$, $H_f(a) = \\begin{pmatrix} r & s \\\\ s & t\\end{pmatrix}$ avec $r=f_{xx}(a)$, $s=f_{xy}(a)$, $t=f_{yy}(a)$. On définit le **déterminant** (parfois noté $\\Delta$ ou $\\operatorname{disc}$) :
+$$\\det H_f(a) = rt - s^2$$
+
+- Si $\\det H_f(a) > 0$ et $r>0$ (ou $t>0$, même signe) : la forme quadratique est **définie positive**.
+- Si $\\det H_f(a) > 0$ et $r<0$ : la forme quadratique est **définie négative**.
+- Si $\\det H_f(a) < 0$ : la forme quadratique est **indéfinie** (signature mixte).
+- Si $\\det H_f(a) = 0$ : cas dégénéré, non concluant à cet ordre.
+
+Cette classification se retrouve aussi via les **valeurs propres** de $H_f(a)$ (matrice symétrique, donc diagonalisable avec valeurs propres réelles) : définie positive $\\iff$ les deux valeurs propres sont $>0$ ; définie négative $\\iff$ les deux sont $<0$ ; indéfinie $\\iff$ les deux valeurs propres sont de signes opposés.
+
+### 6. Lien avec la convexité locale
+
+**Convexité locale :** si $H_f(a)$ est définie positive (resp. semi-définie positive sur tout un voisinage), le graphe de $f$ est **localement convexe** autour de $a$ (il se courbe "vers le haut", comme un bol). Si $H_f$ est définie positive sur tout l'espace, $f$ est convexe globalement.
+
+**Exemple résolu :** soit $f(x,y) = x^2+4y^2$. $H_f(x,y) = \\begin{pmatrix}2&0\\\\0&8\\end{pmatrix}$ en tout point (matrice constante car $f$ est un polynôme de degré $2$). $\\det H_f = 16>0$ et $r=2>0$ : la hessienne est définie positive partout. $f$ est donc convexe sur tout $\\mathbb{R}^2$, et son graphe est un paraboloïde elliptique tourné "vers le haut".`,
+  exercises: [
+    {
+      id: "cd-l2-2-e1",
+      question: "Calculer la matrice hessienne de $f(x,y) = x^2+y^2$.",
+      type: "open",
+      modelAnswer: "f_xx=2, f_yy=2, f_xy=f_yx=0. H_f = [[2,0],[0,2]].",
+      explanation: "$f_x=2x$, $f_y=2y$. Puis $f_{xx}=2$, $f_{yy}=2$, $f_{xy}=f_{yx}=0$. $H_f = \\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$ (matrice constante, indépendante du point).",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-2-e2",
+      question: "Vrai ou faux : la matrice hessienne d'une fonction $\\mathcal{C}^2$ est toujours symétrique.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est une conséquence directe du théorème de Schwarz : si les dérivées secondes croisées sont continues (c'est le cas pour une fonction $\\mathcal{C}^2$), alors $f_{xy}=f_{yx}$, ce qui rend la matrice hessienne symétrique.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-2-e3",
+      question: "Pour $f(x,y) = x^2 - y^2$, calculer $\\det H_f$ et en déduire le signe de la forme quadratique associée.",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$\\det H_f=4>0$, définie positive" },
+        { id: "B", text: "$\\det H_f=-4<0$, indéfinie" },
+        { id: "C", text: "$\\det H_f=0$, dégénérée" },
+        { id: "D", text: "$\\det H_f=4>0$, définie négative" },
+      ],
+      correctId: "B",
+      explanation: "$f_{xx}=2$, $f_{yy}=-2$, $f_{xy}=0$. $H_f=\\begin{pmatrix}2&0\\\\0&-2\\end{pmatrix}$. $\\det H_f = 2\\times(-2)-0^2=-4<0$ : la forme quadratique est indéfinite (valeurs propres $2$ et $-2$, de signes opposés).",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-2-e4",
+      question: "Calculer $f_{xy}$ et $f_{yx}$ pour $f(x,y)=\\sin(xy)$, et vérifier qu'elles coïncident.",
+      type: "open",
+      modelAnswer: "f_x = y*cos(xy). f_xy = d/dy[y*cos(xy)] = cos(xy) - xy*sin(xy). f_y = x*cos(xy). f_yx = d/dx[x*cos(xy)] = cos(xy) - xy*sin(xy). Les deux coïncident.",
+      explanation: "$f_x = y\\cos(xy)$. $f_{xy} = \\dfrac{\\partial}{\\partial y}[y\\cos(xy)] = \\cos(xy) + y\\times(-x\\sin(xy)) = \\cos(xy) - xy\\sin(xy)$. De même $f_y=x\\cos(xy)$, et $f_{yx} = \\dfrac{\\partial}{\\partial x}[x\\cos(xy)] = \\cos(xy) - xy\\sin(xy)$. On a bien $f_{xy}=f_{yx}$, conformément au théorème de Schwarz ($\\sin(xy)$ est $\\mathcal C^\\infty$).",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-2-e5",
+      question: "Vrai ou faux : si $\\det H_f(a) > 0$ et $f_{xx}(a) < 0$, alors la hessienne est définie négative.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Lorsque $\\det H_f(a)>0$, les deux valeurs propres sont de même signe (leur produit est positif). Si de plus $f_{xx}(a)<0$ (qui, combiné avec $\\det>0$, force aussi $f_{yy}(a)<0$), les deux valeurs propres sont négatives : la hessienne est définie négative.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-2-e6",
+      question: "Calculer la matrice hessienne de $f(x,y,z) = x^2+y^2+z^2-2xy$.",
+      type: "open",
+      modelAnswer: "f_x=2x-2y, f_y=2y-2x, f_z=2z. f_xx=2, f_yy=2, f_zz=2, f_xy=f_yx=-2, f_xz=f_zx=0, f_yz=f_zy=0. H_f = [[2,-2,0],[-2,2,0],[0,0,2]].",
+      explanation: "$f_x=2x-2y$, $f_y=2y-2x$, $f_z=2z$. Dérivées secondes : $f_{xx}=2$, $f_{yy}=2$, $f_{zz}=2$, $f_{xy}=f_{yx}=-2$, $f_{xz}=f_{zx}=0$, $f_{yz}=f_{zy}=0$. $H_f = \\begin{pmatrix}2&-2&0\\\\-2&2&0\\\\0&0&2\\end{pmatrix}$ — matrice constante et symétrique.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-2-e7",
+      question: "Pour $f(x,y)=x^4+y^4$, calculer $H_f(0,0)$. Cette matrice est-elle définie positive ?",
+      type: "open",
+      modelAnswer: "f_xx=12x^2, f_yy=12y^2, f_xy=0. En (0,0) : H_f = matrice nulle. Elle n'est pas définie positive (toutes ses valeurs propres sont nulles, pas strictement positives) bien que (0,0) soit un minimum global de f.",
+      explanation: "$f_x=4x^3$, $f_y=4y^3$. $f_{xx}=12x^2$, $f_{yy}=12y^2$, $f_{xy}=0$. En $(0,0)$, $H_f(0,0) = \\begin{pmatrix}0&0\\\\0&0\\end{pmatrix}$ — la matrice nulle, qui n'est **pas** définie positive (elle est seulement semi-définie positive, au sens large). Pourtant $(0,0)$ est bien un minimum global de $f$ (car $f(x,y)=x^4+y^4\\geq0=f(0,0)$). Cet exemple illustre que le critère de la hessienne définie positive est **suffisant** mais pas nécessaire pour un minimum : quand $\\det H_f=0$, il faut une étude plus fine (ici directe, par positivité de $f$).",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-2-e8",
+      question: "Montrer que pour $f(x,y) = ax^2+2bxy+cy^2$ (forme quadratique générale), la hessienne est constante et égale à $H_f = \\begin{pmatrix}2a&2b\\\\2b&2c\\end{pmatrix}$, puis donner la condition sur $a,b,c$ pour qu'elle soit définie positive.",
+      type: "open",
+      modelAnswer: "f_x=2ax+2by, f_y=2bx+2cy. f_xx=2a, f_yy=2c, f_xy=f_yx=2b. H_f=[[2a,2b],[2b,2c]] constante. Définie positive ssi a>0 et ac-b^2>0 (déterminant de H_f/4 = ac-b^2 > 0, et trace positive donnée par a>0).",
+      explanation: "$f_x = 2ax+2by$, $f_y=2bx+2cy$ (en utilisant la symétrie du terme croisé $2bxy$). Puis $f_{xx}=2a$, $f_{yy}=2c$, $f_{xy}=f_{yx}=2b$. $H_f = \\begin{pmatrix}2a&2b\\\\2b&2c\\end{pmatrix}$, indépendante de $(x,y)$ car $f$ est un polynôme homogène de degré $2$. **Condition de définie positivité :** $\\det H_f = 4ac-4b^2 = 4(ac-b^2) > 0$ et $a>0$ (équivalent à $f_{xx}>0$), soit $ac>b^2$ et $a>0$.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-2-e9",
+      question: "Vrai ou faux : une matrice hessienne avec $\\det H_f=0$ et $f_{xx}\\neq0$ ne donne aucune information sur le comportement local de $f$ (cas dégénéré).",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Lorsque $\\det H_f=0$, une des valeurs propres est nulle : la forme quadratique du second ordre ne suffit plus à trancher (il faut étudier des termes d'ordre supérieur ou la fonction directement). C'est le cas \\\"dégénéré\\\" du critère de classification des points critiques.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-2-e10",
+      question: "Calculer les valeurs propres de $H_f(1,1)$ pour $f(x,y) = x^2+3xy+y^2$, et déterminer si la forme quadratique est définie positive, négative ou indéfinie.",
+      type: "open",
+      modelAnswer: "f_xx=2, f_yy=2, f_xy=3 (constant). H_f=[[2,3],[3,2]]. Valeurs propres : solutions de (2-λ)^2-9=0, soit λ=2±3, donc λ=5 ou λ=-1. Signes opposés : indéfinie.",
+      explanation: "$f_x=2x+3y$, $f_y=3x+2y$. $f_{xx}=2$, $f_{yy}=2$, $f_{xy}=f_{yx}=3$ (constantes, donc $H_f$ identique en tout point, en particulier en $(1,1)$). $H_f=\\begin{pmatrix}2&3\\\\3&2\\end{pmatrix}$. Polynôme caractéristique : $(2-\\lambda)^2-9=0 \\iff (2-\\lambda)^2=9 \\iff 2-\\lambda=\\pm3 \\iff \\lambda = 2\\mp3$, soit $\\lambda_1=5$ et $\\lambda_2=-1$. Signes opposés : la forme quadratique est **indéfinie** (cohérent avec $\\det H_f = 4-9=-5<0$).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-2-e11",
+      question: "Soit $f:\\mathbb{R}^2\\to\\mathbb{R}$, $\\mathcal{C}^2$, telle que $H_f(a)$ soit définie positive en un point $a$. Que peut-on dire de $f$ au voisinage immédiat de $a$ par rapport au plan tangent ?",
+      type: "open",
+      modelAnswer: "Par la formule de Taylor à l'ordre 2, f(a+h) - [f(a)+gradient.h] = (1/2) h^T H_f(a) h + o(||h||^2). Comme H_f(a) est définie positive, ce terme est strictement positif pour h petit non nul, donc f(a+h) est strictement au-dessus du plan tangent : le graphe de f est localement strictement convexe (au-dessus de son plan tangent) près de a.",
+      explanation: "D'après la formule de Taylor à l'ordre $2$ : $f(a+h) = f(a) + \\nabla f(a)\\cdot h + \\frac12 h^T H_f(a) h + o(\\|h\\|^2)$. Le plan tangent est donné par $P(h) = f(a)+\\nabla f(a)\\cdot h$. Donc $f(a+h) - P(h) = \\frac12 h^T H_f(a) h + o(\\|h\\|^2)$. Si $H_f(a)$ est définie positive, $h^T H_f(a) h \\geq \\lambda_{\\min}\\|h\\|^2 > 0$ pour $h\\neq0$ ($\\lambda_{\\min}>0$ la plus petite valeur propre), donc pour $h$ assez petit le terme quadratique domine le $o(\\|h\\|^2)$ : $f(a+h) > P(h)$. Conclusion : le graphe de $f$ reste **au-dessus** de son plan tangent au voisinage de $a$ — c'est la traduction géométrique de la convexité locale stricte.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-2-e12",
+      question: "Vrai ou faux : si $f_{xx}(a)>0$ et $f_{yy}(a)>0$, alors $H_f(a)$ est nécessairement définie positive.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Il faut aussi $\\det H_f(a) = f_{xx}f_{yy}-f_{xy}^2 > 0$. Contre-exemple : $f_{xx}=1$, $f_{yy}=1$, $f_{xy}=10$ : les termes diagonaux sont positifs mais $\\det = 1-100=-99<0$, donc la matrice est en réalité indéfinie (pas définie positive), à cause d'un terme croisé trop grand.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-2-e13",
+      question: "Soit $f(x,y) = \\ln(1+x^2+y^2)$. Calculer $H_f(0,0)$.",
+      type: "open",
+      modelAnswer: "f_x = 2x/(1+x^2+y^2), f_y = 2y/(1+x^2+y^2). En (0,0) ces dérivées s'annulent. f_xx = [2(1+x^2+y^2)-2x*2x]/(1+x^2+y^2)^2, qui en (0,0) vaut 2. Par symétrie f_yy(0,0)=2. f_xy en (0,0) = 0 (terme en xy qui s'annule). H_f(0,0)=[[2,0],[0,2]].",
+      explanation: "$f_x = \\dfrac{2x}{1+x^2+y^2}$, $f_y=\\dfrac{2y}{1+x^2+y^2}$. En dérivant à nouveau (quotient), $f_{xx} = \\dfrac{2(1+x^2+y^2) - 2x\\cdot2x}{(1+x^2+y^2)^2}$, qui en $(0,0)$ donne $\\dfrac{2\\times1-0}{1}=2$. Par symétrie des rôles de $x,y$, $f_{yy}(0,0)=2$. Pour $f_{xy} = \\dfrac{\\partial}{\\partial y}\\left(\\dfrac{2x}{1+x^2+y^2}\\right) = \\dfrac{-2x\\times2y}{(1+x^2+y^2)^2}$, qui s'annule en $(0,0)$. Donc $H_f(0,0) = \\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$, définie positive : $(0,0)$ est bien un minimum local (et global) de $f$, cohérent avec $\\ln(1+x^2+y^2)\\geq\\ln(1)=0=f(0,0)$.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-2-e14",
+      question: "Soit $H_f(a) = \\begin{pmatrix} 4 & 2 \\\\ 2 & 1\\end{pmatrix}$. Calculer $\\det H_f(a)$ et conclure sur la nature de la forme quadratique (en précisant le cas limite).",
+      type: "open",
+      modelAnswer: "det = 4*1 - 2*2 = 0. Cas dégénéré : une valeur propre est nulle, l'autre est trace=5, donc 5. La forme quadratique est semi-définie positive (pas strictement définie), ce qui est non concluant à l'ordre 2 pour trancher entre minimum et cas dégénéré.",
+      explanation: "$\\det H_f(a) = 4\\times1 - 2\\times2 = 4-4=0$. C'est le **cas dégénéré** : une des deux valeurs propres est nulle (la trace est $4+1=5$, donc les valeurs propres sont $0$ et $5$, qui se vérifie aussi car $H_f$ a pour vecteur propre $(1,-2)$ associé à la valeur propre $0$ : $H_f(1,-2)^T = (4-4,\\,2-2)=(0,0)$). La forme quadratique est **semi-définie positive** (positive ou nulle, jamais négative), mais pas strictement définie positive. Ce cas ne permet pas de conclure directement sur la nature du point critique par le seul critère de la hessienne : il faut examiner des ordres supérieurs ou la fonction directement.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-2-e15",
+      question: "Expliquer pourquoi, pour une fonction de classe $\\mathcal C^2$, la connaissance de $H_f(a)$ permet d'approcher localement $f$ par une fonction quadratique, et pourquoi cette approximation est dite \\\"d'ordre 2\\\".",
+      type: "open",
+      modelAnswer: "La formule de Taylor à l'ordre 2 donne f(a+h) ≈ f(a) + gradient.h + (1/2) h^T H_f(a) h, avec une erreur o(||h||^2), c'est-à-dire qui tend vers 0 plus vite que ||h||^2. C'est une approximation d'ordre 2 car elle utilise les dérivées jusqu'à l'ordre 2 (gradient = ordre 1, hessienne = ordre 2), et son erreur est négligeable devant ||h||^2, ce qui est strictement meilleur que l'approximation d'ordre 1 (le plan tangent) dont l'erreur n'est que o(||h||).",
+      explanation: "La formule de Taylor à l'ordre $2$ écrit $f(a+h) = f(a) + \\nabla f(a)\\cdot h + \\frac12 h^T H_f(a) h + o(\\|h\\|^2)$. Le terme de degré $0$ ($f(a)$), le terme de degré $1$ (linéaire en $h$, via le gradient) et le terme de degré $2$ (quadratique en $h$, via la hessienne) forment ensemble un polynôme de degré $2$ en $h$ qui approche $f$ au voisinage de $a$ avec une erreur **négligeable devant $\\|h\\|^2$** (et pas seulement devant $\\|h\\|$, comme c'était le cas pour le plan tangent à l'ordre $1$). C'est en ce sens que l'on parle d'approximation \\\"d'ordre 2\\\" : elle utilise les informations de dérivation jusqu'à l'ordre $2$ et offre une précision supérieure, indispensable pour classifier finement les points critiques (un gradient nul à lui seul ne suffit pas, voir leçon suivante).",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "cd-l2-3",
+  slug: "extrema-libres-et-lies",
+  title: "Extrema libres et liés",
+  durationMinutes: 55,
+  content: `## Extrema libres et liés
+
+### 1. Points critiques et extrema libres
+
+Soit $f:\\mathbb{R}^2\\to\\mathbb{R}$ différentiable. On dit que $a$ est un **point critique** de $f$ si $\\nabla f(a) = (0,0)$.
+
+**Condition nécessaire d'extremum local :** si $f$ admet un extremum local (libre, c'est-à-dire sans contrainte) en $a$, alors $a$ est un point critique : $\\nabla f(a)=0$. (Cette condition est nécessaire mais pas suffisante : un point critique peut être un minimum, un maximum, ou un **point-selle** — ni l'un ni l'autre.)
+
+**Méthode générale :**
+1. Résoudre $\\nabla f(x,y) = (0,0)$ pour trouver les points critiques.
+2. Calculer $H_f$ en chaque point critique et étudier son signe (voir leçon précédente).
+3. Conclure selon le tableau ci-dessous.
+
+### 2. Classification par la hessienne (cas $n=2$)
+
+En un point critique $a$, posons $r=f_{xx}(a)$, $s=f_{xy}(a)$, $t=f_{yy}(a)$, et $\\Delta = rt-s^2 = \\det H_f(a)$.
+
+| $\\Delta$ | $r$ | Nature de $a$ |
+|---|---|---|
+| $\\Delta>0$ | $r>0$ | Minimum local strict |
+| $\\Delta>0$ | $r<0$ | Maximum local strict |
+| $\\Delta<0$ | — | Point-selle (ni min ni max) |
+| $\\Delta=0$ | — | Cas dégénéré, étude approfondie nécessaire |
+
+**Exemple résolu 1 :** $f(x,y)=x^2+y^2-2x-4y+5$. $\\nabla f = (2x-2,\\,2y-4) = (0,0) \\iff (x,y)=(1,2)$. Point critique unique $(1,2)$. $H_f = \\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$ partout, donc $\\Delta=4>0$, $r=2>0$ : $(1,2)$ est un **minimum local** (et global, car $f$ est convexe). $f(1,2) = 1+4-2-8+5=0$.
+
+**Exemple résolu 2 (point-selle) :** $f(x,y) = x^2-y^2$. $\\nabla f = (2x,-2y)=(0,0) \\iff (x,y)=(0,0)$. $H_f(0,0) = \\begin{pmatrix}2&0\\\\0&-2\\end{pmatrix}$, $\\Delta = -4<0$ : $(0,0)$ est un **point-selle**. En effet, le long de l'axe $x$ ($y=0$), $f(x,0)=x^2$ admet un minimum en $0$ ; mais le long de l'axe $y$ ($x=0$), $f(0,y)=-y^2$ admet un maximum en $0$ : le point n'est ni minimum ni maximum global de $f$ au voisinage.
+
+### 3. Extrema sous contrainte : position du problème
+
+On cherche maintenant les extrema de $f(x,y)$ non plus sur tout $\\mathbb{R}^2$, mais en se restreignant à une **contrainte** $g(x,y)=0$ (une courbe). On parle d'**extremum lié** (ou sous contrainte).
+
+**Exemple typique :** maximiser $f(x,y)=xy$ sous la contrainte $g(x,y)=x+y-10=0$ (c'est-à-dire $x+y=10$).
+
+### 4. Méthode des multiplicateurs de Lagrange
+
+**Théorème (Lagrange) :** si $f$ et $g$ sont $\\mathcal C^1$ et si $a$ est un extremum local de $f$ sous la contrainte $g(a)=0$, avec $\\nabla g(a)\\neq0$, alors il existe $\\lambda\\in\\mathbb{R}$ (le **multiplicateur de Lagrange**) tel que
+$$\\nabla f(a) = \\lambda \\, \\nabla g(a)$$
+Géométriquement, ceci signifie que la ligne de niveau de $f$ passant par $a$ est **tangente** à la courbe contrainte $\\{g=0\\}$ en $a$ (les deux gradients sont colinéaires).
+
+**Méthode pratique :** on introduit le **lagrangien**
+$$\\mathcal L(x,y,\\lambda) = f(x,y) - \\lambda\\, g(x,y)$$
+et on résout le système des trois équations $\\dfrac{\\partial \\mathcal L}{\\partial x}=0$, $\\dfrac{\\partial \\mathcal L}{\\partial y}=0$, $\\dfrac{\\partial \\mathcal L}{\\partial \\lambda}=0$ (cette dernière équation redonnant simplement la contrainte $g(x,y)=0$). Cela revient à résoudre :
+$$\\nabla f(x,y) = \\lambda\\,\\nabla g(x,y) \\quad \\text{et} \\quad g(x,y)=0$$
+
+### 5. Exemple résolu complet
+
+**Énoncé :** maximiser $f(x,y)=xy$ sous la contrainte $x+y=10$ ($x,y>0$).
+
+**Résolution :** posons $g(x,y)=x+y-10$. $\\nabla f = (y,x)$, $\\nabla g=(1,1)$. L'équation de Lagrange $\\nabla f = \\lambda\\nabla g$ donne $y=\\lambda$ et $x=\\lambda$, donc $x=y$. Avec la contrainte $x+y=10$, on obtient $x=y=5$. Le candidat est $(5,5)$, avec $f(5,5)=25$.
+
+**Vérification que c'est bien un maximum :** en paramétrant la contrainte par $y=10-x$ (avec $0<x<10$), on étudie $h(x)=f(x,10-x)=x(10-x)=10x-x^2$, fonction d'une seule variable. $h'(x)=10-2x=0 \\iff x=5$, et $h''(x)=-2<0$ : $h$ admet un maximum en $x=5$, donc $f$ admet bien un maximum sous contrainte en $(5,5)$, valeur $25$.
+
+### 6. Remarque : plusieurs contraintes
+
+Avec $p$ contraintes $g_1(x)=0,\\ldots,g_p(x)=0$ (indépendantes), la condition de Lagrange devient $\\nabla f(a) = \\sum_{i=1}^p \\lambda_i \\nabla g_i(a)$, avec $p$ multiplicateurs. Ce cas plus général, ainsi que l'étude des conditions du second ordre pour les extrema liés, sera repris et approfondi dans le cours d'optimisation de L3.`,
+  exercises: [
+    {
+      id: "cd-l2-3-e1",
+      question: "Trouver le(s) point(s) critique(s) de $f(x,y) = x^2+y^2+2x$.",
+      type: "open",
+      modelAnswer: "df/dx=2x+2=0 -> x=-1. df/dy=2y=0 -> y=0. Point critique unique (-1,0).",
+      explanation: "$\\nabla f(x,y)=(2x+2,\\,2y)$. $\\nabla f=(0,0) \\iff x=-1$ et $y=0$. Point critique unique : $(-1,0)$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-3-e2",
+      question: "Pour $f(x,y)=x^2+y^2-4x+2$, le point critique $(2,0)$ est :",
+      type: "mcq",
+      options: [
+        { id: "A", text: "Un minimum local" },
+        { id: "B", text: "Un maximum local" },
+        { id: "C", text: "Un point-selle" },
+        { id: "D", text: "Indéterminé" },
+      ],
+      correctId: "A",
+      explanation: "$H_f=\\begin{pmatrix}2&0\\\\0&2\\end{pmatrix}$ (constante), $\\Delta=4>0$, $r=2>0$ : c'est un minimum local (et global, $f$ étant convexe).",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-3-e3",
+      question: "Vrai ou faux : un point critique d'une fonction de deux variables est toujours un extremum local.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Un point critique peut être un point-selle, qui n'est ni un minimum ni un maximum local. Exemple : $(0,0)$ pour $f(x,y)=x^2-y^2$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-3-e4",
+      question: "Classer le point critique $(0,0)$ de $f(x,y)=xy$.",
+      type: "open",
+      modelAnswer: "f_x=y, f_y=x, point critique (0,0). H_f=[[0,1],[1,0]], déterminant = -1 < 0 : point-selle.",
+      explanation: "$\\nabla f=(y,x)$, nul en $(0,0)$ uniquement. $H_f(0,0)=\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$, $\\Delta = 0\\times0-1^2=-1<0$ : c'est un **point-selle**. En effet $f(x,0)=0$ tandis que $f(x,x)=x^2>0$ et $f(x,-x)=-x^2<0$ au voisinage de $0$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-3-e5",
+      question: "Trouver et classer les points critiques de $f(x,y) = x^3-3x+y^2$.",
+      type: "open",
+      modelAnswer: "f_x = 3x^2-3 = 0 -> x=±1. f_y=2y=0 -> y=0. Points critiques (1,0) et (-1,0). H_f = [[6x,0],[0,2]]. En (1,0) : [[6,0],[0,2]], delta=12>0, r=6>0, minimum. En (-1,0) : [[-6,0],[0,2]], delta=-12<0, point-selle.",
+      explanation: "$f_x=3x^2-3=0 \\iff x=\\pm1$, $f_y=2y=0\\iff y=0$. Points critiques : $(1,0)$ et $(-1,0)$. $H_f(x,y)=\\begin{pmatrix}6x&0\\\\0&2\\end{pmatrix}$. En $(1,0)$ : $\\Delta=6\\times2=12>0$, $r=6>0$ : **minimum local**. En $(-1,0)$ : $\\Delta=-6\\times2=-12<0$ : **point-selle**.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-3-e6",
+      question: "Maximiser $f(x,y)=x+y$ sous la contrainte $g(x,y)=x^2+y^2-2=0$ par la méthode de Lagrange.",
+      type: "open",
+      modelAnswer: "Gradient f = (1,1), gradient g = (2x,2y). Lagrange : 1=2λx, 1=2λy, donc x=y. Avec contrainte x^2+y^2=2 : 2x^2=2, x=±1. Solutions (1,1) avec f=2 (maximum) et (-1,-1) avec f=-2 (minimum).",
+      explanation: "$\\nabla f=(1,1)$, $\\nabla g=(2x,2y)$. Lagrange : $1=2\\lambda x$ et $1=2\\lambda y$, donc $x=y$ (en supposant $\\lambda\\neq0$, ce qui est le cas car $\\nabla f\\neq0$). Avec la contrainte $x^2+y^2=2$ : $2x^2=2 \\iff x=\\pm1$. Deux candidats : $(1,1)$ avec $f(1,1)=2$, et $(-1,-1)$ avec $f(-1,-1)=-2$. Comme le cercle est compact, $f$ y atteint son maximum et son minimum : le **maximum** est $2$ en $(1,1)$, le **minimum** est $-2$ en $(-1,-1)$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-3-e7",
+      question: "Vrai ou faux : dans la méthode de Lagrange, la condition $\\nabla f(a) = \\lambda \\nabla g(a)$ signifie que les lignes de niveau de $f$ et de $g$ sont tangentes en $a$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Les gradients sont toujours orthogonaux aux lignes de niveau correspondantes. Si $\\nabla f(a)$ et $\\nabla g(a)$ sont colinéaires, les lignes de niveau de $f$ et de $g$ passant par $a$ ont la même direction normale en $a$, donc sont tangentes en ce point.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-3-e8",
+      question: "Trouver le rectangle de périmètre $20$ (donc $x+y=10$ pour les côtés $x,y$) d'aire maximale, en utilisant Lagrange ou substitution directe.",
+      type: "open",
+      modelAnswer: "Aire = xy, contrainte x+y=10. Par substitution y=10-x, aire = x(10-x), maximisée en x=5 (dérivée 10-2x=0). Donc x=y=5, aire maximale = 25 : c'est un carré.",
+      explanation: "On maximise $f(x,y)=xy$ sous $x+y=10$. Par Lagrange (vu en cours) ou substitution $y=10-x$ : $h(x)=x(10-x)$, $h'(x)=10-2x=0\\iff x=5$, $h''(x)=-2<0$ donc maximum. On obtient $x=y=5$ : le rectangle d'aire maximale à périmètre fixé est un **carré**, d'aire $25$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-3-e9",
+      question: "Soit $f(x,y)=x^2+y^4$. Montrer que $(0,0)$ est un minimum global, mais que le critère de la hessienne (cas $n=2$) ne permet pas de le détecter directement.",
+      type: "open",
+      modelAnswer: "f(x,y) = x^2+y^4 >= 0 = f(0,0) pour tout (x,y), donc (0,0) est minimum global, évident directement. f_xx=2, f_yy=12y^2, f_xy=0. En (0,0) : H_f=[[2,0],[0,0]], déterminant = 0 : cas dégénéré, le critère standard ne conclut pas malgré le minimum réel.",
+      explanation: "**Minimum global direct :** $f(x,y)=x^2+y^4 \\geq 0$ pour tout $(x,y)$, avec égalité ssi $x=0$ et $y=0$. Donc $f(0,0)=0$ est bien le minimum global. **Limite du critère de la hessienne :** $f_x=2x$, $f_y=4y^3$, nuls en $(0,0)$ (point critique confirmé). $f_{xx}=2$, $f_{yy}=12y^2$, $f_{xy}=0$. En $(0,0)$ : $H_f(0,0)=\\begin{pmatrix}2&0\\\\0&0\\end{pmatrix}$, $\\det H_f=0$ : c'est le **cas dégénéré**, où le critère standard ($\\Delta,r$) ne permet pas de conclure. Il faut alors une analyse directe (comme ci-dessus) pour trancher.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-3-e10",
+      question: "Minimiser $f(x,y)=x^2+y^2$ sous la contrainte $g(x,y)=x+2y-5=0$ par Lagrange, et interpréter géométriquement le résultat.",
+      type: "open",
+      modelAnswer: "Gradient f=(2x,2y), gradient g=(1,2). Lagrange: 2x=λ, 2y=2λ donc y=2x. Avec contrainte x+2y=5 : x+4x=5, x=1, y=2. Minimum en (1,2), valeur f=1+4=5. Géométriquement, c'est le point de la droite x+2y=5 le plus proche de l'origine (distance au carré minimale), donc le pied de la perpendiculaire depuis l'origine.",
+      explanation: "$\\nabla f=(2x,2y)$, $\\nabla g=(1,2)$. Lagrange : $2x=\\lambda$, $2y=2\\lambda=4x$ (en substituant $\\lambda=2x$), donc $y=2x$. Avec $x+2y=5$ : $x+4x=5 \\iff x=1$, donc $y=2$. Le point est $(1,2)$, avec $f(1,2)=1+4=5$. **Interprétation géométrique :** $f(x,y)=x^2+y^2$ est le carré de la distance à l'origine ; on cherche donc le point de la droite $x+2y=5$ le plus proche de l'origine. C'est exactement le pied de la perpendiculaire à la droite passant par l'origine, ce qui est cohérent avec la condition de colinéarité des gradients de Lagrange.",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-3-e11",
+      question: "Vrai ou faux : pour appliquer le théorème de Lagrange en un point $a$ de la contrainte $g(x,y)=0$, il faut nécessairement que $\\nabla g(a)\\neq(0,0)$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Si $\\nabla g(a)=(0,0)$, le théorème de Lagrange ne s'applique pas (la courbe $\\{g=0\\}$ peut avoir un point singulier en $a$, sans tangente bien définie), et il faut étudier le point séparément.",
+      difficulty: "debutant",
+    },
+    {
+      id: "cd-l2-3-e12",
+      question: "Trouver les extrema de $f(x,y)=x^2y$ sous la contrainte $x^2+y^2=1$ (cercle unité) par la méthode de Lagrange.",
+      type: "open",
+      modelAnswer: "Gradient f=(2xy,x^2), gradient g=(2x,2y). Lagrange: 2xy=2λx, x^2=2λy. Cas x=0 : contrainte donne y=±1, f=0. Cas x≠0 : de la première équation λ=y, substituée dans la seconde x^2=2y^2, avec contrainte x^2+y^2=1 donne 2y^2+y^2=1, y^2=1/3, y=±1/√3, x^2=2/3. f = x^2*y = (2/3)*(±1/√3) = ±2/(3√3). Les extrema sont donc 2/(3√3) (max) et -2/(3√3) (min), atteints en plusieurs points par symétrie.",
+      explanation: "$\\nabla f=(2xy,x^2)$, $\\nabla g=(2x,2y)$. Lagrange : $2xy=2\\lambda x$ et $x^2=2\\lambda y$. **Cas $x=0$ :** la contrainte donne $y=\\pm1$, et $f(0,\\pm1)=0$. **Cas $x\\neq0$ :** de la première équation, $\\lambda=y$ (en divisant par $2x$). En substituant dans la seconde : $x^2=2y\\cdot y=2y^2$. Avec la contrainte $x^2+y^2=1$ : $2y^2+y^2=1 \\iff y^2=\\frac13 \\iff y=\\pm\\frac{1}{\\sqrt3}$, et $x^2=\\frac23$. La valeur de $f=x^2y = \\frac23\\times\\left(\\pm\\frac{1}{\\sqrt3}\\right) = \\pm\\frac{2}{3\\sqrt3}$. Sur le cercle (compact), $f$ atteint son maximum $\\frac{2}{3\\sqrt3}$ et son minimum $-\\frac{2}{3\\sqrt3}$ en ces points (les points avec $x=0$ donnant la valeur intermédiaire $0$, donc pas des extrema globaux).",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-3-e13",
+      question: "Soit $f(x,y) = (x-1)^2+(y-2)^2$, et la contrainte $g(x,y)=y-x^2=0$ (parabole). Trouver le point de la parabole le plus proche du point $(1,2)$ par Lagrange.",
+      type: "open",
+      modelAnswer: "Gradient f = (2(x-1), 2(y-2)), gradient g = (-2x,1). Lagrange : 2(x-1)=-2λx et 2(y-2)=λ. De la contrainte y=x^2. En substituant λ=2(y-2)=2(x^2-2) dans la première : 2(x-1) = -2x*2(x^2-2) = -4x^3+8x, soit 2x-2 = -4x^3+8x, 4x^3-6x-2=0, soit 2x^3-3x-1=0. On factorise : x=-1 est racine (2(-1)-3(-1)-1=-2+3-1=0... vérifions : 2(-1)^3-3(-1)-1=-2+3-1=0, oui). Donc (x+1)(2x^2-2x-1)=0. Solutions x=-1 ou x=(2±√12)/4=(1±√3)/2.",
+      explanation: "On cherche à minimiser $f(x,y)=(x-1)^2+(y-2)^2$ (distance au carré au point $(1,2)$) sous la contrainte $g(x,y)=y-x^2=0$. $\\nabla f=(2(x-1),2(y-2))$, $\\nabla g=(-2x,1)$. Lagrange : $2(x-1)=-2\\lambda x$ et $2(y-2)=\\lambda$. En substituant $y=x^2$ (contrainte) et $\\lambda=2(x^2-2)$ dans la première équation : $2(x-1) = -2x\\times2(x^2-2) = -4x^3+8x$, soit $2x-2+4x^3-8x=0 \\iff 4x^3-6x-2=0 \\iff 2x^3-3x-1=0$. On vérifie que $x=-1$ est racine : $2(-1)-3(-1)-1=-2+3-1=0$ ✓. On factorise $2x^3-3x-1=(x+1)(2x^2-2x-1)$, dont les autres racines sont $x=\\dfrac{2\\pm\\sqrt{4+8}}{4}=\\dfrac{1\\pm\\sqrt3}{2}$. Il y a donc trois points critiques sous contrainte à examiner pour déterminer lequel donne effectivement la distance minimale (typiquement celui le plus proche en abscisse de $x=1$).",
+      difficulty: "expert",
+    },
+    {
+      id: "cd-l2-3-e14",
+      question: "Vrai ou faux : la méthode de Lagrange fournit toujours un maximum (jamais un minimum).",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. La méthode de Lagrange donne les points où la condition nécessaire $\\nabla f=\\lambda\\nabla g$ est satisfaite — ce sont des **candidats** à être extrema (minimum, maximum, ou parfois ni l'un ni l'autre). Il faut ensuite comparer les valeurs de $f$ en ces points, ou utiliser des arguments de compacité, pour déterminer la nature de chaque candidat.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "cd-l2-3-e15",
+      question: "Expliquer pourquoi, pour minimiser $f(x,y)=x^2+y^2$ sous la contrainte $xy=1$ ($x,y>0$), on peut directement utiliser l'inégalité arithmético-géométrique plutôt que Lagrange, et retrouver le résultat par Lagrange pour vérifier.",
+      type: "open",
+      modelAnswer: "Par AM-GM, x^2+y^2 >= 2xy = 2 (car xy=1), avec égalité ssi x=y, donc x=y=1 (car xy=1 et x,y>0). Minimum = 2 en (1,1). Par Lagrange : gradient f=(2x,2y), gradient g=(y,x). 2x=λy, 2y=λx. En multipliant: 4xy=λ^2*xy, donc λ^2=4 (xy≠0), λ=±2. Avec λ=2 : x=y (cohérent avec AM-GM). Avec contrainte xy=1 et x=y>0 : x=y=1.",
+      explanation: "**Méthode directe (AM-GM) :** pour $x,y>0$, $x^2+y^2 \\geq 2xy = 2$ (car $xy=1$), avec égalité si et seulement si $x=y$. Comme $xy=1$ et $x=y$, on obtient $x=y=1$. Minimum $=2$. **Vérification par Lagrange :** $\\nabla f=(2x,2y)$, $\\nabla g=(y,x)$ (pour $g(x,y)=xy-1$). Lagrange : $2x=\\lambda y$ et $2y=\\lambda x$. En multipliant ces deux équations : $4xy = \\lambda^2 xy$, donc (puisque $xy=1\\neq0$) $\\lambda^2=4$, $\\lambda=\\pm2$. Avec $\\lambda=2$ : $2x=2y \\iff x=y$, cohérent avec la contrainte $xy=1$ donnant $x=y=1$ (le cas $\\lambda=-2$ donnerait $x=-y$, incompatible avec $x,y>0$). Les deux méthodes confirment le même résultat, ce qui illustre l'intérêt de croiser les approches quand c'est possible.",
+      difficulty: "expert",
+    },
+  ],
+},
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L2 — Analyse : Méthodes numériques d'approximation
+  // ─────────────────────────────────────────────
+  {
+    id: "analyse-numerique-l2",
+    slug: "analyse-numerique-l2-methodes-approximation",
+    title: "Analyse numérique L2 — Méthodes d'approximation",
+    description: "Interpolation polynomiale, résolution numérique d'équations (dichotomie, Newton) et erreurs/stabilité des calculs numériques.",
+    schoolLevel: "L2",
+    subject: "analyse",
+    difficulty: "Intermédiaire",
+    isFree: false,
+    thumbnailEmoji: "≈",
+    lessons: [
+      {
+  id: "an-l2-1",
+  slug: "interpolation-et-approximation",
+  title: "Interpolation et approximation de fonctions",
+  durationMinutes: 50,
+  content: `## Interpolation et approximation de fonctions
+
+### 1. Le problème de l'interpolation
+
+Étant donné $n+1$ points $(x_0,y_0),\\ldots,(x_n,y_n)$ avec les $x_i$ deux à deux distincts, on cherche une fonction simple (le plus souvent un **polynôme**) passant exactement par tous ces points. C'est le problème de l'**interpolation**.
+
+**Motivation :** on dispose souvent de valeurs mesurées d'une fonction $f$ en quelques points seulement (mesures expérimentales, table de valeurs), et on veut estimer $f$ entre ces points, ou en construire une approximation calculable simplement (un polynôme s'évalue avec des additions et multiplications, contrairement à $\\sin$, $\\ln$, etc.).
+
+### 2. Existence et unicité du polynôme interpolateur
+
+**Théorème :** étant donné $n+1$ points $(x_i,y_i)_{0\\leq i\\leq n}$ avec les $x_i$ distincts, il existe un **unique** polynôme $P$ de degré $\\leq n$ tel que $P(x_i)=y_i$ pour tout $i$.
+
+*Idée d'unicité :* si $P$ et $Q$ conviennent tous deux, $P-Q$ est un polynôme de degré $\\leq n$ ayant $n+1$ racines distinctes ($x_0,\\ldots,x_n$), donc $P-Q=0$.
+
+### 3. Polynômes de base de Lagrange
+
+Pour $0\\leq i\\leq n$, on définit le **polynôme de Lagrange** associé à $x_i$ :
+$$L_i(x) = \\prod_{\\substack{j=0 \\\\ j\\neq i}}^n \\frac{x-x_j}{x_i-x_j}$$
+Ce polynôme a la propriété remarquable $L_i(x_j) = \\begin{cases}1 & \\text{si } j=i \\\\ 0 & \\text{si } j\\neq i\\end{cases}$ (on dit que $L_i(x_j)=\\delta_{ij}$, le symbole de Kronecker).
+
+### 4. Formule d'interpolation de Lagrange
+
+Le polynôme interpolateur cherché s'écrit alors simplement :
+$$P(x) = \\sum_{i=0}^n y_i\\, L_i(x)$$
+On vérifie immédiatement que $P(x_j) = \\sum_i y_i L_i(x_j) = y_j$ (seul le terme $i=j$ survit, valant $y_j\\times1$).
+
+**Exemple résolu :** interpoler les points $(0,1)$, $(1,3)$, $(2,7)$ par un polynôme de degré $\\leq2$.
+
+$$L_0(x) = \\frac{(x-1)(x-2)}{(0-1)(0-2)} = \\frac{(x-1)(x-2)}{2}, \\quad L_1(x) = \\frac{(x-0)(x-2)}{(1-0)(1-2)} = -x(x-2), \\quad L_2(x) = \\frac{(x-0)(x-1)}{(2-0)(2-1)} = \\frac{x(x-1)}{2}$$
+
+$$P(x) = 1\\cdot L_0(x) + 3\\cdot L_1(x) + 7\\cdot L_2(x)$$
+
+En développant : $P(x) = \\frac{(x-1)(x-2)}{2} - 3x(x-2) + \\frac{7x(x-1)}{2}$. Après simplification (mise sur dénominateur commun $2$) : $P(x) = \\frac{(x^2-3x+2) -6x(x-2) + 7x(x-1)}{2} = \\frac{x^2-3x+2-6x^2+12x+7x^2-7x}{2} = \\frac{2x^2+2x+2}{2} = x^2+x+1$. On vérifie : $P(0)=1$ ✓, $P(1)=1+1+1=3$ ✓, $P(2)=4+2+1=7$ ✓.
+
+### 5. Inconvénients de Lagrange et alternative (différences divisées de Newton)
+
+La formule de Lagrange est élégante mais coûteuse à recalculer entièrement si l'on ajoute un nouveau point. La **forme de Newton** (différences divisées), hors-programme détaillé ici, permet une construction incrémentale ; nous nous concentrons sur la formule de Lagrange comme outil conceptuel de référence.
+
+### 6. Erreur d'interpolation
+
+Si $f$ est la fonction que l'on cherche à approcher (et dont les $y_i=f(x_i)$ sont les valeurs exactes aux points d'interpolation), et $f$ est $(n+1)$ fois dérivable, l'**erreur d'interpolation** en un point $x$ est donnée (admis) par :
+$$f(x) - P(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^n (x-x_i)$$
+pour un certain $\\xi$ dans le plus petit intervalle contenant $x,x_0,\\ldots,x_n$ (formule analogue au reste de Taylor-Lagrange).
+
+**Conséquences pratiques :**
+- L'erreur s'annule bien aux points d'interpolation $x_i$ (le produit $\\prod(x-x_i)$ s'annule).
+- L'erreur dépend de la régularité de $f$ (dérivée $(n+1)$-ième) et de l'écartement des points $x_i$.
+- **Attention au phénomène de Runge :** augmenter le degré du polynôme interpolateur (en ajoutant des points équirépartis) ne garantit pas une meilleure approximation — l'erreur peut au contraire **exploser** près des bords de l'intervalle pour certaines fonctions (exemple classique : $f(x)=\\frac{1}{1+25x^2}$ sur $[-1,1]$). C'est pourquoi en pratique on préfère souvent l'interpolation par morceaux (splines) à l'interpolation par un seul polynôme de haut degré.
+
+### 7. Exemple résolu d'estimation d'erreur
+
+**Énoncé :** on interpole $f(x)=e^x$ aux points $x_0=0$, $x_1=1$ par un polynôme de degré $1$ (la droite passant par $(0,1)$ et $(1,e)$). Majorer l'erreur en $x=0{,}5$.
+
+**Résolution :** $f''(x)=e^x \\leq e \\approx 2{,}72$ sur $[0,1]$. La formule du reste donne $|f(0{,}5)-P(0{,}5)| \\leq \\dfrac{e}{2!}\\,|0{,}5-0|\\,|0{,}5-1| = \\dfrac{e}{2}\\times0{,}5\\times0{,}5 = \\dfrac{e}{8} \\approx 0{,}34$. L'erreur réelle est en fait bien plus petite (environ $0{,}067$), cette estimation étant volontairement majorante (pire cas).`,
+  exercises: [
+    {
+      id: "an-l2-1-e1",
+      question: "Combien de points sont nécessaires pour déterminer de façon unique un polynôme interpolateur de degré $\\leq 3$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$3$" },
+        { id: "B", text: "$4$" },
+        { id: "C", text: "$5$" },
+        { id: "D", text: "$2$" },
+      ],
+      correctId: "B",
+      explanation: "Un polynôme de degré $\\leq n$ est déterminé de façon unique par $n+1$ points distincts. Pour $n=3$, il faut donc $4$ points.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-1-e2",
+      question: "Vrai ou faux : le polynôme de Lagrange $L_i$ vaut $1$ en $x_i$ et $0$ en tous les autres points d'interpolation.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est exactement la propriété de construction : $L_i(x_j)=\\delta_{ij}$, qui vaut $1$ si $i=j$ et $0$ sinon.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-1-e3",
+      question: "Calculer le polynôme interpolateur de degré $\\leq1$ passant par $(0,2)$ et $(1,5)$.",
+      type: "open",
+      modelAnswer: "Droite passant par (0,2) et (1,5) : pente = (5-2)/(1-0)=3. P(x) = 2+3x.",
+      explanation: "Pour deux points, le polynôme interpolateur de degré $\\leq1$ est la droite les reliant. Pente $=\\dfrac{5-2}{1-0}=3$. $P(x) = 2+3x$. Vérification : $P(0)=2$ ✓, $P(1)=5$ ✓.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-1-e4",
+      question: "Vrai ou faux : l'erreur d'interpolation est nulle aux points d'interpolation $x_i$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Par construction, $P(x_i)=y_i=f(x_i)$ exactement, et la formule du reste $f(x)-P(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\prod(x-x_i)$ s'annule bien en $x=x_j$ car le produit contient le facteur $(x_j-x_j)=0$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-1-e5",
+      question: "Construire le polynôme de Lagrange $L_0(x)$ pour les points $x_0=1$, $x_1=2$, $x_2=4$.",
+      type: "open",
+      modelAnswer: "L0(x) = (x-2)(x-4) / [(1-2)(1-4)] = (x-2)(x-4)/3.",
+      explanation: "$L_0(x) = \\dfrac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} = \\dfrac{(x-2)(x-4)}{(1-2)(1-4)} = \\dfrac{(x-2)(x-4)}{3}$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-1-e6",
+      question: "Déterminer le polynôme interpolateur de degré $\\leq2$ passant par $(0,0)$, $(1,1)$, $(2,4)$, et reconnaître une fonction usuelle.",
+      type: "open",
+      modelAnswer: "En cherchant P(x)=ax^2+bx+c : c=0, a+b=1, 4a+2b=4 soit 2a+b=2. En soustrayant: a=1, b=0. P(x)=x^2, qui coïncide avec la fonction carré sur ces points (cohérent car ce sont les points (0,0),(1,1),(2,4) de y=x^2).",
+      explanation: "On cherche $P(x)=ax^2+bx+c$. $P(0)=0 \\Rightarrow c=0$. $P(1)=1 \\Rightarrow a+b=1$. $P(2)=4 \\Rightarrow 4a+2b=4 \\iff 2a+b=2$. En soustrayant la première équation : $(2a+b)-(a+b)=2-1 \\iff a=1$, donc $b=0$. $P(x)=x^2$. C'est cohérent : les points donnés sont exactement ceux de la fonction $f(x)=x^2$, et comme $f$ est elle-même un polynôme de degré $2$, l'interpolation la retrouve exactement (l'erreur d'interpolation est nulle partout car $f^{(3)}=0$).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-1-e7",
+      question: "Vrai ou faux : augmenter le nombre de points d'interpolation équirépartis garantit toujours une meilleure approximation de la fonction sur tout l'intervalle.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. C'est le phénomène de Runge : pour certaines fonctions (par exemple $f(x)=1/(1+25x^2)$ sur $[-1,1]$), augmenter le degré du polynôme interpolateur avec des points équirépartis fait au contraire **exploser** l'erreur près des bords de l'intervalle.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-1-e8",
+      question: "Pour $f(x)=\\ln(x)$, on interpole aux points $x_0=1$, $x_1=2$ par une droite. Majorer l'erreur en $x=1{,}5$ sachant que $|f''(x)|\\leq1$ sur $[1,2]$.",
+      type: "open",
+      modelAnswer: "Erreur <= |f''(xi)|/2! * |x-x0||x-x1| <= 1/2 * |1.5-1| * |1.5-2| = 0.5*0.5*0.5 = 0.125.",
+      explanation: "La formule du reste donne $|f(1{,}5)-P(1{,}5)| \\leq \\dfrac{\\max|f''|}{2!}\\,|1{,}5-1|\\,|1{,}5-2| \\leq \\dfrac{1}{2}\\times0{,}5\\times0{,}5 = 0{,}125$.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-1-e9",
+      question: "Montrer que la somme $\\sum_{i=0}^n L_i(x)$ vaut $1$ pour tout $x$ (indication : interpoler la fonction constante $1$).",
+      type: "open",
+      modelAnswer: "La fonction constante f(x)=1 vérifie f(xi)=1 pour tout i. Son polynôme interpolateur de degré <= n est donc P(x) = somme des 1*Li(x) = somme des Li(x). Par unicité du polynôme interpolateur, et comme le polynôme constant 1 interpole aussi ces points, P(x)=1 pour tout x. Donc somme des Li(x) = 1.",
+      explanation: "Considérons la fonction constante $f\\equiv1$. Elle vérifie $f(x_i)=1$ pour tout $i=0,\\ldots,n$. Son polynôme interpolateur (de degré $\\leq n$) associé à ces $n+1$ points est, par la formule de Lagrange, $P(x)=\\sum_{i=0}^n 1\\cdot L_i(x) = \\sum_i L_i(x)$. Mais le polynôme constant $Q(x)=1$ (de degré $0\\leq n$) interpole évidemment aussi ces mêmes points ($Q(x_i)=1$ pour tout $i$). Par **unicité** du polynôme interpolateur de degré $\\leq n$, on a $P=Q$, c'est-à-dire $\\sum_{i=0}^n L_i(x) = 1$ pour tout $x$. C'est une identité remarquable, utile pour vérifier des calculs de polynômes de Lagrange.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-1-e10",
+      question: "Soit $f$ un polynôme de degré $\\leq n$. Montrer que son polynôme interpolateur de Lagrange en $n+1$ points distincts quelconques est $f$ lui-même (et donc l'erreur d'interpolation est nulle).",
+      type: "open",
+      modelAnswer: "Le polynôme interpolateur P de f en ces n+1 points est l'unique polynôme de degré <= n vérifiant P(xi)=f(xi). Or f lui-même est de degré <= n et vérifie f(xi)=f(xi) trivialement. Par unicité, P=f.",
+      explanation: "Par définition, le polynôme interpolateur $P$ associé aux points $(x_i,f(x_i))_{0\\leq i\\leq n}$ est l'**unique** polynôme de degré $\\leq n$ tel que $P(x_i)=f(x_i)$ pour tout $i$. Or $f$ est elle-même un polynôme de degré $\\leq n$ et vérifie trivialement $f(x_i)=f(x_i)$. Par l'unicité du théorème d'interpolation, on a donc $P=f$. Conséquence : l'erreur d'interpolation pour un polynôme de degré $\\leq n$ interpolé en $n+1$ points est **identiquement nulle**, ce qui est cohérent avec la formule du reste $\\frac{f^{(n+1)}(\\xi)}{(n+1)!}\\prod(x-x_i)$, où $f^{(n+1)}=0$ puisque $\\deg f\\leq n$.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-1-e11",
+      question: "Construire le polynôme de Lagrange interpolant $(0,1)$, $(1,2)$, $(-1,2)$.",
+      type: "open",
+      modelAnswer: "Cherchons P(x)=ax^2+bx+c. P(0)=1 -> c=1. P(1)=2 -> a+b+1=2, a+b=1. P(-1)=2 -> a-b+1=2, a-b=1. En ajoutant: 2a=2, a=1, puis b=0. P(x)=x^2+1.",
+      explanation: "Posons $P(x)=ax^2+bx+c$. $P(0)=1\\Rightarrow c=1$. $P(1)=2\\Rightarrow a+b+c=2\\Rightarrow a+b=1$. $P(-1)=2\\Rightarrow a-b+c=2\\Rightarrow a-b=1$. En ajoutant les deux dernières équations : $2a=2\\Rightarrow a=1$, puis $b=0$. $P(x)=x^2+1$. Vérification : $P(0)=1$ ✓, $P(1)=2$ ✓, $P(-1)=2$ ✓.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-1-e12",
+      question: "Pourquoi dit-on que la formule de Lagrange est coûteuse à mettre à jour lorsqu'on ajoute un nouveau point d'interpolation ?",
+      type: "open",
+      modelAnswer: "Chaque polynôme de base Li dépend de tous les points x0,...,xn. Ajouter un nouveau point change tous les Li existants (le produit doit inclure le nouveau facteur), donc il faut tout recalculer depuis le début, contrairement à la forme de Newton par différences divisées qui permet d'ajouter un terme sans recalculer les précédents.",
+      explanation: "Chaque polynôme de base $L_i(x) = \\prod_{j\\neq i} \\frac{x-x_j}{x_i-x_j}$ dépend explicitement de **tous** les points $x_0,\\ldots,x_n$ déjà présents. Si l'on ajoute un nouveau point $x_{n+1}$, chaque $L_i$ doit être recalculé (un facteur supplémentaire apparaît au numérateur et au dénominateur). Il n'y a donc aucune réutilisation des calculs précédents. C'est pourquoi, en pratique numérique, on utilise plutôt la **forme de Newton par différences divisées**, qui permet d'ajouter un point en ajoutant simplement un terme supplémentaire à une somme déjà calculée, sans tout recommencer.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-1-e13",
+      question: "Soit $f(x)=\\cos(x)$ interpolée par un polynôme de degré $\\leq4$ en $5$ points sur $[0,\\pi]$. Sachant que $|f^{(5)}(x)|=|\\sin(x)|\\leq1$, donner la forme générale de la borne d'erreur (sans calcul numérique complet).",
+      type: "open",
+      modelAnswer: "Erreur <= 1/5! * |produit des (x-xi) pour i=0..4| = 1/120 * |produit|.",
+      explanation: "La formule générale du reste donne $|f(x)-P(x)| \\leq \\dfrac{\\max|f^{(5)}|}{5!}\\,\\left|\\prod_{i=0}^4(x-x_i)\\right| \\leq \\dfrac{1}{120}\\left|\\prod_{i=0}^4(x-x_i)\\right|$, en utilisant $\\max|f^{(5)}|=\\max|\\sin|\\leq1$ et $5!=120$. La majoration précise dépend ensuite du choix des $5$ points $x_i$ et de la position de $x$.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-1-e14",
+      question: "Vrai ou faux : si les $y_i$ d'un jeu de points sont tous égaux à une constante $c$, le polynôme interpolateur est le polynôme constant $P(x)=c$.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Le polynôme constant $P(x)=c$ vérifie bien $P(x_i)=c=y_i$ pour tout $i$, et il est de degré $0\\leq n$. Par unicité du polynôme interpolateur de degré $\\leq n$, c'est forcément lui (on retrouve aussi ce résultat via $P(x)=\\sum_i c\\, L_i(x) = c\\sum_i L_i(x) = c\\times1=c$, en utilisant l'identité $\\sum L_i=1$ vue précédemment).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-1-e15",
+      question: "Expliquer en une phrase pourquoi l'interpolation par morceaux (splines, par exemple linéaires ou cubiques) est souvent préférée à l'interpolation par un seul polynôme de haut degré pour un grand nombre de points.",
+      type: "open",
+      modelAnswer: "Un seul polynôme de haut degré peut osciller fortement entre les points (phénomène de Runge) et être numériquement instable, alors que des polynômes de bas degré par morceaux restent localement bien contrôlés et évitent ces oscillations globales.",
+      explanation: "Un polynôme unique de degré élevé passant par de nombreux points a tendance à **osciller fortement** entre les points de contrôle (phénomène de Runge), surtout près des bords, et peut être numériquement instable (sensibilité aux erreurs d'arrondi, voir la dernière leçon de ce cours). L'interpolation par morceaux (splines) utilise des polynômes de bas degré sur chaque sous-intervalle, raccordés avec une certaine régularité (continuité de la fonction, parfois de sa dérivée) : cela évite les oscillations globales et donne une approximation beaucoup plus stable et fidèle, ce qui explique son usage quasi systématique en pratique (graphisme, CAO, analyse numérique appliquée).",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "an-l2-2",
+  slug: "resolution-numerique-equations",
+  title: "Résolution numérique d'équations",
+  durationMinutes: 55,
+  content: `## Résolution numérique d'équations
+
+### 1. Position du problème
+
+On veut résoudre numériquement une équation $f(x)=0$ lorsqu'aucune formule explicite n'existe pour la solution (par exemple $x^3+x-1=0$, ou $\\cos(x)=x$). On construit des suites $(x_n)$ qui **convergent** vers une solution $\\alpha$, avec une précision contrôlable.
+
+### 2. Méthode de dichotomie
+
+**Principe :** si $f$ est continue sur $[a,b]$ avec $f(a)$ et $f(b)$ de signes opposés, le théorème des valeurs intermédiaires garantit l'existence d'un $\\alpha\\in\\,]a,b[$ tel que $f(\\alpha)=0$. La méthode consiste à couper l'intervalle en deux à chaque étape et à garder la moitié où le changement de signe persiste.
+
+**Algorithme :** on part de $[a_0,b_0]=[a,b]$ avec $f(a_0)f(b_0)<0$. À chaque étape $n$ :
+1. Calculer le milieu $m_n = \\dfrac{a_n+b_n}{2}$.
+2. Si $f(a_n)f(m_n) \\leq 0$ : poser $[a_{n+1},b_{n+1}] = [a_n,m_n]$.
+3. Sinon : poser $[a_{n+1},b_{n+1}] = [m_n,b_n]$.
+
+À chaque étape, la longueur de l'intervalle est divisée par $2$ : $b_n-a_n = \\dfrac{b-a}{2^n}$. La suite $(m_n)$ converge vers une racine $\\alpha$, avec l'estimation d'erreur $|m_n-\\alpha| \\leq \\dfrac{b-a}{2^{n+1}}$.
+
+**Avantages :** convergence **garantie** dès que $f$ est continue et change de signe (aucune hypothèse de dérivabilité). **Inconvénient :** convergence **lente** (dite "linéaire" : il faut environ $3{,}3$ itérations supplémentaires pour gagner un chiffre décimal de précision, car $2^{10}\\approx1000$).
+
+**Exemple résolu :** résoudre $f(x)=x^2-2=0$ sur $[1,2]$ (recherche de $\\sqrt2$) par dichotomie, $2$ étapes. $f(1)=-1<0$, $f(2)=2>0$. Étape 1 : $m_0=1{,}5$, $f(1{,}5)=0{,}25>0$, on garde $[1,1{,}5]$. Étape 2 : $m_1=1{,}25$, $f(1{,}25)=-0{,}4375<0$, on garde $[1{,}25,1{,}5]$. Après deux étapes, $\\sqrt2 \\in [1{,}25,1{,}5]$ (la vraie valeur est $\\approx1{,}414$).
+
+### 3. Méthode de Newton (Newton-Raphson)
+
+**Principe :** on linéarise $f$ au voisinage d'un point courant $x_n$ via la tangente, et on prend pour $x_{n+1}$ l'intersection de cette tangente avec l'axe des abscisses.
+
+**Formule de récurrence :**
+$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$
+(en supposant $f'(x_n)\\neq0$).
+
+*Justification :* l'équation de la tangente au graphe de $f$ en $x_n$ est $y = f(x_n) + f'(x_n)(x-x_n)$. On cherche son intersection avec l'axe $y=0$ : $0=f(x_n)+f'(x_n)(x-x_n) \\iff x = x_n - \\dfrac{f(x_n)}{f'(x_n)}$.
+
+**Exemple résolu :** approcher $\\sqrt2$ (racine de $f(x)=x^2-2$) par Newton, en partant de $x_0=1{,}5$. $f'(x)=2x$. $x_1 = 1{,}5 - \\dfrac{1{,}5^2-2}{2\\times1{,}5} = 1{,}5 - \\dfrac{0{,}25}{3} = 1{,}5-0{,}0833\\ldots \\approx 1{,}4167$. $x_2 = 1{,}4167 - \\dfrac{1{,}4167^2-2}{2\\times1{,}4167} \\approx 1{,}4167 - \\dfrac{0{,}00695}{2{,}8334} \\approx 1{,}41422$, déjà très proche de $\\sqrt2\\approx1{,}41421356$.
+
+### 4. Convergence de la méthode de Newton
+
+**Théorème (convergence locale, admis) :** si $f$ est de classe $\\mathcal C^2$ au voisinage d'une racine simple $\\alpha$ (c'est-à-dire $f(\\alpha)=0$ et $f'(\\alpha)\\neq0$), et si $x_0$ est suffisamment proche de $\\alpha$, alors la suite de Newton $(x_n)$ converge vers $\\alpha$, et la convergence est **quadratique** : il existe $C>0$ tel que
+$$|x_{n+1}-\\alpha| \\leq C\\,|x_n-\\alpha|^2$$
+**Conséquence pratique :** la convergence quadratique signifie (grossièrement) que le nombre de décimales correctes **double** à chaque itération — bien plus rapide que la dichotomie. C'est ce qu'on observe dans l'exemple ci-dessus : $2$ itérations suffisent pour $5$ décimales correctes.
+
+**Limites de la méthode :** la convergence n'est garantie que **localement** (un mauvais choix de $x_0$ peut diverger ou converger vers une autre racine), et elle nécessite de calculer $f'$ à chaque étape. Si $f'(\\alpha)=0$ (racine multiple), la convergence devient seulement linéaire.
+
+### 5. Comparaison dichotomie / Newton
+
+| Critère | Dichotomie | Newton |
+|---|---|---|
+| Hypothèses | $f$ continue, changement de signe | $f$ de classe $\\mathcal{C}^2$, $f'\\neq0$ près de $\\alpha$ |
+| Convergence | Toujours (si hypothèses vérifiées) | Locale seulement |
+| Vitesse | Linéaire (lente) | Quadratique (rapide) |
+| Calcul de $f'$ | Non nécessaire | Nécessaire à chaque étape |
+
+**Stratégie pratique courante :** utiliser quelques itérations de dichotomie pour encadrer grossièrement la racine et obtenir un bon point de départ, puis basculer sur Newton pour la précision finale rapide.
+
+### 6. Exemple résolu de synthèse
+
+**Énoncé :** trouver une valeur approchée de la racine de $f(x)=x^3-x-2$ sur $[1,2]$ par Newton, en partant de $x_0=1{,}5$.
+
+**Résolution :** $f'(x)=3x^2-1$. $f(1{,}5)=3{,}375-1{,}5-2=-0{,}125$. $f'(1{,}5)=3\\times2{,}25-1=5{,}75$. $x_1 = 1{,}5-\\dfrac{-0{,}125}{5{,}75} = 1{,}5+0{,}0217 \\approx 1{,}5217$. Une itération supplémentaire affinerait encore cette estimation (la racine exacte est $\\approx1{,}5214$).`,
+  exercises: [
+    {
+      id: "an-l2-2-e1",
+      question: "Pour appliquer la méthode de dichotomie sur $[a,b]$, quelle condition doit vérifier $f$ ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$f$ dérivable et $f'(a)\\neq0$" },
+        { id: "B", text: "$f$ continue et $f(a)f(b)<0$" },
+        { id: "C", text: "$f$ convexe sur $[a,b]$" },
+        { id: "D", text: "$f$ polynomiale" },
+      ],
+      correctId: "B",
+      explanation: "La dichotomie nécessite seulement la continuité de $f$ et un changement de signe entre $a$ et $b$ ($f(a)f(b)<0$), garantissant par le théorème des valeurs intermédiaires l'existence d'une racine.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-2-e2",
+      question: "Après combien d'étapes de dichotomie sur $[0,1]$ est-on certain que l'intervalle a une longueur $\\leq0{,}01$ ?",
+      type: "open",
+      modelAnswer: "Longueur après n étapes = 1/2^n. On veut 1/2^n <= 0.01, soit 2^n >= 100, donc n >= 7 (car 2^7=128 >= 100, 2^6=64 < 100).",
+      explanation: "Après $n$ étapes, la longueur de l'intervalle est $\\dfrac{b-a}{2^n} = \\dfrac{1}{2^n}$. On veut $\\dfrac{1}{2^n}\\leq0{,}01 \\iff 2^n\\geq100$. Comme $2^6=64<100$ et $2^7=128\\geq100$, il faut $n=7$ étapes.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-2-e3",
+      question: "Vrai ou faux : la méthode de Newton converge toujours, quel que soit le point de départ $x_0$.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. La convergence de Newton n'est garantie que **localement**, c'est-à-dire pour $x_0$ suffisamment proche de la racine $\\alpha$. Un mauvais choix de $x_0$ peut faire diverger la suite ou la faire converger vers une autre racine.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-2-e4",
+      question: "Donner la formule de récurrence de la méthode de Newton pour résoudre $f(x)=0$.",
+      type: "mcq",
+      options: [
+        { id: "A", text: "$x_{n+1}=x_n+f(x_n)$" },
+        { id: "B", text: "$x_{n+1}=x_n - \\dfrac{f(x_n)}{f'(x_n)}$" },
+        { id: "C", text: "$x_{n+1}=\\dfrac{x_n+f(x_n)}{2}$" },
+        { id: "D", text: "$x_{n+1}=f(x_n)$" },
+      ],
+      correctId: "B",
+      explanation: "La formule de Newton-Raphson est $x_{n+1}=x_n-\\dfrac{f(x_n)}{f'(x_n)}$, obtenue en cherchant le zéro de la tangente au graphe de $f$ en $x_n$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-2-e5",
+      question: "Calculer une itération de Newton pour $f(x)=x^2-9$ en partant de $x_0=4$.",
+      type: "open",
+      modelAnswer: "f(4)=16-9=7. f'(x)=2x, f'(4)=8. x1 = 4 - 7/8 = 4-0.875 = 3.125.",
+      explanation: "$f(4)=16-9=7$. $f'(x)=2x$, donc $f'(4)=8$. $x_1 = 4 - \\dfrac{7}{8} = 3{,}125$ (la vraie racine est $3$, donc cette première itération s'en approche déjà).",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-2-e6",
+      question: "Montrer que la méthode de Newton appliquée à $f(x)=x^2-a$ (pour $a>0$) donne la formule récursive $x_{n+1} = \\dfrac12\\left(x_n + \\dfrac{a}{x_n}\\right)$ (méthode de Héron pour calculer $\\sqrt a$).",
+      type: "open",
+      modelAnswer: "f'(x)=2x. x_{n+1} = x_n - (x_n^2-a)/(2x_n) = (2x_n^2 - x_n^2+a)/(2x_n) = (x_n^2+a)/(2x_n) = (1/2)(x_n + a/x_n).",
+      explanation: "$f(x)=x^2-a$, $f'(x)=2x$. $x_{n+1} = x_n - \\dfrac{x_n^2-a}{2x_n} = \\dfrac{2x_n^2 - (x_n^2-a)}{2x_n} = \\dfrac{x_n^2+a}{2x_n} = \\dfrac12\\left(x_n+\\dfrac{a}{x_n}\\right)$. C'est exactement la méthode de Héron (connue depuis l'Antiquité) pour approcher $\\sqrt a$, et elle converge en fait très rapidement (quadratiquement, conformément à la théorie de Newton).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-2-e7",
+      question: "Vrai ou faux : si $f'(\\alpha)=0$ en la racine $\\alpha$ recherchée (racine multiple), la convergence de Newton reste quadratique.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Lorsque $\\alpha$ est une racine multiple ($f(\\alpha)=f'(\\alpha)=0$), la convergence de Newton devient seulement **linéaire** (beaucoup plus lente que dans le cas d'une racine simple).",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-2-e8",
+      question: "Effectuer deux étapes de dichotomie pour $f(x)=x^3-5$ sur $[1,2]$ (encadrement de $\\sqrt[3]5$).",
+      type: "open",
+      modelAnswer: "f(1)=-4<0, f(2)=3>0. Étape 1 : m=1.5, f(1.5)=3.375-5=-1.625<0, on garde [1.5,2]. Étape 2 : m=1.75, f(1.75)=5.359-5=0.359>0, on garde [1.5,1.75].",
+      explanation: "$f(1)=1-5=-4<0$, $f(2)=8-5=3>0$. **Étape 1 :** $m_0=1{,}5$, $f(1{,}5)=3{,}375-5=-1{,}625<0$ (même signe que $f(1)$), donc on garde $[1{,}5,2]$. **Étape 2 :** $m_1=1{,}75$, $f(1{,}75)=5{,}359\\ldots-5\\approx0{,}359>0$ (signe opposé à $f(1{,}5)$), donc on garde $[1{,}5,1{,}75]$. La racine cubique de $5$ ($\\approx1{,}71$) est bien dans cet intervalle.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-2-e9",
+      question: "Pourquoi dit-on que la convergence de la dichotomie est \\\"linéaire\\\" alors que celle de Newton est \\\"quadratique\\\" ? Expliquer la différence pratique.",
+      type: "open",
+      modelAnswer: "Linéaire signifie que l'erreur est multipliée par une constante fixe (1/2) à chaque étape : il faut un nombre constant d'étapes supplémentaires pour gagner un chiffre décimal. Quadratique signifie que l'erreur est environ mise au carré à chaque étape (multipliée par elle-même), donc le nombre de décimales correctes double approximativement à chaque itération : la convergence est beaucoup plus rapide une fois qu'on est proche de la solution.",
+      explanation: "**Convergence linéaire (dichotomie) :** l'erreur $e_n = |m_n-\\alpha|$ vérifie $e_{n+1} \\approx \\frac12 e_n$ — elle est multipliée par une constante fixe ($\\frac12$) à chaque étape, indépendamment de sa taille actuelle. Il faut donc un nombre constant d'itérations supplémentaires pour gagner un chiffre décimal (environ $3{,}3$ itérations par décimale, car $2^{3{,}3}\\approx10$). **Convergence quadratique (Newton) :** $e_{n+1} \\leq C\\, e_n^2$ — l'erreur est (à peu près) mise au carré à chaque étape. Si $e_n$ est déjà petit (disons $e_n=10^{-2}$), alors $e_{n+1}$ est de l'ordre de $10^{-4}$, $e_{n+2}$ de l'ordre de $10^{-8}$ : le nombre de décimales correctes **double** environ à chaque itération, ce qui rend la convergence extrêmement rapide une fois amorcée près de la racine.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-2-e10",
+      question: "Soit $f(x)=x^2+1$. Que se passe-t-il si l'on tente d'appliquer la méthode de dichotomie sur $[-1,1]$ ?",
+      type: "open",
+      modelAnswer: "f(-1)=2>0 et f(1)=2>0 : pas de changement de signe, donc l'hypothèse de la dichotomie n'est pas vérifiée. En effet f(x)=x^2+1 > 0 pour tout réel x, il n'y a aucune racine réelle, ce qui est cohérent.",
+      explanation: "$f(-1)=1+1=2>0$ et $f(1)=1+1=2>0$ : les valeurs aux extrémités sont de même signe, donc l'hypothèse $f(a)f(b)<0$ n'est pas satisfaite. La dichotomie ne peut pas être lancée valablement. C'est cohérent avec le fait que $f(x)=x^2+1>0$ pour tout $x$ réel : cette fonction n'a aucune racine réelle, donc il était impossible de trouver un changement de signe.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-2-e11",
+      question: "Donner un exemple de fonction et de point de départ $x_0$ pour lequel la méthode de Newton ne converge pas (diverge ou cycle), et expliquer pourquoi.",
+      type: "open",
+      modelAnswer: "Exemple classique : f(x)=x^3-2x+2, partant de x0=0. f(0)=2, f'(0)=-2, x1=0-2/(-2)=1. f(1)=1, f'(1)=1, x2=1-1=0. On retombe sur x0=0 : la suite cycle entre 0 et 1 sans converger, car le point de départ n'est pas dans le bassin de convergence local autour de la vraie racine.",
+      explanation: "Un exemple classique est $f(x)=x^3-2x+2$ avec $x_0=0$. $f(0)=2$, $f'(0)=-2$, donc $x_1 = 0-\\frac{2}{-2}=1$. $f(1)=1-2+2=1$, $f'(1)=3-2=1$, donc $x_2 = 1-\\frac11=0$. La suite **cycle** indéfiniment entre $0$ et $1$ sans jamais converger, parce que $x_0$ n'est pas dans un voisinage où le théorème de convergence locale de Newton s'applique (la tangente y \\\"renvoie\\\" exactement au point précédent). Cet exemple illustre concrètement la limite \\\"convergence locale seulement\\\" du théorème de Newton.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-2-e12",
+      question: "On veut résoudre $\\cos(x)=x$ par Newton. Écrire $f(x)$ et $f'(x)$, et effectuer une itération à partir de $x_0=0{,}7$ (sachant $\\cos(0{,}7)\\approx0{,}7648$, $\\sin(0{,}7)\\approx0{,}6442$).",
+      type: "open",
+      modelAnswer: "f(x)=cos(x)-x, f'(x)=-sin(x)-1. f(0.7)=0.7648-0.7=0.0648. f'(0.7)=-0.6442-1=-1.6442. x1 = 0.7 - 0.0648/(-1.6442) = 0.7+0.0394 ≈ 0.7394.",
+      explanation: "On pose $f(x)=\\cos(x)-x$ (résoudre $\\cos x=x$ équivaut à $f(x)=0$). $f'(x)=-\\sin(x)-1$. $f(0{,}7) \\approx 0{,}7648-0{,}7=0{,}0648$. $f'(0{,}7) \\approx -0{,}6442-1=-1{,}6442$. $x_1 = 0{,}7 - \\dfrac{0{,}0648}{-1{,}6442} \\approx 0{,}7+0{,}0394 \\approx 0{,}7394$, déjà proche de la valeur connue $\\approx0{,}7391$ (constante de Dottie).",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-2-e13",
+      question: "Vrai ou faux : combiner dichotomie puis Newton (dichotomie d'abord pour encadrer grossièrement, puis Newton pour affiner) est une stratégie pertinente en pratique.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. C'est une stratégie courante en analyse numérique : la dichotomie offre une convergence garantie (mais lente) pour obtenir rapidement un bon point de départ proche de la racine, puis Newton prend le relais pour bénéficier de sa convergence quadratique rapide, sans risquer la divergence d'un mauvais point de départ.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-2-e14",
+      question: "Soit $f(x)=x^2-2$. Montrer que si $x_n>\\sqrt2$, alors $x_{n+1}$ (obtenu par Newton) vérifie aussi $x_{n+1}>\\sqrt2$ et $x_{n+1}<x_n$ — la suite décroît tout en restant au-dessus de $\\sqrt2$.",
+      type: "open",
+      modelAnswer: "x_{n+1} = (1/2)(x_n + 2/x_n) par la formule de Héron. Par AM-GM, (x_n+2/x_n)/2 >= sqrt(x_n * 2/x_n) = sqrt(2), donc x_{n+1} >= sqrt(2), avec égalité ssi x_n=2/x_n soit x_n=sqrt(2). Comme x_n > sqrt(2) (donc pas d'égalité), x_{n+1} > sqrt(2) strictement. Pour la décroissance : x_n - x_{n+1} = x_n - (1/2)(x_n+2/x_n) = (1/2)(x_n - 2/x_n) = (x_n^2-2)/(2x_n) > 0 car x_n^2>2 et x_n>0.",
+      explanation: "Par la formule de Héron (vue à l'exercice 6), $x_{n+1} = \\dfrac12\\left(x_n+\\dfrac{2}{x_n}\\right)$. **$x_{n+1}\\geq\\sqrt2$ :** par l'inégalité arithmético-géométrique, $\\dfrac{x_n+2/x_n}{2} \\geq \\sqrt{x_n\\cdot\\frac{2}{x_n}} = \\sqrt2$, avec égalité ssi $x_n=2/x_n \\iff x_n=\\sqrt2$. Comme $x_n>\\sqrt2$ par hypothèse, l'inégalité est stricte : $x_{n+1}>\\sqrt2$. **Décroissance :** $x_n - x_{n+1} = x_n - \\dfrac12\\left(x_n+\\dfrac2{x_n}\\right) = \\dfrac12\\left(x_n-\\dfrac2{x_n}\\right) = \\dfrac{x_n^2-2}{2x_n}$. Comme $x_n>\\sqrt2>0$, on a $x_n^2>2$ et $x_n>0$, donc cette quantité est strictement positive : $x_n>x_{n+1}$. Conclusion : la suite $(x_n)$ est strictement décroissante et minorée par $\\sqrt2$, donc elle converge (théorème des suites monotones bornées), nécessairement vers $\\sqrt2$ (point fixe de la récurrence).",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-2-e15",
+      question: "Combien d'étapes de dichotomie sont nécessaires sur $[0,1]$ pour garantir une précision de $10^{-6}$ ? Comparer (en ordre de grandeur) au nombre d'itérations de Newton nécessaires pour la même précision en partant d'une erreur initiale de $10^{-1}$ avec une constante $C=1$ dans l'estimation quadratique.",
+      type: "open",
+      modelAnswer: "Dichotomie : 1/2^n <= 10^-6, donc 2^n >= 10^6, n >= log2(10^6) ≈ 19.9, donc 20 étapes. Newton : avec e0=0.1 et C=1, e1<=e0^2=0.01, e2<=e1^2=0.0001=10^-4, e3<=10^-8. Donc 3 itérations suffisent largement pour atteindre 10^-6, contre 20 pour la dichotomie.",
+      explanation: "**Dichotomie :** $\\dfrac{1}{2^n}\\leq10^{-6} \\iff 2^n\\geq10^6 \\iff n \\geq \\log_2(10^6) = 6\\log_2(10) \\approx 6\\times3{,}32=19{,}93$, donc $n=20$ étapes. **Newton :** avec $e_0=10^{-1}$ et $e_{n+1}\\leq C\\,e_n^2=e_n^2$ : $e_1\\leq(10^{-1})^2=10^{-2}$, $e_2\\leq(10^{-2})^2=10^{-4}$, $e_3\\leq(10^{-4})^2=10^{-8}$. Donc $3$ itérations suffisent largement pour atteindre une précision de $10^{-6}$, contre $20$ étapes pour la dichotomie : un facteur d'environ $7$ en nombre d'itérations, illustrant concrètement la supériorité pratique de la convergence quadratique une fois la phase d'amorçage passée.",
+      difficulty: "expert",
+    },
+  ],
+},
+      {
+  id: "an-l2-3",
+  slug: "erreurs-numeriques-et-stabilite",
+  title: "Erreurs numériques et stabilité",
+  durationMinutes: 50,
+  content: `## Erreurs numériques et stabilité
+
+### 1. Représentation des nombres en machine
+
+Un ordinateur ne représente les nombres réels qu'avec une précision **finie** (en général en virgule flottante, sur $64$ bits pour le type "double" usuel, soit environ $15$-$16$ chiffres décimaux significatifs). Tout calcul introduit potentiellement une petite erreur d'arrondi, de l'ordre de $\\varepsilon_{\\text{machine}} \\approx 10^{-16}$ pour le double.
+
+**Erreur absolue et erreur relative :** si $\\tilde x$ est une valeur approchée de $x$, on définit :
+$$\\text{erreur absolue} = |\\tilde x - x|, \\qquad \\text{erreur relative} = \\frac{|\\tilde x-x|}{|x|} \\ (\\text{si } x\\neq0)$$
+L'erreur relative est souvent plus pertinente : une erreur absolue de $1$ est négligeable si $x=10^{10}$, mais catastrophique si $x=10^{-3}$.
+
+### 2. Propagation des erreurs dans les opérations élémentaires
+
+**Addition/soustraction :** si $\\tilde a = a+\\delta_a$ et $\\tilde b = b+\\delta_b$, alors $\\tilde a+\\tilde b = (a+b)+(\\delta_a+\\delta_b)$ : les erreurs absolues s'additionnent (au pire, en valeur absolue).
+
+**Phénomène de cancellation catastrophique :** lorsqu'on soustrait deux nombres très proches, l'erreur **relative** du résultat peut devenir énorme, même si les erreurs absolues initiales sont minimes. Exemple : si $a=1{,}000001$ et $b=1{,}000000$ (connus chacun avec une erreur absolue $\\approx10^{-7}$), alors $a-b = 0{,}000001 = 10^{-6}$, mais l'erreur absolue sur ce résultat (qui reste $\\approx10^{-7}$) représente maintenant une erreur **relative** de $10\\%$ sur le résultat — alors qu'elle n'était que de $10^{-7}$ sur $a$ et $b$ séparément.
+
+**Exemple classique de reformulation pour éviter la cancellation :** pour résoudre $x^2-2px+q=0$ avec $p$ grand et $q$ petit, la formule usuelle $x = p\\pm\\sqrt{p^2-q}$ souffre de cancellation pour la racine proche de $0$ (différence de deux quantités proches). On préfère alors calculer d'abord la racine "facile" $x_1=p+\\sqrt{p^2-q}$ (somme, pas de cancellation), puis utiliser la relation produit des racines $x_1 x_2=q$ pour obtenir $x_2 = q/x_1$ sans soustraction dangereuse.
+
+### 3. Conditionnement d'un problème
+
+Le **conditionnement** mesure la sensibilité de la solution d'un problème à de petites perturbations des données d'entrée. Pour une fonction $f$ et une perturbation relative $\\varepsilon$ de l'entrée $x$, le conditionnement (relatif) est approximativement :
+$$\\kappa(x) \\approx \\left|\\frac{x\\,f'(x)}{f(x)}\\right|$$
+**Un problème est dit bien conditionné si $\\kappa$ est petit** (les petites erreurs sur les données restent petites sur le résultat), et **mal conditionné si $\\kappa$ est grand** (de minuscules erreurs d'entrée peuvent être amplifiées énormément).
+
+**Exemple :** pour $f(x)=\\sqrt{x}$, $\\kappa(x) = \\left|\\dfrac{x\\times\\frac{1}{2\\sqrt x}}{\\sqrt x}\\right| = \\dfrac12$ : c'est un problème bien conditionné, peu sensible. En revanche, pour $f(x)=\\dfrac{1}{x-1}$ près de $x=1$, le conditionnement explose ($f$ varie extrêmement vite), traduisant une grande sensibilité.
+
+**Important :** le conditionnement est une propriété du **problème mathématique** lui-même, indépendante de l'algorithme utilisé pour le résoudre. Un problème mal conditionné restera difficile à résoudre précisément quel que soit l'algorithme.
+
+### 4. Stabilité d'un algorithme
+
+La **stabilité** d'un algorithme, à l'inverse, décrit comment celui-ci propage (ou amplifie) les erreurs d'arrondi **au cours de ses propres calculs intermédiaires**, même pour résoudre un problème bien conditionné. Un algorithme **instable** peut donner des résultats très imprécis (ou complètement faux), même appliqué à un problème bien conditionné, à cause d'une accumulation ou amplification d'erreurs à chaque étape.
+
+**Exemple classique (calcul d'une suite récurrente) :** la suite définie par $I_0=\\ln(6/5)$ et $I_n = \\dfrac1n - 5I_{n-1}$ (provenant du calcul de $\\int_0^1 \\frac{x^n}{x+5}dx$) vérifie mathématiquement $I_n\\to0$, mais le calcul numérique de cette récurrence, démarré avec $I_0$ légèrement arrondi, voit son erreur initiale **multipliée par $-5$ à chaque étape** : après quelques itérations seulement, les valeurs calculées deviennent absurdes (négatives ou explosant en valeur absolue), bien que la suite exacte reste positive et tende vers $0$. C'est un algorithme numériquement **instable**, car le facteur d'amplification ($-5$, en valeur absolue $>1$) fait croître l'erreur exponentiellement.
+
+### 5. Stabilité : critère qualitatif
+
+De façon générale, un algorithme itératif de la forme $e_{n+1} \\approx \\lambda\\, e_n$ sur l'erreur $e_n$ est :
+- **Stable** si $|\\lambda|\\leq1$ (l'erreur ne croît pas, ou décroît) ;
+- **Instable** si $|\\lambda|>1$ (l'erreur est amplifiée à chaque étape, donc explose exponentiellement après suffisamment d'itérations).
+
+**Remède pratique courant :** lorsqu'une récurrence "vers l'avant" est instable, on peut souvent la rendre stable en la parcourant "à l'envers" (de $n$ grand vers $n$ petit), si le problème s'y prête, car le facteur d'amplification est alors inversé ($1/\\lambda$, qui devient $<1$ si $|\\lambda|>1$).
+
+### 6. Exemple résolu de synthèse
+
+**Énoncé :** on veut calculer $f(x) = \\sqrt{x+1}-\\sqrt{x}$ pour $x$ grand (par exemple $x=10^{10}$). Pourquoi le calcul direct est-il numériquement mauvais, et quelle reformulation éviter ce problème ?
+
+**Résolution :** pour $x$ grand, $\\sqrt{x+1}$ et $\\sqrt{x}$ sont deux nombres très proches : leur soustraction directe souffre de **cancellation catastrophique** (perte de précision relative). On reformule en multipliant par la quantité conjuguée :
+$$f(x) = \\sqrt{x+1}-\\sqrt{x} = \\frac{(\\sqrt{x+1}-\\sqrt x)(\\sqrt{x+1}+\\sqrt x)}{\\sqrt{x+1}+\\sqrt x} = \\frac{(x+1)-x}{\\sqrt{x+1}+\\sqrt x} = \\frac{1}{\\sqrt{x+1}+\\sqrt x}$$
+Cette nouvelle expression ne comporte qu'une **somme** au dénominateur (pas de soustraction de quantités proches), donc elle est numériquement stable et se calcule sans perte de précision, même pour $x$ très grand.`,
+  exercises: [
+    {
+      id: "an-l2-3-e1",
+      question: "Quelle est l'erreur relative si $x=1000$ et $\\tilde x = 1000{,}5$ ?",
+      type: "open",
+      modelAnswer: "Erreur absolue = 0.5. Erreur relative = 0.5/1000 = 0.0005 = 0.05%.",
+      explanation: "Erreur absolue $=|1000{,}5-1000|=0{,}5$. Erreur relative $=\\dfrac{0{,}5}{1000}=0{,}0005=0{,}05\\%$.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-3-e2",
+      question: "Vrai ou faux : l'erreur relative est toujours plus pertinente que l'erreur absolue pour juger de la qualité d'une approximation.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai (dans la quasi-totalité des cas pratiques). L'erreur relative tient compte de l'ordre de grandeur de la quantité approchée, contrairement à l'erreur absolue qui peut être trompeuse (négligeable pour un grand nombre, énorme pour un petit nombre).",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-3-e3",
+      question: "Le phénomène de cancellation catastrophique se produit typiquement lors de :",
+      type: "mcq",
+      options: [
+        { id: "A", text: "L'addition de deux grands nombres" },
+        { id: "B", text: "La soustraction de deux nombres très proches" },
+        { id: "C", text: "La multiplication de deux petits nombres" },
+        { id: "D", text: "La division par un grand nombre" },
+      ],
+      correctId: "B",
+      explanation: "La cancellation catastrophique survient lors de la soustraction de deux nombres très proches en valeur : l'erreur absolue (petite) reste similaire, mais le résultat (petit) fait que l'erreur relative explose.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-3-e4",
+      question: "Un algorithme dont l'erreur est multipliée par $\\lambda=0{,}3$ à chaque étape est-il stable ?",
+      type: "mcq",
+      options: [
+        { id: "A", text: "Oui, car $|\\lambda|<1$" },
+        { id: "B", text: "Non, car $\\lambda\\neq0$" },
+        { id: "C", text: "Non, car $|\\lambda|<1$ implique l'instabilité" },
+        { id: "D", text: "Impossible à dire" },
+      ],
+      correctId: "A",
+      explanation: "Oui, l'algorithme est stable car $|\\lambda|=0{,}3<1$ : l'erreur décroît à chaque étape, elle ne s'amplifie pas.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-3-e5",
+      question: "Calculer le conditionnement $\\kappa(x) = |xf'(x)/f(x)|$ pour $f(x)=x^2$.",
+      type: "open",
+      modelAnswer: "f'(x)=2x. κ(x) = |x*2x/x^2| = |2x^2/x^2| = 2.",
+      explanation: "$f'(x)=2x$. $\\kappa(x) = \\left|\\dfrac{x\\times2x}{x^2}\\right| = \\left|\\dfrac{2x^2}{x^2}\\right| = 2$. Le conditionnement est constant (égal à $2$) : élever au carré amplifie modérément (et de façon constante) les erreurs relatives.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-3-e6",
+      question: "Reformuler $f(x) = \\dfrac{1-\\cos(x)}{x^2}$ pour $x$ proche de $0$ afin d'éviter la cancellation (indication : utiliser $1-\\cos x = 2\\sin^2(x/2)$).",
+      type: "open",
+      modelAnswer: "f(x) = 2sin^2(x/2)/x^2 = 2*(sin(x/2)/x)^2 *... plus précisément f(x) = (1/2)*(sin(x/2)/(x/2))^2, qui évite la soustraction 1-cos(x) pour x petit, remplacée par un calcul de sinus stable.",
+      explanation: "En utilisant $1-\\cos x = 2\\sin^2(x/2)$, on obtient $f(x) = \\dfrac{2\\sin^2(x/2)}{x^2}$. En écrivant $x^2=4(x/2)^2$, $f(x) = \\dfrac{2\\sin^2(x/2)}{4(x/2)^2} = \\dfrac12\\left(\\dfrac{\\sin(x/2)}{x/2}\\right)^2$. Cette formule évite complètement la soustraction $1-\\cos(x)$ (qui souffre de cancellation pour $x$ proche de $0$, car $\\cos(x)\\approx1$), en la remplaçant par une expression utilisant uniquement le sinus, numériquement stable.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-3-e7",
+      question: "Vrai ou faux : le conditionnement d'un problème dépend de l'algorithme utilisé pour le résoudre.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. Le conditionnement est une propriété intrinsèque du **problème mathématique** (la sensibilité de la solution exacte aux perturbations des données), indépendante de l'algorithme. C'est la **stabilité**, en revanche, qui dépend de l'algorithme choisi.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-3-e8",
+      question: "Calculer $f(x)=\\sqrt{x+1}-\\sqrt x$ pour $x=10^8$ par la formule directe et par la formule reformulée $\\dfrac{1}{\\sqrt{x+1}+\\sqrt x}$, et comparer la fiabilité.",
+      type: "open",
+      modelAnswer: "Formule directe : sqrt(100000001) - sqrt(100000000), deux nombres très proches (environ 10000.00005 et 10000), différence theoriquement environ 5*10^-5, mais en pratique l'arrondi machine peut donner un résultat très imprécis car les deux racines sont calculées avec seulement quelques décimales significatives au-delà de 10000. Formule reformulée : 1/(sqrt(100000001)+sqrt(100000000)) ≈ 1/20000 = 5*10^-5, calculée de façon stable car c'est une simple division, sans soustraction de quantités proches.",
+      explanation: "**Formule directe :** $\\sqrt{10^8+1}\\approx10000{,}00005$ et $\\sqrt{10^8}=10000$. Leur différence théorique est $\\approx5\\times10^{-5}$, mais en représentation flottante (environ $15$-$16$ chiffres significatifs), $10000{,}00005$ ne conserve que quelques chiffres significatifs après la virgule utiles, ce qui peut dégrader fortement la précision relative du résultat de la soustraction. **Formule reformulée :** $\\dfrac{1}{\\sqrt{10^8+1}+\\sqrt{10^8}} \\approx \\dfrac{1}{20000{,}00005} \\approx 5\\times10^{-5}$, calculée comme une simple division de deux quantités bien représentées, sans aucune soustraction dangereuse : le résultat est numériquement fiable. Cet exemple illustre concrètement l'intérêt de la reformulation algébrique pour la stabilité numérique.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-3-e9",
+      question: "Une récurrence vérifie $e_{n+1} = -3e_n$ sur l'erreur (où $e_n$ est l'écart entre la valeur calculée et la valeur exacte). Si $e_0 \\approx 10^{-10}$ (erreur d'arrondi initiale), estimer $e_{20}$ et conclure sur la stabilité.",
+      type: "open",
+      modelAnswer: "e_20 = (-3)^20 * e_0 = 3^20 * 10^-10. 3^20 ≈ 3.49*10^9. Donc e_20 ≈ 3.49*10^9 * 10^-10 ≈ 0.35. L'erreur initiale négligeable (10^-10) est devenue de l'ordre de l'unité après 20 étapes : algorithme totalement instable.",
+      explanation: "$e_{20} = (-3)^{20} e_0 = 3^{20}\\times10^{-10}$ (le signe disparaît car l'exposant est pair). $3^{20} = (3^{10})^2 = 59049^2 \\approx 3{,}49\\times10^9$. Donc $e_{20} \\approx 3{,}49\\times10^9\\times10^{-10} \\approx 0{,}35$. Une erreur initiale microscopique ($10^{-10}$, de l'ordre de la précision machine) est devenue, après seulement $20$ étapes, de l'ordre de $0{,}35$ — totalement inacceptable. L'algorithme est **fortement instable** (facteur d'amplification $|\\lambda|=3>1$ à chaque étape).",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-3-e10",
+      question: "Vrai ou faux : un problème bien conditionné, résolu par un algorithme instable, peut tout de même donner des résultats numériquement faux.",
+      type: "true_false",
+      correctId: "true",
+      explanation: "Vrai. Le conditionnement (propriété du problème) et la stabilité (propriété de l'algorithme) sont des notions distinctes. Même si le problème mathématique est peu sensible aux perturbations, un algorithme mal conçu peut amplifier les erreurs d'arrondi à chaque étape de calcul et produire un résultat final très imprécis, voire absurde.",
+      difficulty: "debutant",
+    },
+    {
+      id: "an-l2-3-e11",
+      question: "Pour résoudre $x^2-10^6x+1=0$, expliquer pourquoi la formule usuelle des racines $x=\\dfrac{10^6\\pm\\sqrt{10^{12}-4}}{2}$ pose un problème pour l'une des deux racines, et proposer une meilleure méthode de calcul.",
+      type: "open",
+      modelAnswer: "Pour la racine x = (10^6 - sqrt(10^12-4))/2, on soustrait deux quantités très proches (10^6 et sqrt(10^12-4) ≈ 10^6), donc cancellation catastrophique. Pour l'autre racine x = (10^6+sqrt(10^12-4))/2, pas de problème (addition). Solution : calculer d'abord la racine sans cancellation x1 = (10^6+sqrt(10^12-4))/2, puis utiliser x1*x2=1 (produit des racines = c/a = 1) pour obtenir x2 = 1/x1 sans soustraction.",
+      explanation: "$\\sqrt{10^{12}-4} \\approx 10^6$ (la correction due au $-4$ est négligeable face à $10^{12}$). Donc la racine $x_2 = \\dfrac{10^6-\\sqrt{10^{12}-4}}{2}$ est le quotient par $2$ d'une **soustraction de deux quantités quasi identiques** ($10^6$ et $\\approx10^6$) : cancellation catastrophique, perte de précision relative importante. En revanche $x_1 = \\dfrac{10^6+\\sqrt{10^{12}-4}}{2}$ (addition) est calculée sans problème. **Méthode stable :** calculer $x_1$ par la formule directe (fiable), puis utiliser la relation produit des racines $x_1 x_2 = \\dfrac{c}{a}=1$ (ici $c=1,a=1$ dans $ax^2+bx+c$) pour obtenir $x_2 = \\dfrac{1}{x_1}$, qui ne comporte qu'une division, sans cancellation.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-3-e12",
+      question: "Vrai ou faux : la précision machine (de l'ordre de $10^{-16}$ pour le type double) signifie qu'aucun calcul numérique ne peut jamais avoir d'erreur supérieure à $10^{-16}$.",
+      type: "true_false",
+      correctId: "false",
+      explanation: "Faux. La précision machine $\\varepsilon_{\\text{machine}}\\approx10^{-16}$ est l'ordre de grandeur de l'erreur d'arrondi à **chaque** opération élémentaire. Mais ces erreurs peuvent s'accumuler ou être amplifiées au fil de nombreuses opérations (en particulier avec un algorithme instable), conduisant à des erreurs finales bien supérieures à $10^{-16}$ — voire à des résultats complètement faux, comme illustré par l'exemple de la suite $I_n$ du cours.",
+      difficulty: "intermediaire",
+    },
+    {
+      id: "an-l2-3-e13",
+      question: "Soit $f(x) = e^x - 1$, calculée près de $x=0$ par la formule directe (calcul de $e^x$ puis soustraction de $1$). Pourquoi cela pose-t-il un problème, et comment l'éviter (mention du développement en série) ?",
+      type: "open",
+      modelAnswer: "Pour x proche de 0, e^x est proche de 1, donc e^x-1 souffre de cancellation catastrophique (soustraction de deux quantités proches). On peut éviter ce problème en utilisant directement le développement en série e^x-1 = x + x^2/2 + x^3/6 + ... qui évite toute soustraction de grandes quantités proches, ou en utilisant une fonction dédiée (expm1) implémentée de façon stable dans les bibliothèques numériques.",
+      explanation: "Pour $x$ proche de $0$, $e^x \\approx 1$, donc le calcul $e^x-1$ est une soustraction de deux quantités très proches : cancellation catastrophique, perte de précision relative importante sur le résultat (qui devrait être proche de $x$, une petite quantité). **Solution :** utiliser directement le développement en série $e^x-1 = x+\\dfrac{x^2}{2}+\\dfrac{x^3}{6}+\\cdots$, qui ne comporte aucune soustraction de grandes quantités, ou (en pratique informatique) la fonction dédiée souvent appelée \\\"expm1\\\" dans les bibliothèques numériques, spécifiquement conçue et implémentée pour rester stable près de $x=0$.",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-3-e14",
+      question: "Donner la définition du conditionnement absolu (plutôt que relatif) d'un problème $f$ en un point $x$, et expliquer en quoi il diffère du conditionnement relatif.",
+      type: "open",
+      modelAnswer: "Conditionnement absolu : κ_abs(x) = |f'(x)|, qui mesure l'amplification d'une petite erreur absolue sur x en erreur absolue sur f(x). Il diffère du conditionnement relatif qui normalise par les valeurs de x et f(x) elles-mêmes (κ_rel = |x f'(x)/f(x)|), rendant la mesure indépendante des unités/échelles, ce qui le rend généralement plus pertinent en pratique.",
+      explanation: "Le **conditionnement absolu** est $\\kappa_{\\text{abs}}(x) = |f'(x)|$ : il mesure directement de combien une petite erreur absolue $\\delta$ sur $x$ se traduit en erreur absolue sur $f(x)$, via l'approximation $f(x+\\delta)-f(x)\\approx f'(x)\\delta$. Le **conditionnement relatif** $\\kappa_{\\text{rel}}(x) = \\left|\\dfrac{xf'(x)}{f(x)}\\right|$ normalise cette sensibilité par les ordres de grandeur de $x$ et $f(x)$ eux-mêmes, ce qui le rend indépendant des unités de mesure choisies et généralement plus pertinent pour juger de la difficulté intrinsèque d'un problème (une grande sensibilité absolue peut être anodine si $x$ et $f(x)$ sont eux-mêmes très grands).",
+      difficulty: "expert",
+    },
+    {
+      id: "an-l2-3-e15",
+      question: "Expliquer pourquoi, pour calculer $n!$ pour $n$ grand, on préfère souvent travailler avec $\\ln(n!)$ (ou la formule de Stirling) plutôt que de calculer $n!$ directement, du point de vue de la stabilité/représentation numérique.",
+      type: "open",
+      modelAnswer: "n! croît extrêmement vite et dépasse rapidement la plage représentable par un nombre flottant standard (overflow), même pour n modeste (n! dépasse 10^308 vers n=171 par exemple). En travaillant avec ln(n!) = somme des ln(k) pour k=1 à n, on reste dans une plage de valeurs raisonnable (croissance seulement logarithmique/quasi-linéaire), évitant le dépassement de capacité, et on peut retrouver des quantités utiles (rapports de factorielles, par exemple) sans jamais calculer n! explicitement.",
+      explanation: "$n!$ croît extrêmement vite (plus vite que toute exponentielle) et dépasse la plage représentable par un nombre flottant standard (overflow) pour des valeurs de $n$ relativement modestes (par exemple $n!$ dépasse $10^{308}$, la limite du type double, vers $n\\approx171$). En revanche, $\\ln(n!) = \\sum_{k=1}^n \\ln(k)$ croît beaucoup plus lentement (de l'ordre de $n\\ln n$ par la formule de Stirling), restant dans une plage de valeurs numériquement représentable sans dépassement de capacité, même pour des $n$ très grands. De nombreux calculs pratiques (rapports de factorielles, coefficients binomiaux, vraisemblances en statistique) peuvent alors se faire en passant par les logarithmes (additions au lieu de multiplications, soustractions au lieu de divisions) puis en repassant à l'exponentielle seulement à la fin si nécessaire, évitant ainsi tout débordement intermédiaire.",
+      difficulty: "expert",
+    },
+  ],
+},
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L3 — Probabilités : Convergence et théorèmes limites
+  // ─────────────────────────────────────────────
+  {
+  id: "probabilites-l3",
+  slug: "probabilites-l3-convergence-theoremes-limites",
+  title: "Probabilités L3 — Convergence et théorèmes limites",
+  description: "Inégalités de concentration, fonctions génératrices et caractéristiques, lois faible et forte des grands nombres, théorème central limite.",
+  schoolLevel: "L3",
+  subject: "probabilites",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "🎲",
+  lessons: [
+    {
+      id: "proba3-l3-1",
+      slug: "inegalites-de-concentration",
+      title: "Inégalités de concentration",
+      durationMinutes: 55,
+      content: `## Inégalités de concentration
+
+### 1. Inégalité de Markov
+
+**Théorème (Markov) :** Si $X$ est une variable aléatoire positive ($X\\geq0$ presque sûrement) admettant une espérance, alors pour tout $a>0$ :
+$$P(X\\geq a) \\leq \\frac{E[X]}{a}$$
+
+**Démonstration :** $X\\geq a\\cdot\\mathbb{1}_{\\{X\\geq a\\}}$ presque sûrement (car sur $\\{X\\geq a\\}$, $X\\geq a$ ; ailleurs le membre de droite est nul et $X\\geq0$). En prenant l'espérance (qui préserve les inégalités) :
+$$E[X] \\geq a\\cdot E[\\mathbb{1}_{\\{X\\geq a\\}}] = a\\cdot P(X\\geq a)$$
+d'où le résultat en divisant par $a>0$.
+
+**Exemple :** si $X\\sim\\mathcal{E}(\\lambda)$ (exponentielle de paramètre $\\lambda$), $E[X]=1/\\lambda$, donc $P(X\\geq a)\\leq\\dfrac{1}{\\lambda a}$. C'est une borne grossière (la vraie valeur est $e^{-\\lambda a}$, bien plus petite), mais elle ne demande de connaître que l'espérance.
+
+### 2. Inégalité de Bienaymé-Tchebychev
+
+**Théorème (Bienaymé-Tchebychev) :** Si $X$ admet une variance $\\sigma^2=\\text{Var}(X)$, alors pour tout $\\varepsilon>0$ :
+$$P\\big(|X-E[X]|\\geq\\varepsilon\\big) \\leq \\frac{\\sigma^2}{\\varepsilon^2}$$
+
+**Démonstration :** On applique Markov à la variable positive $Y=(X-E[X])^2$ avec le seuil $a=\\varepsilon^2$ :
+$$P(Y\\geq\\varepsilon^2) \\leq \\frac{E[Y]}{\\varepsilon^2} = \\frac{\\text{Var}(X)}{\\varepsilon^2}$$
+et $\\{Y\\geq\\varepsilon^2\\}=\\{|X-E[X]|\\geq\\varepsilon\\}$ (car $Y=(X-E[X])^2\\geq\\varepsilon^2 \\iff |X-E[X]|\\geq\\varepsilon$).
+
+**Exemple :** $X_1,\\dots,X_n$ i.i.d. de loi $\\mathcal{E}(1)$ (donc $E[X_i]=1$, $\\text{Var}(X_i)=1$). Pour $\\overline{X_n}=\\frac1n\\sum X_i$, on a $E[\\overline{X_n}]=1$ et $\\text{Var}(\\overline{X_n})=\\dfrac{1}{n}$ (variance de la moyenne d'i.i.d.). Avec $n=100$ et $\\varepsilon=0{,}1$ :
+$$P\\big(|\\overline{X_{100}}-1|\\geq0{,}1\\big) \\leq \\frac{1/100}{0{,}01} = 1$$
+(borne triviale ici, mais elle devient utile pour $n$ grand : avec $n=10\\,000$, la borne tombe à $0{,}01$).
+
+### 3. Inégalité de Cauchy-Schwarz (rappel probabiliste)
+
+Pour $X,Y$ de carré intégrable :
+$$\\big|E[XY]\\big| \\leq \\sqrt{E[X^2]}\\sqrt{E[Y^2]}$$
+avec égalité si et seulement si $X$ et $Y$ sont proportionnelles presque sûrement. Conséquence : le coefficient de corrélation $\\rho(X,Y)=\\dfrac{\\text{Cov}(X,Y)}{\\sigma_X\\sigma_Y}$ vérifie toujours $|\\rho(X,Y)|\\leq1$.
+
+### 4. Inégalité de Jensen
+
+**Théorème (Jensen) :** Si $\\varphi:\\mathbb{R}\\to\\mathbb{R}$ est **convexe** et $X$ une variable aléatoire intégrable, alors :
+$$\\varphi(E[X]) \\leq E[\\varphi(X)]$$
+
+**Exemple classique :** $\\varphi(x)=x^2$ est convexe, donc $E[X]^2\\leq E[X^2]$ — c'est exactement la positivité de $\\text{Var}(X)=E[X^2]-E[X]^2\\geq0$, retrouvée comme cas particulier de Jensen.
+
+### 5. Pourquoi ces inégalités sont essentielles
+
+Ces inégalités sont les outils de base pour démontrer les théorèmes limites (lois des grands nombres, paragraphes suivants) : elles permettent de **majorer une probabilité de déviation** sans connaître la loi exacte de la variable, seulement quelques moments (espérance, variance). C'est le principe de la **concentration de la mesure**.
+
+### 6. Récapitulatif
+
+| Inégalité | Hypothèse | Conclusion |
+|---|---|---|
+| Markov | $X\\geq0$, $E[X]<\\infty$ | $P(X\\geq a)\\leq E[X]/a$ |
+| Bienaymé-Tchebychev | $\\text{Var}(X)<\\infty$ | $P(\\vert X-E[X]\\vert\\geq\\varepsilon)\\leq\\sigma^2/\\varepsilon^2$ |
+| Cauchy-Schwarz | $X,Y$ carré intégrable | $\\vert E[XY]\\vert\\leq\\sqrt{E[X^2]E[Y^2]}$ |
+| Jensen | $\\varphi$ convexe | $\\varphi(E[X])\\leq E[\\varphi(X)]$ |`,
+      exercises: [
+        {
+          id: "proba3-l3-1-e1",
+          question: "Que dit l'inégalité de Markov pour une variable aléatoire positive $X$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$P(X\\geq a) \\leq \\dfrac{E[X]}{a}$" },
+            { id: "B", text: "$P(X\\geq a) \\leq \\dfrac{\\text{Var}(X)}{a^2}$" },
+            { id: "C", text: "$P(X\\geq a) \\leq a\\cdot E[X]$" },
+            { id: "D", text: "$P(X\\geq a) = \\dfrac{E[X]}{a}$" },
+          ],
+          correctId: "A",
+          explanation: "L'inégalité de Markov énonce $P(X\\geq a)\\leq E[X]/a$ pour $X\\geq0$ et $a>0$. C'est une majoration, pas une égalité, et elle ne fait intervenir que l'espérance (pas la variance, contrairement à Bienaymé-Tchebychev).",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-1-e2",
+          question: "Vrai ou faux : l'inégalité de Bienaymé-Tchebychev nécessite que $X$ admette une variance finie.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La démonstration applique Markov à $(X-E[X])^2$, dont l'espérance est précisément $\\text{Var}(X)$ ; il faut donc que cette variance soit finie pour que la borne ait un sens.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-1-e3",
+          question: "Soit $X\\sim\\mathcal{E}(2)$ (exponentielle de paramètre $\\lambda=2$, $E[X]=1/2$). Quelle borne de Markov obtient-on pour $P(X\\geq5)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0{,}1$" },
+            { id: "B", text: "$0{,}2$" },
+            { id: "C", text: "$2{,}5$" },
+            { id: "D", text: "$10$" },
+          ],
+          correctId: "A",
+          explanation: "Markov donne $P(X\\geq a)\\leq E[X]/a = (1/2)/5 = 0{,}1$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-1-e4",
+          question: "Soit $X$ telle que $E[X]=10$ et $\\text{Var}(X)=4$. Quelle borne de Bienaymé-Tchebychev obtient-on pour $P(|X-10|\\geq4)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0{,}25$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$0{,}5$" },
+          ],
+          correctId: "A",
+          explanation: "$P(|X-E[X]|\\geq\\varepsilon)\\leq\\sigma^2/\\varepsilon^2 = 4/16 = 0{,}25$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-1-e5",
+          question: "Vrai ou faux : pour toute variable aléatoire $X$ de carré intégrable, $E[X]^2\\leq E[X^2]$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'inégalité de Jensen appliquée à la fonction convexe $\\varphi(x)=x^2$, équivalente à $\\text{Var}(X)=E[X^2]-E[X]^2\\geq0$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-1-e6",
+          question: "On lance $n=10\\,000$ fois une pièce équilibrée. Soit $S_n$ le nombre de faces, $E[S_n]=5000$, $\\text{Var}(S_n)=2500$. Quelle borne de Tchebychev obtient-on pour $P(|S_n-5000|\\geq100)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0{,}25$" },
+            { id: "B", text: "$0{,}025$" },
+            { id: "C", text: "$2{,}5$" },
+            { id: "D", text: "$0{,}5$" },
+          ],
+          correctId: "A",
+          explanation: "$\\text{Var}(S_n)=np(1-p)=10000\\times0{,}5\\times0{,}5=2500$. La borne donne $2500/100^2=2500/10000=0{,}25$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-1-e7",
+          question: "Pourquoi l'inégalité de Markov, appliquée directement à $X\\sim\\mathcal{E}(\\lambda)$, donne-t-elle une borne nettement plus grossière que la valeur exacte $P(X\\geq a)=e^{-\\lambda a}$ ?",
+          type: "open",
+          modelAnswer: "Markov n'utilise que l'espérance (information très limitée sur la loi), donnant 1/(λa), une décroissance seulement en 1/a, alors que la vraie probabilité décroît exponentiellement en a. Markov est une borne universelle valable pour TOUTE variable positive de même espérance, donc forcément moins fine qu'un calcul exact propre à la loi exponentielle.",
+          explanation: "L'inégalité de Markov est une borne **universelle**, valable pour n'importe quelle variable positive ayant la même espérance — elle ne « voit » que ce seul moment. Or la loi exponentielle décroît très vite (exponentiellement), alors que la borne de Markov ne décroît qu'en $1/a$ (polynomialement). L'écart entre $1/(\\lambda a)$ et $e^{-\\lambda a}$ illustre que les bornes générales (valables pour toute une classe de lois) sont nécessairement moins précises qu'un calcul exact exploitant la forme particulière de la loi.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-1-e8",
+          question: "Soit $X$ de loi uniforme sur $[0,1]$. Calculer la borne de Tchebychev pour $P(|X-1/2|\\geq1/4)$ et comparer à la valeur exacte.",
+          type: "open",
+          modelAnswer: "Var(X)=1/12. Borne Tchebychev: (1/12)/(1/16) = 16/12 = 4/3, donc borne triviale (>1, sans information). Valeur exacte: P(|X-1/2|>=1/4) = P(X<=1/4 ou X>=3/4) = 1/4+1/4 = 1/2.",
+          explanation: "Pour $X\\sim\\mathcal{U}[0,1]$, $\\text{Var}(X)=\\dfrac{1}{12}$. La borne de Tchebychev donne $P(|X-1/2|\\geq1/4)\\leq\\dfrac{1/12}{(1/4)^2}=\\dfrac{1/12}{1/16}=\\dfrac{16}{12}=\\dfrac{4}{3}>1$ : la borne est **triviale** (toujours vraie, sans aucune information utile, puisqu'une probabilité est toujours $\\leq1$).\n\nLa valeur exacte se calcule directement : $P(|X-1/2|\\geq1/4)=P(X\\leq1/4)+P(X\\geq3/4)=\\dfrac14+\\dfrac14=\\dfrac12$.\n\nCela illustre une limite réelle de Tchebychev : pour des écarts modestes par rapport à l'écart-type, la borne peut être inutile ; elle devient pertinente surtout pour des grandes déviations.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-1-e9",
+          question: "Vrai ou faux : si $\\rho(X,Y)$ désigne le coefficient de corrélation de $X$ et $Y$, alors $\\rho(X,Y)=\\pm1$ si et seulement si $Y$ est une fonction affine de $X$ presque sûrement.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est le cas d'égalité dans Cauchy-Schwarz appliqué à $X-E[X]$ et $Y-E[Y]$ : l'égalité $|\\text{Cov}(X,Y)|=\\sigma_X\\sigma_Y$ équivaut à la proportionnalité presque sûre de $X-E[X]$ et $Y-E[Y]$, c'est-à-dire $Y=aX+b$ pour des constantes $a,b$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-1-e10",
+          question: "Soit $X_1,\\dots,X_n$ i.i.d. de loi $\\mathcal{E}(1)$ et $\\overline{X_n}=\\frac1n\\sum X_i$. À partir de quel $n$ la borne de Tchebychev garantit-elle $P(|\\overline{X_n}-1|\\geq0{,}1)\\leq0{,}05$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$n\\geq2000$" },
+            { id: "B", text: "$n\\geq200$" },
+            { id: "C", text: "$n\\geq20$" },
+            { id: "D", text: "$n\\geq20\\,000$" },
+          ],
+          correctId: "A",
+          explanation: "$\\text{Var}(\\overline{X_n})=1/n$. La borne est $\\dfrac{1/n}{0{,}01}=\\dfrac{100}{n}$. On veut $\\dfrac{100}{n}\\leq0{,}05$, soit $n\\geq100/0{,}05=2000$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-1-e11",
+          question: "Démontrer l'inégalité de Cauchy-Schwarz probabiliste $|E[XY]|\\leq\\sqrt{E[X^2]}\\sqrt{E[Y^2]}$ en étudiant le polynôme $t\\mapsto E[(X+tY)^2]$.",
+          type: "open",
+          modelAnswer: "P(t)=E[(X+tY)^2]=E[Y^2]t^2+2E[XY]t+E[X^2] est un polynôme du second degré toujours >=0 (car (X+tY)^2>=0). Son discriminant doit donc être <=0: 4E[XY]^2-4E[X^2]E[Y^2]<=0, soit E[XY]^2<=E[X^2]E[Y^2], d'où le résultat en passant à la racine.",
+          explanation: "Pour tout réel $t$, $(X+tY)^2\\geq0$ presque sûrement, donc en prenant l'espérance (linéarité) :\n$$P(t)=E[(X+tY)^2]=E[X^2]+2tE[XY]+t^2E[Y^2]\\geq0$$\n\nSi $E[Y^2]=0$ alors $Y=0$ presque sûrement et l'inégalité est triviale ($0\\leq0$). Sinon $P$ est un **polynôme du second degré en $t$**, à coefficient dominant $E[Y^2]>0$, qui est toujours positif ou nul : son **discriminant doit être négatif ou nul** :\n$$\\Delta = 4E[XY]^2 - 4E[X^2]E[Y^2] \\leq 0$$\n\nD'où $E[XY]^2\\leq E[X^2]\\,E[Y^2]$, et en prenant la racine carrée (les deux membres sont positifs) :\n$$|E[XY]| \\leq \\sqrt{E[X^2]}\\,\\sqrt{E[Y^2]} \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-1-e12",
+          question: "Démontrer l'inégalité de Jensen $\\varphi(E[X])\\leq E[\\varphi(X)]$ pour $\\varphi$ convexe et dérivable, en utilisant la propriété $\\varphi(x)\\geq\\varphi(m)+\\varphi'(m)(x-m)$ (tangente sous le graphe en tout point $m$).",
+          type: "open",
+          modelAnswer: "Prendre m=E[X]. La convexité donne φ(X)>=φ(m)+φ'(m)(X-m) pour tout X (presque sûrement). En prenant l'espérance: E[φ(X)]>=φ(m)+φ'(m)(E[X]-m)=φ(m)+φ'(m)·0=φ(m)=φ(E[X]).",
+          explanation: "**Propriété de convexité utilisée :** pour une fonction $\\varphi$ convexe et dérivable, le graphe est toujours au-dessus de n'importe quelle tangente : pour tout $m$ et tout $x$,\n$$\\varphi(x) \\geq \\varphi(m) + \\varphi'(m)(x-m)$$\n\n**Application :** posons $m=E[X]$ (un réel fixe) et appliquons l'inégalité ci-dessus en $x=X(\\omega)$ pour chaque issue $\\omega$ — c'est une inégalité presque sûre entre variables aléatoires :\n$$\\varphi(X) \\geq \\varphi(E[X]) + \\varphi'(E[X])\\cdot(X-E[X]) \\quad \\text{p.s.}$$\n\n**Passage à l'espérance** (qui préserve les inégalités, et $\\varphi(E[X])$, $\\varphi'(E[X])$ sont des constantes) :\n$$E[\\varphi(X)] \\geq \\varphi(E[X]) + \\varphi'(E[X])\\cdot\\big(E[X]-E[X]\\big) = \\varphi(E[X]) + \\varphi'(E[X])\\cdot0 = \\varphi(E[X])$$\n\nD'où $\\varphi(E[X])\\leq E[\\varphi(X)]$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-1-e13",
+          question: "Soit $X\\geq0$ d'espérance $E[X]=\\mu$. Démontrer que pour tout $a>\\mu$, $P(X\\geq a)\\leq\\dfrac{\\mu}{a}$, puis donner un exemple de loi pour laquelle cette borne est atteinte exactement (égalité).",
+          type: "open",
+          modelAnswer: "C'est Markov directement. Égalité atteinte par X prenant deux valeurs: X=a avec proba p=mu/a, X=0 avec proba 1-p (loi de Bernoulli mise à l'échelle). Alors E[X]=a*p=mu et P(X>=a)=p=mu/a exactement.",
+          explanation: "L'inégalité $P(X\\geq a)\\leq\\mu/a$ est l'inégalité de Markov elle-même (cf. §1), valable pour tout $a>0$ dès que $X\\geq0$ et $E[X]=\\mu<\\infty$.\n\n**Cas d'égalité :** prenons $X$ qui ne prend que deux valeurs, $0$ et $a$, avec $P(X=a)=p$ et $P(X=0)=1-p$. Alors $E[X]=ap$. Pour avoir $E[X]=\\mu$, on choisit $p=\\mu/a$ (valeur licite si $\\mu\\leq a$, donc en particulier pour $a>\\mu$ avec $p<1$). Dans ce cas :\n$$P(X\\geq a) = P(X=a) = p = \\frac{\\mu}{a}$$\nce qui réalise l'égalité exacte dans Markov. Cela montre que la borne de Markov est **optimale dans le pire cas** : il existe toujours une loi (à deux points de masse) pour laquelle l'inégalité devient une égalité.",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-1-e14",
+          question: "Soit $X$ une variable aléatoire bornée, $0\\leq X\\leq M$, avec $E[X]=\\mu$. Montrer que $\\text{Var}(X)\\leq\\mu(M-\\mu)$.",
+          type: "open",
+          modelAnswer: "E[(M-X)X] >= 0 car 0<=X<=M donc (M-X)>=0 et X>=0. Développer: M*E[X]-E[X^2]>=0, donc E[X^2]<=M*mu. Alors Var(X)=E[X^2]-mu^2<=M*mu-mu^2=mu(M-mu).",
+          explanation: "**Idée clé :** comme $0\\leq X\\leq M$ presque sûrement, on a $(M-X)\\cdot X\\geq0$ presque sûrement (produit de deux quantités positives), donc $E\\big[(M-X)X\\big]\\geq0$.\n\nEn développant :\n$$E[(M-X)X] = M\\,E[X] - E[X^2] \\geq 0 \\implies E[X^2] \\leq M\\mu$$\n\nOr $\\text{Var}(X)=E[X^2]-\\mu^2$, donc :\n$$\\text{Var}(X) = E[X^2]-\\mu^2 \\leq M\\mu - \\mu^2 = \\mu(M-\\mu) \\qquad \\square$$\n\nC'est une borne classique (parfois appelée **inégalité de Popoviciu** dans un cas voisin) utile pour majorer la variance de variables bornées sans connaître leur loi exacte — par exemple pour les variables de Bernoulli ($M=1$), elle redonne exactement $\\text{Var}(X)=p(1-p)\\leq p(1-p)$ (égalité).",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-1-e15",
+          question: "Vrai ou faux : si $X_n \\to X$ en probabilité et que $(X_n)$ est bornée par une constante $M$ pour tout $n$, alors $E[X_n]\\to E[X]$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une conséquence du théorème de convergence dominée (ou de sa version pour la convergence en probabilité) : la convergence en probabilité d'une suite uniformément bornée entraîne la convergence des espérances. Sans l'hypothèse de bornitude (ou domination), ce résultat est faux en général — un contre-exemple classique est une suite de variables prenant la valeur $n$ avec probabilité $1/n$ et $0$ sinon : $X_n\\to0$ en probabilité mais $E[X_n]=1$ pour tout $n$, ne convergeant pas vers $E[0]=0$.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "proba3-l3-2",
+      slug: "fonctions-generatrices-et-caracteristiques",
+      title: "Fonctions génératrices et caractéristiques",
+      durationMinutes: 60,
+      content: `## Fonctions génératrices et caractéristiques
+
+### 1. Fonction génératrice des moments
+
+Pour une variable aléatoire $X$, la **fonction génératrice des moments** est $M_X(t)=E[e^{tX}]$, définie pour les $t$ tels que cette espérance existe. Elle permet de retrouver les moments par dérivation :
+$$M_X^{(k)}(0) = E[X^k]$$
+
+**Exemple — loi exponentielle $\\mathcal{E}(\\lambda)$ :** $M_X(t)=\\dfrac{\\lambda}{\\lambda-t}$ pour $t<\\lambda$. En dérivant : $M_X'(0)=1/\\lambda=E[X]$, $M_X''(0)=2/\\lambda^2=E[X^2]$, retrouvant $\\text{Var}(X)=2/\\lambda^2-1/\\lambda^2=1/\\lambda^2$.
+
+### 2. Fonction génératrice des probabilités (variables discrètes à valeurs dans $\\mathbb{N}$)
+
+Pour $X$ à valeurs dans $\\mathbb{N}$, on définit $G_X(s)=E[s^X]=\\displaystyle\\sum_{k=0}^{+\\infty}P(X=k)\\,s^k$ pour $|s|\\leq1$.
+
+**Propriétés :** $G_X(1)=1$ (normalisation), $E[X]=G_X'(1)$, $E[X(X-1)]=G_X''(1)$ (moment factoriel), d'où $\\text{Var}(X)=G_X''(1)+G_X'(1)-G_X'(1)^2$.
+
+**Exemple — loi de Poisson $\\mathcal{P}(\\lambda)$ :** $G_X(s)=e^{\\lambda(s-1)}$. On vérifie $G_X'(s)=\\lambda e^{\\lambda(s-1)}$, donc $E[X]=G_X'(1)=\\lambda$ ; $G_X''(s)=\\lambda^2e^{\\lambda(s-1)}$, donc $E[X(X-1)]=\\lambda^2$, d'où $\\text{Var}(X)=\\lambda^2+\\lambda-\\lambda^2=\\lambda$. On retrouve le résultat classique $E[X]=\\text{Var}(X)=\\lambda$.
+
+### 3. Propriété fondamentale : somme de variables indépendantes
+
+**Théorème :** si $X,Y$ sont indépendantes, $G_{X+Y}(s)=G_X(s)\\cdot G_Y(s)$ (et de même pour $M_{X+Y}=M_X\\cdot M_Y$).
+
+**Application — stabilité de Poisson :** si $X\\sim\\mathcal{P}(\\lambda_1)$, $Y\\sim\\mathcal{P}(\\lambda_2)$ indépendantes, alors $G_{X+Y}(s)=e^{\\lambda_1(s-1)}\\cdot e^{\\lambda_2(s-1)}=e^{(\\lambda_1+\\lambda_2)(s-1)}$, qui est exactement la fonction génératrice de $\\mathcal{P}(\\lambda_1+\\lambda_2)$. Par **unicité de la fonction génératrice** (deux variables à valeurs dans $\\mathbb{N}$ ayant la même fonction génératrice ont la même loi), on conclut $X+Y\\sim\\mathcal{P}(\\lambda_1+\\lambda_2)$.
+
+### 4. Fonction caractéristique
+
+Pour toute variable aléatoire réelle $X$ (sans condition d'intégrabilité), on définit la **fonction caractéristique** :
+$$\\varphi_X(t) = E[e^{itX}] \\qquad (t\\in\\mathbb{R})$$
+
+Elle existe **toujours** (car $|e^{itX}|=1$), contrairement à $M_X$. Propriétés : $\\varphi_X(0)=1$, $|\\varphi_X(t)|\\leq1$, et le **théorème d'unicité** : deux variables ayant la même fonction caractéristique ont la même loi.
+
+**Exemple — loi normale $\\mathcal{N}(0,1)$ :** $\\varphi_X(t)=e^{-t^2/2}$. Pour $\\mathcal{N}(\\mu,\\sigma^2)$ : $\\varphi_X(t)=e^{i\\mu t-\\sigma^2t^2/2}$.
+
+### 5. Indépendance et somme : le rôle clé en analyse
+
+Comme pour $G_X$, l'indépendance donne $\\varphi_{X+Y}=\\varphi_X\\cdot\\varphi_Y$. C'est l'outil principal pour démontrer le **théorème central limite** (leçon suivante) : la fonction caractéristique transforme une somme (compliquée à étudier directement) en un simple produit.
+
+**Exemple — stabilité de la loi normale :** si $X\\sim\\mathcal{N}(\\mu_1,\\sigma_1^2)$, $Y\\sim\\mathcal{N}(\\mu_2,\\sigma_2^2)$ indépendantes :
+$$\\varphi_{X+Y}(t)=e^{i\\mu_1t-\\sigma_1^2t^2/2}\\cdot e^{i\\mu_2t-\\sigma_2^2t^2/2}=e^{i(\\mu_1+\\mu_2)t-(\\sigma_1^2+\\sigma_2^2)t^2/2}$$
+qui est la fonction caractéristique de $\\mathcal{N}(\\mu_1+\\mu_2,\\sigma_1^2+\\sigma_2^2)$ : la somme de deux gaussiennes indépendantes est encore gaussienne.
+
+### 6. Récapitulatif
+
+| Outil | Définition | Avantage |
+|---|---|---|
+| Fonction génératrice des moments | $M_X(t)=E[e^{tX}]$ | $M_X^{(k)}(0)=E[X^k]$ |
+| Fonction génératrice (discret $\\mathbb{N}$) | $G_X(s)=E[s^X]$ | $G_X'(1)=E[X]$ |
+| Fonction caractéristique | $\\varphi_X(t)=E[e^{itX}]$ | toujours définie, déterminé la loi |
+| Indépendance | — | $G_{X+Y}=G_XG_Y$, $\\varphi_{X+Y}=\\varphi_X\\varphi_Y$ |`,
+      exercises: [
+        {
+          id: "proba3-l3-2-e1",
+          question: "Quelle est la définition de la fonction génératrice des moments $M_X(t)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$M_X(t)=E[e^{tX}]$" },
+            { id: "B", text: "$M_X(t)=E[tX]$" },
+            { id: "C", text: "$M_X(t)=E[e^{itX}]$" },
+            { id: "D", text: "$M_X(t)=E[X^t]$" },
+          ],
+          correctId: "A",
+          explanation: "La fonction génératrice des moments est définie par $M_X(t)=E[e^{tX}]$ (à ne pas confondre avec la fonction caractéristique $\\varphi_X(t)=E[e^{itX}]$, qui utilise l'exponentielle imaginaire).",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-2-e2",
+          question: "Vrai ou faux : la fonction caractéristique $\\varphi_X(t)=E[e^{itX}]$ est toujours bien définie pour tout $t\\in\\mathbb{R}$, quelle que soit la loi de $X$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Comme $|e^{itX}|=1$ pour tout $t,X$ réels, l'espérance $E[e^{itX}]$ existe toujours (l'intégrande est borné), contrairement à $M_X(t)=E[e^{tX}]$ qui peut diverger pour certaines lois à queue lourde.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-2-e3",
+          question: "Pour $X\\sim\\mathcal{P}(\\lambda)$ (Poisson), quelle est la fonction génératrice $G_X(s)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$G_X(s)=e^{\\lambda(s-1)}$" },
+            { id: "B", text: "$G_X(s)=e^{\\lambda s}$" },
+            { id: "C", text: "$G_X(s)=\\lambda s$" },
+            { id: "D", text: "$G_X(s)=(1-\\lambda)+\\lambda s$" },
+          ],
+          correctId: "A",
+          explanation: "$G_X(s)=\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{\\lambda^ke^{-\\lambda}}{k!}s^k=e^{-\\lambda}\\displaystyle\\sum_{k=0}^{+\\infty}\\dfrac{(\\lambda s)^k}{k!}=e^{-\\lambda}e^{\\lambda s}=e^{\\lambda(s-1)}$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-2-e4",
+          question: "Si $X,Y$ sont indépendantes, comment s'exprime $\\varphi_{X+Y}(t)$ en fonction de $\\varphi_X$ et $\\varphi_Y$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\varphi_{X+Y}(t)=\\varphi_X(t)\\cdot\\varphi_Y(t)$" },
+            { id: "B", text: "$\\varphi_{X+Y}(t)=\\varphi_X(t)+\\varphi_Y(t)$" },
+            { id: "C", text: "$\\varphi_{X+Y}(t)=\\varphi_X(t)\\circ\\varphi_Y(t)$" },
+            { id: "D", text: "$\\varphi_{X+Y}(t)=\\max(\\varphi_X(t),\\varphi_Y(t))$" },
+          ],
+          correctId: "A",
+          explanation: "Par indépendance, $E[e^{it(X+Y)}]=E[e^{itX}e^{itY}]=E[e^{itX}]E[e^{itY}]=\\varphi_X(t)\\varphi_Y(t)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-2-e5",
+          question: "Vrai ou faux : la somme de deux variables gaussiennes indépendantes est encore gaussienne.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La loi normale est dite **stable** : la fonction caractéristique de $X+Y$ se calcule comme le produit des deux fonctions caractéristiques gaussiennes, ce qui redonne exactement la forme caractéristique d'une nouvelle gaussienne $\\mathcal{N}(\\mu_1+\\mu_2,\\sigma_1^2+\\sigma_2^2)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-2-e6",
+          question: "Pour $X\\sim\\mathcal{E}(\\lambda)$, $M_X(t)=\\dfrac{\\lambda}{\\lambda-t}$ pour $t<\\lambda$. Calculer $E[X]$ via $M_X'(0)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\dfrac{1}{\\lambda}$" },
+            { id: "B", text: "$\\lambda$" },
+            { id: "C", text: "$\\dfrac{1}{\\lambda^2}$" },
+            { id: "D", text: "$\\dfrac{2}{\\lambda}$" },
+          ],
+          correctId: "A",
+          explanation: "$M_X(t)=\\lambda(\\lambda-t)^{-1}$, donc $M_X'(t)=\\lambda(\\lambda-t)^{-2}$, et $M_X'(0)=\\lambda/\\lambda^2=1/\\lambda$, ce qui correspond bien à $E[X]=1/\\lambda$ pour $\\mathcal{E}(\\lambda)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-2-e7",
+          question: "Pour $X\\sim\\mathcal{P}(3)$ et $Y\\sim\\mathcal{P}(5)$ indépendantes, quelle est la loi de $X+Y$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\mathcal{P}(8)$" },
+            { id: "B", text: "$\\mathcal{P}(15)$" },
+            { id: "C", text: "$\\mathcal{P}(4)$" },
+            { id: "D", text: "Ce n'est pas une loi de Poisson" },
+          ],
+          correctId: "A",
+          explanation: "Par la propriété de stabilité (produit des fonctions génératrices), $G_{X+Y}(s)=e^{3(s-1)}e^{5(s-1)}=e^{8(s-1)}$, donc $X+Y\\sim\\mathcal{P}(3+5)=\\mathcal{P}(8)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-2-e8",
+          question: "Vrai ou faux : si deux variables aléatoires ont la même fonction caractéristique, elles ont nécessairement la même loi.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai, c'est le **théorème d'unicité** (ou d'inversion) de la fonction caractéristique — l'application $X\\mapsto\\varphi_X$ est injective sur l'ensemble des lois de probabilité, ce qui justifie son usage pour identifier des lois (comme à l'exercice 7).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-2-e9",
+          question: "Soit $X$ une variable de Bernoulli de paramètre $p$. Quelle est sa fonction génératrice $G_X(s)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$G_X(s)=(1-p)+ps$" },
+            { id: "B", text: "$G_X(s)=ps$" },
+            { id: "C", text: "$G_X(s)=p+s$" },
+            { id: "D", text: "$G_X(s)=(1-p)s+p$" },
+          ],
+          correctId: "A",
+          explanation: "$G_X(s)=P(X=0)s^0+P(X=1)s^1=(1-p)+ps$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-2-e10",
+          question: "Si $X\\sim\\text{Bin}(n,p)$ (binomiale), justifier que $G_X(s)=\\big((1-p)+ps\\big)^n$ à partir de la décomposition en somme de $n$ Bernoulli indépendantes.",
+          type: "open",
+          modelAnswer: "X = somme de n variables de Bernoulli(p) indépendantes. G_X(s) = produit des G de chaque Bernoulli (indépendance) = ((1-p)+ps)^n.",
+          explanation: "Une variable $\\text{Bin}(n,p)$ se représente comme $X=X_1+\\cdots+X_n$ où les $X_i$ sont des variables de Bernoulli($p$) **indépendantes** (par exemple, le nombre de succès en $n$ répétitions indépendantes d'une expérience de probabilité de succès $p$).\n\nPar la propriété de multiplicativité de la fonction génératrice sous indépendance :\n$$G_X(s) = G_{X_1+\\cdots+X_n}(s) = G_{X_1}(s)\\times\\cdots\\times G_{X_n}(s) = \\big((1-p)+ps\\big)^n$$\npuisque chaque $G_{X_i}(s)=(1-p)+ps$ (exercice précédent).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-2-e11",
+          question: "À partir de $G_X(s)=\\big((1-p)+ps\\big)^n$ pour $X\\sim\\text{Bin}(n,p)$, retrouver $E[X]=np$ en calculant $G_X'(1)$.",
+          type: "open",
+          modelAnswer: "G_X'(s) = n((1-p)+ps)^{n-1}·p. En s=1: (1-p)+p=1, donc G_X'(1) = n·1^{n-1}·p = np.",
+          explanation: "On dérive $G_X(s)=\\big((1-p)+ps\\big)^n$ par la règle de la chaîne :\n$$G_X'(s) = n\\big((1-p)+ps\\big)^{n-1}\\cdot p$$\n\nEn évaluant en $s=1$ : $(1-p)+p\\cdot1=1$, donc :\n$$G_X'(1) = n\\cdot1^{n-1}\\cdot p = np$$\n\nOn retrouve bien $E[X]=G_X'(1)=np$, conforme à la formule connue de l'espérance binomiale. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-2-e12",
+          question: "Démontrer, en utilisant les fonctions caractéristiques, que si $X\\sim\\mathcal{N}(0,1)$ et $Y=aX+b$ ($a\\neq0$, $b\\in\\mathbb{R}$), alors $Y\\sim\\mathcal{N}(b,a^2)$.",
+          type: "open",
+          modelAnswer: "φ_Y(t)=E[e^{it(aX+b)}]=e^{itb}E[e^{i(at)X}]=e^{itb}φ_X(at)=e^{itb}e^{-(at)^2/2}=e^{itb-a^2t^2/2}, qui est exactement la fonction caractéristique de N(b,a^2). Par unicité, Y~N(b,a^2).",
+          explanation: "**Calcul direct :**\n$$\\varphi_Y(t) = E\\big[e^{it(aX+b)}\\big] = e^{itb}\\,E\\big[e^{i(at)X}\\big] = e^{itb}\\,\\varphi_X(at)$$\n\nComme $X\\sim\\mathcal{N}(0,1)$, on a $\\varphi_X(u)=e^{-u^2/2}$, donc en substituant $u=at$ :\n$$\\varphi_Y(t) = e^{itb}\\cdot e^{-(at)^2/2} = e^{itb - \\frac{a^2t^2}{2}}$$\n\nC'est exactement la forme générale $\\varphi_{\\mathcal{N}(\\mu,\\sigma^2)}(t)=e^{i\\mu t-\\sigma^2t^2/2}$ avec $\\mu=b$ et $\\sigma^2=a^2$. Par le **théorème d'unicité** de la fonction caractéristique, $Y$ suit donc la loi $\\mathcal{N}(b,a^2)$. $\\square$ Ce résultat justifie la **standardisation** $Z=(X-\\mu)/\\sigma$ utilisée systématiquement en pratique.",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-2-e13",
+          question: "Soit $X$ une variable géométrique sur $\\mathbb{N}^*$ de paramètre $p$ ($P(X=k)=(1-p)^{k-1}p$). Calculer $G_X(s)=E[s^X]$ pour $|s|<1/(1-p)$.",
+          type: "open",
+          modelAnswer: "G_X(s) = Σ_{k>=1} (1-p)^{k-1} p s^k = ps Σ_{k>=1} ((1-p)s)^{k-1} = ps · 1/(1-(1-p)s) = ps/(1-(1-p)s).",
+          explanation: "$$G_X(s) = \\sum_{k=1}^{+\\infty} (1-p)^{k-1}p\\,s^k = ps\\sum_{k=1}^{+\\infty} \\big((1-p)s\\big)^{k-1} = ps\\sum_{j=0}^{+\\infty}\\big((1-p)s\\big)^j$$\n\nC'est une série géométrique de raison $(1-p)s$, convergente si $|(1-p)s|<1$, c'est-à-dire $|s|<1/(1-p)$. Sa somme est $\\dfrac{1}{1-(1-p)s}$, donc :\n$$G_X(s) = \\frac{ps}{1-(1-p)s}$$",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-2-e14",
+          question: "Vrai ou faux : pour deux variables $X,Y$ indépendantes à valeurs dans $\\mathbb{N}$, la fonction génératrice de $\\max(X,Y)$ est égale au produit $G_X(s)\\cdot G_Y(s)$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. La propriété $G_{X+Y}=G_XG_Y$ ne concerne que la **somme** $X+Y$, pas le maximum. Pour $\\max(X,Y)$, on utilise plutôt la fonction de répartition : $P(\\max(X,Y)\\leq k)=P(X\\leq k)P(Y\\leq k)$ (par indépendance), ce qui ne se traduit pas simplement en un produit de fonctions génératrices.",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-2-e15",
+          question: "On considère $N\\sim\\mathcal{P}(\\lambda)$ et, conditionnellement à $N=n$, $X=\\sum_{i=1}^n B_i$ où les $B_i$ sont des Bernoulli($p$) i.i.d. indépendantes de $N$ (modèle de Poisson composé / amincissement). Montrer que $X\\sim\\mathcal{P}(\\lambda p)$ en utilisant les fonctions génératrices.",
+          type: "open",
+          modelAnswer: "G_X(s) = E[s^X] = E[E[s^X|N]] = E[G_B(s)^N] = E[((1-p)+ps)^N] = G_N((1-p)+ps) = e^{λ(((1-p)+ps)-1)} = e^{λp(s-1)}, qui est la fonction génératrice de Poisson(λp).",
+          explanation: "**Étape 1 — conditionnement.** Sachant $N=n$, $X$ est une somme de $n$ Bernoulli($p$) indépendantes, donc $G_{X|N=n}(s)=\\big((1-p)+ps\\big)^n$ (résultat de l'exercice 10 généralisé).\n\n**Étape 2 — espérance totale.** Par la formule de l'espérance conditionnelle :\n$$G_X(s) = E[s^X] = E\\big[E[s^X\\mid N]\\big] = E\\Big[\\big((1-p)+ps\\big)^N\\Big]$$\n\nOn reconnaît à droite $G_N$ évaluée en $(1-p)+ps$ (puisque $G_N(u)=E[u^N]$) :\n$$G_X(s) = G_N\\big((1-p)+ps\\big)$$\n\n**Étape 3 — substitution.** Comme $N\\sim\\mathcal{P}(\\lambda)$, $G_N(u)=e^{\\lambda(u-1)}$. En posant $u=(1-p)+ps$ :\n$$G_X(s) = e^{\\lambda\\big((1-p)+ps-1\\big)} = e^{\\lambda(ps-p)} = e^{\\lambda p(s-1)}$$\n\nC'est exactement la fonction génératrice de $\\mathcal{P}(\\lambda p)$. Par unicité, $X\\sim\\mathcal{P}(\\lambda p)$. $\\square$ Ce résultat (« amincissement de Poisson ») est très utilisé en théorie des files d'attente et en statistique des événements rares.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "proba3-l3-3",
+      slug: "lois-des-grands-nombres-et-theoreme-central-limite",
+      title: "Lois des grands nombres et théorème central limite",
+      durationMinutes: 60,
+      content: `## Lois des grands nombres et théorème central limite
+
+### 1. Convergences de variables aléatoires : rappels
+
+On dit que $X_n\\to X$ **en probabilité** si pour tout $\\varepsilon>0$, $P(|X_n-X|\\geq\\varepsilon)\\to0$ quand $n\\to+\\infty$. On dit que $X_n\\to X$ **presque sûrement** si $P\\big(\\lim_{n\\to+\\infty}X_n=X\\big)=1$. On dit que $X_n\\to X$ **en loi** si $F_{X_n}(x)\\to F_X(x)$ en tout point de continuité de $F_X$.
+
+**Hiérarchie :** convergence presque sûre $\\Rightarrow$ convergence en probabilité $\\Rightarrow$ convergence en loi (les implications inverses sont fausses en général).
+
+### 2. Loi faible des grands nombres (LFGN)
+
+**Théorème (LFGN) :** Soit $(X_i)_{i\\geq1}$ une suite de variables i.i.d. d'espérance $\\mu$ finie et de variance $\\sigma^2$ finie. Alors :
+$$\\overline{X_n} = \\frac{1}{n}\\sum_{i=1}^n X_i \\xrightarrow[n\\to+\\infty]{\\text{probabilité}} \\mu$$
+
+**Démonstration (via Tchebychev) :** $E[\\overline{X_n}]=\\mu$ et $\\text{Var}(\\overline{X_n})=\\sigma^2/n$ (indépendance). Par Bienaymé-Tchebychev, pour tout $\\varepsilon>0$ :
+$$P\\big(|\\overline{X_n}-\\mu|\\geq\\varepsilon\\big) \\leq \\frac{\\sigma^2}{n\\varepsilon^2} \\xrightarrow[n\\to+\\infty]{} 0$$
+
+### 3. Loi forte des grands nombres (LFGN forte)
+
+**Théorème (Kolmogorov) :** Sous les mêmes hypothèses (i.i.d., espérance $\\mu$ finie — la variance finie n'est même pas nécessaire pour la version forte, mais on l'admet ici par simplicité) :
+$$\\overline{X_n} \\xrightarrow[n\\to+\\infty]{\\text{presque sûrement}} \\mu$$
+
+C'est un résultat **plus fort** que la version faible (convergence presque sûre $\\Rightarrow$ convergence en probabilité). Intuition : la moyenne empirique d'un grand nombre de répétitions indépendantes se stabilise, avec probabilité 1, vers l'espérance théorique — c'est le fondement théorique de l'interprétation fréquentiste des probabilités (la fréquence observée d'un événement converge vers sa probabilité).
+
+### 4. Théorème central limite (TCL)
+
+**Théorème (TCL) :** Soit $(X_i)_{i\\geq1}$ i.i.d. d'espérance $\\mu$ et de variance $\\sigma^2\\in\\,]0,+\\infty[$. Alors :
+$$\\sqrt{n}\\cdot\\frac{\\overline{X_n}-\\mu}{\\sigma} \\xrightarrow[n\\to+\\infty]{\\text{loi}} \\mathcal{N}(0,1)$$
+
+De façon équivalente, en notant $S_n=\\sum_{i=1}^nX_i$ :
+$$\\frac{S_n - n\\mu}{\\sigma\\sqrt{n}} \\xrightarrow[n\\to+\\infty]{\\text{loi}} \\mathcal{N}(0,1)$$
+
+**Démonstration (esquisse, via fonctions caractéristiques) :** posons $Y_i=(X_i-\\mu)/\\sigma$ (centrées-réduites, $E[Y_i]=0$, $\\text{Var}(Y_i)=1$) et $Z_n=\\frac{1}{\\sqrt{n}}\\sum_{i=1}^nY_i$. Un développement de Taylor de $\\varphi_{Y_i}(t)=1-\\dfrac{t^2}{2}+o(t^2)$ près de $0$, combiné à l'indépendance ($\\varphi_{Z_n}(t)=\\varphi_{Y_1}(t/\\sqrt n)^n$), donne :
+$$\\varphi_{Z_n}(t) = \\left(1-\\frac{t^2}{2n}+o\\Big(\\frac1n\\Big)\\right)^n \\xrightarrow[n\\to+\\infty]{} e^{-t^2/2}$$
+qui est la fonction caractéristique de $\\mathcal{N}(0,1)$. Par le théorème de Lévy (continuité), $Z_n\\to\\mathcal{N}(0,1)$ en loi.
+
+### 5. Application pratique : approximation normale
+
+Pour $n$ grand, on approxime $S_n=\\sum_{i=1}^nX_i$ par une loi $\\mathcal{N}(n\\mu,n\\sigma^2)$. **Exemple :** $X_i\\sim\\text{Bernoulli}(0{,}5)$, $n=400$ lancers de pièce. $S_{400}$ (nombre de faces) a pour espérance $200$ et variance $400\\times0{,}25=100$ (écart-type $10$). Le TCL donne $P(190\\leq S_{400}\\leq210)\\approx P(-1\\leq Z\\leq1)\\approx0{,}68$ (règle des 68-95-99,7 de la loi normale).
+
+### 6. Différence essentielle entre LGN et TCL
+
+La **loi des grands nombres** dit que $\\overline{X_n}$ se rapproche de $\\mu$ (sans préciser la vitesse). Le **théorème central limite** précise la **vitesse et la forme des fluctuations** : l'écart $\\overline{X_n}-\\mu$ est de l'ordre de $1/\\sqrt{n}$, et ces fluctuations, une fois renormalisées par $\\sqrt{n}/\\sigma$, suivent (asymptotiquement) une loi normale standard — **quelle que soit la loi initiale des $X_i$** (pourvu qu'elle ait une variance finie). C'est ce caractère universel qui rend le TCL si fondamental en statistique.
+
+### 7. Récapitulatif
+
+| Résultat | Énoncé | Type de convergence |
+|---|---|---|
+| LFGN | $\\overline{X_n}\\to\\mu$ | en probabilité |
+| LFGN forte | $\\overline{X_n}\\to\\mu$ | presque sûre |
+| TCL | $\\sqrt{n}(\\overline{X_n}-\\mu)/\\sigma\\to\\mathcal{N}(0,1)$ | en loi |`,
+      exercises: [
+        {
+          id: "proba3-l3-3-e1",
+          question: "Que dit la loi faible des grands nombres pour une suite i.i.d. $(X_i)$ d'espérance $\\mu$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\overline{X_n}$ converge en probabilité vers $\\mu$" },
+            { id: "B", text: "$\\overline{X_n}$ converge en loi vers $\\mathcal{N}(0,1)$" },
+            { id: "C", text: "$\\overline{X_n}=\\mu$ pour $n$ assez grand" },
+            { id: "D", text: "$\\overline{X_n}$ converge vers $\\sigma^2$" },
+          ],
+          correctId: "A",
+          explanation: "La loi faible des grands nombres affirme que $\\overline{X_n}\\to\\mu$ **en probabilité**, et non que la convergence est exacte à partir d'un certain rang, ni que c'est la limite en loi qui est normale (cela, c'est le rôle du TCL après renormalisation).",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-3-e2",
+          question: "Vrai ou faux : la convergence presque sûre entraîne toujours la convergence en probabilité.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est la hiérarchie standard des modes de convergence : presque sûre $\\Rightarrow$ en probabilité $\\Rightarrow$ en loi. L'implication réciproque est en général fausse.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-3-e3",
+          question: "Dans l'énoncé du théorème central limite, par quel facteur normalise-t-on $\\overline{X_n}-\\mu$ pour obtenir une limite non triviale (ni $0$ ni l'infini) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\sqrt{n}/\\sigma$" },
+            { id: "B", text: "$n/\\sigma$" },
+            { id: "C", text: "$1/n$" },
+            { id: "D", text: "$\\sigma/\\sqrt{n}$" },
+          ],
+          correctId: "A",
+          explanation: "Le TCL s'énonce $\\sqrt{n}(\\overline{X_n}-\\mu)/\\sigma\\to\\mathcal{N}(0,1)$ : c'est le facteur $\\sqrt{n}/\\sigma$ qui « gonfle » l'écart $\\overline{X_n}-\\mu$ (qui tend vers $0$) à la bonne vitesse pour obtenir une limite non degénérée.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-3-e4",
+          question: "Vrai ou faux : le théorème central limite nécessite que les $X_i$ suivent une loi normale.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. C'est précisément l'intérêt du TCL : il s'applique à **n'importe quelle loi** des $X_i$ pourvu qu'elle admette une variance finie — c'est ce caractère universel (et non une particularité de la loi normale elle-même) qui en fait un résultat central.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-3-e5",
+          question: "Pour $n=400$ lancers d'une pièce équilibrée, $S_{400}$ (nombre de faces) a pour espérance et écart-type respectifs :",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$E[S_{400}]=200$, écart-type $=10$" },
+            { id: "B", text: "$E[S_{400}]=400$, écart-type $=20$" },
+            { id: "C", text: "$E[S_{400}]=200$, écart-type $=100$" },
+            { id: "D", text: "$E[S_{400}]=100$, écart-type $=10$" },
+          ],
+          correctId: "A",
+          explanation: "$E[S_{400}]=np=400\\times0{,}5=200$ ; $\\text{Var}(S_{400})=np(1-p)=400\\times0{,}25=100$, donc l'écart-type est $\\sqrt{100}=10$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "proba3-l3-3-e6",
+          question: "Démontrer la loi faible des grands nombres à partir de l'inégalité de Bienaymé-Tchebychev, pour $(X_i)$ i.i.d. d'espérance $\\mu$ et de variance $\\sigma^2$ finie.",
+          type: "open",
+          modelAnswer: "Var(Xbar_n)=σ²/n par indépendance. Tchebychev: P(|Xbar_n - μ| >= ε) <= Var(Xbar_n)/ε² = σ²/(nε²) → 0 quand n→∞, pour tout ε>0 fixé. C'est la définition de la convergence en probabilité.",
+          explanation: "Comme les $X_i$ sont i.i.d. de variance $\\sigma^2$, et que la variance d'une somme de variables **indépendantes** est la somme des variances :\n$$\\text{Var}(\\overline{X_n}) = \\text{Var}\\left(\\frac1n\\sum_{i=1}^nX_i\\right) = \\frac{1}{n^2}\\sum_{i=1}^n\\text{Var}(X_i) = \\frac{n\\sigma^2}{n^2} = \\frac{\\sigma^2}{n}$$\n\nEn appliquant Bienaymé-Tchebychev à $\\overline{X_n}$ (d'espérance $\\mu$, par linéarité) :\n$$P\\big(|\\overline{X_n}-\\mu|\\geq\\varepsilon\\big) \\leq \\frac{\\text{Var}(\\overline{X_n})}{\\varepsilon^2} = \\frac{\\sigma^2}{n\\varepsilon^2}$$\n\nPour $\\varepsilon>0$ fixé, ce majorant tend vers $0$ quand $n\\to+\\infty$ (numérateur constant, dénominateur $\\to+\\infty$). Donc $P(|\\overline{X_n}-\\mu|\\geq\\varepsilon)\\to0$, ce qui est exactement la définition de $\\overline{X_n}\\to\\mu$ **en probabilité**. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-3-e7",
+          question: "On souhaite estimer une proportion $p$ inconnue par sondage. Combien d'individus $n$ faut-il interroger pour garantir, via Tchebychev, $P(|\\hat p_n-p|\\geq0{,}02)\\leq0{,}05$, sachant $\\text{Var}(\\hat p_n)\\leq1/(4n)$ (borne universelle en $p$) ?",
+          type: "open",
+          modelAnswer: "Tchebychev: P(|p_hat-p|>=0.02) <= (1/(4n))/0.0004 = 1/(0.0016n). On veut <= 0.05, donc n >= 1/(0.0016*0.05) = 1/0.00008 = 12500.",
+          explanation: "On utilise la borne universelle $\\text{Var}(\\hat p_n)\\leq\\dfrac{1}{4n}$ (maximale quand $p=1/2$), puis Tchebychev :\n$$P(|\\hat p_n-p|\\geq0{,}02) \\leq \\frac{1/(4n)}{(0{,}02)^2} = \\frac{1}{4n\\times0{,}0004} = \\frac{1}{0{,}0016\\,n}$$\n\nOn veut $\\dfrac{1}{0{,}0016\\,n}\\leq0{,}05$, soit $n\\geq\\dfrac{1}{0{,}0016\\times0{,}05}=\\dfrac{1}{0{,}00008}=12\\,500$.\n\nIl faut donc interroger au moins **12 500 personnes** pour garantir cette précision avec cette méthode (qui est volontairement pessimiste — en pratique, le TCL permet des tailles d'échantillon bien plus petites pour le même niveau de confiance, car il exploite la forme précise de la loi limite plutôt qu'une borne universelle).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-3-e8",
+          question: "Vrai ou faux : la loi forte des grands nombres implique la loi faible des grands nombres.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La convergence presque sûre (conclusion de la LFGN forte) implique toujours la convergence en probabilité (conclusion de la LFGN faible) — c'est la hiérarchie générale des modes de convergence rappelée en §1.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-3-e9",
+          question: "Un dé équilibré est lancé $n=900$ fois ; $S_n$ est la somme des résultats. Sachant $E[X_i]=3{,}5$ et $\\text{Var}(X_i)=35/12\\approx2{,}9167$, estimer (via le TCL) $P(S_{900}\\geq3200)$.",
+          type: "open",
+          modelAnswer: "E[S_900]=900*3.5=3150. Var(S_900)=900*2.9167≈2625, écart-type≈51.2. Z=(3200-3150)/51.2≈0.977. P(Z>=0.977)≈0.164 (table normale). Donc P(S_900>=3200)≈0.16.",
+          explanation: "**Paramètres de $S_{900}$ :** $E[S_{900}]=900\\times3{,}5=3150$, $\\text{Var}(S_{900})=900\\times\\dfrac{35}{12}=2625$, donc l'écart-type est $\\sqrt{2625}\\approx51{,}2$.\n\n**Normalisation TCL :** $Z=\\dfrac{S_{900}-3150}{51{,}2}$ suit approximativement $\\mathcal{N}(0,1)$.\n\n**Calcul :** $P(S_{900}\\geq3200)=P\\Big(Z\\geq\\dfrac{3200-3150}{51{,}2}\\Big)=P(Z\\geq0{,}977)$.\n\nD'après la table de la loi normale standard, $P(Z\\geq0{,}977)\\approx0{,}164$. Donc $P(S_{900}\\geq3200)\\approx0{,}16$ (soit environ 16 % de chances).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-3-e10",
+          question: "Dans le TCL, que se passe-t-il pour la qualité de l'approximation normale si la loi des $X_i$ est très asymétrique (forte skewness) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "L'approximation est moins bonne pour $n$ petit, mais reste valide asymptotiquement" },
+            { id: "B", text: "Le TCL ne s'applique plus du tout dans ce cas" },
+            { id: "C", text: "La convergence devient plus rapide que pour une loi symétrique" },
+            { id: "D", text: "La limite n'est plus une loi normale" },
+          ],
+          correctId: "A",
+          explanation: "Le TCL reste valable asymptotiquement quelle que soit la forme de la loi (pourvu que la variance soit finie), mais la **vitesse de convergence** dépend de la loi : plus elle est asymétrique (skewness élevée), plus il faut un $n$ grand pour que l'approximation normale soit précise en pratique (ce phénomène est quantifié par le théorème de Berry-Esseen, hors programme ici).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "proba3-l3-3-e11",
+          question: "Démontrer, à l'aide des fonctions caractéristiques et en admettant le développement $\\varphi_Y(t)=1-t^2/2+o(t^2)$ pour $Y$ centrée-réduite, que $Z_n=\\dfrac1{\\sqrt n}\\sum_{i=1}^nY_i$ (avec $Y_i$ i.i.d. centrées-réduites) converge en loi vers $\\mathcal{N}(0,1)$.",
+          type: "open",
+          modelAnswer: "φ_{Zn}(t) = φ_Y(t/√n)^n (indépendance + linéarité de l'argument) = (1 - t²/(2n) + o(1/n))^n → exp(-t²/2) quand n→∞ (limite classique (1+x/n)^n → e^x avec x=-t²/2). C'est la fonction caractéristique de N(0,1), donc par le théorème de Lévy, Z_n → N(0,1) en loi.",
+          explanation: "**Étape 1 — fonction caractéristique de $Z_n$.** Par indépendance des $Y_i$ et la propriété $\\varphi_{aX}(t)=\\varphi_X(at)$ :\n$$\\varphi_{Z_n}(t) = \\varphi_{\\frac{1}{\\sqrt n}\\sum Y_i}(t) = \\prod_{i=1}^n \\varphi_{Y_i}\\Big(\\frac{t}{\\sqrt n}\\Big) = \\varphi_{Y_1}\\Big(\\frac{t}{\\sqrt n}\\Big)^n$$\n(égalité des $n$ facteurs car les $Y_i$ sont identiquement distribuées).\n\n**Étape 2 — développement.** Par hypothèse, $\\varphi_{Y_1}(u)=1-\\dfrac{u^2}{2}+o(u^2)$ près de $u=0$. En posant $u=t/\\sqrt n\\to0$ quand $n\\to+\\infty$ ($t$ fixé) :\n$$\\varphi_{Y_1}\\Big(\\frac{t}{\\sqrt n}\\Big) = 1 - \\frac{t^2}{2n} + o\\Big(\\frac1n\\Big)$$\n\n**Étape 3 — passage à la puissance $n$.**\n$$\\varphi_{Z_n}(t) = \\left(1-\\frac{t^2}{2n}+o\\Big(\\frac1n\\Big)\\right)^n$$\n\nEn utilisant la limite classique $\\Big(1+\\dfrac{x}{n}+o\\big(\\frac1n\\big)\\Big)^n\\to e^x$ (avec ici $x=-t^2/2$) :\n$$\\varphi_{Z_n}(t) \\xrightarrow[n\\to+\\infty]{} e^{-t^2/2}$$\n\n**Conclusion.** C'est exactement la fonction caractéristique de $\\mathcal{N}(0,1)$. Par le **théorème de continuité de Lévy** (convergence des fonctions caractéristiques $\\Leftrightarrow$ convergence en loi), $Z_n\\to\\mathcal{N}(0,1)$ en loi. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-3-e12",
+          question: "Soit $(X_i)$ i.i.d. de Bernoulli($p$). Démontrer que $\\sqrt n\\dfrac{\\hat p_n-p}{\\sqrt{p(1-p)}}\\to\\mathcal{N}(0,1)$ en loi, puis en déduire un intervalle de confiance asymptotique à 95 % pour $p$ (utiliser $P(|Z|\\leq1{,}96)\\approx0{,}95$ pour $Z\\sim\\mathcal{N}(0,1)$).",
+          type: "open",
+          modelAnswer: "Application directe du TCL avec μ=p, σ²=p(1-p) (variance de Bernoulli). On obtient √n(p_hat-p)/√(p(1-p)) → N(0,1). Inverser: P(|p_hat-p| <= 1.96√(p(1-p)/n)) ≈ 0.95, donc IC ≈ [p_hat - 1.96√(p(1-p)/n), p_hat + 1.96√(p(1-p)/n)] (en pratique on remplace p par p_hat dans la racine).",
+          explanation: "**Application du TCL.** $\\hat p_n=\\overline{X_n}$ est la moyenne empirique de variables Bernoulli($p$), d'espérance $\\mu=p$ et de variance $\\sigma^2=p(1-p)$. Le TCL général $\\sqrt n(\\overline{X_n}-\\mu)/\\sigma\\to\\mathcal{N}(0,1)$ s'applique directement, donnant :\n$$\\sqrt n\\,\\frac{\\hat p_n-p}{\\sqrt{p(1-p)}} \\xrightarrow[n\\to+\\infty]{\\text{loi}} \\mathcal{N}(0,1)$$\n\n**Intervalle de confiance.** Pour $n$ grand, $P\\Big(\\Big|\\sqrt n\\dfrac{\\hat p_n-p}{\\sqrt{p(1-p)}}\\Big|\\leq1{,}96\\Big)\\approx0{,}95$. En isolant $p$ (approximativement, en remplaçant $p$ par $\\hat p_n$ dans l'écart-type pour rendre la formule explicite — c'est l'« intervalle de Wald ») :\n$$P\\left(\\hat p_n - 1{,}96\\sqrt{\\frac{\\hat p_n(1-\\hat p_n)}{n}} \\leq p \\leq \\hat p_n + 1{,}96\\sqrt{\\frac{\\hat p_n(1-\\hat p_n)}{n}}\\right) \\approx 0{,}95$$\n\nC'est l'intervalle de confiance asymptotique à 95 % classiquement utilisé pour les sondages d'opinion (la fameuse « marge d'erreur »).",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-3-e13",
+          question: "Vrai ou faux : si $(X_i)$ est i.i.d. de loi de Cauchy (qui n'a pas d'espérance finie), alors la loi des grands nombres s'applique encore à $\\overline{X_n}$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. La loi de Cauchy n'a pas d'espérance finie (l'intégrale $\\int x f(x)dx$ diverge), donc l'hypothèse fondamentale de la LGN (existence de $\\mu=E[X_i]$ fini) n'est pas vérifiée. En fait, pour la loi de Cauchy, $\\overline{X_n}$ a exactement la **même loi de Cauchy** que $X_1$ pour tout $n$ (propriété de stabilité de Cauchy) — elle ne converge donc vers aucune constante.",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-3-e14",
+          question: "Expliquer pourquoi le théorème central limite justifie que de nombreuses grandeurs physiques ou biologiques mesurées (tailles, erreurs de mesure, etc.) suivent approximativement une loi normale, même sans connaître le mécanisme exact qui les produit.",
+          type: "open",
+          modelAnswer: "Si une grandeur observée résulte de l'accumulation (somme) d'un grand nombre de petites contributions indépendantes (ou faiblement dépendantes), quelle que soit leur loi individuelle, le TCL garantit que la somme normalisée tend vers une gaussienne. C'est l'universalité du TCL : peu importe le détail microscopique, seules l'espérance et la variance des contributions individuelles comptent à la limite.",
+          explanation: "Le théorème central limite a une portée qui dépasse le simple calcul de probabilités : il offre une **explication structurelle** de l'omniprésence de la loi normale dans la nature.\n\nDe nombreuses grandeurs mesurées (taille d'un individu, erreur d'un instrument de mesure, etc.) peuvent être vues comme la **somme d'un grand nombre de petites contributions indépendantes** (facteurs génétiques multiples, multiples sources de bruit de mesure, etc.), chacune ayant potentiellement une loi inconnue et différente des autres.\n\nLe caractère remarquable du TCL est que, **quelle que soit la loi individuelle** de ces contributions (pourvu qu'elle ait une variance finie et que les contributions soient indépendantes, ou faiblement dépendantes — des versions généralisées du TCL existent), la somme normalisée converge vers une loi normale. Seuls comptent, à la limite, les deux premiers moments (espérance et variance totales) — tous les autres détails de la loi individuelle « s'effacent » asymptotiquement.\n\nC'est cette **universalité** (indépendance du résultat final par rapport au mécanisme microscopique précis) qui justifie l'omniprésence empirique de la « courbe en cloche » gaussienne dans des contextes très variés, sans qu'il soit nécessaire de connaître le détail du processus générateur sous-jacent.",
+          difficulty: "expert",
+        },
+        {
+          id: "proba3-l3-3-e15",
+          question: "Démontrer que la convergence presque sûre implique la convergence en probabilité (sens direct de la hiérarchie évoquée en §1), en utilisant le lemme de Borel-Cantelli ou un argument direct sur les événements $A_n=\\{|X_n-X|\\geq\\varepsilon\\}$.",
+          type: "open",
+          modelAnswer: "Si X_n→X p.s., alors P(limsup A_n) = 0 pour tout ε>0 fixé (car sur l'événement de convergence, |X_n-X|<ε est vérifié pour n assez grand, donc seulement un nombre fini de A_n se produisent). Comme P(limsup A_n)=0 entraîne lim P(A_n)=0 (car A_n ⊂ ∪_{k>=n} A_k, et P(∪_{k>=n}A_k) → P(limsup A_n)=0 par continuité décroissante des probabilités), on a P(A_n)→0, ce qui est la convergence en probabilité.",
+          explanation: "**Mise en place.** Fixons $\\varepsilon>0$ et posons $A_n=\\{|X_n-X|\\geq\\varepsilon\\}$. On veut montrer $P(A_n)\\to0$.\n\n**Utilisation de la convergence presque sûre.** Par hypothèse, $P(X_n\\to X)=1$, c'est-à-dire $P\\big(\\Omega\\setminus\\{X_n\\to X\\}\\big)=0$. Or sur l'événement $\\{X_n\\to X\\}$, pour tout $\\varepsilon>0$, il existe (presque sûrement) un rang $N$ (dépendant de $\\omega$) tel que $|X_n(\\omega)-X(\\omega)|<\\varepsilon$ pour tout $n\\geq N$ — donc seulement un **nombre fini** des événements $A_n$ se produisent pour cet $\\omega$. Cela signifie exactement que $\\omega\\notin\\limsup_n A_n=\\bigcap_{N\\geq1}\\bigcup_{n\\geq N}A_n$. Donc $\\{X_n\\to X\\}\\subseteq\\big(\\limsup_n A_n\\big)^c$, ce qui donne $P(\\limsup_n A_n)\\leq P\\big(\\{X_n\\to X\\}^c\\big)=0$.\n\n**Passage à $P(A_n)$.** Par définition, $A_n\\subseteq\\bigcup_{k\\geq n}A_k$, donc $P(A_n)\\leq P\\Big(\\bigcup_{k\\geq n}A_k\\Big)$. La suite d'événements $B_n=\\bigcup_{k\\geq n}A_k$ est **décroissante** ($B_{n+1}\\subseteq B_n$) et $\\bigcap_n B_n=\\limsup_n A_n$, donc par **continuité décroissante des probabilités** :\n$$P(B_n) \\xrightarrow[n\\to+\\infty]{} P\\big(\\limsup_n A_n\\big) = 0$$\n\nDonc $P(A_n)\\leq P(B_n)\\to0$, ce qui donne $P(A_n)\\to0$, c'est-à-dire $X_n\\to X$ **en probabilité**. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L3 — Géométrie : Courbes et surfaces
+  // ─────────────────────────────────────────────
+  {
+  id: "geometrie-l3",
+  slug: "geometrie-l3-courbes-surfaces",
+  title: "Géométrie L3 — Courbes et surfaces",
+  description: "Géométrie différentielle classique : courbure et torsion des courbes paramétrées, repère de Frenet, première et seconde formes fondamentales des surfaces, courbure de Gauss.",
+  schoolLevel: "L3",
+  subject: "geometrie",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "🌀",
+  lessons: [
+    {
+      id: "geo3-l3-1",
+      slug: "courbes-parametrees-courbure",
+      title: "Courbes paramétrées et courbure",
+      durationMinutes: 55,
+      content: `## Courbes paramétrées et courbure
+
+### 1. Courbes paramétrées régulières
+
+Une **courbe paramétrée** dans $\\mathbb{R}^n$ ($n=2$ ou $3$) est une application $\\gamma:I\\to\\mathbb{R}^n$ de classe $\\mathcal{C}^k$ ($k\\geq2$) sur un intervalle $I$. Elle est dite **régulière** si $\\gamma'(t)\\neq0$ pour tout $t\\in I$ : le vecteur $\\gamma'(t)$ est alors tangent à la courbe et non nul, ce qui exclut les points anguleux ou les rebroussements.
+
+**Exemples :** le cercle $\\gamma(t)=(R\\cos t, R\\sin t)$, l'hélice $\\gamma(t)=(a\\cos t,a\\sin t,bt)$, la parabole $\\gamma(t)=(t,t^2)$.
+
+### 2. Longueur d'arc et paramétrage par longueur d'arc
+
+La **longueur d'arc** entre $t_0$ et $t$ est $s(t)=\\displaystyle\\int_{t_0}^t \\|\\gamma'(u)\\|\\,du$. Une courbe est **paramétrée par longueur d'arc** (ou par abscisse curviligne) si $\\|\\gamma'(s)\\|=1$ pour tout $s$ : le paramètre coïncide alors avec la longueur parcourue depuis l'origine.
+
+**Théorème :** toute courbe régulière admet une reparamétrisation par longueur d'arc (en posant $s=s(t)$, qui est strictement croissante donc inversible). En pratique, on travaille souvent avec un paramétrage arbitraire $t$ et on adapte les formules par un facteur $\\|\\gamma'(t)\\|$ (la **vitesse**).
+
+### 3. Vecteur tangent unitaire et courbure (plan)
+
+Pour une courbe plane paramétrée par longueur d'arc $s$, on note $T(s)=\\gamma'(s)$ le **vecteur tangent unitaire**. La **courbure** $\\kappa(s)$ est définie par :
+$$T'(s) = \\kappa(s)\\,N(s)$$
+où $N(s)$ est le **vecteur normal unitaire**, obtenu en faisant tourner $T(s)$ de $+90°$. La courbure mesure la vitesse de rotation de la tangente : $\\kappa=0$ pour une droite, $\\kappa=1/R$ (constante) pour un cercle de rayon $R$.
+
+**Formule pour un paramétrage quelconque** (non nécessairement par longueur d'arc), pour une courbe plane $\\gamma(t)=(x(t),y(t))$ :
+$$\\kappa(t) = \\frac{x'y''-y'x''}{(x'^2+y'^2)^{3/2}}$$
+
+**Exemple — cercle de rayon $R$ :** $\\gamma(t)=(R\\cos t,R\\sin t)$. On calcule $x'=-R\\sin t$, $y'=R\\cos t$, $x''=-R\\cos t$, $y''=-R\\sin t$. Le numérateur vaut $x'y''-y'x''=R^2\\sin^2t+R^2\\cos^2t=R^2$, et $(x'^2+y'^2)^{3/2}=R^3$, donc $\\kappa=R^2/R^3=1/R$ : la courbure est bien constante, égale à l'inverse du rayon.
+
+### 4. Courbes dans l'espace : repère de Frenet
+
+Pour une courbe régulière dans $\\mathbb{R}^3$, on définit en chaque point (où $\\gamma'\\times\\gamma''\\neq0$) le **repère de Frenet** $(T,N,B)$ :
+- $T=\\gamma'/\\|\\gamma'\\|$ : tangente unitaire ;
+- $B=(\\gamma'\\times\\gamma'')/\\|\\gamma'\\times\\gamma''\\|$ : binormale unitaire ;
+- $N=B\\times T$ : normale principale (complète le repère orthonormé direct).
+
+**Courbure** : $\\kappa = \\dfrac{\\|\\gamma'\\times\\gamma''\\|}{\\|\\gamma'\\|^3}$ ; **torsion** : $\\tau = \\dfrac{(\\gamma'\\times\\gamma'')\\cdot\\gamma'''}{\\|\\gamma'\\times\\gamma''\\|^2}$.
+
+La torsion mesure à quelle vitesse la courbe « sort » de son plan osculateur (le plan engendré par $T$ et $N$) : une courbe plane a une torsion nulle partout ; une hélice a une torsion constante non nulle.
+
+### 5. Exemple résolu — l'hélice
+
+Pour l'hélice $\\gamma(t)=(a\\cos t, a\\sin t, bt)$ ($a,b>0$) : $\\gamma'(t)=(-a\\sin t,a\\cos t,b)$, $\\|\\gamma'(t)\\|=\\sqrt{a^2+b^2}$ (vitesse **constante**). On calcule $\\gamma''(t)=(-a\\cos t,-a\\sin t,0)$, $\\gamma'\\times\\gamma''=(ab\\sin t,-ab\\cos t,a^2)$, de norme $a\\sqrt{a^2+b^2}$. D'où :
+$$\\kappa = \\frac{a\\sqrt{a^2+b^2}}{(a^2+b^2)^{3/2}} = \\frac{a}{a^2+b^2}$$
+Avec $\\gamma'''(t)=(a\\sin t,-a\\cos t,0)$, on trouve $\\tau=\\dfrac{b}{a^2+b^2}$ (calcul direct du produit mixte). Remarquablement, **$\\kappa$ et $\\tau$ sont constantes** pour l'hélice — c'est en fait la seule courbe (à isométrie près) ayant courbure et torsion constantes non nulles simultanément.
+
+### 6. Formules de Frenet-Serret
+
+Le repère $(T,N,B)$ évolue selon les **formules de Frenet-Serret** (par rapport à l'abscisse curviligne $s$) :
+$$T'=\\kappa N \\qquad N'=-\\kappa T+\\tau B \\qquad B'=-\\tau N$$
+
+Ces formules sont l'analogue, pour les courbes de l'espace, du couple $(T',N')$ du cas plan ; elles montrent que **courbure et torsion déterminent entièrement la courbe** (à un déplacement rigide près) — c'est le théorème fondamental des courbes.
+
+### 7. Récapitulatif
+
+| Notion | Formule (paramétrage quelconque) |
+|---|---|
+| Vitesse | $v(t)=\\|\\gamma'(t)\\|$ |
+| Courbure (plan) | $\\kappa=\\dfrac{x'y''-y'x''}{(x'^2+y'^2)^{3/2}}$ |
+| Courbure (espace) | $\\kappa=\\dfrac{\\|\\gamma'\\times\\gamma''\\|}{\\|\\gamma'\\|^3}$ |
+| Torsion (espace) | $\\tau=\\dfrac{(\\gamma'\\times\\gamma'')\\cdot\\gamma'''}{\\|\\gamma'\\times\\gamma''\\|^2}$ |
+| Frenet-Serret | $T'=\\kappa N,\\ N'=-\\kappa T+\\tau B,\\ B'=-\\tau N$ |`,
+      exercises: [
+        {
+          id: "geo3-l3-1-e1",
+          question: "Qu'est-ce qu'une courbe paramétrée régulière ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une courbe $\\gamma$ telle que $\\gamma'(t)\\neq0$ pour tout $t$" },
+            { id: "B", text: "Une courbe fermée" },
+            { id: "C", text: "Une courbe de courbure constante" },
+            { id: "D", text: "Une courbe paramétrée par longueur d'arc" },
+          ],
+          correctId: "A",
+          explanation: "Une courbe est régulière si son vecteur vitesse $\\gamma'(t)$ ne s'annule jamais, garantissant l'existence d'une tangente bien définie en chaque point.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-1-e2",
+          question: "Vrai ou faux : un paramétrage par longueur d'arc vérifie $\\|\\gamma'(s)\\|=1$ pour tout $s$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement la définition : le paramètre $s$ représente alors la longueur parcourue, donc la vitesse de parcours est unitaire.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-1-e3",
+          question: "Quelle est la courbure d'un cercle de rayon $R$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\kappa=1/R$" },
+            { id: "B", text: "$\\kappa=R$" },
+            { id: "C", text: "$\\kappa=R^2$" },
+            { id: "D", text: "$\\kappa=0$" },
+          ],
+          correctId: "A",
+          explanation: "Le calcul direct (cf. cours §3) donne $\\kappa=1/R$ : plus le rayon est grand, plus la courbure est faible (le cercle « tourne » moins vite).",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-1-e4",
+          question: "Vrai ou faux : la torsion d'une courbe plane (contenue dans un plan fixe) est toujours nulle.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La torsion mesure la vitesse à laquelle la courbe sort de son plan osculateur ; pour une courbe plane, ce plan est constant (le plan contenant la courbe), donc $\\tau=0$ identiquement.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-1-e5",
+          question: "Dans le repère de Frenet $(T,N,B)$ d'une courbe de l'espace, comment est définie la binormale $B$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$B=(\\gamma'\\times\\gamma'')/\\|\\gamma'\\times\\gamma''\\|$" },
+            { id: "B", text: "$B=\\gamma'/\\|\\gamma'\\|$" },
+            { id: "C", text: "$B=T\\times N$" },
+            { id: "D", text: "$B=\\gamma''/\\|\\gamma''\\|$" },
+          ],
+          correctId: "A",
+          explanation: "La binormale est le vecteur unitaire normal au plan osculateur, défini par $B=(\\gamma'\\times\\gamma'')/\\|\\gamma'\\times\\gamma''\\|$. Noter qu'on a aussi $B=T\\times N$ (l'option C est vraie également mais ce n'est pas la définition de départ, plutôt une relation entre les trois vecteurs du repère).",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-1-e6",
+          question: "Calculer la courbure de la parabole $\\gamma(t)=(t,t^2)$ au point $t=0$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$0$" },
+            { id: "D", text: "$1/2$" },
+          ],
+          correctId: "A",
+          explanation: "$x'=1,y'=2t,x''=0,y''=2$. Numérateur : $x'y''-y'x''=1\\times2-2t\\times0=2$. Dénominateur : $(1+4t^2)^{3/2}$. En $t=0$ : $\\kappa=2/1=2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-1-e7",
+          question: "Pour l'hélice $\\gamma(t)=(2\\cos t,2\\sin t,3t)$ (donc $a=2,b=3$), quelle est sa courbure $\\kappa$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2/13$" },
+            { id: "B", text: "$3/13$" },
+            { id: "C", text: "$2/5$" },
+            { id: "D", text: "$1/13$" },
+          ],
+          correctId: "A",
+          explanation: "$\\kappa=a/(a^2+b^2)=2/(4+9)=2/13$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-1-e8",
+          question: "Pour la même hélice $\\gamma(t)=(2\\cos t,2\\sin t,3t)$, quelle est sa torsion $\\tau$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3/13$" },
+            { id: "B", text: "$2/13$" },
+            { id: "C", text: "$13/3$" },
+            { id: "D", text: "$0$" },
+          ],
+          correctId: "A",
+          explanation: "$\\tau=b/(a^2+b^2)=3/(4+9)=3/13$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-1-e9",
+          question: "Vrai ou faux : pour une courbe paramétrée par longueur d'arc, la formule de la courbure se simplifie en $\\kappa(s)=\\|\\gamma''(s)\\|$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Quand $s$ est l'abscisse curviligne, $T(s)=\\gamma'(s)$, et $T'(s)=\\kappa(s)N(s)$ avec $N(s)$ unitaire, donc $\\|T'(s)\\|=\\kappa(s)$ ; comme $T'(s)=\\gamma''(s)$, on a bien $\\kappa(s)=\\|\\gamma''(s)\\|$ dans ce paramétrage particulier (ce n'est pas vrai pour un paramétrage quelconque).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-1-e10",
+          question: "Calculer la longueur d'arc de l'hélice $\\gamma(t)=(\\cos t,\\sin t,t)$ entre $t=0$ et $t=2\\pi$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2\\sqrt2\\,\\pi$" },
+            { id: "B", text: "$2\\pi$" },
+            { id: "C", text: "$\\sqrt2\\,\\pi$" },
+            { id: "D", text: "$4\\pi$" },
+          ],
+          correctId: "A",
+          explanation: "$\\gamma'(t)=(-\\sin t,\\cos t,1)$, $\\|\\gamma'(t)\\|=\\sqrt{\\sin^2t+\\cos^2t+1}=\\sqrt2$ (constante). Longueur $=\\displaystyle\\int_0^{2\\pi}\\sqrt2\\,dt=2\\sqrt2\\,\\pi$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-1-e11",
+          question: "Démontrer la formule $\\kappa(t)=\\dfrac{x'y''-y'x''}{(x'^2+y'^2)^{3/2}}$ pour une courbe plane $\\gamma(t)=(x(t),y(t))$, à partir de la définition $T'(s)=\\kappa(s)N(s)$ en abscisse curviligne.",
+          type: "open",
+          modelAnswer: "Reparamétrer par s(t), utiliser la règle de dérivation en chaîne sur T(t)=γ'(t)/|γ'(t)|, calculer dT/ds = (dT/dt)/(ds/dt), identifier avec κN, et exprimer N comme rotation de +90° de T. Le calcul donne κ = (x'y''-y'x'')/(x'^2+y'^2)^{3/2} après simplification.",
+          explanation: "**Mise en place.** Soit $v(t)=\\|\\gamma'(t)\\|=\\sqrt{x'^2+y'^2}$ la vitesse, et $s(t)$ l'abscisse curviligne, avec $ds/dt=v(t)$. Le vecteur tangent unitaire est $T(t)=\\gamma'(t)/v(t)=(x'/v,y'/v)$.\n\n**Dérivation en chaîne.** Par définition (en abscisse curviligne), $\\dfrac{dT}{ds}=\\kappa N$. Or $\\dfrac{dT}{ds}=\\dfrac{dT/dt}{ds/dt}=\\dfrac{T'(t)}{v(t)}$, donc $\\kappa N = T'(t)/v(t)$, d'où $\\kappa = \\dfrac{\\|T'(t)\\|}{v(t)}$ (en norme, $N$ étant unitaire).\n\n**Calcul de $T'(t)$.** En dérivant $T=(x'/v,y'/v)$ :\n$$T' = \\left(\\frac{x''v-x'v'}{v^2},\\,\\frac{y''v-y'v'}{v^2}\\right)$$\n\nAprès calcul (en utilisant $vv'=x'x''+y'y''$, dérivée de $v^2=x'^2+y'^2$), la composante de $T'$ orthogonale à $T$ (c'est-à-dire le long de $N$) se simplifie en $\\dfrac{x'y''-y'x''}{v^2}$. En divisant par $v$ pour obtenir $\\kappa=\\|T'\\|/v$ :\n$$\\kappa(t) = \\frac{x'y''-y'x''}{v^3} = \\frac{x'y''-y'x''}{(x'^2+y'^2)^{3/2}} \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-1-e12",
+          question: "Démontrer que si une courbe de l'espace a une torsion nulle en tout point ($\\tau\\equiv0$), alors elle est plane (contenue dans un plan fixe).",
+          type: "open",
+          modelAnswer: "τ=0 implique B'=-τN=0 (formule de Frenet-Serret), donc B est un vecteur constant B0. Alors d/ds[γ(s)·B0] = T(s)·B0 = 0 (car T⊥B par construction du repère de Frenet), donc γ(s)·B0 est constant: la courbe reste dans le plan affine d'équation X·B0 = constante, donc elle est plane.",
+          explanation: "**Étape 1 — la binormale est constante.** Par la formule de Frenet-Serret, $B'(s)=-\\tau(s)N(s)$. Si $\\tau\\equiv0$, alors $B'(s)=0$ pour tout $s$, donc $B(s)=B_0$ est un **vecteur constant**.\n\n**Étape 2 — la courbe reste dans un plan orthogonal à $B_0$.** Considérons la fonction scalaire $f(s)=\\big(\\gamma(s)-\\gamma(0)\\big)\\cdot B_0$. Sa dérivée est :\n$$f'(s) = \\gamma'(s)\\cdot B_0 = T(s)\\cdot B_0$$\n\nOr, par construction du repère de Frenet, $T(s)\\perp B(s)=B_0$ en tout point (le repère $(T,N,B)$ est orthonormé), donc $T(s)\\cdot B_0=0$ pour tout $s$. Ainsi $f'(s)=0$ pour tout $s$, donc $f$ est **constante**, et comme $f(0)=0$, on a $f(s)=0$ pour tout $s$.\n\n**Conclusion.** $\\big(\\gamma(s)-\\gamma(0)\\big)\\cdot B_0=0$ pour tout $s$ signifie que $\\gamma(s)$ reste dans le plan affine passant par $\\gamma(0)$ et orthogonal à $B_0$ — la courbe est donc **plane**. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-1-e13",
+          question: "Soit $\\gamma(t)=(t,\\cosh t)$ (la chaînette). Calculer sa courbure $\\kappa(t)$ en fonction de $t$.",
+          type: "open",
+          modelAnswer: "x'=1, y'=sinh(t), x''=0, y''=cosh(t). Numérateur = 1·cosh(t) - sinh(t)·0 = cosh(t). Dénominateur = (1+sinh²(t))^{3/2} = (cosh²(t))^{3/2} = cosh³(t) (car cosh²-sinh²=1). Donc κ(t) = cosh(t)/cosh³(t) = 1/cosh²(t).",
+          explanation: "**Dérivées :** $x(t)=t\\Rightarrow x'=1,\\,x''=0$. $y(t)=\\cosh t\\Rightarrow y'=\\sinh t,\\,y''=\\cosh t$.\n\n**Numérateur :** $x'y''-y'x'' = 1\\cdot\\cosh t - \\sinh t\\cdot0 = \\cosh t$.\n\n**Dénominateur :** $x'^2+y'^2 = 1+\\sinh^2t = \\cosh^2t$ (identité $\\cosh^2-\\sinh^2=1$), donc $(x'^2+y'^2)^{3/2}=\\cosh^3t$ (car $\\cosh t>0$).\n\n**Résultat :**\n$$\\kappa(t) = \\frac{\\cosh t}{\\cosh^3t} = \\frac{1}{\\cosh^2t}$$\nLa courbure est maximale ($\\kappa(0)=1$) au sommet de la chaînette et décroît vers $0$ quand $|t|\\to+\\infty$ (la courbe s'aplatit asymptotiquement).",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-1-e14",
+          question: "Vrai ou faux : le théorème fondamental des courbes affirme que la donnée de $\\kappa(s)>0$ et $\\tau(s)$ (fonctions continues) détermine une courbe unique à déplacement rigide près (rotation + translation).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est le théorème fondamental de la théorie des courbes (existence et unicité, via résolution du système différentiel de Frenet-Serret avec conditions initiales) : courbure et torsion déterminent intégralement la forme de la courbe, indépendamment de sa position et orientation dans l'espace.",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-1-e15",
+          question: "Démontrer, à partir des formules de Frenet-Serret, que $\\dfrac{d}{ds}(T\\cdot T)=0$, confirmant que $\\|T(s)\\|$ reste constant égal à $1$.",
+          type: "open",
+          modelAnswer: "d/ds(T·T) = 2T'·T = 2κN·T = 2κ(N·T) = 0 car N⊥T (vecteurs orthonormés du repère de Frenet). Donc T·T est constant; comme T(0)·T(0)=1 (unitaire par construction), T·T=1 pour tout s, confirmant que T reste unitaire.",
+          explanation: "**Calcul de la dérivée.** Par la règle de Leibniz pour le produit scalaire :\n$$\\frac{d}{ds}(T\\cdot T) = T'\\cdot T + T\\cdot T' = 2\\,T'\\cdot T$$\n\n**Utilisation de Frenet-Serret.** La première formule donne $T'=\\kappa N$, donc :\n$$\\frac{d}{ds}(T\\cdot T) = 2\\kappa\\,(N\\cdot T)$$\n\n**Orthogonalité du repère.** Par construction, $(T,N,B)$ est un repère **orthonormé** en tout point, donc $N\\cdot T=0$ identiquement. D'où :\n$$\\frac{d}{ds}(T\\cdot T) = 2\\kappa\\times0 = 0$$\n\n**Conclusion.** $T\\cdot T$ est donc constante le long de la courbe. Comme $T$ est unitaire par définition ($T=\\gamma'/\\|\\gamma'\\|$ en paramétrage par longueur d'arc), $T(s_0)\\cdot T(s_0)=1$ en un point quelconque $s_0$, donc $T\\cdot T=1$ pour tout $s$ : ceci confirme la cohérence interne des formules de Frenet-Serret, qui préservent automatiquement le caractère unitaire (et orthogonal) du repère mobile. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "geo3-l3-2",
+      slug: "premiere-forme-fondamentale",
+      title: "Surfaces paramétrées et première forme fondamentale",
+      durationMinutes: 60,
+      content: `## Surfaces paramétrées et première forme fondamentale
+
+### 1. Surfaces paramétrées
+
+Une **surface paramétrée** est une application $X:U\\to\\mathbb{R}^3$ ($U\\subset\\mathbb{R}^2$ ouvert) de classe $\\mathcal{C}^2$, **régulière** : les dérivées partielles $X_u=\\partial X/\\partial u$ et $X_v=\\partial X/\\partial v$ sont linéairement indépendantes en tout point (donc $X_u\\times X_v\\neq0$). Le plan engendré par $X_u,X_v$ en un point est le **plan tangent** à la surface en ce point.
+
+**Exemples :** le plan $X(u,v)=(u,v,0)$ ; la sphère de rayon $R$, $X(u,v)=(R\\cos u\\sin v,R\\sin u\\sin v,R\\cos v)$ pour $u\\in[0,2\\pi[$, $v\\in\\,]0,\\pi[$ ; le cylindre $X(u,v)=(R\\cos u,R\\sin u,v)$.
+
+### 2. Première forme fondamentale
+
+La **première forme fondamentale** $I$ mesure les longueurs et angles **sur** la surface (la métrique induite par le produit scalaire de $\\mathbb{R}^3$). On définit les coefficients :
+$$E=X_u\\cdot X_u \\qquad F=X_u\\cdot X_v \\qquad G=X_v\\cdot X_v$$
+et pour un vecteur tangent $w=aX_u+bX_v$ :
+$$I(w,w) = Ea^2+2Fab+Gb^2$$
+
+**Élément d'aire :** $dA = \\sqrt{EG-F^2}\\,du\\,dv$ ; **longueur d'une courbe** $u(t),v(t)$ tracée sur la surface : $L=\\displaystyle\\int\\sqrt{Eu'^2+2Fu'v'+Gv'^2}\\,dt$.
+
+### 3. Exemple résolu — le plan
+
+Pour $X(u,v)=(u,v,0)$ : $X_u=(1,0,0)$, $X_v=(0,1,0)$, donc $E=1,F=0,G=1$. La première forme fondamentale est $I=a^2+b^2$ : c'est simplement la métrique euclidienne usuelle, sans surprise puisque $X$ est l'identité du plan $xOy$ plongé dans $\\mathbb{R}^3$.
+
+### 4. Exemple résolu — la sphère
+
+Pour $X(u,v)=(R\\cos u\\sin v,R\\sin u\\sin v,R\\cos v)$ :
+$$X_u=(-R\\sin u\\sin v,R\\cos u\\sin v,0) \\qquad X_v=(R\\cos u\\cos v,R\\sin u\\cos v,-R\\sin v)$$
+
+Calcul direct : $E=X_u\\cdot X_u=R^2\\sin^2v$, $F=X_u\\cdot X_v=0$, $G=X_v\\cdot X_v=R^2$. La première forme fondamentale est donc $I=R^2\\sin^2v\\,a^2+R^2b^2$, et l'élément d'aire :
+$$dA=\\sqrt{EG-F^2}\\,du\\,dv = \\sqrt{R^4\\sin^2v}\\,du\\,dv = R^2\\sin v\\,du\\,dv$$
+(pour $v\\in\\,]0,\\pi[$, $\\sin v>0$). En intégrant sur tout $u\\in[0,2\\pi[,v\\in[0,\\pi]$, on retrouve l'aire totale de la sphère :
+$$\\text{Aire} = \\int_0^{2\\pi}\\int_0^\\pi R^2\\sin v\\,dv\\,du = 2\\pi R^2\\big[-\\cos v\\big]_0^\\pi = 2\\pi R^2\\times2 = 4\\pi R^2$$
+
+### 5. Exemple résolu — le cylindre
+
+Pour $X(u,v)=(R\\cos u,R\\sin u,v)$ : $X_u=(-R\\sin u,R\\cos u,0)$, $X_v=(0,0,1)$. On trouve $E=R^2,F=0,G=1$, donc $dA=R\\,du\\,dv$ : le cylindre est, en un sens précis, **isométrique au plan** (on peut le « dérouler » sans déformer les longueurs) — c'est pourquoi le coefficient $E$ ne dépend ni de $u$ ni de $v$.
+
+### 6. Isométries de surfaces
+
+Deux surfaces sont **isométriques** si elles ont la « même » première forme fondamentale dans des paramétrages adaptés — intuitivement, on peut déformer l'une en l'autre sans étirer ni déchirer (en pliant seulement). Le cylindre et le plan sont isométriques (on déroule le cylindre), mais **la sphère n'est isométrique à aucune région du plan** — c'est le contenu du **theorema egregium** de Gauss (vu en détail à la leçon suivante), qui explique pourquoi toute carte plane de la Terre déforme nécessairement les distances ou les surfaces.
+
+### 7. Récapitulatif
+
+| Notion | Formule |
+|---|---|
+| Coefficients | $E=X_u\\cdot X_u,\\ F=X_u\\cdot X_v,\\ G=X_v\\cdot X_v$ |
+| Forme fondamentale | $I(w,w)=Ea^2+2Fab+Gb^2$ |
+| Élément d'aire | $dA=\\sqrt{EG-F^2}\\,du\\,dv$ |
+| Sphère de rayon $R$ | $E=R^2\\sin^2v,\\ F=0,\\ G=R^2$ |
+| Cylindre de rayon $R$ | $E=R^2,\\ F=0,\\ G=1$ |`,
+      exercises: [
+        {
+          id: "geo3-l3-2-e1",
+          question: "Comment définit-on le coefficient $F$ de la première forme fondamentale ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$F=X_u\\cdot X_v$" },
+            { id: "B", text: "$F=X_u\\times X_v$" },
+            { id: "C", text: "$F=X_u\\cdot X_u$" },
+            { id: "D", text: "$F=\\|X_u\\|+\\|X_v\\|$" },
+          ],
+          correctId: "A",
+          explanation: "$F$ est le produit scalaire (et non vectoriel) des deux dérivées partielles : $F=X_u\\cdot X_v$. C'est ce qui mesure si les courbes coordonnées $u=\\text{cste}$ et $v=\\text{cste}$ sont orthogonales ($F=0$) ou non.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-2-e2",
+          question: "Vrai ou faux : pour le plan $X(u,v)=(u,v,0)$, la première forme fondamentale est $I=a^2+b^2$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. $E=1,F=0,G=1$ pour le plan paramétré par l'identité, donc $I(w,w)=1\\cdot a^2+0+1\\cdot b^2=a^2+b^2$, la métrique euclidienne usuelle.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-2-e3",
+          question: "Quelle est la formule de l'élément d'aire $dA$ en fonction de $E,F,G$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$dA=\\sqrt{EG-F^2}\\,du\\,dv$" },
+            { id: "B", text: "$dA=(EG-F^2)\\,du\\,dv$" },
+            { id: "C", text: "$dA=(E+G)\\,du\\,dv$" },
+            { id: "D", text: "$dA=\\sqrt{E^2+G^2}\\,du\\,dv$" },
+          ],
+          correctId: "A",
+          explanation: "C'est la formule classique $dA=\\|X_u\\times X_v\\|\\,du\\,dv=\\sqrt{EG-F^2}\\,du\\,dv$ (identité de Lagrange reliant norme du produit vectoriel et déterminant de Gram).",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-2-e4",
+          question: "Pour la sphère de rayon $R$, que vaut le coefficient $F$ dans le paramétrage usuel $(u,v)\\mapsto(R\\cos u\\sin v,R\\sin u\\sin v,R\\cos v)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$R^2$" },
+            { id: "C", text: "$R^2\\sin v$" },
+            { id: "D", text: "$R$" },
+          ],
+          correctId: "A",
+          explanation: "Le calcul direct de $X_u\\cdot X_v$ donne $0$ : les courbes coordonnées (méridiens $u=$cste et parallèles $v=$cste) sont orthogonales en tout point de la sphère.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-2-e5",
+          question: "Vrai ou faux : le cylindre est isométrique au plan (on peut le « dérouler » sans déformer les longueurs).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La première forme fondamentale du cylindre ($E=R^2,F=0,G=1$, indépendante de $u,v$) coïncide, après un simple changement d'échelle sur $u$, avec celle du plan : c'est la propriété qui permet de dérouler un cylindre à plat sans déformation.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-2-e6",
+          question: "Calculer $E,F,G$ pour le paraboloïde $X(u,v)=(u,v,u^2+v^2)$ au point $(u,v)=(0,0)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$E=1,F=0,G=1$" },
+            { id: "B", text: "$E=2,F=0,G=2$" },
+            { id: "C", text: "$E=1,F=1,G=1$" },
+            { id: "D", text: "$E=0,F=0,G=0$" },
+          ],
+          correctId: "A",
+          explanation: "$X_u=(1,0,2u)$, $X_v=(0,1,2v)$. En $(0,0)$ : $X_u=(1,0,0)$, $X_v=(0,1,0)$, donc $E=1,F=0,G=1$ (le plan tangent au sommet du paraboloïde est horizontal, sans déformation au premier ordre).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-2-e7",
+          question: "Pour le cône $X(u,v)=(v\\cos u,v\\sin u,v)$ ($v>0$), calculer $E,F,G$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$E=v^2,F=0,G=2$" },
+            { id: "B", text: "$E=v,F=0,G=1$" },
+            { id: "C", text: "$E=v^2,F=0,G=1$" },
+            { id: "D", text: "$E=1,F=0,G=v^2$" },
+          ],
+          correctId: "A",
+          explanation: "$X_u=(-v\\sin u,v\\cos u,0)$, $\\|X_u\\|^2=v^2$ donc $E=v^2$. $X_v=(\\cos u,\\sin u,1)$, $\\|X_v\\|^2=\\cos^2u+\\sin^2u+1=2$ donc $G=2$. $X_u\\cdot X_v=-v\\sin u\\cos u+v\\cos u\\sin u+0=0$ donc $F=0$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-2-e8",
+          question: "Calculer l'aire totale de la sphère de rayon $R=3$ à partir de la formule $dA=R^2\\sin v\\,du\\,dv$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$36\\pi$" },
+            { id: "B", text: "$9\\pi$" },
+            { id: "C", text: "$18\\pi$" },
+            { id: "D", text: "$12\\pi$" },
+          ],
+          correctId: "A",
+          explanation: "Aire $=4\\pi R^2=4\\pi\\times9=36\\pi$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-2-e9",
+          question: "Vrai ou faux : si $F=0$ partout sur une surface, les courbes coordonnées $u=\\text{cste}$ et $v=\\text{cste}$ se coupent orthogonalement.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Le vecteur tangent à la courbe $u=\\text{cste}$ (paramétrée par $v$) est colinéaire à $X_v$, et celui à $v=\\text{cste}$ est colinéaire à $X_u$ ; leur produit scalaire $X_u\\cdot X_v=F$ étant nul, ils sont orthogonaux.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-2-e10",
+          question: "Pour la surface de révolution $X(u,v)=(f(v)\\cos u,f(v)\\sin u,g(v))$ (avec $f>0$), montrer que $F=0$ quelles que soient les fonctions $f,g$.",
+          type: "open",
+          modelAnswer: "X_u = (-f sin u, f cos u, 0). X_v = (f' cos u, f' sin u, g'). F = X_u·X_v = -f f' sin u cos u + f f' cos u sin u + 0 = 0 (les deux termes s'annulent exactement).",
+          explanation: "**Calcul des dérivées partielles :**\n$$X_u = (-f(v)\\sin u,\\,f(v)\\cos u,\\,0) \\qquad X_v = (f'(v)\\cos u,\\,f'(v)\\sin u,\\,g'(v))$$\n\n**Calcul de $F$ :**\n$$F = X_u\\cdot X_v = -f(v)f'(v)\\sin u\\cos u + f(v)f'(v)\\cos u\\sin u + 0\\cdot g'(v)$$\n\nLes deux premiers termes sont opposés (même produit $f f'\\sin u\\cos u$, signes contraires), donc ils s'annulent exactement, et le troisième est nul. D'où $F=0$ **identiquement**, pour n'importe quelles fonctions $f,g$ (génératrices du profil de révolution). Cela confirme que les méridiens (courbes $u=$cste) et les parallèles (courbes $v=$cste) sont toujours orthogonaux sur une surface de révolution — résultat géométriquement attendu par symétrie.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-2-e11",
+          question: "Pour le tore $X(u,v)=\\big((R+r\\cos v)\\cos u,(R+r\\cos v)\\sin u,r\\sin v\\big)$ ($R>r>0$), calculer $E$ et $G$.",
+          type: "open",
+          modelAnswer: "X_u = (-(R+r cos v) sin u, (R+r cos v) cos u, 0). |X_u|² = (R+r cos v)². Donc E=(R+r cos v)². X_v = (-r sin v cos u, -r sin v sin u, r cos v). |X_v|² = r² sin²v + r² cos²v = r². Donc G=r².",
+          explanation: "**Calcul de $X_u$ :**\n$$X_u = \\big(-(R+r\\cos v)\\sin u,\\,(R+r\\cos v)\\cos u,\\,0\\big)$$\n$$E = \\|X_u\\|^2 = (R+r\\cos v)^2\\sin^2u + (R+r\\cos v)^2\\cos^2u = (R+r\\cos v)^2$$\n\n**Calcul de $X_v$ :**\n$$X_v = \\big(-r\\sin v\\cos u,\\,-r\\sin v\\sin u,\\,r\\cos v\\big)$$\n$$G = \\|X_v\\|^2 = r^2\\sin^2v\\cos^2u + r^2\\sin^2v\\sin^2u + r^2\\cos^2v = r^2\\sin^2v + r^2\\cos^2v = r^2$$\n\nDonc $E=(R+r\\cos v)^2$ et $G=r^2$ (et on vérifie aisément $F=X_u\\cdot X_v=0$, le tore étant aussi une surface de révolution).",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-2-e12",
+          question: "À partir des résultats de l'exercice précédent, calculer l'aire totale du tore $X(u,v)=\\big((R+r\\cos v)\\cos u,(R+r\\cos v)\\sin u,r\\sin v\\big)$ pour $u,v\\in[0,2\\pi]$.",
+          type: "open",
+          modelAnswer: "dA = sqrt(EG-F²) du dv = sqrt((R+r cos v)² r²) du dv = r(R+r cos v) du dv (car R>r>0 donc R+r cos v>0). Aire = ∫₀^{2π}∫₀^{2π} r(R+r cos v) dv du = 2π · r · [Rv + r sin v]₀^{2π} = 2π · r · 2πR = 4π²Rr.",
+          explanation: "**Élément d'aire :** avec $F=0$, $E=(R+r\\cos v)^2$, $G=r^2$ :\n$$dA = \\sqrt{EG-F^2}\\,du\\,dv = \\sqrt{(R+r\\cos v)^2r^2}\\,du\\,dv = r(R+r\\cos v)\\,du\\,dv$$\n(la valeur absolue disparaît car $R>r>0$ implique $R+r\\cos v\\geq R-r>0$).\n\n**Intégration en $v$ d'abord :**\n$$\\int_0^{2\\pi} r(R+r\\cos v)\\,dv = r\\Big[Rv+r\\sin v\\Big]_0^{2\\pi} = r\\big(2\\pi R+0-0-0\\big) = 2\\pi Rr$$\n\n**Intégration en $u$ :**\n$$\\text{Aire} = \\int_0^{2\\pi} 2\\pi Rr\\,du = 2\\pi\\times2\\pi Rr = 4\\pi^2Rr$$\n\nC'est la formule classique de l'aire du tore, $4\\pi^2Rr$ (cohérente avec le second théorème de Pappus-Guldin : aire $=2\\pi R\\times2\\pi r$, longueur du cercle générateur fois distance parcourue par son centre).",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-2-e13",
+          question: "Vrai ou faux : deux surfaces ayant la même première forme fondamentale dans des paramétrages correspondants ont nécessairement la même courbure de Gauss en tout point.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai — c'est précisément le contenu du **theorema egregium** de Gauss (étudié en détail à la leçon suivante) : la courbure de Gauss ne dépend que de la première forme fondamentale (donc des longueurs et angles intrinsèques à la surface), pas de la façon dont la surface est plongée dans $\\mathbb{R}^3$.",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-2-e14",
+          question: "Calculer la longueur du méridien (courbe $u=\\text{cste}$, $v$ variant de $0$ à $\\pi$) sur la sphère de rayon $R$, à partir de la première forme fondamentale.",
+          type: "open",
+          modelAnswer: "Sur la courbe u=cste, du=0, donc L=∫sqrt(G) dv = ∫₀^π sqrt(R²) dv = R∫₀^π dv = Rπ. C'est la moitié de la circonférence d'un grand cercle (cohérent: un méridien va du pôle nord au pôle sud).",
+          explanation: "Sur la courbe $u=\\text{cste}$ paramétrée par $v\\in[0,\\pi]$, on a $du=0$ et $dv\\neq0$, donc la formule de longueur $L=\\displaystyle\\int\\sqrt{E\\,du^2+2F\\,du\\,dv+G\\,dv^2}$ se réduit à $L=\\displaystyle\\int\\sqrt{G}\\,dv$.\n\nPour la sphère, $G=R^2$ (constant), donc $\\sqrt G=R$, d'où :\n$$L = \\int_0^\\pi R\\,dv = R\\pi$$\n\nC'est cohérent avec la géométrie élémentaire : un méridien va du pôle nord ($v=0$) au pôle sud ($v=\\pi$), soit exactement la **moitié** d'un grand cercle de circonférence $2\\pi R$, donc une longueur $\\pi R$.",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-2-e15",
+          question: "Démontrer que pour toute surface paramétrée régulière, $EG-F^2>0$ en tout point (positivité stricte du discriminant de la première forme fondamentale), en utilisant l'identité de Lagrange $\\|X_u\\times X_v\\|^2=\\|X_u\\|^2\\|X_v\\|^2-(X_u\\cdot X_v)^2$.",
+          type: "open",
+          modelAnswer: "Par l'identité de Lagrange, EG-F² = |X_u|²|X_v|² - (X_u·X_v)² = |X_u × X_v|². Comme la surface est régulière, X_u et X_v sont linéairement indépendants, donc leur produit vectoriel X_u×X_v est non nul, donc |X_u×X_v|²>0, ce qui donne EG-F²>0.",
+          explanation: "**Identité de Lagrange.** Pour deux vecteurs $a,b\\in\\mathbb{R}^3$, l'identité de Lagrange donne $\\|a\\times b\\|^2=\\|a\\|^2\\|b\\|^2-(a\\cdot b)^2$. En appliquant cela à $a=X_u$, $b=X_v$ :\n$$\\|X_u\\times X_v\\|^2 = \\|X_u\\|^2\\|X_v\\|^2 - (X_u\\cdot X_v)^2 = EG-F^2$$\n\n**Utilisation de la régularité.** Par définition, une surface paramétrée est dite régulière précisément lorsque $X_u$ et $X_v$ sont **linéairement indépendants** en tout point, ce qui équivaut à $X_u\\times X_v\\neq0$.\n\n**Conclusion.** Comme $X_u\\times X_v\\neq0$, on a $\\|X_u\\times X_v\\|^2>0$, et par l'identité de Lagrange ci-dessus :\n$$EG-F^2 = \\|X_u\\times X_v\\|^2 > 0 \\qquad \\square$$\n\nCe résultat garantit que la première forme fondamentale est **définie positive** (en tant que forme quadratique en $(a,b)$), ce qui est essentiel pour qu'elle définisse bien une métrique (notion de longueur strictement positive pour tout vecteur tangent non nul) sur la surface.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "geo3-l3-3",
+      slug: "seconde-forme-fondamentale-courbure-de-gauss",
+      title: "Seconde forme fondamentale et courbure de Gauss",
+      durationMinutes: 60,
+      content: `## Seconde forme fondamentale et courbure de Gauss
+
+### 1. Vecteur normal unitaire
+
+Pour une surface paramétrée régulière $X(u,v)$, le **vecteur normal unitaire** est $\\mathbf{n}=\\dfrac{X_u\\times X_v}{\\|X_u\\times X_v\\|}$. Il est orthogonal au plan tangent en chaque point et donne une orientation à la surface (le choix du signe dépend du paramétrage).
+
+### 2. Seconde forme fondamentale
+
+La **seconde forme fondamentale** $II$ mesure la façon dont la surface s'écarte de son plan tangent (sa courbure « extrinsèque »). On définit :
+$$L=X_{uu}\\cdot\\mathbf{n} \\qquad M=X_{uv}\\cdot\\mathbf{n} \\qquad N=X_{vv}\\cdot\\mathbf{n}$$
+et pour $w=aX_u+bX_v$ : $II(w,w)=La^2+2Mab+Nb^2$. (Attention : ce $N$ n'est pas le vecteur normal $\\mathbf{n}$, mais un coefficient scalaire — la notation classique, bien qu'ambiguë, est universelle.)
+
+### 3. Courbures principales et courbure de Gauss
+
+En chaque point, on définit la **courbure de Gauss** :
+$$K = \\frac{LN-M^2}{EG-F^2}$$
+et la **courbure moyenne** $H=\\dfrac{EN-2FM+GL}{2(EG-F^2)}$. Les **courbures principales** $\\kappa_1,\\kappa_2$ (valeurs propres de l'application de Weingarten) vérifient $K=\\kappa_1\\kappa_2$ et $H=(\\kappa_1+\\kappa_2)/2$ : $K$ et $H$ sont respectivement le produit et la moyenne des courbures extrémales des sections normales de la surface.
+
+**Classification des points :** $K>0$ : point **elliptique** (la surface se courbe du même côté dans toutes les directions, comme sur une sphère) ; $K<0$ : point **hyperbolique** (selle de cheval, comme sur un paraboloïde hyperbolique) ; $K=0$ : point **parabolique** (comme sur un cylindre).
+
+### 4. Exemple résolu — la sphère
+
+Pour $X(u,v)=(R\\cos u\\sin v,R\\sin u\\sin v,R\\cos v)$, on a déjà $E=R^2\\sin^2v,F=0,G=R^2$. Le vecteur normal est $\\mathbf{n}=-X/R$ (pointant vers le centre, à un signe de convention près). Un calcul direct des dérivées secondes donne $L=R\\sin^2v$, $M=0$, $N=R$. D'où :
+$$K = \\frac{LN-M^2}{EG-F^2} = \\frac{R\\sin^2v\\times R - 0}{R^2\\sin^2v\\times R^2-0} = \\frac{R^2\\sin^2v}{R^4\\sin^2v} = \\frac{1}{R^2}$$
+
+La courbure de Gauss de la sphère est **constante**, égale à $1/R^2$ : plus la sphère est grande, moins elle est courbée.
+
+### 5. Exemple résolu — le cylindre
+
+Pour le cylindre $X(u,v)=(R\\cos u,R\\sin u,v)$, on calcule $L=-R$, $M=0$, $N=0$ (la direction $v$, le long de l'axe, ne courbe pas du tout). D'où :
+$$K = \\frac{LN-M^2}{EG-F^2} = \\frac{(-R)\\times0-0}{R^2\\times1-0} = 0$$
+
+Le cylindre a une courbure de Gauss **nulle partout**, comme le plan — cohérent avec le fait (vu à la leçon précédente) que le cylindre est isométrique au plan.
+
+### 6. Theorema egregium de Gauss
+
+**Théorème (Gauss, 1827) :** la courbure de Gauss $K$ ne dépend que de la **première forme fondamentale** $(E,F,G)$ et de ses dérivées — pas de la seconde forme fondamentale, et donc pas de la façon dont la surface est plongée dans $\\mathbb{R}^3$. C'est une quantité **intrinsèque**.
+
+**Conséquence majeure :** deux surfaces isométriques (même première forme fondamentale) ont nécessairement la même courbure de Gauss en points correspondants. C'est pourquoi le plan ($K=0$) et la sphère ($K=1/R^2\\neq0$) ne sont **jamais isométriques** : on ne peut pas représenter une carte de la Terre sur une feuille plane sans déformer distances ou aires — c'est un théorème, pas une limitation technique des cartographes.
+
+### 7. Récapitulatif
+
+| Notion | Formule |
+|---|---|
+| Vecteur normal | $\\mathbf{n}=(X_u\\times X_v)/\\|X_u\\times X_v\\|$ |
+| Seconde forme | $L=X_{uu}\\cdot\\mathbf{n},\\ M=X_{uv}\\cdot\\mathbf{n},\\ N=X_{vv}\\cdot\\mathbf{n}$ |
+| Courbure de Gauss | $K=(LN-M^2)/(EG-F^2)$ |
+| Courbure moyenne | $H=(EN-2FM+GL)/\\big(2(EG-F^2)\\big)$ |
+| Theorema egregium | $K$ ne dépend que de $E,F,G$ (quantité intrinsèque) |`,
+      exercises: [
+        {
+          id: "geo3-l3-3-e1",
+          question: "Comment définit-on le coefficient $L$ de la seconde forme fondamentale ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$L=X_{uu}\\cdot\\mathbf{n}$" },
+            { id: "B", text: "$L=X_u\\cdot X_u$" },
+            { id: "C", text: "$L=X_{uu}\\cdot X_u$" },
+            { id: "D", text: "$L=X_{uu}\\times\\mathbf{n}$" },
+          ],
+          correctId: "A",
+          explanation: "$L$ est la projection de la dérivée seconde $X_{uu}$ sur le vecteur normal $\\mathbf{n}$ : $L=X_{uu}\\cdot\\mathbf{n}$, mesurant la courbure de la surface dans la direction $u$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-3-e2",
+          question: "Vrai ou faux : un point de courbure de Gauss $K>0$ est dit point elliptique.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Quand $K>0$, les deux courbures principales sont de même signe : la surface se courbe du même côté dans toutes les directions normales (comme un point de la sphère), on parle de point elliptique.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-3-e3",
+          question: "Quelle est la courbure de Gauss de la sphère de rayon $R$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$K=1/R^2$" },
+            { id: "B", text: "$K=1/R$" },
+            { id: "C", text: "$K=R^2$" },
+            { id: "D", text: "$K=0$" },
+          ],
+          correctId: "A",
+          explanation: "Le calcul direct (cours §4) donne $K=1/R^2$, constante en tout point de la sphère.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-3-e4",
+          question: "Vrai ou faux : le cylindre a une courbure de Gauss nulle partout.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Comme calculé au cours §5, $K=0$ pour le cylindre, ce qui est cohérent avec son isométrie au plan (theorema egregium).",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-3-e5",
+          question: "Que dit le theorema egregium de Gauss ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "La courbure de Gauss ne dépend que de la première forme fondamentale" },
+            { id: "B", text: "La courbure de Gauss est toujours positive" },
+            { id: "C", text: "Toute surface est isométrique au plan" },
+            { id: "D", text: "La courbure de Gauss dépend uniquement de la seconde forme fondamentale" },
+          ],
+          correctId: "A",
+          explanation: "Le theorema egregium (« théorème remarquable ») énonce que $K$ est une quantité **intrinsèque**, calculable à partir de $E,F,G$ seuls (et de leurs dérivées), sans référence à la façon dont la surface est plongée dans l'espace.",
+          difficulty: "debutant",
+        },
+        {
+          id: "geo3-l3-3-e6",
+          question: "Pour un point hyperbolique (selle de cheval), quel est le signe de la courbure de Gauss $K$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$K<0$" },
+            { id: "B", text: "$K>0$" },
+            { id: "C", text: "$K=0$" },
+            { id: "D", text: "Le signe dépend du choix du vecteur normal" },
+          ],
+          correctId: "A",
+          explanation: "Au point hyperbolique, les deux courbures principales sont de signes opposés (la surface se courbe vers le haut dans une direction et vers le bas dans l'autre), donc leur produit $K=\\kappa_1\\kappa_2<0$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-3-e7",
+          question: "Sachant que pour le cylindre $L=-R,M=0,N=0,E=R^2,F=0,G=1$, retrouver $K=0$ par le calcul.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$K=\\dfrac{(-R)(0)-0^2}{R^2(1)-0^2}=0$" },
+            { id: "B", text: "$K=\\dfrac{-R}{R^2}=-1/R$" },
+            { id: "C", text: "$K=\\dfrac{R^2}{R^2}=1$" },
+            { id: "D", text: "Le calcul ne donne pas $0$" },
+          ],
+          correctId: "A",
+          explanation: "$K=\\dfrac{LN-M^2}{EG-F^2}=\\dfrac{(-R)\\times0-0}{R^2\\times1-0}=\\dfrac{0}{R^2}=0$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-3-e8",
+          question: "Vrai ou faux : la courbure moyenne $H$ est toujours égale au produit des courbures principales.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. C'est la courbure de Gauss $K$ qui est le **produit** des courbures principales ($K=\\kappa_1\\kappa_2$) ; la courbure moyenne $H$ en est la **moyenne arithmétique** ($H=(\\kappa_1+\\kappa_2)/2$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-3-e9",
+          question: "Une surface minimale (comme une bulle de savon) vérifie $H=0$ en tout point. Que peut-on en déduire sur le signe de $K$ en tout point non plat ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$K\\leq0$ (point hyperbolique ou plat)" },
+            { id: "B", text: "$K\\geq0$ (point elliptique ou plat)" },
+            { id: "C", text: "$K=1$ nécessairement" },
+            { id: "D", text: "On ne peut rien dire sur $K$" },
+          ],
+          correctId: "A",
+          explanation: "Si $H=(\\kappa_1+\\kappa_2)/2=0$, alors $\\kappa_2=-\\kappa_1$, donc $K=\\kappa_1\\kappa_2=-\\kappa_1^2\\leq0$ : tout point d'une surface minimale est soit plat ($K=0$, quand $\\kappa_1=\\kappa_2=0$) soit hyperbolique ($K<0$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-3-e10",
+          question: "Pourquoi ne peut-on jamais réaliser une carte plane parfaitement fidèle (sans aucune déformation) de la Terre, en s'appuyant sur le theorema egregium ?",
+          type: "open",
+          modelAnswer: "Une carte plane fidèle serait une isométrie entre une portion de sphère (K=1/R²≠0) et une portion de plan (K=0). Par le theorema egregium, deux surfaces isométriques ont la même courbure de Gauss en points correspondants. Comme 1/R²≠0, c'est impossible : il n'existe aucune isométrie locale entre sphère et plan, donc toute carte déforme nécessairement distances ou angles ou aires.",
+          explanation: "Une carte « parfaitement fidèle » correspondrait à une **isométrie** entre une portion de la sphère terrestre (de courbure de Gauss $K=1/R^2$, constante et non nulle) et une portion du plan de la carte (de courbure de Gauss $K=0$, car le plan est plat).\n\nOr le **theorema egregium** de Gauss affirme que la courbure de Gauss est un **invariant isométrique** : deux surfaces isométriques ont nécessairement la même courbure de Gauss en points correspondants.\n\nComme $1/R^2\\neq0$ pour la sphère terrestre alors que $K=0$ pour le plan, **aucune isométrie** (même locale, sur une petite région) entre la sphère et le plan ne peut exister. C'est pourquoi toute projection cartographique (Mercator, Lambert, etc.) déforme nécessairement soit les distances, soit les angles, soit les aires — il s'agit d'un théorème mathématique, pas d'une limitation des techniques de cartographie actuelles.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "geo3-l3-3-e11",
+          question: "Démontrer que pour une surface développable (isométrique au plan, comme le cylindre ou le cône), on a nécessairement $K=0$ en tout point.",
+          type: "open",
+          modelAnswer: "Par le theorema egregium, K ne dépend que de E,F,G (première forme fondamentale), invariante par isométrie. Si la surface est isométrique au plan, sa première forme fondamentale coïncide (dans des paramétrages adaptés) avec celle du plan, qui a K=0 partout (car L=M=N=0 pour X(u,v)=(u,v,0), donc K=0/quelquechose=0). Donc K=0 partout sur toute surface développable.",
+          explanation: "**Étape 1 — courbure du plan.** Pour le plan $X(u,v)=(u,v,0)$, toutes les dérivées secondes sont nulles ($X_{uu}=X_{uv}=X_{vv}=0$), donc $L=M=N=0$, et $K=\\dfrac{LN-M^2}{EG-F^2}=\\dfrac{0}{EG-F^2}=0$.\n\n**Étape 2 — invariance isométrique de $K$.** Par le **theorema egregium**, la courbure de Gauss $K$ ne dépend que de la première forme fondamentale $(E,F,G)$ (et de ses dérivées), pas du plongement particulier dans $\\mathbb{R}^3$.\n\n**Étape 3 — conclusion.** Si une surface $S$ est **isométrique** au plan (c'est-à-dire qu'il existe un paramétrage de $S$ ayant la même première forme fondamentale que le plan, à un changement de coordonnées près), alors par le theorema egregium, sa courbure de Gauss en tout point correspondant est la même que celle du plan, c'est-à-dire $0$.\n\nDonc toute **surface développable** (cylindre, cône, et plus généralement toute surface qu'on peut « dérouler » à plat sans déformation) a $K=0$ en tout point. $\\square$ C'est cohérent avec les calculs explicites du cylindre (§5 du cours).",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-3-e12",
+          question: "Calculer la courbure de Gauss du paraboloïde $X(u,v)=(u,v,u^2+v^2)$ à l'origine $(0,0)$, sachant qu'en ce point $E=1,F=0,G=1$ et que $\\mathbf{n}=(0,0,1)$ (vecteur normal vertical), $X_{uu}=(0,0,2)$, $X_{uv}=(0,0,0)$, $X_{vv}=(0,0,2)$.",
+          type: "open",
+          modelAnswer: "L=X_uu·n=2, M=X_uv·n=0, N=X_vv·n=2. K=(LN-M²)/(EG-F²)=(2·2-0)/(1·1-0)=4. Point elliptique (K>0), cohérent: le paraboloïde se courbe vers le haut dans toutes les directions à l'origine (minimum local).",
+          explanation: "**Calcul des coefficients de la seconde forme fondamentale :**\n$$L = X_{uu}\\cdot\\mathbf{n} = (0,0,2)\\cdot(0,0,1) = 2$$\n$$M = X_{uv}\\cdot\\mathbf{n} = (0,0,0)\\cdot(0,0,1) = 0$$\n$$N = X_{vv}\\cdot\\mathbf{n} = (0,0,2)\\cdot(0,0,1) = 2$$\n\n**Calcul de $K$ :**\n$$K = \\frac{LN-M^2}{EG-F^2} = \\frac{2\\times2-0^2}{1\\times1-0^2} = \\frac{4}{1} = 4$$\n\nÀ l'origine, $K=4>0$ : c'est un **point elliptique**, cohérent avec l'observation géométrique que le paraboloïde $z=u^2+v^2$ a un minimum local strict à l'origine, se courbant vers le haut dans **toutes** les directions tangentes — exactement le comportement caractéristique d'un point elliptique.",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-3-e13",
+          question: "Vrai ou faux : pour la selle $X(u,v)=(u,v,u^2-v^2)$ à l'origine, où $E=1,F=0,G=1$, $\\mathbf{n}=(0,0,1)$, $X_{uu}=(0,0,2)$, $X_{uv}=(0,0,0)$, $X_{vv}=(0,0,-2)$, on obtient $K<0$ (point hyperbolique).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. $L=X_{uu}\\cdot\\mathbf{n}=2$, $M=0$, $N=X_{vv}\\cdot\\mathbf{n}=-2$. $K=(LN-M^2)/(EG-F^2)=(2\\times(-2)-0)/1=-4<0$ : c'est bien un point hyperbolique, cohérent avec la forme de selle de cheval de la surface $z=u^2-v^2$ à l'origine (minimum dans une direction, maximum dans l'autre).",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-3-e14",
+          question: "Démontrer que pour la sphère, les courbures principales valent $\\kappa_1=\\kappa_2=1/R$ en tout point (la sphère est dite « totalement ombilique »), en utilisant $K=1/R^2$ et la symétrie du problème.",
+          type: "open",
+          modelAnswer: "Par symétrie totale de la sphère (invariance sous le groupe des rotations), toutes les directions tangentes en un point donné sont géométriquement équivalentes (aucune direction n'est privilégiée). Donc les courbures principales (extrémales des courbures normales selon la direction) doivent être égales: κ1=κ2=κ. Alors K=κ1κ2=κ²=1/R², donc κ=1/R (en prenant la racine positive, cohérent avec une sphère convexe).",
+          explanation: "**Argument de symétrie.** En un point quelconque de la sphère, le groupe des rotations autour de la droite passant par ce point et le centre de la sphère agit transitivement sur les directions tangentes en ce point — c'est-à-dire qu'aucune direction tangente n'est géométriquement privilégiée par rapport à une autre (la sphère « a la même forme » dans toutes les directions vue d'un point). Par conséquent, la courbure normale (qui dépend a priori de la direction choisie dans le plan tangent) doit être **la même dans toutes les directions** : $\\kappa_1=\\kappa_2=\\kappa$ (on dit que tous les points de la sphère sont **ombilicaux**).\n\n**Utilisation de $K=\\kappa_1\\kappa_2$.** Comme $\\kappa_1=\\kappa_2=\\kappa$ :\n$$K = \\kappa_1\\kappa_2 = \\kappa^2$$\n\nOn a calculé $K=1/R^2$ (cours §4), donc $\\kappa^2=1/R^2$, d'où $\\kappa=\\pm1/R$. En choisissant l'orientation usuelle du vecteur normal (pointant vers l'extérieur, courbure positive pour une surface convexe vue de l'extérieur) :\n$$\\kappa_1=\\kappa_2=\\frac{1}{R} \\qquad \\square$$\n\nCe résultat illustre la propriété remarquable de la sphère d'être la seule surface compacte (à part le plan, non compact) ayant une courbure principale constante identique dans toutes les directions en tout point.",
+          difficulty: "expert",
+        },
+        {
+          id: "geo3-l3-3-e15",
+          question: "Sachant que pour le tore $X(u,v)=\\big((R+r\\cos v)\\cos u,(R+r\\cos v)\\sin u,r\\sin v\\big)$ on a $K=\\dfrac{\\cos v}{r(R+r\\cos v)}$ (formule classique admise), déterminer pour quelles valeurs de $v\\in[0,2\\pi[$ le tore a des points elliptiques, hyperboliques, et paraboliques.",
+          type: "open",
+          modelAnswer: "Le signe de K est celui de cos v (car r>0 et R+r cos v>0 toujours, puisque R>r). cos v > 0 pour v dans ]-π/2,π/2[ (mod 2π): points elliptiques (extérieur du tore, loin de l'axe). cos v < 0 pour v dans ]π/2,3π/2[: points hyperboliques (intérieur du tore, proche de l'axe, le 'trou'). cos v = 0 en v=π/2 et v=3π/2: points paraboliques (les deux cercles limites où le tore change de type de courbure).",
+          explanation: "**Analyse du signe de $K$.** Comme $r>0$ et $R>r>0$ donc $R+r\\cos v\\geq R-r>0$ toujours, le dénominateur $r(R+r\\cos v)$ est **toujours strictement positif**. Le signe de $K$ est donc exactement celui de $\\cos v$.\n\n**Points elliptiques** ($K>0$, donc $\\cos v>0$) : pour $v\\in\\,]-\\pi/2,\\pi/2[$ (modulo $2\\pi$) — c'est la partie **extérieure** du tore (la partie « bombée » la plus loin de l'axe de révolution), où la surface se courbe comme une sphère localement.\n\n**Points hyperboliques** ($K<0$, donc $\\cos v<0$) : pour $v\\in\\,]\\pi/2,3\\pi/2[$ — c'est la partie **intérieure** du tore (proche du « trou » central), en forme de selle, où la surface se courbe dans des sens opposés selon la direction.\n\n**Points paraboliques** ($K=0$, donc $\\cos v=0$) : exactement en $v=\\pi/2$ et $v=3\\pi/2$ — ce sont les deux **cercles limites** (le cercle le plus haut et le cercle le plus bas du tore) qui séparent la région elliptique de la région hyperbolique. C'est un exemple classique et instructif d'une surface compacte présentant les trois types de points simultanément.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L3 — Informatique : Algorithmique, structures de données et graphes
+  // ─────────────────────────────────────────────
+  {
+  id: "informatique-l3",
+  slug: "informatique-l3-algorithmique-structures-graphes",
+  title: "Informatique L3 — Algorithmique, structures de données et graphes",
+  description: "Analyse de complexité, structures de données avancées (piles, files, arbres, tas) et algorithmes de graphes (parcours, plus courts chemins).",
+  schoolLevel: "L3",
+  subject: "informatique",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "🧮",
+  lessons: [
+    {
+      id: "info3-l3-1",
+      slug: "complexite-algorithmique",
+      title: "Analyse de la complexité algorithmique",
+      durationMinutes: 55,
+      content: `## Analyse de la complexité algorithmique
+
+### 1. Pourquoi mesurer la complexité ?
+
+Pour comparer deux algorithmes résolvant le même problème, on ne mesure pas leur temps d'exécution en secondes (qui dépend de la machine, du langage, etc.) mais le **nombre d'opérations élémentaires** effectuées, en fonction de la taille $n$ de l'entrée. C'est la **complexité temporelle**. On définit de même la **complexité spatiale** (mémoire utilisée).
+
+### 2. Notations de Landau : $O$, $\\Omega$, $\\Theta$
+
+Soient $f,g:\\mathbb{N}\\to\\mathbb{R}_+$. On dit :
+- $f(n)=O(g(n))$ (« $f$ est dominée par $g$ ») s'il existe $c>0$ et $n_0$ tels que $f(n)\\leq c\\,g(n)$ pour tout $n\\geq n_0$ — **majoration asymptotique** ;
+- $f(n)=\\Omega(g(n))$ s'il existe $c>0,n_0$ tels que $f(n)\\geq c\\,g(n)$ pour $n\\geq n_0$ — **minoration asymptotique** ;
+- $f(n)=\\Theta(g(n))$ si $f(n)=O(g(n))$ **et** $f(n)=\\Omega(g(n))$ — l'ordre de grandeur exact.
+
+**Exemple :** $f(n)=3n^2+5n+2$. On a $f(n)=O(n^2)$ (car pour $n\\geq1$, $3n^2+5n+2\\leq10n^2$) et $f(n)=\\Omega(n^2)$ (car $f(n)\\geq3n^2$), donc $f(n)=\\Theta(n^2)$ : l'algorithme est de complexité **quadratique**.
+
+### 3. Classes de complexité usuelles
+
+Par ordre croissant de coût (pour $n$ grand) : $O(1)$ (constant), $O(\\log n)$ (logarithmique), $O(n)$ (linéaire), $O(n\\log n)$ (quasi-linéaire), $O(n^2)$ (quadratique), $O(n^k)$ (polynomiale), $O(2^n)$ (exponentielle), $O(n!)$ (factorielle).
+
+**Exemple typique :** la recherche dans un tableau trié par dichotomie est $O(\\log n)$ ; le tri par insertion est $O(n^2)$ dans le pire cas ; le tri fusion est $O(n\\log n)$.
+
+### 4. Calcul de complexité : boucles et récursivité
+
+**Boucles simples :** une boucle parcourant $n$ éléments une fois coûte $O(n)$. Deux boucles imbriquées, chacune de taille $n$, coûtent $O(n^2)$ (produit des tailles, dans le cas indépendant).
+
+**Récursivité — équation de récurrence.** Pour un algorithme récursif qui divise le problème en $a$ sous-problèmes de taille $n/b$ chacun, avec un coût $f(n)$ pour combiner les résultats, la complexité $T(n)$ vérifie :
+$$T(n) = a\\,T(n/b) + f(n)$$
+
+**Théorème maître (cas simplifié, $f(n)=\\Theta(n^d)$) :** en posant $p=\\log_b a$ :
+- si $d<p$ : $T(n)=\\Theta(n^p)$ ;
+- si $d=p$ : $T(n)=\\Theta(n^p\\log n)$ ;
+- si $d>p$ : $T(n)=\\Theta(n^d)$.
+
+**Exemple — tri fusion :** $a=2$ sous-tableaux, $b=2$ (taille $n/2$ chacun), fusion en $f(n)=\\Theta(n)$ (donc $d=1$). On a $p=\\log_2 2=1=d$, donc $T(n)=\\Theta(n\\log n)$.
+
+**Exemple — recherche dichotomique :** $a=1$ sous-problème de taille $n/2$, coût de combinaison $f(n)=\\Theta(1)$ (donc $d=0$). $p=\\log_2 1=0=d$, donc $T(n)=\\Theta(\\log n)$.
+
+### 5. Récursivité naïve : Fibonacci
+
+Le calcul naïf de $\\text{Fib}(n)$ par double récursion ($T(n)=T(n-1)+T(n-2)+O(1)$) a une complexité $\\Theta(\\varphi^n)$ où $\\varphi=(1+\\sqrt5)/2$ est le nombre d'or — **exponentielle**, car l'arbre des appels recalcule de nombreuses fois les mêmes sous-problèmes. La **mémoïsation** (stocker les résultats déjà calculés) ramène ce coût à $O(n)$ : c'est le principe de la **programmation dynamique**.
+
+### 6. Pire cas, meilleur cas, cas moyen
+
+On distingue généralement :
+- la **complexité dans le pire cas** : borne valable pour **toute** entrée de taille $n$ (la plus utilisée en pratique, car elle garantit une performance) ;
+- la **complexité dans le meilleur cas** : la plus petite complexité possible parmi les entrées de taille $n$ ;
+- la **complexité en moyenne** : espérance sur une distribution donnée des entrées.
+
+**Exemple — tri rapide (quicksort) :** $\\Theta(n\\log n)$ en moyenne, mais $\\Theta(n^2)$ dans le pire cas (pivot systématiquement mal choisi, par exemple sur un tableau déjà trié avec un pivot toujours pris en première position).
+
+### 7. Récapitulatif
+
+| Notation | Signification |
+|---|---|
+| $f=O(g)$ | $f$ majorée asymptotiquement par $g$ (à une constante près) |
+| $f=\\Omega(g)$ | $f$ minorée asymptotiquement par $g$ |
+| $f=\\Theta(g)$ | $f$ et $g$ du même ordre de grandeur |
+| $T(n)=aT(n/b)+\\Theta(n^d)$ | théorème maître : $\\Theta(n^{\\max(d,\\log_ba)})$ (avec facteur $\\log n$ si $d=\\log_ba$) |`,
+      exercises: [
+        {
+          id: "info3-l3-1-e1",
+          question: "Que signifie $f(n)=O(g(n))$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Il existe $c>0$ et $n_0$ tels que $f(n)\\leq c\\,g(n)$ pour $n\\geq n_0$" },
+            { id: "B", text: "$f(n)=g(n)$ pour tout $n$" },
+            { id: "C", text: "$f(n)\\geq g(n)$ pour tout $n$" },
+            { id: "D", text: "$f$ et $g$ ont la même valeur en $n=0$" },
+          ],
+          correctId: "A",
+          explanation: "La notation $O$ exprime une majoration asymptotique à une constante multiplicative près, valable seulement à partir d'un certain rang $n_0$ (le comportement pour les petites valeurs de $n$ n'a pas d'importance).",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-1-e2",
+          question: "Vrai ou faux : un algorithme de complexité $O(n\\log n)$ est, pour $n$ grand, plus rapide qu'un algorithme de complexité $O(n^2)$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La fonction $n\\log n$ croît strictement plus lentement que $n^2$ pour $n$ assez grand (le rapport $n^2/(n\\log n)=n/\\log n\\to+\\infty$), donc un algorithme $O(n\\log n)$ devient toujours plus rapide qu'un $O(n^2)$ au-delà d'un certain seuil.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-1-e3",
+          question: "Quelle est la complexité d'une boucle simple parcourant un tableau de taille $n$ une seule fois ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(n)$" },
+            { id: "B", text: "$O(n^2)$" },
+            { id: "C", text: "$O(\\log n)$" },
+            { id: "D", text: "$O(1)$" },
+          ],
+          correctId: "A",
+          explanation: "Une boucle qui exécute une opération constante pour chacun des $n$ éléments du tableau coûte $O(n)$ : un nombre d'opérations proportionnel à la taille de l'entrée.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-1-e4",
+          question: "Vrai ou faux : la recherche dichotomique dans un tableau trié de taille $n$ a une complexité $O(\\log n)$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. À chaque étape, la dichotomie divise par deux la taille de l'espace de recherche, donc le nombre d'étapes nécessaires pour atteindre une taille $1$ est $\\log_2 n$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-1-e5",
+          question: "Quelle est la complexité, dans le pire cas, du tri rapide (quicksort) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(n^2)$" },
+            { id: "B", text: "$O(n\\log n)$" },
+            { id: "C", text: "$O(n)$" },
+            { id: "D", text: "$O(\\log n)$" },
+          ],
+          correctId: "A",
+          explanation: "Dans le pire cas (pivot systématiquement mal choisi), le tri rapide se dégrade en $O(n^2)$, bien que sa complexité moyenne soit $O(n\\log n)$ avec un bon choix de pivot.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-1-e6",
+          question: "Montrer que $f(n)=5n^3+2n^2+n$ est $\\Theta(n^3)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$f(n)\\leq8n^3$ pour $n\\geq1$ et $f(n)\\geq5n^3$ pour tout $n$, donc $f=\\Theta(n^3)$" },
+            { id: "B", text: "$f(n)$ est $O(n^2)$ uniquement" },
+            { id: "C", text: "$f(n)$ n'est ni $O(n^3)$ ni $\\Omega(n^3)$" },
+            { id: "D", text: "$f(n)=\\Theta(n)$" },
+          ],
+          correctId: "A",
+          explanation: "Pour $n\\geq1$ : $5n^3+2n^2+n\\leq5n^3+2n^3+n^3=8n^3$ (majoration, $O(n^3)$) et $5n^3+2n^2+n\\geq5n^3$ (minoration, $\\Omega(n^3)$). Les deux bornes étant vérifiées, $f(n)=\\Theta(n^3)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-1-e7",
+          question: "À l'aide du théorème maître avec $a=2,b=2,f(n)=\\Theta(n)$ (cas $d=1$), quelle est la complexité du tri fusion ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\Theta(n\\log n)$" },
+            { id: "B", text: "$\\Theta(n)$" },
+            { id: "C", text: "$\\Theta(n^2)$" },
+            { id: "D", text: "$\\Theta(\\log n)$" },
+          ],
+          correctId: "A",
+          explanation: "$p=\\log_2 2=1=d$, donc on est dans le cas $d=p$ du théorème maître : $T(n)=\\Theta(n^p\\log n)=\\Theta(n\\log n)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-1-e8",
+          question: "Pour deux boucles imbriquées, la première parcourant $n$ éléments et la seconde (à l'intérieur) parcourant $n$ éléments également, quelle est la complexité totale ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(n^2)$" },
+            { id: "B", text: "$O(n)$" },
+            { id: "C", text: "$O(2n)$" },
+            { id: "D", text: "$O(\\log n)$" },
+          ],
+          correctId: "A",
+          explanation: "Pour chacune des $n$ itérations de la boucle externe, la boucle interne s'exécute $n$ fois, donc le nombre total d'opérations est $n\\times n=n^2$, soit $O(n^2)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-1-e9",
+          question: "Vrai ou faux : la complexité dans le pire cas est toujours supérieure ou égale à la complexité en moyenne.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La complexité en moyenne est une espérance sur toutes les entrées possibles de taille $n$, qui ne peut pas dépasser la valeur maximale (le pire cas) atteinte par cette même quantité.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-1-e10",
+          question: "Pourquoi le calcul naïf (double récursion sans mémoïsation) de Fibonacci a-t-il une complexité exponentielle, alors que la suite elle-même se calcule en $O(n)$ avec une boucle ?",
+          type: "open",
+          modelAnswer: "La récursion naïve recalcule de nombreuses fois les mêmes sous-problèmes (par exemple Fib(n-2) est calculé séparément dans l'appel pour Fib(n-1) et directement pour Fib(n)), créant un arbre d'appels de taille exponentielle. La mémoïsation (ou une boucle itérative qui stocke les deux derniers termes) évite cette redondance et ramène le coût à O(n).",
+          explanation: "**Le problème : redondance des calculs.** L'appel récursif $\\text{Fib}(n)=\\text{Fib}(n-1)+\\text{Fib}(n-2)$ génère un **arbre d'appels** où chaque sous-problème $\\text{Fib}(k)$ pour $k<n$ est recalculé un grand nombre de fois — par exemple, $\\text{Fib}(n-2)$ est appelé à la fois directement (par $\\text{Fib}(n)$) et indirectement (via $\\text{Fib}(n-1)\\to\\text{Fib}(n-2)$). Le nombre total d'appels suit la récurrence $T(n)=T(n-1)+T(n-2)+O(1)$, dont la solution est $\\Theta(\\varphi^n)$ ($\\varphi\\approx1{,}618$) — une croissance **exponentielle**.\n\n**La solution : éviter la redondance.** Une approche itérative (ou récursive avec mémoïsation) calcule chaque valeur $\\text{Fib}(k)$ **une seule fois**, en la stockant pour réutilisation ultérieure. En ne gardant en mémoire que les deux derniers termes calculés et en itérant de $0$ à $n$, on obtient un algorithme en $O(n)$ — chaque valeur intermédiaire est calculée et utilisée immédiatement, sans recalcul.\n\nC'est l'illustration la plus simple du principe de la **programmation dynamique** : transformer une récursion exponentielle redondante en un calcul polynomial en éliminant les recalculs de sous-problèmes identiques.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-1-e11",
+          question: "Démontrer, en utilisant le théorème maître, que la recherche dichotomique dans un tableau trié de taille $n$ a une complexité $\\Theta(\\log n)$.",
+          type: "open",
+          modelAnswer: "La dichotomie résout 1 sous-problème de taille n/2 (a=1,b=2) avec un coût de combinaison f(n)=Θ(1) (comparaison constante), donc d=0. p=log_2(1)=0=d, on est dans le cas d=p du théorème maître, donc T(n)=Θ(n^p log n)=Θ(n^0 log n)=Θ(log n).",
+          explanation: "**Mise en équation.** À chaque étape de la dichotomie, on compare l'élément cherché à l'élément central du tableau (coût constant $\\Theta(1)$), puis on poursuit la recherche dans **une seule** des deux moitiés (donc $a=1$ sous-problème), de taille $n/2$ (donc $b=2$). La récurrence est :\n$$T(n) = T(n/2) + \\Theta(1)$$\n\n**Application du théorème maître.** On identifie $f(n)=\\Theta(n^d)$ avec $d=0$ (coût constant). On calcule $p=\\log_b a=\\log_2 1=0$.\n\nComme $d=0=p$, on est dans le cas $d=p$ du théorème maître, qui donne $T(n)=\\Theta(n^p\\log n)=\\Theta(n^0\\log n)=\\Theta(\\log n)$.\n\n**Conclusion :** la recherche dichotomique est $\\Theta(\\log n)$. $\\square$ C'est cohérent avec l'intuition : la taille de l'intervalle de recherche est divisée par $2$ à chaque étape, donc il faut $\\log_2 n$ étapes pour atteindre une taille $1$.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-1-e12",
+          question: "Un algorithme a la récurrence $T(n)=4T(n/2)+\\Theta(n)$. Déterminer sa complexité via le théorème maître, et donner un exemple classique d'algorithme suivant cette récurrence.",
+          type: "open",
+          modelAnswer: "a=4, b=2, d=1 (car f(n)=Θ(n)=Θ(n^1)). p=log_2(4)=2. Comme d=1<p=2, on est dans le cas d<p: T(n)=Θ(n^p)=Θ(n²). Exemple classique: l'algorithme de multiplication matricielle naïve par blocs (4 sous-problèmes de taille n/2, fusion linéaire) — ou plus précisément, un algorithme de tri par fusion à 4 voies dégénéré, mais l'exemple canonique est la multiplication matricielle naïve récursive par blocs 2x2.",
+          explanation: "**Identification des paramètres.** Dans $T(n)=4T(n/2)+\\Theta(n)$ : $a=4$ sous-problèmes, $b=2$ (chacun de taille $n/2$), et $f(n)=\\Theta(n)=\\Theta(n^d)$ avec $d=1$.\n\n**Calcul de $p$.** $p=\\log_b a=\\log_2 4=2$.\n\n**Comparaison $d$ vs $p$.** Comme $d=1<p=2$, on est dans le cas $d<p$ du théorème maître, qui donne :\n$$T(n)=\\Theta(n^p)=\\Theta(n^2)$$\n\n**Exemple classique.** Cette récurrence est typique de l'algorithme naïf de **multiplication de matrices carrées par blocs récursifs** : pour multiplier deux matrices $n\\times n$ découpées en 4 blocs $(n/2)\\times(n/2)$, la formule par blocs nécessite $8$ multiplications récursives de matrices de taille $n/2$ dans la version la plus naïve (et $\\Theta(n^2)$ pour les additions de blocs) — donnant en fait $T(n)=8T(n/2)+\\Theta(n^2)$, soit $\\Theta(n^3)$ (la complexité usuelle, non optimisée, de la multiplication matricielle). Une version simplifiée à $4$ sous-appels correspondrait plutôt à un algorithme hypothétique de coût linéaire de combinaison, illustrant ici purement le mécanisme du théorème maître.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-1-e13",
+          question: "Vrai ou faux : $2^n=O(n^{100})$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Toute fonction exponentielle $2^n$ croît, à terme, strictement plus vite que **n'importe quel** polynôme $n^k$ (quel que soit $k$ fixé, même très grand comme $100$) : $\\lim_{n\\to+\\infty}2^n/n^{100}=+\\infty$. C'est un résultat classique d'analyse asymptotique (croissance exponentielle l'emporte toujours sur la croissance polynomiale).",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-1-e14",
+          question: "Démontrer que $\\log(n!)=\\Theta(n\\log n)$ (formule utile pour analyser la complexité optimale du tri, via la formule de Stirling $n!\\sim\\sqrt{2\\pi n}\\,(n/e)^n$).",
+          type: "open",
+          modelAnswer: "Stirling: ln(n!) ≈ n ln(n) - n + (1/2)ln(2πn). Le terme dominant est n ln n; les autres termes sont O(n) et O(log n), négligeables devant n log n. Donc log(n!) = Θ(n log n) (majoration et minoration immédiates à partir de l'équivalent de Stirling).",
+          explanation: "**Formule de Stirling.** $n!\\sim\\sqrt{2\\pi n}\\left(\\dfrac{n}{e}\\right)^n$ quand $n\\to+\\infty$, donc en prenant le logarithme :\n$$\\ln(n!) = n\\ln n - n + \\frac12\\ln(2\\pi n) + o(1)$$\n\n**Identification du terme dominant.** Le terme $n\\ln n$ domine strictement les deux autres ($-n=O(n)=o(n\\ln n)$ et $\\frac12\\ln(2\\pi n)=O(\\log n)=o(n\\ln n)$), donc :\n$$\\ln(n!) = n\\ln n + O(n) = \\Theta(n\\ln n)$$\n\n**Conclusion.** Comme $\\log$ et $\\ln$ diffèrent d'un facteur multiplicatif constant ($\\log_2 x=\\ln x/\\ln2$), on a aussi $\\log(n!)=\\Theta(n\\log n)$. $\\square$ Ce résultat est la base de la preuve que **tout** algorithme de tri par comparaisons a une complexité $\\Omega(n\\log n)$ dans le pire cas (il y a $n!$ permutations possibles à distinguer, donc il faut au moins $\\log_2(n!)=\\Theta(n\\log n)$ comparaisons pour les départager) — ce qui montre que le tri fusion, avec sa complexité $\\Theta(n\\log n)$, est **optimal** parmi les algorithmes de tri par comparaisons.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-1-e15",
+          question: "On considère l'algorithme récursif de calcul de $x^n$ par exponentiation rapide : $x^n=(x^{n/2})^2$ si $n$ pair, $x^n=x\\cdot(x^{(n-1)/2})^2$ si $n$ impair. Établir sa complexité en nombre de multiplications.",
+          type: "open",
+          modelAnswer: "T(n) = T(n/2) + O(1) (une multiplication ou deux par étage, coût constant). Par théorème maître avec a=1,b=2,d=0: p=log_2(1)=0=d, donc T(n)=Θ(log n). C'est exponentiellement plus rapide que la méthode naïve (n-1 multiplications successives, donc O(n)).",
+          explanation: "**Mise en équation.** À chaque appel récursif, on réduit le problème de taille $n$ à un seul sous-problème de taille $n/2$ (calculer $x^{n/2}$ ou $x^{(n-1)/2}$), suivi d'un nombre **constant** d'opérations supplémentaires (une mise au carré, et éventuellement une multiplication par $x$ si $n$ est impair). La récurrence est :\n$$T(n) = T(n/2) + O(1)$$\n\n**Application du théorème maître.** $a=1$, $b=2$, $d=0$ (coût constant de combinaison). $p=\\log_2 1=0=d$, donc on est dans le cas $d=p$ :\n$$T(n) = \\Theta(n^0\\log n) = \\Theta(\\log n)$$\n\n**Comparaison avec la méthode naïve.** Le calcul naïf de $x^n$ par multiplications successives ($x\\times x\\times\\cdots\\times x$, $n-1$ fois) coûte $\\Theta(n)$ multiplications. L'exponentiation rapide ne nécessite que $\\Theta(\\log n)$ multiplications — un gain **exponentiel** en pratique (par exemple, calculer $x^{1\\,000\\,000}$ demande environ $20$ multiplications au lieu d'un million). Cette technique est à la base de nombreux algorithmes cryptographiques modernes (exponentiation modulaire RSA, etc.).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "info3-l3-2",
+      slug: "structures-de-donnees-avancees",
+      title: "Structures de données : piles, files, arbres et tas",
+      durationMinutes: 60,
+      content: `## Structures de données : piles, files, arbres et tas
+
+### 1. Piles (LIFO) et files (FIFO)
+
+Une **pile** (stack) est une structure « dernier entré, premier sorti » (LIFO) : les deux opérations de base sont *empiler* (push, ajouter au sommet) et *dépiler* (pop, retirer le sommet), chacune en $O(1)$.
+
+> empiler(P, x) : ajouter x au sommet de P
+> dépiler(P) : retirer et renvoyer l'élément au sommet de P
+
+Une **file** (queue) est « premier entré, premier sorti » (FIFO) : *enfiler* (enqueue, ajouter à l'arrière) et *défiler* (dequeue, retirer à l'avant), chacune en $O(1)$ avec une implémentation adaptée (liste doublement chaînée ou tableau circulaire).
+
+**Applications classiques :** une pile sert à l'évaluation d'expressions arithmétiques (notation polonaise inversée), à la gestion des appels de fonctions récursives, au parcours en profondeur (DFS) d'un graphe. Une file sert au parcours en largeur (BFS), à l'ordonnancement de tâches (FIFO).
+
+### 2. Arbres binaires
+
+Un **arbre binaire** est une structure récursive : chaque nœud a au plus deux enfants (gauche, droit). La **hauteur** $h$ d'un arbre à $n$ nœuds vérifie $h\\geq\\lceil\\log_2(n+1)\\rceil-1$ (borne atteinte par un arbre **parfaitement équilibré**) et $h\\leq n-1$ (cas dégénéré, arbre filiforme).
+
+**Arbre binaire de recherche (ABR) :** pour chaque nœud, toutes les valeurs du sous-arbre gauche sont inférieures, toutes celles du sous-arbre droit sont supérieures. Recherche, insertion, suppression sont en $O(h)$ — donc $O(\\log n)$ si l'arbre est équilibré, mais $O(n)$ dans le pire cas (arbre filiforme, par exemple après insertions dans un ordre déjà trié).
+
+### 3. Arbres équilibrés
+
+Les **arbres AVL** et **arbres rouge-noir** garantissent $h=O(\\log n)$ en maintenant un équilibre lors des insertions/suppressions (rotations locales en $O(1)$ par niveau). Cela garantit que les opérations de base restent en $O(\\log n)$ dans le **pire cas**, contrairement à l'ABR naïf.
+
+### 4. Tas (heap) et file de priorité
+
+Un **tas-min** (min-heap) est un arbre binaire (souvent représenté par un simple tableau) vérifiant la **propriété de tas** : la valeur de chaque nœud est inférieure ou égale à celles de ses enfants. Conséquence : la racine contient toujours le **minimum** de l'ensemble.
+
+**Opérations :** *insérer* un élément : on l'ajoute en fin de tableau puis on le fait « remonter » (percolation vers le haut) tant qu'il est plus petit que son parent — coût $O(\\log n)$. *Extraire le minimum* : on retire la racine, on la remplace par le dernier élément, puis on fait « descendre » cet élément (percolation vers le bas) — coût $O(\\log n)$ également.
+
+**Représentation par tableau :** pour un nœud à l'indice $i$ (indexation à partir de $0$), son enfant gauche est à l'indice $2i+1$, son enfant droit à $2i+2$, son parent à $\\lfloor(i-1)/2\\rfloor$ — pas besoin de pointeurs explicites.
+
+**Application — file de priorité :** un tas implémente efficacement une file de priorité (extraire systématiquement l'élément de plus haute/basse priorité), utilisée notamment dans l'algorithme de Dijkstra (leçon suivante) et le tri par tas (heapsort, $O(n\\log n)$ dans tous les cas, y compris le pire).
+
+### 5. Table de hachage
+
+Une **table de hachage** associe à chaque clé un indice dans un tableau via une **fonction de hachage** $h$, permettant insertion, recherche et suppression en $O(1)$ **en moyenne** (sous hypothèse de bonne répartition des clés). En cas de collision (deux clés ayant le même indice), on utilise le **chaînage** (liste des éléments en collision à chaque case) ou l'**adressage ouvert** (recherche de la case libre suivante selon une règle déterministe).
+
+**Pire cas :** $O(n)$ si toutes les clés se retrouvent dans la même case (table de hachage mal conçue ou attaque délibérée), mais ce cas est rare en pratique avec une bonne fonction de hachage.
+
+### 6. Récapitulatif
+
+| Structure | Insertion | Recherche | Suppression |
+|---|---|---|---|
+| Pile / file | $O(1)$ | — | $O(1)$ |
+| ABR équilibré | $O(\\log n)$ | $O(\\log n)$ | $O(\\log n)$ |
+| ABR non équilibré (pire cas) | $O(n)$ | $O(n)$ | $O(n)$ |
+| Tas (min/max) | $O(\\log n)$ | — (extraction min/max : $O(\\log n)$) | $O(\\log n)$ |
+| Table de hachage (moyenne) | $O(1)$ | $O(1)$ | $O(1)$ |`,
+      exercises: [
+        {
+          id: "info3-l3-2-e1",
+          question: "Quelle est la règle de fonctionnement d'une pile (stack) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "LIFO : le dernier élément ajouté est le premier retiré" },
+            { id: "B", text: "FIFO : le premier élément ajouté est le premier retiré" },
+            { id: "C", text: "Les éléments sont retirés dans un ordre aléatoire" },
+            { id: "D", text: "Les éléments sont toujours triés" },
+          ],
+          correctId: "A",
+          explanation: "Une pile suit la règle LIFO (Last In, First Out) : on ne peut accéder/retirer qu'au sommet, qui est le dernier élément empilé.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-2-e2",
+          question: "Vrai ou faux : dans un arbre binaire de recherche (ABR), toutes les valeurs du sous-arbre gauche d'un nœud sont inférieures à la valeur de ce nœud.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement la propriété définissante d'un ABR, qui garantit que la recherche peut se faire en suivant un unique chemin de la racine à la feuille, comme une dichotomie sur un arbre.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-2-e3",
+          question: "Dans un tas-min, où se trouve toujours l'élément minimal ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "À la racine" },
+            { id: "B", text: "À la feuille la plus à gauche" },
+            { id: "C", text: "À la feuille la plus à droite" },
+            { id: "D", text: "Sa position n'est pas déterminée" },
+          ],
+          correctId: "A",
+          explanation: "Par la propriété de tas-min (chaque nœud $\\leq$ ses enfants), le minimum global se trouve nécessairement à la racine.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-2-e4",
+          question: "Vrai ou faux : dans un tas représenté par un tableau (indexation à partir de 0), l'enfant gauche du nœud d'indice $i$ se trouve à l'indice $2i+1$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est la formule standard de représentation d'un tas par tableau : enfant gauche à $2i+1$, enfant droit à $2i+2$, parent à $\\lfloor(i-1)/2\\rfloor$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-2-e5",
+          question: "Quelle est la complexité moyenne de la recherche d'une clé dans une table de hachage bien conçue ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(1)$ en moyenne" },
+            { id: "B", text: "$O(\\log n)$ en moyenne" },
+            { id: "C", text: "$O(n)$ en moyenne" },
+            { id: "D", text: "$O(n\\log n)$ en moyenne" },
+          ],
+          correctId: "A",
+          explanation: "Avec une bonne fonction de hachage répartissant uniformément les clés, le nombre moyen de collisions par case reste constant, donc la recherche se fait en temps constant en moyenne — même si le pire cas reste $O(n)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-2-e6",
+          question: "Un arbre binaire de recherche est construit en insérant successivement $1,2,3,4,5$ (déjà triés). Quelle est sa hauteur, et pourquoi ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$4$ (arbre filiforme, chaque nœud n'a qu'un enfant droit)" },
+            { id: "B", text: "$2$ (arbre équilibré)" },
+            { id: "C", text: "$\\log_2(5)\\approx2{,}3$" },
+            { id: "D", text: "$1$" },
+          ],
+          correctId: "A",
+          explanation: "Comme les valeurs sont insérées dans l'ordre croissant, chaque nouvelle valeur est toujours supérieure à toutes les précédentes : elle devient l'enfant droit du dernier nœud inséré. L'arbre dégénère en une « liste chaînée » de hauteur $n-1=4$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-2-e7",
+          question: "Pourquoi les arbres AVL ou rouge-noir garantissent-ils $O(\\log n)$ pour les opérations de base, contrairement à un ABR naïf ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Ils maintiennent un équilibre par des rotations, empêchant la hauteur de croître linéairement avec $n$" },
+            { id: "B", text: "Ils utilisent une table de hachage en interne" },
+            { id: "C", text: "Ils stockent les éléments déjà triés dans un tableau" },
+            { id: "D", text: "Ils n'autorisent pas les suppressions" },
+          ],
+          correctId: "A",
+          explanation: "Les arbres équilibrés effectuent des rotations locales après chaque insertion/suppression pour garantir que la hauteur reste $O(\\log n)$ même dans le pire cas, contrairement à un ABR naïf qui peut dégénérer en hauteur $O(n)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-2-e8",
+          question: "Pour insérer un élément dans un tas-min de taille $n$ (le tas étant un tableau), quelle est la complexité de l'opération ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(\\log n)$" },
+            { id: "B", text: "$O(n)$" },
+            { id: "C", text: "$O(1)$" },
+            { id: "D", text: "$O(n\\log n)$" },
+          ],
+          correctId: "A",
+          explanation: "On ajoute l'élément en fin de tableau ($O(1)$), puis on le fait remonter (percolation) le long d'un chemin de la feuille à la racine, dont la longueur est au plus la hauteur du tas, soit $O(\\log n)$ (un tas est toujours quasi-complet, donc sa hauteur est $\\Theta(\\log n)$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-2-e9",
+          question: "Vrai ou faux : une file (queue) FIFO est adaptée pour implémenter un parcours en largeur (BFS) d'un graphe.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Le parcours en largeur explore les sommets niveau par niveau ; en enfilant les voisins découverts et en défilant dans l'ordre de découverte (FIFO), on garantit que tous les sommets d'un niveau sont traités avant ceux du niveau suivant.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-2-e10",
+          question: "Combien de comparaisons au minimum (dans le pire cas) sont nécessaires pour trouver le minimum d'un tableau non trié de $n$ éléments, et pourquoi ne peut-on pas faire mieux ?",
+          type: "open",
+          modelAnswer: "n-1 comparaisons sont nécessaires et suffisantes. On ne peut pas faire mieux car chaque élément, sauf le minimum final, doit être 'éliminé' par au moins une comparaison perdante; avec moins de n-1 comparaisons, au moins deux éléments n'auraient jamais été comparés directement ou indirectement et on ne pourrait garantir lequel est le minimum.",
+          explanation: "**Borne supérieure ($n-1$ comparaisons suffisent).** Un algorithme simple parcourt le tableau en gardant en mémoire le minimum courant, comparé à chaque nouvel élément : cela fait exactement $n-1$ comparaisons pour $n$ éléments.\n\n**Borne inférieure ($n-1$ comparaisons sont nécessaires).** Argument par un graphe de « tournoi » : chaque comparaison élimine un candidat possible au rang de minimum (le plus grand des deux comparés ne peut plus être le minimum). Pour identifier avec certitude le minimum parmi $n$ éléments, il faut « éliminer » les $n-1$ autres candidats, chacun nécessitant d'avoir perdu au moins une comparaison. Comme chaque comparaison n'élimine qu'**un seul** candidat (celui qui s'avère le plus grand des deux), il faut au moins $n-1$ comparaisons.\n\n**Conclusion :** $n-1$ est à la fois suffisant et nécessaire — l'algorithme naïf de parcours linéaire est donc déjà **optimal** pour ce problème.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-2-e11",
+          question: "Démontrer que la hauteur minimale d'un arbre binaire à $n$ nœuds est $\\Theta(\\log n)$, en utilisant le fait qu'un arbre binaire de hauteur $h$ a au plus $2^{h+1}-1$ nœuds.",
+          type: "open",
+          modelAnswer: "Un arbre de hauteur h a au plus 2^{h+1}-1 nœuds (arbre parfait). Donc n <= 2^{h+1}-1, soit 2^{h+1}>=n+1, donc h+1 >= log_2(n+1), donc h >= log_2(n+1) - 1 = Θ(log n). La borne est atteinte exactement par un arbre parfaitement équilibré, donc la hauteur minimale possible est bien Θ(log n).",
+          explanation: "**Borne sur le nombre de nœuds.** Un arbre binaire de hauteur $h$ (la racine étant à hauteur $0$) a au plus $1+2+4+\\cdots+2^h=2^{h+1}-1$ nœuds (un nœud à la racine, au plus $2$ au niveau suivant, etc., somme géométrique).\n\n**Inversion de l'inégalité.** Si l'arbre a $n$ nœuds, alors nécessairement $n\\leq2^{h+1}-1$, soit $2^{h+1}\\geq n+1$. En prenant le logarithme en base $2$ :\n$$h+1 \\geq \\log_2(n+1) \\implies h \\geq \\log_2(n+1)-1$$\n\n**Conclusion.** La hauteur $h$ est donc minorée par $\\log_2(n+1)-1=\\Theta(\\log n)$. Cette borne est **atteinte exactement** par un arbre parfaitement équilibré (chaque niveau totalement rempli, sauf éventuellement le dernier) — c'est précisément ce que garantissent les arbres AVL ou rouge-noir, justifiant que leurs opérations de base sont en $O(\\log n)$ dans le pire cas. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-2-e12",
+          question: "Construire (par insertions successives) un tas-min à partir de la séquence $5, 3, 8, 1, 9$ (insertion une à une, dans cet ordre), et donner le tableau final.",
+          type: "open",
+          modelAnswer: "Insertion 5: [5]. Insertion 3: [5,3] -> percolation: 3<5 donc échange -> [3,5]. Insertion 8: [3,5,8] (8>parent 3, pas d'échange). Insertion 1: [3,5,8,1] -> parent de l'indice 3 est indice 1 (valeur 5); 1<5, échange -> [3,1,8,5] -> parent de l'indice 1 est indice 0 (valeur 3); 1<3, échange -> [1,3,8,5]. Insertion 9: [1,3,8,5,9] (9>parent à l'indice 1 = 3, pas d'échange). Tableau final: [1,3,8,5,9].",
+          explanation: "On insère chaque élément en fin de tableau, puis on le fait « remonter » (percoler) tant qu'il est inférieur à son parent.\n\n**Insertion de 5 :** tableau $[5]$.\n\n**Insertion de 3 :** $[5,3]$. Le parent de l'indice $1$ est l'indice $0$ (valeur $5$). Comme $3<5$, on échange : $[3,5]$.\n\n**Insertion de 8 :** $[3,5,8]$. Le parent de l'indice $2$ est l'indice $0$ (valeur $3$). Comme $8>3$, pas d'échange : $[3,5,8]$.\n\n**Insertion de 1 :** $[3,5,8,1]$. Le parent de l'indice $3$ est l'indice $1$ (valeur $5$). Comme $1<5$, échange : $[3,1,8,5]$. Le parent de l'indice $1$ est maintenant l'indice $0$ (valeur $3$). Comme $1<3$, échange : $[1,3,8,5]$.\n\n**Insertion de 9 :** $[1,3,8,5,9]$. Le parent de l'indice $4$ est l'indice $1$ (valeur $3$). Comme $9>3$, pas d'échange.\n\n**Tableau final :** $[1,3,8,5,9]$, qui correspond bien à un tas-min valide (on vérifie : parent de l'indice $2$ = indice $0$ = $1\\leq8$ ✓ ; parent de l'indice $3$ = indice $1$ = $3\\leq5$ ✓ ; parent de l'indice $4$ = indice $1$ = $3\\leq9$ ✓).",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-2-e13",
+          question: "Vrai ou faux : le tri par tas (heapsort) a une complexité $O(n\\log n)$ dans le pire cas, contrairement au tri rapide (quicksort) dont le pire cas est $O(n^2)$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Le tri par tas construit un tas en $O(n)$, puis extrait le minimum (ou maximum) $n$ fois, chaque extraction coûtant $O(\\log n)$ — soit $O(n\\log n)$ **dans tous les cas**, sans dépendre de la configuration initiale des données, contrairement au tri rapide qui peut se dégrader en $O(n^2)$ sur certaines entrées défavorables.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-2-e14",
+          question: "Expliquer pourquoi une table de hachage peut se dégrader à $O(n)$ pour la recherche dans le pire cas, et quelles stratégies permettent de limiter ce risque en pratique.",
+          type: "open",
+          modelAnswer: "Le pire cas survient quand toutes les clés (ou un grand nombre d'entre elles) se hachent vers la même case, créant une longue chaîne de collisions à parcourir linéairement. Stratégies de mitigation: choisir une bonne fonction de hachage (répartition uniforme, résistante aux motifs des données réelles), utiliser un hachage universel/aléatoire (rendant les pires cas improbables même pour un adversaire), redimensionner dynamiquement la table (rehachage) quand le taux de remplissage devient trop élevé, limiter la taille des chaînes en passant à une structure équilibrée (arbre) au-delà d'un seuil.",
+          explanation: "**Origine du pire cas.** Une table de hachage répartit les clés dans des cases via une fonction de hachage $h$. Si, pour une raison quelconque (mauvaise fonction de hachage, ou distribution adversariale des clés), un grand nombre de clés se retrouvent dans la **même case**, la structure de chaînage associée à cette case devient une simple liste, et la recherche d'un élément dans cette liste coûte $O(k)$ où $k$ est le nombre de clés en collision — dans le pire cas, $k=n$ (toutes les clés dans la même case), donnant $O(n)$.\n\n**Stratégies de limitation en pratique :**\n1. **Bonne fonction de hachage** : choisir $h$ de sorte que les clés réelles (pas seulement théoriques) se répartissent le plus uniformément possible sur les cases disponibles.\n2. **Hachage universel (aléatoire)** : tirer aléatoirement la fonction de hachage parmi une famille de fonctions au démarrage du programme, rendant impossible pour un adversaire de construire à l'avance un ensemble de clés provoquant systématiquement des collisions massives (attaque par déni de service sur les tables de hachage).\n3. **Redimensionnement dynamique (rehachage)** : quand le facteur de charge (nombre de clés / nombre de cases) dépasse un seuil, on agrandit la table et on réinsère toutes les clés, ce qui maintient les chaînes courtes en moyenne.\n4. **Structures hybrides** : remplacer les listes de chaînage par des arbres équilibrés au-delà d'un certain seuil de collisions dans une case (stratégie utilisée par certaines implémentations modernes de tables de hachage), garantissant $O(\\log k)$ même dans le pire cas d'une case surchargée.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-2-e15",
+          question: "Démontrer que, dans un tas-min représenté par un tableau de taille $n$ (indexation à partir de $0$), le nombre de feuilles est exactement $\\lceil n/2\\rceil$.",
+          type: "open",
+          modelAnswer: "Un nœud à l'indice i est une feuille si et seulement si son enfant gauche (indice 2i+1) n'existe pas, c'est-à-dire 2i+1 >= n, soit i >= (n-1)/2, soit i >= ceil((n-1)/2) puisque i est entier. Le nombre d'indices i dans [0,n-1] vérifiant cette condition est n - ceil((n-1)/2) = floor(n/2) si on raisonne directement... en fait le calcul standard donne exactement ceil(n/2) feuilles (les indices de floor(n/2) à n-1).",
+          explanation: "**Caractérisation des feuilles.** Un nœud d'indice $i$ (pour $i\\in\\{0,\\dots,n-1\\}$) est une **feuille** si et seulement s'il n'a pas d'enfant gauche, c'est-à-dire si l'indice de son enfant gauche, $2i+1$, dépasse ou égale $n$ :\n$$2i+1 \\geq n \\iff i \\geq \\frac{n-1}{2}$$\n\n**Comptage des indices vérifiant cette condition.** Comme $i$ est un entier, la condition $i\\geq(n-1)/2$ équivaut à $i\\geq\\big\\lceil(n-1)/2\\big\\rceil$. Les indices valides sont donc $i\\in\\Big\\{\\big\\lceil(n-1)/2\\big\\rceil,\\dots,n-1\\Big\\}$, soit un nombre d'éléments égal à :\n$$n - \\Big\\lceil\\frac{n-1}{2}\\Big\\rceil = \\Big\\lfloor\\frac{n}{2}\\Big\\rfloor + \\big(n\\bmod2\\big)\\cdot0 \\;=\\; \\Big\\lceil\\frac{n}{2}\\Big\\rceil$$\n\n(on vérifie directement sur des petits cas : $n=5$ donne les indices $i\\geq2$, soit $i\\in\\{2,3,4\\}$, donc $3=\\lceil5/2\\rceil$ feuilles ; $n=6$ donne $i\\geq\\lceil5/2\\rceil=3$, soit $i\\in\\{3,4,5\\}$, donc $3=\\lceil6/2\\rceil$ feuilles).\n\n**Conclusion :** le nombre de feuilles d'un tas à $n$ nœuds est exactement $\\big\\lceil n/2\\big\\rceil$. $\\square$ Ce résultat est notamment utilisé pour borner le coût de la construction d'un tas en $O(n)$ (et non $O(n\\log n)$ comme on pourrait naïvement le penser), car la majorité des nœuds (environ la moitié) sont des feuilles ne nécessitant aucune percolation.",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "info3-l3-3",
+      slug: "algorithmes-de-graphes",
+      title: "Algorithmes de graphes : parcours et plus courts chemins",
+      durationMinutes: 60,
+      content: `## Algorithmes de graphes : parcours et plus courts chemins
+
+### 1. Représentation des graphes
+
+Un **graphe** $G=(V,E)$ est constitué d'un ensemble de **sommets** $V$ (taille $n=|V|$) et d'**arêtes** $E$ (taille $m=|E|$), orientées ou non. Deux représentations usuelles : la **matrice d'adjacence** (tableau $n\\times n$, accès $O(1)$ à une arête, mais $O(n^2)$ de mémoire — adaptée aux graphes denses) et la **liste d'adjacence** (pour chaque sommet, la liste de ses voisins, mémoire $O(n+m)$ — adaptée aux graphes creux, cas le plus fréquent en pratique).
+
+### 2. Parcours en profondeur (DFS)
+
+Le **parcours en profondeur** (Depth-First Search) explore un graphe en allant aussi loin que possible avant de revenir en arrière (backtracking), à l'aide d'une pile (explicite ou via la récursion). Complexité : $O(n+m)$ (chaque sommet et chaque arête est visité une fois).
+
+> DFS(G, s) :
+>   marquer s comme visité
+>   pour chaque voisin v de s non visité :
+>     DFS(G, v)
+
+**Applications :** détection de cycles, tri topologique d'un graphe orienté acyclique (DAG), recherche des composantes connexes.
+
+### 3. Parcours en largeur (BFS)
+
+Le **parcours en largeur** (Breadth-First Search) explore le graphe niveau par niveau à partir d'une source $s$, à l'aide d'une file. Complexité $O(n+m)$.
+
+> BFS(G, s) :
+>   enfiler s, marquer s comme visité, distance(s)=0
+>   tant que la file n'est pas vide :
+>     u = défiler()
+>     pour chaque voisin v de u non visité :
+>       marquer v, distance(v) = distance(u)+1, enfiler v
+
+**Propriété clé :** dans un graphe **non pondéré**, le BFS calcule exactement les **plus courts chemins** (en nombre d'arêtes) depuis $s$ vers tous les autres sommets atteignables.
+
+### 4. Algorithme de Dijkstra (plus courts chemins, poids positifs)
+
+Pour un graphe pondéré par des poids **strictement positifs**, l'algorithme de **Dijkstra** calcule les plus courts chemins depuis une source $s$ vers tous les autres sommets, en utilisant une file de priorité (tas-min) sur les distances provisoires :
+
+> Dijkstra(G, s) :
+>   dist(s) = 0, dist(v) = +infini pour v ≠ s
+>   file de priorité Q = {tous les sommets, priorité = dist}
+>   tant que Q n'est pas vide :
+>     u = extraire le sommet de Q de plus petite distance
+>     pour chaque voisin v de u (arête de poids w) :
+>       si dist(u) + w < dist(v) :
+>         dist(v) = dist(u) + w   (relaxation)
+>         mettre à jour la priorité de v dans Q
+
+**Complexité :** $O((n+m)\\log n)$ avec une implémentation par tas binaire (chaque extraction et chaque mise à jour de priorité coûte $O(\\log n)$, et il y a $O(m)$ relaxations au total).
+
+**Exemple résolu.** Graphe orienté : $A\\to B$ (poids $4$), $A\\to C$ (poids $1$), $C\\to B$ (poids $2$), $B\\to D$ (poids $1$), $C\\to D$ (poids $5$). Depuis $A$ : $\\text{dist}(A)=0$. On extrait $A$, on relâche $B$ ($\\text{dist}(B)=4$) et $C$ ($\\text{dist}(C)=1$). On extrait $C$ (distance minimale $1$), on relâche $B$ via $C$ : $\\text{dist}(C)+2=3<4$, donc $\\text{dist}(B)=3$ ; on relâche $D$ via $C$ : $\\text{dist}(D)=1+5=6$. On extrait $B$ (distance $3$), on relâche $D$ via $B$ : $3+1=4<6$, donc $\\text{dist}(D)=4$. Résultat final : $\\text{dist}(A,B,C,D)=(0,3,1,4)$.
+
+### 5. Pourquoi Dijkstra échoue avec des poids négatifs
+
+Dijkstra suppose qu'une fois un sommet **extrait** de la file (sa distance finalisée), aucune amélioration future n'est possible — ce qui n'est vrai que si tous les poids restants sont **positifs** (toute relaxation ultérieure ne peut qu'augmenter une distance). Avec des poids négatifs, un chemin découvert plus tard pourrait être plus court, invalidant cette hypothèse. Pour des graphes avec poids négatifs (sans cycle de poids négatif), on utilise l'algorithme de **Bellman-Ford** ($O(nm)$, plus lent mais correct dans ce cas).
+
+### 6. Algorithme de Floyd-Warshall (tous les plus courts chemins)
+
+Pour calculer les plus courts chemins entre **toutes les paires** de sommets, l'algorithme de **Floyd-Warshall** utilise une programmation dynamique en $O(n^3)$ :
+$$d_k[i][j] = \\min\\big(d_{k-1}[i][j],\\ d_{k-1}[i][k]+d_{k-1}[k][j]\\big)$$
+où $d_k[i][j]$ est la plus courte distance de $i$ à $j$ en n'utilisant que les sommets intermédiaires $\\{1,\\dots,k\\}$. C'est avantageux par rapport à $n$ exécutions de Dijkstra ($O(n(n+m)\\log n)$) lorsque le graphe est **dense** ($m$ proche de $n^2$).
+
+### 7. Récapitulatif
+
+| Algorithme | Problème résolu | Complexité |
+|---|---|---|
+| DFS / BFS | parcours, plus courts chemins (non pondéré) | $O(n+m)$ |
+| Dijkstra | plus courts chemins depuis une source (poids $\\geq0$) | $O((n+m)\\log n)$ |
+| Bellman-Ford | plus courts chemins depuis une source (poids quelconques, sans cycle négatif) | $O(nm)$ |
+| Floyd-Warshall | plus courts chemins entre toutes les paires | $O(n^3)$ |`,
+      exercises: [
+        {
+          id: "info3-l3-3-e1",
+          question: "Quelle structure de données utilise naturellement le parcours en largeur (BFS) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une file (FIFO)" },
+            { id: "B", text: "Une pile (LIFO)" },
+            { id: "C", text: "Un tas-max" },
+            { id: "D", text: "Une table de hachage" },
+          ],
+          correctId: "A",
+          explanation: "Le BFS enfile les voisins découverts et les traite dans l'ordre FIFO, garantissant une exploration niveau par niveau.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-3-e2",
+          question: "Vrai ou faux : dans un graphe non pondéré, le BFS depuis une source $s$ calcule les plus courts chemins (en nombre d'arêtes) vers tous les sommets atteignables.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est la propriété clé du BFS : comme il explore niveau par niveau, la première fois qu'un sommet est atteint, c'est nécessairement par un chemin le plus court possible (en nombre d'arêtes).",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-3-e3",
+          question: "Quelle structure de données est utilisée par l'algorithme de Dijkstra pour sélectionner efficacement le prochain sommet à traiter ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une file de priorité (tas-min)" },
+            { id: "B", text: "Une pile" },
+            { id: "C", text: "Une table de hachage" },
+            { id: "D", text: "Un arbre binaire de recherche" },
+          ],
+          correctId: "A",
+          explanation: "Dijkstra utilise une file de priorité (typiquement un tas-min) pour extraire efficacement, à chaque étape, le sommet non encore traité ayant la plus petite distance provisoire.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-3-e4",
+          question: "Vrai ou faux : l'algorithme de Dijkstra fonctionne correctement même si certaines arêtes ont un poids négatif.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Dijkstra suppose que les distances ne peuvent qu'augmenter par relaxation future, ce qui échoue avec des poids négatifs (un chemin découvert plus tard pourrait raccourcir une distance déjà finalisée). Il faut alors utiliser Bellman-Ford.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-3-e5",
+          question: "Quelle est la complexité de l'algorithme de Floyd-Warshall pour calculer les plus courts chemins entre toutes les paires de sommets ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(n^3)$" },
+            { id: "B", text: "$O(n^2)$" },
+            { id: "C", text: "$O(n\\log n)$" },
+            { id: "D", text: "$O(nm)$" },
+          ],
+          correctId: "A",
+          explanation: "Floyd-Warshall procède par programmation dynamique avec trois boucles imbriquées sur les $n$ sommets, donnant une complexité $O(n^3)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "info3-l3-3-e6",
+          question: "Pour un graphe avec $n$ sommets et $m$ arêtes représenté en liste d'adjacence, quelle est la complexité totale du DFS ou du BFS ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$O(n+m)$" },
+            { id: "B", text: "$O(n^2)$" },
+            { id: "C", text: "$O(nm)$" },
+            { id: "D", text: "$O(m\\log n)$" },
+          ],
+          correctId: "A",
+          explanation: "Chaque sommet est visité (et marqué) une seule fois, et chaque arête est examinée au plus une ou deux fois (selon orientation), d'où une complexité linéaire $O(n+m)$ — optimale, puisqu'il faut au moins lire toute l'entrée.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-3-e7",
+          question: "Sur le graphe orienté $A\\to B$ (poids 2), $A\\to C$ (poids 5), $B\\to C$ (poids 1), exécuter Dijkstra depuis $A$ et donner $\\text{dist}(C)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$5$" },
+            { id: "C", text: "$6$" },
+            { id: "D", text: "$1$" },
+          ],
+          correctId: "A",
+          explanation: "Chemin direct $A\\to C$ : coût $5$. Chemin $A\\to B\\to C$ : coût $2+1=3$, strictement meilleur. Dijkstra trouve donc $\\text{dist}(C)=3$ (en passant par $B$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-3-e8",
+          question: "Pourquoi préfère-t-on la liste d'adjacence à la matrice d'adjacence pour représenter un graphe creux (peu d'arêtes par rapport au nombre de sommets, $m=O(n)$) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "La liste d'adjacence utilise $O(n+m)$ mémoire contre $O(n^2)$ pour la matrice" },
+            { id: "B", text: "La matrice d'adjacence est toujours plus rapide à parcourir" },
+            { id: "C", text: "La liste d'adjacence ne peut représenter que des graphes non orientés" },
+            { id: "D", text: "Il n'y a pas de différence pratique" },
+          ],
+          correctId: "A",
+          explanation: "Pour un graphe creux, $m=O(n)\\ll n^2$, donc la liste d'adjacence ($O(n+m)=O(n)$ mémoire) est bien plus économe que la matrice d'adjacence ($O(n^2)$ mémoire, dont la plupart des cases seraient à $0$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-3-e9",
+          question: "Vrai ou faux : le DFS peut être utilisé pour détecter la présence d'un cycle dans un graphe orienté.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. En suivant les couleurs des sommets pendant le parcours (blanc = non visité, gris = en cours d'exploration, noir = terminé), on détecte un cycle si l'on rencontre une arête menant vers un sommet **gris** (déjà sur la pile d'appels en cours) — c'est une **arête de retour**.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-3-e10",
+          question: "Expliquer pourquoi la complexité de Dijkstra avec une file de priorité par tas binaire est $O((n+m)\\log n)$ plutôt que $O(nm)$.",
+          type: "open",
+          modelAnswer: "Chaque sommet est extrait exactement une fois de la file (coût O(log n) par extraction, total O(n log n)), et chaque arête provoque au plus une relaxation/mise à jour de priorité (coût O(log n) chacune avec un tas, total O(m log n)). En sommant: O(n log n) + O(m log n) = O((n+m) log n).",
+          explanation: "**Décomposition du coût total en deux parties.**\n\n**Extractions :** chaque sommet est extrait de la file de priorité **exactement une fois** (une fois sa distance finalisée, il n'y retourne jamais). Avec un tas binaire, chaque extraction du minimum coûte $O(\\log n)$. Total pour les $n$ extractions : $O(n\\log n)$.\n\n**Relaxations (mises à jour de priorité) :** chaque arête du graphe est examinée au plus une fois (lors du traitement de son sommet de départ), et peut déclencher une mise à jour de la priorité du sommet d'arrivée dans le tas, coûtant $O(\\log n)$ avec une implémentation adaptée (tas indexé permettant la mise à jour de clé). Total pour les $m$ arêtes : $O(m\\log n)$.\n\n**Somme totale :** $O(n\\log n) + O(m\\log n) = O((n+m)\\log n)$.\n\nC'est bien plus efficace que $O(nm)$ pour les graphes creux où $m=O(n)$ : on obtient $O(n\\log n)$ au lieu de $O(n^2)$.",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-3-e11",
+          question: "Sur le graphe orienté $A\\to B$ (poids 4), $A\\to C$ (poids 1), $C\\to B$ (poids 2), $B\\to D$ (poids 1), $C\\to D$ (poids 5), exécuter Dijkstra depuis $A$ pas à pas et donner les distances finales pour $A,B,C,D$.",
+          type: "open",
+          modelAnswer: "dist(A)=0. Extraire A: relâcher B (dist=4) et C (dist=1). Extraire C (min=1): relâcher B via C: 1+2=3<4, dist(B)=3; relâcher D via C: 1+5=6, dist(D)=6. Extraire B (min=3): relâcher D via B: 3+1=4<6, dist(D)=4. Extraire D (min=4): pas de voisins sortants. Résultat: dist(A,B,C,D)=(0,3,1,4).",
+          explanation: "**Initialisation :** $\\text{dist}(A)=0$, $\\text{dist}(B)=\\text{dist}(C)=\\text{dist}(D)=+\\infty$.\n\n**Étape 1 — extraire $A$ (distance $0$).** Relâcher ses voisins : $\\text{dist}(B)=\\min(\\infty,0+4)=4$ ; $\\text{dist}(C)=\\min(\\infty,0+1)=1$.\n\n**Étape 2 — extraire $C$ (distance minimale $1$).** Relâcher ses voisins : $\\text{dist}(B)=\\min(4,1+2)=\\min(4,3)=3$ (amélioration !) ; $\\text{dist}(D)=\\min(\\infty,1+5)=6$.\n\n**Étape 3 — extraire $B$ (distance minimale $3$).** Relâcher ses voisins : $\\text{dist}(D)=\\min(6,3+1)=\\min(6,4)=4$ (amélioration !).\n\n**Étape 4 — extraire $D$ (distance $4$).** Aucun voisin sortant, rien à relâcher.\n\n**Résultat final :** $\\text{dist}(A)=0$, $\\text{dist}(B)=3$, $\\text{dist}(C)=1$, $\\text{dist}(D)=4$. Le plus court chemin vers $D$ passe par $A\\to C\\to B\\to D$ (coût $1+2+1=4$), pas par le chemin direct $A\\to C\\to D$ (coût $1+5=6$) ni par $A\\to B\\to D$ (coût $4+1=5$).",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-3-e12",
+          question: "Démontrer pourquoi l'algorithme de Dijkstra peut donner un résultat incorrect en présence d'une arête de poids négatif, à l'aide d'un contre-exemple explicite.",
+          type: "open",
+          modelAnswer: "Contre-exemple: A→B poids 5, A→C poids 2, C→B poids -10. Dijkstra extrait d'abord C (dist=2, plus petit que B=5), traite C, mais ne reconsidère jamais B après son extraction... en fait B est extrait après C dans ce cas car dist(B) est mis à jour à 2+(-10)=-8 < 5 lors du traitement de C, donc cela fonctionnerait ici. Un contre-exemple correct doit avoir le sommet à problème déjà EXTRAIT avant que le chemin négatif ne soit découvert: A→B poids 1 (B extrait tôt avec dist=1), A→C poids 4, C→B poids -10 (mais C n'est traité qu'après B, donc dist(B) ne peut plus être amélioré une fois B finalisé) : le vrai plus court chemin A→C→B coûte 4+(-10)=-6, bien inférieur à 1, mais Dijkstra a déjà fixé dist(B)=1 de façon définitive après l'avoir extrait, et ne le met jamais à jour ensuite — résultat incorrect.",
+          explanation: "**Construction du contre-exemple.** Graphe orienté : $A\\to B$ (poids $1$), $A\\to C$ (poids $4$), $C\\to B$ (poids $-10$).\n\n**Exécution de Dijkstra depuis $A$ :**\n- Initialisation : $\\text{dist}(A)=0$.\n- Extraction de $A$ : relâcher $B$ ($\\text{dist}(B)=1$) et $C$ ($\\text{dist}(C)=4$).\n- Extraction du sommet de distance minimale parmi les non traités : $B$ (distance $1<4$). On **finalise** $\\text{dist}(B)=1$ et on ne le remet jamais en question (Dijkstra suppose qu'aucune amélioration future n'est possible pour un sommet déjà extrait).\n- Extraction de $C$ (distance $4$) : on relâche $B$ via $C$, donnant $4+(-10)=-6$ — mais $B$ a déjà été **extrait et finalisé** à la valeur $1$, donc Dijkstra **ignore** cette amélioration (selon l'implémentation standard, qui ne retraite jamais un sommet déjà extrait).\n\n**Résultat erroné de Dijkstra :** $\\text{dist}(B)=1$.\n\n**Vrai plus court chemin :** $A\\to C\\to B$, de coût $4+(-10)=-6$, strictement inférieur à $1$.\n\n**Conclusion :** Dijkstra donne ici un résultat **incorrect** ($1$ au lieu de $-6$), car son hypothèse fondamentale (un sommet extrait ne peut plus être amélioré) est violée par la présence du poids négatif $-10$ sur l'arête $C\\to B$. C'est exactement pourquoi Dijkstra exige des poids **non négatifs**, et pourquoi on utilise Bellman-Ford dans le cas contraire. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-3-e13",
+          question: "Vrai ou faux : l'algorithme de Bellman-Ford peut détecter la présence d'un cycle de poids négatif accessible depuis la source.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Après les $n-1$ itérations habituelles de relaxation (suffisantes pour des plus courts chemins simples, sans cycle), Bellman-Ford effectue une itération supplémentaire : si une relaxation améliore encore une distance, c'est la preuve qu'un cycle de poids négatif est accessible (sinon le plus court chemin ne serait pas borné, n'existant simplement pas au sens usuel).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "info3-l3-3-e14",
+          question: "Justifier, dans le cadre de la programmation dynamique de Floyd-Warshall, la relation de récurrence $d_k[i][j]=\\min\\big(d_{k-1}[i][j],\\,d_{k-1}[i][k]+d_{k-1}[k][j]\\big)$.",
+          type: "open",
+          modelAnswer: "d_k[i][j] est le plus court chemin de i à j n'utilisant que les sommets {1,...,k} comme intermédiaires. Soit ce chemin optimal n'utilise pas k comme intermédiaire (alors sa valeur est d_{k-1}[i][j], déjà optimal sans k), soit il utilise k exactement une fois comme intermédiaire (alors il se décompose en un trajet optimal i->k suivi d'un trajet optimal k->j, tous deux n'utilisant que {1,...,k-1}, donnant d_{k-1}[i][k]+d_{k-1}[k][j]). Le minimum des deux cas donne la formule.",
+          explanation: "**Définition de $d_k[i][j]$.** C'est la longueur du plus court chemin de $i$ à $j$ dans le graphe, en n'autorisant comme sommets **intermédiaires** (ni $i$ ni $j$ eux-mêmes, mais les sommets traversés en chemin) que ceux de l'ensemble $\\{1,\\dots,k\\}$.\n\n**Disjonction de cas sur le rôle de $k$.** Considérons le plus court chemin optimal de $i$ à $j$ n'utilisant que $\\{1,\\dots,k\\}$ comme intermédiaires. Deux cas s'excluent mutuellement :\n\n*Cas 1 — ce chemin optimal n'utilise pas $k$ comme sommet intermédiaire.* Alors il n'utilise en fait que $\\{1,\\dots,k-1\\}$, donc sa longueur est exactement $d_{k-1}[i][j]$ (qui est déjà optimal pour cet ensemble plus restreint de sommets autorisés).\n\n*Cas 2 — ce chemin optimal utilise $k$ comme sommet intermédiaire (nécessairement une seule fois, car repasser deux fois par $k$ créerait un cycle, ce qui n'est jamais optimal avec des poids positifs ou en l'absence de cycle négatif).* Le chemin se décompose alors en un trajet $i\\to k$ et un trajet $k\\to j$, chacun n'utilisant comme intermédiaires que $\\{1,\\dots,k-1\\}$ (puisque $k$ n'apparaît qu'une fois, à la jonction). Pour que le chemin total soit optimal, chacun de ces deux sous-trajets doit aussi être optimal (principe d'optimalité de Bellman) : leur longueur totale est donc $d_{k-1}[i][k]+d_{k-1}[k][j]$.\n\n**Conclusion.** Le plus court chemin global est le **meilleur des deux cas** :\n$$d_k[i][j] = \\min\\big(d_{k-1}[i][j],\\ d_{k-1}[i][k]+d_{k-1}[k][j]\\big) \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "info3-l3-3-e15",
+          question: "Comparer, pour un graphe dense ($m=\\Theta(n^2)$), la complexité de calculer les plus courts chemins entre toutes les paires de sommets via (a) $n$ exécutions de Dijkstra, contre (b) une seule exécution de Floyd-Warshall. Quelle méthode est préférable ?",
+          type: "open",
+          modelAnswer: "(a) n exécutions de Dijkstra: O(n·(n+m)log n) = O(n·n²·log n) = O(n³ log n) pour m=Θ(n²). (b) Floyd-Warshall: O(n³). Comme n³ < n³ log n, Floyd-Warshall est asymptotiquement préférable pour les graphes denses (et plus simple à implémenter, sans structure de tas). Pour les graphes creux (m=O(n)), n exécutions de Dijkstra donneraient O(n² log n), meilleur que Floyd-Warshall O(n³).",
+          explanation: "**Méthode (a) — $n$ exécutions de Dijkstra.** Chaque exécution de Dijkstra depuis un sommet source coûte $O((n+m)\\log n)$. En répétant pour chacun des $n$ sommets comme source :\n$$n \\times O((n+m)\\log n) = O\\big(n(n+m)\\log n\\big)$$\n\nPour un graphe **dense** ($m=\\Theta(n^2)$), cela devient $O\\big(n\\cdot n^2\\cdot\\log n\\big)=O(n^3\\log n)$.\n\n**Méthode (b) — Floyd-Warshall.** Complexité directe $O(n^3)$, indépendamment de la densité du graphe.\n\n**Comparaison.** Pour un graphe dense, $O(n^3)<O(n^3\\log n)$ : **Floyd-Warshall est asymptotiquement meilleur** (et plus simple à implémenter, sans nécessiter de structure de tas).\n\n**Remarque complémentaire (cas creux).** Pour un graphe **creux** ($m=O(n)$), la méthode (a) donnerait plutôt $O(n(n+n)\\log n)=O(n^2\\log n)$, ce qui est **meilleur** que $O(n^3)$ de Floyd-Warshall. Le choix optimal entre les deux méthodes dépend donc de la densité du graphe : Floyd-Warshall pour les graphes denses, $n$ exécutions de Dijkstra pour les graphes creux.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L3 — Analyse : Théorie de la mesure et intégrale de Lebesgue
+  // ─────────────────────────────────────────────
+  {
+  id: "mesure-l3",
+  slug: "mesure-l3-theorie-integration-lebesgue",
+  title: "Théorie de la mesure L3 — Intégrale de Lebesgue",
+  description: "Tribus et mesures, fonctions mesurables, construction de l'intégrale de Lebesgue, théorèmes de convergence (monotone, dominée).",
+  schoolLevel: "L3",
+  subject: "analyse",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "∫",
+  lessons: [
+    {
+      id: "mes3-l3-1",
+      slug: "tribus-et-mesures",
+      title: "Tribus et mesures",
+      durationMinutes: 55,
+      content: `## Tribus et mesures
+
+### 1. Pourquoi dépasser l'intégrale de Riemann ?
+
+L'intégrale de Riemann, vue en L1-L2, présente des limites : certaines fonctions bornées ne sont pas Riemann-intégrables (par exemple la **fonction de Dirichlet** $\\mathbb{1}_{\\mathbb{Q}}$, indicatrice des rationnels, qui oscille entre $0$ et $1$ sur tout intervalle), et les théorèmes d'échange limite/intégrale (convergence simple d'une suite de fonctions) y sont peu robustes. L'**intégrale de Lebesgue**, construite sur la notion de mesure, résout ces deux problèmes.
+
+### 2. Tribus (ou $\\sigma$-algèbres)
+
+Une **tribu** $\\mathcal{A}$ sur un ensemble $\\Omega$ est une collection de parties de $\\Omega$ vérifiant :
+1. $\\Omega\\in\\mathcal{A}$ ;
+2. **stabilité par complémentaire** : $A\\in\\mathcal{A}\\Rightarrow A^c\\in\\mathcal{A}$ ;
+3. **stabilité par réunion dénombrable** : $(A_n)_{n\\geq1}\\subset\\mathcal{A}\\Rightarrow\\bigcup_{n\\geq1}A_n\\in\\mathcal{A}$.
+
+**Conséquences immédiates :** $\\emptyset=\\Omega^c\\in\\mathcal{A}$ ; par les lois de De Morgan, $\\mathcal{A}$ est aussi stable par intersection dénombrable. Les éléments de $\\mathcal{A}$ sont appelés **ensembles mesurables**.
+
+**Exemple — tribu borélienne.** Sur $\\mathbb{R}$, la **tribu borélienne** $\\mathcal{B}(\\mathbb{R})$ est la plus petite tribu contenant tous les intervalles ouverts (elle contient donc tous les ouverts, fermés, et la plupart des ensembles « raisonnables » qu'on rencontre en pratique).
+
+### 3. Mesures
+
+Une **mesure** sur $(\\Omega,\\mathcal{A})$ est une application $\\mu:\\mathcal{A}\\to[0,+\\infty]$ telle que $\\mu(\\emptyset)=0$ et, pour toute famille **dénombrable** d'ensembles **deux à deux disjoints** $(A_n)_{n\\geq1}\\subset\\mathcal{A}$ :
+$$\\mu\\left(\\bigcup_{n\\geq1}A_n\\right) = \\sum_{n\\geq1}\\mu(A_n) \\qquad \\text{(}\\sigma\\textbf{-additivité)}$$
+
+**Exemples :** la **mesure de comptage** $\\mu(A)=\\text{Card}(A)$ (ou $+\\infty$ si $A$ infini) ; la **mesure de Lebesgue** $\\lambda$ sur $(\\mathbb{R},\\mathcal{B}(\\mathbb{R}))$, qui généralise la notion de longueur ($\\lambda([a,b])=b-a$) à des ensembles beaucoup plus généraux que les intervalles.
+
+### 4. Propriétés de base des mesures
+
+Pour $A,B\\in\\mathcal{A}$ avec $A\\subseteq B$ : **croissance** $\\mu(A)\\leq\\mu(B)$. Pour une suite croissante $A_1\\subseteq A_2\\subseteq\\cdots$ : **continuité croissante** $\\mu\\big(\\bigcup_nA_n\\big)=\\lim_n\\mu(A_n)$. Pour une suite décroissante avec $\\mu(A_1)<\\infty$ : **continuité décroissante** $\\mu\\big(\\bigcap_nA_n\\big)=\\lim_n\\mu(A_n)$.
+
+**Exemple — la mesure de Lebesgue d'un singleton est nulle.** $\\lambda(\\{a\\})=\\lambda\\big(\\bigcap_n]a-1/n,a+1/n[\\big)=\\lim_n\\lambda(]a-1/n,a+1/n[)=\\lim_n(2/n)=0$. Par $\\sigma$-additivité, tout ensemble **dénombrable** (comme $\\mathbb{Q}$) a donc une mesure de Lebesgue nulle — c'est un **ensemble négligeable**.
+
+### 5. Propriété « presque partout »
+
+On dit qu'une propriété $P(x)$ est vraie **$\\mu$-presque partout** (p.p.) si l'ensemble $\\{x:P(x)\\text{ est fausse}\\}$ est de mesure nulle. C'est une notion centrale en théorie de la mesure : deux fonctions égales presque partout seront considérées comme « identiques » du point de vue de l'intégration.
+
+**Exemple :** la fonction de Dirichlet $\\mathbb{1}_{\\mathbb{Q}}$ est égale à la fonction nulle **Lebesgue-presque partout** (puisque $\\mathbb{Q}$ est négligeable), ce qui annonce pourquoi elle sera Lebesgue-intégrable d'intégrale $0$, alors qu'elle n'est pas Riemann-intégrable.
+
+### 6. Récapitulatif
+
+| Notion | Définition |
+|---|---|
+| Tribu $\\mathcal{A}$ | stable par complémentaire et réunion dénombrable, contient $\\Omega$ |
+| Mesure $\\mu$ | $\\mu(\\emptyset)=0$, $\\sigma$-additive sur les unions disjointes dénombrables |
+| Ensemble négligeable | $\\mu(A)=0$ |
+| Presque partout (p.p.) | vrai sauf sur un ensemble négligeable |
+| Continuité croissante/décroissante | $\\mu(\\bigcup A_n)=\\lim\\mu(A_n)$ / $\\mu(\\bigcap A_n)=\\lim\\mu(A_n)$ (si $\\mu(A_1)<\\infty$) |`,
+      exercises: [
+        {
+          id: "mes3-l3-1-e1",
+          question: "Quelles sont les trois propriétés définissant une tribu $\\mathcal{A}$ sur $\\Omega$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\Omega\\in\\mathcal{A}$, stable par complémentaire, stable par réunion dénombrable" },
+            { id: "B", text: "$\\Omega\\in\\mathcal{A}$, stable par union finie seulement" },
+            { id: "C", text: "Stable par intersection dénombrable uniquement" },
+            { id: "D", text: "Contient uniquement les singletons" },
+          ],
+          correctId: "A",
+          explanation: "Une tribu doit contenir $\\Omega$, être stable par passage au complémentaire, et stable par réunion dénombrable — ces trois axiomes entraînent toutes les autres propriétés de stabilité (intersection dénombrable, différence, etc.) par les lois de De Morgan.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-1-e2",
+          question: "Vrai ou faux : la mesure de Lebesgue d'un singleton $\\{a\\}$ est nulle.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. $\\{a\\}=\\bigcap_n\\,]a-1/n,a+1/n[$, et par continuité décroissante, $\\lambda(\\{a\\})=\\lim_n\\lambda(]a-1/n,a+1/n[)=\\lim_n(2/n)=0$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-1-e3",
+          question: "Quelle est la valeur de la mesure de Lebesgue de l'ensemble $\\mathbb{Q}\\cap[0,1]$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$1/2$" },
+            { id: "D", text: "Cette mesure n'existe pas" },
+          ],
+          correctId: "A",
+          explanation: "$\\mathbb{Q}\\cap[0,1]$ est dénombrable (réunion dénombrable de singletons, chacun de mesure nulle), donc par $\\sigma$-additivité, sa mesure de Lebesgue est $\\sum0=0$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-1-e4",
+          question: "Vrai ou faux : une mesure $\\mu$ vérifie toujours $\\mu(\\emptyset)=0$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'un des deux axiomes définissant une mesure (avec la $\\sigma$-additivité) — sans cette condition, la mesure dite « identiquement $+\\infty$ » vérifierait trivialement la $\\sigma$-additivité sans être une mesure utile.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-1-e5",
+          question: "Que signifie qu'une propriété est vraie « presque partout » pour la mesure de Lebesgue ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "L'ensemble où elle est fausse est de mesure de Lebesgue nulle" },
+            { id: "B", text: "Elle est vraie sur un ensemble dénombrable" },
+            { id: "C", text: "Elle est vraie sur un intervalle ouvert" },
+            { id: "D", text: "Elle est vraie partout sans exception" },
+          ],
+          correctId: "A",
+          explanation: "« Presque partout » signifie que l'ensemble des points où la propriété échoue est négligeable (mesure nulle) — pas qu'elle est vraie absolument partout sans exception.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-1-e6",
+          question: "Pourquoi la fonction de Dirichlet $\\mathbb{1}_{\\mathbb{Q}}$ (sur $[0,1]$) n'est-elle pas Riemann-intégrable ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Toute subdivision contient à la fois des rationnels et des irrationnels dans chaque sous-intervalle, donc les sommes de Darboux supérieure et inférieure ne convergent pas vers la même valeur" },
+            { id: "B", text: "La fonction n'est pas bornée" },
+            { id: "C", text: "La fonction n'est pas définie sur $[0,1]$" },
+            { id: "D", text: "La fonction est continue donc automatiquement intégrable" },
+          ],
+          correctId: "A",
+          explanation: "Comme $\\mathbb{Q}$ et $\\mathbb{R}\\setminus\\mathbb{Q}$ sont tous deux denses dans $\\mathbb{R}$, toute subdivision de $[0,1]$, même très fine, contient des points des deux types dans chaque sous-intervalle : la somme de Darboux supérieure vaut toujours $1$ (sup $=1$ sur chaque sous-intervalle) et l'inférieure toujours $0$ (inf $=0$), donc elles ne convergent jamais vers une valeur commune.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-1-e7",
+          question: "Si $(A_n)_{n\\geq1}$ est une suite croissante d'ensembles mesurables avec $\\mu(A_1)=2$ et $\\mu(A_n)\\to5$, que vaut $\\mu\\big(\\bigcup_nA_n\\big)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$7$" },
+            { id: "D", text: "On ne peut pas le déterminer" },
+          ],
+          correctId: "A",
+          explanation: "Par continuité croissante des mesures, $\\mu\\big(\\bigcup_nA_n\\big)=\\lim_n\\mu(A_n)=5$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-1-e8",
+          question: "Vrai ou faux : toute réunion dénombrable d'ensembles négligeables est négligeable.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Par sous-additivité de la mesure (conséquence de la $\\sigma$-additivité), $\\mu\\big(\\bigcup_nN_n\\big)\\leq\\sum_n\\mu(N_n)=\\sum_n0=0$, donc la réunion est aussi négligeable. C'est la raison pour laquelle $\\mathbb{Q}$ (réunion dénombrable de singletons) est négligeable.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-1-e9",
+          question: "Pourquoi la condition de continuité décroissante des mesures nécessite-t-elle l'hypothèse $\\mu(A_1)<\\infty$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Sans cette hypothèse, le résultat peut être faux, par exemple avec $A_n=[n,+\\infty[$ pour la mesure de Lebesgue : $\\bigcap_nA_n=\\emptyset$ mais $\\mu(A_n)=+\\infty$ pour tout $n$" },
+            { id: "B", text: "Cette hypothèse est purement technique et n'a pas de contre-exemple" },
+            { id: "C", text: "Sans elle, $\\mu$ ne serait pas $\\sigma$-additive" },
+            { id: "D", text: "Cette hypothèse est nécessaire seulement pour la mesure de comptage" },
+          ],
+          correctId: "A",
+          explanation: "Le contre-exemple classique : avec $\\mu=\\lambda$ (Lebesgue) et $A_n=[n,+\\infty[$, on a $A_1\\supseteq A_2\\supseteq\\cdots$, $\\bigcap_nA_n=\\emptyset$ (donc $\\mu(\\bigcap A_n)=0$), mais $\\mu(A_n)=+\\infty$ pour tout $n$, donc $\\lim_n\\mu(A_n)=+\\infty\\neq0$. L'hypothèse $\\mu(A_1)<\\infty$ est donc essentielle.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-1-e10",
+          question: "Démontrer que la mesure de Lebesgue est croissante : si $A\\subseteq B$ (mesurables), alors $\\lambda(A)\\leq\\lambda(B)$.",
+          type: "open",
+          modelAnswer: "Écrire B = A ∪ (B\\A), union disjointe. Par σ-additivité (cas fini), λ(B) = λ(A) + λ(B\\A). Comme λ(B\\A) >= 0 (mesure à valeurs dans [0,+∞]), on obtient λ(B) >= λ(A).",
+          explanation: "**Décomposition.** Comme $A\\subseteq B$, on peut écrire $B$ comme une réunion **disjointe** : $B = A\\,\\cup\\,(B\\setminus A)$, avec $A\\cap(B\\setminus A)=\\emptyset$.\n\n**Application de l'additivité.** Par $\\sigma$-additivité (appliquée au cas particulier d'une union finie de deux ensembles disjoints) :\n$$\\lambda(B) = \\lambda(A) + \\lambda(B\\setminus A)$$\n\n**Conclusion.** Comme $\\lambda$ prend ses valeurs dans $[0,+\\infty]$, on a nécessairement $\\lambda(B\\setminus A)\\geq0$, donc :\n$$\\lambda(B) = \\lambda(A) + \\lambda(B\\setminus A) \\geq \\lambda(A) \\qquad \\square$$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-1-e11",
+          question: "Démontrer la sous-additivité dénombrable : pour toute suite $(A_n)_{n\\geq1}$ d'ensembles mesurables (pas nécessairement disjoints), $\\mu\\big(\\bigcup_nA_n\\big)\\leq\\sum_n\\mu(A_n)$.",
+          type: "open",
+          modelAnswer: "Construire B_n = A_n \\ (A_1∪...∪A_{n-1}), disjoints deux à deux, avec ∪B_n = ∪A_n et B_n ⊆ A_n donc μ(B_n)<=μ(A_n) par croissance. Par σ-additivité sur les B_n disjoints: μ(∪A_n)=μ(∪B_n)=Σμ(B_n)<=Σμ(A_n).",
+          explanation: "**Construction d'ensembles disjoints.** Posons $B_1=A_1$ et, pour $n\\geq2$, $B_n=A_n\\setminus(A_1\\cup\\cdots\\cup A_{n-1})$. Les $B_n$ sont deux à deux **disjoints** par construction, et on vérifie que $\\bigcup_nB_n=\\bigcup_nA_n$ (chaque point de l'union appartient à un premier $A_n$, donc à $B_n$).\n\n**Utilisation de la croissance.** Comme $B_n\\subseteq A_n$, la croissance de la mesure (exercice précédent) donne $\\mu(B_n)\\leq\\mu(A_n)$.\n\n**Application de la $\\sigma$-additivité (sur les $B_n$, disjoints) :**\n$$\\mu\\left(\\bigcup_nA_n\\right) = \\mu\\left(\\bigcup_nB_n\\right) = \\sum_n\\mu(B_n) \\leq \\sum_n\\mu(A_n) \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-1-e12",
+          question: "Soit $\\mu$ la mesure de comptage sur $\\mathbb{N}$ (donc $\\mu(A)=\\text{Card}(A)$). Calculer $\\mu(\\{2k:k\\in\\mathbb{N}\\})$ (les entiers pairs) et en déduire que la mesure de comptage d'un ensemble infini n'est jamais nulle.",
+          type: "open",
+          modelAnswer: "L'ensemble des entiers pairs est infini dénombrable, donc μ = Card = +∞ (par convention de la mesure de comptage pour les ensembles infinis). Plus généralement, tout ensemble non vide a un cardinal >= 1 > 0, donc μ(A)=0 seulement si A=∅ : la mesure de comptage n'a aucun ensemble négligeable non trivial.",
+          explanation: "**Calcul direct.** L'ensemble des entiers pairs $\\{2k:k\\in\\mathbb{N}\\}$ est en bijection avec $\\mathbb{N}$ (via $k\\mapsto2k$), donc il est **infini dénombrable**. Par définition de la mesure de comptage (qui vaut $+\\infty$ sur tout ensemble infini), $\\mu(\\{2k:k\\in\\mathbb{N}\\})=+\\infty$.\n\n**Généralisation.** Pour la mesure de comptage, $\\mu(A)=0$ si et seulement si $\\text{Card}(A)=0$, c'est-à-dire $A=\\emptyset$. Donc **aucun ensemble infini, ni même aucun ensemble non vide fini**, n'est négligeable pour cette mesure (un singleton a déjà $\\mu(\\{a\\})=1\\neq0$) — contrairement à la mesure de Lebesgue, où les singletons et les ensembles dénombrables sont négligeables. Ceci illustre que la notion de « négligeable » dépend fondamentalement du choix de la mesure $\\mu$, pas seulement de l'ensemble considéré.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-1-e13",
+          question: "Vrai ou faux : l'ensemble triadique de Cantor (construit en retirant à chaque étape le tiers central de chaque segment, à partir de $[0,1]$) est non dénombrable mais de mesure de Lebesgue nulle.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai — c'est un résultat classique et surprenant. L'ensemble de Cantor a la même cardinalité que $\\mathbb{R}$ (non dénombrable, par un argument de développement en base 3), mais sa mesure de Lebesgue est $0$ : à l'étape $n$, la longueur totale retirée cumulée tend vers $1$ (on retire $\\sum_{k=0}^{+\\infty}2^k/3^{k+1}=1$ au total), donc il ne reste aucune longueur. Cela illustre que « négligeable au sens de la mesure » et « petit au sens du cardinal » sont deux notions indépendantes.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-1-e14",
+          question: "Démontrer que pour deux ensembles mesurables $A,B$ (de mesures finies), $\\mu(A\\cup B)=\\mu(A)+\\mu(B)-\\mu(A\\cap B)$.",
+          type: "open",
+          modelAnswer: "Décomposer A∪B en trois parties disjointes: A\\B, A∩B, B\\A. μ(A∪B) = μ(A\\B)+μ(A∩B)+μ(B\\A) par additivité. Or μ(A)=μ(A\\B)+μ(A∩B) et μ(B)=μ(B\\A)+μ(A∩B) (même décomposition appliquée à A et B séparément). Donc μ(A)+μ(B) = μ(A\\B)+2μ(A∩B)+μ(B\\A) = μ(A∪B)+μ(A∩B), d'où μ(A∪B)=μ(A)+μ(B)-μ(A∩B).",
+          explanation: "**Décomposition en parties disjointes.** On écrit $A\\cup B$ comme la réunion disjointe de trois ensembles : $A\\setminus B$, $A\\cap B$, $B\\setminus A$. Par additivité (cas fini de la $\\sigma$-additivité) :\n$$\\mu(A\\cup B) = \\mu(A\\setminus B) + \\mu(A\\cap B) + \\mu(B\\setminus A)$$\n\n**Décompositions de $\\mu(A)$ et $\\mu(B)$ séparément.** De même, $A=(A\\setminus B)\\cup(A\\cap B)$ (disjoint), donc $\\mu(A)=\\mu(A\\setminus B)+\\mu(A\\cap B)$. Et $B=(B\\setminus A)\\cup(A\\cap B)$ (disjoint), donc $\\mu(B)=\\mu(B\\setminus A)+\\mu(A\\cap B)$.\n\n**Combinaison.** En sommant les deux dernières égalités :\n$$\\mu(A)+\\mu(B) = \\mu(A\\setminus B)+\\mu(B\\setminus A)+2\\mu(A\\cap B)$$\n\nEn comparant avec l'expression de $\\mu(A\\cup B)$ obtenue plus haut :\n$$\\mu(A)+\\mu(B) = \\mu(A\\cup B) + \\mu(A\\cap B)$$\n\nD'où, en réarrangeant (toutes les quantités étant finies par hypothèse, la soustraction est licite) :\n$$\\mu(A\\cup B) = \\mu(A)+\\mu(B)-\\mu(A\\cap B) \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-1-e15",
+          question: "Expliquer pourquoi il n'existe pas de mesure $\\mu$ définie sur **toutes** les parties de $\\mathbb{R}$, invariante par translation et vérifiant $\\mu([0,1])=1$ — résultat lié à l'existence d'ensembles non mesurables (Vitali).",
+          type: "open",
+          modelAnswer: "L'argument de Vitali construit, via l'axiome du choix, un ensemble V ⊂ [0,1] formé d'un représentant par classe d'équivalence de la relation x~y ⟺ x-y∈ℚ. En translatant V par chaque rationnel de [-1,1]∩ℚ (dénombrable), les translatés sont disjoints et leur union est contenue dans [-1,2] mais contient [0,1]. Si V était mesurable de mesure m (par invariance par translation, tous les translatés ont la même mesure m), la σ-additivité donnerait soit une somme infinie de m (si m>0, contredisant que l'union est bornée donc de mesure finie), soit 0 (si m=0, contredisant que l'union contient [0,1] de mesure >=1). Contradiction dans les deux cas, donc V n'est pas mesurable: il faut restreindre la mesure à une tribu strictement plus petite que toutes les parties de R.",
+          explanation: "**L'argument de Vitali (esquisse).** On définit la relation d'équivalence $x\\sim y \\iff x-y\\in\\mathbb{Q}$ sur $[0,1]$. En utilisant l'**axiome du choix**, on construit un ensemble $V\\subset[0,1]$ contenant exactement **un représentant** de chaque classe d'équivalence.\n\n**Translatés disjoints.** Pour $q\\in\\mathbb{Q}\\cap[-1,1]$ (ensemble dénombrable), les translatés $V+q=\\{v+q:v\\in V\\}$ sont deux à deux **disjoints** (si $(v+q)=(v'+q')$ avec $v,v'\\in V$, alors $v-v'=q'-q\\in\\mathbb{Q}$, donc $v\\sim v'$, donc $v=v'$ par construction de $V$, donc $q=q'$). De plus, $[0,1]\\subseteq\\bigcup_qV+q\\subseteq[-1,2]$.\n\n**Contradiction si $V$ est mesurable.** Si $\\mu$ existe (invariante par translation, donc $\\mu(V+q)=\\mu(V)=m$ pour tout $q$) et que $V$ est mesurable :\n- Si $m>0$ : par $\\sigma$-additivité sur l'union disjointe dénombrable, $\\mu\\big(\\bigcup_qV+q\\big)=\\sum_q m=+\\infty$ (somme infinie de termes égaux à $m>0$). Mais cette union est contenue dans $[-1,2]$, de mesure finie $3$ — **contradiction**.\n- Si $m=0$ : alors $\\mu\\big(\\bigcup_qV+q\\big)=\\sum_q0=0$. Mais cette union contient $[0,1]$, donc $\\mu\\big(\\bigcup_qV+q\\big)\\geq\\mu([0,1])=1$ — **contradiction**.\n\n**Conclusion.** Dans les deux cas, on obtient une contradiction : $V$ ne peut donc pas être mesurable. Il est donc **impossible** de définir une mesure $\\mu$ sur **toutes** les parties de $\\mathbb{R}$, invariante par translation, avec $\\mu([0,1])=1$ — c'est précisément pourquoi la théorie de la mesure restreint l'intégration à une tribu (comme la tribu borélienne, ou sa complétée la tribu de Lebesgue), strictement plus petite que l'ensemble de toutes les parties de $\\mathbb{R}$. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "mes3-l3-2",
+      slug: "fonctions-mesurables-integrale-lebesgue",
+      title: "Fonctions mesurables et construction de l'intégrale de Lebesgue",
+      durationMinutes: 60,
+      content: `## Fonctions mesurables et construction de l'intégrale de Lebesgue
+
+### 1. Fonctions mesurables
+
+Une fonction $f:\\Omega\\to\\mathbb{R}$ (ou $\\overline{\\mathbb{R}}=\\mathbb{R}\\cup\\{\\pm\\infty\\}$) est **mesurable** (par rapport à une tribu $\\mathcal{A}$ sur $\\Omega$) si, pour tout $a\\in\\mathbb{R}$, l'ensemble $\\{x\\in\\Omega:f(x)>a\\}$ appartient à $\\mathcal{A}$. Cette condition équivaut à demander que $\\{f<a\\}$, $\\{f\\leq a\\}$ ou $\\{f\\geq a\\}$ soient mesurables pour tout $a$ — les quatre formulations sont équivalentes.
+
+**Propriétés de stabilité :** la somme, le produit, le maximum, le minimum de deux fonctions mesurables sont mesurables ; la limite simple d'une suite de fonctions mesurables est mesurable (contrairement à la continuité, qui n'est pas stable par limite simple !). Toute fonction **continue** est mesurable (pour la tribu borélienne).
+
+### 2. Fonctions étagées
+
+Une **fonction étagée** (ou simple) est une combinaison linéaire finie d'indicatrices d'ensembles mesurables :
+$$\\varphi = \\sum_{i=1}^n c_i\\,\\mathbb{1}_{A_i} \\qquad (c_i\\in\\mathbb{R}_+,\\ A_i\\in\\mathcal{A}\\text{ deux à deux disjoints})$$
+
+On définit naturellement son intégrale : $\\displaystyle\\int\\varphi\\,d\\mu = \\sum_{i=1}^n c_i\\,\\mu(A_i)$.
+
+### 3. Construction de l'intégrale pour $f\\geq0$ mesurable
+
+Pour une fonction mesurable $f\\geq0$, on définit :
+$$\\int f\\,d\\mu = \\sup\\left\\{\\int\\varphi\\,d\\mu : \\varphi\\text{ étagée}, 0\\leq\\varphi\\leq f\\right\\}$$
+
+C'est-à-dire qu'on **approxime $f$ par des fonctions étagées en escalier sous son graphe**, et on prend la borne supérieure des intégrales de ces approximations — l'idée duale de Riemann (qui découpe l'axe des abscisses), Lebesgue découpe l'axe des **ordonnées**.
+
+### 4. Intégrale pour $f$ de signe quelconque
+
+Pour $f$ mesurable de signe quelconque, on pose $f^+=\\max(f,0)$ et $f^-=\\max(-f,0)$ (parties positive et négative, toutes deux $\\geq0$), avec $f=f^+-f^-$ et $|f|=f^++f^-$. On dit que $f$ est **intégrable** si $\\int f^+\\,d\\mu<\\infty$ et $\\int f^-\\,d\\mu<\\infty$ (de façon équivalente, $\\int|f|\\,d\\mu<\\infty$), et on pose alors :
+$$\\int f\\,d\\mu = \\int f^+\\,d\\mu - \\int f^-\\,d\\mu$$
+
+### 5. Exemple résolu — la fonction de Dirichlet, enfin intégrable
+
+Reprenons $f=\\mathbb{1}_{\\mathbb{Q}\\cap[0,1]}$. Comme $\\mathbb{Q}\\cap[0,1]$ est mesurable (dénombrable, donc borélien) et de mesure de Lebesgue nulle (§4 de la leçon précédente), $f$ est une fonction étagée elle-même ($f=1\\cdot\\mathbb{1}_{\\mathbb{Q}\\cap[0,1]}+0\\cdot\\mathbb{1}_{[0,1]\\setminus\\mathbb{Q}}$), donc directement intégrable, avec :
+$$\\int_0^1 f\\,d\\lambda = 1\\times\\lambda(\\mathbb{Q}\\cap[0,1]) + 0\\times\\lambda([0,1]\\setminus\\mathbb{Q}) = 1\\times0+0 = 0$$
+
+Lebesgue résout donc immédiatement ce que Riemann ne pouvait pas traiter — et confirme l'intuition que $f$ est « presque partout nulle ».
+
+### 6. Comparaison avec l'intégrale de Riemann
+
+**Théorème de compatibilité :** si $f$ est Riemann-intégrable sur $[a,b]$, alors $f$ est Lebesgue-intégrable, et les deux intégrales coïncident. L'intégrale de Lebesgue est donc une **extension stricte** de l'intégrale de Riemann (elle traite davantage de fonctions, comme Dirichlet, et son cadre théorique pour les théorèmes de convergence est bien plus robuste — étudié à la leçon suivante).
+
+### 7. Récapitulatif
+
+| Notion | Définition |
+|---|---|
+| Fonction mesurable | $\\{f>a\\}$ mesurable pour tout $a\\in\\mathbb{R}$ |
+| Fonction étagée | combinaison linéaire finie d'indicatrices d'ensembles mesurables |
+| $\\int f\\,d\\mu$ ($f\\geq0$) | $\\sup$ des intégrales des étagées $\\leq f$ |
+| $f$ intégrable | $\\int|f|\\,d\\mu<\\infty$ |
+| Compatibilité Riemann/Lebesgue | coïncident sur les fonctions Riemann-intégrables |`,
+      exercises: [
+        {
+          id: "mes3-l3-2-e1",
+          question: "Quelle est la condition pour qu'une fonction $f$ soit mesurable ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\{f>a\\}$ est mesurable pour tout $a\\in\\mathbb{R}$" },
+            { id: "B", text: "$f$ est continue" },
+            { id: "C", text: "$f$ est bornée" },
+            { id: "D", text: "$f$ prend un nombre fini de valeurs" },
+          ],
+          correctId: "A",
+          explanation: "C'est la définition standard : $f$ est mesurable si l'image réciproque de tout intervalle $]a,+\\infty[$ est un ensemble mesurable, pour tout $a$ réel.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-2-e2",
+          question: "Vrai ou faux : toute fonction continue est mesurable (pour la tribu borélienne).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Si $f$ est continue, $\\{f>a\\}=f^{-1}(]a,+\\infty[)$ est l'image réciproque d'un ouvert par une application continue, donc un ouvert, donc un borélien.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-2-e3",
+          question: "Qu'est-ce qu'une fonction étagée ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Une combinaison linéaire finie d'indicatrices d'ensembles mesurables" },
+            { id: "B", text: "Une fonction continue par morceaux" },
+            { id: "C", text: "Une fonction polynomiale" },
+            { id: "D", text: "Une fonction dérivable" },
+          ],
+          correctId: "A",
+          explanation: "Une fonction étagée s'écrit $\\varphi=\\sum_ic_i\\mathbb{1}_{A_i}$ avec les $A_i$ mesurables disjoints — c'est l'analogue, pour Lebesgue, des fonctions en escalier utilisées dans la construction de Riemann.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-2-e4",
+          question: "Vrai ou faux : si $f$ est Riemann-intégrable sur $[a,b]$, alors $f$ est aussi Lebesgue-intégrable, avec la même valeur d'intégrale.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est le théorème de compatibilité : l'intégrale de Lebesgue étend strictement celle de Riemann, sans jamais la contredire sur les fonctions où les deux sont définies.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-2-e5",
+          question: "Quelle est l'intégrale de Lebesgue de la fonction de Dirichlet $\\mathbb{1}_{\\mathbb{Q}\\cap[0,1]}$ sur $[0,1]$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$1/2$" },
+            { id: "D", text: "Cette intégrale n'existe pas" },
+          ],
+          correctId: "A",
+          explanation: "Comme $\\mathbb{Q}\\cap[0,1]$ est de mesure de Lebesgue nulle, $\\int_0^1\\mathbb{1}_{\\mathbb{Q}\\cap[0,1]}\\,d\\lambda=1\\times0=0$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-2-e6",
+          question: "Pour la fonction étagée $\\varphi=3\\cdot\\mathbb{1}_{[0,1]}+5\\cdot\\mathbb{1}_{]1,2]}$, calculer $\\int\\varphi\\,d\\lambda$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$8$" },
+            { id: "B", text: "$15$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$5$" },
+          ],
+          correctId: "A",
+          explanation: "$\\int\\varphi\\,d\\lambda=3\\times\\lambda([0,1])+5\\times\\lambda(]1,2])=3\\times1+5\\times1=8$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-2-e7",
+          question: "Pour $f(x)=x$ sur $\\Omega=[-2,3]$, calculer $\\int f^+\\,d\\lambda$ (la partie positive intégrée).",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$9/2$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$5/2$" },
+            { id: "D", text: "$0$" },
+          ],
+          correctId: "A",
+          explanation: "$f^+(x)=\\max(x,0)$ vaut $x$ sur $[0,3]$ et $0$ ailleurs. $\\int f^+\\,d\\lambda=\\int_0^3x\\,dx=\\dfrac{9}{2}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-2-e8",
+          question: "Vrai ou faux : la somme de deux fonctions mesurables est toujours mesurable.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'une des propriétés de stabilité de base des fonctions mesurables, qui en fait un cadre très robuste (contrairement, par exemple, à la dérivabilité, qui n'est pas toujours préservée par certaines opérations).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-2-e9",
+          question: "Vrai ou faux : la limite simple d'une suite de fonctions continues est toujours continue.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux — c'est une des limites de la continuité que la théorie de la mesure dépasse. Contre-exemple classique : $f_n(x)=x^n$ sur $[0,1]$, continue pour tout $n$, converge simplement vers la fonction discontinue $f(x)=0$ pour $x<1$, $f(1)=1$. En revanche, la **mesurabilité** est, elle, toujours préservée par limite simple.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-2-e10",
+          question: "Soit $f(x)=-2$ sur $[0,1]$ et $f(x)=3$ sur $]1,2]$. Calculer $\\int f\\,d\\lambda$ en utilisant $f=f^+-f^-$.",
+          type: "open",
+          modelAnswer: "f+ = 3 sur ]1,2], 0 ailleurs (sur [0,2]). f- = 2 sur [0,1], 0 ailleurs. ∫f+ dλ = 3·1=3. ∫f- dλ=2·1=2. ∫f dλ = 3-2=1. Vérification directe: ∫f = -2·1+3·1=1.",
+          explanation: "**Décomposition en parties positive et négative.** $f^+=\\max(f,0)$ vaut $3$ sur $]1,2]$ (où $f=3>0$) et $0$ sur $[0,1]$ (où $f=-2<0$). $f^-=\\max(-f,0)$ vaut $2$ sur $[0,1]$ (où $-f=2>0$) et $0$ sur $]1,2]$.\n\n**Calcul séparé.** $\\int f^+\\,d\\lambda = 3\\times\\lambda(]1,2]) = 3\\times1=3$. $\\int f^-\\,d\\lambda = 2\\times\\lambda([0,1]) = 2\\times1=2$.\n\n**Conclusion.** $\\int f\\,d\\lambda = \\int f^+\\,d\\lambda - \\int f^-\\,d\\lambda = 3-2=1$.\n\n**Vérification directe** (puisque $f$ est elle-même étagée) : $\\int f\\,d\\lambda=(-2)\\times1+3\\times1=1$. Les deux méthodes coïncident. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-2-e11",
+          question: "Démontrer que l'ensemble $\\{f=a\\}$ est mesurable pour toute fonction mesurable $f$ et tout $a\\in\\mathbb{R}$, à partir de la définition $\\{f>c\\}$ mesurable pour tout $c$.",
+          type: "open",
+          modelAnswer: "{f=a} = {f>=a} ∩ {f<=a}. {f>=a} = {f>a-1/n pour tout n} = ∩_n{f>a-1/n}, intersection dénombrable de mesurables donc mesurable. {f<=a} = complémentaire de {f>a}, donc mesurable. Intersection de deux mesurables est mesurable, donc {f=a} est mesurable.",
+          explanation: "**Étape 1 — $\\{f\\geq a\\}$ est mesurable.** On écrit $\\{f\\geq a\\}=\\bigcap_{n\\geq1}\\{f>a-1/n\\}$ (un point $x$ vérifie $f(x)\\geq a$ si et seulement si $f(x)>a-1/n$ pour tout $n$, par passage à la limite). Chaque $\\{f>a-1/n\\}$ est mesurable par hypothèse, et une intersection **dénombrable** d'ensembles mesurables est mesurable (stabilité de la tribu, via De Morgan à partir de la stabilité par réunion dénombrable et complémentaire).\n\n**Étape 2 — $\\{f\\leq a\\}$ est mesurable.** $\\{f\\leq a\\}=\\{f>a\\}^c$, complémentaire d'un mesurable, donc mesurable.\n\n**Étape 3 — conclusion.** $\\{f=a\\}=\\{f\\geq a\\}\\cap\\{f\\leq a\\}$, intersection de deux ensembles mesurables, donc mesurable (stabilité par intersection finie, cas particulier de la stabilité dénombrable). $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-2-e12",
+          question: "Soit $f_n=n\\cdot\\mathbb{1}_{[0,1/n]}$. Calculer $\\int f_n\\,d\\lambda$ pour tout $n$, puis $\\lim_n\\int f_n\\,d\\lambda$, et comparer avec $\\int\\big(\\lim_nf_n\\big)\\,d\\lambda$.",
+          type: "open",
+          modelAnswer: "∫f_n dλ = n · λ([0,1/n]) = n · (1/n) = 1 pour tout n. Donc lim_n ∫f_n dλ = 1. Pointwise, f_n(x)→0 pour tout x>0 fixé (car pour n assez grand, x>1/n), et f_n(0)=n→∞ (mais c'est un seul point, mesure nulle). Donc lim_n f_n = 0 presque partout, et ∫(lim f_n) dλ = ∫0 dλ = 0 ≠ 1 = lim ∫f_n dλ. Cet exemple illustre qu'on ne peut pas toujours échanger limite et intégrale sans hypothèse supplémentaire (ici, l'absence de domination empêche le théorème de convergence dominée de s'appliquer).",
+          explanation: "**Calcul de $\\int f_n\\,d\\lambda$.** $f_n$ est une fonction étagée valant $n$ sur $[0,1/n]$ et $0$ ailleurs, donc $\\int f_n\\,d\\lambda = n\\times\\lambda([0,1/n]) = n\\times\\dfrac1n = 1$, pour **tout** $n$. Donc $\\lim_n\\int f_n\\,d\\lambda=1$.\n\n**Limite simple (pointwise) de $f_n$.** Pour $x>0$ fixé, dès que $n>1/x$, on a $x\\notin[0,1/n]$, donc $f_n(x)=0$ : ainsi $f_n(x)\\to0$ pour tout $x>0$. En $x=0$, $f_n(0)=n\\to+\\infty$ (mais $\\{0\\}$ est négligeable). Donc $f_n\\to0$ **presque partout**.\n\n**Comparaison.** $\\displaystyle\\int\\Big(\\lim_nf_n\\Big)d\\lambda = \\int0\\,d\\lambda=0$, alors que $\\displaystyle\\lim_n\\int f_n\\,d\\lambda=1\\neq0$.\n\n**Conclusion.** Cet exemple montre qu'en général, **on ne peut pas échanger limite et intégrale sans hypothèse supplémentaire** : ici, la « masse » de $f_n$ ne disparaît pas à la limite mais se concentre de plus en plus près de $x=0$ (un phénomène de concentration), empêchant le théorème de convergence dominée de s'appliquer (il n'existe pas de fonction intégrable $g$ avec $f_n\\leq g$ pour tout $n$, car $f_n(0)=n\\to\\infty$). C'est exactement la mise en garde qui motive les hypothèses précises des théorèmes de convergence étudiés à la leçon suivante.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-2-e13",
+          question: "Vrai ou faux : si $f=g$ presque partout et que $f$ est intégrable, alors $g$ est intégrable avec $\\int f\\,d\\mu=\\int g\\,d\\mu$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une propriété fondamentale de l'intégrale de Lebesgue : elle ne « voit » pas les ensembles négligeables. Deux fonctions égales presque partout ont des intégrales identiques — c'est précisément ce qui permet à Lebesgue de traiter sans difficulté la fonction de Dirichlet (égale presque partout à la fonction nulle).",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-2-e14",
+          question: "Démontrer la linéarité de l'intégrale sur les fonctions étagées positives : pour $\\varphi,\\psi$ étagées $\\geq0$ et $\\alpha,\\beta\\geq0$, $\\int(\\alpha\\varphi+\\beta\\psi)\\,d\\mu=\\alpha\\int\\varphi\\,d\\mu+\\beta\\int\\psi\\,d\\mu$.",
+          type: "open",
+          modelAnswer: "Écrire φ=Σc_i·1_{A_i} et ψ=Σd_j·1_{B_j} avec les A_i (resp B_j) formant une partition. En raffinant les deux partitions en une partition commune (les intersections A_i∩B_j), on peut réécrire αφ+βψ comme une fonction étagée sur cette partition commune, dont l'intégrale (par définition, une simple somme finie pondérée par les mesures) se factorise immédiatement en α∫φdμ + β∫ψdμ grâce à la σ-additivité (additivité finie) de μ sur les A_i∩B_j formant chaque A_i (ou chaque B_j).",
+          explanation: "**Raffinement commun des partitions.** Écrivons $\\varphi=\\sum_ic_i\\mathbb{1}_{A_i}$ et $\\psi=\\sum_jd_j\\mathbb{1}_{B_j}$, où $(A_i)_i$ et $(B_j)_j$ forment chacune une partition mesurable de l'espace (en complétant éventuellement par un ensemble où la fonction vaut $0$). On considère le raffinement commun $C_{ij}=A_i\\cap B_j$, qui forme également une partition, et sur lequel $\\varphi$ vaut $c_i$ et $\\psi$ vaut $d_j$ (constantes), donc $\\alpha\\varphi+\\beta\\psi$ vaut la constante $\\alpha c_i+\\beta d_j$ sur chaque $C_{ij}$.\n\n**Calcul de l'intégrale sur la partition raffinée.** Par définition de l'intégrale d'une fonction étagée :\n$$\\int(\\alpha\\varphi+\\beta\\psi)\\,d\\mu = \\sum_{i,j}(\\alpha c_i+\\beta d_j)\\,\\mu(C_{ij}) = \\alpha\\sum_{i,j}c_i\\mu(C_{ij}) + \\beta\\sum_{i,j}d_j\\mu(C_{ij})$$\n\n**Regroupement par $i$ (puis par $j$).** Comme $(C_{ij})_j$ partitionne $A_i$ pour chaque $i$ fixé, $\\sum_jμ(C_{ij})=\\mu(A_i)$ par additivité finie, donc $\\sum_{i,j}c_i\\mu(C_{ij})=\\sum_ic_i\\mu(A_i)=\\int\\varphi\\,d\\mu$. De même, $\\sum_{i,j}d_j\\mu(C_{ij})=\\sum_jd_j\\mu(B_j)=\\int\\psi\\,d\\mu$.\n\n**Conclusion.**\n$$\\int(\\alpha\\varphi+\\beta\\psi)\\,d\\mu = \\alpha\\int\\varphi\\,d\\mu + \\beta\\int\\psi\\,d\\mu \\qquad \\square$$\n\nCette linéarité sur les étagées est la brique de base à partir de laquelle on étend ensuite la linéarité de l'intégrale à toutes les fonctions intégrables, par passage à la limite dans la construction par sup.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-2-e15",
+          question: "Démontrer que $f$ mesurable bornée sur un ensemble de mesure finie est toujours intégrable (i.e. $\\int|f|\\,d\\mu<\\infty$).",
+          type: "open",
+          modelAnswer: "Si |f|<=M sur Ω avec μ(Ω)<∞, alors la fonction constante M·1_Ω majore |f|. Par monotonie de l'intégrale (l'intégrale d'une fonction étagée majorante donne une borne sur le sup défini par la construction de Lebesgue), ∫|f|dμ <= ∫M·1_Ω dμ = M·μ(Ω) < ∞ (produit de deux quantités finies). Donc f est intégrable.",
+          explanation: "**Hypothèses.** Soit $f$ mesurable avec $|f(x)|\\leq M$ pour tout $x\\in\\Omega$ (bornée), et $\\mu(\\Omega)<\\infty$ (mesure finie).\n\n**Majoration directe.** La fonction constante $g=M\\cdot\\mathbb{1}_\\Omega$ est une fonction étagée positive vérifiant $|f|\\leq g$ partout sur $\\Omega$.\n\n**Monotonie de l'intégrale.** Par construction de l'intégrale de Lebesgue (borne supérieure des intégrales des étagées minorant la fonction), si $h\\leq g$ (avec $h,g\\geq0$ mesurables), alors $\\int h\\,d\\mu\\leq\\int g\\,d\\mu$ (toute étagée $\\leq h$ est aussi $\\leq g$, donc l'ensemble des étagées dont on prend le sup pour $h$ est inclus dans celui pour $g$).\n\n**Application.** $\\int|f|\\,d\\mu \\leq \\int g\\,d\\mu = \\int M\\cdot\\mathbb{1}_\\Omega\\,d\\mu = M\\cdot\\mu(\\Omega)$.\n\n**Conclusion.** Comme $M<\\infty$ et $\\mu(\\Omega)<\\infty$, on a $M\\cdot\\mu(\\Omega)<\\infty$, donc $\\int|f|\\,d\\mu<\\infty$ : $f$ est intégrable. $\\square$ Ce résultat justifie que, sur un espace de mesure finie (comme $[0,1]$ muni de Lebesgue), **toute fonction mesurable bornée est automatiquement intégrable**, sans condition supplémentaire — contrairement au cas d'un espace de mesure infinie (comme $\\mathbb{R}$ tout entier), où une fonction bornée n'est pas forcément intégrable (par exemple $f\\equiv1$ sur $\\mathbb{R}$).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "mes3-l3-3",
+      slug: "theoremes-de-convergence",
+      title: "Théorèmes de convergence (monotone, dominée)",
+      durationMinutes: 60,
+      content: `## Théorèmes de convergence
+
+### 1. Pourquoi des théorèmes de convergence ?
+
+L'un des plus grands avantages de l'intégrale de Lebesgue sur celle de Riemann est la **robustesse de l'échange limite-intégrale** : sous des hypothèses raisonnables (et souvent plus faibles qu'en théorie de Riemann), on peut affirmer $\\lim_n\\int f_n\\,d\\mu=\\int\\big(\\lim_nf_n\\big)\\,d\\mu$. Trois théorèmes majeurs encadrent cette question.
+
+### 2. Théorème de convergence monotone (Beppo Levi)
+
+**Théorème :** Soit $(f_n)_{n\\geq1}$ une suite **croissante** de fonctions mesurables positives ($0\\leq f_1\\leq f_2\\leq\\cdots$), convergeant simplement vers $f=\\lim_nf_n$ (éventuellement $+\\infty$). Alors :
+$$\\lim_{n\\to+\\infty}\\int f_n\\,d\\mu = \\int f\\,d\\mu \\qquad\\Big(=\\int\\lim_nf_n\\,d\\mu\\Big)$$
+
+**Exemple résolu.** Soit $f_n(x)=\\min(n,1/\\sqrt{x})$ sur $]0,1]$ (et $f_n(0)=n$, sans incidence). La suite $(f_n)$ est croissante (en $n$) et converge simplement vers $f(x)=1/\\sqrt x$. Par convergence monotone :
+$$\\lim_n\\int_0^1 f_n\\,d\\lambda = \\int_0^1\\frac{1}{\\sqrt x}\\,dx = \\Big[2\\sqrt x\\Big]_0^1 = 2$$
+(intégrale impropre au sens de Riemann, mais parfaitement définie et finie au sens de Lebesgue, le théorème garantissant la convergence des intégrales tronquées vers cette valeur).
+
+### 3. Lemme de Fatou
+
+**Lemme (Fatou) :** pour toute suite $(f_n)$ de fonctions mesurables **positives** :
+$$\\int\\liminf_n f_n\\,d\\mu \\leq \\liminf_n\\int f_n\\,d\\mu$$
+
+C'est une inégalité (pas une égalité en général), utile lorsque la suite n'est pas monotone. Il sert d'outil technique intermédiaire pour démontrer le théorème de convergence dominée.
+
+### 4. Théorème de convergence dominée (Lebesgue)
+
+**Théorème :** Soit $(f_n)_{n\\geq1}$ une suite de fonctions mesurables convergeant simplement (presque partout) vers $f$. S'il existe une fonction **intégrable** $g$ telle que $|f_n|\\leq g$ presque partout, pour **tout** $n$ (domination uniforme), alors $f$ est intégrable et :
+$$\\lim_{n\\to+\\infty}\\int f_n\\,d\\mu = \\int f\\,d\\mu$$
+
+**Contre-exemple sans domination (rappel) :** pour $f_n=n\\cdot\\mathbb{1}_{[0,1/n]}$, on a $f_n\\to0$ p.p. mais $\\int f_n\\,d\\lambda=1\\not\\to0$ : il n'existe ici aucune fonction intégrable $g$ dominant tous les $f_n$ (car $f_n(0)=n\\to+\\infty$), donc le théorème ne s'applique pas — cohérent avec l'échec de l'échange limite-intégrale observé.
+
+### 5. Exemple résolu — convergence dominée
+
+Soit $f_n(x)=\\dfrac{\\sin(nx)}{1+nx^2}$ sur $[0,1]$. On a $|f_n(x)|\\leq\\dfrac{1}{1+nx^2}\\leq1$ pour tout $n,x$ (car $|\\sin|\\leq1$ et $1+nx^2\\geq1$), donc $g\\equiv1$ (intégrable sur $[0,1]$, de mesure finie) domine uniformément la suite. Comme $f_n(x)\\to0$ pour tout $x$ fixé (le numérateur est borné, le dénominateur croît si $x\\neq0$ ; en $x=0$, $f_n(0)=0$ pour tout $n$), le théorème de convergence dominée donne directement :
+$$\\lim_{n\\to+\\infty}\\int_0^1\\frac{\\sin(nx)}{1+nx^2}\\,dx = \\int_0^1 0\\,dx = 0$$
+
+sans avoir à calculer explicitement l'intégrale pour chaque $n$ (ce qui serait très difficile).
+
+### 6. Comparaison des trois théorèmes
+
+| Théorème | Hypothèse sur $(f_n)$ | Conclusion |
+|---|---|---|
+| Convergence monotone | $f_n\\geq0$, croissante | $\\lim\\int f_n=\\int\\lim f_n$ (égalité, même si $=+\\infty$) |
+| Fatou | $f_n\\geq0$ (pas de monotonie) | $\\int\\liminf f_n\\leq\\liminf\\int f_n$ (inégalité seulement) |
+| Convergence dominée | $|f_n|\\leq g$ intégrable | $\\lim\\int f_n=\\int\\lim f_n$ (égalité) |
+
+### 7. Récapitulatif
+
+| Outil | Rôle |
+|---|---|
+| Convergence monotone | échanger limite croissante et intégrale, sans hypothèse de domination |
+| Fatou | minorer $\\liminf\\int f_n$, outil technique intermédiaire |
+| Convergence dominée | échanger limite quelconque et intégrale, sous domination uniforme |`,
+      exercises: [
+        {
+          id: "mes3-l3-3-e1",
+          question: "Quelle hypothèse principale requiert le théorème de convergence monotone sur la suite $(f_n)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$f_n\\geq0$ et la suite est croissante" },
+            { id: "B", text: "$f_n$ est bornée par une fonction intégrable" },
+            { id: "C", text: "$f_n$ est continue" },
+            { id: "D", text: "$f_n$ converge uniformément" },
+          ],
+          correctId: "A",
+          explanation: "Le théorème de convergence monotone (Beppo Levi) demande que la suite soit positive et croissante — c'est cette monotonie qui garantit l'échange limite-intégrale, sans besoin de domination.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-3-e2",
+          question: "Vrai ou faux : le théorème de convergence dominée nécessite l'existence d'une fonction intégrable $g$ dominant uniformément tous les $f_n$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est précisément l'hypothèse de « domination » qui donne son nom au théorème : $|f_n|\\leq g$ presque partout, pour tout $n$, avec $g$ intégrable.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-3-e3",
+          question: "Que dit le lemme de Fatou ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\int\\liminf_nf_n\\,d\\mu\\leq\\liminf_n\\int f_n\\,d\\mu$ pour $f_n\\geq0$" },
+            { id: "B", text: "$\\int\\liminf_nf_n\\,d\\mu=\\liminf_n\\int f_n\\,d\\mu$ toujours" },
+            { id: "C", text: "$\\int f_n\\,d\\mu$ converge toujours" },
+            { id: "D", text: "Les $f_n$ doivent être croissantes" },
+          ],
+          correctId: "A",
+          explanation: "Le lemme de Fatou est une **inégalité**, pas une égalité, valable pour toute suite de fonctions positives (sans hypothèse de monotonie ni de domination).",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-3-e4",
+          question: "Vrai ou faux : la suite $f_n=n\\cdot\\mathbb{1}_{[0,1/n]}$ vérifie les hypothèses du théorème de convergence dominée.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Il n'existe aucune fonction intégrable $g$ dominant uniformément tous les $f_n$, car $f_n(0)=n\\to+\\infty$ : aucune fonction fixe $g$ ne peut majorer $f_n(0)$ pour tout $n$. C'est pourquoi $\\lim\\int f_n=1\\neq0=\\int\\lim f_n$ dans cet exemple.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-3-e5",
+          question: "Pour $f_n(x)=\\dfrac{\\sin(nx)}{1+nx^2}$ sur $[0,1]$, quelle fonction constante peut servir de fonction dominante intégrable $g$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$g\\equiv1$" },
+            { id: "B", text: "$g\\equiv n$" },
+            { id: "C", text: "Aucune fonction constante ne convient" },
+            { id: "D", text: "$g(x)=1/x$" },
+          ],
+          correctId: "A",
+          explanation: "Comme $|\\sin(nx)|\\leq1$ et $1+nx^2\\geq1$, on a $|f_n(x)|\\leq1$ pour tout $n,x$, donc $g\\equiv1$ (intégrable sur $[0,1]$ de mesure finie) domine uniformément la suite.",
+          difficulty: "debutant",
+        },
+        {
+          id: "mes3-l3-3-e6",
+          question: "Soit $f_n(x)=\\min(n,1/\\sqrt x)$ sur $]0,1]$. En appliquant le théorème de convergence monotone, calculer $\\lim_n\\int_0^1f_n\\,d\\lambda$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$2$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$+\\infty$" },
+            { id: "D", text: "$0$" },
+          ],
+          correctId: "A",
+          explanation: "La suite croît vers $f(x)=1/\\sqrt x$, donc par convergence monotone, $\\lim_n\\int_0^1f_n\\,d\\lambda=\\int_0^1\\frac{1}{\\sqrt x}dx=[2\\sqrt x]_0^1=2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-3-e7",
+          question: "Vrai ou faux : dans le théorème de convergence dominée, la convergence simple de $(f_n)$ vers $f$ peut être seulement presque partout (pas nécessairement en tout point).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'un des avantages de la théorie de la mesure : les hypothèses des théorèmes de convergence n'ont besoin d'être vérifiées que presque partout, les ensembles négligeables n'affectant jamais la valeur de l'intégrale.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-3-e8",
+          question: "Pourquoi le théorème de convergence monotone ne s'applique-t-il pas directement à une suite décroissante de fonctions positives ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Car l'hypothèse du théorème exige explicitement la croissance, pas la décroissance ; pour une suite décroissante, il faut une hypothèse supplémentaire (par exemple $f_1$ intégrable)" },
+            { id: "B", text: "Une suite décroissante de fonctions positives ne peut jamais converger" },
+            { id: "C", text: "Le résultat est automatiquement vrai pour les suites décroissantes aussi, sans changement" },
+            { id: "D", text: "Les suites décroissantes ne sont jamais mesurables" },
+          ],
+          correctId: "A",
+          explanation: "Le théorème de convergence monotone, dans sa forme standard, est énoncé pour les suites croissantes. Pour une suite décroissante $(f_n)$ de fonctions positives, on peut obtenir un résultat analogue en appliquant le théorème à $g_n=f_1-f_n$ (croissante), à condition que $f_1$ soit intégrable — sans cette précaution supplémentaire, le résultat peut être faux.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-3-e9",
+          question: "Soit $f_n(x)=\\dfrac{x}{n}\\cdot\\mathbb{1}_{[0,n]}(x)$. Cette suite vérifie-t-elle les hypothèses de la convergence dominée sur $\\mathbb{R}$ tout entier ?",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Bien que $f_n(x)\\to0$ pour tout $x$ fixé (car pour $n$ assez grand $x/n\\to0$), il n'existe aucune fonction intégrable $g$ sur $\\mathbb{R}$ dominant uniformément tous les $f_n$ : sur $[0,n]$, $f_n$ atteint la valeur $1$ en $x=n$, donc toute fonction dominante devrait valoir au moins $1$ sur des intervalles de longueur croissante, ce qui empêche son intégrabilité sur $\\mathbb{R}$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-3-e10",
+          question: "Calculer $\\displaystyle\\lim_{n\\to+\\infty}\\int_0^1\\frac{nx}{1+n^2x^2}\\,dx$ en justifiant l'usage (ou non) du théorème de convergence dominée.",
+          type: "open",
+          modelAnswer: "f_n(x)=nx/(1+n²x²). Pour x fixé >0, f_n(x)→0 quand n→∞ (le dénominateur domine). En x=0, f_n(0)=0. Mais sup_x f_n(x) = 1/2 (atteint en x=1/n, par dérivation), donc f_n n'est PAS dominée par une fonction fixe intégrable indépendante de n de façon évidente (en fait ici |f_n|<=1/2 est une domination uniforme valide!). Donc le théorème s'applique avec g≡1/2: lim ∫f_n dx = ∫0 dx = 0.",
+          explanation: "**Convergence simple.** Pour $x\\in\\,]0,1]$ fixé, $f_n(x)=\\dfrac{nx}{1+n^2x^2}\\sim\\dfrac{nx}{n^2x^2}=\\dfrac{1}{nx}\\to0$ quand $n\\to+\\infty$. En $x=0$, $f_n(0)=0$ pour tout $n$. Donc $f_n\\to0$ simplement sur $[0,1]$.\n\n**Recherche d'une domination uniforme.** En étudiant $f_n$ comme fonction de $x$ (dérivée par rapport à $x$ nulle en $x=1/n$), on trouve que le maximum de $f_n$ sur $\\mathbb{R}_+$ est atteint en $x=1/n$, avec $f_n(1/n)=\\dfrac{n\\cdot(1/n)}{1+n^2\\cdot(1/n^2)}=\\dfrac{1}{2}$. Donc $|f_n(x)|\\leq\\dfrac12$ pour tout $x$ et tout $n$ : la fonction constante $g\\equiv1/2$ (intégrable sur $[0,1]$, de mesure finie) domine uniformément la suite.\n\n**Application du théorème de convergence dominée.**\n$$\\lim_{n\\to+\\infty}\\int_0^1\\frac{nx}{1+n^2x^2}\\,dx = \\int_0^1 0\\,dx = 0$$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "mes3-l3-3-e11",
+          question: "Démontrer, en utilisant le théorème de convergence monotone, que pour une série de fonctions mesurables positives $\\sum_{k=1}^{+\\infty}g_k$, on a $\\displaystyle\\int\\left(\\sum_{k=1}^{+\\infty}g_k\\right)d\\mu = \\sum_{k=1}^{+\\infty}\\int g_k\\,d\\mu$ (intégration terme à terme).",
+          type: "open",
+          modelAnswer: "Poser f_n = Σ_{k=1}^n g_k (somme partielle), suite croissante de fonctions positives (car chaque g_k>=0), convergeant simplement vers Σ_{k=1}^∞ g_k. Par convergence monotone: lim_n ∫f_n dμ = ∫(lim f_n) dμ = ∫(Σg_k) dμ. Par linéarité finie de l'intégrale, ∫f_n dμ = Σ_{k=1}^n ∫g_k dμ. En passant à la limite n→∞ des deux côtés: Σ_{k=1}^∞ ∫g_k dμ = ∫(Σg_k) dμ.",
+          explanation: "**Construction de la suite croissante.** Posons $f_n=\\displaystyle\\sum_{k=1}^ng_k$ (somme partielle). Comme chaque $g_k\\geq0$, la suite $(f_n)_n$ est **croissante** : $f_{n+1}=f_n+g_{n+1}\\geq f_n$. De plus, $f_n\\to\\displaystyle\\sum_{k=1}^{+\\infty}g_k$ simplement (par définition de la somme d'une série).\n\n**Application du théorème de convergence monotone.**\n$$\\lim_{n\\to+\\infty}\\int f_n\\,d\\mu = \\int\\left(\\lim_nf_n\\right)d\\mu = \\int\\left(\\sum_{k=1}^{+\\infty}g_k\\right)d\\mu$$\n\n**Linéarité finie de l'intégrale.** Pour chaque $n$ fixé, par linéarité de l'intégrale sur une somme **finie** :\n$$\\int f_n\\,d\\mu = \\int\\left(\\sum_{k=1}^ng_k\\right)d\\mu = \\sum_{k=1}^n\\int g_k\\,d\\mu$$\n\n**Passage à la limite.** En faisant $n\\to+\\infty$ dans cette dernière égalité :\n$$\\lim_{n\\to+\\infty}\\int f_n\\,d\\mu = \\sum_{k=1}^{+\\infty}\\int g_k\\,d\\mu$$\n\n**Conclusion.** En combinant les deux expressions de $\\lim_n\\int f_n\\,d\\mu$ :\n$$\\int\\left(\\sum_{k=1}^{+\\infty}g_k\\right)d\\mu = \\sum_{k=1}^{+\\infty}\\int g_k\\,d\\mu \\qquad \\square$$\n\nCe résultat (intégration terme à terme d'une série de fonctions positives) est un outil extrêmement utilisé en pratique, notamment en probabilités (calcul d'espérances de sommes de variables aléatoires positives).",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-3-e12",
+          question: "Démontrer que le théorème de convergence dominée implique la continuité de $x\\mapsto\\displaystyle\\int_0^1 e^{-xt}\\,dt$ en tout point $x_0\\geq0$ (en justifiant l'échange limite-intégrale via une suite $x_n\\to x_0$).",
+          type: "open",
+          modelAnswer: "Soit x_n→x_0 une suite quelconque avec x_n,x_0>=0. Poser f_n(t)=e^{-x_n t} sur [0,1]. Par continuité de t↦e^{-x_0 t}, f_n(t)→e^{-x_0 t} pour tout t. Domination: pour x_n>=0, |f_n(t)|=e^{-x_n t}<=1 pour tout t∈[0,1] (car x_n t>=0). g≡1 est intégrable sur [0,1]. Par convergence dominée: lim_n ∫f_n dt = ∫e^{-x_0 t}dt. Comme la suite x_n→x_0 était arbitraire, on a montré que F(x_n)→F(x_0) pour toute suite convergente, donc F est continue en x_0.",
+          explanation: "**Mise en place.** Notons $F(x)=\\displaystyle\\int_0^1e^{-xt}\\,dt$. Pour montrer que $F$ est continue en un point $x_0\\geq0$, il suffit de montrer que pour **toute suite** $(x_n)_n$ avec $x_n\\to x_0$ (et $x_n\\geq0$), on a $F(x_n)\\to F(x_0)$ (caractérisation séquentielle de la continuité).\n\n**Convergence simple de l'intégrande.** Posons $f_n(t)=e^{-x_nt}$ sur $[0,1]$. Par continuité de l'exponentielle et de $(x,t)\\mapsto xt$, pour chaque $t\\in[0,1]$ fixé, $f_n(t)=e^{-x_nt}\\to e^{-x_0t}$ quand $n\\to+\\infty$ (convergence simple).\n\n**Domination uniforme.** Comme $x_n\\geq0$ et $t\\in[0,1]$, on a $x_nt\\geq0$, donc $f_n(t)=e^{-x_nt}\\leq e^0=1$ pour tout $n$ et tout $t$. La fonction constante $g\\equiv1$ (intégrable sur $[0,1]$, mesure finie) domine donc uniformément la suite.\n\n**Application du théorème de convergence dominée.**\n$$F(x_n) = \\int_0^1f_n(t)\\,dt \\xrightarrow[n\\to+\\infty]{} \\int_0^1e^{-x_0t}\\,dt = F(x_0)$$\n\n**Conclusion.** Comme $(x_n)$ était une suite **arbitraire** convergeant vers $x_0$, on a montré $F(x_n)\\to F(x_0)$ dans tous les cas, donc $F$ est continue en $x_0$. $\\square$ Cette technique (domination uniforme par une constante, indépendante du paramètre) est extrêmement courante pour justifier la continuité ou la dérivabilité d'intégrales à paramètre.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-3-e13",
+          question: "Vrai ou faux : le lemme de Fatou peut être utilisé pour démontrer le théorème de convergence dominée.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La démonstration standard du théorème de convergence dominée applique le lemme de Fatou deux fois : une fois à $g+f_n\\geq0$ et une fois à $g-f_n\\geq0$ (où $g$ est la fonction dominante), pour encadrer $\\liminf$ et $\\limsup$ de $\\int f_n$ et conclure à l'égalité $\\lim\\int f_n=\\int f$.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-3-e14",
+          question: "Calculer $\\displaystyle\\lim_{n\\to+\\infty}\\int_0^{+\\infty}\\frac{n}{1+n^2x^2}\\,e^{-x}\\,dx$ en discutant si le théorème de convergence dominée s'applique directement (réponse attendue : non directement par une constante, le résultat nécessite une analyse plus fine).",
+          type: "open",
+          modelAnswer: "Pour x>0 fixé, n/(1+n²x²) → 0 quand n→∞ (le dénominateur domine), donc f_n(x)e^{-x}→0 pour x>0. En x=0, f_n(0)=n→∞. La fonction n/(1+n²x²) a pour intégrale sur [0,∞[ la valeur (π/2) indépendante de n (changement de variable u=nx donne ∫n/(1+n²x²)dx = ∫1/(1+u²)du = π/2 sur tout R+ si on intègre sans le poids e^{-x}), donc la 'masse' ne se concentre pas en un point mais s'étale en hauteur infinie sur une largeur qui rétrécit — cas similaire à l'exemple n·1_{[0,1/n]} déjà vu : il n'y a pas de domination uniforme simple par une constante. Cependant le poids e^{-x} borné par 1 donne tout de même une majoration locale; une analyse plus fine (scindant en x petit et x grand) montre que la limite est en fait 0, car la contribution près de x=0 devient négligeable une fois pesée par dx (intégrale de n/(1+n²x²) sur [0,ε] tend vers π/2 indépendamment de ε, mais ce n'est PAS multiplié par e^{-x}≈1 qui reste borné, donc en fait la limite n'est pas triviale et vaut π/2 par un argument de носите de Dirac).",
+          explanation: "**Observation clé.** La fonction $\\delta_n(x)=\\dfrac{n}{1+n^2x^2}$ se comporte, quand $n\\to+\\infty$, comme une **approximation de l'identité (noyau de Dirac)** : elle se concentre de plus en plus près de $x=0$ tout en gardant une intégrale totale constante. En effet, par le changement de variable $u=nx$ :\n$$\\int_0^{+\\infty}\\delta_n(x)\\,dx = \\int_0^{+\\infty}\\frac{n}{1+n^2x^2}\\,dx = \\int_0^{+\\infty}\\frac{1}{1+u^2}\\,du = \\Big[\\arctan u\\Big]_0^{+\\infty} = \\frac{\\pi}{2}$$\n(valeur **indépendante de $n$**, confirmant la nature de noyau concentré).\n\n**Pourquoi la convergence dominée par une constante échoue ici.** Comme pour l'exemple $f_n=n\\cdot\\mathbb{1}_{[0,1/n]}$ déjà rencontré, $\\delta_n(0)=n\\to+\\infty$ : aucune fonction fixe ne peut dominer uniformément toute la suite près de $x=0$.\n\n**Calcul de la limite par un argument de noyau concentré.** Comme $\\delta_n$ se concentre en $x=0$ avec une masse totale $\\pi/2$ constante, et que $e^{-x}$ est continue avec $e^{-0}=1$, on a (résultat classique d'approximation de l'identité, analogue au théorème de convergence des noyaux de Dirac) :\n$$\\lim_{n\\to+\\infty}\\int_0^{+\\infty}\\delta_n(x)\\,e^{-x}\\,dx = \\frac{\\pi}{2}\\times e^{-0} = \\frac{\\pi}{2}$$\n\n**Conclusion.** Contrairement à l'exemple $n\\cdot\\mathbb{1}_{[0,1/n]}$ (où la limite valait $0\\neq1=\\lim\\int f_n$), ici la limite de l'intégrale est **non triviale et non nulle** ($\\pi/2$), illustrant que les suites « concentrées » sans domination uniforme nécessitent une analyse au cas par cas (souvent via la théorie des approximations de l'identité), le théorème de convergence dominée standard ne s'appliquant pas directement par une simple borne constante.",
+          difficulty: "expert",
+        },
+        {
+          id: "mes3-l3-3-e15",
+          question: "Vrai ou faux : si $(f_n)$ converge vers $f$ presque partout et que $\\int|f_n|\\,d\\mu\\to\\int|f|\\,d\\mu<\\infty$, alors on peut conclure $\\int f_n\\,d\\mu\\to\\int f\\,d\\mu$ même sans domination explicite par une fonction fixe $g$ (théorème de Scheffé).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai — c'est précisément le contenu du **théorème de Scheffé**, une variante du théorème de convergence dominée qui remplace l'hypothèse de domination uniforme par la convergence des normes $L^1$ (intégrales des valeurs absolues). Il est notamment très utilisé en théorie des probabilités pour établir la convergence de densités de probabilité.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L3 — Analyse fonctionnelle : Espaces de Hilbert
+  // ─────────────────────────────────────────────
+  {
+  id: "hilbert-l3",
+  slug: "hilbert-l3-analyse-fonctionnelle-espaces-hilbert",
+  title: "Analyse fonctionnelle L3 — Espaces de Hilbert",
+  description: "Produits scalaires sur des espaces de dimension infinie, projection orthogonale, bases hilbertiennes et lien avec les séries de Fourier.",
+  schoolLevel: "L3",
+  subject: "analyse",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "🔷",
+  lessons: [
+    {
+      id: "hilb3-l3-1",
+      slug: "produit-scalaire-espaces-prehilbertiens",
+      title: "Produit scalaire et espaces préhilbertiens",
+      durationMinutes: 55,
+      content: `## Produit scalaire et espaces préhilbertiens
+
+### 1. Produit scalaire sur un espace vectoriel réel
+
+Un **produit scalaire** sur un espace vectoriel réel $E$ est une application $\\langle\\cdot,\\cdot\\rangle:E\\times E\\to\\mathbb{R}$ bilinéaire, symétrique ($\\langle x,y\\rangle=\\langle y,x\\rangle$) et **définie positive** ($\\langle x,x\\rangle>0$ pour $x\\neq0$). On note $\\|x\\|=\\sqrt{\\langle x,x\\rangle}$ la **norme associée**. Un espace muni d'un produit scalaire est dit **préhilbertien**.
+
+**Exemples :** $\\mathbb{R}^n$ avec le produit scalaire usuel $\\langle x,y\\rangle=\\sum_ix_iy_i$ ; l'espace $C([a,b])$ des fonctions continues avec $\\langle f,g\\rangle=\\displaystyle\\int_a^bf(t)g(t)\\,dt$ ; l'espace $\\ell^2$ des suites réelles $(u_n)$ telles que $\\sum u_n^2<\\infty$, avec $\\langle u,v\\rangle=\\sum_nu_nv_n$.
+
+### 2. Inégalité de Cauchy-Schwarz et inégalité triangulaire
+
+**Théorème (Cauchy-Schwarz) :** pour tous $x,y\\in E$, $|\\langle x,y\\rangle|\\leq\\|x\\|\\,\\|y\\|$, avec égalité si et seulement si $x,y$ sont colinéaires.
+
+**Conséquence — inégalité triangulaire :** $\\|x+y\\|\\leq\\|x\\|+\\|y\\|$ (en développant $\\|x+y\\|^2=\\|x\\|^2+2\\langle x,y\\rangle+\\|y\\|^2\\leq\\|x\\|^2+2\\|x\\|\\|y\\|+\\|y\\|^2=(\\|x\\|+\\|y\\|)^2$). Cela confirme que $\\|\\cdot\\|$ est bien une **norme** au sens habituel.
+
+### 3. Identité du parallélogramme et orthogonalité
+
+**Identité du parallélogramme :** $\\|x+y\\|^2+\\|x-y\\|^2=2\\|x\\|^2+2\\|y\\|^2$ (se vérifie directement en développant les deux carrés scalaires). C'est une propriété **caractéristique** des normes issues d'un produit scalaire (théorème de Jordan-von Neumann : une norme vérifiant cette identité provient nécessairement d'un produit scalaire).
+
+Deux vecteurs $x,y$ sont **orthogonaux** ($x\\perp y$) si $\\langle x,y\\rangle=0$. **Théorème de Pythagore :** si $x\\perp y$, alors $\\|x+y\\|^2=\\|x\\|^2+\\|y\\|^2$ (cas particulier de l'identité ci-dessus avec $\\langle x,y\\rangle=0$).
+
+### 4. Exemple résolu — produit scalaire $L^2$ et orthogonalité trigonométrique
+
+Sur $E=C([-\\pi,\\pi])$ muni de $\\langle f,g\\rangle=\\displaystyle\\int_{-\\pi}^{\\pi}f(t)g(t)\\,dt$, vérifions que $\\cos(x)$ et $\\sin(x)$ sont orthogonaux :
+$$\\langle\\cos,\\sin\\rangle = \\int_{-\\pi}^{\\pi}\\cos(t)\\sin(t)\\,dt = \\int_{-\\pi}^{\\pi}\\frac{\\sin(2t)}{2}\\,dt = \\left[-\\frac{\\cos(2t)}{4}\\right]_{-\\pi}^{\\pi} = 0$$
+(car $\\cos(2\\pi)=\\cos(-2\\pi)$, les deux bornes coïncident). C'est exactement la propriété exploitée — sans le dire formellement — dans les séries de Fourier déjà étudiées.
+
+### 5. Complétude et espaces de Hilbert
+
+Un espace préhilbertien $E$ est un **espace de Hilbert** s'il est **complet** pour la norme $\\|\\cdot\\|$ (toute suite de Cauchy converge dans $E$). $\\mathbb{R}^n$ (dimension finie) est toujours complet, donc toujours un espace de Hilbert. En dimension infinie, ce n'est pas automatique : $\\ell^2$ est complet (donc un espace de Hilbert), mais l'espace des suites à support fini, muni de la même norme, ne l'est **pas** (on peut construire une suite de Cauchy de suites à support fini dont la limite a un support infini, donc sort de l'espace).
+
+**Pourquoi la complétude est essentielle :** sans elle, de nombreux théorèmes de projection et de décomposition (étudiés à la leçon suivante) échouent, car la limite d'une suite minimisante pourrait « s'échapper » de l'espace.
+
+### 6. Récapitulatif
+
+| Notion | Définition / propriété |
+|---|---|
+| Produit scalaire | bilinéaire, symétrique, défini positif |
+| Cauchy-Schwarz | $|\\langle x,y\\rangle|\\leq\\|x\\|\\|y\\|$ |
+| Identité du parallélogramme | $\\|x+y\\|^2+\\|x-y\\|^2=2\\|x\\|^2+2\\|y\\|^2$ |
+| Pythagore | $x\\perp y\\Rightarrow\\|x+y\\|^2=\\|x\\|^2+\\|y\\|^2$ |
+| Espace de Hilbert | préhilbertien **et** complet |`,
+      exercises: [
+        {
+          id: "hilb3-l3-1-e1",
+          question: "Quelles sont les propriétés caractérisant un produit scalaire ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Bilinéaire, symétrique, défini positif" },
+            { id: "B", text: "Linéaire seulement" },
+            { id: "C", text: "Antisymétrique et positif" },
+            { id: "D", text: "Défini uniquement en dimension finie" },
+          ],
+          correctId: "A",
+          explanation: "Un produit scalaire doit être bilinéaire (linéaire en chaque variable), symétrique, et défini positif ($\\langle x,x\\rangle>0$ pour $x\\neq0$) — ces trois propriétés garantissent qu'il définit bien une norme via $\\|x\\|=\\sqrt{\\langle x,x\\rangle}$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-1-e2",
+          question: "Vrai ou faux : l'inégalité de Cauchy-Schwarz énonce $|\\langle x,y\\rangle|\\leq\\|x\\|\\,\\|y\\|$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'inégalité fondamentale de tout espace préhilbertien, avec égalité si et seulement si $x,y$ sont colinéaires.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-1-e3",
+          question: "Qu'est-ce qu'un espace de Hilbert ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Un espace préhilbertien complet" },
+            { id: "B", text: "Un espace vectoriel de dimension finie" },
+            { id: "C", text: "Un espace muni d'une norme quelconque" },
+            { id: "D", text: "Un espace de fonctions continues" },
+          ],
+          correctId: "A",
+          explanation: "Un espace de Hilbert est, par définition, un espace préhilbertien (muni d'un produit scalaire) qui est de plus **complet** pour la norme associée — toute suite de Cauchy y converge.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-1-e4",
+          question: "Vrai ou faux : tout espace vectoriel de dimension finie muni d'un produit scalaire est automatiquement complet, donc un espace de Hilbert.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. En dimension finie, toutes les normes sont équivalentes et l'espace est toujours complet (résultat classique de topologie) — la subtilité de la complétude n'apparaît qu'en dimension infinie.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-1-e5",
+          question: "Que dit le théorème de Pythagore dans un espace préhilbertien ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Si $x\\perp y$, alors $\\|x+y\\|^2=\\|x\\|^2+\\|y\\|^2$" },
+            { id: "B", text: "$\\|x+y\\|=\\|x\\|+\\|y\\|$ toujours" },
+            { id: "C", text: "$\\|x\\|^2=\\langle x,x\\rangle^2$" },
+            { id: "D", text: "$\\langle x,y\\rangle=\\|x\\|\\|y\\|$ toujours" },
+          ],
+          correctId: "A",
+          explanation: "Le théorème de Pythagore généralisé dit que si $x$ et $y$ sont orthogonaux ($\\langle x,y\\rangle=0$), alors $\\|x+y\\|^2=\\|x\\|^2+2\\langle x,y\\rangle+\\|y\\|^2=\\|x\\|^2+\\|y\\|^2$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-1-e6",
+          question: "Dans $\\mathbb{R}^3$ muni du produit scalaire usuel, calculer $\\langle u,v\\rangle$ pour $u=(1,2,3)$ et $v=(4,-1,2)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$8$" },
+            { id: "B", text: "$9$" },
+            { id: "C", text: "$5$" },
+            { id: "D", text: "$10$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle u,v\\rangle=1\\times4+2\\times(-1)+3\\times2=4-2+6=8$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-1-e7",
+          question: "Vérifier que $\\cos(x)$ et $\\sin(2x)$ sont orthogonaux pour le produit scalaire $\\langle f,g\\rangle=\\int_{-\\pi}^\\pi fg\\,dt$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\langle\\cos,\\sin(2\\cdot)\\rangle=0$ car le produit $\\cos(t)\\sin(2t)$ est une fonction impaire" },
+            { id: "B", text: "$\\langle\\cos,\\sin(2\\cdot)\\rangle=\\pi$" },
+            { id: "C", text: "$\\langle\\cos,\\sin(2\\cdot)\\rangle=2\\pi$" },
+            { id: "D", text: "Cette intégrale diverge" },
+          ],
+          correctId: "A",
+          explanation: "$t\\mapsto\\cos(t)\\sin(2t)$ est le produit d'une fonction paire ($\\cos$) et d'une fonction impaire ($\\sin(2\\cdot)$), donc impaire ; son intégrale sur l'intervalle symétrique $[-\\pi,\\pi]$ est nulle.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-1-e8",
+          question: "Pour $x=(3,4)$ dans $\\mathbb{R}^2$ (norme euclidienne), vérifier l'inégalité de Cauchy-Schwarz avec $y=(1,0)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$|\\langle x,y\\rangle|=3\\leq\\|x\\|\\|y\\|=5$" },
+            { id: "B", text: "$|\\langle x,y\\rangle|=5\\leq\\|x\\|\\|y\\|=3$" },
+            { id: "C", text: "L'inégalité est violée" },
+            { id: "D", text: "$|\\langle x,y\\rangle|=4$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle x,y\\rangle=3\\times1+4\\times0=3$. $\\|x\\|=\\sqrt{9+16}=5$, $\\|y\\|=1$. On vérifie $3\\leq5\\times1=5$ : l'inégalité est bien vérifiée (et non saturée, car $x,y$ ne sont pas colinéaires).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-1-e9",
+          question: "Vrai ou faux : l'espace des polynômes (de degré quelconque) muni du produit scalaire $\\langle P,Q\\rangle=\\int_0^1PQ\\,dt$ est un espace de Hilbert.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. C'est un espace préhilbertien, mais il n'est **pas complet** : on peut construire une suite de Cauchy de polynômes dont la limite (pour cette norme) n'est pas un polynôme (par exemple une suite de polynômes approximant une fonction continue non polynomiale, comme les sommes partielles d'une série de Taylor d'une fonction transcendante). Sa complétion est l'espace $L^2([0,1])$, qui lui est un espace de Hilbert.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-1-e10",
+          question: "Démontrer l'identité du parallélogramme $\\|x+y\\|^2+\\|x-y\\|^2=2\\|x\\|^2+2\\|y\\|^2$ en développant les produits scalaires.",
+          type: "open",
+          modelAnswer: "||x+y||²=⟨x+y,x+y⟩=||x||²+2⟨x,y⟩+||y||². ||x-y||²=⟨x-y,x-y⟩=||x||²-2⟨x,y⟩+||y||². En sommant: ||x+y||²+||x-y||²=2||x||²+2||y||² (les termes croisés 2⟨x,y⟩ et -2⟨x,y⟩ s'annulent).",
+          explanation: "**Développement de $\\|x+y\\|^2$.** Par bilinéarité et symétrie du produit scalaire :\n$$\\|x+y\\|^2 = \\langle x+y,x+y\\rangle = \\langle x,x\\rangle+2\\langle x,y\\rangle+\\langle y,y\\rangle = \\|x\\|^2+2\\langle x,y\\rangle+\\|y\\|^2$$\n\n**Développement de $\\|x-y\\|^2$.** De même :\n$$\\|x-y\\|^2 = \\langle x-y,x-y\\rangle = \\|x\\|^2-2\\langle x,y\\rangle+\\|y\\|^2$$\n\n**Somme des deux.** En additionnant les deux égalités, les termes croisés $2\\langle x,y\\rangle$ et $-2\\langle x,y\\rangle$ s'annulent :\n$$\\|x+y\\|^2+\\|x-y\\|^2 = 2\\|x\\|^2+2\\|y\\|^2 \\qquad \\square$$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-1-e11",
+          question: "Démontrer l'inégalité de Cauchy-Schwarz $|\\langle x,y\\rangle|\\leq\\|x\\|\\|y\\|$ en étudiant le signe de $\\|x-ty\\|^2$ pour $t\\in\\mathbb{R}$ (cas $y\\neq0$).",
+          type: "open",
+          modelAnswer: "P(t)=||x-ty||²=||x||²-2t⟨x,y⟩+t²||y||²>=0 pour tout t (norme au carré). C'est un polynôme du second degré en t à coefficient dominant ||y||²>0, toujours positif, donc son discriminant doit être <=0: 4⟨x,y⟩²-4||x||²||y||²<=0, soit ⟨x,y⟩²<=||x||²||y||², d'où |⟨x,y⟩|<=||x||·||y|| en passant à la racine.",
+          explanation: "**Construction du polynôme.** Pour $y\\neq0$ et $t\\in\\mathbb{R}$ quelconque, on a $\\|x-ty\\|^2\\geq0$ (toujours, car c'est une norme au carré). En développant :\n$$P(t) = \\|x-ty\\|^2 = \\|x\\|^2-2t\\langle x,y\\rangle+t^2\\|y\\|^2 \\geq 0$$\n\n**Discriminant.** $P$ est un polynôme du second degré en $t$, à coefficient dominant $\\|y\\|^2>0$ (car $y\\neq0$), toujours positif ou nul. Son discriminant doit donc être négatif ou nul :\n$$\\Delta = 4\\langle x,y\\rangle^2 - 4\\|x\\|^2\\|y\\|^2 \\leq 0$$\n\n**Conclusion.** D'où $\\langle x,y\\rangle^2\\leq\\|x\\|^2\\|y\\|^2$, et en prenant la racine carrée (quantités positives) :\n$$|\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\| \\qquad \\square$$\n\n(Le cas $y=0$ est trivial : les deux membres sont nuls.)",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-1-e12",
+          question: "Démontrer que dans $\\ell^2$ (suites de carré sommable), le produit scalaire $\\langle u,v\\rangle=\\sum_{n}u_nv_n$ est bien défini (la série converge) pour tous $u,v\\in\\ell^2$.",
+          type: "open",
+          modelAnswer: "Par Cauchy-Schwarz appliqué aux sommes partielles (ou directement par l'inégalité |u_n v_n| <= (u_n²+v_n²)/2), on a Σ|u_n v_n| <= (1/2)(Σu_n²+Σv_n²) < ∞ car u,v∈ℓ². La série Σu_n v_n est donc absolument convergente, donc convergente: le produit scalaire est bien défini.",
+          explanation: "**Inégalité élémentaire.** Pour tous réels $a,b$, on a $2|ab|\\leq a^2+b^2$ (conséquence de $(|a|-|b|)^2\\geq0$). En appliquant à $a=u_n,b=v_n$ :\n$$|u_nv_n| \\leq \\frac{u_n^2+v_n^2}{2}$$\n\n**Sommation.** En sommant sur $n$ :\n$$\\sum_n|u_nv_n| \\leq \\frac{1}{2}\\sum_nu_n^2 + \\frac{1}{2}\\sum_nv_n^2$$\n\nComme $u,v\\in\\ell^2$, par définition $\\sum_nu_n^2<\\infty$ et $\\sum_nv_n^2<\\infty$, donc le membre de droite est **fini**.\n\n**Conclusion.** La série $\\sum_nu_nv_n$ est donc **absolument convergente** (donc convergente), ce qui montre que $\\langle u,v\\rangle=\\sum_nu_nv_n$ est bien défini pour tous $u,v\\in\\ell^2$. $\\square$ Ce résultat est l'analogue, en dimension infinie, du fait évident qu'une somme finie de produits est toujours bien définie ; c'est précisément la condition « carré sommable » qui rend ce produit scalaire licite en dimension infinie.",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-1-e13",
+          question: "Vrai ou faux : si $\\|x+y\\|=\\|x\\|+\\|y\\|$ dans un espace préhilbertien, alors $x$ et $y$ sont nécessairement positivement colinéaires (l'un est un multiple positif de l'autre, ou l'un des deux est nul).",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est le cas d'égalité dans l'inégalité triangulaire, qui se ramène au cas d'égalité de Cauchy-Schwarz (avec $\\langle x,y\\rangle=\\|x\\|\\|y\\|$, qui exige non seulement la colinéarité mais un coefficient de proportionnalité **positif**, contrairement au cas d'égalité général de Cauchy-Schwarz qui autorise un coefficient de signe quelconque).",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-1-e14",
+          question: "Démontrer que la norme $\\|x\\|_\\infty=\\sup_i|x_i|$ sur $\\mathbb{R}^2$ ne provient d'aucun produit scalaire, en exhibant un contre-exemple à l'identité du parallélogramme.",
+          type: "open",
+          modelAnswer: "Prendre x=(1,0), y=(0,1). ||x||_∞=1, ||y||_∞=1. x+y=(1,1), ||x+y||_∞=1. x-y=(1,-1), ||x-y||_∞=1. Test: ||x+y||²+||x-y||²=1+1=2. Mais 2||x||²+2||y||²=2+2=4. Comme 2≠4, l'identité du parallélogramme échoue, donc ||·||_∞ ne provient d'aucun produit scalaire (par la contraposée du théorème de Jordan-von Neumann).",
+          explanation: "**Choix du contre-exemple.** Prenons $x=(1,0)$ et $y=(0,1)$ dans $\\mathbb{R}^2$.\n\n**Calcul des normes.** $\\|x\\|_\\infty=\\max(|1|,|0|)=1$ et $\\|y\\|_\\infty=\\max(|0|,|1|)=1$. $x+y=(1,1)$, donc $\\|x+y\\|_\\infty=\\max(1,1)=1$. $x-y=(1,-1)$, donc $\\|x-y\\|_\\infty=\\max(1,1)=1$.\n\n**Test de l'identité du parallélogramme.** On devrait avoir $\\|x+y\\|_\\infty^2+\\|x-y\\|_\\infty^2=2\\|x\\|_\\infty^2+2\\|y\\|_\\infty^2$. Calculons les deux membres :\n$$\\text{Membre de gauche} = 1^2+1^2 = 2 \\qquad \\text{Membre de droite} = 2\\times1^2+2\\times1^2 = 4$$\n\n**Conclusion.** Comme $2\\neq4$, l'identité du parallélogramme **échoue** pour cette norme. Par la contraposée du théorème de Jordan-von Neumann (une norme provenant d'un produit scalaire vérifie nécessairement cette identité), $\\|\\cdot\\|_\\infty$ ne provient **d'aucun** produit scalaire. $\\square$ Cela illustre que toutes les normes ne sont pas « hilbertiennes » — seules certaines normes particulières (comme la norme euclidienne ou la norme $L^2$) ont cette structure géométrique enrichie.",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-1-e15",
+          question: "Démontrer que dans tout espace préhilbertien, $\\|x\\|=\\displaystyle\\sup_{\\|y\\|=1}\\langle x,y\\rangle$ (caractérisation variationnelle de la norme via le produit scalaire), pour $x\\neq0$.",
+          type: "open",
+          modelAnswer: "Par Cauchy-Schwarz, ⟨x,y⟩<=||x||·||y||=||x|| pour ||y||=1, donc sup<=||x||. Réciproquement, en prenant y0=x/||x|| (de norme 1), ⟨x,y0⟩=⟨x,x⟩/||x||=||x||²/||x||=||x||, donc le sup est atteint et vaut exactement ||x||. Conclusion: sup_{||y||=1}⟨x,y⟩=||x||.",
+          explanation: "**Majoration via Cauchy-Schwarz.** Pour tout $y$ avec $\\|y\\|=1$, l'inégalité de Cauchy-Schwarz donne :\n$$\\langle x,y\\rangle \\leq |\\langle x,y\\rangle| \\leq \\|x\\|\\,\\|y\\| = \\|x\\|$$\n\nDonc $\\displaystyle\\sup_{\\|y\\|=1}\\langle x,y\\rangle \\leq \\|x\\|$.\n\n**Atteinte de la borne.** Posons $y_0=\\dfrac{x}{\\|x\\|}$ (bien défini car $x\\neq0$), qui vérifie $\\|y_0\\|=1$. Calculons :\n$$\\langle x,y_0\\rangle = \\left\\langle x,\\frac{x}{\\|x\\|}\\right\\rangle = \\frac{\\langle x,x\\rangle}{\\|x\\|} = \\frac{\\|x\\|^2}{\\|x\\|} = \\|x\\|$$\n\n**Conclusion.** La borne supérieure $\\|x\\|$ est donc **atteinte** par ce choix particulier de $y_0$, ce qui montre que le supremum vaut exactement $\\|x\\|$ (et non une valeur strictement inférieure) :\n$$\\sup_{\\|y\\|=1}\\langle x,y\\rangle = \\|x\\| \\qquad \\square$$\n\nCette caractérisation variationnelle est très utilisée en analyse fonctionnelle, notamment pour définir la norme d'opérateurs linéaires continus entre espaces de Hilbert (norme d'opérateur comme un supremum de ce type).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "hilb3-l3-2",
+      slug: "projection-orthogonale",
+      title: "Projection orthogonale sur un sous-espace fermé",
+      durationMinutes: 60,
+      content: `## Projection orthogonale sur un sous-espace fermé
+
+### 1. Théorème de la projection orthogonale
+
+**Théorème :** soit $H$ un espace de Hilbert et $F\\subset H$ un sous-espace vectoriel **fermé**. Pour tout $x\\in H$, il existe un **unique** point $p_F(x)\\in F$ réalisant la distance minimale :
+$$\\|x-p_F(x)\\| = \\inf_{y\\in F}\\|x-y\\| = d(x,F)$$
+De plus, $p_F(x)$ est caractérisé par la condition d'**orthogonalité** : $x-p_F(x)\\perp F$ (c'est-à-dire $\\langle x-p_F(x),y\\rangle=0$ pour tout $y\\in F$).
+
+L'application $p_F:H\\to F$ ainsi définie est **linéaire**, et s'appelle la **projection orthogonale** sur $F$.
+
+### 2. Décomposition orthogonale
+
+**Conséquence directe :** pour $F$ fermé, $H=F\\oplus F^\\perp$ (somme directe **orthogonale**), où $F^\\perp=\\{z\\in H:\\langle z,y\\rangle=0\\ \\forall y\\in F\\}$ est l'**orthogonal** de $F$. Tout $x\\in H$ se décompose de façon unique $x=p_F(x)+p_{F^\\perp}(x)$, avec $p_F(x)\\perp p_{F^\\perp}(x)$, et par Pythagore : $\\|x\\|^2=\\|p_F(x)\\|^2+\\|p_{F^\\perp}(x)\\|^2$.
+
+### 3. Cas de la dimension finie : formule explicite
+
+Si $F=\\text{Vect}(e_1,\\dots,e_k)$ avec $(e_1,\\dots,e_k)$ **base orthonormée** de $F$ (c'est-à-dire $\\langle e_i,e_j\\rangle=\\delta_{ij}$, le symbole de Kronecker), alors :
+$$p_F(x) = \\sum_{i=1}^k\\langle x,e_i\\rangle\\,e_i$$
+
+**Exemple résolu.** Dans $\\mathbb{R}^3$, soit $F=\\text{Vect}(e_1,e_2)$ avec $e_1=(1,0,0)$, $e_2=(0,1,0)$ (base orthonormée du plan $xOy$). Pour $x=(2,3,5)$ :
+$$p_F(x) = \\langle x,e_1\\rangle e_1+\\langle x,e_2\\rangle e_2 = 2\\,e_1+3\\,e_2 = (2,3,0)$$
+(le résultat est géométriquement évident : la projection sur le plan $xOy$ annule la coordonnée $z$.)
+
+### 4. Cas d'une droite (projection sur un vecteur unitaire)
+
+Pour $F=\\text{Vect}(u)$ avec $\\|u\\|=1$ : $p_F(x)=\\langle x,u\\rangle\\,u$. Plus généralement, pour $u\\neq0$ quelconque (pas nécessairement unitaire) : $p_F(x)=\\dfrac{\\langle x,u\\rangle}{\\|u\\|^2}\\,u$.
+
+**Exemple :** pour $u=(4,-1,2)$ et $x=(1,2,3)$ (mêmes vecteurs qu'à la leçon précédente, où $\\langle x,u\\rangle=8$ et $\\|u\\|^2=16+1+4=21$) :
+$$p_F(x) = \\frac{8}{21}(4,-1,2) = \\left(\\frac{32}{21},-\\frac{8}{21},\\frac{16}{21}\\right)$$
+
+### 5. Procédé d'orthonormalisation de Gram-Schmidt
+
+Pour construire une base orthonormée à partir d'une base $(v_1,\\dots,v_k)$ quelconque, on procède récursivement : $u_1=v_1/\\|v_1\\|$, puis pour $i\\geq2$ :
+$$w_i = v_i - \\sum_{j=1}^{i-1}\\langle v_i,u_j\\rangle\\,u_j \\qquad u_i = \\frac{w_i}{\\|w_i\\|}$$
+(on soustrait à $v_i$ sa projection sur l'espace déjà construit, puis on normalise le résidu, qui est orthogonal à tous les $u_j$ précédents par construction).
+
+### 6. Pourquoi la fermeture de $F$ est essentielle
+
+Si $F$ n'est pas fermé, le théorème de projection peut échouer : l'infimum $\\inf_{y\\in F}\\|x-y\\|$ peut ne pas être **atteint** dans $F$ (seulement approché par une suite qui converge vers un point hors de $F$). C'est l'une des raisons pour lesquelles la **complétude** de l'espace de Hilbert (qui garantit que les sous-espaces de dimension finie, ou plus généralement fermés, se comportent bien) est cruciale.
+
+### 7. Récapitulatif
+
+| Notion | Formule / propriété |
+|---|---|
+| Projection orthogonale $p_F(x)$ | minimise $\\|x-y\\|$ sur $y\\in F$, caractérisée par $x-p_F(x)\\perp F$ |
+| Décomposition orthogonale | $H=F\\oplus F^\\perp$, $\\|x\\|^2=\\|p_F(x)\\|^2+\\|p_{F^\\perp}(x)\\|^2$ |
+| Formule (base orthonormée) | $p_F(x)=\\sum_i\\langle x,e_i\\rangle e_i$ |
+| Gram-Schmidt | construit une base orthonormée par soustraction successive des projections |`,
+      exercises: [
+        {
+          id: "hilb3-l3-2-e1",
+          question: "Comment est caractérisée la projection orthogonale $p_F(x)$ d'un point $x$ sur un sous-espace fermé $F$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Elle minimise $\\|x-y\\|$ sur $y\\in F$, et $x-p_F(x)\\perp F$" },
+            { id: "B", text: "Elle est le point de $F$ le plus éloigné de $x$" },
+            { id: "C", text: "Elle est toujours égale à $x$" },
+            { id: "D", text: "Elle n'est définie que si $F$ est de dimension $1$" },
+          ],
+          correctId: "A",
+          explanation: "Le théorème de projection caractérise $p_F(x)$ comme l'unique point de $F$ réalisant la distance minimale à $x$, et cette propriété équivaut à l'orthogonalité du vecteur résiduel $x-p_F(x)$ à tout $F$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-2-e2",
+          question: "Vrai ou faux : si $(e_1,\\dots,e_k)$ est une base orthonormée de $F$, alors $p_F(x)=\\sum_i\\langle x,e_i\\rangle e_i$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est la formule explicite de la projection orthogonale en présence d'une base orthonormée — chaque coefficient $\\langle x,e_i\\rangle$ s'appelle la coordonnée de Fourier de $x$ selon $e_i$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-2-e3",
+          question: "Que signifie $H=F\\oplus F^\\perp$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Tout $x\\in H$ se décompose de façon unique en somme d'un élément de $F$ et d'un élément de $F^\\perp$, orthogonaux entre eux" },
+            { id: "B", text: "$F$ et $F^\\perp$ sont identiques" },
+            { id: "C", text: "$F^\\perp$ est vide" },
+            { id: "D", text: "$H$ est de dimension finie" },
+          ],
+          correctId: "A",
+          explanation: "C'est la décomposition orthogonale fondamentale : tout élément de l'espace de Hilbert s'écrit de manière unique comme somme de sa projection sur $F$ et de sa projection sur l'orthogonal $F^\\perp$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-2-e4",
+          question: "Vrai ou faux : le procédé de Gram-Schmidt permet de construire une base orthonormée à partir d'une base quelconque.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement le rôle du procédé de Gram-Schmidt : à chaque étape, on soustrait la projection sur l'espace déjà construit, puis on normalise, garantissant l'orthonormalité de la base finale.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-2-e5",
+          question: "Dans $\\mathbb{R}^3$, pour $F=\\text{Vect}(e_1,e_2)$ (plan $xOy$) et $x=(2,3,5)$, que vaut $p_F(x)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(2,3,0)$" },
+            { id: "B", text: "$(2,3,5)$" },
+            { id: "C", text: "$(0,0,5)$" },
+            { id: "D", text: "$(2,0,0)$" },
+          ],
+          correctId: "A",
+          explanation: "La projection orthogonale sur le plan $xOy$ conserve les coordonnées $x,y$ et annule la coordonnée $z$ : $p_F(2,3,5)=(2,3,0)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-2-e6",
+          question: "Pour $F=\\text{Vect}(u)$ avec $u=(1,1,0)$ (non unitaire) et $x=(3,1,2)$, calculer $p_F(x)$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(2,2,0)$" },
+            { id: "B", text: "$(3,1,0)$" },
+            { id: "C", text: "$(1,1,0)$" },
+            { id: "D", text: "$(4,4,0)$" },
+          ],
+          correctId: "A",
+          explanation: "$\\langle x,u\\rangle=3+1+0=4$, $\\|u\\|^2=1+1=2$. $p_F(x)=\\dfrac{4}{2}(1,1,0)=(2,2,0)$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-2-e7",
+          question: "Soit $x=(1,2,2)$ et $F=\\text{Vect}(e_1)$ avec $e_1=(0,0,1)$ (unitaire). Calculer la distance $d(x,F)=\\|x-p_F(x)\\|$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\sqrt5$" },
+            { id: "B", text: "$\\sqrt8$" },
+            { id: "C", text: "$2$" },
+            { id: "D", text: "$3$" },
+          ],
+          correctId: "A",
+          explanation: "$p_F(x)=\\langle x,e_1\\rangle e_1=2\\,e_1=(0,0,2)$. $x-p_F(x)=(1,2,0)$, de norme $\\sqrt{1+4}=\\sqrt5$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-2-e8",
+          question: "Vrai ou faux : la projection orthogonale $p_F$ sur un sous-espace fermé $F$ est une application linéaire.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une propriété importante du théorème de projection : $p_F$ est non seulement bien définie et continue, mais aussi linéaire — ce qui découle de l'unicité de la décomposition orthogonale et de la linéarité du produit scalaire.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-2-e9",
+          question: "Appliquer la première étape de Gram-Schmidt à $v_1=(3,4)$ : calculer $u_1=v_1/\\|v_1\\|$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(3/5,4/5)$" },
+            { id: "B", text: "$(3,4)$" },
+            { id: "C", text: "$(1,1)$" },
+            { id: "D", text: "$(4/5,3/5)$" },
+          ],
+          correctId: "A",
+          explanation: "$\\|v_1\\|=\\sqrt{9+16}=5$, donc $u_1=(3/5,4/5)$, de norme $1$ (on vérifie $9/25+16/25=1$).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-2-e10",
+          question: "Démontrer que $p_F(x)$, défini comme le point de $F$ minimisant $\\|x-y\\|$, vérifie nécessairement $\\langle x-p_F(x),z\\rangle=0$ pour tout $z\\in F$ (caractérisation par l'orthogonalité), en étudiant $t\\mapsto\\|x-p_F(x)-tz\\|^2$.",
+          type: "open",
+          modelAnswer: "Poser φ(t)=||x-p_F(x)-tz||² pour z∈F fixé, t∈ℝ. Comme p_F(x)+tz∈F (F sous-espace), φ(t)>=φ(0)=||x-p_F(x)||² pour tout t (par minimalité de p_F(x)). Donc t=0 est un minimum de φ, donc φ'(0)=0. En développant φ(t)=||x-p_F(x)||²-2t⟨x-p_F(x),z⟩+t²||z||², φ'(t)=-2⟨x-p_F(x),z⟩+2t||z||², donc φ'(0)=-2⟨x-p_F(x),z⟩=0, d'où ⟨x-p_F(x),z⟩=0.",
+          explanation: "**Mise en place.** Fixons $z\\in F$ et considérons la fonction $\\varphi(t)=\\|x-p_F(x)-tz\\|^2$ pour $t\\in\\mathbb{R}$. Comme $F$ est un sous-espace vectoriel, $p_F(x)+tz\\in F$ pour tout $t$, donc par la propriété de minimalité de $p_F(x)$ :\n$$\\varphi(t) = \\|x-(p_F(x)+tz)\\|^2 \\geq \\|x-p_F(x)\\|^2 = \\varphi(0) \\qquad \\forall t\\in\\mathbb{R}$$\n\n**Conséquence : $t=0$ est un minimum de $\\varphi$.** Comme $\\varphi$ est dérivable (polynôme du second degré en $t$) et atteint son minimum en $t=0$, on a nécessairement $\\varphi'(0)=0$.\n\n**Développement explicite.** $\\varphi(t)=\\|x-p_F(x)\\|^2-2t\\langle x-p_F(x),z\\rangle+t^2\\|z\\|^2$, donc $\\varphi'(t)=-2\\langle x-p_F(x),z\\rangle+2t\\|z\\|^2$.\n\n**Conclusion.** $\\varphi'(0)=-2\\langle x-p_F(x),z\\rangle=0$, d'où :\n$$\\langle x-p_F(x),z\\rangle = 0 \\qquad \\forall z\\in F \\qquad \\square$$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-2-e11",
+          question: "Démontrer l'unicité de la projection orthogonale : si $p,p'\\in F$ vérifient tous deux $x-p\\perp F$ et $x-p'\\perp F$, alors $p=p'$.",
+          type: "open",
+          modelAnswer: "p-p' = (x-p')-(x-p). Comme p,p'∈F, p-p'∈F (sous-espace). Or (x-p)⊥F et (x-p')⊥F, donc ⟨x-p,p-p'⟩=0 et ⟨x-p',p-p'⟩=0 (car p-p'∈F). En soustrayant: ⟨(x-p')-(x-p),p-p'⟩=0, soit ⟨p-p',p-p'⟩=0, donc ||p-p'||²=0, donc p=p'.",
+          explanation: "**Différence des deux candidats.** Comme $p,p'\\in F$ (sous-espace vectoriel), on a $p-p'\\in F$.\n\n**Utilisation de l'orthogonalité.** Par hypothèse, $x-p\\perp F$ et $x-p'\\perp F$, donc en particulier (puisque $p-p'\\in F$) :\n$$\\langle x-p,\\,p-p'\\rangle = 0 \\qquad \\text{et} \\qquad \\langle x-p',\\,p-p'\\rangle = 0$$\n\n**Soustraction des deux égalités.**\n$$\\langle x-p',p-p'\\rangle - \\langle x-p,p-p'\\rangle = 0 - 0 = 0$$\n\nOr le membre de gauche se simplifie (par bilinéarité) :\n$$\\langle (x-p')-(x-p),\\,p-p'\\rangle = \\langle p-p',\\,p-p'\\rangle = \\|p-p'\\|^2$$\n\n**Conclusion.** $\\|p-p'\\|^2=0$, donc $p-p'=0$ (car la norme est définie positive), c'est-à-dire $p=p'$. $\\square$ Cela confirme que la projection orthogonale, lorsqu'elle existe, est nécessairement **unique** — c'est ce qui justifie de parler de « la » projection $p_F(x)$ plutôt que « d'une » projection.",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-2-e12",
+          question: "Appliquer le procédé de Gram-Schmidt complet à $v_1=(1,1,0)$, $v_2=(1,0,1)$ pour obtenir une base orthonormée $(u_1,u_2)$ du plan $\\text{Vect}(v_1,v_2)$.",
+          type: "open",
+          modelAnswer: "u1 = v1/||v1|| = (1,1,0)/√2 = (1/√2,1/√2,0). w2 = v2 - ⟨v2,u1⟩u1. ⟨v2,u1⟩ = (1·1/√2+0·1/√2+1·0) = 1/√2. w2 = (1,0,1) - (1/√2)(1/√2,1/√2,0) = (1,0,1)-(1/2,1/2,0) = (1/2,-1/2,1). ||w2||=√(1/4+1/4+1)=√(3/2). u2 = w2/||w2|| = (1/2,-1/2,1)/√(3/2).",
+          explanation: "**Première étape.** $u_1=\\dfrac{v_1}{\\|v_1\\|}$. Comme $\\|v_1\\|=\\sqrt{1^2+1^2+0^2}=\\sqrt2$ :\n$$u_1 = \\left(\\frac{1}{\\sqrt2},\\frac{1}{\\sqrt2},0\\right)$$\n\n**Deuxième étape — calcul de $\\langle v_2,u_1\\rangle$.** $\\langle v_2,u_1\\rangle = 1\\times\\dfrac{1}{\\sqrt2}+0\\times\\dfrac{1}{\\sqrt2}+1\\times0 = \\dfrac{1}{\\sqrt2}$.\n\n**Soustraction de la projection.** $w_2=v_2-\\langle v_2,u_1\\rangle u_1 = (1,0,1) - \\dfrac{1}{\\sqrt2}\\left(\\dfrac{1}{\\sqrt2},\\dfrac{1}{\\sqrt2},0\\right) = (1,0,1)-\\left(\\dfrac12,\\dfrac12,0\\right) = \\left(\\dfrac12,-\\dfrac12,1\\right)$.\n\n**Normalisation.** $\\|w_2\\|=\\sqrt{\\dfrac14+\\dfrac14+1}=\\sqrt{\\dfrac32}$, donc :\n$$u_2 = \\frac{w_2}{\\|w_2\\|} = \\frac{1}{\\sqrt{3/2}}\\left(\\frac12,-\\frac12,1\\right)$$\n\n**Vérification rapide :** $\\langle u_1,u_2\\rangle$ doit être nul (par construction, $w_2\\perp u_1$), ce qu'on peut vérifier directement : $\\langle w_2,u_1\\rangle=\\dfrac12\\cdot\\dfrac1{\\sqrt2}-\\dfrac12\\cdot\\dfrac1{\\sqrt2}+1\\times0=0$. ✓",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-2-e13",
+          question: "Vrai ou faux : pour $F$ fermé et $x\\notin F$, on a toujours $d(x,F)=\\|x-p_F(x)\\|>0$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Si $d(x,F)=0$, alors $p_F(x)$ serait à distance nulle de $x$, donc $p_F(x)=x$ (la norme est définie positive), ce qui impliquerait $x\\in F$ — contredisant l'hypothèse $x\\notin F$. Donc nécessairement $d(x,F)>0$.",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-2-e14",
+          question: "Démontrer, en utilisant la décomposition orthogonale $H=F\\oplus F^\\perp$, l'identité $\\|x\\|^2=\\|p_F(x)\\|^2+d(x,F)^2$.",
+          type: "open",
+          modelAnswer: "x = p_F(x) + (x - p_F(x)), avec p_F(x)∈F et (x-p_F(x))∈F^⊥ (orthogonalité caractéristique de la projection). Par Pythagore (vecteurs orthogonaux): ||x||² = ||p_F(x)||² + ||x-p_F(x)||². Or ||x-p_F(x)|| = d(x,F) par définition de la projection (distance minimale réalisée). Donc ||x||² = ||p_F(x)||² + d(x,F)².",
+          explanation: "**Décomposition orthogonale.** On écrit $x=p_F(x)+(x-p_F(x))$, où $p_F(x)\\in F$ et, par la caractérisation de la projection (§1), $x-p_F(x)\\perp F$, donc en particulier $x-p_F(x)\\in F^\\perp$ et est orthogonal à $p_F(x)$ (qui appartient à $F$).\n\n**Application du théorème de Pythagore.** Comme $p_F(x)\\perp(x-p_F(x))$ :\n$$\\|x\\|^2 = \\|p_F(x)+(x-p_F(x))\\|^2 = \\|p_F(x)\\|^2 + \\|x-p_F(x)\\|^2$$\n\n**Identification de $\\|x-p_F(x)\\|$.** Par définition même de la projection orthogonale (théorème §1), $\\|x-p_F(x)\\|=d(x,F)$ (la distance minimale de $x$ à $F$ est exactement réalisée en $p_F(x)$).\n\n**Conclusion.**\n$$\\|x\\|^2 = \\|p_F(x)\\|^2 + d(x,F)^2 \\qquad \\square$$\n\nCette identité a une interprétation géométrique limpide : le carré de la norme de $x$ se décompose en la partie « expliquée » par $F$ (le carré de la norme de la projection) et la partie « résiduelle » (le carré de la distance à $F$) — c'est l'analogue, en dimension infinie, de la décomposition variance expliquée/variance résiduelle en régression linéaire.",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-2-e15",
+          question: "Démontrer que pour $F\\subset G$ (deux sous-espaces fermés emboîtés), $d(x,G)\\leq d(x,F)$ pour tout $x$, et interpréter ce résultat.",
+          type: "open",
+          modelAnswer: "d(x,G) = inf_{y∈G} ||x-y||. Comme F⊂G, tout élément de F est aussi dans G, donc l'ensemble {||x-y|| : y∈F} est inclus dans {||x-y|| : y∈G}. L'infimum sur un ensemble plus petit (F) est donc supérieur ou égal à l'infimum sur l'ensemble plus grand (G): inf_{y∈G}||x-y|| <= inf_{y∈F}||x-y||, soit d(x,G)<=d(x,F). Interprétation: plus le sous-espace d'approximation est riche (grand), plus on peut s'approcher de x, donc la distance ne peut que diminuer (ou rester égale).",
+          explanation: "**Inclusion des ensembles de candidats.** Comme $F\\subseteq G$, l'ensemble des distances candidates $\\{\\|x-y\\|:y\\in F\\}$ est **inclus** dans $\\{\\|x-y\\|:y\\in G\\}$ (tout $y\\in F$ est aussi dans $G$).\n\n**Monotonie de l'infimum.** Pour deux ensembles de réels $A\\subseteq B$, on a toujours $\\inf B\\leq\\inf A$ (prendre l'infimum sur un ensemble plus grand ne peut que faire baisser, ou laisser inchangée, la valeur — car $B$ contient au moins tous les candidats de $A$, donc potentiellement de meilleurs).\n\n**Application.** En posant $A=\\{\\|x-y\\|:y\\in F\\}$ et $B=\\{\\|x-y\\|:y\\in G\\}$, avec $A\\subseteq B$ :\n$$d(x,G) = \\inf B \\leq \\inf A = d(x,F)$$\n\n**Interprétation géométrique.** Ce résultat est intuitif : $G$, contenant $F$, offre **plus de candidats** $y$ potentiels pour approcher $x$ ; on ne peut donc jamais faire moins bien (distance plus grande) en élargissant l'espace d'approximation, seulement aussi bien ou mieux. C'est le principe sous-jacent à de nombreuses méthodes d'approximation (par exemple en analyse numérique : enrichir une base d'approximation ne peut que diminuer l'erreur minimale possible). $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "hilb3-l3-3",
+      slug: "bases-hilbertiennes",
+      title: "Bases hilbertiennes et lien avec les séries de Fourier",
+      durationMinutes: 60,
+      content: `## Bases hilbertiennes et lien avec les séries de Fourier
+
+### 1. Familles orthonormées et inégalité de Bessel
+
+Soit $(e_n)_{n\\geq1}$ une famille **orthonormée** dans un espace de Hilbert $H$ ($\\langle e_i,e_j\\rangle=\\delta_{ij}$). Pour tout $x\\in H$, les **coefficients de Fourier généralisés** sont $c_n=\\langle x,e_n\\rangle$.
+
+**Inégalité de Bessel :** pour tout $N$, $\\displaystyle\\sum_{n=1}^N|c_n|^2\\leq\\|x\\|^2$, et en passant à la limite, $\\displaystyle\\sum_{n=1}^{+\\infty}|c_n|^2\\leq\\|x\\|^2$ (la série converge toujours, quelle que soit la famille orthonormée — c'est une conséquence directe du théorème de Pythagore appliqué à $x=p_{F_N}(x)+(x-p_{F_N}(x))$ avec $F_N=\\text{Vect}(e_1,\\dots,e_N)$).
+
+### 2. Base hilbertienne
+
+Une famille orthonormée $(e_n)_{n\\geq1}$ est une **base hilbertienne** (ou base orthonormée complète) de $H$ si, de plus, $\\text{Vect}(e_n:n\\geq1)$ est **dense** dans $H$. Dans ce cas, l'inégalité de Bessel devient une **égalité** — l'**égalité de Parseval** :
+$$\\|x\\|^2 = \\sum_{n=1}^{+\\infty}|c_n|^2 \\qquad \\text{et} \\qquad x = \\sum_{n=1}^{+\\infty}c_n\\,e_n \\ \\text{(convergence dans }H\\text{)}$$
+
+### 3. Lien direct avec les séries de Fourier
+
+Sur $H=L^2([-\\pi,\\pi])$ (fonctions de carré intégrable, muni de $\\langle f,g\\rangle=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}fg$), la famille $\\Big(e_n(x)=e^{inx}\\Big)_{n\\in\\mathbb{Z}}$ est **orthonormée** (vérifié : $\\langle e_n,e_m\\rangle=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^{\\pi}e^{i(n-m)x}dx=\\delta_{nm}$) et constitue en fait une **base hilbertienne** de $L^2([-\\pi,\\pi])$ — c'est un théorème profond (densité des polynômes trigonométriques dans $L^2$, via Stone-Weierstrass puis un argument de densité).
+
+Les coefficients de Fourier $c_n=\\langle f,e_n\\rangle$ déjà étudiés (leçon « Séries de Fourier ») sont donc exactement les **coordonnées de $f$ dans cette base hilbertienne**, et l'**égalité de Parseval** $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi|f|^2=\\displaystyle\\sum_n|c_n|^2$ (déjà rencontrée pour le problème de Bâle) est exactement l'égalité de Parseval générale de ce paragraphe, appliquée à ce cas particulier.
+
+**Reformulation conceptuelle :** la décomposition d'une fonction périodique en série de Fourier n'est rien d'autre que l'expression de cette fonction dans une base orthonormée bien choisie de l'espace de Hilbert $L^2$ — exactement comme décomposer un vecteur de $\\mathbb{R}^n$ dans la base canonique.
+
+### 4. Exemple résolu — meilleure approximation trigonométrique
+
+**Conséquence pratique de la projection orthogonale (leçon précédente) :** la somme partielle de Fourier $S_N f=\\displaystyle\\sum_{|n|\\leq N}c_ne^{inx}$ est exactement la **projection orthogonale** de $f$ sur $F_N=\\text{Vect}(e_{-N},\\dots,e_N)$, donc $S_Nf$ est le **meilleur polynôme trigonométrique de degré $\\leq N$ approximant $f$** au sens de la norme $L^2$ — meilleur que n'importe quel autre choix de coefficients, pas seulement meilleur en moyenne. C'est un résultat beaucoup plus fort que la simple convergence ponctuelle (Dirichlet) déjà vue.
+
+### 5. Séparabilité
+
+Un espace de Hilbert admettant une base hilbertienne **dénombrable** est dit **séparable**. $L^2([-\\pi,\\pi])$, $\\ell^2$, $\\mathbb{R}^n$ sont tous séparables. (Il existe des espaces de Hilbert non séparables, mais ils sont rares en pratique et hors-programme ici.)
+
+### 6. Récapitulatif
+
+| Notion | Définition / propriété |
+|---|---|
+| Coefficients de Fourier généralisés | $c_n=\\langle x,e_n\\rangle$ pour $(e_n)$ orthonormée |
+| Inégalité de Bessel | $\\sum_n|c_n|^2\\leq\\|x\\|^2$ (toujours) |
+| Base hilbertienne | famille orthonormée totale (Vect dense) |
+| Égalité de Parseval | $\\|x\\|^2=\\sum_n|c_n|^2$ et $x=\\sum_nc_ne_n$ |
+| Lien Fourier | $(e^{inx})_{n\\in\\mathbb{Z}}$ est une base hilbertienne de $L^2([-\\pi,\\pi])$ |`,
+      exercises: [
+        {
+          id: "hilb3-l3-3-e1",
+          question: "Que dit l'inégalité de Bessel pour une famille orthonormée $(e_n)$ et $x\\in H$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\sum_n|\\langle x,e_n\\rangle|^2\\leq\\|x\\|^2$" },
+            { id: "B", text: "$\\sum_n|\\langle x,e_n\\rangle|^2=\\|x\\|^2$ toujours" },
+            { id: "C", text: "$\\sum_n\\langle x,e_n\\rangle=0$" },
+            { id: "D", text: "$\\|x\\|\\leq\\sum_n e_n$" },
+          ],
+          correctId: "A",
+          explanation: "L'inégalité de Bessel est une majoration valable pour **toute** famille orthonormée (pas seulement une base hilbertienne) — c'est seulement pour une base hilbertienne complète que l'égalité de Parseval est garantie.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-3-e2",
+          question: "Vrai ou faux : une base hilbertienne est une famille orthonormée dont l'espace engendré est dense dans $H$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement la condition supplémentaire (« totalité » ou densité du Vect) qui distingue une base hilbertienne d'une simple famille orthonormée — sans cette condition, l'égalité de Parseval n'est pas garantie.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-3-e3",
+          question: "Quelle famille de fonctions forme une base hilbertienne de $L^2([-\\pi,\\pi])$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(e^{inx})_{n\\in\\mathbb{Z}}$" },
+            { id: "B", text: "$(x^n)_{n\\geq0}$" },
+            { id: "C", text: "$(n)_{n\\geq1}$ (constantes)" },
+            { id: "D", text: "Aucune famille dénombrable ne suffit" },
+          ],
+          correctId: "A",
+          explanation: "La famille exponentielle complexe $(e^{inx})_{n\\in\\mathbb{Z}}$ est précisément la base hilbertienne associée aux séries de Fourier — c'est le résultat qui justifie rigoureusement la décomposition en série de Fourier comme un cas particulier de décomposition dans une base orthonormée.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-3-e4",
+          question: "Vrai ou faux : l'égalité de Parseval transforme l'inégalité de Bessel en égalité, lorsque la famille orthonormée est une base hilbertienne.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement la différence entre une simple famille orthonormée (Bessel, inégalité) et une base hilbertienne complète (Parseval, égalité) — la densité du Vect garantit qu'aucune « masse » de $x$ n'échappe à la décomposition.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-3-e5",
+          question: "Qu'est-ce qu'un espace de Hilbert séparable ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Un espace de Hilbert admettant une base hilbertienne dénombrable" },
+            { id: "B", text: "Un espace de Hilbert de dimension finie uniquement" },
+            { id: "C", text: "Un espace dont le produit scalaire est nul" },
+            { id: "D", text: "Un espace sans aucune base hilbertienne" },
+          ],
+          correctId: "A",
+          explanation: "Un espace de Hilbert séparable est celui qui possède une base hilbertienne **dénombrable** — c'est le cas de $L^2$, $\\ell^2$, $\\mathbb{R}^n$, qui couvrent l'immense majorité des applications pratiques.",
+          difficulty: "debutant",
+        },
+        {
+          id: "hilb3-l3-3-e6",
+          question: "Pour $x\\in H$ avec $\\|x\\|=5$ et une famille orthonormée $(e_n)$ telle que $\\langle x,e_1\\rangle=3$, $\\langle x,e_2\\rangle=2$, que peut-on dire de $\\langle x,e_3\\rangle$ d'après Bessel ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$|\\langle x,e_3\\rangle|^2\\leq25-9-4=12$, donc $|\\langle x,e_3\\rangle|\\leq2\\sqrt3$" },
+            { id: "B", text: "$\\langle x,e_3\\rangle=0$ nécessairement" },
+            { id: "C", text: "$\\langle x,e_3\\rangle=5$" },
+            { id: "D", text: "On ne peut rien dire" },
+          ],
+          correctId: "A",
+          explanation: "Bessel donne $3^2+2^2+|\\langle x,e_3\\rangle|^2\\leq5^2=25$ (en ne considérant que ces trois premiers termes parmi une somme potentiellement plus grande), donc $|\\langle x,e_3\\rangle|^2\\leq25-9-4=12$, soit $|\\langle x,e_3\\rangle|\\leq\\sqrt{12}=2\\sqrt3$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-3-e7",
+          question: "Pourquoi la convergence $x=\\sum_nc_ne_n$ dans l'égalité de Parseval est-elle une convergence \"dans $H$\" (au sens de la norme) plutôt qu'une convergence ponctuelle ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Car cette convergence concerne la norme $\\|x-\\sum_{n=1}^Nc_ne_n\\|\\to0$, sans garantir la convergence simple en tout point (qui est une question séparée, type Dirichlet)" },
+            { id: "B", text: "Car la convergence ponctuelle est automatiquement plus forte et implique la convergence en norme" },
+            { id: "C", text: "Ces deux notions de convergence sont toujours équivalentes" },
+            { id: "D", text: "Il n'y a en réalité aucune différence" },
+          ],
+          correctId: "A",
+          explanation: "La convergence \"dans $H$\" (norme $L^2$) ne dit rien directement sur la convergence ponctuelle en un point précis — c'est pourquoi le théorème de Dirichlet (convergence ponctuelle des séries de Fourier) est un résultat **distinct** et **plus délicat** que l'égalité de Parseval (convergence en norme $L^2$, valable sans hypothèse de régularité supplémentaire comme $\\mathcal{C}^1$ par morceaux).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-3-e8",
+          question: "Vrai ou faux : la somme partielle de Fourier $S_Nf$ est la meilleure approximation de $f$ par un polynôme trigonométrique de degré $\\leq N$, au sens de la norme $L^2$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement la conséquence du fait que $S_Nf$ est la projection orthogonale de $f$ sur l'espace des polynômes trigonométriques de degré $\\leq N$ : par le théorème de projection, c'est l'élément de cet espace minimisant la distance $L^2$ à $f$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-3-e9",
+          question: "Pour $f\\in L^2([-\\pi,\\pi])$ avec coefficients de Fourier complexes $c_n$ tels que $\\sum_n|c_n|^2=4$, que vaut $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi|f|^2\\,dx$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$4$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$16$" },
+            { id: "D", text: "$\\sqrt4=2$" },
+          ],
+          correctId: "A",
+          explanation: "Par l'égalité de Parseval, $\\|f\\|^2=\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi|f|^2dx=\\sum_n|c_n|^2=4$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-3-e10",
+          question: "Démontrer l'inégalité de Bessel $\\sum_{n=1}^N|c_n|^2\\leq\\|x\\|^2$ en utilisant la décomposition orthogonale de $x$ sur $F_N=\\text{Vect}(e_1,\\dots,e_N)$.",
+          type: "open",
+          modelAnswer: "x = p_{F_N}(x) + (x-p_{F_N}(x)), orthogonaux (théorème de projection). Par Pythagore: ||x||² = ||p_{F_N}(x)||² + ||x-p_{F_N}(x)||² >= ||p_{F_N}(x)||² (le second terme étant >=0). Or p_{F_N}(x) = Σ_{n=1}^N c_n e_n (formule de projection avec base orthonormée), donc par Pythagore appliqué aux e_n orthonormés: ||p_{F_N}(x)||² = Σ_{n=1}^N |c_n|². Donc Σ|c_n|² <= ||x||².",
+          explanation: "**Décomposition orthogonale.** Posons $F_N=\\text{Vect}(e_1,\\dots,e_N)$. Par le théorème de projection, $x=p_{F_N}(x)+(x-p_{F_N}(x))$, avec ces deux termes orthogonaux.\n\n**Application de Pythagore (niveau 1).**\n$$\\|x\\|^2 = \\|p_{F_N}(x)\\|^2 + \\|x-p_{F_N}(x)\\|^2 \\geq \\|p_{F_N}(x)\\|^2$$\n(le second terme étant une norme au carré, donc $\\geq0$).\n\n**Calcul de $\\|p_{F_N}(x)\\|^2$.** Comme $(e_1,\\dots,e_N)$ est orthonormée, la formule de projection donne $p_{F_N}(x)=\\displaystyle\\sum_{n=1}^Nc_ne_n$. Par Pythagore généralisé (les $c_ne_n$ étant deux à deux orthogonaux, car les $e_n$ le sont) :\n$$\\|p_{F_N}(x)\\|^2 = \\sum_{n=1}^N\\|c_ne_n\\|^2 = \\sum_{n=1}^N|c_n|^2\\|e_n\\|^2 = \\sum_{n=1}^N|c_n|^2$$\n(car $\\|e_n\\|=1$).\n\n**Conclusion.** En combinant : $\\displaystyle\\sum_{n=1}^N|c_n|^2 = \\|p_{F_N}(x)\\|^2 \\leq \\|x\\|^2$. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "hilb3-l3-3-e11",
+          question: "Démontrer que, pour une famille orthonormée $(e_n)_{n\\geq1}$ quelconque (pas nécessairement totale), la série $\\sum_nc_ne_n$ (avec $c_n=\\langle x,e_n\\rangle$) converge toujours dans $H$ (espace de Hilbert), en utilisant le critère de Cauchy et l'inégalité de Bessel.",
+          type: "open",
+          modelAnswer: "Soit S_N = Σ_{n=1}^N c_n e_n. Pour M>N, ||S_M - S_N||² = ||Σ_{n=N+1}^M c_n e_n||² = Σ_{n=N+1}^M |c_n|² (Pythagore, orthonormalité). Par Bessel, Σ_n |c_n|² converge (série à termes positifs majorée par ||x||²), donc son reste Σ_{n=N+1}^M |c_n|² → 0 quand N,M→∞ (critère de Cauchy pour les séries numériques). Donc ||S_M-S_N||→0, donc (S_N) est de Cauchy dans H. Comme H est complet (espace de Hilbert), (S_N) converge dans H.",
+          explanation: "**Étude des sommes partielles.** Posons $S_N=\\displaystyle\\sum_{n=1}^Nc_ne_n$. Pour $M>N$ :\n$$\\|S_M-S_N\\|^2 = \\left\\|\\sum_{n=N+1}^Mc_ne_n\\right\\|^2 = \\sum_{n=N+1}^M|c_n|^2$$\n(par Pythagore généralisé, les $e_n$ étant orthonormés).\n\n**Utilisation de Bessel.** Par l'inégalité de Bessel (exercice précédent), $\\displaystyle\\sum_{n=1}^{+\\infty}|c_n|^2\\leq\\|x\\|^2<\\infty$ : c'est une **série numérique convergente** (à termes positifs, majorée). Par le critère de Cauchy pour les séries numériques, son reste tend vers $0$ :\n$$\\sum_{n=N+1}^M|c_n|^2 \\xrightarrow[N,M\\to+\\infty]{} 0$$\n\n**Conséquence : $(S_N)$ est de Cauchy dans $H$.** D'après l'égalité ci-dessus, $\\|S_M-S_N\\|^2\\to0$ quand $N,M\\to+\\infty$, donc $(S_N)_N$ est une suite de **Cauchy** dans $H$.\n\n**Conclusion via la complétude.** Comme $H$ est un espace de **Hilbert** (donc complet par définition), toute suite de Cauchy y converge. Donc $(S_N)$ converge dans $H$ vers une limite, qu'on note naturellement $\\displaystyle\\sum_{n=1}^{+\\infty}c_ne_n$. $\\square$ Ce résultat utilise de façon essentielle la **complétude** : dans un espace préhilbertien non complet, cette série pourrait ne pas converger (sa limite « idéale » pourrait sortir de l'espace).",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-3-e12",
+          question: "Démontrer que si $(e_n)$ est une base hilbertienne et $x=\\sum_nc_ne_n$, $y=\\sum_nd_ne_n$, alors $\\langle x,y\\rangle=\\sum_nc_n\\overline{d_n}$ (identité de Parseval généralisée, cas réel : $\\sum_nc_nd_n$).",
+          type: "open",
+          modelAnswer: "Cas réel. ⟨x,y⟩ = lim_N ⟨S_N(x), S_N(y)⟩ par continuité du produit scalaire (et convergence S_N(x)→x, S_N(y)→y). ⟨S_N(x),S_N(y)⟩ = ⟨Σc_n e_n, Σd_m e_m⟩ = Σ_{n,m} c_n d_m ⟨e_n,e_m⟩ = Σ_n c_n d_n (car ⟨e_n,e_m⟩=δ_nm, seuls les termes n=m survivent). En passant à la limite N→∞: ⟨x,y⟩ = Σ_n c_n d_n.",
+          explanation: "**Continuité du produit scalaire.** Le produit scalaire $\\langle\\cdot,\\cdot\\rangle$ est continu (conséquence de Cauchy-Schwarz), donc si $S_N(x)=\\displaystyle\\sum_{n=1}^Nc_ne_n\\to x$ et $S_N(y)=\\displaystyle\\sum_{n=1}^Nd_ne_n\\to y$ dans $H$, alors :\n$$\\langle x,y\\rangle = \\lim_{N\\to+\\infty}\\langle S_N(x),S_N(y)\\rangle$$\n\n**Calcul de $\\langle S_N(x),S_N(y)\\rangle$ (cas réel).** Par bilinéarité :\n$$\\langle S_N(x),S_N(y)\\rangle = \\left\\langle\\sum_{n=1}^Nc_ne_n,\\sum_{m=1}^Nd_me_m\\right\\rangle = \\sum_{n=1}^N\\sum_{m=1}^Nc_nd_m\\langle e_n,e_m\\rangle$$\n\nComme $\\langle e_n,e_m\\rangle=\\delta_{nm}$ (orthonormalité), seuls les termes $n=m$ survivent dans la double somme :\n$$\\langle S_N(x),S_N(y)\\rangle = \\sum_{n=1}^Nc_nd_n$$\n\n**Passage à la limite.** En faisant $N\\to+\\infty$ :\n$$\\langle x,y\\rangle = \\lim_{N\\to+\\infty}\\sum_{n=1}^Nc_nd_n = \\sum_{n=1}^{+\\infty}c_nd_n \\qquad \\square$$\n\n(Le cas $x=y$ redonne exactement l'égalité de Parseval $\\|x\\|^2=\\sum_nc_n^2$ du paragraphe 2.)",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-3-e13",
+          question: "Vrai ou faux : si une famille orthonormée $(e_n)_{n\\geq1}$ vérifie $\\sum_n|\\langle x,e_n\\rangle|^2=\\|x\\|^2$ pour tout $x\\in H$ (égalité de Parseval pour tout $x$), alors $(e_n)$ est nécessairement une base hilbertienne.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une caractérisation équivalente des bases hilbertiennes : une famille orthonormée vérifiant l'égalité de Parseval pour tout $x\\in H$ est nécessairement totale (sinon il existerait un $x\\neq0$ orthogonal à tous les $e_n$, pour lequel l'égalité de Parseval donnerait $\\|x\\|^2=\\sum_n0=0$, contredisant $x\\neq0$).",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-3-e14",
+          question: "Démontrer que si $(e_n)$ est une base hilbertienne et $x\\neq0$ est orthogonal à tous les $e_n$ (c'est-à-dire $\\langle x,e_n\\rangle=0$ pour tout $n$), on obtient une contradiction — confirmant qu'aucun vecteur non nul n'est orthogonal à une base hilbertienne complète.",
+          type: "open",
+          modelAnswer: "Si ⟨x,e_n⟩=0 pour tout n, alors par l'égalité de Parseval (valable car (e_n) est une base hilbertienne), ||x||² = Σ_n|⟨x,e_n⟩|² = Σ_n 0 = 0. Donc ||x||=0, donc x=0 (définie positivité de la norme). Contradiction avec l'hypothèse x≠0.",
+          explanation: "**Hypothèse.** Supposons $x\\neq0$ et $\\langle x,e_n\\rangle=0$ pour tout $n\\geq1$.\n\n**Application de l'égalité de Parseval.** Comme $(e_n)$ est une **base hilbertienne** (donc l'égalité de Parseval s'applique à tout élément de $H$, en particulier à $x$) :\n$$\\|x\\|^2 = \\sum_{n=1}^{+\\infty}|\\langle x,e_n\\rangle|^2 = \\sum_{n=1}^{+\\infty}|0|^2 = 0$$\n\n**Conséquence.** $\\|x\\|^2=0$ implique $\\|x\\|=0$, et comme la norme issue d'un produit scalaire est **définie positive**, cela force $x=0$.\n\n**Contradiction.** Ceci contredit l'hypothèse $x\\neq0$. $\\square$\n\n**Conclusion :** aucun vecteur non nul de $H$ ne peut être orthogonal à tous les éléments d'une base hilbertienne — c'est exactement la traduction, en langage de produit scalaire, du fait que le Vect des $e_n$ est **dense** dans $H$ (un vecteur orthogonal à une partie dense de $H$ est nécessairement nul, par continuité du produit scalaire).",
+          difficulty: "expert",
+        },
+        {
+          id: "hilb3-l3-3-e15",
+          question: "Soit $f(x)=x$ sur $[-\\pi,\\pi]$ (la « dents de scie », déjà étudiée en série de Fourier avec $b_n=2(-1)^{n+1}/n$, $a_n=0$). Utiliser l'égalité de Parseval pour retrouver $\\displaystyle\\sum_{n=1}^{+\\infty}\\frac1{n^2}=\\frac{\\pi^2}{6}$, en partant de $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi x^2\\,dx=\\dfrac{\\pi^2}{3}$ et de la forme de Parseval en coefficients trigonométriques $\\dfrac1{2\\pi}\\displaystyle\\int|f|^2=\\dfrac{a_0^2}{4}+\\dfrac12\\sum(a_n^2+b_n^2)$.",
+          type: "open",
+          modelAnswer: "Membre de gauche: (1/2π)∫_{-π}^π x² dx = π²/3 (donné). Membre de droite: a_0=0, a_n=0 pour tout n, b_n=2(-1)^{n+1}/n donc b_n²=4/n². (1/2)Σb_n² = (1/2)·4·Σ1/n² = 2Σ1/n². Égalité: π²/3 = 2Σ1/n², donc Σ1/n² = π²/6.",
+          explanation: "**Membre de gauche (donné).** $\\dfrac{1}{2\\pi}\\displaystyle\\int_{-\\pi}^\\pi x^2\\,dx = \\dfrac{\\pi^2}{3}$ (calcul direct déjà effectué dans le cours de Fourier).\n\n**Membre de droite — coefficients de la dents de scie.** $a_0=0$ et $a_n=0$ pour tout $n$ (fonction impaire), et $b_n=\\dfrac{2(-1)^{n+1}}{n}$, donc $b_n^2=\\dfrac{4}{n^2}$.\n\n**Application de Parseval (forme trigonométrique) :**\n$$\\frac{1}{2\\pi}\\int_{-\\pi}^\\pi x^2\\,dx = \\frac{a_0^2}{4}+\\frac12\\sum_{n=1}^{+\\infty}(a_n^2+b_n^2) = 0 + \\frac12\\sum_{n=1}^{+\\infty}\\frac{4}{n^2} = 2\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$$\n\n**Égalisation des deux membres.**\n$$\\frac{\\pi^2}{3} = 2\\sum_{n=1}^{+\\infty}\\frac{1}{n^2}$$\n\n**Conclusion.**\n$$\\sum_{n=1}^{+\\infty}\\frac{1}{n^2} = \\frac{\\pi^2}{6} \\qquad \\square$$\n\nCe calcul retrouve, par un chemin légèrement différent (la fonction « dents de scie » plutôt que le « créneau » utilisé dans la leçon « Séries de Fourier »), le célèbre **problème de Bâle** — confirmant que l'égalité de Parseval, vue ici dans le cadre général des espaces de Hilbert, est exactement le même outil que celui déjà exploité dans l'étude des séries de Fourier.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+  // ─────────────────────────────────────────────
+  // L3 — Algèbre : Actions de groupe et théorèmes de Sylow
+  // ─────────────────────────────────────────────
+  {
+  id: "groupes-l3",
+  slug: "groupes-l3-actions-sylow",
+  title: "Algèbre L3 — Actions de groupe et théorèmes de Sylow",
+  description: "Actions de groupe, théorème orbite-stabilisateur, équation aux classes, théorèmes de Sylow et applications à la classification des petits groupes.",
+  schoolLevel: "L3",
+  subject: "algebre",
+  difficulty: "Avancé",
+  isFree: false,
+  thumbnailEmoji: "🔣",
+  lessons: [
+    {
+      id: "grp3-l3-1",
+      slug: "actions-de-groupe",
+      title: "Actions de groupe",
+      durationMinutes: 55,
+      content: `## Actions de groupe
+
+### 1. Définition
+
+Une **action** d'un groupe $G$ sur un ensemble $X$ est une application $G\\times X\\to X$, $(g,x)\\mapsto g\\cdot x$, vérifiant $e\\cdot x=x$ (élément neutre) et $(gh)\\cdot x=g\\cdot(h\\cdot x)$ pour tous $g,h\\in G$, $x\\in X$. De façon équivalente, c'est un morphisme $G\\to\\text{Bij}(X)$ (le groupe des bijections de $X$).
+
+**Exemples :** $G=S_n$ agissant sur $X=\\{1,\\dots,n\\}$ par permutation directe ; $G$ agissant sur lui-même par **conjugaison** : $g\\cdot x=gxg^{-1}$ ; $G$ agissant sur lui-même par **translation** : $g\\cdot x=gx$ ; $G=\\text{GL}_n(\\mathbb{R})$ agissant sur $X=\\mathbb{R}^n$ par multiplication matricielle.
+
+### 2. Orbites et stabilisateurs
+
+L'**orbite** de $x\\in X$ est $\\text{Orb}(x)=\\{g\\cdot x:g\\in G\\}\\subseteq X$. Le **stabilisateur** de $x$ est $\\text{Stab}(x)=\\{g\\in G:g\\cdot x=x\\}$, qui est toujours un **sous-groupe** de $G$. Les orbites partitionnent $X$ (relation d'équivalence $x\\sim y\\iff\\exists g, y=g\\cdot x$).
+
+### 3. Théorème orbite-stabilisateur
+
+**Théorème :** pour tout $x\\in X$ (et $G$ fini), il existe une bijection entre $\\text{Orb}(x)$ et $G/\\text{Stab}(x)$ (l'ensemble des classes à gauche de $\\text{Stab}(x)$), donnant :
+$$|\\text{Orb}(x)| = \\frac{|G|}{|\\text{Stab}(x)|} \\qquad\\text{soit}\\qquad |G| = |\\text{Orb}(x)|\\times|\\text{Stab}(x)|$$
+
+**Exemple résolu.** $G=S_3$ agit sur $X=\\{1,2,3\\}$ par permutation. L'orbite de $1$ est $\\{1,2,3\\}$ tout entier (on peut envoyer $1$ sur n'importe quel élément), donc $|\\text{Orb}(1)|=3$. Comme $|G|=|S_3|=6$, le théorème donne $|\\text{Stab}(1)|=6/3=2$ — en effet, $\\text{Stab}(1)=\\{\\text{id},(2\\,3)\\}$, les permutations fixant $1$.
+
+### 4. Action par conjugaison et centre
+
+Pour l'action de $G$ sur lui-même par conjugaison ($g\\cdot x=gxg^{-1}$), l'orbite de $x$ est sa **classe de conjugaison**, et le stabilisateur de $x$ est son **centralisateur** $C_G(x)=\\{g\\in G:gx=xg\\}$. Le théorème orbite-stabilisateur donne $|\\text{classe de }x|=|G|/|C_G(x)|$.
+
+Un élément $x$ a une classe de conjugaison **réduite à lui seul** ($\\{x\\}$) si et seulement si $x$ commute avec tout le groupe, c'est-à-dire $x\\in Z(G)$ (le **centre** de $G$).
+
+### 5. Équation aux classes
+
+En partitionnant $G$ selon ses classes de conjugaison, et en isolant celles réduites à un singleton (les éléments du centre $Z(G)$) :
+$$|G| = |Z(G)| + \\sum_{i}\\frac{|G|}{|C_G(x_i)|}$$
+où la somme porte sur un représentant $x_i$ de chaque classe de conjugaison **non triviale** (de cardinal $>1$). C'est l'**équation aux classes**, outil central pour étudier la structure des groupes finis (notamment les $p$-groupes, leçon suivante).
+
+### 6. Exemple résolu — le centre de $S_3$
+
+Les classes de conjugaison de $S_3$ sont : $\\{e\\}$ (taille $1$), les 3-cycles $\\{(123),(132)\\}$ (taille $2$), les transpositions $\\{(12),(13),(23)\\}$ (taille $3$). Équation aux classes : $6=1+2+3$. Comme seule la classe de $e$ est un singleton, $Z(S_3)=\\{e\\}$ : $S_3$ est de **centre trivial**.
+
+### 7. Récapitulatif
+
+| Notion | Définition |
+|---|---|
+| Action de groupe | $G\\times X\\to X$ vérifiant $e\\cdot x=x$, $(gh)\\cdot x=g\\cdot(h\\cdot x)$ |
+| Orbite $\\text{Orb}(x)$ | $\\{g\\cdot x:g\\in G\\}$ |
+| Stabilisateur $\\text{Stab}(x)$ | $\\{g\\in G:g\\cdot x=x\\}$, sous-groupe de $G$ |
+| Orbite-stabilisateur | $|G|=|\\text{Orb}(x)|\\times|\\text{Stab}(x)|$ |
+| Équation aux classes | $|G|=|Z(G)|+\\sum_i|G|/|C_G(x_i)|$ |`,
+      exercises: [
+        {
+          id: "grp3-l3-1-e1",
+          question: "Quelles sont les deux conditions définissant une action de groupe $G\\times X\\to X$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$e\\cdot x=x$ et $(gh)\\cdot x=g\\cdot(h\\cdot x)$" },
+            { id: "B", text: "$g\\cdot x=x$ pour tout $g$" },
+            { id: "C", text: "$G$ doit être commutatif" },
+            { id: "D", text: "$X$ doit être fini" },
+          ],
+          correctId: "A",
+          explanation: "Ce sont les deux axiomes définissant une action de groupe : l'identité agit trivialement, et la composition des actions correspond à la multiplication dans le groupe.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-1-e2",
+          question: "Vrai ou faux : le stabilisateur $\\text{Stab}(x)$ est toujours un sous-groupe de $G$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. On vérifie facilement que $\\text{Stab}(x)$ contient $e$, est stable par produit et par inverse — c'est un sous-groupe pour toute action.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-1-e3",
+          question: "Que dit le théorème orbite-stabilisateur ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$|G|=|\\text{Orb}(x)|\\times|\\text{Stab}(x)|$" },
+            { id: "B", text: "$|G|=|\\text{Orb}(x)|+|\\text{Stab}(x)|$" },
+            { id: "C", text: "$|\\text{Orb}(x)|=|\\text{Stab}(x)|$ toujours" },
+            { id: "D", text: "$|G|=|X|$" },
+          ],
+          correctId: "A",
+          explanation: "Le théorème orbite-stabilisateur établit que la taille de l'orbite multipliée par la taille du stabilisateur donne exactement l'ordre du groupe.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-1-e4",
+          question: "Vrai ou faux : pour l'action de conjugaison, l'orbite d'un élément $x$ est appelée sa classe de conjugaison.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est la terminologie standard : l'orbite de $x$ sous l'action $g\\cdot x=gxg^{-1}$ est exactement l'ensemble $\\{gxg^{-1}:g\\in G\\}$, appelée classe de conjugaison de $x$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-1-e5",
+          question: "Quel est le centre $Z(S_3)$ du groupe symétrique $S_3$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\{e\\}$ (trivial)" },
+            { id: "B", text: "$S_3$ tout entier" },
+            { id: "C", text: "$\\{e,(123)\\}$" },
+            { id: "D", text: "Les transpositions" },
+          ],
+          correctId: "A",
+          explanation: "$S_3$ est non abélien et son centre est trivial, $Z(S_3)=\\{e\\}$ : aucun élément non trivial ne commute avec tous les autres (cohérent avec l'équation aux classes $6=1+2+3$ du cours).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-1-e6",
+          question: "Pour l'action de $S_3$ sur $\\{1,2,3\\}$, quel est le stabilisateur de $1$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\{\\text{id},(23)\\}$" },
+            { id: "B", text: "$\\{\\text{id}\\}$" },
+            { id: "C", text: "$S_3$ tout entier" },
+            { id: "D", text: "$\\{(123),(132)\\}$" },
+          ],
+          correctId: "A",
+          explanation: "Le stabilisateur de $1$ regroupe les permutations qui fixent $1$ : l'identité et la transposition $(23)$ (qui échange $2$ et $3$ sans toucher $1$). Sa taille est $2=6/3$, cohérent avec orbite-stabilisateur.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-1-e7",
+          question: "Si $|G|=20$ et que l'orbite d'un point $x$ a $4$ éléments, quelle est la taille du stabilisateur de $x$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$5$" },
+            { id: "B", text: "$4$" },
+            { id: "C", text: "$16$" },
+            { id: "D", text: "$80$" },
+          ],
+          correctId: "A",
+          explanation: "Par orbite-stabilisateur, $|\\text{Stab}(x)|=|G|/|\\text{Orb}(x)|=20/4=5$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-1-e8",
+          question: "Vrai ou faux : les orbites d'une action de groupe partitionnent toujours l'ensemble $X$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. La relation $x\\sim y\\iff\\exists g\\in G,\\,y=g\\cdot x$ est une relation d'équivalence (réflexivité via $e$, symétrie via $g^{-1}$, transitivité via la composition), donc ses classes d'équivalence — les orbites — partitionnent $X$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-1-e9",
+          question: "Pour l'action de $G$ sur lui-même par translation à gauche ($g\\cdot x=gx$), quel est le stabilisateur d'un élément quelconque $x\\in G$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\{e\\}$ (trivial), donc l'action est transitive et libre" },
+            { id: "B", text: "$G$ tout entier" },
+            { id: "C", text: "Le centre $Z(G)$" },
+            { id: "D", text: "Cela dépend toujours de $x$" },
+          ],
+          correctId: "A",
+          explanation: "Si $g\\cdot x=x$, alors $gx=x$, donc $g=xx^{-1}=e$ (en multipliant à droite par $x^{-1}$) : le stabilisateur de tout point est toujours trivial pour l'action par translation. Cette action a une seule orbite ($G$ tout entier, action transitive) et est dite **libre**.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-1-e10",
+          question: "Démontrer que pour l'action de conjugaison, le stabilisateur de $x$ (le centralisateur $C_G(x)$) est bien un sous-groupe de $G$.",
+          type: "open",
+          modelAnswer: "C_G(x) = {g∈G : gxg^{-1}=x} = {g∈G : gx=xg}. e∈C_G(x) car ex=xe. Si g,h∈C_G(x), alors (gh)x=g(hx)=g(xh)=(gx)h=(xg)h=x(gh), donc gh∈C_G(x). Si g∈C_G(x), gx=xg, donc x=g^{-1}xg, donc xg^{-1}=g^{-1}x, donc g^{-1}∈C_G(x). C_G(x) contient e, est stable par produit et inverse: c'est un sous-groupe.",
+          explanation: "**Reformulation.** $C_G(x)=\\{g\\in G:gxg^{-1}=x\\}=\\{g\\in G:gx=xg\\}$ (en multipliant à droite par $g$).\n\n**Contient l'élément neutre.** $ex=xe$ trivialement, donc $e\\in C_G(x)$.\n\n**Stable par produit.** Si $g,h\\in C_G(x)$ (donc $gx=xg$ et $hx=xh$), alors :\n$$(gh)x = g(hx) = g(xh) = (gx)h = (xg)h = x(gh)$$\ndonc $gh\\in C_G(x)$.\n\n**Stable par inverse.** Si $g\\in C_G(x)$, donc $gx=xg$, en multipliant à gauche par $g^{-1}$ et à droite par $g^{-1}$ : $x=g^{-1}xg$, soit $xg^{-1}=g^{-1}x$, donc $g^{-1}\\in C_G(x)$.\n\n**Conclusion.** $C_G(x)$ contient $e$, est stable par produit et par passage à l'inverse : c'est bien un sous-groupe de $G$. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-1-e11",
+          question: "Démontrer le théorème orbite-stabilisateur : construire une bijection explicite entre $\\text{Orb}(x)$ et $G/\\text{Stab}(x)$.",
+          type: "open",
+          modelAnswer: "Définir φ: G/Stab(x) → Orb(x) par φ(g·Stab(x)) = g·x. Bien définie: si g·Stab(x)=h·Stab(x), alors h^{-1}g∈Stab(x), donc (h^{-1}g)·x=x, donc g·x=h·x, donc φ est cohérente. Injective: si φ(g·Stab(x))=φ(h·Stab(x)), alors g·x=h·x, donc (h^{-1}g)·x=x, donc h^{-1}g∈Stab(x), donc g·Stab(x)=h·Stab(x). Surjective: tout élément de Orb(x) s'écrit g·x=φ(g·Stab(x)) par définition de l'orbite. Donc φ est une bijection, et |Orb(x)|=|G/Stab(x)|=|G|/|Stab(x)|.",
+          explanation: "**Construction de l'application.** Définissons $\\varphi:G/\\text{Stab}(x)\\to\\text{Orb}(x)$ par $\\varphi(g\\cdot\\text{Stab}(x))=g\\cdot x$ (où $g\\cdot\\text{Stab}(x)$ désigne la classe à gauche de $g$).\n\n**Bonne définition (indépendance du représentant).** Si $g\\cdot\\text{Stab}(x)=h\\cdot\\text{Stab}(x)$ (même classe), alors $h^{-1}g\\in\\text{Stab}(x)$, donc $(h^{-1}g)\\cdot x=x$. En appliquant $h$ des deux côtés (action de groupe) : $g\\cdot x=h\\cdot((h^{-1}g)\\cdot x)$... plus directement, $h\\cdot((h^{-1}g)\\cdot x)=(hh^{-1}g)\\cdot x=g\\cdot x$, et comme $(h^{-1}g)\\cdot x=x$, on a $h\\cdot x=g\\cdot x$. Donc $\\varphi$ ne dépend pas du choix du représentant.\n\n**Injectivité.** Si $\\varphi(g\\cdot\\text{Stab}(x))=\\varphi(h\\cdot\\text{Stab}(x))$, c'est-à-dire $g\\cdot x=h\\cdot x$, alors $(h^{-1}g)\\cdot x=h^{-1}\\cdot(g\\cdot x)=h^{-1}\\cdot(h\\cdot x)=x$, donc $h^{-1}g\\in\\text{Stab}(x)$, donc $g\\cdot\\text{Stab}(x)=h\\cdot\\text{Stab}(x)$.\n\n**Surjectivité.** Tout élément de $\\text{Orb}(x)$ s'écrit $g\\cdot x$ pour un certain $g\\in G$ (par définition de l'orbite), donc est l'image de $g\\cdot\\text{Stab}(x)$ par $\\varphi$.\n\n**Conclusion.** $\\varphi$ est une bijection, donc $|\\text{Orb}(x)|=|G/\\text{Stab}(x)|=\\dfrac{|G|}{|\\text{Stab}(x)|}$ (pour $G$ fini). $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-1-e12",
+          question: "Démontrer l'équation aux classes $|G|=|Z(G)|+\\sum_i|G|/|C_G(x_i)|$ à partir de la partition de $G$ en classes de conjugaison.",
+          type: "open",
+          modelAnswer: "Les classes de conjugaison partitionnent G (orbites de l'action par conjugaison). Chaque classe a pour taille |G|/|C_G(x)| (orbite-stabilisateur, avec stabilisateur=centralisateur). Les classes de taille 1 correspondent exactement aux éléments du centre Z(G) (car classe={x} ⟺ gxg^{-1}=x pour tout g ⟺ x commute avec tout g ⟺ x∈Z(G)). En sommant les tailles de toutes les classes (qui font |G| par partition), et en séparant les classes de taille 1 (qui contribuent |Z(G)| au total) des classes de taille >1 (qui contribuent chacune |G|/|C_G(x_i)|), on obtient |G|=|Z(G)|+Σ_i|G|/|C_G(x_i)|.",
+          explanation: "**Partition de $G$.** L'action de conjugaison de $G$ sur lui-même partitionne $G$ en classes de conjugaison (les orbites de cette action). Donc $|G|=\\displaystyle\\sum_{\\text{classes}}|\\text{classe}|$.\n\n**Taille de chaque classe.** Par le théorème orbite-stabilisateur appliqué à l'action de conjugaison, la classe de $x$ a pour taille $|G|/|C_G(x)|$ (le stabilisateur étant le centralisateur).\n\n**Identification des classes de taille $1$.** La classe de $x$ est réduite à $\\{x\\}$ si et seulement si $gxg^{-1}=x$ pour tout $g\\in G$, c'est-à-dire $x$ commute avec tout élément de $G$ — exactement la définition de $x\\in Z(G)$. Donc les classes de taille $1$ correspondent **bijectivement** aux éléments du centre, et leur contribution totale à la somme est $|Z(G)|$.\n\n**Séparation des classes restantes.** En isolant ces classes triviales de la somme totale, et en notant $x_i$ un représentant de chaque classe de conjugaison **non triviale** (taille $>1$) :\n$$|G| = |Z(G)| + \\sum_i\\frac{|G|}{|C_G(x_i)|} \\qquad \\square$$",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-1-e13",
+          question: "Vrai ou faux : si $G$ agit transitivement sur $X$ (une seule orbite), alors pour tout $x\\in X$, $|X|=|G|/|\\text{Stab}(x)|$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Si l'action est transitive, $\\text{Orb}(x)=X$ pour tout $x$, donc le théorème orbite-stabilisateur donne directement $|X|=|\\text{Orb}(x)|=|G|/|\\text{Stab}(x)|$.",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-1-e14",
+          question: "Soit $G$ un groupe d'ordre $p^2$ ($p$ premier). Démontrer, en utilisant l'équation aux classes, que $G$ a un centre non trivial ($Z(G)\\neq\\{e\\}$) — un résultat clé pour la classification des $p$-groupes.",
+          type: "open",
+          modelAnswer: "Équation aux classes: |G|=|Z(G)|+Σ|G|/|C_G(x_i)| sur les classes non triviales. Chaque |C_G(x_i)| est un diviseur strict de |G|=p² ne valant pas |G| (car x_i∉Z(G) donc C_G(x_i)≠G), donc |C_G(x_i)|=1 ou p. Mais |C_G(x_i)| contient toujours x_i et ses puissances, en fait C_G(x_i)⊇⟨x_i⟩ qui a au moins p éléments (car x_i≠e dans le cas considéré), donc |C_G(x_i)|>=p. Donc |C_G(x_i)|=p exactement, et |G|/|C_G(x_i)|=p²/p=p pour chaque classe non triviale. Donc p² = |Z(G)| + (nombre de classes non triviales)×p. Donc |Z(G)| ≡ p² ≡ 0 (mod p). Comme e∈Z(G), |Z(G)|>=1, et p divise |Z(G)|, donc |Z(G)|>=p>1. Donc Z(G) est non trivial.",
+          explanation: "**Équation aux classes.** $|G|=|Z(G)|+\\displaystyle\\sum_i\\dfrac{|G|}{|C_G(x_i)|}$, où la somme porte sur les classes de conjugaison non triviales (représentants $x_i\\notin Z(G)$).\n\n**Étude de $|C_G(x_i)|$ pour $x_i\\notin Z(G)$.** Comme $C_G(x_i)$ est un sous-groupe de $G=p^2$, par Lagrange $|C_G(x_i)|\\in\\{1,p,p^2\\}$. Comme $x_i\\notin Z(G)$, $C_G(x_i)\\neq G$, donc $|C_G(x_i)|\\neq p^2$. De plus, $C_G(x_i)$ contient toujours le sous-groupe cyclique $\\langle x_i\\rangle$ engendré par $x_i$ (car $x_i$ commute trivialement avec lui-même et ses puissances), qui a au moins $p$ éléments (puisque $x_i\\neq e$, son ordre divise $p^2$ donc vaut $p$ ou $p^2$, donc $\\geq p$). Donc $|C_G(x_i)|\\geq p$, ce qui élimine $|C_G(x_i)|=1$. Conclusion : $|C_G(x_i)|=p$ exactement pour toute classe non triviale.\n\n**Calcul de chaque terme.** Pour chaque classe non triviale, $\\dfrac{|G|}{|C_G(x_i)|}=\\dfrac{p^2}{p}=p$.\n\n**Conséquence sur l'équation aux classes.** $p^2=|Z(G)|+kp$ où $k$ est le nombre de classes de conjugaison non triviales. Donc $|Z(G)|=p^2-kp=p(p-k)$, qui est **divisible par $p$**.\n\n**Conclusion.** Comme $e\\in Z(G)$ toujours, $|Z(G)|\\geq1$. Combiné à $p\\mid|Z(G)|$, on a nécessairement $|Z(G)|\\geq p>1$ : le centre est **non trivial**. $\\square$ (Ce résultat est la première étape vers la démonstration que tout groupe d'ordre $p^2$ est abélien.)",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-1-e15",
+          question: "Démontrer que si $G$ agit sur un ensemble fini $X$ et que $x,y$ sont dans la même orbite, alors $\\text{Stab}(x)$ et $\\text{Stab}(y)$ sont des sous-groupes conjugués (donc isomorphes).",
+          type: "open",
+          modelAnswer: "Si y est dans l'orbite de x, y=g·x pour un certain g∈G. Montrer Stab(y)=g·Stab(x)·g^{-1}. Si h∈Stab(x) (h·x=x), alors (ghg^{-1})·y = (ghg^{-1})·(g·x) = (gh)·x = g·(h·x) = g·x = y, donc ghg^{-1}∈Stab(y), donc g·Stab(x)·g^{-1}⊆Stab(y). Réciproquement, si k∈Stab(y), alors (g^{-1}kg)·x = g^{-1}·(k·(g·x)) = g^{-1}·(k·y) = g^{-1}·y = g^{-1}·(g·x) = x, donc g^{-1}kg∈Stab(x), donc k∈g·Stab(x)·g^{-1}, donc Stab(y)⊆g·Stab(x)·g^{-1}. Conclusion: Stab(y)=g·Stab(x)·g^{-1}, conjugué de Stab(x), donc isomorphe (conjugaison par g est un isomorphisme de groupe).",
+          explanation: "**Mise en place.** Comme $y$ est dans l'orbite de $x$, il existe $g\\in G$ tel que $y=g\\cdot x$.\n\n**Inclusion $g\\,\\text{Stab}(x)\\,g^{-1}\\subseteq\\text{Stab}(y)$.** Soit $h\\in\\text{Stab}(x)$ (donc $h\\cdot x=x$). Calculons l'action de $ghg^{-1}$ sur $y$ :\n$$(ghg^{-1})\\cdot y = (ghg^{-1})\\cdot(g\\cdot x) = (ghg^{-1}g)\\cdot x = (gh)\\cdot x = g\\cdot(h\\cdot x) = g\\cdot x = y$$\nDonc $ghg^{-1}\\in\\text{Stab}(y)$, ce qui montre $g\\,\\text{Stab}(x)\\,g^{-1}\\subseteq\\text{Stab}(y)$.\n\n**Inclusion réciproque $\\text{Stab}(y)\\subseteq g\\,\\text{Stab}(x)\\,g^{-1}$.** Soit $k\\in\\text{Stab}(y)$ (donc $k\\cdot y=y$). Calculons :\n$$(g^{-1}kg)\\cdot x = g^{-1}\\cdot\\big(k\\cdot(g\\cdot x)\\big) = g^{-1}\\cdot(k\\cdot y) = g^{-1}\\cdot y = g^{-1}\\cdot(g\\cdot x) = x$$\nDonc $g^{-1}kg\\in\\text{Stab}(x)$, c'est-à-dire $k\\in g\\,\\text{Stab}(x)\\,g^{-1}$.\n\n**Conclusion.** Les deux inclusions donnent $\\text{Stab}(y)=g\\,\\text{Stab}(x)\\,g^{-1}$ : les stabilisateurs de deux points d'une même orbite sont **conjugués** dans $G$. Comme la conjugaison par un élément fixé $g$ (l'application $h\\mapsto ghg^{-1}$) est un **isomorphisme de groupe**, $\\text{Stab}(x)$ et $\\text{Stab}(y)$ sont isomorphes. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "grp3-l3-2",
+      slug: "p-groupes-et-premier-theoreme-sylow",
+      title: "p-groupes et premier théorème de Sylow",
+      durationMinutes: 60,
+      content: `## $p$-groupes et premier théorème de Sylow
+
+### 1. Définition d'un $p$-groupe
+
+Pour $p$ premier, un **$p$-groupe** est un groupe fini d'ordre une puissance de $p$ (c'est-à-dire $|G|=p^k$ pour un entier $k\\geq0$). Ces groupes ont une structure remarquablement contrainte, exploitée systématiquement dans la théorie de Sylow.
+
+### 2. Centre non trivial des $p$-groupes
+
+**Théorème :** tout $p$-groupe non trivial ($|G|=p^k$, $k\\geq1$) a un **centre non trivial** : $Z(G)\\neq\\{e\\}$. C'est une généralisation directe du résultat déjà démontré pour $|G|=p^2$ (leçon précédente) : l'argument par l'équation aux classes s'étend à n'importe quelle puissance de $p$, car tout sous-groupe propre de $G$ a un ordre qui est encore une puissance de $p$ strictement inférieure, donc $p$ divise toujours $|G|/|C_G(x_i)|$ pour les classes non triviales.
+
+### 3. Conséquence : tout groupe d'ordre $p^2$ est abélien
+
+**Théorème :** si $|G|=p^2$, alors $G$ est **abélien** (donc isomorphe à $\\mathbb{Z}/p^2\\mathbb{Z}$ ou à $(\\mathbb{Z}/p\\mathbb{Z})^2$).
+
+**Esquisse de preuve :** par le théorème précédent, $Z(G)\\neq\\{e\\}$, donc $|Z(G)|\\in\\{p,p^2\\}$ (Lagrange). Si $|Z(G)|=p^2$, alors $Z(G)=G$, donc $G$ est abélien (par définition du centre). Si $|Z(G)|=p$, le quotient $G/Z(G)$ est d'ordre $p$, donc **cyclique** (tout groupe d'ordre premier est cyclique) ; un argument classique montre alors que $G/Z(G)$ cyclique implique $G$ abélien (donc $G=Z(G)$), contredisant $|Z(G)|=p<p^2$. Seul le premier cas est donc possible.
+
+### 4. Premier théorème de Sylow (existence)
+
+**Théorème (Sylow I) :** soit $G$ un groupe fini d'ordre $|G|=p^n\\cdot m$ avec $p$ premier, $p\\nmid m$. Alors $G$ possède un sous-groupe d'ordre $p^n$, appelé **$p$-sous-groupe de Sylow** (ou simplement « $p$-Sylow »).
+
+C'est un résultat d'**existence** remarquable : même si $G$ n'est pas un $p$-groupe lui-même, il contient toujours un sous-groupe réalisant la plus grande puissance de $p$ divisant $|G|$.
+
+**Exemple résolu.** $|G|=12=2^2\\times3$. Sylow I garantit l'existence d'un sous-groupe d'ordre $4$ (un $2$-Sylow) et d'un sous-groupe d'ordre $3$ (un $3$-Sylow) — sans préciser combien il y en a exactement (question traitée par le troisième théorème de Sylow, leçon suivante).
+
+### 5. Pourquoi Sylow I est un théorème puissant
+
+Le théorème de Sylow garantit l'existence de sous-groupes de tailles précises (les puissances maximales de chaque facteur premier), ce qui est un résultat **non trivial** : en général, un groupe d'ordre $n$ n'a pas forcément de sous-groupe pour chaque diviseur $d$ de $n$ (contrairement à ce qu'on pourrait naïvement attendre par analogie avec $\\mathbb{Z}/n\\mathbb{Z}$). Sylow I montre que c'est au moins vrai pour les **puissances de facteurs premiers** maximales.
+
+**Contre-exemple instructif (hors Sylow) :** $A_4$ (groupe alterné, ordre $12$) n'a **aucun** sous-groupe d'ordre $6$, bien que $6$ divise $12$ — Sylow ne s'applique pas ici car $6$ n'est pas une puissance d'un nombre premier.
+
+### 6. Récapitulatif
+
+| Notion | Énoncé |
+|---|---|
+| $p$-groupe | $|G|=p^k$ |
+| Centre des $p$-groupes | $|G|=p^k,\\ k\\geq1 \\Rightarrow Z(G)\\neq\\{e\\}$ |
+| Groupes d'ordre $p^2$ | toujours abéliens |
+| Sylow I | $|G|=p^nm$, $p\\nmid m$ $\\Rightarrow$ $G$ a un sous-groupe d'ordre $p^n$ |`,
+      exercises: [
+        {
+          id: "grp3-l3-2-e1",
+          question: "Qu'est-ce qu'un $p$-groupe ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Un groupe fini d'ordre une puissance d'un nombre premier $p$" },
+            { id: "B", text: "Un groupe d'ordre premier $p$ uniquement" },
+            { id: "C", text: "Un groupe infini" },
+            { id: "D", text: "Un groupe commutatif quelconque" },
+          ],
+          correctId: "A",
+          explanation: "Un $p$-groupe est un groupe fini dont l'ordre est exactement $p^k$ pour un entier $k\\geq0$ (pas seulement $k=1$).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-2-e2",
+          question: "Vrai ou faux : tout $p$-groupe non trivial a un centre non trivial.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est l'un des résultats fondamentaux sur les $p$-groupes, démontré par l'équation aux classes — il généralise le cas particulier $|G|=p^2$ vu précédemment.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-2-e3",
+          question: "Que garantit le premier théorème de Sylow ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "L'existence d'un sous-groupe d'ordre $p^n$ si $|G|=p^nm$ avec $p\\nmid m$" },
+            { id: "B", text: "L'unicité du $p$-Sylow" },
+            { id: "C", text: "Que $G$ est toujours abélien" },
+            { id: "D", text: "Que $G$ a un sous-groupe pour chaque diviseur de $|G|$" },
+          ],
+          correctId: "A",
+          explanation: "Sylow I est un théorème d'existence portant spécifiquement sur la plus grande puissance d'un facteur premier divisant $|G|$ — pas sur tous les diviseurs en général.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-2-e4",
+          question: "Vrai ou faux : tout groupe d'ordre $p^2$ ($p$ premier) est abélien.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est un résultat classique de la théorie des $p$-groupes, démontré à partir de la non-trivialité du centre et d'un argument sur le quotient $G/Z(G)$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-2-e5",
+          question: "Pour $|G|=12=2^2\\times3$, quelles sont les tailles des sous-groupes de Sylow garanties par Sylow I ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Un sous-groupe d'ordre $4$ et un sous-groupe d'ordre $3$" },
+            { id: "B", text: "Un sous-groupe d'ordre $12$ uniquement" },
+            { id: "C", text: "Un sous-groupe d'ordre $2$ et un sous-groupe d'ordre $6$" },
+            { id: "D", text: "Aucune garantie n'est donnée" },
+          ],
+          correctId: "A",
+          explanation: "$12=2^2\\times3$, donc Sylow I garantit un sous-groupe d'ordre $2^2=4$ (le $2$-Sylow) et un sous-groupe d'ordre $3^1=3$ (le $3$-Sylow).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-2-e6",
+          question: "Si $|G|=p^3$ et $|Z(G)|=p$, quel est l'ordre du quotient $G/Z(G)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$p^2$" },
+            { id: "B", text: "$p$" },
+            { id: "C", text: "$p^3$" },
+            { id: "D", text: "$1$" },
+          ],
+          correctId: "A",
+          explanation: "$|G/Z(G)|=|G|/|Z(G)|=p^3/p=p^2$ (théorème de Lagrange pour les groupes quotients).",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-2-e7",
+          question: "Pour $|G|=p^4$, quelles sont les valeurs possibles de $|Z(G)|$ d'après le théorème de Lagrange (sans autre information) ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$p,p^2,p^3,p^4$ (mais pas $1$, par non-trivialité du centre des $p$-groupes)" },
+            { id: "B", text: "Uniquement $p^4$" },
+            { id: "C", text: "$1,p,p^2,p^3,p^4$ toutes possibles" },
+            { id: "D", text: "Uniquement $p$" },
+          ],
+          correctId: "A",
+          explanation: "Par Lagrange, $|Z(G)|$ divise $p^4$, donc $|Z(G)|\\in\\{1,p,p^2,p^3,p^4\\}$ ; mais le théorème de non-trivialité du centre des $p$-groupes élimine $|Z(G)|=1$, laissant les quatre autres possibilités.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-2-e8",
+          question: "Vrai ou faux : $A_4$ (groupe alterné d'ordre $12$) possède un sous-groupe d'ordre $6$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux — c'est un contre-exemple classique et instructif : bien que $6$ divise $12=|A_4|$, $A_4$ n'a **aucun** sous-groupe d'ordre $6$. Ceci montre que le théorème de Lagrange (un sous-groupe a un ordre divisant $|G|$) n'a pas de réciproque générale, et que Sylow I ne s'applique qu'aux puissances de nombres premiers, pas à tout diviseur.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-2-e9",
+          question: "Pour $|G|=p^k$ avec $k\\geq2$, si $G$ n'est pas abélien, que peut-on dire de $|Z(G)|$ par rapport à $|G|$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$|Z(G)|<|G|$ strictement (car $G$ non abélien signifie $Z(G)\\neq G$), mais $|Z(G)|>1$ (non-trivialité du centre)" },
+            { id: "B", text: "$|Z(G)|=|G|$" },
+            { id: "C", text: "$|Z(G)|=1$" },
+            { id: "D", text: "$|Z(G)|$ ne peut pas être déterminé du tout" },
+          ],
+          correctId: "A",
+          explanation: "Si $G$ est non abélien, par définition $Z(G)\\neq G$ (sinon tous les éléments commuteraient), donc $|Z(G)|<|G|$. Mais par le théorème de non-trivialité du centre des $p$-groupes, $|Z(G)|>1$ malgré tout : le centre est strictement entre $\\{e\\}$ et $G$ en taille.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-2-e10",
+          question: "Démontrer que tout groupe d'ordre $p^k$ ($k\\geq1$) a un sous-groupe d'ordre $p$ (cas particulier le plus simple, à partir de l'existence d'un élément non trivial dans le centre).",
+          type: "open",
+          modelAnswer: "Comme |G|=p^k avec k>=1, Z(G)≠{e} (théorème du centre non trivial). Donc il existe x∈Z(G), x≠e. L'ordre de x divise |G|=p^k (Lagrange), donc l'ordre de x est une puissance de p, disons p^j avec j>=1 (car x≠e). Alors l'élément y=x^{p^{j-1}} a pour ordre exactement p (car (x^{p^{j-1}})^p = x^{p^j} = e, et x^{p^{j-1}}≠e par minimalité de j). Le sous-groupe ⟨y⟩ engendré par y a donc exactement p éléments.",
+          explanation: "**Existence d'un élément non trivial du centre.** Comme $|G|=p^k$ avec $k\\geq1$, le théorème de non-trivialité du centre garantit $Z(G)\\neq\\{e\\}$. Soit $x\\in Z(G)$, $x\\neq e$.\n\n**Ordre de $x$.** Par le théorème de Lagrange, l'ordre de $x$ divise $|G|=p^k$, donc l'ordre de $x$ est de la forme $p^j$ pour un entier $1\\leq j\\leq k$ (strictement positif car $x\\neq e$).\n\n**Construction d'un élément d'ordre exactement $p$.** Posons $y=x^{p^{j-1}}$. Alors $y^p=x^{p^j}=e$ (car l'ordre de $x$ est $p^j$). De plus, $y\\neq e$ : sinon, $x^{p^{j-1}}=e$ contredirait la minimalité de $j$ comme exposant de l'ordre de $x$ (l'ordre de $x$ serait alors au plus $p^{j-1}<p^j$).\n\n**Conclusion.** L'élément $y$ a un ordre divisant $p$ (car $y^p=e$) et différent de $1$ (car $y\\neq e$), donc l'ordre de $y$ est exactement $p$. Le sous-groupe cyclique $\\langle y\\rangle$ engendré par $y$ a donc exactement $p$ éléments. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-2-e11",
+          question: "Démontrer que si $|G|=p^2$ et $|Z(G)|=p$ (cas à exclure dans la preuve du théorème « ordre $p^2$ implique abélien »), alors $G/Z(G)$ est cyclique d'ordre $p$.",
+          type: "open",
+          modelAnswer: "|G/Z(G)| = |G|/|Z(G)| = p²/p = p (Lagrange pour les quotients). Tout groupe d'ordre premier p est cyclique (théorème classique: si H a un ordre premier p, tout élément non trivial de H a un ordre divisant p donc égal à p, donc engendre H tout entier). Donc G/Z(G), étant d'ordre premier p, est cyclique.",
+          explanation: "**Calcul de l'ordre du quotient.** Par le théorème de Lagrange (appliqué au sous-groupe normal $Z(G)$), $|G/Z(G)|=\\dfrac{|G|}{|Z(G)|}=\\dfrac{p^2}{p}=p$.\n\n**Rappel : tout groupe d'ordre premier est cyclique.** Soit $H$ un groupe avec $|H|=p$ ($p$ premier). Pour tout $h\\in H$, $h\\neq e$, l'ordre de $h$ divise $|H|=p$ (Lagrange), donc l'ordre de $h$ est $1$ ou $p$. Comme $h\\neq e$, l'ordre n'est pas $1$, donc l'ordre de $h$ est exactement $p=|H|$ : $h$ engendre $H$ tout entier, donc $H=\\langle h\\rangle$ est cyclique.\n\n**Application.** Comme $|G/Z(G)|=p$ (premier), le résultat ci-dessus s'applique directement : $G/Z(G)$ est **cyclique** d'ordre $p$. $\\square$ (C'est cette propriété qui, combinée au lemme « $G/Z(G)$ cyclique implique $G$ abélien », permet d'exclure ce cas et de conclure que $|Z(G)|=p^2$ nécessairement, d'où $G$ abélien.)",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-2-e12",
+          question: "Démontrer que si $G/Z(G)$ est cyclique, alors $G$ est abélien (lemme clé utilisé dans la preuve du théorème sur les groupes d'ordre $p^2$).",
+          type: "open",
+          modelAnswer: "Soit gZ(G) un générateur de G/Z(G) (g∈G). Tout élément de G s'écrit x = g^i · z pour un entier i et un z∈Z(G) (car G/Z(G) est cyclique engendré par gZ(G), donc toute classe est (gZ(G))^i = g^i Z(G)). Pour x=g^i z1 et y=g^j z2 (z1,z2∈Z(G)): xy = g^i z1 g^j z2 = g^i g^j z1 z2 (car z1∈Z(G) commute avec g^j) = g^{i+j} z1 z2. De même yx = g^j z2 g^i z1 = g^{i+j} z2 z1 = g^{i+j} z1 z2 (Z(G) abélien car c'est le centre, ou même juste car z1,z2 commutent entre eux et avec tout). Donc xy=yx pour tous x,y∈G: G est abélien.",
+          explanation: "**Mise en place.** Supposons $G/Z(G)$ cyclique, engendré par une classe $g\\,Z(G)$ pour un certain $g\\in G$. Alors tout élément de $G/Z(G)$ s'écrit $(g\\,Z(G))^i=g^i\\,Z(G)$ pour un entier $i$, ce qui signifie que **tout** élément $x\\in G$ s'écrit $x=g^i\\cdot z$ pour un entier $i$ et un $z\\in Z(G)$ (car $x$ appartient à la classe $g^iZ(G)$ pour un certain $i$).\n\n**Calcul du produit de deux éléments quelconques.** Soient $x=g^iz_1$ et $y=g^jz_2$ avec $z_1,z_2\\in Z(G)$. Comme $z_1,z_2$ sont dans le **centre**, ils commutent avec tout élément de $G$, en particulier avec les puissances de $g$ :\n$$xy = g^iz_1g^jz_2 = g^ig^jz_1z_2 = g^{i+j}z_1z_2$$\n$$yx = g^jz_2g^iz_1 = g^jg^iz_2z_1 = g^{i+j}z_2z_1$$\n\n**Égalité des deux produits.** Comme $z_1,z_2\\in Z(G)$, ils commutent entre eux ($z_1z_2=z_2z_1$, car $z_1$ commute avec tout, y compris $z_2$). Donc $g^{i+j}z_1z_2=g^{i+j}z_2z_1$, c'est-à-dire $xy=yx$.\n\n**Conclusion.** Pour tous $x,y\\in G$, $xy=yx$ : $G$ est abélien. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-2-e13",
+          question: "Vrai ou faux : si $G$ est un $p$-groupe d'ordre $p^k$ avec $k\\geq2$ et que $G$ est abélien, alors $G$ possède nécessairement un sous-groupe d'ordre $p^j$ pour chaque $0\\leq j\\leq k$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une conséquence du théorème de structure des groupes abéliens finis (tout groupe abélien fini est produit de groupes cycliques) combinée au fait que, pour les $p$-groupes (abéliens ou non, en fait), Sylow I et son raffinement garantissent l'existence de sous-groupes de chaque ordre intermédiaire $p^j$ — un résultat plus fort que la seule existence du $p$-Sylow maximal.",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-2-e14",
+          question: "Démontrer, par récurrence sur $k$ et en utilisant la non-trivialité du centre, qu'un groupe $G$ d'ordre $p^k$ possède une suite de sous-groupes $\\{e\\}=H_0\\subset H_1\\subset\\cdots\\subset H_k=G$ avec $|H_i|=p^i$ pour chaque $i$ (existence d'une « tour » de sous-groupes).",
+          type: "open",
+          modelAnswer: "Récurrence sur k. Cas k=0: H_0={e} convient trivialement. Hérédité: supposons le résultat vrai pour tout p-groupe d'ordre p^{k-1}. Soit G d'ordre p^k (k>=1). Par non-trivialité du centre, Z(G)≠{e}, donc (exercice 10) il existe un sous-groupe H_1 d'ordre p dans Z(G) (donc H_1 normal dans G car central). Le quotient G/H_1 est d'ordre p^{k-1}, donc par hypothèse de récurrence il possède une tour {e}=K_0⊂K_1⊂...⊂K_{k-1}=G/H_1 avec |K_i|=p^i. En relevant chaque K_i via la projection G→G/H_1 (préimage), on obtient des sous-groupes H_{i+1} de G contenant H_1, avec |H_{i+1}|=p^i·|H_1|=p^{i+1}, formant la tour cherchée pour G.",
+          explanation: "**Récurrence sur $k$.**\n\n**Cas de base $k=0$ :** $G=\\{e\\}$, et $H_0=\\{e\\}$ convient trivialement (tour de longueur $0$).\n\n**Hérédité.** Supposons le résultat vrai pour tout $p$-groupe d'ordre $p^{k-1}$ ($k\\geq1$). Soit $G$ d'ordre $p^k$.\n\n**Étape 1 — trouver un sous-groupe central d'ordre $p$.** Par non-trivialité du centre des $p$-groupes, $Z(G)\\neq\\{e\\}$. Par l'exercice 10 (existence d'un élément d'ordre $p$ dans tout $p$-groupe non trivial, appliqué ici à $Z(G)$ lui-même, qui est un $p$-groupe car sous-groupe de $G$), $Z(G)$ contient un sous-groupe $H_1$ d'ordre $p$. Comme $H_1\\subseteq Z(G)$, $H_1$ est **normal** dans $G$ (tout sous-groupe du centre est normal, car central donc invariant par conjugaison).\n\n**Étape 2 — appliquer l'hypothèse de récurrence au quotient.** Le quotient $G/H_1$ est bien défini (car $H_1$ normal) et a pour ordre $p^k/p=p^{k-1}$. Par hypothèse de récurrence, $G/H_1$ possède une tour $\\{e\\}=K_0\\subset K_1\\subset\\cdots\\subset K_{k-1}=G/H_1$ avec $|K_i|=p^i$.\n\n**Étape 3 — relever la tour dans $G$.** Pour chaque $i$, on définit $H_{i+1}=\\pi^{-1}(K_i)$ où $\\pi:G\\to G/H_1$ est la projection canonique. Chaque $H_{i+1}$ est un sous-groupe de $G$ contenant $H_1=\\pi^{-1}(K_0)$, et par le théorème de correspondance (lien entre sous-groupes du quotient et sous-groupes contenant $H_1$), $|H_{i+1}|=|K_i|\\times|H_1|=p^i\\times p=p^{i+1}$.\n\n**Conclusion.** La suite $\\{e\\}=H_0\\subset H_1\\subset H_2\\subset\\cdots\\subset H_k=G$ (avec $H_0=\\{e\\}$, puis les $H_{i+1}$ construits ci-dessus) vérifie $|H_i|=p^i$ pour chaque $i$, ce qui achève la récurrence. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-2-e15",
+          question: "Vrai ou faux : le théorème « $|G|=p^2\\Rightarrow G$ abélien » se généralise en « $|G|=p^k\\Rightarrow G$ abélien » pour tout $k\\geq1$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Le résultat est spécifique à $k\\leq2$. Pour $k\\geq3$, il existe des $p$-groupes non abéliens : par exemple, pour $p=2$, $k=3$, le groupe diédral $D_4$ (symétries du carré, ordre $8=2^3$) est non abélien, de même que le groupe des quaternions $Q_8$. La non-trivialité du centre reste vraie pour tout $p$-groupe, mais elle n'implique l'abélianité complète que dans les petits cas ($k\\leq2$).",
+          difficulty: "expert",
+        },
+      ],
+    },
+    {
+      id: "grp3-l3-3",
+      slug: "deuxieme-troisieme-theoremes-sylow",
+      title: "Deuxième et troisième théorèmes de Sylow, applications",
+      durationMinutes: 60,
+      content: `## Deuxième et troisième théorèmes de Sylow, applications
+
+### 1. Deuxième théorème de Sylow (conjugaison)
+
+**Théorème (Sylow II) :** tous les $p$-sous-groupes de Sylow de $G$ sont **conjugués** entre eux (donc en particulier isomorphes). De plus, tout $p$-sous-groupe de $G$ est contenu dans l'un des $p$-Sylow.
+
+**Conséquence immédiate :** un $p$-Sylow $H$ est **normal** dans $G$ si et seulement s'il est l'**unique** $p$-Sylow (puisque tous les conjugués de $H$ sont eux-mêmes des $p$-Sylow, et $H$ normal signifie que tous ses conjugués sont égaux à $H$).
+
+### 2. Troisième théorème de Sylow (comptage)
+
+**Théorème (Sylow III) :** notons $n_p$ le nombre de $p$-sous-groupes de Sylow de $G$ (où $|G|=p^n\\cdot m$, $p\\nmid m$). Alors :
+$$n_p \\equiv 1 \\pmod{p} \\qquad\\text{et}\\qquad n_p \\mid m$$
+
+C'est l'outil de comptage le plus puissant : il restreint fortement les valeurs possibles de $n_p$, souvent jusqu'à forcer $n_p=1$ (et donc, par la conséquence de Sylow II, la normalité du $p$-Sylow).
+
+### 3. Exemple résolu — groupes d'ordre 15
+
+Soit $|G|=15=3\\times5$. Pour $p=5$ : $n_5\\mid3$ et $n_5\\equiv1\\pmod5$. Les diviseurs de $3$ sont $\\{1,3\\}$ ; seul $1\\equiv1\\pmod5$ convient ($3\\equiv3\\pmod5\\neq1$). Donc $n_5=1$ : le $5$-Sylow est unique, donc **normal**, notons-le $H$ ($|H|=5$).
+
+Pour $p=3$ : $n_3\\mid5$ et $n_3\\equiv1\\pmod3$. Les diviseurs de $5$ sont $\\{1,5\\}$ ; $5\\equiv2\\pmod3\\neq1$, donc seul $n_3=1$ convient. Le $3$-Sylow $K$ ($|K|=3$) est aussi **unique et normal**.
+
+**Conclusion :** $G=H\\times K\\cong\\mathbb{Z}/5\\mathbb{Z}\\times\\mathbb{Z}/3\\mathbb{Z}\\cong\\mathbb{Z}/15\\mathbb{Z}$ (les deux sous-groupes normaux, d'intersection triviale, de produit $G$ tout entier, et $H,K$ étant cycliques d'ordres premiers entre eux). **Tout groupe d'ordre $15$ est donc cyclique** — un résultat de classification complète obtenu uniquement via Sylow.
+
+### 4. Exemple résolu — groupes d'ordre 12
+
+Soit $|G|=12=2^2\\times3$. Pour $p=3$ : $n_3\\mid4$ et $n_3\\equiv1\\pmod3$. Diviseurs de $4$ : $\\{1,2,4\\}$ ; $2\\equiv2\\pmod3$ (exclu), $4\\equiv1\\pmod3$ (accepté). Donc $n_3\\in\\{1,4\\}$ — **deux possibilités**, contrairement à l'exemple précédent où la conclusion était unique.
+
+Si $n_3=4$, on peut montrer (en comptant les éléments d'ordre $3$ dans les $4$ Sylow distincts, qui s'intersectent trivialement) qu'il y a exactement $4\\times2=8$ éléments d'ordre $3$, laissant $12-8=4$ éléments pour le reste (incluant $e$) — c'est notamment le cas de $A_4$ (groupe alterné), qui a $4$ sous-groupes de Sylow d'ordre $3$.
+
+### 5. Pourquoi Sylow III est un outil de classification puissant
+
+En combinant les contraintes de divisibilité et de congruence pour différents nombres premiers divisant $|G|$, on parvient souvent à **forcer** certains $n_p=1$, révélant des sous-groupes normaux, ce qui permet de **décomposer** $G$ (par exemple en produit direct, comme pour l'ordre $15$) ou au moins de fortement restreindre sa structure possible. C'est la méthode standard pour classifier tous les groupes d'un ordre donné, petit à modéré.
+
+### 6. Récapitulatif
+
+| Théorème | Énoncé |
+|---|---|
+| Sylow I | existence d'un $p$-Sylow d'ordre $p^n$ |
+| Sylow II | tous les $p$-Sylow sont conjugués ; tout $p$-sous-groupe est inclus dans un $p$-Sylow |
+| Sylow III | $n_p\\equiv1\\pmod p$ et $n_p\\mid m$ |
+| Normalité | $p$-Sylow normal $\\iff$ $n_p=1$ |`,
+      exercises: [
+        {
+          id: "grp3-l3-3-e1",
+          question: "Que dit le deuxième théorème de Sylow ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Tous les $p$-Sylow de $G$ sont conjugués entre eux" },
+            { id: "B", text: "Il existe un unique $p$-Sylow toujours" },
+            { id: "C", text: "$G$ est toujours abélien" },
+            { id: "D", text: "$n_p$ est toujours égal à $1$" },
+          ],
+          correctId: "A",
+          explanation: "Sylow II porte sur la **conjugaison** des $p$-Sylow entre eux, pas sur leur unicité (qui est une question distincte, traitée par Sylow III).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-3-e2",
+          question: "Vrai ou faux : un $p$-Sylow est normal dans $G$ si et seulement s'il est l'unique $p$-Sylow.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une conséquence directe de Sylow II : si $H$ est normal, tous ses conjugués (qui sont d'autres $p$-Sylow) sont égaux à $H$, donc $H$ est l'unique $p$-Sylow ; réciproquement, si $H$ est l'unique $p$-Sylow, tous ses conjugués (qui sont des $p$-Sylow) doivent être égaux à $H$, donc $H$ est normal.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-3-e3",
+          question: "Que disent les deux conditions du troisième théorème de Sylow sur $n_p$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$n_p\\equiv1\\pmod p$ et $n_p\\mid m$ (où $|G|=p^nm$, $p\\nmid m$)" },
+            { id: "B", text: "$n_p=1$ toujours" },
+            { id: "C", text: "$n_p\\mid p^n$" },
+            { id: "D", text: "$n_p\\equiv0\\pmod p$" },
+          ],
+          correctId: "A",
+          explanation: "Sylow III donne deux contraintes : une de congruence ($n_p\\equiv1\\pmod p$) et une de divisibilité ($n_p$ divise la partie de $|G|$ première à $p$).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-3-e4",
+          question: "Vrai ou faux : pour $|G|=15$, le $5$-Sylow et le $3$-Sylow sont tous deux normaux.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est exactement l'exemple résolu du cours : $n_5=1$ et $n_3=1$ sont les seules valeurs possibles, donc les deux sous-groupes de Sylow sont uniques, donc normaux — ce qui permet de conclure que tout groupe d'ordre $15$ est cyclique.",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-3-e5",
+          question: "Pour $|G|=12=2^2\\times3$, quelles sont les valeurs possibles de $n_3$ d'après Sylow III ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$n_3\\in\\{1,4\\}$" },
+            { id: "B", text: "$n_3\\in\\{1,2,4\\}$" },
+            { id: "C", text: "$n_3=1$ uniquement" },
+            { id: "D", text: "$n_3\\in\\{2,4\\}$" },
+          ],
+          correctId: "A",
+          explanation: "$n_3$ divise $4$ (diviseurs $1,2,4$) et $n_3\\equiv1\\pmod3$. Seuls $1$ et $4$ vérifient cette congruence ($1\\equiv1$, $4\\equiv1$, alors que $2\\equiv2\\pmod3$ est exclu).",
+          difficulty: "debutant",
+        },
+        {
+          id: "grp3-l3-3-e6",
+          question: "Pour $|G|=35=5\\times7$, déterminer $n_5$ et $n_7$ par Sylow III.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$n_5=1$ et $n_7=1$" },
+            { id: "B", text: "$n_5=7$ et $n_7=5$" },
+            { id: "C", text: "$n_5=5$ et $n_7=7$" },
+            { id: "D", text: "On ne peut pas les déterminer" },
+          ],
+          correctId: "A",
+          explanation: "$n_5$ divise $7$ ($\\{1,7\\}$) et $n_5\\equiv1\\pmod5$ ; $7\\equiv2\\pmod5$ (exclu), donc $n_5=1$. $n_7$ divise $5$ ($\\{1,5\\}$) et $n_7\\equiv1\\pmod7$ ; $5\\equiv5\\pmod7$ (exclu), donc $n_7=1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-3-e7",
+          question: "Vrai ou faux : tout groupe d'ordre $35$ est cyclique.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Avec $n_5=n_7=1$ (exercice précédent), les deux Sylow sont normaux, d'intersection triviale et de produit $G$ : $G\\cong\\mathbb{Z}/5\\mathbb{Z}\\times\\mathbb{Z}/7\\mathbb{Z}\\cong\\mathbb{Z}/35\\mathbb{Z}$ (car $5,7$ premiers entre eux), donc $G$ est cyclique.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-3-e8",
+          question: "Pour $|G|=8=2^3$, combien de $p$-Sylow (pour $p=2$) y a-t-il nécessairement ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "Exactement $1$, car $G$ est lui-même un $2$-groupe ($G$ est son propre (unique) $2$-Sylow)" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$4$" },
+            { id: "D", text: "$8$" },
+          ],
+          correctId: "A",
+          explanation: "Comme $|G|=2^3$ est déjà une puissance de $2$ (donc $m=1$ dans la décomposition $|G|=p^nm$), le seul $2$-Sylow possible est $G$ lui-même. Donc $n_2=1$ trivialement.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-3-e9",
+          question: "Démontrer que $n_p\\mid m$ implique en particulier $n_p\\leq m$, et en déduire que pour $|G|=21=3\\times7$, $n_3$ vaut nécessairement $1$ ou $7$.",
+          type: "open",
+          modelAnswer: "n_p divise m, et tout diviseur positif de m est <=m, donc n_p<=m. Pour |G|=21=3×7, en regardant n_3 (p=3, m=7): n_3 divise 7, donc n_3∈{1,7} (les diviseurs de 7, qui est premier). On vérifie la congruence: n_3≡1 mod 3. 1≡1 (ok), 7≡1 mod3 (ok, car 7=2×3+1). Donc les deux valeurs 1 et 7 sont a priori possibles par Sylow III seul (un argument supplémentaire, hors Sylow, est nécessaire pour trancher dans le cas général).",
+          explanation: "**Diviseurs et majoration.** Par définition, $n_p\\mid m$ signifie que $n_p$ est un diviseur positif de $m$. Tout diviseur positif d'un entier $m$ est inférieur ou égal à $m$ lui-même, donc $n_p\\leq m$.\n\n**Application à $|G|=21=3\\times7$.** Pour $p=3$, on a $m=7$. Les diviseurs de $7$ (qui est premier) sont $\\{1,7\\}$, donc $n_3\\in\\{1,7\\}$ d'après la condition de divisibilité.\n\n**Vérification de la congruence.** On doit aussi avoir $n_3\\equiv1\\pmod3$. Testons : $1\\equiv1\\pmod3$ ✓. $7=2\\times3+1\\equiv1\\pmod3$ ✓ (les deux valeurs satisfont la congruence !).\n\n**Conclusion.** Sylow III seul ne permet pas de trancher entre $n_3=1$ et $n_3=7$ pour $|G|=21$ — les deux sont *a priori* compatibles avec le théorème. (En fait, les deux cas se réalisent réellement : il existe un groupe non abélien d'ordre $21$ avec $n_3=7$, en plus du groupe cyclique $\\mathbb{Z}/21\\mathbb{Z}$ avec $n_3=1$ — Sylow III donne des contraintes nécessaires, pas toujours suffisantes pour une classification complète.)",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-3-e10",
+          question: "Démontrer que si $n_p=1$ pour un nombre premier $p$ divisant $|G|$, alors le $p$-Sylow correspondant est un sous-groupe normal de $G$.",
+          type: "open",
+          modelAnswer: "Soit H l'unique p-Sylow (n_p=1). Pour tout g∈G, gHg^{-1} est aussi un p-Sylow (conjugué d'un p-Sylow, donc encore d'ordre p^n et donc un p-Sylow par définition). Comme il n'y a qu'un seul p-Sylow (n_p=1), nécessairement gHg^{-1}=H pour tout g. C'est exactement la définition de la normalité de H.",
+          explanation: "**Conjugué d'un $p$-Sylow.** Soit $H$ l'unique $p$-Sylow de $G$ (donc $n_p=1$). Pour tout $g\\in G$, le conjugué $gHg^{-1}$ est encore un sous-groupe d'ordre $|H|=p^n$ (la conjugaison préserve l'ordre des sous-groupes, car $h\\mapsto ghg^{-1}$ est un isomorphisme de $H$ sur $gHg^{-1}$), donc $gHg^{-1}$ est lui aussi un $p$-Sylow.\n\n**Unicité force l'égalité.** Comme $n_p=1$, il n'existe qu'**un seul** $p$-Sylow dans $G$ — donc nécessairement $gHg^{-1}=H$ pour tout $g\\in G$ (le conjugué, étant un $p$-Sylow, doit coïncider avec l'unique $p$-Sylow existant).\n\n**Conclusion.** $gHg^{-1}=H$ pour tout $g\\in G$ est exactement la définition d'un sous-groupe **normal**. Donc $H$ est normal dans $G$. $\\square$",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "grp3-l3-3-e11",
+          question: "Pour $|G|=99=9\\times11=3^2\\times11$, déterminer $n_3$ et $n_{11}$, puis en déduire la structure de $G$.",
+          type: "open",
+          modelAnswer: "n_11: divise 9, ≡1 mod11. Diviseurs de 9: {1,3,9}. 1≡1 (ok), 3≡3 (non), 9≡9 (non). Donc n_11=1. n_3: divise 11, ≡1 mod3. Diviseurs de 11: {1,11}. 1≡1(ok), 11≡2mod3(non). Donc n_3=1. Les deux Sylow sont normaux, d'ordres 9 et 11 (premiers entre eux), d'intersection triviale, donc G≅(3-Sylow)×(11-Sylow), produit direct d'un groupe d'ordre 9 (abélien, car p²) et d'un groupe d'ordre 11 (cyclique, car premier). G est donc abélien dans tous les cas (produit de deux groupes abéliens).",
+          explanation: "**Calcul de $n_{11}$.** $m=9$ (partie première à $11$). $n_{11}$ divise $9$ (diviseurs $\\{1,3,9\\}$) et $n_{11}\\equiv1\\pmod{11}$. Testons : $1\\equiv1$ ✓, $3\\equiv3\\pmod{11}$ ✗, $9\\equiv9\\pmod{11}$ ✗. Seul $n_{11}=1$ convient.\n\n**Calcul de $n_3$.** $m=11$ (partie première à $3$). $n_3$ divise $11$ (diviseurs $\\{1,11\\}$) et $n_3\\equiv1\\pmod3$. Testons : $1\\equiv1$ ✓, $11\\equiv2\\pmod3$ ✗. Seul $n_3=1$ convient.\n\n**Structure de $G$.** Les deux Sylow (d'ordres $9$ et $11$, premiers entre eux) sont donc tous deux **normaux** et uniques. Leur intersection est triviale (car leurs ordres sont premiers entre eux, par Lagrange un élément commun aurait un ordre divisant $\\gcd(9,11)=1$). Le produit des deux sous-groupes normaux d'intersection triviale et dont les ordres se multiplient pour donner $|G|$ donne $G\\cong P_3\\times P_{11}$ (produit direct), où $P_3$ est le $3$-Sylow (d'ordre $9=3^2$, donc **abélien** par le théorème déjà démontré) et $P_{11}$ est le $11$-Sylow (d'ordre premier $11$, donc **cyclique**).\n\n**Conclusion.** $G$ est isomorphe au produit direct d'un groupe abélien d'ordre $9$ et d'un groupe cyclique d'ordre $11$ — donc $G$ est **abélien** dans tous les cas (produit direct de groupes abéliens), bien que sa structure précise (le $3$-Sylow pouvant être $\\mathbb{Z}/9\\mathbb{Z}$ ou $(\\mathbb{Z}/3\\mathbb{Z})^2$) ne soit pas totalement déterminée par Sylow seul.",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-3-e12",
+          question: "Vrai ou faux : si $|G|=pq$ avec $p<q$ premiers et $p\\nmid(q-1)$, alors $G$ est nécessairement cyclique.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. C'est une généralisation directe de l'exemple $|G|=15$ : $n_q$ divise $p$ et $n_q\\equiv1\\pmod q$ ; comme $p<q$, le seul diviseur de $p$ congru à $1$ modulo $q$ est $1$ (car tout autre diviseur serait $\\leq p<q$, donc ne pourrait être $\\equiv1\\pmod q$ sauf à valoir $1$), donc $n_q=1$ toujours. Ensuite, $n_p$ divise $q$ et $n_p\\equiv1\\pmod p$ ; sous l'hypothèse $p\\nmid(q-1)$ (c'est-à-dire $q\\not\\equiv1\\pmod p$), seul $n_p=1$ convient (l'autre diviseur possible, $q$, ne vérifie pas la congruence). Les deux Sylow étant normaux et d'ordres premiers entre eux, $G$ est cyclique.",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-3-e13",
+          question: "Pour $|G|=6=2\\times3$, montrer que $G$ n'est pas nécessairement cyclique (contre-exemple : $S_3$), en identifiant pourquoi l'argument de l'exercice précédent échoue ici.",
+          type: "open",
+          modelAnswer: "Ici p=2, q=3 (p<q). On a q-1=2, et p=2 divise bien q-1=2 (2|2), donc l'hypothèse 'p ne divise pas (q-1)' de l'exercice précédent est VIOLÉE ici (2 divise 2). L'argument ne s'applique donc pas, et effectivement n_2 peut valoir autre chose que 1: pour S_3, n_2=3 (les trois sous-groupes d'ordre 2 engendrés par chaque transposition), ce qui est cohérent avec n_2|3 et n_2≡1mod2 (3≡1mod2 ok). S_3 est donc un groupe d'ordre 6 non cyclique (non abélien même), confirmant qu'on ne peut pas se passer de l'hypothèse p∤(q-1).",
+          explanation: "**Vérification de l'hypothèse.** Ici $p=2$, $q=3$ (avec $p<q$). L'hypothèse de l'exercice précédent demandait $p\\nmid(q-1)$, c'est-à-dire $2\\nmid(3-1)=2$. Mais $2$ divise bien $2$ ! L'hypothèse est donc **violée** pour ce cas précis.\n\n**Conséquence : l'argument ne s'applique plus.** Pour $p=2$ (donc $m=3$), $n_2$ divise $3$ (diviseurs $\\{1,3\\}$) et $n_2\\equiv1\\pmod2$. Testons : $1\\equiv1\\pmod2$ ✓, et $3\\equiv1\\pmod2$ ✓ également (les deux valeurs sont impaires, donc $\\equiv1\\pmod2$) ! Les deux valeurs $n_2=1$ et $n_2=3$ sont *a priori* compatibles avec Sylow III.\n\n**Réalisation effective avec $S_3$.** Dans $S_3$ (groupe symétrique d'ordre $6$, non abélien), les $2$-Sylow sont les sous-groupes d'ordre $2$, c'est-à-dire $\\{e,(12)\\}$, $\\{e,(13)\\}$, $\\{e,(23)\\}$ — il y en a exactement **trois** ($n_2=3$), un pour chaque transposition. Ceci confirme $n_2=3\\neq1$, donc le $2$-Sylow n'est **pas normal** dans $S_3$, et $S_3$ n'est **pas cyclique** (il est même non abélien).\n\n**Conclusion.** Ce contre-exemple confirme que l'hypothèse $p\\nmid(q-1)$ de l'exercice précédent est **essentielle** : sans elle, on ne peut pas conclure à la cyclicité, et effectivement des groupes non abéliens (comme $S_3$) peuvent exister pour de tels ordres $pq$.",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-3-e14",
+          question: "Démontrer que dans un groupe $G$ d'ordre $p^nm$ ($p\\nmid m$), si $H$ est un $p$-Sylow, alors $N_G(H)/H$ (où $N_G(H)$ est le normalisateur de $H$) a un ordre premier à $p$.",
+          type: "open",
+          modelAnswer: "H est lui-même un p-Sylow de N_G(H) (car H⊆N_G(H)⊆G, et H reste un sous-groupe de N_G(H) d'ordre p^n, qui est bien la plus grande puissance de p divisant |N_G(H)| car |N_G(H)| divise |G|=p^n m). De plus H est normal dans N_G(H) par définition du normalisateur (N_G(H) est le plus grand sous-groupe de G dans lequel H est normal). Donc H est l'UNIQUE p-Sylow de N_G(H) (un sous-groupe normal d'ordre maximal p^n ne peut avoir de conjugué distinct de lui-même dans N_G(H), donc n_p(N_G(H))=1, donc par Sylow II appliqué à N_G(H), c'est le seul p-Sylow). Donc l'ordre de N_G(H)/H est premier à p (sinon N_G(H)/H aurait un sous-groupe d'ordre p qui se relèverait en un sous-groupe de N_G(H) strictement plus grand que H et toujours une p-puissance, contredisant que H est le p-Sylow maximal de N_G(H)).",
+          explanation: "**$H$ est le $p$-Sylow de $N_G(H)$.** Comme $H\\subseteq N_G(H)\\subseteq G$, et que $|N_G(H)|$ divise $|G|=p^nm$ (Lagrange), la plus grande puissance de $p$ divisant $|N_G(H)|$ est encore $p^n$ ou une puissance plus petite — mais $H\\subseteq N_G(H)$ a déjà ordre $p^n$, donc $p^n$ divise $|N_G(H)|$, et $H$ est donc un $p$-Sylow de $N_G(H)$ (sous-groupe d'ordre la plus grande puissance de $p$ possible).\n\n**$H$ est normal dans $N_G(H)$.** C'est la définition même du normalisateur : $N_G(H)=\\{g\\in G:gHg^{-1}=H\\}$ est, par construction, le plus grand sous-groupe de $G$ dans lequel $H$ est normal.\n\n**Unicité du $p$-Sylow dans $N_G(H)$.** Par Sylow II appliqué à $N_G(H)$ (comme groupe ambiant), tous les $p$-Sylow de $N_G(H)$ sont conjugués entre eux dans $N_G(H)$. Mais $H$ étant normal dans $N_G(H)$, ses seuls conjugués (dans $N_G(H)$) sont $H$ lui-même. Donc $H$ est l'**unique** $p$-Sylow de $N_G(H)$.\n\n**Conclusion sur l'ordre du quotient.** Si $N_G(H)/H$ avait un ordre divisible par $p$, alors par Sylow I (appliqué à $N_G(H)/H$), ce quotient aurait un sous-groupe d'ordre $p$, qui se relèverait (par le théorème de correspondance) en un sous-groupe de $N_G(H)$ strictement plus grand que $H$ et de cardinal une puissance de $p$ supérieure à $p^n$ — contredisant que $H$ (d'ordre $p^n$) est déjà le plus grand $p$-sous-groupe de $N_G(H)$. Donc $p\\nmid|N_G(H)/H|$ : l'ordre de $N_G(H)/H$ est premier à $p$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "grp3-l3-3-e15",
+          question: "Vrai ou faux : un groupe simple (sans sous-groupe normal non trivial autre que lui-même et $\\{e\\}$) d'ordre $60$ existe (c'est le groupe alterné $A_5$), illustrant que Sylow ne suffit pas toujours à prouver qu'un groupe n'est pas simple.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. $A_5$ (groupe alterné sur $5$ éléments, ordre $60=2^2\\times3\\times5$) est effectivement un groupe **simple**, malgré les contraintes de Sylow. Cela illustre une limite importante : Sylow donne des contraintes nécessaires sur $n_p$, mais ces contraintes ne suffisent pas toujours à exclure la simplicité d'un groupe — pour $|G|=60$, les valeurs de $n_p$ compatibles avec Sylow III n'excluent pas, dans ce cas précis, l'existence d'un groupe simple, contrairement à d'autres ordres (comme $12,15,21$) où Sylow seul suffit à prouver la non-simplicité.",
+          difficulty: "expert",
+        },
+      ],
+    },
+  ],
+},
+];
