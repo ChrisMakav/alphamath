@@ -116,28 +116,6 @@ export default async function PracticePage() {
         </div>
       </div>
 
-      {/* ── XP per difficulty legend ── */}
-      <div className="grid grid-cols-3 gap-3 mb-8">
-        {([
-          { id: "debutant",      label: "Débutant",      xp: 10,  color: "var(--am-green)",  bg: "var(--am-green-muted)",  border: "var(--am-green-dim)" },
-          { id: "intermediaire", label: "Intermédiaire", xp: 25,  color: "var(--am-amber)",  bg: "var(--am-amber-muted)",  border: "rgba(245,158,11,0.3)" },
-          { id: "expert",        label: "Expert",        xp: 50,  color: "#f87171",           bg: "rgba(239,68,68,0.1)",    border: "rgba(239,68,68,0.25)" },
-        ] as const).map((d) => {
-          const count = allExercises.filter((e) => e.difficulty === d.id).length;
-          return (
-            <div
-              key={d.id}
-              className="rounded-[var(--am-radius-xl)] p-4 flex flex-col gap-1"
-              style={{ background: d.bg, border: `1px solid ${d.border}` }}
-            >
-              <span className="text-xs font-bold" style={{ color: d.color }}>{d.label}</span>
-              <span className="text-xl font-black" style={{ color: d.color }}>+{d.xp} XP</span>
-              <span className="text-xs" style={{ color: d.color, opacity: 0.7 }}>{count} exercices</span>
-            </div>
-          );
-        })}
-      </div>
-
       {/* ── Practice Engine ── */}
       <PracticeEngine exercises={allExercises} isAuthenticated={true} />
     </div>

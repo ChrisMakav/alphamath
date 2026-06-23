@@ -114,6 +114,31 @@ export function PracticeEngine({ exercises, isAuthenticated }: Props) {
 
   return (
     <div>
+      {/* ── XP per difficulty ── */}
+      <div className="grid grid-cols-3 gap-3 mb-8">
+        {DIFFICULTIES.filter((d) => d.id !== "all").map((d) => {
+          const count = exercises.filter((e) => e.difficulty === d.id).length;
+          const colors = DIFF_COLORS[d.id];
+          const isActive = diffFilter === d.id;
+          return (
+            <button
+              key={d.id}
+              onClick={() => handleChangeFilter(setDiffFilter, isActive ? "all" : d.id)}
+              className="rounded-[var(--am-radius-xl)] p-4 flex flex-col gap-1 text-left transition-all hover:-translate-y-0.5"
+              style={{
+                background: colors.bg,
+                border: `1px solid ${isActive ? colors.color : colors.border}`,
+                boxShadow: isActive ? `0 0 0 1px ${colors.color}` : "none",
+              }}
+            >
+              <span className="text-xs font-bold" style={{ color: colors.color }}>{d.label}</span>
+              <span className="text-xl font-black" style={{ color: colors.color }}>+{d.xp} XP</span>
+              <span className="text-xs" style={{ color: colors.color, opacity: 0.7 }}>{count} exercices</span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* ── Session stats ── */}
       {(session.correct + session.wrong > 0) && (
         <div
