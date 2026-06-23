@@ -263,7 +263,7 @@ export default async function CourseDetailPage({ params }: Props) {
           <p className="text-sm text-[var(--am-text-secondary)] mb-4">
             Débloquez toutes les leçons et exercices en souscrivant à un abonnement Premium.
           </p>
-          <Button variant="secondary" size="md">Voir les offres → dès 9,99€/mois</Button>
+          <Button href="/pricing" variant="secondary" size="md">Voir les offres → dès 9,99€/mois</Button>
         </div>
       )}
     </div>
