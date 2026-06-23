@@ -16,6 +16,304 @@ export const LICENCE_COURSES: Course[] = [
     thumbnailEmoji: "∂",
     lessons: [
       {
+      id: "anal1-l1-suites",
+      slug: "suites-numeriques",
+      title: "Suites numériques",
+      durationMinutes: 55,
+      content: `## Suites numériques
+
+    ### 1. Définitions de base
+
+    Une **suite numérique** est une application $u : \\mathbb{N} \\to \\mathbb{R}$ (ou définie à partir d'un certain rang $n_0$). On note $u_n = u(n)$ le terme général, et la suite elle-même $(u_n)_{n \\in \\mathbb{N}}$.
+
+    Une suite peut être définie :
+    - **explicitement** : $u_n = f(n)$ pour une fonction $f$ donnée (ex : $u_n = \\dfrac{1}{n+1}$) ;
+    - **par récurrence** : $u_0$ donné et $u_{n+1} = f(u_n)$ pour une fonction $f$ donnée.
+
+    **Suite majorée / minorée / bornée :** $(u_n)$ est majorée s'il existe $M \\in \\mathbb{R}$ tel que $u_n \\leq M$ pour tout $n$ ; minorée s'il existe $m \\in \\mathbb{R}$ tel que $u_n \\geq m$ pour tout $n$ ; **bornée** si elle est à la fois majorée et minorée, ce qui équivaut à $\\exists K \\geq 0,\\; \\forall n,\\; |u_n| \\leq K$.
+
+    **Suite croissante / décroissante :** $(u_n)$ est croissante si $u_{n+1} \\geq u_n$ pour tout $n$ ; décroissante si $u_{n+1} \\leq u_n$ pour tout $n$ ; **monotone** si elle est croissante ou décroissante.
+
+    ### 2. Convergence : définition formelle
+
+    On dit que $(u_n)$ **converge** vers $\\ell \\in \\mathbb{R}$, et on note $\\displaystyle\\lim_{n \\to +\\infty} u_n = \\ell$, si :
+
+    $$\\forall \\varepsilon > 0,\\; \\exists N \\in \\mathbb{N},\\; \\forall n \\geq N,\\; |u_n - \\ell| < \\varepsilon$$
+
+    Autrement dit, tout intervalle ouvert centré en $\\ell$, même très petit, contient tous les termes de la suite à partir d'un certain rang. Une suite qui ne converge vers aucun réel est dite **divergente** (elle peut tendre vers $+\\infty$, vers $-\\infty$, ou n'avoir aucune limite, comme $u_n = (-1)^n$).
+
+    **Unicité de la limite :** si une suite converge, sa limite est unique.
+
+    **Suite convergente $\\Rightarrow$ suite bornée :** toute suite convergente est bornée (la réciproque est fausse : $u_n = (-1)^n$ est bornée mais ne converge pas).
+
+    **Divergence vers $+\\infty$ :** $\\displaystyle\\lim_{n\\to+\\infty} u_n = +\\infty$ si $\\forall M > 0,\\; \\exists N \\in \\mathbb{N},\\; \\forall n \\geq N,\\; u_n > M$.
+
+    ### 3. Opérations sur les limites
+
+    Si $\\displaystyle\\lim_{n\\to+\\infty} u_n = \\ell$ et $\\displaystyle\\lim_{n\\to+\\infty} v_n = \\ell'$ (limites finies), alors :
+
+    | Opération | Résultat |
+    |-----------|----------|
+    | $u_n + v_n$ | $\\ell + \\ell'$ |
+    | $u_n \\cdot v_n$ | $\\ell \\cdot \\ell'$ |
+    | $u_n / v_n$ (si $\\ell' \\neq 0$) | $\\ell / \\ell'$ |
+
+    Les **formes indéterminées** $\\dfrac{\\infty}{\\infty}$, $\\infty - \\infty$, $0 \\times \\infty$, $\\dfrac{0}{0}$ se traitent comme pour les fonctions (factorisation par le terme dominant, quantité conjuguée, etc.).
+
+    ### 4. Théorème des gendarmes pour les suites
+
+    **Énoncé :** Si $(u_n)$, $(v_n)$, $(w_n)$ vérifient $v_n \\leq u_n \\leq w_n$ à partir d'un certain rang, et si $\\displaystyle\\lim_{n\\to+\\infty} v_n = \\displaystyle\\lim_{n\\to+\\infty} w_n = \\ell$, alors $\\displaystyle\\lim_{n\\to+\\infty} u_n = \\ell$.
+
+    **Exemple résolu :** Montrer que $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{\\sin n}{n} = 0$.
+
+    Pour $n \\geq 1$, on a $-1 \\leq \\sin n \\leq 1$, donc en divisant par $n > 0$ : $-\\dfrac{1}{n} \\leq \\dfrac{\\sin n}{n} \\leq \\dfrac{1}{n}$. Comme $\\dfrac{1}{n} \\to 0$ et $-\\dfrac{1}{n} \\to 0$, le théorème des gendarmes donne $\\dfrac{\\sin n}{n} \\to 0$.
+
+    ### 5. Suites monotones bornées
+
+    **Théorème de la limite monotone :** Toute suite croissante et majorée converge (vers $\\ell = \\sup\\{u_n, n \\in \\mathbb{N}\\}$). Toute suite décroissante et minorée converge.
+
+    Plus généralement : toute suite croissante non majorée tend vers $+\\infty$, toute suite décroissante non minorée tend vers $-\\infty$.
+
+    **Exemple résolu :** Soit $u_0 = 1$ et $u_{n+1} = \\dfrac{u_n + 2}{2}$. Montrons que $(u_n)$ converge.
+
+    *Monotonie :* $u_{n+1} - u_n = \\dfrac{u_n+2}{2} - u_n = \\dfrac{2 - u_n}{2}$. On montre par récurrence que $u_n \\leq 2$ pour tout $n$ : c'est vrai pour $n=0$ ($u_0 = 1 \\leq 2$) ; si $u_n \\leq 2$, alors $u_{n+1} = \\dfrac{u_n+2}{2} \\leq \\dfrac{2+2}{2} = 2$. Donc $u_n \\leq 2$ pour tout $n$, d'où $u_{n+1} - u_n = \\dfrac{2-u_n}{2} \\geq 0$ : la suite est croissante.
+
+    *Majoration :* on vient de montrer $u_n \\leq 2$.
+
+    Par le théorème de la limite monotone, $(u_n)$ converge vers une limite $\\ell \\leq 2$.
+
+    ### 6. Théorème des suites adjacentes
+
+    Deux suites $(u_n)$ et $(v_n)$ sont **adjacentes** si : $(u_n)$ est croissante, $(v_n)$ est décroissante, et $\\displaystyle\\lim_{n\\to+\\infty} (v_n - u_n) = 0$.
+
+    **Théorème :** Deux suites adjacentes convergent vers la **même limite** $\\ell$, et l'on a l'encadrement $u_n \\leq \\ell \\leq v_n$ pour tout $n$.
+
+    **Exemple classique :** $u_n = \\displaystyle\\sum_{k=0}^{n} \\dfrac{1}{k!}$ et $v_n = u_n + \\dfrac{1}{n \\cdot n!}$ sont adjacentes et convergent vers $e$.
+
+    ### 7. Suites arithmétiques, géométriques, arithmético-géométriques
+
+    **Suite arithmétique :** $u_{n+1} = u_n + r$ ($r$ = raison). Terme général : $u_n = u_0 + nr$. Somme des $n+1$ premiers termes : $\\displaystyle\\sum_{k=0}^{n} u_k = (n+1) \\cdot \\dfrac{u_0 + u_n}{2}$.
+
+    **Suite géométrique :** $u_{n+1} = q \\cdot u_n$ ($q$ = raison, $q \\neq 0$). Terme général : $u_n = u_0 \\cdot q^n$. Pour $q \\neq 1$ : $\\displaystyle\\sum_{k=0}^{n} u_k = u_0 \\cdot \\dfrac{1 - q^{n+1}}{1 - q}$.
+
+    **Convergence d'une suite géométrique :** si $|q| < 1$, $u_n \\to 0$ ; si $q = 1$, $u_n$ est constante ; si $q > 1$, $u_n \\to +\\infty$ (pour $u_0 > 0$) ; si $q \\leq -1$, $(u_n)$ diverge sans limite.
+
+    **Suite arithmético-géométrique :** $u_{n+1} = a u_n + b$ avec $a \\neq 1$. On cherche le point fixe $\\ell$ de $f(x) = ax+b$, c'est-à-dire $\\ell = a\\ell + b$, soit $\\ell = \\dfrac{b}{1-a}$. On pose $v_n = u_n - \\ell$ ; alors $v_{n+1} = u_{n+1} - \\ell = au_n + b - \\ell = a(u_n - \\ell) = a v_n$, donc $(v_n)$ est géométrique de raison $a$ : $v_n = v_0 \\cdot a^n$, d'où :
+    $$u_n = \\ell + (u_0 - \\ell) \\, a^n$$
+
+    **Exemple résolu :** $u_0 = 5$, $u_{n+1} = \\dfrac{1}{2} u_n + 3$. Point fixe : $\\ell = \\dfrac{1}{2}\\ell + 3 \\Rightarrow \\dfrac{1}{2}\\ell = 3 \\Rightarrow \\ell = 6$. Donc $u_n = 6 + (5-6)\\left(\\dfrac{1}{2}\\right)^n = 6 - \\left(\\dfrac{1}{2}\\right)^n$, et $u_n \\to 6$.
+
+    ### 8. Suites récurrentes $u_{n+1} = f(u_n)$
+
+    Pour étudier une suite définie par $u_0$ donné et $u_{n+1} = f(u_n)$ :
+
+    1. **Stabilité d'un intervalle :** trouver un intervalle $I$ tel que $u_0 \\in I$ et $f(I) \\subset I$ ; on montre alors par récurrence que $u_n \\in I$ pour tout $n$.
+    2. **Monotonie :** si $f$ est croissante sur $I$, $(u_n)$ est monotone, et son sens dépend du signe de $u_1 - u_0$ (si $u_1 \\geq u_0$, $(u_n)$ croît ; sinon décroît). Si $f$ est décroissante, on étudie séparément les suites $(u_{2n})$ et $(u_{2n+1})$, qui sont monotones de sens opposés.
+    3. **Recherche de limite :** si $(u_n)$ converge vers $\\ell$ et que $f$ est continue, alors $\\ell$ est **point fixe** de $f$, c'est-à-dire $f(\\ell) = \\ell$. On résout cette équation pour identifier les candidats, puis on conclut grâce à l'encadrement obtenu en 1.
+
+    **Exemple résolu :** $u_0 = 0$, $u_{n+1} = \\sqrt{u_n + 2}$. Posons $f(x) = \\sqrt{x+2}$, définie et croissante sur $[-2, +\\infty[$.
+
+    *Intervalle stable :* montrons $0 \\leq u_n \\leq 2$ pour tout $n$ par récurrence. Initialisation : $u_0 = 0 \\in [0,2]$. Hérédité : si $0 \\leq u_n \\leq 2$, alors $2 \\leq u_n + 2 \\leq 4$, donc $\\sqrt 2 \\leq u_{n+1} \\leq 2$, en particulier $0 \\leq u_{n+1} \\leq 2$.
+
+    *Monotonie :* $u_1 = \\sqrt{0+2} = \\sqrt{2} \\approx 1{,}41 > u_0 = 0$. Comme $f$ est croissante, $u_1 \\geq u_0 \\Rightarrow u_2 = f(u_1) \\geq f(u_0) = u_1$, et par récurrence $(u_n)$ est croissante.
+
+    *Convergence :* $(u_n)$ est croissante et majorée par $2$, donc converge vers une limite $\\ell \\in [0,2]$. Comme $f$ est continue, $\\ell$ vérifie $f(\\ell) = \\ell$, c'est-à-dire $\\sqrt{\\ell+2} = \\ell$, soit $\\ell^2 = \\ell + 2$ (avec $\\ell \\geq 0$), donc $\\ell^2 - \\ell - 2 = 0$, qui se factorise $(\\ell-2)(\\ell+1)=0$. Comme $\\ell \\geq 0$, on a $\\ell = 2$.
+
+    ### 9. Comparaison de suites : suites équivalentes et croissances comparées
+
+    **Suites équivalentes :** $(u_n) \\sim (v_n)$ si $u_n = v_n \\cdot (1 + \\varepsilon_n)$ avec $\\varepsilon_n \\to 0$, ce qui équivaut (lorsque $v_n \\neq 0$) à $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{u_n}{v_n} = 1$. Deux suites équivalentes ont le même comportement asymptotique (signe, limite éventuelle).
+
+    **Règle pratique :** pour un polynôme ou une somme de termes, le terme de plus haut degré (ou le terme dominant) donne un équivalent : $3n^2 - 5n + 1 \\sim 3n^2$ quand $n \\to +\\infty$.
+
+    **Croissances comparées (rappel) :** pour tout $\\alpha > 0$ et tout $a > 1$ :
+    $$\\lim_{n\\to+\\infty} \\frac{\\ln n}{n^\\alpha} = 0 \\qquad \\lim_{n\\to+\\infty} \\frac{n^\\alpha}{a^n} = 0 \\qquad \\lim_{n\\to+\\infty} \\frac{a^n}{n!} = 0 \\qquad \\lim_{n\\to+\\infty} \\frac{n!}{n^n} = 0$$
+
+    On retient l'ordre de domination : $\\ln n \\ll n^\\alpha \\ll a^n \\ll n! \\ll n^n$ (pour $\\alpha>0$, $a>1$).
+
+    **Exemple résolu :** Déterminer $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{n^{10} + 2^n}{n!}$.
+
+    On sait que $\\dfrac{2^n}{n!} \\to 0$ et $\\dfrac{n^{10}}{n!} \\to 0$ (puisque $n^{10} \\ll a^n \\ll n!$). La suite est somme de deux termes tendant chacun vers $0$, donc $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{n^{10}+2^n}{n!} = 0$.`,
+      exercises: [
+        {
+          id: "anal1-l1-suites-e1",
+          question: "Soit $u_n = \\dfrac{2n+1}{n+3}$. Quelle est $\\displaystyle\\lim_{n\\to+\\infty} u_n$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$2$" },
+            { id: "D", text: "$+\\infty$" },
+          ],
+          correctId: "C",
+          explanation: "On divise numérateur et dénominateur par $n$ : $u_n = \\dfrac{2 + 1/n}{1 + 3/n} \\to \\dfrac{2}{1} = 2$ quand $n \\to +\\infty$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-suites-e2",
+          question: "Soit $(u_n)$ la suite arithmétique de premier terme $u_0 = 4$ et de raison $r = 3$. Que vaut $u_{10}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$30$" },
+            { id: "B", text: "$34$" },
+            { id: "C", text: "$37$" },
+            { id: "D", text: "$40$" },
+          ],
+          correctId: "B",
+          explanation: "Pour une suite arithmétique, $u_n = u_0 + nr$. Donc $u_{10} = 4 + 10 \\times 3 = 4 + 30 = 34$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-suites-e3",
+          question: "Soit $(u_n)$ géométrique de premier terme $u_0 = 3$ et de raison $q = \\dfrac{1}{2}$. Quelle est $\\displaystyle\\lim_{n\\to+\\infty} u_n$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$3$" },
+            { id: "B", text: "$0$" },
+            { id: "C", text: "$+\\infty$" },
+            { id: "D", text: "La limite n'existe pas" },
+          ],
+          correctId: "B",
+          explanation: "Comme $|q| = \\dfrac{1}{2} < 1$, on a $u_n = 3 \\left(\\dfrac{1}{2}\\right)^n \\to 0$ quand $n \\to +\\infty$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-suites-e4",
+          question: "Vrai ou faux : toute suite convergente est bornée.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Si $u_n \\to \\ell$, en prenant $\\varepsilon = 1$ dans la définition de la limite, il existe $N$ tel que pour $n \\geq N$, $|u_n - \\ell| < 1$, donc $u_n$ est bornée à partir du rang $N$. Les termes $u_0, \\dots, u_{N-1}$ sont en nombre fini, donc aussi bornés. La suite entière est donc bornée.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-suites-e5",
+          question: "Vrai ou faux : la suite $u_n = (-1)^n$ est bornée et converge.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. La suite est bien bornée ($|u_n| = 1$ pour tout $n$), mais elle ne converge pas : les termes valent alternativement $1$ et $-1$, donc n'approchent aucune valeur unique. Ceci montre que la réciproque de « convergente $\\Rightarrow$ bornée » est fausse.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-suites-e6",
+          question: "Soit $u_n = \\dfrac{(-1)^n}{n}$ pour $n \\geq 1$. Que vaut $\\displaystyle\\lim_{n\\to+\\infty} u_n$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$-1$" },
+            { id: "D", text: "La limite n'existe pas" },
+          ],
+          correctId: "A",
+          explanation: "On a $-\\dfrac{1}{n} \\leq \\dfrac{(-1)^n}{n} \\leq \\dfrac{1}{n}$ pour $n \\geq 1$. Comme $\\dfrac{1}{n} \\to 0$ et $-\\dfrac{1}{n} \\to 0$, le théorème des gendarmes donne $u_n \\to 0$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-suites-e7",
+          question: "Soit $u_0 = 0$ et $u_{n+1} = \\dfrac{u_n+2}{2}$. Quelle est la limite de $(u_n)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$2$" },
+            { id: "D", text: "$+\\infty$" },
+          ],
+          correctId: "C",
+          explanation: "C'est une suite arithmético-géométrique $u_{n+1} = \\frac{1}{2}u_n + 1$. Le point fixe vérifie $\\ell = \\frac{1}{2}\\ell + 1 \\Rightarrow \\frac{1}{2}\\ell = 1 \\Rightarrow \\ell = 2$. On a $u_n = 2 + (u_0 - 2)\\left(\\frac{1}{2}\\right)^n = 2 - 2\\left(\\frac{1}{2}\\right)^n \\to 2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-suites-e8",
+          question: "Quel est l'équivalent simple de $u_n = 5n^3 - 2n^2 + 7$ quand $n \\to +\\infty$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$5n^3$" },
+            { id: "B", text: "$-2n^2$" },
+            { id: "C", text: "$7$" },
+            { id: "D", text: "$5n^3 - 2n^2$" },
+          ],
+          correctId: "A",
+          explanation: "Pour un polynôme, l'équivalent en $+\\infty$ est donné par le terme de plus haut degré : $5n^3 - 2n^2 + 7 \\sim 5n^3$, car $\\dfrac{5n^3-2n^2+7}{5n^3} = 1 - \\dfrac{2}{5n} + \\dfrac{7}{5n^3} \\to 1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-suites-e9",
+          question: "Vrai ou faux : si $f$ est décroissante sur un intervalle stable $I$ et $u_{n+1} = f(u_n)$, alors $(u_n)$ est nécessairement monotone.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. Quand $f$ est décroissante, $(u_n)$ n'est en général pas monotone (elle peut osciller). En revanche, les suites extraites $(u_{2n})$ et $(u_{2n+1})$ sont chacune monotones (de sens opposés), car $f \\circ f$ est croissante.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-suites-e10",
+          question: "Que vaut $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{n^5}{2^n}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$1$" },
+            { id: "C", text: "$+\\infty$" },
+            { id: "D", text: "$5$" },
+          ],
+          correctId: "A",
+          explanation: "Par croissances comparées, toute exponentielle de base $a>1$ domine toute puissance de $n$ : $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{n^\\alpha}{a^n} = 0$ pour tout $\\alpha > 0$ et $a > 1$. Ici $\\alpha = 5$, $a = 2$, donc la limite est $0$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-suites-e11",
+          question: "Démontrer, à l'aide de la définition formelle avec $\\varepsilon$ et $N$, que $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{1}{n+1} = 0$.",
+          type: "open",
+          modelAnswer: "Soit ε>0. On veut |1/(n+1) - 0| < ε, c'est-à-dire 1/(n+1) < ε, soit n+1 > 1/ε, soit n > 1/ε - 1. Il suffit de choisir N un entier supérieur à 1/ε - 1 (existence garantie par la propriété d'Archimède). Alors pour tout n ≥ N, |1/(n+1)| < ε.",
+          explanation: "**Définition à vérifier :** $\\forall \\varepsilon>0,\\, \\exists N \\in \\mathbb{N},\\, \\forall n \\geq N,\\, \\left|\\dfrac{1}{n+1} - 0\\right| < \\varepsilon$.\n\n**Preuve :** Soit $\\varepsilon > 0$. Comme $n+1 > 0$, on a $\\left|\\dfrac{1}{n+1}\\right| = \\dfrac{1}{n+1}$. On veut $\\dfrac{1}{n+1} < \\varepsilon$, ce qui équivaut à $n+1 > \\dfrac{1}{\\varepsilon}$, soit $n > \\dfrac{1}{\\varepsilon} - 1$.\n\nPar la propriété d'Archimède, il existe un entier $N$ tel que $N > \\dfrac{1}{\\varepsilon} - 1$. Pour tout $n \\geq N$, on a alors $n+1 \\geq N+1 > \\dfrac{1}{\\varepsilon}$, donc $\\dfrac{1}{n+1} < \\varepsilon$.\n\nCeci établit $\\displaystyle\\lim_{n\\to+\\infty} \\dfrac{1}{n+1} = 0$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-suites-e12",
+          question: "Soit $u_0 = 3$ et $u_{n+1} = \\sqrt{2u_n}$. Quelle est la limite de $(u_n)$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$0$" },
+            { id: "B", text: "$\\sqrt 2$" },
+            { id: "C", text: "$2$" },
+            { id: "D", text: "$+\\infty$" },
+          ],
+          correctId: "C",
+          explanation: "Posons $f(x) = \\sqrt{2x}$, croissante sur $[0,+\\infty[$. Montrons que $u_n \\geq 2$ pour tout $n$ par récurrence : $u_0 = 3 \\geq 2$ ; si $u_n \\geq 2$, alors $2u_n \\geq 4$ donc $u_{n+1} = \\sqrt{2u_n} \\geq 2$. Ensuite, $u_1 = \\sqrt{6} \\approx 2{,}449 < u_0 = 3$, et $f$ croissante implique que $(u_n)$ est décroissante. Étant décroissante et minorée par $2$, elle converge vers $\\ell \\geq 2$ vérifiant $f(\\ell)=\\ell$, soit $\\sqrt{2\\ell} = \\ell$, donc $2\\ell = \\ell^2$ (avec $\\ell \\geq 0$), soit $\\ell(\\ell - 2) = 0$. Comme $\\ell \\geq 2$, on a $\\ell = 2$.",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-suites-e13",
+          question: "Démontrer le théorème des suites adjacentes : si $(u_n)$ est croissante, $(v_n)$ décroissante, et $v_n - u_n \\to 0$, alors $(u_n)$ et $(v_n)$ convergent vers la même limite.",
+          type: "open",
+          modelAnswer: "On montre que (v_n - u_n) est décroissante et positive, donc u_n ≤ v_n ≤ v_0 pour tout n : (u_n) est croissante et majorée, donc converge vers ℓ_1. De même (v_n) est décroissante et minorée par u_0, donc converge vers ℓ_2. Comme v_n - u_n → 0, on a ℓ_2 - ℓ_1 = 0, donc ℓ_1 = ℓ_2.",
+          explanation: "**Preuve :**\n\nPosons $w_n = v_n - u_n$. Comme $(u_n)$ est croissante et $(v_n)$ décroissante, $w_{n+1} - w_n = (v_{n+1}-v_n) - (u_{n+1}-u_n) \\leq 0$ : $(w_n)$ est décroissante. Comme $w_n \\to 0$ et $(w_n)$ décroissante, on a $w_n \\geq 0$ pour tout $n$ (sinon $(w_n)$ resterait négative et ne pourrait pas tendre vers $0$ par valeurs négatives en restant décroissante... plus directement : si $(w_n)$ est décroissante et converge vers $0$, alors $w_n \\geq \\lim w_n = 0$). Donc $u_n \\leq v_n$ pour tout $n$.\n\nOn en déduit $u_n \\leq v_n \\leq v_0$ : $(u_n)$ est croissante et majorée par $v_0$, donc converge (théorème de la limite monotone) vers une limite $\\ell_1$.\n\nDe même $v_n \\geq u_n \\geq u_0$ : $(v_n)$ est décroissante et minorée par $u_0$, donc converge vers une limite $\\ell_2$.\n\nPar opérations sur les limites, $v_n - u_n \\to \\ell_2 - \\ell_1$. Or par hypothèse $v_n - u_n \\to 0$, donc $\\ell_2 - \\ell_1 = 0$, soit $\\ell_1 = \\ell_2 = \\ell$.\n\nDe plus, $(u_n)$ croissante donne $u_n \\leq \\ell$, et $(v_n)$ décroissante donne $v_n \\geq \\ell$, d'où l'encadrement $u_n \\leq \\ell \\leq v_n$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-suites-e14",
+          question: "Soit $u_n = \\left(1 + \\dfrac{1}{n}\\right)^n$ et $v_n = \\left(1 + \\dfrac{1}{n}\\right)^{n+1}$. Que peut-on affirmer ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$(u_n)$ et $(v_n)$ sont adjacentes et convergent vers $e$" },
+            { id: "B", text: "$(u_n)$ et $(v_n)$ divergent toutes les deux" },
+            { id: "C", text: "$(u_n)$ et $(v_n)$ convergent vers des limites différentes" },
+            { id: "D", text: "Seule $(u_n)$ converge" },
+          ],
+          correctId: "A",
+          explanation: "C'est un résultat classique : on peut montrer que $(u_n)$ est croissante, $(v_n)$ décroissante, et que $v_n - u_n = \\left(1+\\frac{1}{n}\\right)^n \\cdot \\frac{1}{n} \\to 0$ (car $(u_n)$ est bornée et $1/n \\to 0$). Les deux suites sont donc adjacentes et convergent vers la même limite, qui est par définition le nombre $e$.",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-suites-e15",
+          question: "Soit $u_n = \\dfrac{n!}{n^n}$. Démontrer que $\\displaystyle\\lim_{n\\to+\\infty} u_n = 0$.",
+          type: "open",
+          modelAnswer: "On écrit u_n comme produit de n facteurs tous ≤ 1, dont le deuxième facteur est 1/n qui tend vers 0 ; on majore u_n par 1/n et on conclut par le théorème des gendarmes (encadrement par 0 et 1/n).",
+          explanation: "**Preuve :** Pour $n \\geq 1$, on écrit :\n$$u_n = \\frac{n!}{n^n} = \\frac{n \\times (n-1) \\times (n-2) \\times \\cdots \\times 2 \\times 1}{n \\times n \\times n \\times \\cdots \\times n} = \\frac{n}{n} \\cdot \\frac{n-1}{n} \\cdot \\frac{n-2}{n} \\cdots \\frac{1}{n}$$\n\nChacun des facteurs $\\dfrac{n-k}{n}$ (pour $k = 0, \\dots, n-1$) vérifie $0 \\leq \\dfrac{n-k}{n} \\leq 1$. On isole le dernier facteur (correspondant à $k=n-1$), qui vaut $\\dfrac{1}{n}$ :\n$$0 \\leq u_n = \\underbrace{\\frac{n}{n}\\cdot\\frac{n-1}{n}\\cdots\\frac{2}{n}}_{\\leq 1 \\text{ chacun}} \\cdot \\frac{1}{n} \\leq 1 \\cdot \\frac{1}{n} = \\frac{1}{n}$$\n\nOn a donc l'encadrement $0 \\leq u_n \\leq \\dfrac{1}{n}$ pour tout $n \\geq 1$. Comme $\\dfrac{1}{n} \\to 0$, le théorème des gendarmes donne $\\displaystyle\\lim_{n\\to+\\infty} u_n = 0$. $\\square$",
+          difficulty: "expert",
+        },
+      ],
+      },
+      {
         id: "anal1-l1-1",
         slug: "limites-de-fonctions",
         title: "Limites de fonctions",
@@ -225,8 +523,8 @@ On a les croissances comparées : $\\ln x \\ll x^\\alpha \\ll e^x$ quand $x \\to
               { id: "C", text: "$-\\frac{1}{6}$" },
               { id: "D", text: "$\\frac{1}{3}$" },
             ],
-            correctId: "C",
-            explanation: "On utilise le développement limité : $\\ln(1+x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} + o(x^3)$. Donc $\\ln(1+x) - x + \\frac{x^2}{2} = \\frac{x^3}{3} + o(x^3)$... Attention : le DL standard donne $\\frac{x^3}{3}$ au numérateur, mais après calcul précis avec le signe : $\\ln(1+x) - x + x^2/2 = -x^3/3 + x^3/... $. Reprenons : $\\ln(1+x)=x-x^2/2+x^3/3-...$, donc $\\ln(1+x)-x+x^2/2 = x^3/3 \\cdot (-1) + ... $ Non : $x - x^2/2 + x^3/3 - x + x^2/2 = x^3/3$... hmm. La limite est $\\frac{1}{3}$? Non. $\\ln(1+x)=x-\\frac{x^2}{2}+\\frac{x^3}{3}+o(x^3)$. Numérateur $= -x + x^2/2 + x - x^2/2 + x^3/3 = x^3/3$... donc limite $= 1/3$. Réponse correcte : $1/3$ mais l'option C est $-1/6$. Reprenons : $\\ln(1+x)-x+x^2/2 = (x-x^2/2+x^3/3)-x+x^2/2 = x^3/3$. Limite $= 1/3$, donc option D.",
+            correctId: "D",
+            explanation: "On utilise le développement limité : $\\ln(1+x) = x - \\dfrac{x^2}{2} + \\dfrac{x^3}{3} + o(x^3)$. Donc $\\ln(1+x) - x + \\dfrac{x^2}{2} = \\dfrac{x^3}{3} + o(x^3)$, et en divisant par $x^3$ : $\\dfrac{\\ln(1+x)-x+x^2/2}{x^3} \\to \\dfrac{1}{3}$.",
             difficulty: "expert",
           },
           {
@@ -714,6 +1012,329 @@ La dérivée $n$-ième de $f$ est notée $f^{(n)}$. Une fonction est de **classe
             difficulty: "expert",
           },
         ],
+      },
+      {
+      id: "anal1-l1-integration",
+      slug: "calcul-integral-primitives",
+      title: "Calcul intégral et primitives",
+      durationMinutes: 55,
+      content: `## Calcul intégral et primitives
+
+    ### 1. Primitives usuelles
+
+    Une fonction $F$ est une **primitive** de $f$ sur un intervalle $I$ si $F$ est dérivable sur $I$ et $F'(x) = f(x)$ pour tout $x \\in I$.
+
+    **Unicité à une constante près :** Si $F$ et $G$ sont deux primitives de $f$ sur $I$, alors $F - G$ est constante sur $I$. Ainsi, l'ensemble des primitives de $f$ s'écrit $F(x) + C$, $C \\in \\mathbb{R}$.
+
+    **Tableau des primitives usuelles :**
+
+    | Fonction $f(x)$ | Primitive $F(x)$ | Condition |
+    |---|---|---|
+    | $x^n$ | $\\dfrac{x^{n+1}}{n+1} + C$ | $n \\in \\mathbb{N}$, ou $n \\neq -1$ |
+    | $\\dfrac{1}{x}$ | $\\ln\|x\| + C$ | $x \\neq 0$ |
+    | $e^x$ | $e^x + C$ | — |
+    | $\\cos x$ | $\\sin x + C$ | — |
+    | $\\sin x$ | $-\\cos x + C$ | — |
+    | $\\dfrac{1}{1+x^2}$ | $\\arctan x + C$ | — |
+    | $\\dfrac{1}{\\sqrt{1-x^2}}$ | $\\arcsin x + C$ | $x \\in ]-1,1[$ |
+    | $\\dfrac{u'}{u}$ | $\\ln\|u\| + C$ | $u \\neq 0$ |
+    | $u' e^u$ | $e^u + C$ | — |
+
+    **Linéarité de la primitivation :** si $F$ est une primitive de $f$ et $G$ une primitive de $g$, alors pour tous réels $\\alpha, \\beta$, $\\alpha F + \\beta G$ est une primitive de $\\alpha f + \\beta g$ :
+    $$\\int (\\alpha f(x) + \\beta g(x))\\, dx = \\alpha \\int f(x)\\, dx + \\beta \\int g(x)\\, dx$$
+
+    ### 2. Intégrale de Riemann sur un segment
+
+    **Sommes de Riemann (idée intuitive) :** soit $f$ continue sur $[a,b]$. On découpe $[a,b]$ en $n$ sous-intervalles de largeur $\\frac{b-a}{n}$ et on approche l'aire sous la courbe par une somme de rectangles :
+    $$S_n = \\frac{b-a}{n} \\sum_{k=0}^{n-1} f\\left(a + k\\,\\frac{b-a}{n}\\right)$$
+
+    Lorsque $f$ est continue sur $[a,b]$, on démontre que $S_n$ converge quand $n \\to +\\infty$ vers un nombre réel, indépendant du choix des points dans chaque sous-intervalle. Cette limite est appelée **intégrale de $f$ sur $[a,b]$**, notée :
+    $$\\int_a^b f(x)\\, dx = \\lim_{n \\to +\\infty} S_n$$
+
+    Géométriquement, si $f \\geq 0$ sur $[a,b]$, $\\int_a^b f(x)\\,dx$ représente l'aire du domaine compris entre la courbe de $f$, l'axe des abscisses, et les droites $x=a$, $x=b$.
+
+    **Convention :** $\\int_b^a f(x)\\, dx = -\\int_a^b f(x)\\, dx$ et $\\int_a^a f(x)\\, dx = 0$.
+
+    ### 3. Théorème fondamental de l'analyse
+
+    **Théorème :** Soit $f$ continue sur $[a,b]$ et $F$ une primitive quelconque de $f$ sur $[a,b]$. Alors :
+    $$\\int_a^b f(x)\\, dx = F(b) - F(a) = \\big[F(x)\\big]_a^b$$
+
+    Ce théorème relie le calcul d'aires (intégrale) au calcul de primitives, et permet de calculer explicitement une intégrale dès qu'on connaît une primitive.
+
+    Il admet aussi une formulation locale : la fonction $x \\mapsto \\displaystyle\\int_a^x f(t)\\, dt$ est une primitive de $f$ sur $[a,b]$ (c'est la primitive qui s'annule en $a$).
+
+    **Exemple résolu :** Calculer $\\displaystyle\\int_0^2 (3x^2 - 2x + 1)\\, dx$.
+
+    **Solution :** Une primitive de $3x^2 - 2x + 1$ est $F(x) = x^3 - x^2 + x$. Donc :
+    $$\\int_0^2 (3x^2-2x+1)\\,dx = \\big[x^3-x^2+x\\big]_0^2 = (8-4+2) - 0 = 6$$
+
+    ### 4. Propriétés de l'intégrale
+
+    Soient $f, g$ continues sur un intervalle contenant $a, b, c$.
+
+    **Linéarité :**
+    $$\\int_a^b \\big(\\alpha f(x) + \\beta g(x)\\big)\\, dx = \\alpha \\int_a^b f(x)\\, dx + \\beta \\int_a^b g(x)\\, dx$$
+
+    **Positivité :** si $f \\geq 0$ sur $[a,b]$ (avec $a \\leq b$), alors $\\displaystyle\\int_a^b f(x)\\, dx \\geq 0$.
+
+    **Croissance (monotonie) :** si $f \\leq g$ sur $[a,b]$ (avec $a \\leq b$), alors :
+    $$\\int_a^b f(x)\\, dx \\leq \\int_a^b g(x)\\, dx$$
+
+    **Relation de Chasles :** pour tout $c$ (même hors de $[a,b]$, si $f$ y est définie) :
+    $$\\int_a^b f(x)\\, dx = \\int_a^c f(x)\\, dx + \\int_c^b f(x)\\, dx$$
+
+    **Inégalité triangulaire :** si $a \\leq b$,
+    $$\\left| \\int_a^b f(x)\\, dx \\right| \\leq \\int_a^b |f(x)|\\, dx$$
+
+    Cette inégalité découle de $-|f(x)| \\leq f(x) \\leq |f(x)|$ et de la croissance de l'intégrale.
+
+    ### 5. Intégration par parties (IPP)
+
+    **Théorème :** Soient $u, v$ deux fonctions de classe $C^1$ sur $[a,b]$. Alors :
+    $$\\int_a^b u(x) v'(x)\\, dx = \\big[u(x)v(x)\\big]_a^b - \\int_a^b u'(x) v(x)\\, dx$$
+
+    (et de façon analogue pour les primitives, sans les bornes : $\\int u v' = uv - \\int u'v$).
+
+    Cette formule découle directement de la formule de dérivation d'un produit : $(uv)' = u'v + uv'$.
+
+    **Exemple 1 :** Calculer $\\displaystyle\\int_0^1 x e^x\\, dx$.
+
+    **Solution :** On pose $u(x) = x$ (donc $u'(x)=1$) et $v'(x) = e^x$ (donc $v(x) = e^x$) :
+    $$\\int_0^1 x e^x\\, dx = \\big[x e^x\\big]_0^1 - \\int_0^1 e^x\\, dx = (1 \\cdot e^1 - 0) - \\big[e^x\\big]_0^1 = e - (e-1) = 1$$
+
+    On vérifie que $F(x) = (x-1)e^x$ est bien une primitive de $xe^x$ : $F'(x) = e^x + (x-1)e^x = xe^x$. ✓
+
+    **Exemple 2 :** Calculer $\\displaystyle\\int_1^e \\ln x\\, dx$.
+
+    **Solution :** On écrit $\\ln x = 1 \\cdot \\ln x$ et on pose $u(x) = \\ln x$ (donc $u'(x) = 1/x$) et $v'(x) = 1$ (donc $v(x) = x$) :
+    $$\\int_1^e \\ln x\\, dx = \\big[x \\ln x\\big]_1^e - \\int_1^e x \\cdot \\frac{1}{x}\\, dx = (e \\cdot 1 - 0) - \\int_1^e 1\\, dx = e - (e-1) = 1$$
+
+    On vérifie : $F(x) = x\\ln x - x$ a pour dérivée $F'(x) = \\ln x + x\\cdot\\frac1x - 1 = \\ln x$. ✓
+
+    ### 6. Changement de variable
+
+    **Théorème :** Soit $\\varphi$ de classe $C^1$ sur $[a,b]$ et $f$ continue sur $\\varphi([a,b])$. Alors :
+    $$\\int_a^b f(\\varphi(t))\\, \\varphi'(t)\\, dt = \\int_{\\varphi(a)}^{\\varphi(b)} f(x)\\, dx$$
+
+    En pratique, on pose $x = \\varphi(t)$, donc $dx = \\varphi'(t)\\, dt$, et on change les bornes en conséquence.
+
+    **Exemple 1 :** Calculer $\\displaystyle\\int_0^{\\pi/2} \\sin x \\cos x\\, dx$.
+
+    **Solution :** On pose $u = \\sin x$, donc $du = \\cos x\\, dx$. Quand $x=0$, $u=0$ ; quand $x=\\pi/2$, $u=1$ :
+    $$\\int_0^{\\pi/2} \\sin x \\cos x\\, dx = \\int_0^1 u\\, du = \\left[\\frac{u^2}{2}\\right]_0^1 = \\frac{1}{2}$$
+
+    **Exemple 2 :** Calculer $\\displaystyle\\int_0^1 \\frac{x}{1+x^2}\\, dx$.
+
+    **Solution :** On pose $u = 1+x^2$, donc $du = 2x\\, dx$, soit $x\\,dx = \\dfrac{du}{2}$. Quand $x=0$, $u=1$ ; quand $x=1$, $u=2$ :
+    $$\\int_0^1 \\frac{x}{1+x^2}\\, dx = \\int_1^2 \\frac{1}{2u}\\, du = \\frac{1}{2}\\big[\\ln|u|\\big]_1^2 = \\frac{1}{2}\\ln 2$$
+
+    ### 7. Application : aires entre courbes
+
+    Si $f$ et $g$ sont continues sur $[a,b]$ avec $f(x) \\geq g(x)$ pour tout $x \\in [a,b]$, l'aire $\\mathcal{A}$ comprise entre les deux courbes est :
+    $$\\mathcal{A} = \\int_a^b \\big(f(x) - g(x)\\big)\\, dx$$
+
+    **Exemple résolu :** Calculer l'aire comprise entre les courbes de $f(x) = x$ et $g(x) = x^2$ sur $[0,1]$.
+
+    **Solution :** Sur $[0,1]$, on a $x \\geq x^2$ (car $x - x^2 = x(1-x) \\geq 0$). Donc :
+    $$\\mathcal{A} = \\int_0^1 (x - x^2)\\, dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6}$$
+
+    ### 8. Application : valeur moyenne d'une fonction
+
+    **Définition :** La valeur moyenne d'une fonction $f$ continue sur $[a,b]$ (avec $a \\neq b$) est :
+    $$\\mu = \\frac{1}{b-a} \\int_a^b f(x)\\, dx$$
+
+    **Théorème de la moyenne :** il existe $c \\in [a,b]$ tel que $f(c) = \\mu$ (conséquence directe du TVI appliqué à $f$, continue sur le segment $[a,b]$).
+
+    **Exemple résolu :** Calculer la valeur moyenne de $f(x) = x^2$ sur $[0,3]$.
+
+    **Solution :**
+    $$\\mu = \\frac{1}{3-0}\\int_0^3 x^2\\, dx = \\frac{1}{3}\\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{1}{3} \\times 9 = 3$$`,
+      exercises: [
+        {
+          id: "anal1-l1-integration-e1",
+          question: "Quelle est une primitive de $f(x) = x^3$ sur $\\mathbb{R}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\dfrac{x^4}{4}$" },
+            { id: "B", text: "$3x^2$" },
+            { id: "C", text: "$\\dfrac{x^4}{3}$" },
+            { id: "D", text: "$4x^3$" },
+          ],
+          correctId: "A",
+          explanation: "D'après le tableau des primitives usuelles, une primitive de $x^n$ est $\\dfrac{x^{n+1}}{n+1}$. Pour $n=3$ : $F(x) = \\dfrac{x^4}{4}$. Vérification : $F'(x) = \\dfrac{4x^3}{4} = x^3$. ✓",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-integration-e2",
+          question: "Quelle est une primitive de $f(x) = e^x + \\cos x$ sur $\\mathbb{R}$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$e^x + \\sin x$" },
+            { id: "B", text: "$e^x - \\sin x$" },
+            { id: "C", text: "$e^x + \\cos x$" },
+            { id: "D", text: "$xe^x + \\sin x$" },
+          ],
+          correctId: "A",
+          explanation: "Par linéarité, on additionne une primitive de $e^x$ (qui est $e^x$) et une primitive de $\\cos x$ (qui est $\\sin x$) : $F(x) = e^x + \\sin x$. Vérification : $F'(x) = e^x + \\cos x$. ✓",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-integration-e3",
+          question: "Calculer $\\displaystyle\\int_0^1 (2x+1)\\, dx$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$3$" },
+            { id: "D", text: "$0$" },
+          ],
+          correctId: "B",
+          explanation: "Une primitive de $2x+1$ est $F(x) = x^2+x$. Donc $\\int_0^1(2x+1)\\,dx = \\big[x^2+x\\big]_0^1 = (1+1) - 0 = 2$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-integration-e4",
+          question: "Vrai ou faux : si $F$ et $G$ sont deux primitives de $f$ sur un intervalle $I$, alors $F - G$ est nécessairement nulle.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "F",
+          explanation: "Faux. $F - G$ est seulement constante sur $I$ (pas nécessairement nulle) : $(F-G)' = F'-G' = f-f = 0$, donc $F-G$ est constante, mais cette constante peut être n'importe quel réel non nul.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-integration-e5",
+          question: "Quelle est la primitive de $f(x) = \\dfrac{1}{1+x^2}$ qui s'annule en $x=0$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\arctan x$" },
+            { id: "B", text: "$\\ln(1+x^2)$" },
+            { id: "C", text: "$\\arcsin x$" },
+            { id: "D", text: "$\\dfrac{1}{1+x^2}$" },
+          ],
+          correctId: "A",
+          explanation: "D'après le tableau, une primitive de $\\dfrac{1}{1+x^2}$ est $\\arctan x + C$. Comme $\\arctan(0) = 0$, la constante $C$ vaut $0$ : la primitive cherchée est $F(x) = \\arctan x$.",
+          difficulty: "debutant",
+        },
+        {
+          id: "anal1-l1-integration-e6",
+          question: "Calculer $\\displaystyle\\int_0^{\\ln 2} e^x\\, dx$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$2$" },
+            { id: "C", text: "$\\ln 2$" },
+            { id: "D", text: "$e^2 - 1$" },
+          ],
+          correctId: "A",
+          explanation: "Une primitive de $e^x$ est $e^x$. Donc $\\int_0^{\\ln 2} e^x\\,dx = \\big[e^x\\big]_0^{\\ln 2} = e^{\\ln 2} - e^0 = 2 - 1 = 1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-integration-e7",
+          question: "En utilisant un changement de variable $u = 1+x^2$, calculer $\\displaystyle\\int_0^1 \\frac{x}{1+x^2}\\, dx$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\dfrac{1}{2}\\ln 2$" },
+            { id: "B", text: "$\\ln 2$" },
+            { id: "C", text: "$\\dfrac{1}{2}$" },
+            { id: "D", text: "$2\\ln 2$" },
+          ],
+          correctId: "A",
+          explanation: "Avec $u=1+x^2$, $du = 2x\\,dx$, donc $x\\,dx = du/2$. Bornes : $x=0 \\Rightarrow u=1$, $x=1 \\Rightarrow u=2$. Donc $\\int_0^1 \\frac{x}{1+x^2}dx = \\int_1^2 \\frac{1}{2u}du = \\frac12\\big[\\ln|u|\\big]_1^2 = \\frac12(\\ln 2 - \\ln 1) = \\frac12 \\ln 2$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-integration-e8",
+          question: "Vrai ou faux : pour $f$ continue sur $[a,b]$ avec $f \\geq 0$, on a toujours $\\left|\\displaystyle\\int_a^b f(x)\\,dx\\right| = \\displaystyle\\int_a^b |f(x)|\\,dx$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai dans ce cas particulier : puisque $f \\geq 0$ sur $[a,b]$, on a $|f(x)| = f(x)$ pour tout $x$, et $\\int_a^b f(x)\\,dx \\geq 0$ (positivité de l'intégrale), donc $\\left|\\int_a^b f\\right| = \\int_a^b f = \\int_a^b |f|$. (L'inégalité triangulaire devient une égalité car $f$ ne change pas de signe.)",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-integration-e9",
+          question: "À l'aide d'une intégration par parties, calculer $\\displaystyle\\int_0^1 x e^x\\, dx$.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$1$" },
+            { id: "B", text: "$e$" },
+            { id: "C", text: "$e-1$" },
+            { id: "D", text: "$e+1$" },
+          ],
+          correctId: "A",
+          explanation: "On pose $u=x$, $v'=e^x$, donc $u'=1$, $v=e^x$ : $\\int_0^1 xe^x\\,dx = \\big[xe^x\\big]_0^1 - \\int_0^1 e^x\\,dx = e - \\big[e^x\\big]_0^1 = e - (e-1) = 1$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-integration-e10",
+          question: "Quelle est l'aire comprise entre les courbes $f(x)=x$ et $g(x)=x^2$ sur $[0,1]$ ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\dfrac{1}{6}$" },
+            { id: "B", text: "$\\dfrac{1}{2}$" },
+            { id: "C", text: "$\\dfrac{1}{3}$" },
+            { id: "D", text: "$\\dfrac{5}{6}$" },
+          ],
+          correctId: "A",
+          explanation: "Sur $[0,1]$, $x \\geq x^2$. L'aire est $\\int_0^1 (x-x^2)\\,dx = \\left[\\dfrac{x^2}{2}-\\dfrac{x^3}{3}\\right]_0^1 = \\dfrac12 - \\dfrac13 = \\dfrac{3-2}{6} = \\dfrac16$.",
+          difficulty: "intermediaire",
+        },
+        {
+          id: "anal1-l1-integration-e11",
+          question: "Calculer $\\displaystyle\\int_1^e \\ln x\\, dx$ par intégration par parties, puis vérifier le résultat en dérivant la primitive trouvée.",
+          type: "open",
+          modelAnswer: "On pose u=ln x, v'=1, donc u'=1/x, v=x. ∫ln x dx = x ln x - ∫1 dx = x ln x - x + C. Donc ∫_1^e ln x dx = [x ln x - x]_1^e = (e - e) - (0 - 1) = 1.",
+          explanation: "**IPP :** on pose $u(x) = \\ln x$ et $v'(x) = 1$, donc $u'(x) = \\dfrac1x$ et $v(x) = x$.\n$$\\int_1^e \\ln x\\, dx = \\big[x\\ln x\\big]_1^e - \\int_1^e x \\cdot \\frac{1}{x}\\, dx = \\big[x\\ln x\\big]_1^e - \\int_1^e 1\\, dx$$\nOr $\\big[x\\ln x\\big]_1^e = (e \\cdot 1) - (1 \\cdot 0) = e$, et $\\int_1^e 1\\,dx = e-1$. Donc :\n$$\\int_1^e \\ln x\\, dx = e - (e-1) = 1$$\n**Vérification :** la primitive est $F(x) = x\\ln x - x$. On dérive : $F'(x) = \\ln x + x \\cdot \\dfrac1x - 1 = \\ln x + 1 - 1 = \\ln x$. La dérivée redonne bien la fonction de départ, ce qui confirme que $F$ est une primitive correcte de $\\ln x$. $\\square$",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-integration-e12",
+          question: "Calculer $\\displaystyle\\int_0^1 x^2 e^x\\, dx$ en appliquant deux fois l'intégration par parties.",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$e-2$" },
+            { id: "B", text: "$e$" },
+            { id: "C", text: "$2e-2$" },
+            { id: "D", text: "$e-1$" },
+          ],
+          correctId: "A",
+          explanation: "Première IPP avec $u=x^2$, $v'=e^x$ : $\\int_0^1 x^2 e^x\\,dx = \\big[x^2e^x\\big]_0^1 - \\int_0^1 2xe^x\\,dx = e - 2\\int_0^1 xe^x\\,dx$. On a déjà calculé $\\int_0^1 xe^x\\,dx = 1$ (exercice précédent). Donc $\\int_0^1 x^2e^x\\,dx = e - 2(1) = e-2$. Vérification par la primitive $F(x)=(x^2-2x+2)e^x$ : $F'(x) = (2x-2)e^x + (x^2-2x+2)e^x = x^2e^x$. ✓ Et $F(1)-F(0) = 1\\cdot e - 2 \\cdot 1 = e-2$.",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-integration-e13",
+          question: "Démontrer la formule d'intégration par parties à partir de la dérivée d'un produit, puis l'appliquer pour calculer $\\displaystyle\\int_1^e \\frac{\\ln x}{x}\\, dx$.",
+          type: "open",
+          modelAnswer: "On part de (uv)'=u'v+uv', on intègre entre a et b : [uv]_a^b = ∫u'v + ∫uv', donc ∫uv' = [uv]_a^b - ∫u'v. Pour le calcul, on pose u=ln x, du=dx/x, et on remarque que ln(x)/x dx = u du, donc l'intégrale vaut [u²/2] entre les bornes correspondantes, soit 1/2.",
+          explanation: "**Démonstration de l'IPP :** soient $u,v$ de classe $C^1$ sur $[a,b]$. La formule de dérivation d'un produit donne $(uv)'(x) = u'(x)v(x) + u(x)v'(x)$ pour tout $x \\in [a,b]$. En intégrant cette égalité entre $a$ et $b$ (le théorème fondamental de l'analyse s'applique car $(uv)'$ est continue) :\n$$\\int_a^b (uv)'(x)\\, dx = \\int_a^b u'(x)v(x)\\, dx + \\int_a^b u(x)v'(x)\\, dx$$\nLe membre de gauche vaut $\\big[u(x)v(x)\\big]_a^b$ (théorème fondamental). On obtient donc :\n$$\\big[uv\\big]_a^b = \\int_a^b u'v\\, dx + \\int_a^b uv'\\, dx \\;\\Longrightarrow\\; \\int_a^b uv'\\, dx = \\big[uv\\big]_a^b - \\int_a^b u'v\\, dx \\quad \\square$$\n**Application :** pour $\\displaystyle\\int_1^e \\frac{\\ln x}{x}\\, dx$, on peut éviter l'IPP et utiliser un changement de variable : on pose $u=\\ln x$, donc $du = \\dfrac{dx}{x}$. Bornes : $x=1 \\Rightarrow u=0$ ; $x=e \\Rightarrow u=1$.\n$$\\int_1^e \\frac{\\ln x}{x}\\, dx = \\int_0^1 u\\, du = \\left[\\frac{u^2}{2}\\right]_0^1 = \\frac{1}{2}$$",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-integration-e14",
+          question: "Soit $f$ continue sur $[0,3]$ telle que $\\displaystyle\\int_0^3 f(x)\\,dx = 12$. Que vaut la valeur moyenne de $f$ sur $[0,3]$, et que garantit le théorème de la moyenne ?",
+          type: "mcq",
+          options: [
+            { id: "A", text: "$\\mu = 4$, et il existe $c\\in[0,3]$ avec $f(c)=4$" },
+            { id: "B", text: "$\\mu = 12$, et il existe $c\\in[0,3]$ avec $f(c)=12$" },
+            { id: "C", text: "$\\mu = 36$, sans garantie d'existence de $c$" },
+            { id: "D", text: "$\\mu = 4$, mais sans garantie d'existence de $c$" },
+          ],
+          correctId: "A",
+          explanation: "La valeur moyenne est $\\mu = \\dfrac{1}{3-0}\\displaystyle\\int_0^3 f(x)\\,dx = \\dfrac{12}{3} = 4$. Le théorème de la moyenne, conséquence du TVI appliqué à $f$ continue sur le segment $[0,3]$, garantit l'existence d'un $c \\in [0,3]$ tel que $f(c) = \\mu = 4$.",
+          difficulty: "expert",
+        },
+        {
+          id: "anal1-l1-integration-e15",
+          question: "Vrai ou faux : pour calculer $\\displaystyle\\int_0^{\\pi/2} \\sin x \\cos x\\, dx$ par changement de variable $u=\\sin x$, on obtient $\\displaystyle\\int_0^1 u\\, du = \\dfrac{1}{2}$.",
+          type: "true_false",
+          options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+          correctId: "V",
+          explanation: "Vrai. Avec $u = \\sin x$, on a $du = \\cos x\\, dx$, donc $\\sin x \\cos x\\, dx = u\\, du$. Les bornes deviennent $u(0)=\\sin 0 = 0$ et $u(\\pi/2) = \\sin(\\pi/2) = 1$. Ainsi $\\int_0^{\\pi/2}\\sin x\\cos x\\,dx = \\int_0^1 u\\,du = \\left[\\dfrac{u^2}{2}\\right]_0^1 = \\dfrac{1}{2}$, soit $0{,}5$.",
+          difficulty: "expert",
+        },
+      ],
       },
     ],
   },
@@ -5565,6 +6186,2597 @@ Tout idéal maximal est premier. Dans $\\mathbb{Z}$ : les idéaux premiers non n
             options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
             correctId: "V",
             explanation: "Vrai. Dans un anneau principal $A$, $\\langle p\\rangle$ est premier non nul $\\Leftrightarrow$ $p$ est irréductible $\\Leftrightarrow$ $\\langle p\\rangle$ est maximal. (Dans $\\mathbb{Z}$ : $p\\mathbb{Z}$ premier non nul $\\Leftrightarrow$ $p$ premier $\\Leftrightarrow$ $p\\mathbb{Z}$ maximal.)",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L1 — Logique, ensembles et raisonnement
+  // ─────────────────────────────────────────────
+  {
+    id: "logique-l1",
+    slug: "logique-ensembles-raisonnement-l1",
+    title: "Logique, ensembles et raisonnement",
+    description:
+      "Le chapitre fondateur de la licence : connecteurs logiques, quantificateurs, théorie élémentaire des ensembles, relations, applications, et les grandes méthodes de démonstration (contraposée, absurde, récurrence, analyse-synthèse) qui sous-tendent tous les autres cours de mathématiques.",
+    schoolLevel: "L1",
+    subject: "algebre",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "∀",
+    lessons: [
+      {
+        id: "log1-l1-1",
+        slug: "logique-propositionnelle-quantificateurs",
+        title: "Logique propositionnelle et quantificateurs",
+        durationMinutes: 50,
+        content: `## Logique propositionnelle et quantificateurs
+
+  ### 1. Propositions et connecteurs logiques
+
+  Une **proposition** est un énoncé qui est soit vrai (V), soit faux (F), mais jamais les deux. On combine des propositions $P$, $Q$ à l'aide de connecteurs logiques :
+
+  | Connecteur | Notation | Lecture |
+  |---|---|---|
+  | Négation | $\\text{non } P$ ou $\\overline{P}$ | "il est faux que $P$" |
+  | Conjonction | $P \\wedge Q$ | "$P$ et $Q$" |
+  | Disjonction | $P \\vee Q$ | "$P$ ou $Q$" (inclusif) |
+  | Implication | $P \\Rightarrow Q$ | "$P$ implique $Q$" |
+  | Équivalence | $P \\Leftrightarrow Q$ | "$P$ équivaut à $Q$" |
+
+  ### 2. Tables de vérité
+
+  $$
+  \\begin{array}{|c|c|c|c|c|c|}
+  \\hline
+  P & Q & P \\wedge Q & P \\vee Q & P \\Rightarrow Q & P \\Leftrightarrow Q \\\\
+  \\hline
+  V & V & V & V & V & V \\\\
+  V & F & F & V & F & F \\\\
+  F & V & F & V & V & F \\\\
+  F & F & F & F & V & V \\\\
+  \\hline
+  \\end{array}
+  $$
+
+  **Point clé sur l'implication :** $P \\Rightarrow Q$ n'est fausse que dans le seul cas où $P$ est vraie et $Q$ est fausse. En particulier, si $P$ est fausse, $P \\Rightarrow Q$ est automatiquement **vraie**, quelle que soit la valeur de $Q$ (on dit que "le faux implique n'importe quoi").
+
+  ### 3. Implication, contraposée, réciproque
+
+  Pour une implication $P \\Rightarrow Q$, on distingue trois énoncés associés :
+
+  - **Réciproque :** $Q \\Rightarrow P$ (n'a en général pas la même valeur de vérité que $P \\Rightarrow Q$).
+  - **Contraposée :** $\\overline{Q} \\Rightarrow \\overline{P}$. C'est une proposition **logiquement équivalente** à $P \\Rightarrow Q$ (même table de vérité) : $(P \\Rightarrow Q) \\Leftrightarrow (\\overline{Q} \\Rightarrow \\overline{P})$.
+
+  **Exemple :** $P$ : "$x = 2$", $Q$ : "$x^2 = 4$". L'implication $P \\Rightarrow Q$ est vraie. La réciproque $Q \\Rightarrow P$ est fausse (car $x = -2$ vérifie $Q$ mais pas $P$). La contraposée "$x^2 \\neq 4 \\Rightarrow x \\neq 2$" est vraie, comme attendu puisqu'elle équivaut à $P \\Rightarrow Q$.
+
+  ### 4. Lois de De Morgan et négation des connecteurs
+
+  Pour nier une proposition composée, on applique les règles suivantes :
+
+  $$\\overline{P \\wedge Q} = \\overline{P} \\vee \\overline{Q} \\qquad \\overline{P \\vee Q} = \\overline{P} \\wedge \\overline{Q}$$
+
+  $$\\overline{P \\Rightarrow Q} = P \\wedge \\overline{Q}$$
+
+  **Justification de la dernière règle :** $P \\Rightarrow Q$ est équivalente à $\\overline{P} \\vee Q$ (vérifiable par table de vérité). Donc :
+  $$\\overline{P \\Rightarrow Q} = \\overline{\\overline{P} \\vee Q} = \\overline{\\overline{P}} \\wedge \\overline{Q} = P \\wedge \\overline{Q}$$
+
+  **Exemple :** La négation de "il pleut $\\Rightarrow$ je prends un parapluie" est "il pleut **et** je ne prends pas de parapluie" (et non pas "il ne pleut pas $\\Rightarrow$ je ne prends pas de parapluie", qui est une erreur fréquente).
+
+  ### 5. Quantificateurs universel et existentiel
+
+  - **Quantificateur universel** $\\forall$ : $\\forall x \\in E,\\ P(x)$ signifie "pour tout élément $x$ de $E$, $P(x)$ est vraie".
+  - **Quantificateur existentiel** $\\exists$ : $\\exists x \\in E,\\ P(x)$ signifie "il existe (au moins) un élément $x$ de $E$ tel que $P(x)$ est vraie".
+  - On note parfois $\\exists! x$ pour "il existe un **unique** $x$".
+
+  **Exemple :** $\\forall x \\in \\mathbb{R},\\ x^2 \\geq 0$ (vraie). $\\exists x \\in \\mathbb{R},\\ x^2 = -1$ (fausse, car aucun réel n'a un carré négatif).
+
+  ### 6. Négation des propositions quantifiées
+
+  La négation **échange** les quantificateurs et nie la proposition finale :
+
+  $$\\overline{\\forall x \\in E,\\ P(x)} \\quad \\Longleftrightarrow \\quad \\exists x \\in E,\\ \\overline{P(x)}$$
+
+  $$\\overline{\\exists x \\in E,\\ P(x)} \\quad \\Longleftrightarrow \\quad \\forall x \\in E,\\ \\overline{P(x)}$$
+
+  **Exemple :** Nier "$\\forall x \\in \\mathbb{R},\\ x \\geq 0 \\Rightarrow x^2 \\geq 1$" donne, en utilisant aussi la négation de l'implication (section 4) :
+  $$\\exists x \\in \\mathbb{R},\\ x \\geq 0 \\wedge x^2 < 1$$
+  (c'est vrai : $x = 0{,}5$ convient.)
+
+  ### 7. Quantificateurs multiples et ordre des quantificateurs
+
+  Lorsqu'une proposition contient plusieurs quantificateurs, **l'ordre est crucial** et ne peut pas être échangé sans changer le sens de l'énoncé.
+
+  **Piège classique :** comparons
+  $$\\forall x \\in E,\\ \\exists y \\in F,\\ R(x,y) \\qquad \\text{et} \\qquad \\exists y \\in F,\\ \\forall x \\in E,\\ R(x,y)$$
+
+  Dans le premier énoncé ($\\forall \\exists$), $y$ **peut dépendre de** $x$ : pour chaque $x$, on a le droit de choisir un $y$ différent. Dans le second ($\\exists \\forall$), $y$ est choisi **une fois pour toutes**, **avant** $x$, et doit convenir simultanément pour tous les $x$. Le second énoncé est **plus fort** : il implique le premier, mais la réciproque est fausse en général.
+
+  **Exemple concret :** Soit $E = F = \\mathbb{R}$ et $R(x,y)$ : "$y > x$".
+  - $\\forall x \\in \\mathbb{R},\\ \\exists y \\in \\mathbb{R},\\ y > x$ : **vraie** (pour chaque $x$, on prend $y = x+1$).
+  - $\\exists y \\in \\mathbb{R},\\ \\forall x \\in \\mathbb{R},\\ y > x$ : **fausse** (aucun réel $y$ ne peut être strictement supérieur à tous les réels $x$, en particulier pas à $y$ lui-même, ni à $y+1$).
+
+  Cet exemple montre bien que $\\exists \\forall \\Rightarrow \\forall \\exists$, mais pas l'inverse.
+
+  ### 8. Négation d'une proposition à quantificateurs multiples
+
+  On applique la règle de négation (section 6) successivement, de gauche à droite :
+
+  $$\\overline{\\forall x,\\ \\exists y,\\ R(x,y)} \\quad \\Longleftrightarrow \\quad \\exists x,\\ \\overline{\\exists y,\\ R(x,y)} \\quad \\Longleftrightarrow \\quad \\exists x,\\ \\forall y,\\ \\overline{R(x,y)}$$
+
+  **Exemple :** Nier $\\forall \\varepsilon > 0,\\ \\exists N \\in \\mathbb{N},\\ \\forall n \\geq N,\\ |u_n| < \\varepsilon$ (définition de $u_n \\to 0$) donne :
+  $$\\exists \\varepsilon > 0,\\ \\forall N \\in \\mathbb{N},\\ \\exists n \\geq N,\\ |u_n| \\geq \\varepsilon$$
+
+  C'est exactement la méthode systématique utilisée pour nier les définitions $\\varepsilon$-$\\delta$ rencontrées en analyse.`,
+        exercises: [
+          {
+            id: "log1-l1-1-e1",
+            question: "Quelle est la valeur de vérité de $P \\Rightarrow Q$ lorsque $P$ est fausse ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Toujours vraie" },
+              { id: "B", text: "Toujours fausse" },
+              { id: "C", text: "Dépend de $Q$" },
+              { id: "D", text: "Indéterminée" },
+            ],
+            correctId: "A",
+            explanation: "D'après la table de vérité de l'implication, $P \\Rightarrow Q$ n'est fausse que lorsque $P$ est vraie et $Q$ fausse. Dès que $P$ est fausse, $P \\Rightarrow Q$ est vraie, quelle que soit $Q$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-1-e2",
+            question: "La proposition $P \\vee \\overline{P}$ est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Toujours vraie (tautologie)" },
+              { id: "B", text: "Toujours fausse" },
+              { id: "C", text: "Vraie seulement si $P$ est vraie" },
+              { id: "D", text: "Indéterminée" },
+            ],
+            correctId: "A",
+            explanation: "Une proposition est soit vraie soit fausse : si $P$ est vraie, $P \\vee \\overline{P}$ est vraie ; si $P$ est fausse, $\\overline{P}$ est vraie donc $P \\vee \\overline{P}$ est encore vraie. C'est le **principe du tiers exclu**.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-1-e3",
+            question: "Vrai ou faux : la négation de \"$P \\wedge Q$\" est \"$\\overline{P} \\wedge \\overline{Q}$\".",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. D'après les lois de De Morgan, $\\overline{P \\wedge Q} = \\overline{P} \\vee \\overline{Q}$ (et non $\\wedge$). Par exemple si $P$ est vraie et $Q$ fausse, $P\\wedge Q$ est fausse donc sa négation est vraie ; or $\\overline P \\wedge \\overline Q$ est fausse (car $\\overline P$ est fausse), alors que $\\overline P \\vee \\overline Q$ est vraie.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-1-e4",
+            question: "Quelle est la contraposée de l'implication \"$x > 2 \\Rightarrow x^2 > 4$\" (pour $x \\in \\mathbb{R}^+$) ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x^2 \\leq 4 \\Rightarrow x \\leq 2$" },
+              { id: "B", text: "$x \\leq 2 \\Rightarrow x^2 \\leq 4$" },
+              { id: "C", text: "$x^2 > 4 \\Rightarrow x > 2$" },
+              { id: "D", text: "$x \\leq 2 \\Rightarrow x^2 > 4$" },
+            ],
+            correctId: "A",
+            explanation: "La contraposée de $P \\Rightarrow Q$ est $\\overline{Q} \\Rightarrow \\overline{P}$. Ici $\\overline{Q}$ est \"$x^2 \\leq 4$\" et $\\overline{P}$ est \"$x \\leq 2$\", donc la contraposée est \"$x^2 \\leq 4 \\Rightarrow x \\leq 2$\".",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-1-e5",
+            question: "Comment se lit $\\exists x \\in \\mathbb{R},\\ x^2 = 2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Il existe un réel $x$ tel que $x^2 = 2$" },
+              { id: "B", text: "Pour tout réel $x$, $x^2 = 2$" },
+              { id: "C", text: "Il existe un unique réel $x$ tel que $x^2 = 2$" },
+              { id: "D", text: "Aucun réel $x$ ne vérifie $x^2 = 2$" },
+            ],
+            correctId: "A",
+            explanation: "Le symbole $\\exists$ se lit \"il existe (au moins un)\". L'énoncé affirme l'existence d'un réel dont le carré vaut $2$ (par exemple $x = \\sqrt{2}$), sans affirmer l'unicité.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-1-e6",
+            question: "Quelle est la négation de $\\forall x \\in \\mathbb{R},\\ x^2 \\geq 0$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\exists x \\in \\mathbb{R},\\ x^2 < 0$" },
+              { id: "B", text: "$\\forall x \\in \\mathbb{R},\\ x^2 < 0$" },
+              { id: "C", text: "$\\exists x \\in \\mathbb{R},\\ x^2 \\geq 0$" },
+              { id: "D", text: "$\\exists x \\in \\mathbb{R},\\ x^2 \\leq 0$" },
+            ],
+            correctId: "A",
+            explanation: "La négation de $\\forall x,\\ P(x)$ est $\\exists x,\\ \\overline{P(x)}$. Ici $\\overline{P(x)}$ est \"$x^2 < 0$\", donc la négation est $\\exists x \\in \\mathbb{R},\\ x^2 < 0$ (qui est d'ailleurs fausse, ce qui confirme que la proposition de départ est vraie).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-1-e7",
+            question: "Vrai ou faux : $\\forall x \\in E,\\ \\exists y \\in F,\\ R(x,y)$ implique toujours $\\exists y \\in F,\\ \\forall x \\in E,\\ R(x,y)$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux, c'est l'implication réciproque qui est toujours vraie. Contre-exemple : avec $R(x,y)$ : \"$y>x$\" sur $\\mathbb{R}$, $\\forall x,\\exists y, y>x$ est vraie (prendre $y=x+1$) mais $\\exists y,\\forall x, y>x$ est fausse (aucun réel ne majore strictement tous les réels).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-1-e8",
+            question: "Quelle est la négation de \"$x \\geq 0 \\Rightarrow x^2 \\geq 1$\" ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$x \\geq 0 \\wedge x^2 < 1$" },
+              { id: "B", text: "$x < 0 \\Rightarrow x^2 < 1$" },
+              { id: "C", text: "$x \\geq 0 \\Rightarrow x^2 < 1$" },
+              { id: "D", text: "$x < 0 \\vee x^2 < 1$" },
+            ],
+            correctId: "A",
+            explanation: "La négation de $P \\Rightarrow Q$ est $P \\wedge \\overline{Q}$. Ici cela donne \"$x \\geq 0$ et $x^2 < 1$\", ce qui est cohérent : $x = 0{,}5$ vérifie bien $x\\geq 0$ et $x^2 = 0{,}25 < 1$, donc l'implication de départ est fausse pour ce $x$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-1-e9",
+            question: "Parmi les énoncés suivants sur $\\mathbb{N}$, lequel est vrai ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\forall n \\in \\mathbb{N},\\ \\exists p \\in \\mathbb{N},\\ p > n$" },
+              { id: "B", text: "$\\exists p \\in \\mathbb{N},\\ \\forall n \\in \\mathbb{N},\\ p > n$" },
+              { id: "C", text: "$\\exists n \\in \\mathbb{N},\\ \\forall p \\in \\mathbb{N},\\ p < n$" },
+              { id: "D", text: "$\\forall n \\in \\mathbb{N},\\ \\forall p \\in \\mathbb{N},\\ p < n$" },
+            ],
+            correctId: "A",
+            explanation: "A est vraie : pour tout entier $n$, il existe un entier plus grand (par exemple $p=n+1$) — c'est la non-majoration de $\\mathbb{N}$. B affirmerait un entier $p$ supérieur à tous les entiers, ce qui est impossible (en particulier $p \\leq p$). C et D sont fausses pour des raisons analogues.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-1-e10",
+            question: "Vrai ou faux : la proposition $P \\Leftrightarrow Q$ est vraie si et seulement si $P$ et $Q$ ont la même valeur de vérité.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. D'après la table de vérité, $P \\Leftrightarrow Q$ est vraie dans les cas (V,V) et (F,F), c'est-à-dire exactement lorsque $P$ et $Q$ ont la même valeur de vérité.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-1-e11",
+            question: "Énoncer et nier (en justifiant chaque étape) la proposition $\\forall \\varepsilon > 0,\\ \\exists N \\in \\mathbb{N},\\ \\forall n \\geq N,\\ |u_n - \\ell| < \\varepsilon$ (définition de $u_n \\to \\ell$).",
+            type: "open",
+            modelAnswer: "On échange chaque quantificateur successivement et on nie l'inégalité finale : la négation est ∃ε>0, ∀N∈ℕ, ∃n≥N, |u_n - ℓ| ≥ ε.",
+            explanation: "**Méthode :** on parcourt l'énoncé de gauche à droite et on transforme chaque $\\forall$ en $\\exists$ (et inversement), puis on nie la proposition finale.\n\n$$\\overline{\\forall \\varepsilon>0,\\ \\exists N,\\ \\forall n\\geq N,\\ |u_n-\\ell|<\\varepsilon}$$\n\nÉtape 1 : $\\overline{\\forall \\varepsilon>0,\\ (\\cdots)} \\Leftrightarrow \\exists \\varepsilon>0,\\ \\overline{(\\cdots)}$.\n\nÉtape 2 : $\\overline{\\exists N,\\ (\\cdots)} \\Leftrightarrow \\forall N,\\ \\overline{(\\cdots)}$.\n\nÉtape 3 : $\\overline{\\forall n\\geq N,\\ (\\cdots)} \\Leftrightarrow \\exists n\\geq N,\\ \\overline{(\\cdots)}$.\n\nÉtape 4 : la négation de $|u_n-\\ell|<\\varepsilon$ est $|u_n-\\ell|\\geq \\varepsilon$.\n\n**Conclusion :**\n$$\\exists \\varepsilon>0,\\ \\forall N \\in \\mathbb{N},\\ \\exists n \\geq N,\\ |u_n-\\ell| \\geq \\varepsilon$$\nCela signifie : \"il existe une marge $\\varepsilon$ que la suite ne respecte jamais durablement\" — c'est bien la négation de la convergence vers $\\ell$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-1-e12",
+            question: "Soient $E$ un ensemble non vide et $R(x,y)$ une relation sur $E$. Vrai ou faux : $\\exists y \\in E,\\ \\forall x \\in E,\\ R(x,y)$ est strictement plus forte que $\\forall x \\in E,\\ \\exists y \\in E,\\ R(x,y)$ (c'est-à-dire que la première implique la seconde, sans réciproque en général).",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si un même $y_0$ convient pour tous les $x$ (énoncé $\\exists\\forall$), alors en particulier pour chaque $x$ il existe (au moins) ce $y_0$ qui convient, ce qui donne l'énoncé $\\forall\\exists$. La réciproque est fausse en général, comme le montre l'exemple $R(x,y)$ : \"$y>x$\" sur $\\mathbb{R}$ (voir cours, section 7).",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-1-e13",
+            question: "Démontrer que $P \\Rightarrow Q$ est logiquement équivalente à $\\overline{P} \\vee Q$, puis en déduire la formule de négation $\\overline{P \\Rightarrow Q} = P \\wedge \\overline{Q}$.",
+            type: "open",
+            modelAnswer: "On compare les tables de vérité de P⇒Q et de (non P) ou Q : elles coïncident dans les 4 cas. On applique ensuite De Morgan à la négation de (non P) ou Q pour obtenir P et (non Q).",
+            explanation: "**Étape 1 — équivalence par table de vérité :**\n\n$$\\begin{array}{|c|c|c|c|c|}\\hline P & Q & P\\Rightarrow Q & \\overline{P} & \\overline{P}\\vee Q \\\\\\hline V&V&V&F&V\\\\V&F&F&F&F\\\\F&V&V&V&V\\\\F&F&V&V&V\\\\\\hline\\end{array}$$\n\nLes colonnes $P\\Rightarrow Q$ et $\\overline{P}\\vee Q$ sont identiques dans les quatre lignes, donc $P\\Rightarrow Q \\Leftrightarrow \\overline{P}\\vee Q$.\n\n**Étape 2 — négation :** en niant les deux membres de cette équivalence et en appliquant la loi de De Morgan $\\overline{A \\vee B} = \\overline{A}\\wedge\\overline{B}$ avec $A=\\overline{P}$, $B=Q$ :\n$$\\overline{P\\Rightarrow Q} = \\overline{\\overline{P}\\vee Q} = \\overline{\\overline{P}}\\wedge\\overline{Q} = P \\wedge \\overline{Q}$$\nce qui est la formule annoncée. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-1-e14",
+            question: "Soit $f : \\mathbb{R} \\to \\mathbb{R}$. L'énoncé \"$f$ est bornée\" se traduit par $\\exists M \\in \\mathbb{R},\\ \\forall x \\in \\mathbb{R},\\ |f(x)| \\leq M$. Quelle est sa négation ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\forall M \\in \\mathbb{R},\\ \\exists x \\in \\mathbb{R},\\ |f(x)| > M$" },
+              { id: "B", text: "$\\exists M \\in \\mathbb{R},\\ \\forall x \\in \\mathbb{R},\\ |f(x)| > M$" },
+              { id: "C", text: "$\\forall M \\in \\mathbb{R},\\ \\forall x \\in \\mathbb{R},\\ |f(x)| > M$" },
+              { id: "D", text: "$\\exists M \\in \\mathbb{R},\\ \\exists x \\in \\mathbb{R},\\ |f(x)| > M$" },
+            ],
+            correctId: "A",
+            explanation: "On échange $\\exists M$ en $\\forall M$, puis $\\forall x$ en $\\exists x$, et on nie l'inégalité finale ($\\leq$ devient $>$) : $\\forall M \\in \\mathbb{R},\\ \\exists x \\in \\mathbb{R},\\ |f(x)| > M$. C'est bien la définition d'une fonction non bornée : pour toute borne candidate $M$, on trouve un point où $f$ la dépasse.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-1-e15",
+            question: "Vrai ou faux : pour montrer qu'une proposition de la forme $\\forall x \\in E,\\ P(x)$ est fausse, il suffit d'exhiber un seul $x_0 \\in E$ tel que $P(x_0)$ soit fausse.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. C'est le principe du **contre-exemple**. La négation de $\\forall x\\in E,\\ P(x)$ est $\\exists x\\in E,\\ \\overline{P(x)}$ : il suffit donc d'exhiber un seul élément $x_0$ qui ne vérifie pas $P$ pour établir que l'énoncé universel est faux.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "log1-l1-2",
+        slug: "ensembles-relations-applications",
+        title: "Ensembles, relations et applications",
+        durationMinutes: 50,
+        content: `## Ensembles, relations et applications
+
+  ### 1. Appartenance, inclusion, égalité
+
+  Soit $E$ un ensemble. Pour $x$ un objet et $A, B$ des sous-ensembles (parties) de $E$ :
+
+  - $x \\in A$ : "$x$ appartient à $A$" ; $x \\notin A$ : "$x$ n'appartient pas à $A$".
+  - $A \\subset B$ (inclusion) : $\\forall x \\in E,\\ x \\in A \\Rightarrow x \\in B$.
+  - $A = B$ : $A \\subset B$ **et** $B \\subset A$ (c'est la méthode standard pour prouver une égalité d'ensembles : double inclusion).
+  - $\\emptyset$ : l'ensemble vide, sous-ensemble de tout ensemble.
+
+  ### 2. Opérations sur les ensembles
+
+  Pour $A, B$ parties de $E$ :
+
+  | Opération | Notation | Définition |
+  |---|---|---|
+  | Union | $A \\cup B$ | $\\{x \\in E \\mid x \\in A \\text{ ou } x \\in B\\}$ |
+  | Intersection | $A \\cap B$ | $\\{x \\in E \\mid x \\in A \\text{ et } x \\in B\\}$ |
+  | Complémentaire | $\\complement_E A$ ou $A^c$ | $\\{x \\in E \\mid x \\notin A\\}$ |
+  | Différence | $A \\setminus B$ | $\\{x \\in E \\mid x \\in A \\text{ et } x \\notin B\\} = A \\cap B^c$ |
+
+  **Lois de De Morgan pour les ensembles :**
+  $$\\complement_E(A \\cup B) = \\complement_E A \\cap \\complement_E B \\qquad \\complement_E(A \\cap B) = \\complement_E A \\cup \\complement_E B$$
+
+  **Produit cartésien :** $A \\times B = \\{(a,b) \\mid a \\in A,\\ b \\in B\\}$ (couples ordonnés).
+
+  **Ensemble des parties :** $\\mathcal{P}(E)$ est l'ensemble de **toutes** les parties de $E$ (y compris $\\emptyset$ et $E$ lui-même). Si $E$ a $n$ éléments, $\\mathcal{P}(E)$ a $2^n$ éléments.
+
+  **Exemple :** $E = \\{1,2,3\\}$. $\\mathcal{P}(E) = \\big\\{ \\emptyset,\\ \\{1\\},\\ \\{2\\},\\ \\{3\\},\\ \\{1,2\\},\\ \\{1,3\\},\\ \\{2,3\\},\\ \\{1,2,3\\} \\big\\}$, soit $2^3 = 8$ éléments.
+
+  ### 3. Relations binaires
+
+  Une **relation binaire** $\\mathcal{R}$ sur un ensemble $E$ est une partie de $E \\times E$ : on note $x\\,\\mathcal{R}\\,y$ si $(x,y)$ appartient à cette partie. On dit que $\\mathcal{R}$ est :
+
+  - **réflexive** si $\\forall x \\in E,\\ x\\,\\mathcal{R}\\,x$ ;
+  - **symétrique** si $\\forall x,y \\in E,\\ x\\,\\mathcal{R}\\,y \\Rightarrow y\\,\\mathcal{R}\\,x$ ;
+  - **antisymétrique** si $\\forall x,y \\in E,\\ (x\\,\\mathcal{R}\\,y \\wedge y\\,\\mathcal{R}\\,x) \\Rightarrow x = y$ ;
+  - **transitive** si $\\forall x,y,z \\in E,\\ (x\\,\\mathcal{R}\\,y \\wedge y\\,\\mathcal{R}\\,z) \\Rightarrow x\\,\\mathcal{R}\\,z$.
+
+  ### 4. Relations d'équivalence
+
+  $\\mathcal{R}$ est une **relation d'équivalence** si elle est réflexive, symétrique et transitive.
+
+  Pour $x \\in E$, la **classe d'équivalence** de $x$ est $\\overline{x} = \\{y \\in E \\mid x\\,\\mathcal{R}\\,y\\}$. Les classes d'équivalence forment une **partition** de $E$ : elles sont non vides, deux à deux disjointes (ou confondues), et leur union vaut $E$.
+
+  **Exemple classique :** sur $\\mathbb{Z}$, la relation "$x \\equiv y \\pmod{n}$" (i.e. $n \\mid (x-y)$) est une relation d'équivalence. Ses classes d'équivalence sont les $n$ classes de congruence modulo $n$.
+
+  ### 5. Relations d'ordre
+
+  $\\mathcal{R}$ est une **relation d'ordre** si elle est réflexive, antisymétrique et transitive. L'ordre est **total** si $\\forall x,y \\in E,\\ x\\,\\mathcal{R}\\,y \\vee y\\,\\mathcal{R}\\,x$ (deux éléments sont toujours comparables) ; sinon il est **partiel**.
+
+  **Exemples :** $(\\mathbb{R}, \\leq)$ est un ordre total. $(\\mathcal{P}(E), \\subset)$ est un ordre partiel dès que $E$ a au moins $2$ éléments (deux parties disjointes non vides ne sont pas comparables par inclusion).
+
+  ### 6. Applications : définitions de base
+
+  Une **application** $f : E \\to F$ associe à chaque élément $x \\in E$ un **unique** élément $f(x) \\in F$. On définit :
+
+  - **image directe** d'une partie $A \\subset E$ : $f(A) = \\{f(x) \\mid x \\in A\\}$ ;
+  - **image réciproque** d'une partie $B \\subset F$ : $f^{-1}(B) = \\{x \\in E \\mid f(x) \\in B\\}$ (définie même si $f$ n'est pas bijective).
+
+  ### 7. Injection, surjection, bijection
+
+  - $f$ est **injective** si $\\forall x_1, x_2 \\in E,\\ f(x_1) = f(x_2) \\Rightarrow x_1 = x_2$ (équivalent à la contraposée : $x_1 \\neq x_2 \\Rightarrow f(x_1) \\neq f(x_2)$). Deux éléments distincts ont des images distinctes.
+  - $f$ est **surjective** si $\\forall y \\in F,\\ \\exists x \\in E,\\ f(x) = y$. Tout élément de $F$ est atteint.
+  - $f$ est **bijective** si elle est injective et surjective : $\\forall y \\in F,\\ \\exists! x \\in E,\\ f(x) = y$ (existence **et** unicité).
+
+  **Méthode pratique pour l'injectivité :** on suppose $f(x_1) = f(x_2)$ et on montre $x_1 = x_2$ par calcul direct.
+
+  **Exemple :** $f : \\mathbb{R} \\to \\mathbb{R}$, $f(x) = 2x+1$. Injective : $f(x_1)=f(x_2) \\Rightarrow 2x_1+1=2x_2+1 \\Rightarrow x_1=x_2$. Surjective : pour $y \\in \\mathbb{R}$, on résout $2x+1=y$, soit $x = (y-1)/2 \\in \\mathbb{R}$. Donc $f$ est bijective.
+
+  **Contre-exemple :** $g : \\mathbb{R} \\to \\mathbb{R}$, $g(x) = x^2$ n'est ni injective ($g(1)=g(-1)=1$) ni surjective (aucun $x$ ne donne $g(x)=-1$).
+
+  ### 8. Composition et bijection réciproque
+
+  Si $f : E \\to F$ et $g : F \\to G$, on définit $g \\circ f : E \\to G$ par $(g\\circ f)(x) = g(f(x))$.
+
+  **Propriétés de composition :**
+  - Si $f$ et $g$ sont injectives, $g \\circ f$ est injective.
+  - Si $f$ et $g$ sont surjectives, $g \\circ f$ est surjective.
+  - Si $f$ et $g$ sont bijectives, $g \\circ f$ est bijective.
+
+  Si $f : E \\to F$ est bijective, il existe une unique application $f^{-1} : F \\to E$, la **bijection réciproque**, caractérisée par :
+  $$f^{-1} \\circ f = \\mathrm{id}_E \\qquad \\text{et} \\qquad f \\circ f^{-1} = \\mathrm{id}_F$$
+
+  **Exemple :** pour $f(x) = 2x+1$ ci-dessus, $f^{-1}(y) = \\frac{y-1}{2}$. Vérification : $f^{-1}(f(x)) = f^{-1}(2x+1) = \\frac{(2x+1)-1}{2} = x$.`,
+        exercises: [
+          {
+            id: "log1-l1-2-e1",
+            question: "Soit $E = \\{1,2,3,4\\}$. Combien d'éléments possède $\\mathcal{P}(E)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$16$" },
+              { id: "B", text: "$8$" },
+              { id: "C", text: "$4$" },
+              { id: "D", text: "$24$" },
+            ],
+            correctId: "A",
+            explanation: "$\\mathcal{P}(E)$ a $2^n$ éléments pour $|E|=n$. Ici $n=4$, donc $2^4 = 16$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-2-e2",
+            question: "Vrai ou faux : $A \\setminus B = A \\cap \\complement_E B$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. $x \\in A\\setminus B \\Leftrightarrow (x\\in A \\text{ et } x\\notin B) \\Leftrightarrow (x \\in A \\text{ et } x \\in \\complement_E B) \\Leftrightarrow x \\in A \\cap \\complement_E B$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-2-e3",
+            question: "Quelle propriété caractérise une fonction injective $f : E \\to F$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$f(x_1)=f(x_2) \\Rightarrow x_1=x_2$" },
+              { id: "B", text: "$\\forall y \\in F,\\ \\exists x \\in E,\\ f(x)=y$" },
+              { id: "C", text: "$x_1 = x_2 \\Rightarrow f(x_1) = f(x_2)$" },
+              { id: "D", text: "$f(E) = F$" },
+            ],
+            correctId: "A",
+            explanation: "L'injectivité signifie que deux antécédents distincts ne peuvent avoir la même image, ce qui se traduit par la contraposée : $f(x_1)=f(x_2) \\Rightarrow x_1=x_2$. L'option C est toujours vraie pour une fonction (par définition d'une fonction) et ne caractérise donc rien. B et D définissent la surjectivité.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-2-e4",
+            question: "La relation \"$\\leq$\" sur $\\mathbb{R}$ est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une relation d'ordre total" },
+              { id: "B", text: "Une relation d'équivalence" },
+              { id: "C", text: "Une relation symétrique" },
+              { id: "D", text: "Une relation d'ordre partiel uniquement" },
+            ],
+            correctId: "A",
+            explanation: "\"$\\leq$\" est réflexive ($x\\leq x$), antisymétrique ($x\\leq y$ et $y\\leq x \\Rightarrow x=y$) et transitive : c'est une relation d'ordre. De plus deux réels sont toujours comparables : l'ordre est total.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-2-e5",
+            question: "Vrai ou faux : $f(x) = x^2$ définie de $\\mathbb{R}$ vers $\\mathbb{R}$ est injective.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. On a $f(1) = f(-1) = 1$ alors que $1 \\neq -1$ : deux antécédents distincts ont la même image, donc $f$ n'est pas injective sur $\\mathbb{R}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-2-e6",
+            question: "Soient $A, B \\subset E$. Que vaut $\\complement_E(A \\cup B)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\complement_E A \\cap \\complement_E B$" },
+              { id: "B", text: "$\\complement_E A \\cup \\complement_E B$" },
+              { id: "C", text: "$A \\cap B$" },
+              { id: "D", text: "$\\complement_E A \\setminus \\complement_E B$" },
+            ],
+            correctId: "A",
+            explanation: "C'est la première loi de De Morgan pour les ensembles : $\\complement_E(A\\cup B) = \\complement_E A \\cap \\complement_E B$. Intuitivement, ne pas être dans $A$ ou $B$ équivaut à n'être ni dans $A$ ni dans $B$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-2-e7",
+            question: "Sur $\\mathbb{Z}$, on définit $x \\mathcal{R} y \\Leftrightarrow x - y$ est pair. Cette relation est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une relation d'équivalence" },
+              { id: "B", text: "Une relation d'ordre" },
+              { id: "C", text: "Une relation antisymétrique seulement" },
+              { id: "D", text: "Ni réflexive, ni symétrique, ni transitive" },
+            ],
+            correctId: "A",
+            explanation: "Réflexive : $x-x=0$ est pair. Symétrique : si $x-y$ est pair, $y-x=-(x-y)$ l'est aussi. Transitive : si $x-y$ et $y-z$ sont pairs, $x-z=(x-y)+(y-z)$ est pair (somme de deux pairs). C'est donc une relation d'équivalence (ses classes sont les entiers pairs et les entiers impairs).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-2-e8",
+            question: "Soit $f : \\mathbb{R} \\to [0, +\\infty[$, $f(x) = x^2$. Cette application est :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Surjective mais non injective" },
+              { id: "B", text: "Injective mais non surjective" },
+              { id: "C", text: "Bijective" },
+              { id: "D", text: "Ni injective ni surjective" },
+            ],
+            correctId: "A",
+            explanation: "Surjective : pour tout $y \\geq 0$, $x = \\sqrt{y}$ vérifie $f(x)=y$. Non injective : $f(1) = f(-1) = 1$ avec $1 \\neq -1$. Le changement d'ensemble d'arrivée (restreint à $[0,+\\infty[$) rend la fonction surjective, contrairement à l'exercice précédent sur $\\mathbb{R} \\to \\mathbb{R}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-2-e9",
+            question: "Vrai ou faux : si $f : E \\to F$ et $g : F \\to G$ sont toutes deux injectives, alors $g \\circ f$ est injective.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $(g\\circ f)(x_1) = (g\\circ f)(x_2)$, alors $g(f(x_1))=g(f(x_2))$. Comme $g$ est injective, $f(x_1)=f(x_2)$. Comme $f$ est injective, $x_1=x_2$. Donc $g\\circ f$ est injective.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-2-e10",
+            question: "Sur $\\mathcal{P}(E)$ avec $E=\\{1,2\\}$, l'inclusion $\\subset$ est-elle un ordre total ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Non, car $\\{1\\}$ et $\\{2\\}$ ne sont pas comparables" },
+              { id: "B", text: "Oui, c'est toujours un ordre total" },
+              { id: "C", text: "Non, car $\\subset$ n'est pas transitive" },
+              { id: "D", text: "Non, car $\\subset$ n'est pas réflexive" },
+            ],
+            correctId: "A",
+            explanation: "$\\subset$ est bien réflexive, antisymétrique et transitive (c'est un ordre), mais pas total dès que $|E|\\geq 2$ : ici $\\{1\\} \\not\\subset \\{2\\}$ et $\\{2\\} \\not\\subset \\{1\\}$, donc ces deux parties ne sont pas comparables.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-2-e11",
+            question: "Montrer que $f : \\mathbb{R}\\setminus\\{2\\} \\to \\mathbb{R}\\setminus\\{1\\}$, $f(x) = \\dfrac{x+1}{x-2}$ est bijective, et déterminer $f^{-1}$.",
+            type: "open",
+            modelAnswer: "On résout y=(x+1)/(x-2) en x : y(x-2)=x+1, donc x(y-1)=2y+1, soit x=(2y+1)/(y-1), bien défini car y≠1. Existence et unicité de l'antécédent pour chaque y montrent que f est bijective, avec f⁻¹(y)=(2y+1)/(y-1).",
+            explanation: "**Méthode :** pour montrer que $f$ est bijective, on résout l'équation $f(x)=y$ et on vérifie qu'elle a une unique solution $x$ pour chaque $y$ dans l'ensemble d'arrivée.\n\nSoit $y \\in \\mathbb{R}\\setminus\\{1\\}$. On résout :\n$$y = \\frac{x+1}{x-2} \\;\\Longleftrightarrow\\; y(x-2) = x+1 \\;\\Longleftrightarrow\\; yx - 2y = x+1 \\;\\Longleftrightarrow\\; x(y-1) = 2y+1$$\n\nComme $y \\neq 1$, on peut diviser : $x = \\dfrac{2y+1}{y-1}$. Cette valeur de $x$ est bien définie (le dénominateur $y-1 \\neq 0$) et on vérifie qu'elle est différente de $2$ : si $x=2$, alors $2(y-1)=2y+1$ donnerait $-2=1$, absurde. Donc $x \\in \\mathbb{R}\\setminus\\{2\\}$.\n\nPour chaque $y \\in \\mathbb{R}\\setminus\\{1\\}$, il existe donc un unique $x \\in \\mathbb{R}\\setminus\\{2\\}$ tel que $f(x)=y$ : $f$ est bijective, et\n$$f^{-1}(y) = \\frac{2y+1}{y-1}$$ $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-2-e12",
+            question: "Soit $\\mathcal{R}$ une relation d'équivalence sur $E$. Vrai ou faux : deux classes d'équivalence distinctes sont nécessairement disjointes.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Supposons $\\overline{x} \\cap \\overline{y} \\neq \\emptyset$ et soit $z$ dans cette intersection. Alors $x\\mathcal{R}z$ et $y\\mathcal{R}z$, donc par symétrie et transitivité $x \\mathcal{R} y$, ce qui entraîne $\\overline{x} = \\overline{y}$ (les classes coïncident). Par contraposée, si les classes sont distinctes, elles sont disjointes.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-2-e13",
+            question: "Démontrer que si $g \\circ f$ est injective, alors $f$ est injective (où $f:E\\to F$, $g:F\\to G$).",
+            type: "open",
+            modelAnswer: "On suppose f(x1)=f(x2) et on applique g aux deux membres : g(f(x1))=g(f(x2)), donc (g∘f)(x1)=(g∘f)(x2). Comme g∘f est injective, x1=x2. Donc f est injective.",
+            explanation: "**Démonstration directe.** Supposons $g \\circ f$ injective. Soient $x_1, x_2 \\in E$ tels que $f(x_1) = f(x_2)$.\n\nEn appliquant $g$ aux deux membres de cette égalité (ce qui est licite puisque $g$ est une fonction) :\n$$g(f(x_1)) = g(f(x_2)) \\quad \\text{c'est-à-dire} \\quad (g\\circ f)(x_1) = (g\\circ f)(x_2)$$\n\nComme $g \\circ f$ est injective par hypothèse, cette égalité entraîne $x_1 = x_2$.\n\nOn a montré : $\\forall x_1,x_2 \\in E,\\ f(x_1)=f(x_2) \\Rightarrow x_1=x_2$, c'est-à-dire que $f$ est injective. $\\square$\n\n**Remarque :** l'hypothèse ne permet pas de conclure que $g$ est injective (contre-exemple : $E=\\{1\\}$, $F=\\{1,2\\}$, $G=\\{1\\}$, $f(1)=1$, $g(1)=g(2)=1$ : $g\\circ f$ est injective sur le singleton $E$ mais $g$ ne l'est pas).",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-2-e14",
+            question: "Soit $E$ un ensemble à $5$ éléments et $F$ un ensemble à $3$ éléments. Peut-il exister une application injective $f : E \\to F$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Non, c'est impossible" },
+              { id: "B", text: "Oui, toujours" },
+              { id: "C", text: "Seulement si $f$ est aussi surjective" },
+              { id: "D", text: "Cela dépend des éléments choisis" },
+            ],
+            correctId: "A",
+            explanation: "C'est le **principe des tiroirs** : si $|E| > |F|$, toute application $f:E\\to F$ envoie au moins deux éléments distincts de $E$ sur la même image dans $F$ (sinon $f$ établirait une correspondance entre $5$ éléments et $5$ images distinctes dans un ensemble qui n'en contient que $3$, contradiction). Donc aucune injection de $E$ vers $F$ n'existe.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-2-e15",
+            question: "Vrai ou faux : pour toute application $f:E\\to F$ et toutes parties $A,B \\subset E$, on a $f(A \\cap B) = f(A) \\cap f(B)$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux en général (seule l'inclusion $f(A\\cap B) \\subset f(A)\\cap f(B)$ est toujours vraie). Contre-exemple : $f(x)=x^2$ sur $\\mathbb{R}$, $A=\\{1\\}$, $B=\\{-1\\}$. Alors $A\\cap B=\\emptyset$ donc $f(A\\cap B)=\\emptyset$, mais $f(A)=\\{1\\}$ et $f(B)=\\{1\\}$ donc $f(A)\\cap f(B)=\\{1\\} \\neq \\emptyset$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "log1-l1-3",
+        slug: "methodes-de-raisonnement",
+        title: "Méthodes de raisonnement mathématique",
+        durationMinutes: 50,
+        content: `## Méthodes de raisonnement mathématique
+
+  ### 1. Raisonnement direct
+
+  Le **raisonnement direct** consiste à partir de l'hypothèse $P$ et à enchaîner une suite d'implications vraies jusqu'à atteindre la conclusion $Q$ :
+  $$P \\Rightarrow P_1 \\Rightarrow P_2 \\Rightarrow \\cdots \\Rightarrow Q$$
+
+  **Exemple :** Montrer que si $n$ est pair, alors $n^2$ est pair. On suppose $n$ pair : $n = 2k$ avec $k \\in \\mathbb{Z}$. Alors $n^2 = 4k^2 = 2(2k^2)$, qui est bien de la forme $2 \\times \\text{entier}$, donc $n^2$ est pair.
+
+  ### 2. Raisonnement par contraposée
+
+  Pour montrer $P \\Rightarrow Q$, on peut montrer la **contraposée** $\\overline{Q} \\Rightarrow \\overline{P}$, logiquement équivalente (section 3 de la leçon 1). Cette méthode est utile lorsque la négation de $Q$ donne plus de prise au calcul que $P$ lui-même.
+
+  **Exemple :** Montrer que si $n^2$ est pair, alors $n$ est pair. On montre la contraposée : si $n$ est impair, alors $n^2$ est impair. En effet $n = 2k+1 \\Rightarrow n^2 = 4k^2+4k+1 = 2(2k^2+2k)+1$, qui est impair. Par contraposition, $n^2$ pair $\\Rightarrow n$ pair.
+
+  ### 3. Raisonnement par l'absurde
+
+  Pour montrer qu'une proposition $P$ est vraie, on **suppose $\\overline{P}$** et on en déduit une contradiction (une proposition manifestement fausse, ou deux propositions contradictoires entre elles). On conclut alors que $\\overline{P}$ est fausse, donc $P$ est vraie.
+
+  **Exemple classique :** Montrer que $\\sqrt{2}$ est irrationnel. Par l'absurde, supposons $\\sqrt{2} = p/q$ avec $p, q \\in \\mathbb{N}^*$ premiers entre eux (fraction irréductible). Alors $p^2 = 2q^2$, donc $p^2$ est pair, donc $p$ est pair (section 2) : $p = 2k$. En substituant : $4k^2 = 2q^2$, soit $q^2 = 2k^2$, donc $q^2$ est pair, donc $q$ est pair. Mais alors $p$ et $q$ sont tous les deux pairs, contredisant le fait qu'ils sont premiers entre eux. Cette contradiction montre que $\\sqrt{2}$ ne peut pas s'écrire comme une fraction : il est irrationnel. $\\square$
+
+  ### 4. Raisonnement par disjonction de cas
+
+  On découpe l'ensemble des situations possibles en plusieurs cas **exhaustifs** (qui couvrent toutes les possibilités), et on prouve la proposition dans chaque cas séparément.
+
+  **Exemple :** Montrer que pour tout entier $n$, $n(n+1)$ est pair. **Cas 1 :** $n$ est pair, $n=2k$ : alors $n(n+1) = 2k(n+1)$ est pair. **Cas 2 :** $n$ est impair, donc $n+1$ est pair, $n+1=2k$ : alors $n(n+1) = 2kn$ est pair. Les deux cas étant exhaustifs (tout entier est pair ou impair), la propriété est vraie pour tout $n$.
+
+  ### 5. Raisonnement par récurrence simple
+
+  Pour montrer qu'une propriété $P(n)$ est vraie pour tout entier $n \\geq n_0$, le **principe de récurrence** demande de vérifier :
+
+  - **Initialisation :** $P(n_0)$ est vraie.
+  - **Hérédité :** $\\forall n \\geq n_0,\\ P(n) \\Rightarrow P(n+1)$.
+  - **Conclusion :** par le principe de récurrence, $P(n)$ est vraie pour tout $n \\geq n_0$.
+
+  **Exemple complet :** Montrer que $\\forall n \\in \\mathbb{N},\\ \\displaystyle\\sum_{k=0}^{n} k = \\frac{n(n+1)}{2}$.
+
+  - *Initialisation* ($n=0$) : $\\sum_{k=0}^{0} k = 0$ et $\\frac{0 \\times 1}{2} = 0$. L'égalité est vraie.
+  - *Hérédité* : on suppose $P(n)$ vraie, c'est-à-dire $\\sum_{k=0}^{n} k = \\frac{n(n+1)}{2}$ (**hypothèse de récurrence**). Montrons $P(n+1)$ :
+  $$\\sum_{k=0}^{n+1} k = \\sum_{k=0}^{n} k + (n+1) = \\frac{n(n+1)}{2} + (n+1) = (n+1)\\left(\\frac{n}{2}+1\\right) = \\frac{(n+1)(n+2)}{2}$$
+  ce qui est exactement la formule attendue pour $n+1$. Donc $P(n) \\Rightarrow P(n+1)$.
+  - *Conclusion* : par récurrence, $\\forall n \\in \\mathbb{N},\\ \\sum_{k=0}^n k = \\frac{n(n+1)}{2}$. $\\square$
+
+  ### 6. Récurrence forte (ou double)
+
+  La **récurrence forte** autorise à utiliser, dans l'étape d'hérédité, **toutes** les hypothèses $P(n_0), P(n_0+1), \\ldots, P(n)$ (et pas seulement $P(n)$) pour démontrer $P(n+1)$ :
+  $$\\big(P(n_0) \\wedge P(n_0+1) \\wedge \\cdots \\wedge P(n)\\big) \\Rightarrow P(n+1)$$
+
+  C'est indispensable lorsque l'étape de récurrence a besoin de remonter plus loin que le rang précédent (par exemple pour des suites définies par $u_{n+1}$ en fonction de $u_n$ **et** $u_{n-1}$).
+
+  **Exemple :** Soit la suite définie par $u_0=1, u_1=1$ et $u_{n+2} = u_{n+1}+u_n$ pour tout $n$. Montrer que $u_n \\leq 2^n$ pour tout $n \\geq 0$.
+
+  - *Initialisations* (il en faut **deux**, car la relation relie un terme à ses deux prédécesseurs) : $u_0=1\\leq 2^0=1$ ; $u_1=1\\leq 2^1=2$.
+  - *Hérédité forte* : on suppose $u_k \\leq 2^k$ pour tout $k \\leq n+1$ (avec $n\\geq 0$), et on montre $u_{n+2}\\leq 2^{n+2}$ :
+  $$u_{n+2} = u_{n+1}+u_n \\leq 2^{n+1}+2^n \\leq 2^{n+1}+2^{n+1} = 2^{n+2}$$
+  - *Conclusion* : par récurrence forte, $u_n \\leq 2^n$ pour tout $n \\geq 0$. $\\square$
+
+  ### 7. Analyse-synthèse
+
+  La méthode d'**analyse-synthèse** s'utilise pour des problèmes d'existence et d'unicité :
+
+  - **Analyse :** on suppose qu'un objet vérifiant les conditions demandées existe, et on en déduit, par des implications nécessaires, sa forme précise (cela restreint les candidats possibles, mais ne prouve pas encore l'existence).
+  - **Synthèse :** on vérifie que le candidat trouvé à l'étape d'analyse satisfait bien toutes les conditions initiales (cela prouve l'existence effective).
+
+  **Exemple :** Montrer que toute fonction $f : \\mathbb{R} \\to \\mathbb{R}$ s'écrit de manière unique comme somme d'une fonction paire $g$ et d'une fonction impaire $h$.
+
+  *Analyse :* si $f = g+h$ avec $g$ paire et $h$ impaire, alors en remplaçant $x$ par $-x$ : $f(-x) = g(-x)+h(-x) = g(x)-h(x)$. On a donc le système $f(x)=g(x)+h(x)$ et $f(-x)=g(x)-h(x)$, d'où nécessairement :
+  $$g(x) = \\frac{f(x)+f(-x)}{2} \\qquad h(x) = \\frac{f(x)-f(-x)}{2}$$
+  Le candidat est donc entièrement déterminé : c'est l'unicité.
+
+  *Synthèse :* on vérifie que ces $g, h$ ainsi définis conviennent. $g(-x) = \\frac{f(-x)+f(x)}{2} = g(x)$ : $g$ est bien paire. $h(-x) = \\frac{f(-x)-f(x)}{2} = -h(x)$ : $h$ est bien impaire. Et $g(x)+h(x) = \\frac{f(x)+f(-x)}{2}+\\frac{f(x)-f(-x)}{2} = f(x)$ : la décomposition est correcte. C'est l'existence. $\\square$
+
+  ### 8. Comment choisir sa méthode
+
+  | Situation | Méthode recommandée |
+  |---|---|
+  | Hypothèse riche, calcul direct possible | Raisonnement direct |
+  | La négation de la conclusion est plus simple à manipuler | Contraposée |
+  | Énoncé d'impossibilité ou d'irrationalité | Absurde |
+  | Plusieurs cas séparés couvrant toutes les possibilités | Disjonction de cas |
+  | Propriété indexée par $\\mathbb{N}$ | Récurrence (simple ou forte selon la dépendance) |
+  | Existence ET unicité d'un objet | Analyse-synthèse |`,
+        exercises: [
+          {
+            id: "log1-l1-3-e1",
+            question: "Pour montrer $P \\Rightarrow Q$ par contraposée, que doit-on démontrer ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\overline{Q} \\Rightarrow \\overline{P}$" },
+              { id: "B", text: "$Q \\Rightarrow P$" },
+              { id: "C", text: "$\\overline{P} \\Rightarrow \\overline{Q}$" },
+              { id: "D", text: "$\\overline{P} \\Rightarrow Q$" },
+            ],
+            correctId: "A",
+            explanation: "La contraposée de $P \\Rightarrow Q$ est $\\overline{Q} \\Rightarrow \\overline{P}$, logiquement équivalente à l'implication de départ.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-3-e2",
+            question: "Dans une preuve par l'absurde de $P$, que suppose-t-on au départ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\overline{P}$" },
+              { id: "B", text: "$P$" },
+              { id: "C", text: "$P$ et $\\overline{P}$ simultanément" },
+              { id: "D", text: "Rien, on part de zéro" },
+            ],
+            correctId: "A",
+            explanation: "Le raisonnement par l'absurde suppose la négation de ce qu'on veut démontrer, $\\overline{P}$, et cherche à en tirer une contradiction logique, ce qui permet de conclure que $P$ est vraie.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-3-e3",
+            question: "Quelles sont les deux étapes obligatoires d'une preuve par récurrence simple ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Initialisation et hérédité" },
+              { id: "B", text: "Analyse et synthèse" },
+              { id: "C", text: "Existence et unicité" },
+              { id: "D", text: "Disjonction de cas et conclusion" },
+            ],
+            correctId: "A",
+            explanation: "Le principe de récurrence repose sur la vérification de l'initialisation (la propriété est vraie au premier rang) et de l'hérédité (la propriété se transmet d'un rang au suivant), ce qui permet de conclure pour tous les rangs.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-3-e4",
+            question: "Vrai ou faux : la méthode d'analyse-synthèse sert à prouver l'existence et l'unicité d'un objet mathématique.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. L'analyse détermine la forme nécessaire du candidat (donnant l'unicité), et la synthèse vérifie que ce candidat satisfait bien toutes les conditions (donnant l'existence).",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-3-e5",
+            question: "Pour démontrer \"$\\forall n \\in \\mathbb{N}$, $n$ pair ou $n$ impair $\\Rightarrow \\ldots$\" en distinguant les deux cas, quelle méthode utilise-t-on ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Disjonction de cas" },
+              { id: "B", text: "Récurrence forte" },
+              { id: "C", text: "Analyse-synthèse" },
+              { id: "D", text: "Contraposée" },
+            ],
+            correctId: "A",
+            explanation: "Découper la preuve selon que $n$ est pair ou impair (les deux cas étant exhaustifs et s'excluant mutuellement) est l'exemple typique d'un raisonnement par disjonction de cas.",
+            difficulty: "debutant",
+          },
+          {
+            id: "log1-l1-3-e6",
+            question: "Pourquoi la preuve de l'irrationalité de $\\sqrt{2}$ utilise-t-elle un raisonnement par l'absurde ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Car \"être irrationnel\" est une négation (\"ne pas être rationnel\"), difficile à établir directement" },
+              { id: "B", text: "Car c'est obligatoire pour tout énoncé sur les nombres réels" },
+              { id: "C", text: "Car la récurrence ne s'applique pas aux réels" },
+              { id: "D", text: "Car $\\sqrt{2}$ n'existe pas vraiment" },
+            ],
+            correctId: "A",
+            explanation: "\"$\\sqrt{2}$ est irrationnel\" signifie \"$\\sqrt{2}$ n'est pas de la forme $p/q$\" : c'est un énoncé négatif, sans prise directe pour une construction. Supposer le contraire (existence d'une fraction irréductible $p/q=\\sqrt 2$) donne au contraire des objets concrets ($p$, $q$) sur lesquels raisonner jusqu'à la contradiction.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-3-e7",
+            question: "Soit $u_0=2$ et $u_{n+1}=\\sqrt{2u_n}$. On veut montrer $0 < u_n \\leq 2$ pour tout $n$. Que doit-on vérifier à l'étape d'hérédité ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$0 < u_n \\leq 2 \\Rightarrow 0 < u_{n+1} \\leq 2$" },
+              { id: "B", text: "$0 < u_{n+1} \\leq 2 \\Rightarrow 0 < u_n \\leq 2$" },
+              { id: "C", text: "$u_n = 2 \\Rightarrow u_{n+1} = 2$ uniquement" },
+              { id: "D", text: "$u_0 \\leq 2$ seulement, rien d'autre" },
+            ],
+            correctId: "A",
+            explanation: "L'hérédité d'une récurrence simple consiste à montrer que si la propriété est vraie au rang $n$ (hypothèse de récurrence $0<u_n\\leq 2$), alors elle est vraie au rang $n+1$ ($0<u_{n+1}\\leq 2$). C'est exactement l'implication de l'option A.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-3-e8",
+            question: "Vrai ou faux : dans une récurrence forte, on peut utiliser l'hypothèse $P(n)$ seule pour démontrer $P(n+1)$, exactement comme en récurrence simple.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux (ou du moins incomplet) : la récurrence forte autorise à utiliser **toutes** les hypothèses $P(n_0), \\ldots, P(n)$, pas seulement la dernière. C'est une hypothèse plus riche que la récurrence simple, utile quand la relation de récurrence dépend de plusieurs termes antérieurs (comme la suite de Fibonacci).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-3-e9",
+            question: "Pour prouver par contraposée que \"$n^2$ impair $\\Rightarrow$ $n$ impair\", que doit-on démontrer ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "\"$n$ pair $\\Rightarrow$ $n^2$ pair\"" },
+              { id: "B", text: "\"$n$ impair $\\Rightarrow$ $n^2$ impair\"" },
+              { id: "C", text: "\"$n^2$ pair $\\Rightarrow$ $n$ pair\"" },
+              { id: "D", text: "\"$n$ pair $\\Rightarrow$ $n^2$ impair\"" },
+            ],
+            correctId: "A",
+            explanation: "La contraposée de \"$n^2$ impair $\\Rightarrow$ $n$ impair\" est \"non($n$ impair) $\\Rightarrow$ non($n^2$ impair)\", c'est-à-dire \"$n$ pair $\\Rightarrow$ $n^2$ pair\".",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-3-e10",
+            question: "Dans l'étape d'analyse de la décomposition $f = g+h$ (paire + impaire), que fait-on exactement ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "On suppose la décomposition possible et on en déduit la forme nécessaire de $g$ et $h$" },
+              { id: "B", text: "On vérifie directement que $g$ et $h$ trouvées conviennent" },
+              { id: "C", text: "On prouve l'existence sans condition" },
+              { id: "D", text: "On choisit $g$ et $h$ au hasard" },
+            ],
+            correctId: "A",
+            explanation: "L'analyse part de l'hypothèse qu'un objet vérifiant les conditions existe et en déduit, par implications nécessaires, sa forme explicite — ici $g(x)=\\frac{f(x)+f(-x)}{2}$ et $h(x)=\\frac{f(x)-f(-x)}{2}$. Vérifier que ce candidat convient est l'étape de synthèse (option B), qui vient après.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "log1-l1-3-e11",
+            question: "Démontrer par récurrence que pour tout $n \\in \\mathbb{N}$, $4^n - 1$ est divisible par $3$.",
+            type: "open",
+            modelAnswer: "Initialisation n=0 : 4^0-1=0, divisible par 3. Hérédité : si 4^n-1=3k, alors 4^(n+1)-1=4·4^n-1=4(3k+1)-1=12k+3=3(4k+1), divisible par 3. Conclusion par récurrence.",
+            explanation: "**Initialisation** ($n=0$) : $4^0 - 1 = 1-1 = 0 = 3 \\times 0$, qui est bien divisible par $3$.\n\n**Hérédité :** supposons que $4^n - 1$ est divisible par $3$, c'est-à-dire qu'il existe $k \\in \\mathbb{Z}$ tel que $4^n - 1 = 3k$ (hypothèse de récurrence), donc $4^n = 3k+1$. Montrons que $4^{n+1}-1$ est divisible par $3$ :\n$$4^{n+1} - 1 = 4 \\times 4^n - 1 = 4(3k+1) - 1 = 12k + 4 - 1 = 12k+3 = 3(4k+1)$$\nC'est bien un multiple de $3$. Donc $P(n) \\Rightarrow P(n+1)$.\n\n**Conclusion :** par le principe de récurrence, $4^n - 1$ est divisible par $3$ pour tout $n \\in \\mathbb{N}$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-3-e12",
+            question: "Soit $n \\geq 2$ un entier. Vrai ou faux : pour montrer que tout entier $n\\geq 2$ admet un diviseur premier, on peut raisonner par récurrence forte en utilisant, pour traiter le cas où $n$ n'est pas premier, l'hypothèse de récurrence appliquée à un diviseur strict de $n$ supérieur ou égal à $2$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $n$ est premier, $n$ est son propre diviseur premier. Si $n$ n'est pas premier, $n=ab$ avec $2\\leq a < n$ ; comme $a < n$, l'hypothèse de récurrence forte (valable pour tous les rangs $2,\\ldots,n-1$) s'applique à $a$, qui admet donc un diviseur premier, qui divise aussi $n$. C'est un exemple typique où la récurrence forte est nécessaire (le rang $n-1$ seul ne suffit pas, $a$ pouvant être bien plus petit que $n-1$).",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-3-e13",
+            question: "Démontrer par l'absurde que pour tout entier $n \\geq 2$, $n$ n'est pas à la fois pair et premier, sauf $n=2$. Plus précisément, montrer que si $n$ est premier et $n \\neq 2$, alors $n$ est impair.",
+            type: "open",
+            modelAnswer: "Par l'absurde, on suppose n premier, n≠2, et n pair. Alors n=2k avec k entier, k≠1 (sinon n=2). Comme n≥2 et n pair, k≥2, donc 2 et k sont deux diviseurs de n distincts de 1 et n eux-mêmes (puisque k≠1 et k≠n car n=2k>k pour k≥1), ce qui contredit que n est premier.",
+            explanation: "**Raisonnement par l'absurde.** Soit $n$ premier avec $n \\neq 2$. Supposons, par l'absurde, que $n$ est pair : il existe $k \\in \\mathbb{Z}$ tel que $n = 2k$.\n\nComme $n \\geq 2$ et $n \\neq 2$, on a $n \\geq 3$, donc $n$ est pair et $\\geq 4$ (le plus petit pair $\\geq 3$ qui n'est pas $2$), donc $k = n/2 \\geq 2$.\n\nOn a alors $2 \\mid n$ avec $2 \\neq 1$ et $2 \\neq n$ (car $n \\geq 4 > 2$). Le nombre $2$ est donc un diviseur de $n$ strictement compris entre $1$ et $n$, ce qui contredit la définition de $n$ premier (un nombre premier n'a que $1$ et lui-même comme diviseurs positifs).\n\nCette contradiction montre que l'hypothèse \"$n$ est pair\" est fausse : donc $n$ est impair. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-3-e14",
+            question: "On définit $u_0=1$, $u_1=3$ et $u_{n+2}=3u_{n+1}-2u_n$. Pour montrer par récurrence que $u_n=2^{n+1}-1$ pour tout $n\\in\\mathbb{N}$, combien de rangs d'initialisation sont nécessaires, et pourquoi ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$ (les rangs $0$ et $1$), car la relation relie $u_{n+2}$ à ses deux prédécesseurs $u_{n+1}$ et $u_n$" },
+              { id: "B", text: "$1$ (seulement le rang $0$), comme pour une récurrence simple" },
+              { id: "C", text: "$3$, car la formule fait intervenir un exposant" },
+              { id: "D", text: "Aucune initialisation n'est nécessaire" },
+            ],
+            correctId: "A",
+            explanation: "La relation $u_{n+2}=3u_{n+1}-2u_n$ relie un terme à ses **deux** prédécesseurs immédiats $u_{n+1}$ et $u_n$. L'étape d'hérédité ne peut donc démarrer qu'à partir du rang où les deux prédécesseurs sont connus, ce qui impose d'initialiser les deux premiers rangs : $u_0 = 2^{0+1}-1 = 1$ (vrai par définition) et $u_1 = 2^{1+1}-1 = 3$ (vrai par définition). On vérifie ensuite l'hérédité : si $u_n=2^{n+1}-1$ et $u_{n+1}=2^{n+2}-1$, alors $u_{n+2} = 3(2^{n+2}-1) - 2(2^{n+1}-1) = 3\\cdot 2^{n+2} - 2^{n+2} - 3 + 2 = 2\\cdot 2^{n+2} - 1 = 2^{n+3}-1$, ce qui est bien la formule au rang $n+2$. Une relation d'ordre $2$ nécessite donc toujours $2$ initialisations.",
+            difficulty: "expert",
+          },
+          {
+            id: "log1-l1-3-e15",
+            question: "Vrai ou faux : le raisonnement par contraposée et le raisonnement par l'absurde sont deux méthodes strictement identiques.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. La contraposée prouve $P\\Rightarrow Q$ en démontrant directement $\\overline{Q}\\Rightarrow\\overline{P}$ (sans jamais supposer $P$). L'absurde prouve une proposition $P$ en supposant $\\overline P$ **et en l'associant à d'autres hypothèses déjà établies** pour atteindre une contradiction quelconque (pas nécessairement $\\overline P$ lui-même) ; le raisonnement par l'absurde est plus général et ne se limite pas aux implications.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L1 — Nombres complexes
+  // ─────────────────────────────────────────────
+  {
+    id: "complexes-l1",
+    slug: "nombres-complexes-l1",
+    title: "Nombres complexes",
+    description: "Construction du corps des nombres complexes, forme trigonométrique et exponentielle, formule de Moivre, équations complexes et racines n-ièmes.",
+    schoolLevel: "L1",
+    subject: "algebre",
+    difficulty: "Débutant",
+    isFree: true,
+    thumbnailEmoji: "ℂ",
+    lessons: [
+      {
+        id: "comp1-l1-1",
+        slug: "forme-algebrique-plan-complexe",
+        title: "Forme algébrique et géométrie du plan complexe",
+        durationMinutes: 50,
+        content: `## Forme algébrique et géométrie du plan complexe
+
+  ### 1. Construction du corps $\\mathbb{C}$
+
+  On définit l'ensemble $\\mathbb{C}$ comme $\\mathbb{R}^2$ muni de deux opérations :
+  $$(a,b) + (c,d) = (a+c, b+d) \\qquad (a,b) \\times (c,d) = (ac-bd, ad+bc)$$
+
+  On note $i = (0,1)$, qui vérifie $i^2 = (0,1)\\times(0,1) = (-1, 0) = -1$. En identifiant $(a,0)$ avec le réel $a$, tout élément de $\\mathbb{C}$ s'écrit de manière **unique** sous la forme :
+  $$z = a + ib, \\qquad a, b \\in \\mathbb{R}$$
+
+  C'est la **forme algébrique** (ou cartésienne) de $z$. Muni de ces opérations, $(\\mathbb{C}, +, \\times)$ est un **corps commutatif** : tout élément non nul possède un inverse, l'addition et la multiplication sont associatives, commutatives, distributives, et $\\mathbb{R}$ s'identifie à un sous-corps de $\\mathbb{C}$ (les complexes de partie imaginaire nulle).
+
+  ### 2. Partie réelle, partie imaginaire
+
+  Pour $z = a + ib$ avec $a, b \\in \\mathbb{R}$ :
+  - $\\mathrm{Re}(z) = a$ est la **partie réelle**
+  - $\\mathrm{Im}(z) = b$ est la **partie imaginaire** (un **réel**, malgré son nom)
+
+  **Égalité de deux complexes :** $z = z'$ si et seulement si $\\mathrm{Re}(z) = \\mathrm{Re}(z')$ et $\\mathrm{Im}(z) = \\mathrm{Im}(z')$ (identification des parties réelle et imaginaire), conséquence directe de l'unicité de l'écriture algébrique.
+
+  On dit que $z$ est :
+  - **réel** si $\\mathrm{Im}(z) = 0$
+  - **imaginaire pur** si $\\mathrm{Re}(z) = 0$ (on note alors $z = ib$)
+
+  ### 3. Conjugué d'un nombre complexe
+
+  Le **conjugué** de $z = a+ib$ est $\\overline{z} = a - ib$.
+
+  **Propriétés fondamentales :** pour tous $z, z' \\in \\mathbb{C}$,
+  $$\\overline{z+z'} = \\overline{z}+\\overline{z'} \\qquad \\overline{zz'} = \\overline{z}\\,\\overline{z'} \\qquad \\overline{\\overline{z}} = z \\qquad \\overline{\\left(\\dfrac{z}{z'}\\right)} = \\dfrac{\\overline{z}}{\\overline{z'}} \\;(z' \\neq 0)$$
+
+  On en déduit les formules de récupération des parties réelle et imaginaire :
+  $$\\mathrm{Re}(z) = \\dfrac{z+\\overline{z}}{2} \\qquad \\mathrm{Im}(z) = \\dfrac{z-\\overline{z}}{2i}$$
+
+  **Caractérisation :** $z \\in \\mathbb{R} \\iff \\overline{z}=z$ et $z$ imaginaire pur $\\iff \\overline{z}=-z$.
+
+  ### 4. Module d'un nombre complexe
+
+  Pour $z = a+ib$, on définit le **module** :
+  $$|z| = \\sqrt{a^2+b^2} = \\sqrt{z\\overline{z}}$$
+
+  car $z\\overline{z} = (a+ib)(a-ib) = a^2+b^2 \\in \\mathbb{R}_+$. C'est un nombre réel positif qui généralise la valeur absolue ($|z|=0 \\iff z=0$).
+
+  **Propriétés :** pour tous $z, z' \\in \\mathbb{C}$,
+  $$|zz'| = |z||z'| \\qquad \\left|\\dfrac{z}{z'}\\right| = \\dfrac{|z|}{|z'|} \\;(z'\\neq 0) \\qquad |\\overline{z}| = |z| \\qquad |z+z'| \\leq |z|+|z'| \\text{ (inégalité triangulaire)}$$
+
+  **Exemple résolu.** Calculer le module de $z = 3-4i$.
+  $$|z| = \\sqrt{3^2+(-4)^2} = \\sqrt{9+16} = \\sqrt{25} = 5$$
+
+  ### 5. Opérations : somme, produit, inverse
+
+  **Somme :** $(a+ib)+(c+id) = (a+c)+i(b+d)$ — on additionne séparément parties réelles et imaginaires.
+
+  **Produit :** $(a+ib)(c+id) = ac+iad+ibc+i^2bd = (ac-bd)+i(ad+bc)$, en utilisant $i^2=-1$.
+
+  **Inverse** d'un complexe non nul $z=a+ib$ : on multiplie par le conjugué pour faire apparaître $|z|^2$ au dénominateur, qui est réel :
+  $$\\dfrac{1}{z} = \\dfrac{\\overline{z}}{z\\overline{z}} = \\dfrac{\\overline{z}}{|z|^2} = \\dfrac{a-ib}{a^2+b^2}$$
+
+  **Exemple résolu.** Calculer $\\dfrac{1}{3-4i}$ et $(2+3i)(1-2i)$.
+
+  Pour l'inverse : $\\dfrac{1}{3-4i} = \\dfrac{3+4i}{3^2+4^2} = \\dfrac{3+4i}{25} = \\dfrac{3}{25}+\\dfrac{4}{25}i$.
+
+  Pour le produit : $(2+3i)(1-2i) = 2 - 4i + 3i - 6i^2 = 2 - i + 6 = 8 - i$.
+
+  ### 6. Interprétation géométrique : le plan complexe
+
+  On identifie $\\mathbb{C}$ au plan euclidien muni d'un repère orthonormé $(O, \\vec{u}, \\vec{v})$ : au complexe $z=a+ib$ on associe le point $M(a,b)$, appelé **image** de $z$, et $z$ est l'**affixe** de $M$ (et du vecteur $\\overrightarrow{OM}$).
+
+  - L'axe des abscisses (où $b=0$) est l'**axe réel**
+  - L'axe des ordonnées (où $a=0$) est l'**axe imaginaire**
+  - Le module $|z|$ est la **distance** $OM = \\|\\overrightarrow{OM}\\|$
+  - Le conjugué $\\overline{z}$ correspond au point symétrique de $M$ par rapport à l'axe réel
+
+  **Distance entre deux points.** Si $A$ et $B$ ont pour affixes $z_A$ et $z_B$, alors :
+  $$AB = |z_B - z_A|$$
+
+  **Affixe du milieu.** Le milieu $I$ du segment $[AB]$ a pour affixe :
+  $$z_I = \\dfrac{z_A+z_B}{2}$$
+
+  **Exemple résolu.** Soient $A(1+2i)$ et $B(5-2i)$. Calculer $AB$ et l'affixe du milieu $I$ de $[AB]$.
+  $$AB = |z_B-z_A| = |(5-2i)-(1+2i)| = |4-4i| = \\sqrt{16+16} = 4\\sqrt{2}$$
+  $$z_I = \\dfrac{(1+2i)+(5-2i)}{2} = \\dfrac{6}{2} = 3$$
+
+  ### 7. Ensembles de points définis par une condition complexe
+
+  De nombreux lieux géométriques s'expriment simplement avec les affixes.
+
+  **Exemple résolu.** Déterminer l'ensemble des points $M(z)$ tels que $|z-i| = |z+1|$.
+
+  Géométriquement, $|z-i|$ est la distance de $M$ au point $A$ d'affixe $i=(0,1)$, et $|z+1|$ la distance de $M$ au point $B$ d'affixe $-1=(-1,0)$. L'égalité signifie $MA = MB$ : l'ensemble cherché est donc la **médiatrice du segment $[AB]$**.
+
+  Vérification algébrique : en posant $z=x+iy$,
+  $$x^2+(y-1)^2 = (x+1)^2+y^2 \\;\\Longrightarrow\\; x^2+y^2-2y+1 = x^2+2x+1+y^2 \\;\\Longrightarrow\\; -2y = 2x \\;\\Longrightarrow\\; y=-x$$
+  qui est bien l'équation d'une droite (la médiatrice de $[AB]$, passant par l'origine).
+
+  ### 8. Synthèse des formules essentielles
+
+  | Notion | Formule |
+  |---|---|
+  | Forme algébrique | $z = a+ib$ |
+  | Conjugué | $\\overline{z} = a-ib$ |
+  | Module | $|z| = \\sqrt{a^2+b^2} = \\sqrt{z\\overline{z}}$ |
+  | Inverse | $\\dfrac{1}{z} = \\dfrac{\\overline{z}}{|z|^2}$ |
+  | Distance $AB$ | $AB = |z_B-z_A|$ |
+  | Milieu de $[AB]$ | $z_I = \\dfrac{z_A+z_B}{2}$ |`,
+        exercises: [
+          {
+            id: "comp1-l1-1-e1",
+            question: "Quelle est la partie imaginaire de $z = 5 - 3i$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5$" },
+              { id: "B", text: "$-3$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$-3i$" },
+            ],
+            correctId: "B",
+            explanation: "Pour $z=a+ib$ avec $a=5$ et $b=-3$, la partie imaginaire est le réel $b$, donc $\\mathrm{Im}(z) = -3$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-1-e2",
+            question: "Calculer le conjugué de $z = -2 + 7i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2-7i$" },
+              { id: "B", text: "$-2-7i$" },
+              { id: "C", text: "$2+7i$" },
+              { id: "D", text: "$-2+7i$" },
+            ],
+            correctId: "B",
+            explanation: "Le conjugué de $a+ib$ est $a-ib$. Ici $\\overline{z} = -2-7i$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-1-e3",
+            question: "Calculer le module de $z = 1+i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$1$" },
+              { id: "C", text: "$\\sqrt{2}$" },
+              { id: "D", text: "$\\sqrt{3}$" },
+            ],
+            correctId: "C",
+            explanation: "$|z| = \\sqrt{1^2+1^2} = \\sqrt{2}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-1-e4",
+            question: "Vrai ou faux : la partie imaginaire d'un nombre complexe est toujours un nombre réel.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $z=a+ib$ avec $a,b\\in\\mathbb{R}$, alors $\\mathrm{Im}(z)=b$ est par définition un réel, malgré son nom qui peut induire en erreur.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-1-e5",
+            question: "Calculer $(2+i)+(3-5i)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$5-4i$" },
+              { id: "B", text: "$5+4i$" },
+              { id: "C", text: "$1+6i$" },
+              { id: "D", text: "$6-4i$" },
+            ],
+            correctId: "A",
+            explanation: "On additionne séparément parties réelles et imaginaires : $(2+3)+(1-5)i = 5-4i$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-1-e6",
+            question: "Calculer le produit $(2+3i)(1-2i)$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$8-i$" },
+              { id: "B", text: "$2-6i$" },
+              { id: "C", text: "$8+i$" },
+              { id: "D", text: "$-4+i$" },
+            ],
+            correctId: "A",
+            explanation: "$(2+3i)(1-2i) = 2-4i+3i-6i^2 = 2-i+6 = 8-i$, car $i^2=-1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-1-e7",
+            question: "Calculer l'inverse de $z = 3-4i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{3}{25}+\\dfrac{4}{25}i$" },
+              { id: "B", text: "$\\dfrac{3}{5}-\\dfrac{4}{5}i$" },
+              { id: "C", text: "$-\\dfrac{3}{25}+\\dfrac{4}{25}i$" },
+              { id: "D", text: "$\\dfrac{3}{25}-\\dfrac{4}{25}i$" },
+            ],
+            correctId: "A",
+            explanation: "$\\dfrac{1}{z} = \\dfrac{\\overline{z}}{|z|^2} = \\dfrac{3+4i}{3^2+4^2} = \\dfrac{3+4i}{25} = \\dfrac{3}{25}+\\dfrac{4}{25}i$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-1-e8",
+            question: "Vrai ou faux : pour tout $z\\in\\mathbb{C}^*$, on a $z\\overline{z} = |z|^2$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $z=a+ib$, alors $z\\overline{z} = (a+ib)(a-ib) = a^2+b^2 = |z|^2$, qui est bien réel positif.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-1-e9",
+            question: "Soient $A$ d'affixe $1+2i$ et $B$ d'affixe $5-2i$. Calculer la distance $AB$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4\\sqrt{2}$" },
+              { id: "B", text: "$8$" },
+              { id: "C", text: "$4$" },
+              { id: "D", text: "$2\\sqrt{2}$" },
+            ],
+            correctId: "A",
+            explanation: "$AB = |z_B-z_A| = |(5-2i)-(1+2i)| = |4-4i| = \\sqrt{4^2+4^2} = \\sqrt{32} = 4\\sqrt{2}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-1-e10",
+            question: "Calculer l'affixe du milieu $I$ du segment $[AB]$ avec $z_A = 1+2i$ et $z_B = 5-2i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$3$" },
+              { id: "B", text: "$3+2i$" },
+              { id: "C", text: "$6$" },
+              { id: "D", text: "$3-2i$" },
+            ],
+            correctId: "A",
+            explanation: "$z_I = \\dfrac{z_A+z_B}{2} = \\dfrac{(1+2i)+(5-2i)}{2} = \\dfrac{6}{2} = 3$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-1-e11",
+            question: "Déterminer l'ensemble des points $M(z)$ du plan tels que $|z-i| = |z+1|$, puis identifier sa nature géométrique.",
+            type: "open",
+            modelAnswer: "En posant z=x+iy, l'égalité |z-i|=|z+1| équivaut à x²+(y-1)²=(x+1)²+y², qui se simplifie en y=-x. C'est la médiatrice du segment [AB] où A(i) et B(-1).",
+            explanation: "**Interprétation géométrique :** $|z-i|$ est la distance de $M$ au point $A(0,1)$ d'affixe $i$, et $|z+1|$ la distance de $M$ au point $B(-1,0)$ d'affixe $-1$. L'égalité $MA=MB$ caractérise la **médiatrice du segment $[AB]$**.\n\n**Vérification algébrique :** posons $z=x+iy$. Alors $|z-i|^2 = x^2+(y-1)^2$ et $|z+1|^2=(x+1)^2+y^2$. L'égalité $|z-i|=|z+1|$ équivaut à l'égalité des carrés (modules positifs) :\n$$x^2+(y-1)^2 = (x+1)^2+y^2$$\n$$x^2+y^2-2y+1 = x^2+2x+1+y^2$$\n$$-2y = 2x \\;\\Longrightarrow\\; y = -x$$\nL'ensemble cherché est donc la droite d'équation $y=-x$, qui est bien la médiatrice de $[AB]$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-1-e12",
+            question: "Calculer $\\dfrac{1-i}{1+i}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-i$" },
+              { id: "B", text: "$i$" },
+              { id: "C", text: "$1$" },
+              { id: "D", text: "$-1$" },
+            ],
+            correctId: "A",
+            explanation: "On multiplie par le conjugué du dénominateur : $\\dfrac{1-i}{1+i} = \\dfrac{(1-i)(1-i)}{(1+i)(1-i)} = \\dfrac{(1-i)^2}{|1+i|^2} = \\dfrac{1-2i+i^2}{2} = \\dfrac{-2i}{2} = -i$.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-1-e13",
+            question: "Démontrer que pour tous $z, z' \\in \\mathbb{C}$, on a $|zz'| = |z||z'|$.",
+            type: "open",
+            modelAnswer: "On utilise |z|²=z×conjugué(z). Alors |zz'|² = (zz')×conjugué(zz') = zz' × conjugué(z)conjugué(z') = (z×conjugué(z))(z'×conjugué(z')) = |z|²|z'|². Comme les modules sont positifs, on en déduit |zz'|=|z||z'|.",
+            explanation: "**Démonstration.** Par définition, $|w|^2 = w\\overline{w}$ pour tout $w\\in\\mathbb{C}$. Appliquons ceci à $w = zz'$ :\n$$|zz'|^2 = (zz')\\overline{(zz')} = zz'\\,\\overline{z}\\,\\overline{z'}$$\nen utilisant la propriété $\\overline{zz'}=\\overline{z}\\,\\overline{z'}$. En réorganisant (commutativité et associativité de la multiplication dans $\\mathbb{C}$) :\n$$|zz'|^2 = (z\\overline{z})(z'\\overline{z'}) = |z|^2|z'|^2$$\nLes modules $|zz'|$, $|z|$ et $|z'|$ étant des réels positifs, et $|zz'|^2=(|z||z'|)^2$ avec $|z||z'|\\geq 0$, on peut prendre la racine carrée des deux côtés :\n$$|zz'| = |z||z'|$$ $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-1-e14",
+            question: "Soit $z = a+ib$ avec $a,b\\in\\mathbb{R}$. Quelle relation relie $\\mathrm{Im}(z)$ et $z, \\overline{z}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\mathrm{Im}(z) = \\dfrac{z-\\overline{z}}{2i}$" },
+              { id: "B", text: "$\\mathrm{Im}(z) = \\dfrac{z+\\overline{z}}{2i}$" },
+              { id: "C", text: "$\\mathrm{Im}(z) = \\dfrac{z-\\overline{z}}{2}$" },
+              { id: "D", text: "$\\mathrm{Im}(z) = z-\\overline{z}$" },
+            ],
+            correctId: "A",
+            explanation: "Avec $z=a+ib$, on a $z-\\overline{z} = (a+ib)-(a-ib) = 2ib$, donc $\\dfrac{z-\\overline{z}}{2i} = \\dfrac{2ib}{2i} = b = \\mathrm{Im}(z)$.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-1-e15",
+            question: "Vrai ou faux : si $|z|=1$, alors $\\overline{z} = \\dfrac{1}{z}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. On sait que $\\dfrac{1}{z} = \\dfrac{\\overline{z}}{|z|^2}$ pour $z\\neq 0$. Si $|z|=1$, alors $|z|^2=1$, donc $\\dfrac{1}{z} = \\overline{z}$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "comp1-l1-2",
+        slug: "forme-trigonometrique-exponentielle-moivre",
+        title: "Forme trigonométrique, exponentielle et formule de Moivre",
+        durationMinutes: 50,
+        content: `## Forme trigonométrique, exponentielle et formule de Moivre
+
+  ### 1. Argument d'un nombre complexe non nul
+
+  Soit $z \\in \\mathbb{C}^*$ d'image $M$ dans le plan complexe. Un **argument** de $z$, noté $\\arg(z)$, est une mesure en radians de l'angle orienté $(\\vec{u}, \\overrightarrow{OM})$. Il est défini **modulo $2\\pi$** : si $\\theta_0$ est un argument de $z$, tous les arguments de $z$ sont $\\theta_0 + 2k\\pi$, $k\\in\\mathbb{Z}$.
+
+  Si $z = a+ib$ a pour module $r=|z|$ et pour argument $\\theta$, alors :
+  $$a = r\\cos\\theta \\qquad b = r\\sin\\theta \\qquad \\text{donc} \\qquad \\cos\\theta = \\dfrac{a}{r}, \\quad \\sin\\theta = \\dfrac{b}{r}$$
+
+  **Exemple résolu.** Déterminer module et argument de $z = \\sqrt{3}+i$.
+  $$r = |z| = \\sqrt{(\\sqrt{3})^2+1^2} = \\sqrt{3+1} = 2$$
+  $$\\cos\\theta = \\dfrac{\\sqrt{3}}{2}, \\quad \\sin\\theta = \\dfrac{1}{2} \\;\\Longrightarrow\\; \\theta = \\dfrac{\\pi}{6} \\;(\\text{mod } 2\\pi)$$
+
+  ### 2. Forme trigonométrique
+
+  Tout nombre complexe non nul $z$ s'écrit :
+  $$z = r(\\cos\\theta + i\\sin\\theta), \\qquad r = |z| > 0,\\; \\theta = \\arg(z)$$
+
+  C'est la **forme trigonométrique** (ou polaire) de $z$. Elle est particulièrement adaptée à la multiplication.
+
+  **Propriété (multiplication et division en forme polaire).** Si $z = r(\\cos\\theta+i\\sin\\theta)$ et $z'=r'(\\cos\\theta'+i\\sin\\theta')$, alors :
+  $$zz' = rr'\\big(\\cos(\\theta+\\theta') + i\\sin(\\theta+\\theta')\\big) \\qquad \\dfrac{z}{z'} = \\dfrac{r}{r'}\\big(\\cos(\\theta-\\theta') + i\\sin(\\theta-\\theta')\\big)$$
+
+  On retrouve ainsi un résultat fondamental : **les modules se multiplient (ou se divisent) et les arguments s'additionnent (ou se soustraient)** :
+  $$|zz'| = |z||z'| \\qquad \\arg(zz') = \\arg(z)+\\arg(z') \\;(\\text{mod } 2\\pi)$$
+  $$\\arg\\left(\\dfrac{z}{z'}\\right) = \\arg(z)-\\arg(z') \\;(\\text{mod } 2\\pi) \\qquad \\arg(\\overline{z}) = -\\arg(z) \\;(\\text{mod } 2\\pi)$$
+
+  ### 3. Notation exponentielle complexe
+
+  On définit, pour $\\theta \\in \\mathbb{R}$ :
+  $$e^{i\\theta} := \\cos\\theta + i\\sin\\theta$$
+
+  Cette notation est cohérente avec les propriétés de l'exponentielle car elle vérifie la même règle fonctionnelle :
+  $$e^{i\\theta}\\cdot e^{i\\theta'} = e^{i(\\theta+\\theta')}$$
+
+  ce qui se vérifie directement à partir des formules d'addition trigonométriques :
+  $$(\\cos\\theta+i\\sin\\theta)(\\cos\\theta'+i\\sin\\theta') = (\\cos\\theta\\cos\\theta'-\\sin\\theta\\sin\\theta') + i(\\sin\\theta\\cos\\theta'+\\cos\\theta\\sin\\theta') = \\cos(\\theta+\\theta')+i\\sin(\\theta+\\theta')$$
+
+  Tout complexe non nul s'écrit alors sous **forme exponentielle** :
+  $$z = re^{i\\theta}, \\qquad r=|z|, \\; \\theta=\\arg(z)$$
+
+  **Propriétés immédiates :**
+  $$|e^{i\\theta}| = 1 \\qquad \\overline{e^{i\\theta}} = e^{-i\\theta} = \\dfrac{1}{e^{i\\theta}} \\qquad e^{i\\theta} = e^{i\\theta'} \\iff \\theta \\equiv \\theta' \\;(\\text{mod } 2\\pi)$$
+
+  ### 4. Formule d'Euler
+
+  Directement issue de la définition $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$ et de son conjugué $e^{-i\\theta}=\\cos\\theta-i\\sin\\theta$, on obtient les **formules d'Euler** :
+  $$\\cos\\theta = \\dfrac{e^{i\\theta}+e^{-i\\theta}}{2} \\qquad \\sin\\theta = \\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$$
+
+  Ces formules permettent de transformer puissances et produits de fonctions trigonométriques en sommes d'exponentielles complexes, technique appelée **linéarisation**.
+
+  ### 5. Formule de Moivre
+
+  Pour $\\theta \\in \\mathbb{R}$ et $n \\in \\mathbb{Z}$, en élevant $e^{i\\theta}$ à la puissance $n$ via $(e^{i\\theta})^n = e^{in\\theta}$, on obtient la **formule de Moivre** :
+  $$(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta)$$
+
+  Cette formule permet d'exprimer $\\cos(n\\theta)$ et $\\sin(n\\theta)$ en fonction de $\\cos\\theta$ et $\\sin\\theta$ (en développant le membre de gauche par le binôme de Newton), ou plus généralement de calculer des puissances de complexes écrits en forme trigonométrique.
+
+  **Exemple résolu.** Calculer $(1+i)^8$.
+
+  On met $1+i$ sous forme exponentielle : $|1+i|=\\sqrt{2}$ et $\\arg(1+i)=\\dfrac{\\pi}{4}$, donc $1+i = \\sqrt{2}\\,e^{i\\pi/4}$. Par suite :
+  $$(1+i)^8 = \\left(\\sqrt{2}\\right)^8 e^{i\\cdot 8\\cdot \\pi/4} = 2^4 e^{2i\\pi} = 16 \\times 1 = 16$$
+
+  ### 6. Linéarisation trigonométrique
+
+  La linéarisation consiste à exprimer $\\cos^n\\theta$ ou $\\sin^n\\theta$ (ou leurs produits) comme combinaison linéaire de $\\cos(k\\theta)$, $\\sin(k\\theta)$, en utilisant les formules d'Euler puis le binôme de Newton.
+
+  **Exemple résolu.** Linéariser $\\cos^3\\theta$.
+
+  D'après Euler, $\\cos\\theta = \\dfrac{e^{i\\theta}+e^{-i\\theta}}{2}$, donc :
+  $$\\cos^3\\theta = \\left(\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2}\\right)^3 = \\dfrac{1}{8}\\left(e^{3i\\theta} + 3e^{i\\theta} + 3e^{-i\\theta} + e^{-3i\\theta}\\right)$$
+  en développant par le binôme de Newton $(x+y)^3 = x^3+3x^2y+3xy^2+y^3$ avec $x=e^{i\\theta}$, $y=e^{-i\\theta}$. On regroupe les termes conjugués :
+  $$\\cos^3\\theta = \\dfrac{1}{8}\\left(\\left(e^{3i\\theta}+e^{-3i\\theta}\\right) + 3\\left(e^{i\\theta}+e^{-i\\theta}\\right)\\right) = \\dfrac{1}{8}\\big(2\\cos(3\\theta) + 6\\cos\\theta\\big) = \\dfrac{\\cos(3\\theta)+3\\cos\\theta}{4}$$
+
+  ### 7. Application inverse : développement de $\\cos(n\\theta)$
+
+  Réciproquement, la formule de Moivre permet de développer $\\cos(n\\theta)$ en fonction de $\\cos\\theta$.
+
+  **Exemple résolu.** Exprimer $\\cos(3\\theta)$ en fonction de $\\cos\\theta$.
+
+  Par Moivre : $\\cos(3\\theta)+i\\sin(3\\theta) = (\\cos\\theta+i\\sin\\theta)^3$. On développe le membre de droite :
+  $$(\\cos\\theta+i\\sin\\theta)^3 = \\cos^3\\theta + 3i\\cos^2\\theta\\sin\\theta - 3\\cos\\theta\\sin^2\\theta - i\\sin^3\\theta$$
+  En identifiant la partie réelle (qui doit valoir $\\cos(3\\theta)$) :
+  $$\\cos(3\\theta) = \\cos^3\\theta - 3\\cos\\theta\\sin^2\\theta = \\cos^3\\theta - 3\\cos\\theta(1-\\cos^2\\theta) = 4\\cos^3\\theta - 3\\cos\\theta$$
+
+  ### 8. Forme exponentielle et opérations géométriques
+
+  La forme exponentielle traduit immédiatement les transformations géométriques classiques :
+  - La **rotation** d'angle $\\theta$ et de centre $O$ envoie $z$ sur $e^{i\\theta}z$
+  - L'**homothétie** de rapport $k>0$ et de centre $O$ envoie $z$ sur $kz$
+  - La **similitude directe** de centre $O$, de rapport $r$ et d'angle $\\theta$ envoie $z$ sur $re^{i\\theta}z$
+
+  ### 9. Synthèse des formules essentielles
+
+  | Notion | Formule |
+  |---|---|
+  | Forme trigonométrique | $z = r(\\cos\\theta+i\\sin\\theta)$ |
+  | Forme exponentielle | $z = re^{i\\theta}$ |
+  | Formules d'Euler | $\\cos\\theta=\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2}$, $\\sin\\theta=\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$ |
+  | Formule de Moivre | $(\\cos\\theta+i\\sin\\theta)^n = \\cos(n\\theta)+i\\sin(n\\theta)$ |
+  | Produit | $\\arg(zz')=\\arg(z)+\\arg(z')$ |`,
+        exercises: [
+          {
+            id: "comp1-l1-2-e1",
+            question: "Quel est le module de $z = 2e^{i\\pi/3}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$\\pi/3$" },
+              { id: "C", text: "$1$" },
+              { id: "D", text: "$2\\pi/3$" },
+            ],
+            correctId: "A",
+            explanation: "Sous la forme exponentielle $z=re^{i\\theta}$, le module est $r$. Ici $r=2$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-2-e2",
+            question: "Déterminer l'argument de $z = -1$ (à $2\\pi$ près).",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$0$" },
+              { id: "B", text: "$\\pi$" },
+              { id: "C", text: "$\\pi/2$" },
+              { id: "D", text: "$-\\pi/2$" },
+            ],
+            correctId: "B",
+            explanation: "$-1 = 1\\cdot(\\cos\\pi+i\\sin\\pi)$, donc $\\arg(-1) = \\pi$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-2-e3",
+            question: "Donner la forme exponentielle de $z = i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$e^{i\\pi/2}$" },
+              { id: "B", text: "$e^{i\\pi}$" },
+              { id: "C", text: "$2e^{i\\pi/2}$" },
+              { id: "D", text: "$e^{-i\\pi/2}$" },
+            ],
+            correctId: "A",
+            explanation: "$|i|=1$ et $\\arg(i)=\\pi/2$ car $i = \\cos(\\pi/2)+i\\sin(\\pi/2)$. Donc $i = e^{i\\pi/2}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-2-e4",
+            question: "Vrai ou faux : $|e^{i\\theta}| = 1$ pour tout $\\theta \\in \\mathbb{R}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. $|e^{i\\theta}|^2 = \\cos^2\\theta+\\sin^2\\theta = 1$, donc $|e^{i\\theta}|=1$ pour tout $\\theta$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-2-e5",
+            question: "Quel est le module et l'argument de $z = \\sqrt{3}+i$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$r=2,\\ \\theta=\\pi/6$" },
+              { id: "B", text: "$r=2,\\ \\theta=\\pi/3$" },
+              { id: "C", text: "$r=\\sqrt{2},\\ \\theta=\\pi/6$" },
+              { id: "D", text: "$r=2,\\ \\theta=\\pi/4$" },
+            ],
+            correctId: "A",
+            explanation: "$r = \\sqrt{3+1}=2$. Puis $\\cos\\theta=\\sqrt{3}/2$ et $\\sin\\theta=1/2$, donc $\\theta=\\pi/6$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-2-e6",
+            question: "Calculer $e^{i\\pi/3} \\times e^{i\\pi/6}$ sous forme exponentielle.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$e^{i\\pi/2}$" },
+              { id: "B", text: "$e^{i\\pi/18}$" },
+              { id: "C", text: "$e^{i\\pi/9}$" },
+              { id: "D", text: "$2e^{i\\pi/2}$" },
+            ],
+            correctId: "A",
+            explanation: "Les arguments s'additionnent : $\\pi/3+\\pi/6 = 2\\pi/6+\\pi/6=3\\pi/6=\\pi/2$. Donc le produit vaut $e^{i\\pi/2}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-2-e7",
+            question: "Calculer $(1+i)^8$ en utilisant la formule de Moivre.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$16$" },
+              { id: "B", text: "$-16$" },
+              { id: "C", text: "$16i$" },
+              { id: "D", text: "$256$" },
+            ],
+            correctId: "A",
+            explanation: "$1+i=\\sqrt{2}e^{i\\pi/4}$. Donc $(1+i)^8 = (\\sqrt{2})^8 e^{i\\cdot 8\\pi/4} = 16\\,e^{2i\\pi} = 16$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-2-e8",
+            question: "Vrai ou faux : pour tous $z,z'\\in\\mathbb{C}^*$, $\\arg(zz') = \\arg(z)+\\arg(z')$ (égalité exacte, sans modulo).",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. L'égalité n'est valable que **modulo $2\\pi$** : $\\arg(zz') \\equiv \\arg(z)+\\arg(z') \\;(\\text{mod } 2\\pi)$. Sans cette précision, l'égalité peut être fausse car les arguments usuels sont choisis dans un intervalle de longueur $2\\pi$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-2-e9",
+            question: "Donner les formules d'Euler pour $\\cos\\theta$ et $\\sin\\theta$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\cos\\theta=\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2},\\ \\sin\\theta=\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$" },
+              { id: "B", text: "$\\cos\\theta=\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2},\\ \\sin\\theta=\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2i}$" },
+              { id: "C", text: "$\\cos\\theta=\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2i},\\ \\sin\\theta=\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2}$" },
+              { id: "D", text: "$\\cos\\theta=e^{i\\theta}+e^{-i\\theta},\\ \\sin\\theta=e^{i\\theta}-e^{-i\\theta}$" },
+            ],
+            correctId: "A",
+            explanation: "En sommant $e^{i\\theta}=\\cos\\theta+i\\sin\\theta$ et $e^{-i\\theta}=\\cos\\theta-i\\sin\\theta$, on obtient $\\cos\\theta=\\dfrac{e^{i\\theta}+e^{-i\\theta}}{2}$. En les soustrayant, $\\sin\\theta=\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-2-e10",
+            question: "Calculer $\\left(\\dfrac{1+i}{1-i}\\right)^{2024}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$-1$" },
+              { id: "C", text: "$i$" },
+              { id: "D", text: "$-i$" },
+            ],
+            correctId: "A",
+            explanation: "$\\dfrac{1+i}{1-i} = \\dfrac{e^{i\\pi/4}}{e^{-i\\pi/4}} = e^{i\\pi/2} = i$. Comme $2024 = 4\\times 506$, on a $i^{2024} = (i^4)^{506} = 1^{506} = 1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-2-e11",
+            question: "Linéariser $\\sin^3\\theta$, c'est-à-dire l'exprimer comme combinaison linéaire de $\\sin(\\theta)$ et $\\sin(3\\theta)$.",
+            type: "open",
+            modelAnswer: "En utilisant sin(theta) = (e^{i theta} - e^{-i theta})/(2i) et en développant le cube, on obtient sin³θ = (3 sinθ - sin(3θ))/4.",
+            explanation: "**Linéarisation.** D'après la formule d'Euler, $\\sin\\theta = \\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}$. Donc :\n$$\\sin^3\\theta = \\left(\\dfrac{e^{i\\theta}-e^{-i\\theta}}{2i}\\right)^3 = \\dfrac{1}{(2i)^3}\\left(e^{i\\theta}-e^{-i\\theta}\\right)^3$$\nOn développe le cube avec $(x-y)^3=x^3-3x^2y+3xy^2-y^3$, $x=e^{i\\theta}$, $y=e^{-i\\theta}$ :\n$$\\left(e^{i\\theta}-e^{-i\\theta}\\right)^3 = e^{3i\\theta} - 3e^{i\\theta} + 3e^{-i\\theta} - e^{-3i\\theta} = \\left(e^{3i\\theta}-e^{-3i\\theta}\\right) - 3\\left(e^{i\\theta}-e^{-i\\theta}\\right)$$\nOr $(2i)^3 = 8i^3 = -8i$. On regroupe en facteurs $2i$ :\n$$\\sin^3\\theta = \\dfrac{2i\\sin(3\\theta) - 3\\cdot 2i\\sin\\theta}{-8i} = \\dfrac{2i\\big(\\sin(3\\theta)-3\\sin\\theta\\big)}{-8i} = \\dfrac{3\\sin\\theta - \\sin(3\\theta)}{4}$$ $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-2-e12",
+            question: "En utilisant la formule de Moivre avec $n=3$, exprimer $\\cos(3\\theta)$ en fonction de $\\cos\\theta$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4\\cos^3\\theta - 3\\cos\\theta$" },
+              { id: "B", text: "$3\\cos\\theta - 4\\cos^3\\theta$" },
+              { id: "C", text: "$\\cos^3\\theta - 3\\cos\\theta$" },
+              { id: "D", text: "$4\\cos^3\\theta + 3\\cos\\theta$" },
+            ],
+            correctId: "A",
+            explanation: "En développant $(\\cos\\theta+i\\sin\\theta)^3$ et en identifiant la partie réelle à $\\cos(3\\theta)$, on obtient $\\cos(3\\theta) = \\cos^3\\theta-3\\cos\\theta\\sin^2\\theta$. Avec $\\sin^2\\theta=1-\\cos^2\\theta$ : $\\cos(3\\theta) = \\cos^3\\theta - 3\\cos\\theta(1-\\cos^2\\theta) = 4\\cos^3\\theta-3\\cos\\theta$.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-2-e13",
+            question: "Démontrer la formule de Moivre $(\\cos\\theta+i\\sin\\theta)^n = \\cos(n\\theta)+i\\sin(n\\theta)$ pour $n \\in \\mathbb{N}$, par récurrence.",
+            type: "open",
+            modelAnswer: "Initialisation n=0 triviale (les deux membres valent 1). Hérédité : si la propriété est vraie au rang n, alors (cosθ+isinθ)^{n+1} = (cosθ+isinθ)^n (cosθ+isinθ) = (cos(nθ)+isin(nθ))(cosθ+isinθ), qu'on développe avec les formules d'addition pour obtenir cos((n+1)θ)+isin((n+1)θ).",
+            explanation: "**Démonstration par récurrence sur $n \\in \\mathbb{N}$.**\n\n**Initialisation ($n=0$) :** $(\\cos\\theta+i\\sin\\theta)^0 = 1 = \\cos(0)+i\\sin(0)$. La propriété est vraie.\n\n**Hérédité :** supposons $(\\cos\\theta+i\\sin\\theta)^n = \\cos(n\\theta)+i\\sin(n\\theta)$ pour un certain $n\\in\\mathbb{N}$. Alors :\n$$(\\cos\\theta+i\\sin\\theta)^{n+1} = (\\cos\\theta+i\\sin\\theta)^n(\\cos\\theta+i\\sin\\theta) = \\big(\\cos(n\\theta)+i\\sin(n\\theta)\\big)(\\cos\\theta+i\\sin\\theta)$$\nOn développe :\n$$= \\cos(n\\theta)\\cos\\theta - \\sin(n\\theta)\\sin\\theta + i\\big(\\sin(n\\theta)\\cos\\theta+\\cos(n\\theta)\\sin\\theta\\big)$$\nEn reconnaissant les formules d'addition $\\cos(A+B)=\\cos A\\cos B-\\sin A\\sin B$ et $\\sin(A+B)=\\sin A\\cos B+\\cos A\\sin B$ avec $A=n\\theta$, $B=\\theta$ :\n$$= \\cos\\big((n+1)\\theta\\big) + i\\sin\\big((n+1)\\theta\\big)$$\nLa propriété est donc vraie au rang $n+1$. Par le principe de récurrence, elle est vraie pour tout $n\\in\\mathbb{N}$. $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-2-e14",
+            question: "Soit $z = e^{i\\pi/5}$. Combien de valeurs distinctes prend $z^n$ lorsque $n$ décrit $\\mathbb{Z}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Une infinité" },
+              { id: "B", text: "$5$" },
+              { id: "C", text: "$10$" },
+              { id: "D", text: "$1$" },
+            ],
+            correctId: "C",
+            explanation: "$z^n = e^{in\\pi/5}$. Deux valeurs $z^n$ et $z^m$ coïncident si et seulement si $n\\pi/5 \\equiv m\\pi/5 \\;(\\text{mod } 2\\pi)$, c'est-à-dire $n\\equiv m \\;(\\text{mod } 10)$. Il y a donc exactement $10$ valeurs distinctes, atteintes pour $n=0,1,\\dots,9$.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-2-e15",
+            question: "Vrai ou faux : pour tout $\\theta\\in\\mathbb{R}$, $\\overline{e^{i\\theta}} = e^{-i\\theta}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. $\\overline{e^{i\\theta}} = \\overline{\\cos\\theta+i\\sin\\theta} = \\cos\\theta - i\\sin\\theta = \\cos(-\\theta)+i\\sin(-\\theta) = e^{-i\\theta}$, en utilisant la parité de $\\cos$ et l'imparité de $\\sin$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "comp1-l1-3",
+        slug: "equations-complexes-racines-n-iemes",
+        title: "Équations complexes et racines n-ièmes",
+        durationMinutes: 50,
+        content: `## Équations complexes et racines n-ièmes
+
+  ### 1. Racines carrées d'un nombre complexe quelconque
+
+  Soit $Z \\in \\mathbb{C}^*$. On cherche $z \\in \\mathbb{C}$ tel que $z^2 = Z$. En écrivant $z = x+iy$ et $Z = a+ib$ ($x,y,a,b\\in\\mathbb{R}$), l'équation $z^2=Z$ équivaut au système :
+  $$x^2 - y^2 = a, \\qquad 2xy = b, \\qquad x^2+y^2 = \\sqrt{a^2+b^2}$$
+
+  où la troisième équation (égalité des modules de $z^2$ et $Z$, i.e. $|z|^2=|Z|$) est ajoutée pour faciliter la résolution. On en déduit $x^2$ et $y^2$ par somme et différence des deux premières et de la troisième, le signe de $xy$ (donné par $b$) permettant de choisir les signes relatifs de $x$ et $y$.
+
+  **Exemple résolu.** Calculer les racines carrées de $Z = -3+4i$.
+
+  On pose $z=x+iy$ avec $z^2=-3+4i$ :
+  $$x^2-y^2=-3, \\qquad 2xy=4, \\qquad x^2+y^2=\\sqrt{(-3)^2+4^2}=\\sqrt{25}=5$$
+  En ajoutant la première et la troisième : $2x^2=2 \\Rightarrow x^2=1 \\Rightarrow x=\\pm 1$. En les soustrayant : $2y^2=8 \\Rightarrow y^2=4 \\Rightarrow y=\\pm 2$. Comme $2xy=4>0$, $x$ et $y$ sont de **même signe**. Les solutions sont donc $z = 1+2i$ et $z=-1-2i$.
+
+  **Vérification :** $(1+2i)^2 = 1+4i+4i^2 = 1+4i-4 = -3+4i$. ✓
+
+  Tout nombre complexe non nul possède exactement **deux racines carrées**, opposées l'une de l'autre.
+
+  ### 2. Équation du second degré à coefficients complexes
+
+  Soit l'équation $az^2+bz+c=0$ avec $a,b,c \\in \\mathbb{C}$, $a\\neq 0$. On définit le **discriminant complexe** :
+  $$\\Delta = b^2-4ac$$
+
+  Comme tout complexe non nul possède une racine carrée, on peut toujours écrire $\\Delta = \\delta^2$ pour un certain $\\delta \\in \\mathbb{C}$ (l'une des deux racines carrées de $\\Delta$, obtenue par la méthode du paragraphe précédent si $\\Delta \\notin \\mathbb{R}_+$). Les solutions de l'équation sont alors :
+  $$z_1 = \\dfrac{-b+\\delta}{2a} \\qquad z_2 = \\dfrac{-b-\\delta}{2a}$$
+
+  Si $\\Delta = 0$, l'équation a une unique solution double $z_0 = -\\dfrac{b}{2a}$. Contrairement au cas réel, **toute** équation du second degré à coefficients complexes admet des solutions dans $\\mathbb{C}$, sans condition de signe sur $\\Delta$.
+
+  **Exemple résolu.** Résoudre $z^2 - 2iz - 1 + 2i = 0$.
+
+  On a $a=1$, $b=-2i$, $c=-1+2i$. Le discriminant est :
+  $$\\Delta = b^2-4ac = (-2i)^2 - 4(-1+2i) = -4 + 4 - 8i = -8i$$
+  On cherche $\\delta=x+iy$ tel que $\\delta^2=-8i$ : $x^2-y^2=0$, $2xy=-8$, $x^2+y^2=8$. De $x^2-y^2=0$ et $x^2+y^2=8$ on tire $x^2=y^2=4$, donc $x=\\pm 2$, $y=\\pm 2$. Comme $2xy=-8<0$, $x$ et $y$ sont de signes opposés : $\\delta = 2-2i$ (ou son opposé). On obtient :
+  $$z_1 = \\dfrac{2i+(2-2i)}{2} = \\dfrac{2}{2} = 1 \\qquad z_2 = \\dfrac{2i-(2-2i)}{2} = \\dfrac{-2+4i}{2} = -1+2i$$
+
+  **Vérification (somme et produit) :** $z_1+z_2 = 1+(-1+2i) = 2i = -b/a$ ✓ et $z_1 z_2 = 1\\times(-1+2i) = -1+2i = c/a$ ✓.
+
+  ### 3. Racines n-ièmes de l'unité
+
+  Pour $n \\in \\mathbb{N}^*$, on appelle **racine n-ième de l'unité** toute solution de l'équation $z^n = 1$. En écrivant $z = re^{i\\theta}$, l'équation $z^n=1=e^{i\\cdot 0}$ équivaut à $r^n=1$ et $n\\theta \\equiv 0 \\;(\\text{mod } 2\\pi)$, soit $r=1$ (car $r>0$) et $\\theta = \\dfrac{2k\\pi}{n}$, $k\\in\\mathbb{Z}$.
+
+  Il y a exactement $n$ racines distinctes, obtenues pour $k=0,1,\\dots,n-1$ :
+  $$z_k = e^{2ik\\pi/n}, \\qquad k=0,1,\\dots,n-1$$
+
+  On note souvent $\\omega = e^{2i\\pi/n}$, de sorte que les racines sont $1, \\omega, \\omega^2, \\dots, \\omega^{n-1}$. Leur somme est nulle pour $n\\geq 2$ :
+  $$\\sum_{k=0}^{n-1} \\omega^k = 0$$
+  (somme d'une suite géométrique de raison $\\omega\\neq 1$ et de premier terme $1$, qui vaut $\\dfrac{\\omega^n-1}{\\omega-1}=\\dfrac{0}{\\omega-1}=0$).
+
+  **Exemple résolu.** Déterminer les racines cubiques de l'unité.
+
+  Avec $n=3$ : $z_k = e^{2ik\\pi/3}$ pour $k=0,1,2$, soit :
+  $$z_0 = 1, \\qquad z_1 = e^{2i\\pi/3} = -\\dfrac{1}{2}+i\\dfrac{\\sqrt{3}}{2}, \\qquad z_2 = e^{4i\\pi/3} = -\\dfrac{1}{2}-i\\dfrac{\\sqrt{3}}{2}$$
+
+  ### 4. Racines n-ièmes d'un complexe quelconque
+
+  Soit $Z = re^{i\\theta} \\in \\mathbb{C}^*$ ($r>0$). On cherche les solutions de $z^n = Z$. En écrivant $z=\\rho e^{i\\varphi}$, l'équation équivaut à $\\rho^n = r$ et $n\\varphi \\equiv \\theta \\;(\\text{mod } 2\\pi)$, soit $\\rho = r^{1/n}$ (racine $n$-ième réelle positive, unique) et $\\varphi = \\dfrac{\\theta+2k\\pi}{n}$, $k\\in\\mathbb{Z}$.
+
+  Il y a exactement $n$ racines $n$-ièmes distinctes :
+  $$z_k = r^{1/n}\\, e^{i(\\theta+2k\\pi)/n}, \\qquad k=0,1,\\dots,n-1$$
+
+  Elles s'obtiennent toutes à partir d'**une** racine $n$-ième particulière $z_0$ en la multipliant par les racines $n$-ièmes de l'unité : $z_k = z_0 \\,\\omega^k$ avec $\\omega=e^{2i\\pi/n}$.
+
+  **Exemple résolu.** Déterminer les racines cubiques de $Z = 8i$.
+
+  On écrit $Z = 8i = 8\\,e^{i\\pi/2}$ (module $r=8$, argument $\\theta=\\pi/2$). Les racines cubiques sont :
+  $$z_k = 8^{1/3}\\,e^{i(\\pi/2+2k\\pi)/3} = 2\\,e^{i(\\pi/6+2k\\pi/3)}, \\qquad k=0,1,2$$
+  - $k=0$ : $z_0 = 2e^{i\\pi/6} = 2\\left(\\dfrac{\\sqrt{3}}{2}+i\\dfrac{1}{2}\\right) = \\sqrt{3}+i$
+  - $k=1$ : $z_1 = 2e^{i(\\pi/6+2\\pi/3)} = 2e^{i5\\pi/6} = 2\\left(-\\dfrac{\\sqrt{3}}{2}+i\\dfrac{1}{2}\\right) = -\\sqrt{3}+i$
+  - $k=2$ : $z_2 = 2e^{i(\\pi/6+4\\pi/3)} = 2e^{i3\\pi/2} = 2(0-i) = -2i$
+
+  **Vérification rapide :** $(\\sqrt{3}+i)^2 = 3+2\\sqrt{3}i-1 = 2+2\\sqrt{3}i$, puis $(\\sqrt{3}+i)^3 = (\\sqrt{3}+i)(2+2\\sqrt{3}i) = 2\\sqrt{3}+6i+2i+2\\sqrt{3}i^2 = 2\\sqrt{3}+8i-2\\sqrt{3} = 8i$ ✓.
+
+  ### 5. Représentation géométrique : polygones réguliers
+
+  Les images des racines $n$-ièmes de l'unité sont les sommets d'un **polygone régulier à $n$ côtés** inscrit dans le cercle unité, l'un des sommets étant le point d'affixe $1$. Plus généralement, les racines $n$-ièmes d'un complexe $Z=re^{i\\theta}$ sont les sommets d'un polygone régulier à $n$ côtés inscrit dans le cercle de centre $O$ et de rayon $r^{1/n}$, le premier sommet étant à l'angle $\\theta/n$.
+
+  **Exemple résolu (suite du paragraphe 4).** Les trois racines cubiques de $8i$ — soit $\\sqrt{3}+i$, $-\\sqrt{3}+i$, $-2i$ — ont toutes pour module $2$ et sont donc les sommets d'un **triangle équilatéral** inscrit dans le cercle de centre $O$ et de rayon $2$, les arguments $\\pi/6$, $5\\pi/6$, $3\\pi/2$ étant régulièrement espacés de $2\\pi/3$.
+
+  ### 6. Factorisation de $z^n-1$ et applications
+
+  De l'identité $z^n - 1 = \\prod_{k=0}^{n-1}(z-\\omega^k)$ (où $\\omega=e^{2i\\pi/n}$), on tire en particulier, pour $n\\geq 2$, la factorisation classique :
+  $$z^n-1 = (z-1)\\left(z^{n-1}+z^{n-2}+\\cdots+z+1\\right)$$
+
+  En regroupant les racines conjuguées deux à deux (sauf $1$, et $-1$ si $n$ pair), on peut aussi factoriser $z^n-1$ en produit de facteurs réels du second degré, ce qui est utile pour des calculs de sommes trigonométriques.
+
+  ### 7. Équations bicarrées et changements de variable
+
+  Certaines équations de degré supérieur à $2$ se ramènent à des équations du second degré par changement de variable.
+
+  **Exemple résolu.** Résoudre $z^4 - (1+i)z^2 + i = 0$.
+
+  On pose $u=z^2$ : l'équation devient $u^2-(1+i)u+i=0$. Discriminant : $\\Delta = (1+i)^2-4i = 1+2i-1-4i = -2i$. On cherche $\\delta=x+iy$ avec $\\delta^2=-2i$ : $x^2-y^2=0$, $2xy=-2$, $x^2+y^2=2$, d'où $x^2=y^2=1$ et (signes opposés car $2xy<0$) $\\delta=1-i$. Donc :
+  $$u_1 = \\dfrac{(1+i)+(1-i)}{2} = 1 \\qquad u_2 = \\dfrac{(1+i)-(1-i)}{2} = i$$
+  On résout ensuite $z^2=1$ (racines $z=\\pm 1$) et $z^2=i=e^{i\\pi/2}$ (racines $z=e^{i\\pi/4}=\\dfrac{\\sqrt{2}}{2}(1+i)$ et son opposé). L'équation de degré $4$ a donc quatre solutions : $1$, $-1$, $\\dfrac{\\sqrt{2}}{2}(1+i)$, $-\\dfrac{\\sqrt{2}}{2}(1+i)$.
+
+  ### 8. Synthèse des formules essentielles
+
+  | Notion | Formule |
+  |---|---|
+  | Discriminant complexe | $\\Delta = b^2-4ac$, racines $z_{1,2}=\\dfrac{-b\\pm\\delta}{2a}$ avec $\\delta^2=\\Delta$ |
+  | Racines $n$-ièmes de l'unité | $z_k = e^{2ik\\pi/n}$, $k=0,\\dots,n-1$ |
+  | Racines $n$-ièmes de $Z=re^{i\\theta}$ | $z_k = r^{1/n}e^{i(\\theta+2k\\pi)/n}$, $k=0,\\dots,n-1$ |
+  | Somme des racines $n$-ièmes de l'unité ($n\\geq 2$) | $0$ |`,
+        exercises: [
+          {
+            id: "comp1-l1-3-e1",
+            question: "Combien de racines carrées possède un nombre complexe non nul $Z$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$0$" },
+              { id: "D", text: "Une infinité" },
+            ],
+            correctId: "B",
+            explanation: "Tout nombre complexe non nul possède exactement deux racines carrées, opposées l'une de l'autre.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-3-e2",
+            question: "Combien de racines a l'équation $z^n=1$ dans $\\mathbb{C}$, pour $n\\in\\mathbb{N}^*$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$n$" },
+              { id: "D", text: "Une infinité" },
+            ],
+            correctId: "C",
+            explanation: "L'équation $z^n=1$ admet exactement $n$ solutions distinctes dans $\\mathbb{C}$ : les racines $n$-ièmes de l'unité $e^{2ik\\pi/n}$, $k=0,\\dots,n-1$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-3-e3",
+            question: "Vrai ou faux : toute équation du second degré à coefficients complexes admet des solutions dans $\\mathbb{C}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Le discriminant complexe $\\Delta=b^2-4ac$, qu'il soit réel positif, négatif ou complexe non réel, possède toujours une racine carrée dans $\\mathbb{C}$, ce qui garantit l'existence de solutions.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-3-e4",
+            question: "Quelle est la somme des $n$ racines $n$-ièmes de l'unité pour $n\\geq 2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$0$" },
+              { id: "B", text: "$1$" },
+              { id: "C", text: "$n$" },
+              { id: "D", text: "$n-1$" },
+            ],
+            correctId: "A",
+            explanation: "C'est la somme d'une suite géométrique de raison $\\omega=e^{2i\\pi/n}\\neq 1$ : $\\sum_{k=0}^{n-1}\\omega^k = \\dfrac{\\omega^n-1}{\\omega-1} = \\dfrac{0}{\\omega-1} = 0$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-3-e5",
+            question: "Les racines carrées de $4$ dans $\\mathbb{C}$ sont :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$ et $-2$" },
+              { id: "B", text: "$2$ seulement" },
+              { id: "C", text: "$2i$ et $-2i$" },
+              { id: "D", text: "$4$ et $-4$" },
+            ],
+            correctId: "A",
+            explanation: "On cherche $z$ tel que $z^2=4$. Les solutions sont $z=2$ et $z=-2$, opposées l'une de l'autre.",
+            difficulty: "debutant",
+          },
+          {
+            id: "comp1-l1-3-e6",
+            question: "Calculer les racines carrées de $Z = -3+4i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1+2i$ et $-1-2i$" },
+              { id: "B", text: "$2+i$ et $-2-i$" },
+              { id: "C", text: "$1-2i$ et $-1+2i$" },
+              { id: "D", text: "$2-i$ et $-2+i$" },
+            ],
+            correctId: "A",
+            explanation: "Avec $z=x+iy$ : $x^2-y^2=-3$, $2xy=4$, $x^2+y^2=5$. On trouve $x^2=1,\\ y^2=4$, et $xy>0$ impose même signe. D'où $z=1+2i$ ou $z=-1-2i$. Vérification : $(1+2i)^2=1+4i-4=-3+4i$. ✓",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-3-e7",
+            question: "Résoudre l'équation $z^2-2iz-1+2i=0$ et donner la solution de plus petit module.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$-1+2i$" },
+              { id: "C", text: "$i$" },
+              { id: "D", text: "$2i$" },
+            ],
+            correctId: "A",
+            explanation: "Le discriminant est $\\Delta=(-2i)^2-4(-1+2i)=-4+4-8i=-8i$, dont une racine carrée est $\\delta=2-2i$. Les solutions sont $z_1=\\dfrac{2i+(2-2i)}{2}=1$ et $z_2=\\dfrac{2i-(2-2i)}{2}=-1+2i$. Le module de $z_1=1$ vaut $1$, celui de $z_2=-1+2i$ vaut $\\sqrt{5}$ : la plus petite est $1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-3-e8",
+            question: "Vrai ou faux : les racines cubiques de l'unité sont $1$, $e^{2i\\pi/3}$ et $e^{4i\\pi/3}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Pour $n=3$, les racines sont $z_k=e^{2ik\\pi/3}$ pour $k=0,1,2$, soit exactement $1$, $e^{2i\\pi/3}$ et $e^{4i\\pi/3}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-3-e9",
+            question: "Déterminer les racines carrées de $Z = i$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{\\sqrt{2}}{2}(1+i)$ et son opposé" },
+              { id: "B", text: "$\\dfrac{\\sqrt{2}}{2}(1-i)$ et son opposé" },
+              { id: "C", text: "$1+i$ et son opposé" },
+              { id: "D", text: "$i$ et $-i$" },
+            ],
+            correctId: "A",
+            explanation: "$i=e^{i\\pi/2}$, donc une racine carrée est $e^{i\\pi/4}=\\dfrac{\\sqrt{2}}{2}+i\\dfrac{\\sqrt{2}}{2}=\\dfrac{\\sqrt{2}}{2}(1+i)$. L'autre racine est son opposé.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-3-e10",
+            question: "Les racines $n$-ièmes de l'unité, représentées dans le plan complexe, forment géométriquement :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Les sommets d'un polygone régulier à $n$ côtés inscrit dans le cercle unité" },
+              { id: "B", text: "Une droite passant par l'origine" },
+              { id: "C", text: "Un cercle de rayon $n$" },
+              { id: "D", text: "Les sommets d'un carré, quel que soit $n$" },
+            ],
+            correctId: "A",
+            explanation: "Les racines $n$-ièmes de l'unité ont toutes pour module $1$ et des arguments régulièrement espacés de $2\\pi/n$ : elles forment les sommets d'un polygone régulier à $n$ côtés inscrit dans le cercle unité.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "comp1-l1-3-e11",
+            question: "Déterminer les trois racines cubiques de $Z=8i$ et vérifier le résultat pour l'une d'entre elles.",
+            type: "open",
+            modelAnswer: "8i = 8 e^{iπ/2}. Les racines cubiques sont z_k = 2 e^{i(π/6+2kπ/3)} pour k=0,1,2 : z0=√3+i, z1=-√3+i, z2=-2i. Vérification : (√3+i)^3 = 8i.",
+            explanation: "**Mise sous forme exponentielle :** $Z = 8i = 8e^{i\\pi/2}$ (module $8$, argument $\\pi/2$).\n\n**Racines cubiques :** $z_k = 8^{1/3}e^{i(\\pi/2+2k\\pi)/3} = 2e^{i(\\pi/6+2k\\pi/3)}$ pour $k=0,1,2$ :\n- $k=0$ : $z_0 = 2e^{i\\pi/6} = 2\\left(\\dfrac{\\sqrt{3}}{2}+\\dfrac{i}{2}\\right) = \\sqrt{3}+i$\n- $k=1$ : $z_1 = 2e^{i5\\pi/6} = 2\\left(-\\dfrac{\\sqrt{3}}{2}+\\dfrac{i}{2}\\right) = -\\sqrt{3}+i$\n- $k=2$ : $z_2 = 2e^{i3\\pi/2} = 2(0-i) = -2i$\n\n**Vérification pour $z_0=\\sqrt{3}+i$ :** $(\\sqrt{3}+i)^2 = 3+2\\sqrt{3}i+i^2 = 2+2\\sqrt{3}i$. Puis $(\\sqrt{3}+i)^3 = (\\sqrt{3}+i)(2+2\\sqrt{3}i) = 2\\sqrt{3}+2\\cdot 3 i+2i+2\\sqrt{3}i^2 = 2\\sqrt{3}+6i+2i-2\\sqrt{3} = 8i$. ✓ $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-3-e12",
+            question: "Résoudre dans $\\mathbb{C}$ l'équation $z^4-(1+i)z^2+i=0$. Combien de solutions distinctes possède-t-elle ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$8$" },
+            ],
+            correctId: "A",
+            explanation: "On pose $u=z^2$ : $u^2-(1+i)u+i=0$, de discriminant $\\Delta=(1+i)^2-4i=-2i$, donnant $u_1=1$ et $u_2=i$. Chacune des deux valeurs de $u$ admet deux racines carrées distinctes pour $z$ ($\\pm 1$ pour $u=1$, $\\pm\\frac{\\sqrt2}{2}(1+i)$ pour $u=i$), soit $4$ solutions distinctes au total.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-3-e13",
+            question: "Démontrer que la somme des $n$ racines $n$-ièmes de l'unité est nulle pour $n\\geq 2$.",
+            type: "open",
+            modelAnswer: "Les racines sont ω^k pour k=0,...,n-1 avec ω=e^{2iπ/n}. Leur somme est une série géométrique de raison ω≠1 (car n≥2), de premier terme 1, qui vaut (ω^n-1)/(ω-1)=0/(ω-1)=0 car ω^n=1.",
+            explanation: "**Démonstration.** Posons $\\omega = e^{2i\\pi/n}$. Les $n$ racines $n$-ièmes de l'unité sont $1,\\omega,\\omega^2,\\dots,\\omega^{n-1}$. Leur somme est :\n$$S = \\sum_{k=0}^{n-1}\\omega^k$$\nC'est la somme des $n$ premiers termes d'une suite géométrique de raison $\\omega$ et de premier terme $1$. Comme $n\\geq 2$, on a $\\omega = e^{2i\\pi/n}\\neq 1$ (l'argument $2\\pi/n$ n'est pas un multiple de $2\\pi$), donc la formule de la somme géométrique s'applique :\n$$S = \\dfrac{\\omega^n-1}{\\omega-1}$$\nOr $\\omega^n = \\left(e^{2i\\pi/n}\\right)^n = e^{2i\\pi} = 1$, donc le numérateur est nul :\n$$S = \\dfrac{1-1}{\\omega-1} = \\dfrac{0}{\\omega-1} = 0$$ $\\square$",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-3-e14",
+            question: "On considère un pentagone régulier inscrit dans le cercle unité, dont l'un des sommets est le point d'affixe $1$. Quelles sont les affixes des sommets ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Les racines cinquièmes de l'unité $e^{2ik\\pi/5}$, $k=0,\\dots,4$" },
+              { id: "B", text: "Les racines cinquièmes de $5$" },
+              { id: "C", text: "$e^{ik\\pi/5}$, $k=0,\\dots,4$" },
+              { id: "D", text: "Les solutions de $z^5=5$" },
+            ],
+            correctId: "A",
+            explanation: "Un polygone régulier à $n$ côtés inscrit dans le cercle unité avec un sommet en $1$ a pour sommets les racines $n$-ièmes de l'unité. Pour un pentagone ($n=5$), ce sont les $e^{2ik\\pi/5}$, $k=0,1,2,3,4$.",
+            difficulty: "expert",
+          },
+          {
+            id: "comp1-l1-3-e15",
+            question: "Vrai ou faux : si $z_0$ est une racine $n$-ième particulière de $Z\\in\\mathbb{C}^*$, alors toutes les racines $n$-ièmes de $Z$ s'écrivent $z_0\\,\\omega^k$ pour $k=0,\\dots,n-1$, où $\\omega=e^{2i\\pi/n}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $z_0^n=Z$ et $z^n=Z$, alors $(z/z_0)^n=1$, donc $z/z_0$ est une racine $n$-ième de l'unité, c'est-à-dire $z/z_0=\\omega^k$ pour un certain $k\\in\\{0,\\dots,n-1\\}$. D'où $z=z_0\\omega^k$.",
+            difficulty: "expert",
+          },
+        ],
+      },
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // L1 — Polynômes et fractions rationnelles
+  // ─────────────────────────────────────────────
+  {
+    id: "polynomes-l1",
+    slug: "polynomes-fractions-rationnelles-l1",
+    title: "Polynômes et fractions rationnelles",
+    description: "Algèbre des polynômes sur ℝ et ℂ : degré, racines, division euclidienne, factorisation, relations coefficients-racines, et décomposition en éléments simples des fractions rationnelles.",
+    schoolLevel: "L1",
+    subject: "algebre",
+    difficulty: "Intermédiaire",
+    isFree: false,
+    thumbnailEmoji: "P",
+    lessons: [
+      {
+        id: "poly1-l1-1",
+        slug: "operations-degre-racines",
+        title: "Opérations, degré et racines",
+        durationMinutes: 50,
+        content: `## Polynômes : opérations, degré et racines
+
+  ### 1. Définition d'un polynôme
+
+  Soit $\\mathbb{K} = \\mathbb{R}$ ou $\\mathbb{C}$. Un **polynôme** à coefficients dans $\\mathbb{K}$ est une expression de la forme :
+
+  $$P(X) = a_n X^n + a_{n-1}X^{n-1} + \\cdots + a_1 X + a_0, \\qquad a_i \\in \\mathbb{K}$$
+
+  L'ensemble de ces polynômes est noté $\\mathbb{K}[X]$. Les $a_i$ sont les **coefficients** de $P$, et $X$ est une **indéterminée** (un symbole formel, pas une variable réelle).
+
+  Si $a_n \\neq 0$, on dit que $P$ est de **degré** $n$, noté $\\deg P = n$. Le terme $a_n X^n$ est le **terme dominant** et $a_n$ le **coefficient dominant**. Par convention, le polynôme nul a pour degré $\\deg 0 = -\\infty$.
+
+  Un polynôme est **unitaire** (ou **monique**) si son coefficient dominant vaut $1$.
+
+  ### 2. Opérations sur les polynômes
+
+  **Somme.** Si $P = \\sum_{i=0}^n a_i X^i$ et $Q = \\sum_{i=0}^n b_i X^i$ (en complétant par des coefficients nuls si nécessaire), alors :
+  $$P + Q = \\sum_{i=0}^{n} (a_i+b_i) X^i$$
+
+  **Produit.** Si $P$ est de degré $n$ et $Q$ de degré $m$ :
+  $$PQ = \\sum_{k=0}^{n+m} c_k X^k, \\qquad c_k = \\sum_{i+j=k} a_i b_j$$
+
+  **Règles sur les degrés** (pour $P, Q \\neq 0$) :
+  $$\\deg(PQ) = \\deg P + \\deg Q \\qquad \\deg(P+Q) \\leq \\max(\\deg P, \\deg Q)$$
+
+  avec égalité dans la seconde formule sauf si $\\deg P = \\deg Q$ et que les termes dominants s'annulent.
+
+  **Exemple résolu.** Soient $A = 2X^3+1$ et $B = X^2 - X$. Alors $\\deg A = 3$, $\\deg B = 2$, et :
+  $$AB = (2X^3+1)(X^2-X) = 2X^5 - 2X^4 + X^2 - X$$
+  On vérifie $\\deg(AB) = 5 = 3+2$, conforme à la règle.
+
+  ### 3. Fonction polynomiale et valeur en un point
+
+  À tout polynôme $P = \\sum a_i X^i$, on associe la **fonction polynomiale** $x \\mapsto P(x) = \\sum a_i x^i$, en substituant à $X$ un élément $x \\in \\mathbb{K}$. C'est cette évaluation qui permet de parler de « racine » d'un polynôme.
+
+  ### 4. Racines d'un polynôme
+
+  **Définition.** Un élément $a \\in \\mathbb{K}$ est une **racine** (ou un **zéro**) de $P$ si $P(a) = 0$.
+
+  **Théorème (racine et factorisation).** Soit $P \\in \\mathbb{K}[X]$ et $a \\in \\mathbb{K}$. Alors :
+  $$a \\text{ est racine de } P \\iff (X-a) \\text{ divise } P$$
+
+  **Démonstration.** ($\\Leftarrow$) Si $(X-a) \\mid P$, on écrit $P = (X-a)Q$ pour un certain $Q \\in \\mathbb{K}[X]$. Alors $P(a) = (a-a)Q(a) = 0$.
+
+  ($\\Rightarrow$) Si $P(a) = 0$, on effectue la division euclidienne de $P$ par $(X-a)$ (cf. leçon suivante) : $P = (X-a)Q + r$ où $r$ est une constante (degré $< 1$). En évaluant en $a$ : $P(a) = 0 \\cdot Q(a) + r$, donc $r = P(a) = 0$. Ainsi $P = (X-a)Q$, c'est-à-dire $(X-a) \\mid P$. $\\blacksquare$
+
+  ### 5. Multiplicité d'une racine
+
+  **Définition.** $a$ est une racine de **multiplicité** $k \\geq 1$ de $P$ si $(X-a)^k \\mid P$ mais $(X-a)^{k+1} \\nmid P$, c'est-à-dire :
+  $$P = (X-a)^k Q, \\qquad Q(a) \\neq 0$$
+
+  Une racine de multiplicité $1$ est dite **simple**, de multiplicité $2$ **double**, etc.
+
+  **Caractérisation par les dérivées.** $a$ est racine de multiplicité $\\geq k$ de $P$ si et seulement si :
+  $$P(a) = P'(a) = P''(a) = \\cdots = P^{(k-1)}(a) = 0$$
+
+  En particulier, $a$ est racine multiple (multiplicité $\\geq 2$) si et seulement si $P(a) = 0$ et $P'(a) = 0$.
+
+  ### 6. Exemple résolu : détermination de la multiplicité
+
+  **Énoncé.** Étudier les racines de $P(X) = X^3 - 3X^2 + 4$.
+
+  **Solution.** On teste $a=2$ : $P(2) = 8 - 12 + 4 = 0$, donc $2$ est racine.
+
+  On calcule $P'(X) = 3X^2 - 6X$, donc $P'(2) = 12 - 12 = 0$ : la racine $2$ est (au moins) double.
+
+  On calcule $P''(X) = 6X - 6$, donc $P''(2) = 6 \\neq 0$ : la multiplicité de $2$ est exactement $2$.
+
+  On en déduit $P(X) = (X-2)^2 Q(X)$ avec $Q$ de degré $1$. En effectuant la division (ou par identification), $Q(X) = X+1$. On vérifie :
+  $$(X-2)^2(X+1) = (X^2-4X+4)(X+1) = X^3 - 3X^2 + 4$$
+  Donc $P(X) = (X-2)^2(X+1)$, avec racine double $2$ et racine simple $-1$.
+
+  ### 7. Nombre de racines et théorème de d'Alembert-Gauss
+
+  **Théorème.** Un polynôme non nul de degré $n$ possède au plus $n$ racines distinctes dans $\\mathbb{K}$, en comptant chaque racine avec sa multiplicité.
+
+  **Théorème de d'Alembert-Gauss (admis).** Tout polynôme non constant à coefficients complexes possède au moins une racine dans $\\mathbb{C}$. Par récurrence, un polynôme de degré $n$ à coefficients dans $\\mathbb{C}$ admet exactement $n$ racines dans $\\mathbb{C}$, comptées avec multiplicité.
+
+  Ce théorème sera développé dans la leçon suivante sur la factorisation.
+
+  ### 8. Synthèse
+
+  | Notion | Définition |
+  |---|---|
+  | Degré | Plus grand exposant à coefficient non nul |
+  | Racine | $a$ tel que $P(a)=0$ |
+  | Lien racine/facteur | $P(a)=0 \\iff (X-a) \\mid P$ |
+  | Multiplicité $k$ | $(X-a)^k \\mid P$ et $(X-a)^{k+1} \\nmid P$ |
+  | Critère de multiplicité | $P(a)=\\cdots=P^{(k-1)}(a)=0$ et $P^{(k)}(a)\\neq 0$ |`,
+        exercises: [
+          {
+            id: "poly1-l1-1-e1",
+            question: "Quel est le degré du polynôme $P(X) = 5X^4 - 3X^2 + 7$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$4$" },
+              { id: "C", text: "$7$" },
+              { id: "D", text: "$3$" },
+            ],
+            correctId: "B",
+            explanation: "Le degré est l'exposant le plus élevé dont le coefficient est non nul. Ici le terme dominant est $5X^4$, donc $\\deg P = 4$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-1-e2",
+            question: "Soit $P(X) = X^2 - 3X + 2$. Quelle affirmation est correcte ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$ est racine de $P$" },
+              { id: "B", text: "$P(1) = 2$" },
+              { id: "C", text: "$0$ est racine de $P$" },
+              { id: "D", text: "$P$ n'a aucune racine réelle" },
+            ],
+            correctId: "A",
+            explanation: "$P(1) = 1 - 3 + 2 = 0$, donc $1$ est bien racine de $P$. (On a aussi $P(2)=4-6+2=0$, donc $P(X)=(X-1)(X-2)$.)",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-1-e3",
+            question: "Si $\\deg A = 3$ et $\\deg B = 5$, quel est $\\deg(AB)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$15$" },
+              { id: "B", text: "$8$" },
+              { id: "C", text: "$5$" },
+              { id: "D", text: "$2$" },
+            ],
+            correctId: "B",
+            explanation: "Pour des polynômes non nuls, $\\deg(AB) = \\deg A + \\deg B = 3 + 5 = 8$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-1-e4",
+            question: "Vrai ou faux : $\\deg(P+Q)$ est toujours égal à $\\max(\\deg P, \\deg Q)$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "F",
+            explanation: "Faux. Si $\\deg P = \\deg Q$ et que les coefficients dominants sont opposés, ils peuvent s'annuler dans la somme. Par exemple $P=X^2+1$, $Q=-X^2+X$ : $P+Q = X+1$, de degré $1 < 2 = \\max(\\deg P,\\deg Q)$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-1-e5",
+            question: "Le polynôme $P(X) = (X-3)$ divise $Q(X) = X^2 - 9$. Que peut-on en déduire ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$Q(3) = 0$" },
+              { id: "B", text: "$Q(-3) \\neq 0$" },
+              { id: "C", text: "$3$ n'est pas racine de $Q$" },
+              { id: "D", text: "$\\deg Q = 1$" },
+            ],
+            correctId: "A",
+            explanation: "Par le théorème racine-facteur, $(X-3) \\mid Q \\iff Q(3) = 0$. En effet $Q(3) = 9-9=0$. (On a aussi $Q(X)=(X-3)(X+3)$, donc $-3$ est aussi racine.)",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-1-e6",
+            question: "Quelle est la multiplicité de la racine $2$ dans $P(X) = (X-2)^3(X+1)^2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$5$" },
+            ],
+            correctId: "C",
+            explanation: "$P$ est déjà factorisé : l'exposant de $(X-2)$ donne directement la multiplicité de la racine $2$, soit $3$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-1-e7",
+            question: "Soit $P(X) = X^2 - 4X + 4$. Quelle est la multiplicité de sa racine $2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$0$" },
+              { id: "D", text: "On ne peut pas savoir" },
+            ],
+            correctId: "B",
+            explanation: "$P(X) = X^2-4X+4 = (X-2)^2$. On vérifie aussi par les dérivées : $P(2)=0$, $P'(X)=2X-4$ donc $P'(2)=0$, $P''(X)=2\\neq 0$ : multiplicité exactement $2$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-1-e8",
+            question: "Vrai ou faux : un polynôme de degré $4$ à coefficients réels peut n'avoir aucune racine réelle.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Par exemple $P(X) = X^4+1$ n'a aucune racine réelle car $P(x) = x^4+1 \\geq 1 > 0$ pour tout $x \\in \\mathbb{R}$. Ses racines sont complexes.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-1-e9",
+            question: "On sait que $P(X) = X^3+1$ admet $-1$ comme racine. Quel polynôme $Q$ vérifie $P = (X+1)Q$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$Q(X) = X^2-X+1$" },
+              { id: "B", text: "$Q(X) = X^2+X+1$" },
+              { id: "C", text: "$Q(X) = X^2-1$" },
+              { id: "D", text: "$Q(X) = X^2+1$" },
+            ],
+            correctId: "A",
+            explanation: "On vérifie : $(X+1)(X^2-X+1) = X^3-X^2+X+X^2-X+1 = X^3+1$. Donc $Q(X)=X^2-X+1$ (l'identité classique $a^3+b^3=(a+b)(a^2-ab+b^2)$ avec $a=X$, $b=1$).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-1-e10",
+            question: "Combien de racines distinctes au maximum peut avoir un polynôme non nul de degré $7$ dans $\\mathbb{R}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$7$" },
+              { id: "B", text: "$14$" },
+              { id: "C", text: "Une infinité" },
+              { id: "D", text: "$6$" },
+            ],
+            correctId: "A",
+            explanation: "Un polynôme non nul de degré $n$ a au plus $n$ racines distinctes (en comptant sans multiplicité, c'est aussi une borne). Ici $n=7$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-1-e11",
+            question: "Démontrer que si $a$ est racine de $P$ et de $P'$, alors $a$ est racine de multiplicité au moins $2$ de $P$.",
+            type: "open",
+            modelAnswer: "On écrit la division euclidienne de P par (X-a)^2, P=(X-a)^2 Q + bX + c. On dérive et on évalue en a pour montrer b=c=0, donc (X-a)^2 divise P.",
+            explanation: "**Démonstration.** Comme $P(a)=0$, on sait par le théorème racine-facteur que $(X-a) \\mid P$, donc $P = (X-a)R$ pour un polynôme $R$.\n\nOn dérive : $P'(X) = R(X) + (X-a)R'(X)$.\n\nOn évalue en $a$ : $P'(a) = R(a) + 0 = R(a)$.\n\nOr par hypothèse $P'(a) = 0$, donc $R(a) = 0$ : $a$ est racine de $R$.\n\nPar le théorème racine-facteur appliqué à $R$, on a $(X-a) \\mid R$, donc $R = (X-a)S$ pour un polynôme $S$.\n\nFinalement $P = (X-a)R = (X-a)^2 S$, donc $(X-a)^2 \\mid P$ : $a$ est racine de multiplicité au moins $2$. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-1-e12",
+            question: "Quelle est la multiplicité de la racine $1$ dans $P(X) = X^4 - X^3 - 3X^2 + 5X - 2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$4$" },
+            ],
+            correctId: "C",
+            explanation: "$P(1) = 1-1-3+5-2 = 0$. $P'(X)=4X^3-3X^2-6X+5$, $P'(1)=4-3-6+5=0$. $P''(X)=12X^2-6X-6$, $P''(1)=12-6-6=0$. $P'''(X)=24X-6$, $P'''(1)=18\\neq 0$. Donc la multiplicité est exactement $3$ : $P(X)=(X-1)^3(X+2)$.",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-1-e13",
+            question: "Vrai ou faux : si $P \\in \\mathbb{R}[X]$ et $z \\in \\mathbb{C}\\setminus\\mathbb{R}$ est racine de $P$, alors $\\bar{z}$ est aussi racine de $P$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Si $P(X) = \\sum a_i X^i$ avec $a_i \\in \\mathbb{R}$, alors $\\overline{P(z)} = \\sum \\overline{a_i}\\,\\overline{z}^i = \\sum a_i \\bar z^i = P(\\bar z)$ car les $a_i$ sont réels. Si $P(z)=0$ alors $\\overline{P(z)}=0$, donc $P(\\bar z)=0$ : $\\bar z$ est aussi racine.",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-1-e14",
+            question: "Factoriser entièrement $P(X) = X^3 - 2X^2 - X + 2$ sur $\\mathbb{R}$, sachant que $1$ est racine.",
+            type: "open",
+            modelAnswer: "P(1)=0 donc (X-1) divise P. La division donne P=(X-1)(X^2-X-2)=(X-1)(X-2)(X+1).",
+            explanation: "**Solution.** On vérifie $P(1) = 1-2-1+2 = 0$, donc $1$ est racine et $(X-1) \\mid P$.\n\nOn effectue la division euclidienne de $P$ par $(X-1)$ : $X^3-2X^2-X+2 = (X-1)(X^2-X-2)$ (par identification des coefficients : $(X-1)(X^2+bX+c) = X^3+(b-1)X^2+(c-b)X-c$, donc $-c=2 \\Rightarrow c=-2$, $b-1=-2 \\Rightarrow b=-1$, et on vérifie $c-b=-2-(-1)=-1$ ✓).\n\nOn factorise ensuite $X^2-X-2$ : ses racines vérifient $r_1+r_2=1$ et $r_1 r_2=-2$, donc $r_1=2, r_2=-1$. Ainsi $X^2-X-2=(X-2)(X+1)$.\n\nFinalement : $P(X) = (X-1)(X-2)(X+1)$. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-1-e15",
+            question: "Soit $P(X) = (X^2+1)(X-1)^2$. Quel est l'ensemble des racines réelles de $P$ et leur multiplicité ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$, de multiplicité $2$, et c'est la seule racine réelle" },
+              { id: "B", text: "$1$, $i$ et $-i$, toutes de multiplicité $1$" },
+              { id: "C", text: "$1$ de multiplicité $1$ uniquement" },
+              { id: "D", text: "Aucune racine réelle" },
+            ],
+            correctId: "A",
+            explanation: "$X^2+1$ n'a pas de racine réelle (ses racines sont $i$ et $-i$, complexes non réelles). La seule racine réelle de $P$ provient du facteur $(X-1)^2$, donc $1$ est racine réelle de multiplicité $2$, et c'est la seule.",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "poly1-l1-2",
+        slug: "division-euclidienne-factorisation",
+        title: "Division euclidienne et factorisation",
+        durationMinutes: 50,
+        content: `## Division euclidienne et factorisation des polynômes
+
+  ### 1. Théorème de la division euclidienne
+
+  **Théorème.** Soient $A, B \\in \\mathbb{K}[X]$ avec $B \\neq 0$. Il existe un **unique** couple $(Q,R) \\in \\mathbb{K}[X]^2$ tel que :
+  $$A = BQ + R, \\qquad \\deg R < \\deg B$$
+
+  $Q$ est le **quotient** et $R$ le **reste** de la division euclidienne de $A$ par $B$. Si $R = 0$, on dit que $B$ **divise** $A$, noté $B \\mid A$.
+
+  La méthode pratique reprend l'algorithme de division posée, en éliminant à chaque étape le terme de plus haut degré.
+
+  ### 2. Exemple résolu de division euclidienne
+
+  **Énoncé.** Diviser $A(X) = X^4 - 2X^3 + 3X - 1$ par $B(X) = X^2 - X + 1$.
+
+  **Solution.** On pose la division :
+
+  - $X^4 \\div X^2 = X^2$. On calcule $X^2 \\cdot B = X^4 - X^3 + X^2$. Reste partiel : $(X^4-2X^3+3X-1) - (X^4-X^3+X^2) = -X^3 - X^2+3X-1$.
+  - $-X^3 \\div X^2 = -X$. On calcule $-X \\cdot B = -X^3+X^2-X$. Reste partiel : $(-X^3-X^2+3X-1)-(-X^3+X^2-X) = -2X^2+4X-1$.
+  - $-2X^2 \\div X^2 = -2$. On calcule $-2 \\cdot B = -2X^2+2X-2$. Reste partiel : $(-2X^2+4X-1)-(-2X^2+2X-2) = 2X+1$.
+
+  Le degré de $2X+1$ (qui est $1$) étant strictement inférieur à $\\deg B = 2$, on arrête. On obtient :
+  $$Q(X) = X^2 - X - 2, \\qquad R(X) = 2X+1$$
+  $$X^4-2X^3+3X-1 = (X^2-X+1)(X^2-X-2) + (2X+1)$$
+
+  **Vérification :** en développant $(X^2-X+1)(X^2-X-2)$ on retrouve bien $X^4-2X^3+3X-1-(2X+1) = X^4-2X^3-2$, conforme au produit.
+
+  ### 3. Division par $(X-a)$ et schéma de Horner
+
+  Diviser $P$ par $(X-a)$ donne toujours un reste **constant**, égal à $P(a)$ (cf. leçon précédente). C'est le cas particulier le plus utile : si $P(a) = 0$, le quotient $Q$ vérifie $P = (X-a)Q$ et $\\deg Q = \\deg P - 1$.
+
+  ### 4. Théorème de factorisation
+
+  **Théorème.** Tout polynôme $P \\in \\mathbb{K}[X]$ non nul de degré $n \\geq 1$, ayant des racines $a_1, \\ldots, a_p$ (distinctes) de multiplicités respectives $k_1, \\ldots, k_p$, se factorise sous la forme :
+  $$P(X) = a_n (X-a_1)^{k_1}(X-a_2)^{k_2}\\cdots(X-a_p)^{k_p}\\, Q(X)$$
+  où $a_n$ est le coefficient dominant de $P$ et $Q$ n'a aucune racine dans $\\mathbb{K}$, avec $k_1+\\cdots+k_p+\\deg Q = n$.
+
+  **Polynôme scindé.** $P$ est dit **scindé** sur $\\mathbb{K}$ si $Q$ est constant, c'est-à-dire si $P$ se factorise entièrement en facteurs de degré $1$ : $k_1+\\cdots+k_p = n$.
+
+  ### 5. Théorème de d'Alembert-Gauss et conséquences
+
+  **Théorème de d'Alembert-Gauss (admis).** Tout polynôme non constant de $\\mathbb{C}[X]$ admet au moins une racine dans $\\mathbb{C}$.
+
+  **Conséquence 1 : $\\mathbb{C}$ est algébriquement clos.** Tout polynôme de degré $n \\geq 1$ dans $\\mathbb{C}[X]$ est scindé sur $\\mathbb{C}$, c'est-à-dire s'écrit :
+  $$P(X) = a_n \\prod_{i=1}^n (X - z_i)$$
+  où $z_1,\\ldots,z_n \\in \\mathbb{C}$ (non nécessairement distincts) sont ses $n$ racines comptées avec multiplicité.
+
+  **Conséquence 2 : polynômes irréductibles sur $\\mathbb{R}$.** Les polynômes irréductibles de $\\mathbb{R}[X]$ sont exactement :
+  - les polynômes de degré $1$ ;
+  - les polynômes de degré $2$ à discriminant $\\Delta < 0$ (sans racine réelle).
+
+  En effet, tout polynôme réel se factorise sur $\\mathbb{C}$ en facteurs $(X-z_i)$ ; en regroupant chaque racine complexe non réelle avec sa conjuguée (qui est aussi racine, cf. leçon précédente), on obtient des facteurs réels de degré $2$ : $(X-z)(X-\\bar z) = X^2 - 2\\,\\mathrm{Re}(z)\\,X + |z|^2$, à discriminant négatif.
+
+  ### 6. Relations entre coefficients et racines : cas du second degré
+
+  Soit $P(X) = aX^2+bX+c$ ($a\\neq 0$) de racines $r_1, r_2 \\in \\mathbb{C}$ (éventuellement confondues). On a $P(X) = a(X-r_1)(X-r_2) = a\\big(X^2 - (r_1+r_2)X + r_1 r_2\\big)$. Par identification :
+  $$r_1 + r_2 = -\\frac{b}{a} \\qquad r_1 r_2 = \\frac{c}{a}$$
+
+  **Exemple.** Pour $X^2-5X+6$ : on cherche deux nombres de somme $5$ et de produit $6$ : ce sont $2$ et $3$. Donc $X^2-5X+6=(X-2)(X-3)$.
+
+  ### 7. Formules de Viète en degré $n$
+
+  Soit $P(X) = a_n X^n + \\cdots + a_0 = a_n(X-r_1)\\cdots(X-r_n)$, racines $r_1,\\ldots,r_n \\in \\mathbb{C}$. En notant $\\sigma_k$ la $k$-ième fonction symétrique élémentaire des racines (somme de tous les produits de $k$ racines distinctes), les **formules de Viète** donnent :
+  $$\\sigma_k = (-1)^k \\frac{a_{n-k}}{a_n}, \\qquad k=1,\\ldots,n$$
+
+  En particulier $\\sigma_1 = r_1+\\cdots+r_n = -\\dfrac{a_{n-1}}{a_n}$ et $\\sigma_n = r_1 r_2\\cdots r_n = (-1)^n \\dfrac{a_0}{a_n}$.
+
+  **Exemple résolu (degré 3).** Pour $P(X) = X^3-2X^2-5X+6$, qui admet pour racines $1, -2, 3$ (on vérifie $P(1)=1-2-5+6=0$, $P(-2)=-8-8+10+6=0$, $P(3)=27-18-15+6=0$) :
+  $$\\sigma_1 = 1+(-2)+3 = 2 = -\\frac{-2}{1} \\checkmark \\qquad \\sigma_3 = 1\\times(-2)\\times 3 = -6 = (-1)^3\\frac{6}{1} \\checkmark$$
+
+  ### 8. Synthèse
+
+  | Résultat | Énoncé |
+  |---|---|
+  | Division euclidienne | $A = BQ+R$, $\\deg R < \\deg B$, unique |
+  | Division par $(X-a)$ | reste constant $=P(a)$ |
+  | d'Alembert-Gauss | tout $P\\in\\mathbb{C}[X]$ non constant a une racine dans $\\mathbb{C}$ |
+  | Irréductibles sur $\\mathbb{R}$ | degré $1$, ou degré $2$ à $\\Delta<0$ |
+  | Viète (degré 2) | $r_1+r_2=-b/a$, $r_1r_2=c/a$ |
+  | Viète (degré $n$) | $\\sigma_k = (-1)^k a_{n-k}/a_n$ |`,
+        exercises: [
+          {
+            id: "poly1-l1-2-e1",
+            question: "Dans la division euclidienne $A = BQ+R$, quelle condition doit vérifier $R$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\deg R < \\deg B$" },
+              { id: "B", text: "$\\deg R = \\deg B$" },
+              { id: "C", text: "$\\deg R < \\deg A$" },
+              { id: "D", text: "$R = 0$ obligatoirement" },
+            ],
+            correctId: "A",
+            explanation: "Par définition de la division euclidienne, le reste $R$ doit vérifier $\\deg R < \\deg B$ (et $R$ peut être nul).",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-2-e2",
+            question: "Quel est le reste de la division euclidienne de $P(X)=X^3-2X+5$ par $(X-1)$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$4$" },
+              { id: "B", text: "$0$" },
+              { id: "C", text: "$5$" },
+              { id: "D", text: "$-2$" },
+            ],
+            correctId: "A",
+            explanation: "Le reste de la division par $(X-a)$ est toujours $P(a)$. Ici $P(1) = 1-2+5 = 4$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-2-e3",
+            question: "Pour $P(X) = X^2-7X+10$, quelle est la somme des racines ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$10$" },
+              { id: "B", text: "$7$" },
+              { id: "C", text: "$-7$" },
+              { id: "D", text: "$2$" },
+            ],
+            correctId: "B",
+            explanation: "Pour $aX^2+bX+c$, la somme des racines vaut $-b/a$. Ici $a=1, b=-7$, donc $r_1+r_2 = -(-7)/1 = 7$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-2-e4",
+            question: "Vrai ou faux : un polynôme de degré $2$ à discriminant strictement négatif est irréductible sur $\\mathbb{R}$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Un polynôme de degré 2 sans racine réelle (donc $\\Delta<0$) ne peut pas se factoriser en deux facteurs de degré 1 réels, donc il est irréductible sur $\\mathbb{R}$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-2-e5",
+            question: "Quel est le produit des racines de $P(X) = 2X^2+3X-5$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-\\dfrac{5}{2}$" },
+              { id: "B", text: "$-\\dfrac{3}{2}$" },
+              { id: "C", text: "$\\dfrac{5}{2}$" },
+              { id: "D", text: "$5$" },
+            ],
+            correctId: "A",
+            explanation: "Le produit des racines vaut $c/a = -5/2$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-2-e6",
+            question: "Effectuer la division euclidienne de $A(X)=X^4+X^3-3X^2-4X-1$ par $B(X)=X^2+X-2$. Quel est le quotient ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$X^2-1$" },
+              { id: "B", text: "$X^2+1$" },
+              { id: "C", text: "$X^2-X-1$" },
+              { id: "D", text: "$X^2+X-1$" },
+            ],
+            correctId: "A",
+            explanation: "En posant la division : $X^4\\div X^2=X^2$, reste partiel $X^4+X^3-3X^2-4X-1-X^2(X^2+X-2)=-X^2-4X-1$, puis $-X^2\\div X^2=-1$, reste $-X^2-4X-1-(-1)(X^2+X-2)=-3X-3$, de degré $<2$. Donc $Q(X)=X^2-1$ et $R(X)=-3X-3$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-2-e7",
+            question: "Avec les données de l'exercice précédent (division de $X^4+X^3-3X^2-4X-1$ par $X^2+X-2$), quel est le reste ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$-3X-3$" },
+              { id: "B", text: "$3X+3$" },
+              { id: "C", text: "$-3X+3$" },
+              { id: "D", text: "$0$" },
+            ],
+            correctId: "A",
+            explanation: "D'après le calcul de la division, $R(X) = -3X-3$, de degré $1 < \\deg B = 2$. On vérifie : $(X^2-1)(X^2+X-2) + (-3X-3) = X^4+X^3-3X^2-4X-1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-2-e8",
+            question: "Soit $P(X)=X^3-6X^2+11X-6$, sachant que $1$, $2$, $3$ sont ses racines. Vérifier la formule de Viète pour $\\sigma_2$ (somme des produits deux à deux).",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\sigma_2 = 11$" },
+              { id: "B", text: "$\\sigma_2 = 6$" },
+              { id: "C", text: "$\\sigma_2 = -11$" },
+              { id: "D", text: "$\\sigma_2 = -6$" },
+            ],
+            correctId: "A",
+            explanation: "$\\sigma_2 = r_1r_2+r_1r_3+r_2r_3 = 1\\times2+1\\times3+2\\times3 = 2+3+6=11$. La formule de Viète donne $\\sigma_2 = (-1)^2 a_{1}/a_3 = 11/1=11$ ✓ (coefficient de $X$ dans $P$ est $11$).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-2-e9",
+            question: "Vrai ou faux : tout polynôme de $\\mathbb{R}[X]$ de degré impair admet au moins une racine réelle.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Les racines complexes non réelles d'un polynôme réel viennent par paires conjuguées, donc en nombre pair. Comme le degré (impair) est la somme du nombre de racines réelles et du nombre de racines complexes non réelles (pair), le nombre de racines réelles est nécessairement impair, donc au moins $1$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-2-e10",
+            question: "Le polynôme $X^2+4$ est-il irréductible sur $\\mathbb{R}$ ? Et sur $\\mathbb{C}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Irréductible sur $\\mathbb{R}$, réductible sur $\\mathbb{C}$" },
+              { id: "B", text: "Réductible sur $\\mathbb{R}$ et sur $\\mathbb{C}$" },
+              { id: "C", text: "Irréductible sur $\\mathbb{R}$ et sur $\\mathbb{C}$" },
+              { id: "D", text: "Réductible sur $\\mathbb{R}$, irréductible sur $\\mathbb{C}$" },
+            ],
+            correctId: "A",
+            explanation: "$X^2+4$ a pour discriminant $\\Delta=-16<0$ : pas de racine réelle, donc irréductible sur $\\mathbb{R}$ (degré 2 sans racine réelle). Mais sur $\\mathbb{C}$, il se factorise : $X^2+4=(X-2i)(X+2i)$, donc réductible sur $\\mathbb{C}$ (tout polynôme de degré $\\geq 2$ est réductible sur $\\mathbb{C}$, qui est algébriquement clos).",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-2-e11",
+            question: "Démontrer le théorème de la division euclidienne par $(X-a)$ : montrer que le reste de la division de $P$ par $(X-a)$ vaut $P(a)$.",
+            type: "open",
+            modelAnswer: "On écrit P=(X-a)Q+R avec R constant car deg(X-a)=1. On evalue en a: P(a)=R.",
+            explanation: "**Démonstration.** Par le théorème de la division euclidienne, il existe $Q$ et $R$ tels que $P = (X-a)Q + R$ avec $\\deg R < \\deg(X-a) = 1$. Donc $R$ est un polynôme constant, $R = c$ pour un certain $c \\in \\mathbb{K}$.\n\nOn évalue cette égalité en $X=a$ :\n$$P(a) = (a-a)Q(a) + c = 0 + c = c$$\n\nDonc $R = P(a)$, ce qui est le résultat annoncé. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-2-e12",
+            question: "Factoriser sur $\\mathbb{R}$ le polynôme $P(X) = X^4-1$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$(X-1)(X+1)(X^2+1)$" },
+              { id: "B", text: "$(X-1)^2(X+1)^2$" },
+              { id: "C", text: "$(X^2-1)^2$" },
+              { id: "D", text: "$(X-1)(X+1)(X-i)(X+i)$" },
+            ],
+            correctId: "A",
+            explanation: "$X^4-1 = (X^2-1)(X^2+1) = (X-1)(X+1)(X^2+1)$. Le facteur $X^2+1$ est irréductible sur $\\mathbb{R}$ (discriminant $-4<0$), donc cette factorisation est complète sur $\\mathbb{R}$. (L'option D est la factorisation sur $\\mathbb{C}$, pas sur $\\mathbb{R}$.)",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-2-e13",
+            question: "Vrai ou faux : si $P\\in\\mathbb{C}[X]$ est de degré $n$, alors $P$ admet exactement $n$ racines complexes comptées avec multiplicité.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai, c'est une conséquence directe du théorème de d'Alembert-Gauss : $\\mathbb{C}$ étant algébriquement clos, $P$ est scindé sur $\\mathbb{C}$, donc s'écrit $a_n\\prod_{i=1}^n(X-z_i)$, ce qui donne exactement $n$ racines comptées avec multiplicité.",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-2-e14",
+            question: "Soit $P(X)=X^3+pX+q$ ($\\mathbb{K}=\\mathbb{C}$) de racines $r_1,r_2,r_3$. Exprimer $r_1^2+r_2^2+r_3^2$ en fonction de $p$ et $q$.",
+            type: "open",
+            modelAnswer: "Par Viete sigma1=0 et sigma2=p. r1²+r2²+r3²=sigma1²-2sigma2=-2p.",
+            explanation: "**Solution.** Le polynôme $P(X)=X^3+0\\cdot X^2+pX+q$ a pour coefficients $a_3=1$, $a_2=0$, $a_1=p$, $a_0=q$.\n\nLes formules de Viète donnent : $\\sigma_1 = r_1+r_2+r_3 = -a_2/a_3 = 0$ et $\\sigma_2 = r_1r_2+r_1r_3+r_2r_3 = a_1/a_3 = p$.\n\nOn utilise l'identité algébrique : $r_1^2+r_2^2+r_3^2 = (r_1+r_2+r_3)^2 - 2(r_1r_2+r_1r_3+r_2r_3) = \\sigma_1^2 - 2\\sigma_2$.\n\nEn substituant : $r_1^2+r_2^2+r_3^2 = 0^2 - 2p = -2p$. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-2-e15",
+            question: "Le polynôme $P(X) = X^3 - 3X^2 + 3X - 1$ a une unique racine. Quelle est sa multiplicité ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "Il y a en fait trois racines distinctes" },
+            ],
+            correctId: "C",
+            explanation: "On reconnaît l'identité remarquable $P(X) = (X-1)^3 = X^3-3X^2+3X-1$. La racine $1$ est donc de multiplicité $3$, ce qui sature le degré du polynôme (cohérent avec d'Alembert-Gauss : $3$ racines comptées avec multiplicité).",
+            difficulty: "expert",
+          },
+        ],
+      },
+      {
+        id: "poly1-l1-3",
+        slug: "fractions-rationnelles-elements-simples",
+        title: "Fractions rationnelles et décomposition en éléments simples",
+        durationMinutes: 50,
+        content: `## Fractions rationnelles et décomposition en éléments simples
+
+  ### 1. Définition d'une fraction rationnelle
+
+  Une **fraction rationnelle** est le quotient de deux polynômes $A, B \\in \\mathbb{K}[X]$ avec $B \\neq 0$ :
+  $$F(X) = \\frac{A(X)}{B(X)}$$
+
+  L'ensemble des fractions rationnelles est noté $\\mathbb{K}(X)$. On suppose toujours $F$ écrite **sous forme irréductible**, c'est-à-dire que $A$ et $B$ n'ont aucune racine commune (sinon on simplifie par les facteurs communs).
+
+  ### 2. Pôles d'une fraction rationnelle
+
+  **Définition.** Un **pôle** de $F = A/B$ (sous forme irréductible) est une racine $a$ du dénominateur $B$. L'**ordre du pôle** $a$ est la multiplicité de $a$ comme racine de $B$.
+
+  Un pôle d'ordre $1$ est dit **simple**, d'ordre $2$ **double**, etc. Le domaine de définition de $F$ est $\\mathbb{K}$ privé de ses pôles.
+
+  **Exemple.** $F(X) = \\dfrac{X+1}{(X-2)(X+3)^2}$ a un pôle simple en $2$ et un pôle double en $-3$.
+
+  ### 3. Partie entière (division euclidienne)
+
+  Si $\\deg A \\geq \\deg B$, on effectue la division euclidienne $A = BQ+R$ avec $\\deg R < \\deg B$, ce qui donne :
+  $$F(X) = \\frac{A(X)}{B(X)} = Q(X) + \\frac{R(X)}{B(X)}$$
+
+  $Q$ est la **partie entière** de $F$, et $R/B$ est une fraction rationnelle dont le numérateur est de degré strictement inférieur à celui du dénominateur. Si $\\deg A < \\deg B$, la partie entière est nulle.
+
+  **Exemple.** $F(X) = \\dfrac{X^3+1}{X^2-1}$. La division de $X^3+1$ par $X^2-1$ donne quotient $X$ et reste $X+1$ (en effet $X(X^2-1)=X^3-X$, et $X^3+1-(X^3-X)=X+1$). Donc :
+  $$F(X) = X + \\frac{X+1}{X^2-1} = X + \\frac{X+1}{(X-1)(X+1)} = X + \\frac{1}{X-1}$$
+  en simplifiant le facteur commun $(X+1)$ au numérateur et au dénominateur de la fraction restante.
+
+  ### 4. Théorème de décomposition en éléments simples (cas réel)
+
+  **Théorème.** Toute fraction rationnelle $F=A/B \\in \\mathbb{R}(X)$ irréductible, avec $B$ factorisé en facteurs irréductibles réels :
+  $$B(X) = \\prod_i (X-a_i)^{k_i} \\cdot \\prod_j (X^2+b_jX+c_j)^{m_j}$$
+  se décompose de manière **unique** sous la forme :
+  $$F(X) = Q(X) + \\sum_i \\sum_{\\ell=1}^{k_i} \\frac{\\alpha_{i,\\ell}}{(X-a_i)^\\ell} + \\sum_j \\sum_{\\ell=1}^{m_j} \\frac{\\beta_{j,\\ell} X + \\gamma_{j,\\ell}}{(X^2+b_jX+c_j)^\\ell}$$
+  où $Q$ est la partie entière, $\\alpha_{i,\\ell} \\in \\mathbb{R}$ et $(\\beta_{j,\\ell},\\gamma_{j,\\ell}) \\in \\mathbb{R}^2$.
+
+  Dans ce cours, on se concentre sur le cas où tous les pôles sont **réels** (les facteurs de degré $2$ irréductibles ne sont pas traités en détail).
+
+  ### 5. Cas des pôles simples : méthode de substitution
+
+  Si $a$ est un pôle simple de $F=A/B$, le coefficient $\\alpha$ associé au terme $\\dfrac{\\alpha}{X-a}$ se calcule par :
+  $$\\alpha = \\frac{A(a)}{B'(a)} \\qquad \\text{ou de façon équivalente} \\qquad \\alpha = \\lim_{X\\to a} (X-a)F(X)$$
+
+  C'est la **méthode de substitution** (multiplier par $(X-a)$ puis évaluer en $a$, après avoir simplifié le facteur $(X-a)$ au dénominateur).
+
+  ### 6. Exemple résolu : pôles simples par substitution
+
+  **Énoncé.** Décomposer $F(X) = \\dfrac{3X+5}{(X-1)(X+2)}$ en éléments simples sur $\\mathbb{R}$.
+
+  **Solution.** $\\deg(\\text{numérateur}) = 1 < 2 = \\deg(\\text{dénominateur})$, donc pas de partie entière. On pose :
+  $$F(X) = \\frac{\\alpha}{X-1} + \\frac{\\beta}{X+2}$$
+
+  **Calcul de $\\alpha$ :** on multiplie par $(X-1)$ et on évalue en $X=1$ :
+  $$\\alpha = \\left.\\frac{3X+5}{X+2}\\right|_{X=1} = \\frac{8}{3}$$
+
+  **Calcul de $\\beta$ :** on multiplie par $(X+2)$ et on évalue en $X=-2$ :
+  $$\\beta = \\left.\\frac{3X+5}{X-1}\\right|_{X=-2} = \\frac{-1}{-3} = \\frac{1}{3}$$
+
+  Donc :
+  $$F(X) = \\frac{8/3}{X-1} + \\frac{1/3}{X+2} = \\frac{8}{3(X-1)} + \\frac{1}{3(X+2)}$$
+
+  **Vérification.** En réduisant au même dénominateur : $\\dfrac{8(X+2)+1(X-1)}{3(X-1)(X+2)} = \\dfrac{9X+15}{3(X-1)(X+2)} = \\dfrac{3X+5}{(X-1)(X+2)}$ ✓
+
+  ### 7. Méthode des coefficients indéterminés (avec pôle multiple)
+
+  Quand un pôle est multiple, la substitution seule ne donne pas tous les coefficients : on combine substitution et identification.
+
+  **Exemple résolu.** Décomposer $F(X) = \\dfrac{4X-2}{(X+1)^2(X-2)}$.
+
+  On pose $F(X) = \\dfrac{\\alpha}{X+1} + \\dfrac{\\beta}{(X+1)^2} + \\dfrac{\\gamma}{X-2}$.
+
+  **$\\beta$ par substitution** (pôle double, on multiplie par $(X+1)^2$ et on évalue en $-1$) : $\\beta = \\dfrac{4(-1)-2}{-1-2} = \\dfrac{-6}{-3} = 2$.
+
+  **$\\gamma$ par substitution** (multiplier par $(X-2)$, évaluer en $2$) : $\\gamma = \\dfrac{4(2)-2}{(2+1)^2} = \\dfrac{6}{9} = \\dfrac{2}{3}$.
+
+  **$\\alpha$ par identification :** on utilise une valeur particulière, par exemple $X=0$ :
+  $$F(0) = \\frac{-2}{1\\times(-2)} = 1 = \\alpha + \\beta\\cdot 1 + \\frac{\\gamma}{-2} = \\alpha + 2 - \\frac{1}{3}$$
+  donc $\\alpha = 1 - 2 + \\dfrac{1}{3} = -\\dfrac{2}{3}$.
+
+  Finalement : $F(X) = \\dfrac{-2/3}{X+1} + \\dfrac{2}{(X+1)^2} + \\dfrac{2/3}{X-2}$.
+
+  ### 8. Méthode pratique : résumé des étapes
+
+  1. Vérifier que $F=A/B$ est irréductible (sinon simplifier).
+  2. Si $\\deg A \\geq \\deg B$, extraire la partie entière par division euclidienne.
+  3. Factoriser le dénominateur en facteurs irréductibles sur $\\mathbb{R}$.
+  4. Écrire la forme générale de la décomposition (un terme par puissance de chaque facteur).
+  5. Calculer les coefficients des pôles simples par substitution ; pour les pôles multiples, combiner substitution (puissance la plus haute) et identification (valeurs particulières ou comparaison des coefficients) pour les autres.
+  6. Vérifier en réduisant au même dénominateur.
+
+  ### 9. Synthèse
+
+  | Notion | Définition / formule |
+  |---|---|
+  | Pôle d'ordre $k$ | racine d'ordre $k$ du dénominateur (irréductible) |
+  | Partie entière | quotient de la division euclidienne $A$ par $B$ |
+  | Pôle simple $a$ | coefficient $\\alpha = A(a)/B'(a)$ |
+  | Décomposition (réel) | somme de termes $\\dfrac{\\alpha}{(X-a)^\\ell}$ et $\\dfrac{\\beta X+\\gamma}{(X^2+bX+c)^\\ell}$ |`,
+        exercises: [
+          {
+            id: "poly1-l1-3-e1",
+            question: "Quels sont les pôles de $F(X) = \\dfrac{X+1}{(X-2)(X+5)}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$ et $-5$" },
+              { id: "B", text: "$-2$ et $5$" },
+              { id: "C", text: "$-1$ uniquement" },
+              { id: "D", text: "$2$, $-5$ et $-1$" },
+            ],
+            correctId: "A",
+            explanation: "Les pôles sont les racines du dénominateur $(X-2)(X+5)$, à savoir $2$ et $-5$. La racine $-1$ du numérateur n'est pas un pôle (elle annule $F$, ce n'est pas un point hors du domaine).",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-3-e2",
+            question: "La fraction $F(X) = \\dfrac{1}{(X-3)^2}$ a un pôle en $3$. Quel est son ordre ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$0$" },
+            ],
+            correctId: "B",
+            explanation: "L'ordre du pôle est la multiplicité de la racine au dénominateur. Ici $(X-3)^2$ donne une racine $3$ de multiplicité $2$ : pôle double.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-3-e3",
+            question: "$F(X) = \\dfrac{X^2+1}{X-1}$. A-t-elle une partie entière non nulle ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "Oui, car $\\deg(\\text{num}) \\geq \\deg(\\text{dénom})$" },
+              { id: "B", text: "Non, car le numérateur n'a pas de racine réelle" },
+              { id: "C", text: "Non, la fraction est déjà sous forme simple" },
+              { id: "D", text: "On ne peut pas savoir sans factoriser" },
+            ],
+            correctId: "A",
+            explanation: "Le numérateur est de degré $2$, le dénominateur de degré $1$ : $2 \\geq 1$, donc il y a bien une partie entière (un quotient de division euclidienne non nul).",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-3-e4",
+            question: "Vrai ou faux : pour calculer le coefficient d'un pôle simple $a$ par substitution, on utilise $\\alpha = \\lim_{X\\to a}(X-a)F(X)$.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai. Multiplier $F$ par $(X-a)$ élimine le pôle en $a$ dans le terme correspondant, et tous les autres termes de la décomposition s'annulent en $X=a$ (ou restent finis), donc évaluer en $a$ donne directement $\\alpha$.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-3-e5",
+            question: "On décompose $F(X) = \\dfrac{A}{(X-1)(X+1)}$ en $\\dfrac{\\alpha}{X-1}+\\dfrac{\\beta}{X+1}$. Combien de coefficients inconnus faut-il déterminer ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$1$" },
+              { id: "B", text: "$2$" },
+              { id: "C", text: "$3$" },
+              { id: "D", text: "$4$" },
+            ],
+            correctId: "B",
+            explanation: "Il y a deux pôles simples, donc deux coefficients $\\alpha$ et $\\beta$ à déterminer.",
+            difficulty: "debutant",
+          },
+          {
+            id: "poly1-l1-3-e6",
+            question: "Décomposer $F(X) = \\dfrac{3X+5}{(X-1)(X+2)}$ en éléments simples. Quel est le coefficient associé au pôle $X=1$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{8}{3}$" },
+              { id: "B", text: "$\\dfrac{1}{3}$" },
+              { id: "C", text: "$8$" },
+              { id: "D", text: "$3$" },
+            ],
+            correctId: "A",
+            explanation: "Par substitution : $\\alpha = \\left.\\dfrac{3X+5}{X+2}\\right|_{X=1} = \\dfrac{3+5}{1+2} = \\dfrac{8}{3}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-3-e7",
+            question: "Pour la même fraction $F(X) = \\dfrac{3X+5}{(X-1)(X+2)}$, quel est le coefficient associé au pôle $X=-2$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{1}{3}$" },
+              { id: "B", text: "$-\\dfrac{1}{3}$" },
+              { id: "C", text: "$\\dfrac{8}{3}$" },
+              { id: "D", text: "$1$" },
+            ],
+            correctId: "A",
+            explanation: "Par substitution : $\\beta = \\left.\\dfrac{3X+5}{X-1}\\right|_{X=-2} = \\dfrac{-6+5}{-2-1} = \\dfrac{-1}{-3} = \\dfrac{1}{3}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-3-e8",
+            question: "Calculer la partie entière de $F(X) = \\dfrac{X^3+1}{X^2-1}$.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$X$" },
+              { id: "B", text: "$X+1$" },
+              { id: "C", text: "$X^2$" },
+              { id: "D", text: "$1$" },
+            ],
+            correctId: "A",
+            explanation: "La division euclidienne de $X^3+1$ par $X^2-1$ donne $X^3+1 = X(X^2-1) + (X+1)$ (on vérifie : $X(X^2-1)=X^3-X$, et $X^3+1-(X^3-X)=X+1$). Le quotient, donc la partie entière, est $X$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-3-e9",
+            question: "Simplifier $F(X) = \\dfrac{X^3+1}{X^2-1}$ sous la forme partie entière + élément simple.",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$X + \\dfrac{1}{X-1}$" },
+              { id: "B", text: "$X + \\dfrac{1}{X+1}$" },
+              { id: "C", text: "$X+1+\\dfrac{1}{X-1}$" },
+              { id: "D", text: "$X - \\dfrac{1}{X-1}$" },
+            ],
+            correctId: "A",
+            explanation: "D'après l'exercice précédent, $F(X)=X+\\dfrac{X+1}{X^2-1}$. Comme $X^2-1=(X-1)(X+1)$, on simplifie le facteur commun $(X+1)$ au numérateur et au dénominateur : $\\dfrac{X+1}{(X-1)(X+1)}=\\dfrac{1}{X-1}$. Donc $F(X)=X+\\dfrac{1}{X-1}$.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-3-e10",
+            question: "Vrai ou faux : la décomposition en éléments simples d'une fraction rationnelle réelle donnée est unique.",
+            type: "true_false",
+            options: [{ id: "V", text: "Vrai" }, { id: "F", text: "Faux" }],
+            correctId: "V",
+            explanation: "Vrai, c'est le contenu du théorème de décomposition en éléments simples : pour une fraction irréductible donnée, la partie entière et tous les coefficients des éléments simples sont uniquement déterminés.",
+            difficulty: "intermediaire",
+          },
+          {
+            id: "poly1-l1-3-e11",
+            question: "Décomposer en éléments simples $F(X) = \\dfrac{2X^2+3X-1}{(X-1)(X+1)(X+2)}$ et donner les trois coefficients (justifier par substitution).",
+            type: "open",
+            modelAnswer: "alpha (pole 1) = 2/3, beta (pole -1) = 1, gamma (pole -2) = 1/3, calcules par substitution.",
+            explanation: "**Solution.** On pose $F(X) = \\dfrac{\\alpha}{X-1}+\\dfrac{\\beta}{X+1}+\\dfrac{\\gamma}{X+2}$.\n\n**Coefficient $\\alpha$ (pôle $1$) :** $\\alpha = \\left.\\dfrac{2X^2+3X-1}{(X+1)(X+2)}\\right|_{X=1} = \\dfrac{2+3-1}{2\\times 3} = \\dfrac{4}{6} = \\dfrac{2}{3}$.\n\n**Coefficient $\\beta$ (pôle $-1$) :** $\\beta = \\left.\\dfrac{2X^2+3X-1}{(X-1)(X+2)}\\right|_{X=-1} = \\dfrac{2-3-1}{(-2)(1)} = \\dfrac{-2}{-2} = 1$.\n\n**Coefficient $\\gamma$ (pôle $-2$) :** $\\gamma = \\left.\\dfrac{2X^2+3X-1}{(X-1)(X+1)}\\right|_{X=-2} = \\dfrac{8-6-1}{(-3)(-1)} = \\dfrac{1}{3}$.\n\nDonc $F(X) = \\dfrac{2/3}{X-1}+\\dfrac{1}{X+1}+\\dfrac{1/3}{X+2}$. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-3-e12",
+            question: "Pour $F(X) = \\dfrac{4X-2}{(X+1)^2(X-2)}$, le coefficient du terme $\\dfrac{\\beta}{(X+1)^2}$ (pôle double, puissance maximale) vaut :",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$2$" },
+              { id: "B", text: "$-2$" },
+              { id: "C", text: "$\\dfrac{2}{3}$" },
+              { id: "D", text: "$1$" },
+            ],
+            correctId: "A",
+            explanation: "On multiplie par $(X+1)^2$ et on évalue en $X=-1$ : $\\beta = \\left.\\dfrac{4X-2}{X-2}\\right|_{X=-1} = \\dfrac{-4-2}{-1-2} = \\dfrac{-6}{-3} = 2$.",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-3-e13",
+            question: "Toujours pour $F(X) = \\dfrac{4X-2}{(X+1)^2(X-2)} = \\dfrac{\\alpha}{X+1}+\\dfrac{2}{(X+1)^2}+\\dfrac{\\gamma}{X-2}$, quelle est la valeur de $\\gamma$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{2}{3}$" },
+              { id: "B", text: "$-\\dfrac{2}{3}$" },
+              { id: "C", text: "$2$" },
+              { id: "D", text: "$\\dfrac{1}{3}$" },
+            ],
+            correctId: "A",
+            explanation: "On multiplie par $(X-2)$ et on évalue en $X=2$ : $\\gamma = \\left.\\dfrac{4X-2}{(X+1)^2}\\right|_{X=2} = \\dfrac{8-2}{9} = \\dfrac{6}{9} = \\dfrac{2}{3}$.",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-3-e14",
+            question: "Pour la même fraction, déterminer $\\alpha$ en utilisant la valeur en $X=0$ : $F(0) = 1$.",
+            type: "open",
+            modelAnswer: "F(0) = alpha + beta - gamma/2 = 1, avec beta=2 et gamma=2/3, on resout alpha = -2/3.",
+            explanation: "**Solution.** On a établi $\\beta = 2$ et $\\gamma = \\dfrac{2}{3}$. On évalue la décomposition en $X=0$ :\n$$F(0) = \\frac{\\alpha}{1} + \\frac{2}{1} + \\frac{2/3}{-2} = \\alpha + 2 - \\frac{1}{3}$$\nOr directement, $F(0) = \\dfrac{4(0)-2}{(0+1)^2(0-2)} = \\dfrac{-2}{-2} = 1$.\n\nOn résout : $1 = \\alpha + 2 - \\dfrac{1}{3} \\Rightarrow \\alpha = 1 - 2 + \\dfrac{1}{3} = -\\dfrac{2}{3}$.\n\nDonc $F(X) = \\dfrac{-2/3}{X+1} + \\dfrac{2}{(X+1)^2} + \\dfrac{2/3}{X-2}$. $\\blacksquare$",
+            difficulty: "expert",
+          },
+          {
+            id: "poly1-l1-3-e15",
+            question: "Quelle est la décomposition en éléments simples de $F(X) = \\dfrac{5X-1}{X^2-1}$ ?",
+            type: "mcq",
+            options: [
+              { id: "A", text: "$\\dfrac{3}{X+1}+\\dfrac{2}{X-1}$" },
+              { id: "B", text: "$\\dfrac{2}{X+1}+\\dfrac{3}{X-1}$" },
+              { id: "C", text: "$\\dfrac{2}{X-1}-\\dfrac{3}{X+1}$" },
+              { id: "D", text: "$\\dfrac{5}{X+1}-\\dfrac{1}{X-1}$" },
+            ],
+            correctId: "A",
+            explanation: "On écrit $\\dfrac{5X-1}{(X-1)(X+1)} = \\dfrac{\\alpha}{X-1}+\\dfrac{\\beta}{X+1}$. Par substitution : $\\alpha = \\left.\\dfrac{5X-1}{X+1}\\right|_{X=1} = \\dfrac{4}{2}=2$, et $\\beta = \\left.\\dfrac{5X-1}{X-1}\\right|_{X=-1} = \\dfrac{-6}{-2}=3$. Donc $F(X)=\\dfrac{2}{X-1}+\\dfrac{3}{X+1}$, soit $\\dfrac{3}{X+1}+\\dfrac{2}{X-1}$ (option A).",
             difficulty: "expert",
           },
         ],
