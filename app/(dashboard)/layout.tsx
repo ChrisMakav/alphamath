@@ -29,7 +29,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
-      <Navbar />
+      <Navbar isAuthenticated />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar userName={userName} userLevel={userLevel} />
         <main className="flex-1 overflow-y-auto" style={{ background: "var(--am-bg)" }}>

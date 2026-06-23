@@ -1,10 +1,14 @@
 import React from "react";
 import { Navbar } from "../components/ui/Navbar";
+import { createClient } from "../../lib/supabase/server";
 
-export default function MarketingLayout({ children }: { children: React.ReactNode }) {
+export default async function MarketingLayout({ children }: { children: React.ReactNode }) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={!!user} />
       <main className="flex-1">{children}</main>
       <footer
         className="mt-20 py-12 px-6"

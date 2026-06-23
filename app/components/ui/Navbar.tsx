@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_LINKS = [
   { label: "Cours",      href: "/courses" },
@@ -8,14 +9,18 @@ const NAV_LINKS = [
   { label: "Formules",   href: "/formulas" },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  isAuthenticated?: boolean;
+}
+
+export function Navbar({ isAuthenticated = false }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <header
       className="sticky top-0 z-50 w-full"
       style={{
-        background: "rgba(8,9,14,0.8)",
+        background: "var(--am-nav-bg)",
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid var(--am-border-subtle)",
       }}
@@ -47,31 +52,41 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-2">
-          <a href="/login"><Button variant="ghost" size="sm">Connexion</Button></a>
-          <a href="/register"><Button variant="primary" size="sm">S'inscrire</Button></a>
+          <ThemeToggle />
+          {isAuthenticated ? (
+            <a href="/dashboard"><Button variant="outline" size="sm">Tableau de bord</Button></a>
+          ) : (
+            <>
+              <a href="/login"><Button variant="ghost" size="sm">Connexion</Button></a>
+              <a href="/register"><Button variant="primary" size="sm">S'inscrire</Button></a>
+            </>
+          )}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 rounded-lg text-[var(--am-text-secondary)] hover:text-[var(--am-text)] hover:bg-[var(--am-bg-elevated)]"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-            {open ? (
-              <>
-                <line x1="3" y1="3" x2="15" y2="15" />
-                <line x1="15" y1="3" x2="3" y2="15" />
-              </>
-            ) : (
-              <>
-                <line x1="2" y1="5" x2="16" y2="5" />
-                <line x1="2" y1="9" x2="16" y2="9" />
-                <line x1="2" y1="13" x2="16" y2="13" />
-              </>
-            )}
-          </svg>
-        </button>
+        {/* Mobile actions */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="p-2 rounded-lg text-[var(--am-text-secondary)] hover:text-[var(--am-text)] hover:bg-[var(--am-bg-elevated)]"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+              {open ? (
+                <>
+                  <line x1="3" y1="3" x2="15" y2="15" />
+                  <line x1="15" y1="3" x2="3" y2="15" />
+                </>
+              ) : (
+                <>
+                  <line x1="2" y1="5" x2="16" y2="5" />
+                  <line x1="2" y1="9" x2="16" y2="9" />
+                  <line x1="2" y1="13" x2="16" y2="13" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -90,8 +105,14 @@ export function Navbar() {
             </a>
           ))}
           <div className="flex gap-2 mt-2">
-            <a href="/login" className="flex-1"><Button variant="ghost" size="sm" full>Connexion</Button></a>
-            <a href="/register" className="flex-1"><Button variant="primary" size="sm" full>S'inscrire</Button></a>
+            {isAuthenticated ? (
+              <a href="/dashboard" className="flex-1"><Button variant="outline" size="sm" full>Tableau de bord</Button></a>
+            ) : (
+              <>
+                <a href="/login" className="flex-1"><Button variant="ghost" size="sm" full>Connexion</Button></a>
+                <a href="/register" className="flex-1"><Button variant="primary" size="sm" full>S'inscrire</Button></a>
+              </>
+            )}
           </div>
         </div>
       )}
