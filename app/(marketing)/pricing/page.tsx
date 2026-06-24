@@ -1,6 +1,8 @@
 import React from "react";
 import { Check, X } from "lucide-react";
 import { Button } from "../../components/ui/Button";
+import { createClient } from "../../../lib/supabase/server";
+import { createCheckoutSession } from "../../actions/billing";
 
 interface Plan {
   name: string;
@@ -46,7 +48,20 @@ const PLANS: Plan[] = [
   },
 ];
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  let isPremium = false;
+  if (user) {
+    const { data: profileRaw } = await supabase
+      .from("profiles")
+      .select("is_premium")
+      .eq("id", user.id)
+      .single();
+    isPremium = (profileRaw as { is_premium: boolean } | null)?.is_premium ?? false;
+  }
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
@@ -96,19 +111,36 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-            <Button
-              href={plan.href}
-              variant={plan.highlight ? "secondary" : "outline"}
-              size="lg"
-              full
-            >
-              {plan.cta}
-            </Button>
+            {plan.highlight && user ? (
+              isPremium ? (
+                <Button href="/dashboard" variant="outline" size="lg" full>
+                  Premium actif ✓
+                </Button>
+              ) : (
+                <form action={createCheckoutSession}>
+                  <Button type="submit" variant="secondary" size="lg" full>
+                    {plan.cta}
+                  </Button>
+                </form>
+              )
+            ) : (
+              <Button
+                href={plan.href}
+                variant={plan.highlight ? "secondary" : "outline"}
+                size="lg"
+                full
+              >
+                {plan.cta}
+              </Button>
+            )}
           </div>
         ))}
       </div>
 
-      <p className="text-center text-xs text-[var(--am-text-muted)] mt-10">
+      <p className="text-center text-xs text-[var(--am-text-muted)] mt-6">
+        Paiement sécurisé par Stripe · Carte bancaire ou virement (prélèvement SEPA).
+      </p>
+      <p className="text-center text-xs text-[var(--am-text-muted)] mt-2">
         Abonnement sans engagement, annulable à tout moment.
       </p>
     </div>

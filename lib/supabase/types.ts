@@ -14,6 +14,10 @@ export interface Database {
           streak_last_date: string | null;
           avatar_url: string | null;
           created_at: string;
+          stripe_customer_id: string | null;
+          stripe_subscription_id: string | null;
+          is_premium: boolean;
+          premium_status: string | null;
         };
         Insert: {
           id: string;
@@ -24,6 +28,10 @@ export interface Database {
           streak?: number;
           streak_last_date?: string | null;
           avatar_url?: string | null;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          is_premium?: boolean;
+          premium_status?: string | null;
         };
         Update: {
           role?: "student" | "teacher" | "parent" | "admin";
@@ -33,6 +41,10 @@ export interface Database {
           streak?: number;
           streak_last_date?: string | null;
           avatar_url?: string | null;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string | null;
+          is_premium?: boolean;
+          premium_status?: string | null;
         };
       };
       enrollments: {
