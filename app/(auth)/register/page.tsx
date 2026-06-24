@@ -24,10 +24,18 @@ const LEVELS = [
   { id: "L3",        label: "Licence 3" },
 ];
 
+// "admin" n'est volontairement pas proposé ici — uniquement attribuable via le backoffice.
+const ROLES = [
+  { id: "student", label: "Élève",      icon: "🎓" },
+  { id: "parent",  label: "Parent",     icon: "👪" },
+  { id: "teacher", label: "Enseignant", icon: "📝" },
+] as const;
+
 const schema = z.object({
   name: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
   email: z.string().email("Adresse e-mail invalide"),
   password: z.string().min(8, "Le mot de passe doit contenir au moins 8 caractères"),
+  role: z.enum(["student", "parent", "teacher"], { message: "Choisissez votre profil" }),
   level: z.string().min(1, "Choisissez votre niveau"),
 });
 type FormData = z.infer<typeof schema>;
@@ -47,6 +55,7 @@ export default function RegisterPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const selectedLevel = watch("level");
+  const selectedRole = watch("role");
 
   async function onSubmit(data: FormData) {
     setLoading(true);
@@ -56,7 +65,7 @@ export default function RegisterPage() {
       email: data.email,
       password: data.password,
       options: {
-        data: { name: data.name, school_level: data.level },
+        data: { name: data.name, role: data.role, school_level: data.level },
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
@@ -127,6 +136,35 @@ export default function RegisterPage() {
           error={errors.password?.message}
           {...register("password")}
         />
+
+        {/* Role picker */}
+        <div>
+          <p className="text-sm font-medium mb-2" style={{ color: "var(--am-text-secondary)" }}>
+            Vous êtes
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {ROLES.map((r) => (
+              <button
+                key={r.id}
+                type="button"
+                onClick={() => setValue("role", r.id, { shouldValidate: true })}
+                className="flex items-center gap-2 px-3 py-2 rounded-[var(--am-radius-md)] text-sm font-semibold transition-all"
+                style={{
+                  background: selectedRole === r.id ? "var(--am-purple-muted)" : "var(--am-bg-card)",
+                  color: selectedRole === r.id ? "var(--am-purple)" : "var(--am-text-secondary)",
+                  border: `1px solid ${selectedRole === r.id ? "var(--am-purple)" : "var(--am-border)"}`,
+                }}
+              >
+                <span>{r.icon}</span>
+                {r.label}
+              </button>
+            ))}
+          </div>
+          {errors.role && (
+            <p className="text-xs mt-1" style={{ color: "#f87171" }}>{errors.role.message}</p>
+          )}
+          <input type="hidden" {...register("role")} />
+        </div>
 
         {/* Level picker */}
         <div>

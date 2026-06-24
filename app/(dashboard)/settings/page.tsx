@@ -21,6 +21,7 @@ export default async function SettingsPage() {
   const profile = profileRaw as Profile | null;
   const name = profile?.name ?? user.email?.split("@")[0] ?? "";
   const level = profile?.school_level ?? null;
+  const role = profile?.role ?? "student";
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
@@ -37,7 +38,7 @@ export default async function SettingsPage() {
         style={{ background: "var(--am-bg-card)", border: "1px solid var(--am-border)" }}
       >
         <h2 className="text-base font-bold text-[var(--am-text)] mb-5">Informations personnelles</h2>
-        <SettingsForm initialName={name} initialLevel={level} />
+        <SettingsForm initialName={name} initialLevel={level} initialRole={role} isAdmin={role === "admin"} />
       </section>
 
       {/* Account */}

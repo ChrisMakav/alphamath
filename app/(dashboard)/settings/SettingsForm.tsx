@@ -18,14 +18,24 @@ const LEVELS = [
   { id: "L3",        label: "Licence 3" },
 ];
 
+// "admin" n'est jamais proposé ici — uniquement attribuable via le backoffice.
+const ROLES = [
+  { id: "student", label: "Élève",      icon: "🎓" },
+  { id: "parent",  label: "Parent",     icon: "👪" },
+  { id: "teacher", label: "Enseignant", icon: "📝" },
+] as const;
+
 interface Props {
   initialName: string;
   initialLevel: string | null;
+  initialRole: string;
+  isAdmin?: boolean;
 }
 
-export function SettingsForm({ initialName, initialLevel }: Props) {
+export function SettingsForm({ initialName, initialLevel, initialRole, isAdmin }: Props) {
   const [state, action, isPending] = useActionState(updateProfile, undefined);
   const [selectedLevel, setSelectedLevel] = React.useState(initialLevel ?? "");
+  const [selectedRole, setSelectedRole] = React.useState(initialRole);
 
   return (
     <form action={action} className="flex flex-col gap-6">
@@ -37,6 +47,33 @@ export function SettingsForm({ initialName, initialLevel }: Props) {
         required
         minLength={2}
       />
+
+      {!isAdmin && (
+        <div>
+          <p className="text-sm font-medium mb-3" style={{ color: "var(--am-text-secondary)" }}>
+            Vous êtes
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {ROLES.map((r) => (
+              <button
+                key={r.id}
+                type="button"
+                onClick={() => setSelectedRole(r.id)}
+                className="flex items-center gap-2 px-3 py-2 rounded-[var(--am-radius-md)] text-sm font-semibold transition-all"
+                style={{
+                  background: selectedRole === r.id ? "var(--am-purple-muted)" : "var(--am-bg-card)",
+                  color: selectedRole === r.id ? "var(--am-purple)" : "var(--am-text-secondary)",
+                  border: `1px solid ${selectedRole === r.id ? "var(--am-purple)" : "var(--am-border)"}`,
+                }}
+              >
+                <span>{r.icon}</span>
+                {r.label}
+              </button>
+            ))}
+          </div>
+          <input type="hidden" name="role" value={selectedRole} />
+        </div>
+      )}
 
       <div>
         <p className="text-sm font-medium mb-3" style={{ color: "var(--am-text-secondary)" }}>
