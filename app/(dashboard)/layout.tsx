@@ -27,7 +27,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
     ? (LEVEL_LABELS[schoolLevel as keyof typeof LEVEL_LABELS] ?? schoolLevel)
     : undefined;
   const isAdmin = profile?.role === "admin";
-  const isTeacher = profile?.role === "teacher";
+  const isTeacher = profile?.role === "teacher" || isAdmin;
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
