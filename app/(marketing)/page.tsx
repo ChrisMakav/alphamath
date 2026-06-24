@@ -190,7 +190,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button variant="primary" size="lg" href="/register">Commencer l'essai gratuit</Button>
-            <Button variant="outline" size="lg" href="/courses">Contacter un conseiller</Button>
+            <Button variant="outline" size="lg" href="/contact">Contacter un conseiller</Button>
           </div>
           <p className="mt-5 text-xs text-[var(--am-text-muted)]">
             Pas de carte bancaire requise · Accès immédiat · Annulation à tout moment

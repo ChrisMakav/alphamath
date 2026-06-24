@@ -126,6 +126,28 @@ export interface Database {
         };
         Update: Record<string, never>;
       };
+      contact_requests: {
+        Row: {
+          id: string;
+          name: string;
+          email: string;
+          phone: string | null;
+          subject: string;
+          message: string;
+          status: "new" | "treated";
+          created_at: string;
+        };
+        Insert: {
+          name: string;
+          email: string;
+          phone?: string | null;
+          subject: string;
+          message: string;
+        };
+        Update: {
+          status?: "new" | "treated";
+        };
+      };
     };
   };
 }
