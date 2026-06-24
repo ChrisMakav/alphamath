@@ -9,14 +9,28 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
   return (
     <section
       className={`relative overflow-hidden py-20 md:py-32 px-6 ${className}`}
-      style={{ background: "var(--am-bg)" }}
+      style={{
+        backgroundImage: "url('/hero-classroom.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
+      {/* Dark overlay for text legibility */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(8,9,14,0.92) 0%, rgba(8,9,14,0.88) 50%, var(--am-bg) 100%)",
+        }}
+        aria-hidden
+      />
+
       {/* Background decoration */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 60% 10%, rgba(139,92,246,0.08) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(74,254,138,0.05) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 60% 10%, rgba(139,92,246,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 20% 80%, rgba(74,254,138,0.08) 0%, transparent 60%)",
         }}
         aria-hidden
       />
@@ -57,7 +71,7 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
 
         <h1
           className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6"
-          style={{ color: "var(--am-text)" }}
+          style={{ color: "#f0f2ff" }}
         >
           Maîtrisez les{" "}
           <span
@@ -72,7 +86,7 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
           du collège à la licence
         </h1>
 
-        <p className="text-lg text-[var(--am-text-secondary)] max-w-xl mb-8 leading-relaxed">
+        <p className="text-lg max-w-xl mb-8 leading-relaxed" style={{ color: "#c7cbe0" }}>
           Une approche structurée pour surmonter l'anxiété mathématique. Apprenez avec précision grâce à nos
           parcours guidés et nos outils de rendu LaTeX en temps réel.
         </p>
@@ -86,9 +100,9 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
           </Button>
         </div>
 
-        <p className="mt-6 text-xs text-[var(--am-text-muted)]">
+        <p className="mt-6 text-xs" style={{ color: "#9aa0c4" }}>
           Plus de{" "}
-          <span className="font-semibold" style={{ color: "var(--am-text-secondary)" }}>
+          <span className="font-semibold" style={{ color: "#c7cbe0" }}>
             40 000+
           </span>{" "}
           étudiants font confiance à AlphaMath
