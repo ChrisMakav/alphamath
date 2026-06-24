@@ -46,3 +46,24 @@ export async function setUserRole(_prev: { error?: string } | undefined, formDat
   revalidatePath("/admin");
   return { error: undefined };
 }
+
+export async function setContactRequestStatus(_prev: { error?: string } | undefined, formData: FormData) {
+  const { supabase } = await requireAdmin();
+
+  const id = formData.get("id") as string;
+  const status = formData.get("status") as Database["public"]["Tables"]["contact_requests"]["Row"]["status"];
+
+  if (status !== "new" && status !== "treated") {
+    return { error: "Statut invalide." };
+  }
+
+  const { error } = await supabase
+    .from("contact_requests")
+    .update({ status } as never)
+    .eq("id", id);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/admin");
+  return { error: undefined };
+}
