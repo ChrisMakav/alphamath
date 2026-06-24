@@ -76,7 +76,7 @@ async function callGenerator(client: Anthropic, params: GeneratorParams): Promis
 
   const response = await client.messages.create({
     model: "claude-sonnet-4-6",
-    max_tokens: 4096,
+    max_tokens: 16000,
     system: SYSTEM,
     tools: [SUBMIT_EVALUATION_TOOL],
     tool_choice: { type: "tool", name: "submit_evaluation" },
