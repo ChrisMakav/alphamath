@@ -103,6 +103,29 @@ export interface Database {
           xp_earned?: number;
         };
       };
+      evaluations: {
+        Row: {
+          id: string;
+          user_id: string;
+          school_level: string;
+          title: string;
+          course_slugs: string[];
+          notions: string[];
+          content: Json;
+          model: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          school_level: string;
+          title: string;
+          course_slugs: string[];
+          notions: string[];
+          content: Json;
+          model?: string;
+        };
+        Update: Record<string, never>;
+      };
     };
   };
 }

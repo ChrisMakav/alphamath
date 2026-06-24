@@ -27,12 +27,13 @@ export default async function DashboardLayout({ children }: { children: React.Re
     ? (LEVEL_LABELS[schoolLevel as keyof typeof LEVEL_LABELS] ?? schoolLevel)
     : undefined;
   const isAdmin = profile?.role === "admin";
+  const isTeacher = profile?.role === "teacher";
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <Navbar isAuthenticated />
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar userName={userName} userLevel={userLevel} isAdmin={isAdmin} />
+        <Sidebar userName={userName} userLevel={userLevel} isAdmin={isAdmin} isTeacher={isTeacher} />
         <main className="flex-1 overflow-y-auto" style={{ background: "var(--am-bg)" }}>
           {children}
         </main>

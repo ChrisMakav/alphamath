@@ -19,9 +19,10 @@ interface SidebarProps {
   userLevel?: string;
   currentCourse?: string;
   isAdmin?: boolean;
+  isTeacher?: boolean;
 }
 
-export function Sidebar({ userName = "Étudiant", userLevel, currentCourse, isAdmin }: SidebarProps) {
+export function Sidebar({ userName = "Étudiant", userLevel, currentCourse, isAdmin, isTeacher }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = usePathname();
 
@@ -93,6 +94,24 @@ export function Sidebar({ userName = "Étudiant", userLevel, currentCourse, isAd
           );
         })}
       </nav>
+
+      {/* Générateur d'évaluations (enseignant) */}
+      {isTeacher && (
+        <div className="p-2" style={{ borderTop: "1px solid var(--am-border-subtle)" }}>
+          <a
+            href="/evaluations"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-[var(--am-radius-md)] transition-all overflow-hidden"
+            style={{
+              color: pathname.startsWith("/evaluations") ? "var(--am-purple)" : "var(--am-text-secondary)",
+              background: pathname.startsWith("/evaluations") ? "var(--am-purple-muted)" : "transparent",
+              border: pathname.startsWith("/evaluations") ? "1px solid var(--am-purple)" : "1px solid transparent",
+            }}
+          >
+            <span className="text-base flex-shrink-0 leading-none">📝</span>
+            {!collapsed && <span className="text-sm font-medium whitespace-nowrap">Générateur d&apos;évaluations</span>}
+          </a>
+        </div>
+      )}
 
       {/* Administration */}
       {isAdmin && (
