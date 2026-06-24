@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getCourseBySlug, getLessonBySlug, LEVEL_LABELS } from "../../../../../../../lib/seed-data";
 import { MathContent } from "../../../../../../components/ui/MathContent";
 import { PrintButton } from "../../../../../../components/ui/PrintButton";
+import { createClient } from "../../../../../../../lib/supabase/server";
+import { assertCourseLevelAccess } from "../../../../../../../lib/course-access";
 
 interface Props {
   params: Promise<{ courseId: string; lessonId: string }>;
@@ -15,6 +17,12 @@ export default async function LessonFichePage({ params }: Props) {
 
   const lesson = getLessonBySlug(course, lessonId);
   if (!lesson) notFound();
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    await assertCourseLevelAccess(supabase, user.id, course.schoolLevel);
+  }
 
   return (
     <div

@@ -8,6 +8,7 @@ import { ProgressBar } from "../../../components/ui/ProgressBar";
 import Image from "next/image";
 import { BookOpen, Clock, CheckCircle, Lock } from "lucide-react";
 import { createClient } from "../../../../lib/supabase/server";
+import { assertCourseLevelAccess } from "../../../../lib/course-access";
 import { enrollInCourse } from "../../../actions/progress";
 import type { Database } from "../../../../lib/supabase/types";
 
@@ -25,6 +26,12 @@ export default async function CourseDetailPage({ params }: Props) {
 
   const totalMinutes = course.lessons.reduce((s, l) => s + l.durationMinutes, 0);
 
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    await assertCourseLevelAccess(supabase, user.id, course.schoolLevel);
+  }
+
   // Optional auth
   let isEnrolled = false;
   let progressPct = 0;
@@ -32,8 +39,6 @@ export default async function CourseDetailPage({ params }: Props) {
   let completedSlugs = new Set<string>();
 
   try {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
     if (user) {
       const [enrollRes, progressRes] = await Promise.all([
         supabase.from("enrollments").select().eq("user_id", user.id).eq("course_slug", course.slug).single(),

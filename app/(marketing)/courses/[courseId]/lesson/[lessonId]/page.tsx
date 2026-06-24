@@ -11,6 +11,7 @@ import { LessonCompleteButton } from "../../../../../components/ui/LessonComplet
 import { ChevronLeft, ChevronRight, Clock, BookOpen } from "lucide-react";
 import { LEVEL_LABELS } from "../../../../../../lib/seed-data";
 import { createClient } from "../../../../../../lib/supabase/server";
+import { assertCourseLevelAccess } from "../../../../../../lib/course-access";
 import type { Database } from "../../../../../../lib/supabase/types";
 
 type ProgressRow = Database["public"]["Tables"]["user_progress"]["Row"];
@@ -31,12 +32,16 @@ export default async function LessonPage({ params }: Props) {
   const prevLesson = lessonIndex > 0 ? course.lessons[lessonIndex - 1] : null;
   const nextLesson = lessonIndex < course.lessons.length - 1 ? course.lessons[lessonIndex + 1] : null;
 
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    await assertCourseLevelAccess(supabase, user.id, course.schoolLevel);
+  }
+
   // Optional auth — show completion button if logged in
   let isCompleted = false;
   let isAuthenticated = false;
   try {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
     if (user) {
       isAuthenticated = true;
       const { data: progRaw } = await supabase

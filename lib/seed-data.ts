@@ -24433,6 +24433,36 @@ export const LEVEL_CATEGORY_LABELS: Record<LevelCategory, string> = {
   superieur: "Supérieur",
 };
 
+export function getLevelCategory(level: SchoolLevel): LevelCategory | null {
+  for (const category of Object.keys(LEVEL_CATEGORIES) as LevelCategory[]) {
+    if (LEVEL_CATEGORIES[category].includes(level)) return category;
+  }
+  return null;
+}
+
+/**
+ * Niveaux visibles pour un profil donné :
+ * - admin → tous les niveaux, toutes catégories.
+ * - enseignant premium → tous les niveaux de SA catégorie (collège/lycée/supérieur) uniquement.
+ * - tout le monde d'autre (élève, parent, enseignant non premium) → uniquement son propre niveau.
+ * - pas de niveau renseigné → pas de restriction (cas non configuré).
+ */
+export function getAccessibleLevels(profile: {
+  role: string | null;
+  school_level: string | null;
+  is_premium: boolean | null;
+}): SchoolLevel[] | "all" {
+  if (profile.role === "admin") return "all";
+  if (!profile.school_level) return "all";
+
+  const level = profile.school_level as SchoolLevel;
+  if (profile.role === "teacher" && profile.is_premium) {
+    const category = getLevelCategory(level);
+    return category ? LEVEL_CATEGORIES[category] : [level];
+  }
+  return [level];
+}
+
 export const XP_BY_DIFFICULTY: Record<Exercise["difficulty"], number> = {
   debutant: 10,
   intermediaire: 25,

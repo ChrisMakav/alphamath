@@ -1,7 +1,7 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
-import { getAllExercises, getCourseBySlug, getDailyChallenge, LEVEL_LABELS, getSubjectLabel } from "../../../lib/seed-data";
+import { getAllExercises, getCourseBySlug, getDailyChallenge, getAccessibleLevels, LEVEL_LABELS, getSubjectLabel } from "../../../lib/seed-data";
 import { PracticeEngine } from "../../components/ui/PracticeEngine";
 import { LevelBadge } from "../../components/ui/Badge";
 import type { Database } from "../../../lib/supabase/types";
@@ -26,11 +26,11 @@ export default async function PracticePage({ searchParams }: Props) {
   const today = new Date().toISOString().split("T")[0];
 
   const [profileRes, activityRes] = await Promise.all([
-    supabase.from("profiles").select("xp, streak, streak_last_date, school_level").eq("id", user.id).single(),
+    supabase.from("profiles").select("xp, streak, streak_last_date, school_level, role, is_premium").eq("id", user.id).single(),
     supabase.from("daily_activity").select().eq("user_id", user.id).eq("date", today).single(),
   ]);
 
-  const profile  = profileRes.data  as Pick<Profile, "xp" | "streak" | "streak_last_date" | "school_level"> | null;
+  const profile  = profileRes.data  as Pick<Profile, "xp" | "streak" | "streak_last_date" | "school_level" | "role" | "is_premium"> | null;
   const activity = activityRes.data as DailyActivity | null;
 
   const exercisesToday  = activity?.exercises_done ?? 0;
@@ -38,10 +38,19 @@ export default async function PracticePage({ searchParams }: Props) {
   const studiedToday    = activity ? activity.date === today : false;
   const streak          = profile?.streak ?? 0;
 
+  // Admin → tous niveaux ; enseignant premium → sa catégorie (collège/lycée/sup) ; sinon → son niveau.
+  const accessibleLevels = getAccessibleLevels({
+    role: profile?.role ?? null,
+    school_level: profile?.school_level ?? null,
+    is_premium: profile?.is_premium ?? null,
+  });
+
   const allExercises = getAllExercises();
-  const exercises = filterCourse
-    ? allExercises.filter((e) => e.courseSlug === filterCourse.slug)
-    : allExercises;
+  const exercises = allExercises.filter((e) => {
+    if (filterCourse && e.courseSlug !== filterCourse.slug) return false;
+    if (accessibleLevels !== "all" && !accessibleLevels.includes(e.schoolLevel)) return false;
+    return true;
+  });
   const daily        = getDailyChallenge(profile?.school_level);
 
   return (
