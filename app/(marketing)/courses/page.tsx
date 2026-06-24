@@ -36,6 +36,8 @@ const SUBJECT_OPTIONS = [
   { id: "analyse",       label: "Analyse" },
   { id: "probabilites",  label: "Probabilités" },
   { id: "arithmetique",  label: "Arithmétique" },
+  { id: "informatique",  label: "Informatique" },
+  { id: "statistiques",  label: "Statistiques" },
 ];
 
 function CoursesContent() {
