@@ -1,5 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCourseBySlug, getLessonBySlug } from "../../../../../../lib/seed-data";
 import { MathContent } from "../../../../../components/ui/MathContent";
 import { VideoPlayer, VideoPlaceholder } from "../../../../../components/ui/VideoPlayer";
@@ -12,6 +12,7 @@ import { ChevronLeft, ChevronRight, Clock, BookOpen } from "lucide-react";
 import { LEVEL_LABELS } from "../../../../../../lib/seed-data";
 import { createClient } from "../../../../../../lib/supabase/server";
 import { assertCourseLevelAccess } from "../../../../../../lib/course-access";
+import { resolveCourseAccess, canAccessCourse, lockInFreeCourseIfNeeded } from "../../../../../../lib/access";
 import type { Database } from "../../../../../../lib/supabase/types";
 
 type ProgressRow = Database["public"]["Tables"]["user_progress"]["Row"];
@@ -36,6 +37,14 @@ export default async function LessonPage({ params }: Props) {
   const { data: { user } } = await supabase.auth.getUser();
   if (user) {
     await assertCourseLevelAccess(supabase, user.id, course.schoolLevel);
+
+    const access = await resolveCourseAccess(supabase, user.id);
+    if (access.kind === "trial") {
+      await lockInFreeCourseIfNeeded(supabase, user.id, course.slug, access);
+    }
+    if (!canAccessCourse(access, course.slug)) {
+      redirect(`/courses/${course.slug}`);
+    }
   }
 
   // Optional auth — show completion button if logged in

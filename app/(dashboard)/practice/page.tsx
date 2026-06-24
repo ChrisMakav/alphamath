@@ -2,6 +2,8 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
 import { getAllExercises, getCourseBySlug, getDailyChallenge, getAccessibleLevels, LEVEL_LABELS, getSubjectLabel } from "../../../lib/seed-data";
+import { resolveCourseAccess, canAccessCourse } from "../../../lib/access";
+import { Button } from "../../components/ui/Button";
 import { PracticeEngine } from "../../components/ui/PracticeEngine";
 import { LevelBadge } from "../../components/ui/Badge";
 import type { Database } from "../../../lib/supabase/types";
@@ -45,10 +47,15 @@ export default async function PracticePage({ searchParams }: Props) {
     is_premium: profile?.is_premium ?? null,
   });
 
+  // Élève/parent gratuit : exercices limités au cours déjà choisi gratuitement, ou bloqués
+  // après 14 jours d'essai. Admin/enseignant/premium → pas de restriction supplémentaire.
+  const courseAccess = await resolveCourseAccess(supabase, user.id);
+
   const allExercises = getAllExercises();
   const exercises = allExercises.filter((e) => {
     if (filterCourse && e.courseSlug !== filterCourse.slug) return false;
     if (accessibleLevels !== "all" && !accessibleLevels.includes(e.schoolLevel)) return false;
+    if (!canAccessCourse(courseAccess, e.courseSlug)) return false;
     return true;
   });
   const daily        = getDailyChallenge(profile?.school_level);
@@ -84,6 +91,41 @@ export default async function PracticePage({ searchParams }: Props) {
           </div>
         </div>
       </div>
+
+      {/* ── Alerte essai / accès restreint ── */}
+      {courseAccess.kind === "expired" && (
+        <div
+          className="flex items-center justify-between gap-4 px-5 py-4 rounded-[var(--am-radius-xl)] mb-6 flex-wrap"
+          style={{ background: "var(--am-purple-muted)", border: "1px solid var(--am-purple)" }}
+        >
+          <p className="text-sm text-[var(--am-text)]">
+            Votre essai gratuit de 14 jours est terminé. Passez Premium pour continuer à pratiquer.
+          </p>
+          <Button href="/pricing" variant="secondary" size="sm">Voir les offres →</Button>
+        </div>
+      )}
+      {courseAccess.kind === "trial" && courseAccess.freeCourseSlug === null && (
+        <div
+          className="flex items-center justify-between gap-4 px-5 py-4 rounded-[var(--am-radius-xl)] mb-6 flex-wrap"
+          style={{ background: "var(--am-purple-muted)", border: "1px solid var(--am-purple)" }}
+        >
+          <p className="text-sm text-[var(--am-text)]">
+            Choisissez d&apos;abord un cours dans le catalogue pour débloquer ses exercices
+            ({courseAccess.daysLeft} jour{courseAccess.daysLeft !== 1 ? "s" : ""} d&apos;essai restant
+            {courseAccess.daysLeft !== 1 ? "s" : ""}).
+          </p>
+          <Button href="/courses" variant="secondary" size="sm">Voir les cours →</Button>
+        </div>
+      )}
+      {courseAccess.kind === "trial" && courseAccess.freeCourseSlug !== null && (
+        <p className="text-xs mb-6" style={{ color: "var(--am-text-muted)" }}>
+          Essai gratuit · {courseAccess.daysLeft} jour{courseAccess.daysLeft !== 1 ? "s" : ""} restant
+          {courseAccess.daysLeft !== 1 ? "s" : ""} ·{" "}
+          <a href="/pricing" className="font-semibold hover:underline" style={{ color: "var(--am-purple)" }}>
+            Passer Premium
+          </a>
+        </p>
+      )}
 
       {/* Filtre par cours */}
       {filterCourse && (

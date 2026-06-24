@@ -19,15 +19,15 @@ const PLANS: Plan[] = [
   {
     name: "Gratuit",
     price: "0€",
-    description: "Pour découvrir la plateforme et ses premiers cours.",
+    description: "Essai gratuit de 14 jours, avec 1 cours au choix.",
     cta: "Commencer gratuitement",
     href: "/register",
     features: [
-      { label: "Accès aux cours et exercices gratuits", included: true },
+      { label: "1 cours au choix pendant 14 jours", included: true },
       { label: "Suivi de progression de base", included: true },
-      { label: "Toutes les leçons et exercices Premium", included: false },
+      { label: "Tous les autres cours et exercices", included: false },
+      { label: "Annales (sujets d'examens et corrigés)", included: false },
       { label: "Tuteur IA illimité", included: false },
-      { label: "Téléchargement des corrigés en PDF", included: false },
     ],
   },
   {
@@ -40,9 +40,9 @@ const PLANS: Plan[] = [
     highlight: true,
     features: [
       { label: "Accès illimité à tous les cours et exercices de ton niveau", included: true },
+      { label: "Annales (sujets d'examens et corrigés)", included: true },
       { label: "Suivi de progression détaillé et statistiques", included: true },
       { label: "Tuteur IA illimité", included: true },
-      { label: "Téléchargement des corrigés en PDF", included: true },
     ],
   },
 ];

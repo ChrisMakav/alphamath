@@ -9,6 +9,7 @@ import Image from "next/image";
 import { BookOpen, Clock, CheckCircle, Lock } from "lucide-react";
 import { createClient } from "../../../../lib/supabase/server";
 import { assertCourseLevelAccess } from "../../../../lib/course-access";
+import { resolveCourseAccess, canAccessCourse, lockInFreeCourseIfNeeded } from "../../../../lib/access";
 import { enrollInCourse } from "../../../actions/progress";
 import type { Database } from "../../../../lib/supabase/types";
 
@@ -28,8 +29,29 @@ export default async function CourseDetailPage({ params }: Props) {
 
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
+  // Accès bloqué si : essai de 14 jours expiré, ou cours différent de celui déjà choisi gratuitement.
+  let isLockedCourse = false;
+  let lockReason: "expired" | "other-course" | null = null;
+  let otherFreeCourseTitle: string | null = null;
+
   if (user) {
     await assertCourseLevelAccess(supabase, user.id, course.schoolLevel);
+
+    const access = await resolveCourseAccess(supabase, user.id);
+    if (access.kind === "expired") {
+      isLockedCourse = true;
+      lockReason = "expired";
+    } else if (access.kind === "trial") {
+      await lockInFreeCourseIfNeeded(supabase, user.id, course.slug, access);
+      if (!canAccessCourse(access, course.slug)) {
+        isLockedCourse = true;
+        lockReason = "other-course";
+        otherFreeCourseTitle = access.freeCourseSlug
+          ? getCourseBySlug(access.freeCourseSlug)?.title ?? null
+          : null;
+      }
+    }
   }
 
   // Optional auth
@@ -39,7 +61,7 @@ export default async function CourseDetailPage({ params }: Props) {
   let completedSlugs = new Set<string>();
 
   try {
-    if (user) {
+    if (user && !isLockedCourse) {
       const [enrollRes, progressRes] = await Promise.all([
         supabase.from("enrollments").select().eq("user_id", user.id).eq("course_slug", course.slug).single(),
         supabase.from("user_progress").select().eq("user_id", user.id).eq("course_slug", course.slug),
@@ -137,21 +159,11 @@ export default async function CourseDetailPage({ params }: Props) {
               </span>
               {course.difficulty}
             </span>
-            {course.isFree && (
-              <span
-                className="px-2 py-0.5 rounded-full text-xs font-bold"
-                style={{
-                  color: "var(--am-green)",
-                  background: "var(--am-green-muted)",
-                  border: "1px solid var(--am-green-dim)",
-                }}
-              >
-                GRATUIT
-              </span>
-            )}
           </div>
 
-          {isEnrolled ? (
+          {isLockedCourse ? (
+            <Button href="/pricing" variant="secondary" size="md">🔒 Voir les offres Premium</Button>
+          ) : isEnrolled ? (
             <a href={`/courses/${course.slug}/lesson/${nextLessonSlug}`}>
               <Button variant="primary" size="md">
                 {progressPct === 100 ? "Revoir le cours" : "Continuer →"}
@@ -160,7 +172,7 @@ export default async function CourseDetailPage({ params }: Props) {
           ) : (
             <form action={enrollInCourse.bind(null, course.slug)}>
               <Button type="submit" variant="primary" size="md">
-                {course.isFree ? "Commencer gratuitement →" : "S'inscrire →"}
+                Commencer →
               </Button>
             </form>
           )}
@@ -181,7 +193,7 @@ export default async function CourseDetailPage({ params }: Props) {
       <h2 className="text-xl font-bold text-[var(--am-text)] mb-4">Contenu du cours</h2>
       <div className="flex flex-col gap-2">
         {course.lessons.map((lesson, idx) => {
-          const isLocked = !course.isFree && idx > 0;
+          const isLocked = isLockedCourse;
           const isDone = completedSlugs.has(lesson.slug);
           const isFirst = idx === 0;
 
@@ -256,7 +268,7 @@ export default async function CourseDetailPage({ params }: Props) {
         })}
       </div>
 
-      {!course.isFree && (
+      {isLockedCourse && (
         <div
           className="mt-6 p-6 rounded-[var(--am-radius-xl)] text-center"
           style={{
@@ -266,7 +278,11 @@ export default async function CourseDetailPage({ params }: Props) {
         >
           <p className="font-bold text-[var(--am-text)] mb-2">🔒 Accès Premium requis</p>
           <p className="text-sm text-[var(--am-text-secondary)] mb-4">
-            Débloquez toutes les leçons et exercices en souscrivant à un abonnement Premium.
+            {lockReason === "expired"
+              ? "Votre essai gratuit de 14 jours est terminé. Passez Premium pour continuer à apprendre."
+              : otherFreeCourseTitle
+              ? `Vous avez déjà commencé « ${otherFreeCourseTitle} » gratuitement. Passez Premium pour débloquer aussi ce cours.`
+              : "Débloquez toutes les leçons et exercices en souscrivant à un abonnement Premium."}
           </p>
           <Button href="/pricing" variant="secondary" size="md">Voir les offres → dès 9,99€/mois</Button>
         </div>

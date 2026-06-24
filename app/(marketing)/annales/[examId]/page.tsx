@@ -8,6 +8,12 @@ import {
 import { MathContent } from "../../../components/ui/MathContent";
 import { PrintButton } from "../../../components/ui/PrintButton";
 import { Breadcrumb } from "../../../components/ui/Breadcrumb";
+import { Button } from "../../../components/ui/Button";
+import { createClient } from "../../../../lib/supabase/server";
+import { hasPremiumAccess } from "../../../../lib/access";
+import type { Database } from "../../../../lib/supabase/types";
+
+type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
 interface Props {
   params: Promise<{ examId: string }>;
@@ -17,6 +23,20 @@ export default async function ExamPaperPage({ params }: Props) {
   const { examId } = await params;
   const exam = getExamPaperById(examId);
   if (!exam) notFound();
+
+  // Les annales sont 100% réservées aux abonnés premium (et aux enseignants/admins) — pas d'essai gratuit ici.
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  let hasAccess = false;
+  if (user) {
+    const { data: profileRaw } = await supabase
+      .from("profiles")
+      .select("role, is_premium")
+      .eq("id", user.id)
+      .single();
+    const profile = profileRaw as Pick<Profile, "role" | "is_premium"> | null;
+    hasAccess = hasPremiumAccess({ role: profile?.role ?? null, is_premium: profile?.is_premium ?? null });
+  }
 
   return (
     <div
@@ -61,62 +81,80 @@ export default async function ExamPaperPage({ params }: Props) {
         {exam.durationMinutes ? `Durée : ${exam.durationMinutes} min` : null}
       </p>
 
-      <h2 className="text-lg font-bold mb-4" style={{ color: "var(--am-text)" }}>
-        Énoncé
-      </h2>
-      <div className="flex flex-col gap-5 mb-10">
-        {exam.statement.map((section) => (
-          <div key={section.id} className="rounded-[var(--am-radius-lg)] p-4" style={{ border: "1px solid var(--am-border)" }}>
-            <p className="text-sm font-bold mb-2" style={{ color: "var(--am-text)" }}>
-              {section.title}
-              {section.points ? ` (${section.points} pts)` : ""}
-            </p>
-            <MathContent content={section.content} />
-          </div>
-        ))}
-      </div>
-
-      {exam.correction ? (
-        <div className="mb-10">
-          <h2 className="text-lg font-bold mb-1" style={{ color: exam.correction.kind === "officielle" ? "var(--am-green)" : "var(--am-purple)" }}>
-            {CORRECTION_KIND_LABELS[exam.correction.kind]}
+      {hasAccess ? (
+        <>
+          <h2 className="text-lg font-bold mb-4" style={{ color: "var(--am-text)" }}>
+            Énoncé
           </h2>
-          {exam.correction.authorNote && (
-            <p className="text-xs italic mb-4" style={{ color: "var(--am-text-muted)" }}>
-              {exam.correction.authorNote}
-            </p>
-          )}
-          <div className="flex flex-col gap-5">
-            {exam.correction.sections.map((section) => (
+          <div className="flex flex-col gap-5 mb-10">
+            {exam.statement.map((section) => (
               <div key={section.id} className="rounded-[var(--am-radius-lg)] p-4" style={{ border: "1px solid var(--am-border)" }}>
                 <p className="text-sm font-bold mb-2" style={{ color: "var(--am-text)" }}>
                   {section.title}
+                  {section.points ? ` (${section.points} pts)` : ""}
                 </p>
                 <MathContent content={section.content} />
               </div>
             ))}
           </div>
-          {exam.correction.sourceUrl && (
-            <p className="text-xs mt-4" style={{ color: "var(--am-text-muted)" }}>
-              Source du corrigé :{" "}
-              <a href={exam.correction.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--am-green)" }}>
-                {exam.correction.sourceLabel}
-              </a>
+
+          {exam.correction ? (
+            <div className="mb-10">
+              <h2 className="text-lg font-bold mb-1" style={{ color: exam.correction.kind === "officielle" ? "var(--am-green)" : "var(--am-purple)" }}>
+                {CORRECTION_KIND_LABELS[exam.correction.kind]}
+              </h2>
+              {exam.correction.authorNote && (
+                <p className="text-xs italic mb-4" style={{ color: "var(--am-text-muted)" }}>
+                  {exam.correction.authorNote}
+                </p>
+              )}
+              <div className="flex flex-col gap-5">
+                {exam.correction.sections.map((section) => (
+                  <div key={section.id} className="rounded-[var(--am-radius-lg)] p-4" style={{ border: "1px solid var(--am-border)" }}>
+                    <p className="text-sm font-bold mb-2" style={{ color: "var(--am-text)" }}>
+                      {section.title}
+                    </p>
+                    <MathContent content={section.content} />
+                  </div>
+                ))}
+              </div>
+              {exam.correction.sourceUrl && (
+                <p className="text-xs mt-4" style={{ color: "var(--am-text-muted)" }}>
+                  Source du corrigé :{" "}
+                  <a href={exam.correction.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--am-green)" }}>
+                    {exam.correction.sourceLabel}
+                  </a>
+                </p>
+              )}
+            </div>
+          ) : (
+            <p className="text-sm italic mb-10" style={{ color: "var(--am-text-muted)" }}>
+              Aucun corrigé disponible pour ce sujet.
             </p>
           )}
-        </div>
-      ) : (
-        <p className="text-sm italic mb-10" style={{ color: "var(--am-text-muted)" }}>
-          Aucun corrigé disponible pour ce sujet.
-        </p>
-      )}
 
-      <p className="text-xs text-center" style={{ color: "var(--am-text-muted)" }}>
-        Source du sujet :{" "}
-        <a href={exam.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--am-green)" }}>
-          {exam.sourceLabel}
-        </a>
-      </p>
+          <p className="text-xs text-center" style={{ color: "var(--am-text-muted)" }}>
+            Source du sujet :{" "}
+            <a href={exam.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--am-green)" }}>
+              {exam.sourceLabel}
+            </a>
+          </p>
+        </>
+      ) : (
+        <div
+          className="p-8 rounded-[var(--am-radius-xl)] text-center print:hidden"
+          style={{
+            background: "linear-gradient(135deg, var(--am-purple-muted), var(--am-bg-card))",
+            border: "1px solid var(--am-purple)",
+          }}
+        >
+          <p className="font-bold text-[var(--am-text)] mb-2">🔒 Accès Premium requis</p>
+          <p className="text-sm text-[var(--am-text-secondary)] mb-4">
+            Les annales (sujets et corrigés) sont réservées aux abonnés Premium.
+          </p>
+          <Button href="/pricing" variant="secondary" size="md">Voir les offres → dès 9,99€/mois</Button>
+        </div>
+      )}
     </div>
   );
 }

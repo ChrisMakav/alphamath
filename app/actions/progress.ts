@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
+import { resolveCourseAccess, canAccessCourse, lockInFreeCourseIfNeeded } from "../../lib/access";
 import type { Database } from "../../lib/supabase/types";
 
 type Profile       = Database["public"]["Tables"]["profiles"]["Row"];
@@ -111,6 +112,14 @@ export async function enrollInCourse(courseSlug: string) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect(`/login?next=/courses/${courseSlug}`);
+
+  const access = await resolveCourseAccess(supabase, user.id);
+  if (access.kind === "trial") {
+    await lockInFreeCourseIfNeeded(supabase, user.id, courseSlug, access);
+  }
+  if (!canAccessCourse(access, courseSlug)) {
+    redirect(`/pricing?from=${courseSlug}`);
+  }
 
   const { data: existing } = await supabase
     .from("enrollments")
