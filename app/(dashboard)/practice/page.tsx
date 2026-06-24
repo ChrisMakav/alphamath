@@ -1,7 +1,7 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
-import { getAllExercises, getDailyChallenge, LEVEL_LABELS, getSubjectLabel } from "../../../lib/seed-data";
+import { getAllExercises, getCourseBySlug, getDailyChallenge, LEVEL_LABELS, getSubjectLabel } from "../../../lib/seed-data";
 import { PracticeEngine } from "../../components/ui/PracticeEngine";
 import { LevelBadge } from "../../components/ui/Badge";
 import type { Database } from "../../../lib/supabase/types";
@@ -11,10 +11,17 @@ type DailyActivity = Database["public"]["Tables"]["daily_activity"]["Row"];
 
 const DIFF_XP = { debutant: 10, intermediaire: 25, expert: 50 } as const;
 
-export default async function PracticePage() {
+interface Props {
+  searchParams: Promise<{ course?: string }>;
+}
+
+export default async function PracticePage({ searchParams }: Props) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
+
+  const { course: courseSlug } = await searchParams;
+  const filterCourse = courseSlug ? getCourseBySlug(courseSlug) : undefined;
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -32,6 +39,9 @@ export default async function PracticePage() {
   const streak          = profile?.streak ?? 0;
 
   const allExercises = getAllExercises();
+  const exercises = filterCourse
+    ? allExercises.filter((e) => e.courseSlug === filterCourse.slug)
+    : allExercises;
   const daily        = getDailyChallenge(profile?.school_level);
 
   return (
@@ -41,7 +51,7 @@ export default async function PracticePage() {
         <div>
           <h1 className="text-3xl font-black text-[var(--am-text)]">Espace Pratique</h1>
           <p className="text-sm mt-1" style={{ color: "var(--am-text-muted)" }}>
-            {allExercises.length} exercices · {studiedToday ? `${exercisesToday} fait${exercisesToday !== 1 ? "s" : ""} aujourd'hui · +${xpToday} XP` : "Commencez votre session du jour"}
+            {exercises.length} exercices · {studiedToday ? `${exercisesToday} fait${exercisesToday !== 1 ? "s" : ""} aujourd'hui · +${xpToday} XP` : "Commencez votre session du jour"}
           </p>
         </div>
         <div className="flex items-center gap-3 text-sm flex-shrink-0">
@@ -65,6 +75,17 @@ export default async function PracticePage() {
           </div>
         </div>
       </div>
+
+      {/* Filtre par cours */}
+      {filterCourse && (
+        <div
+          className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-[var(--am-radius-md)] text-xs mb-6"
+          style={{ background: "var(--am-purple-muted)", border: "1px solid rgba(139,92,246,0.2)", color: "var(--am-purple)" }}
+        >
+          <span>📍 Exercices supplémentaires · {filterCourse.title}</span>
+          <a href="/practice" className="font-semibold hover:underline">Voir tous les exercices</a>
+        </div>
+      )}
 
       {/* ── Défi du Jour ── */}
       <div
@@ -117,7 +138,7 @@ export default async function PracticePage() {
       </div>
 
       {/* ── Practice Engine ── */}
-      <PracticeEngine exercises={allExercises} isAuthenticated={true} />
+      <PracticeEngine exercises={exercises} isAuthenticated={true} />
     </div>
   );
 }

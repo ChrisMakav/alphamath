@@ -305,13 +305,15 @@ export default async function LessonPage({ params }: Props) {
           </p>
           <ul className="flex flex-col gap-2">
             {[
-              { icon: "📄", label: "Fiche récapitulative PDF" },
-              { icon: "🔗", label: "Démonstration interactive" },
-              { icon: "📖", label: "Exercices supplémentaires" },
+              { icon: "📄", label: "Fiche récapitulative PDF", href: `/courses/${course.slug}/lesson/${lesson.slug}/fiche`, external: true },
+              { icon: "🔗", label: "Démonstration interactive", href: "#" },
+              { icon: "📖", label: "Exercices supplémentaires", href: `/practice?course=${course.slug}` },
             ].map((r) => (
               <li key={r.label}>
                 <a
-                  href="#"
+                  href={r.href}
+                  target={r.external ? "_blank" : undefined}
+                  rel={r.external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-2 text-xs text-[var(--am-text-secondary)] hover:text-[var(--am-green)] transition-colors"
                 >
                   <span>{r.icon}</span>

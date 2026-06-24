@@ -8,10 +8,12 @@ export default async function MarketingLayout({ children }: { children: React.Re
 
   return (
     <>
-      <Navbar isAuthenticated={!!user} />
+      <div className="print:hidden">
+        <Navbar isAuthenticated={!!user} />
+      </div>
       <main className="flex-1">{children}</main>
       <footer
-        className="mt-20 py-12 px-6"
+        className="mt-20 py-12 px-6 print:hidden"
         style={{ borderTop: "1px solid var(--am-border-subtle)", background: "var(--am-bg-raised)" }}
       >
         <div className="max-w-7xl mx-auto">
