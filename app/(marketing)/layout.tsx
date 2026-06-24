@@ -34,9 +34,32 @@ export default async function MarketingLayout({ children }: { children: React.Re
               </p>
             </div>
             {[
-              { title: "Plateforme", links: ["Cours", "Pratique", "Formules", "Outils"] },
-              { title: "Ressources", links: ["Blog", "Podcasts", "Olympiades", "Téléchargements"] },
-              { title: "Légal", links: ["CGU", "Confidentialité", "Accessibilité"] },
+              {
+                title: "Plateforme",
+                links: [
+                  { label: "Cours", href: "#" },
+                  { label: "Pratique", href: "#" },
+                  { label: "Formules", href: "#" },
+                  { label: "Outils", href: "#" },
+                ],
+              },
+              {
+                title: "Ressources",
+                links: [
+                  { label: "Blog", href: "#" },
+                  { label: "Podcasts", href: "#" },
+                  { label: "Olympiades", href: "#" },
+                  { label: "Téléchargements", href: "/annales" },
+                ],
+              },
+              {
+                title: "Légal",
+                links: [
+                  { label: "CGU", href: "#" },
+                  { label: "Confidentialité", href: "#" },
+                  { label: "Accessibilité", href: "#" },
+                ],
+              },
             ].map((col) => (
               <div key={col.title}>
                 <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--am-text-muted)" }}>
@@ -44,12 +67,12 @@ export default async function MarketingLayout({ children }: { children: React.Re
                 </p>
                 <ul className="flex flex-col gap-2">
                   {col.links.map((link) => (
-                    <li key={link}>
+                    <li key={link.label}>
                       <a
-                        href="#"
+                        href={link.href}
                         className="text-sm text-[var(--am-text-secondary)] hover:text-[var(--am-green)] transition-colors"
                       >
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}
