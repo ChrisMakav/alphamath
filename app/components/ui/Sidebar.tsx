@@ -18,9 +18,10 @@ interface SidebarProps {
   userName?: string;
   userLevel?: string;
   currentCourse?: string;
+  isAdmin?: boolean;
 }
 
-export function Sidebar({ userName = "Étudiant", userLevel, currentCourse }: SidebarProps) {
+export function Sidebar({ userName = "Étudiant", userLevel, currentCourse, isAdmin }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const pathname = usePathname();
 
@@ -92,6 +93,24 @@ export function Sidebar({ userName = "Étudiant", userLevel, currentCourse }: Si
           );
         })}
       </nav>
+
+      {/* Administration */}
+      {isAdmin && (
+        <div className="p-2" style={{ borderTop: "1px solid var(--am-border-subtle)" }}>
+          <a
+            href="/admin"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-[var(--am-radius-md)] transition-all overflow-hidden"
+            style={{
+              color: pathname.startsWith("/admin") ? "var(--am-amber)" : "var(--am-text-secondary)",
+              background: pathname.startsWith("/admin") ? "var(--am-amber-muted)" : "transparent",
+              border: pathname.startsWith("/admin") ? "1px solid var(--am-amber)" : "1px solid transparent",
+            }}
+          >
+            <span className="text-base flex-shrink-0 leading-none">🛠️</span>
+            {!collapsed && <span className="text-sm font-medium whitespace-nowrap">Backoffice</span>}
+          </a>
+        </div>
+      )}
 
       {/* Bottom */}
       <div className="p-2 flex flex-col gap-0.5" style={{ borderTop: "1px solid var(--am-border-subtle)" }}>

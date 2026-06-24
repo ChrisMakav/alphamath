@@ -30,14 +30,27 @@ export async function proxy(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const pathname = request.nextUrl.pathname;
-  const PROTECTED = ["/dashboard", "/my-courses", "/analytics", "/profile", "/settings", "/tutor", "/leaderboard"];
+  const PROTECTED = ["/dashboard", "/my-courses", "/analytics", "/profile", "/settings", "/tutor", "/leaderboard", "/admin"];
   const isProtected = PROTECTED.some((p) => pathname === p || pathname.startsWith(p + "/"));
+  const isAdminRoute = pathname === "/admin" || pathname.startsWith("/admin/");
   const isAuthPage =
     pathname.startsWith("/login") || pathname.startsWith("/register");
 
   // Unauthenticated → redirect away from protected routes
   if (isProtected && !user) {
     return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  // Backoffice → admins only
+  if (isAdminRoute && user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+    if ((profile as { role?: string } | null)?.role !== "admin") {
+      return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
   }
 
   // Authenticated → skip auth pages

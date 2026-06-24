@@ -16,22 +16,23 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   const { data: profileRaw } = await supabase
     .from("profiles")
-    .select("name, school_level")
+    .select("name, school_level, role")
     .eq("id", user.id)
     .single();
 
-  const profile = profileRaw as Pick<Profile, "name" | "school_level"> | null;
+  const profile = profileRaw as Pick<Profile, "name" | "school_level" | "role"> | null;
   const userName = profile?.name ?? user.email?.split("@")[0] ?? "Étudiant";
   const schoolLevel = profile?.school_level;
   const userLevel = schoolLevel
     ? (LEVEL_LABELS[schoolLevel as keyof typeof LEVEL_LABELS] ?? schoolLevel)
     : undefined;
+  const isAdmin = profile?.role === "admin";
 
   return (
     <div className="flex flex-col h-screen overflow-hidden">
       <Navbar isAuthenticated />
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar userName={userName} userLevel={userLevel} />
+        <Sidebar userName={userName} userLevel={userLevel} isAdmin={isAdmin} />
         <main className="flex-1 overflow-y-auto" style={{ background: "var(--am-bg)" }}>
           {children}
         </main>
