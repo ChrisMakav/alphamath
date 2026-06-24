@@ -89,6 +89,12 @@ export function MathContent({ content, className = "" }: MathContentProps) {
         em { color: var(--am-text-secondary); font-style: italic; }
         .katex { font-size: 1.1em; }
         .katex-display { margin: 0.5em 0; }
+        @media print {
+          .am-math-display, .am-table-wrap { overflow: visible !important; }
+          .am-math-display { page-break-inside: avoid; }
+          .am-table { page-break-inside: auto; }
+          .am-table tr { page-break-inside: avoid; }
+        }
       `}</style>
       <div
         className={`am-prose ${className}`}

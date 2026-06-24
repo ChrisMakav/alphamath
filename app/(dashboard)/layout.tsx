@@ -30,11 +30,18 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const isTeacher = profile?.role === "teacher" || isAdmin;
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden">
-      <Navbar isAuthenticated />
-      <div className="flex flex-1 overflow-hidden">
-        <Sidebar userName={userName} userLevel={userLevel} isAdmin={isAdmin} isTeacher={isTeacher} />
-        <main className="flex-1 overflow-y-auto" style={{ background: "var(--am-bg)" }}>
+    <div className="flex flex-col h-screen overflow-hidden print:h-auto print:overflow-visible">
+      <div className="print:hidden">
+        <Navbar isAuthenticated />
+      </div>
+      <div className="flex flex-1 overflow-hidden print:overflow-visible">
+        <div className="print:hidden">
+          <Sidebar userName={userName} userLevel={userLevel} isAdmin={isAdmin} isTeacher={isTeacher} />
+        </div>
+        <main
+          className="flex-1 overflow-y-auto print:overflow-visible print:flex-none print:w-full print:h-auto"
+          style={{ background: "var(--am-bg)" }}
+        >
           {children}
         </main>
       </div>
