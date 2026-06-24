@@ -1,0 +1,29 @@
+---
+name: licence-l3-gap-fill
+description: Fourier lesson integrated into analyse-l3, plus 3 new L3 courses (probabilites-l3, geometrie-l3, informatique-l3) closing the L3 gap vs L1/L2
+metadata:
+  type: project
+---
+
+Two-part task in `lib/licence-courses.ts`, both INTEGRATED (not draft-only this time).
+
+**Part 1 — Fourier lesson.** The previously-drafted `/tmp/l3-fourier.ts` (documented in [[licence-l3-fourier-draft]]) was spliced in as the 4th lesson (`anal3-l3-4`, slug `series-de-fourier`) of the existing `analyse-l3` course, right after `anal3-l3-3`. 15 exercises, 5/5/5 split confirmed programmatically. No changes needed to the draft content itself, just insertion.
+
+**Part 2 — 3 new L3 courses** (chosen to extend beyond what L1/L2 already cover, per explicit instruction to avoid duplicating `topologie-l2`/`calcul-diff-l2`/`analyse-numerique-l2`/`algebre-abstraite-l2`):
+1. `probabilites-l3` (slug `probabilites-l3-convergence-theoremes-limites`) — lessons `proba3-l3-1` (inégalités de concentration : Markov, Tchebychev, Cauchy-Schwarz, Jensen), `proba3-l3-2` (fonctions génératrices et caractéristiques), `proba3-l3-3` (LFGN, LFGN forte, TCL). subject: probabilites.
+2. `geometrie-l3` (slug `geometrie-l3-courbes-surfaces`) — lessons `geo3-l3-1` (courbes paramétrées, courbure, Frenet-Serret), `geo3-l3-2` (surfaces, première forme fondamentale), `geo3-l3-3` (seconde forme fondamentale, courbure de Gauss, theorema egregium). subject: geometrie.
+3. `informatique-l3` (slug `informatique-l3-algorithmique-structures-graphes`) — lessons `info3-l3-1` (complexité, notations de Landau, théorème maître), `info3-l3-2` (piles/files/arbres/tas/tables de hachage), `info3-l3-3` (DFS/BFS, Dijkstra, Bellman-Ford, Floyd-Warshall). subject: informatique. Used blockquote `>` pseudo-code per the backtick pitfall, no triple-backtick fences.
+
+Each new course: 3 lessons × 15 exercises (5/5/5), verified programmatically via a Node script that transpiles the file with `ts.transpileModule` and counts `difficulty` per lesson — **not by eye**. All numeric/symbolic results (Markov/Tchebychev bounds, Poisson generating functions, circle/helix/sphere/torus curvature and Gauss curvature formulas, Dijkstra shortest-path traces, heap insertion sequence, leaf-count formula) were independently verified with `sympy` or small Python/Node simulations before being written into exercises — all matched, no errors found.
+
+**New bug class discovered and fixed (not seen in prior sessions):** several `explanation` string fields (in `proba3-l3-1-e11/e12/e13/e14`, `geo3-l3-1-e11/e12/e13/e15`, `geo3-l3-2-e10/e11/e12/e15`, `geo3-l3-3-e10/e11/e12/e14/e15`, and similar in `informatique-l3`) were written as double-quoted JS strings (`explanation: "..."`) but contained **literal newline characters** (real line breaks) instead of escaped `\n` — this is invalid JS/TS (double/single-quoted strings cannot contain raw newlines, only template literals can). This produced `tsc` errors `TS1002: Unterminated string literal` cascading into dozens of confusing downstream parse errors. Root cause: writing long multi-paragraph proof explanations and reflexively using real line breaks for readability while drafting, forgetting these fields use `"..."` not `` `...` ``. **Fixed via a Python script** (`fix_multiline_strings.py`, logic: scan line-by-line for a field opening with `key: "` that doesn't close with an unescaped `"` on the same line, then collect subsequent lines until an unescaped closing `"` is found, joining with literal `\n`) rather than fixing all ~45 occurrences by hand. **Lesson for future sessions: when writing long `explanation`/`modelAnswer` fields with multiple paragraphs, NEVER use real line breaks inside a `"..."` string — always use `\n` literally, or switch the field to backtick-delimited IF AND ONLY IF the content provably contains zero backtick characters** (riskier, given the recurring backtick pitfall — prefer `\n` escapes).
+
+**Also fixed:** the 3 new courses initially used `difficulty: "Expert"` at the course level (copying the exercise-level vocabulary), but the `Course.difficulty` field (type `Difficulty`) only accepts `"Débutant" | "Intermédiaire" | "Avancé"` — distinct from `Exercise.difficulty` (`"debutant" | "intermediaire" | "expert"`). Caught by `tsc` (`TS2322`), fixed by replacing the 3 top-level `difficulty: "Expert",` lines with `"Avancé"`.
+
+**Pre-existing issue confirmed NOT introduced by this session:** 4 lessons in the already-existing `analyse-l3` and `arithmetique-l3` courses (`anal3-l3-2`, `anal3-l3-3`, `arith1-l3-2`, `arith1-l3-3`) have a difficulty split that is NOT 5/5/5 (e.g. 4/6/5). Verified via `git stash` that this mismatch exists in the version already on disk/origin before this session's edits — out of scope for this task, not touched, flagged here for a future cleanup pass if requested.
+
+**Final state:** L1=8 courses, L2=9 courses, **L3=6 courses** (analyse-l3 now 4 lessons/60 exercises; algebre-l3, arithmetique-l3, probabilites-l3, geometrie-l3, informatique-l3 each 3 lessons/45 exercises). `npx tsc --noEmit` clean (exit 0). Duplicate-id/slug check via transpile-and-require script: zero duplicates among everything touched this session (the 2 pre-existing `id===slug` false positives documented in [[project-alphamath-seed-data]] are unrelated to L3 and unaffected).
+
+Skill `generateur-de-cours-maths` was unavailable this pass too (14th confirmed occurrence — not in the ToolSearch-able skill list, no "math-course-generator" skill registered despite the math-course-generator *agent* persona being used to drive this session manually).
+
+Related: [[licence-l3-fourier-draft]] (the Fourier content origin), [[licence-courses-added]], [[licence-l2-topo-diff-numerique]] (prior session with the *same* 5/5/5 manual-drift pitfall — confirms: always verify programmatically, every single time, no exceptions).
