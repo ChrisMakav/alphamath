@@ -99,4 +99,59 @@
   --am-ease-out:  cubic-bezier(0, 0, 0.2, 1);
   --am-duration:  180ms;
   --am-duration-slow: 320ms;
+
+  /* ── Chrome (theme-aware translucent surfaces) ── */
+  --am-nav-bg: rgba(8,9,14,0.8);
+}
+
+/* ── Light mode ── */
+:root[data-theme="light"] {
+  /* ── Surfaces ── */
+  --am-bg:          #f6f7fb;
+  --am-bg-raised:   #ffffff;
+  --am-bg-card:     #ffffff;
+  --am-bg-elevated: #eef0f6;
+  --am-bg-overlay:  #e3e6f0;
+
+  /* ── Borders ── */
+  --am-border:        #e2e5ef;
+  --am-border-subtle: #ebedf5;
+  --am-border-strong: #c9cee0;
+
+  /* ── Accent – Lime Green (primary) ── */
+  --am-green:        #0ea656;
+  --am-green-dim:    #0a7a40;
+  --am-green-muted:  #dcf7e6;
+  --am-green-glow:   0 0 20px rgba(14,166,86,0.25), 0 0 60px rgba(14,166,86,0.08);
+  --am-green-glow-sm:0 0 8px rgba(14,166,86,0.3);
+
+  /* ── Accent – Violet (secondary) ── */
+  --am-purple:       #7c3aed;
+  --am-purple-dim:   #5b21b6;
+  --am-purple-muted: #f1e8ff;
+  --am-purple-glow:  0 0 20px rgba(124,58,237,0.2), 0 0 60px rgba(124,58,237,0.08);
+
+  /* ── Accent – Blue (info) ── */
+  --am-blue:         #2563eb;
+  --am-blue-muted:   #dbeafe;
+
+  /* ── Accent – Amber (warning) ── */
+  --am-amber:        #c2740a;
+  --am-amber-muted:  #fef3c7;
+
+  /* ── Text ── */
+  --am-text:         #14162a;
+  --am-text-secondary: #525872;
+  --am-text-muted:   #8d92ab;
+  --am-text-inverse: #ffffff;
+
+  /* ── Shadows ── */
+  --am-shadow-sm:  0 1px 3px rgba(20,22,42,0.06), 0 1px 2px rgba(20,22,42,0.04);
+  --am-shadow-md:  0 4px 12px rgba(20,22,42,0.08), 0 2px 4px rgba(20,22,42,0.05);
+  --am-shadow-lg:  0 10px 30px rgba(20,22,42,0.10), 0 4px 8px rgba(20,22,42,0.06);
+  --am-shadow-xl:  0 20px 60px rgba(20,22,42,0.12), 0 8px 16px rgba(20,22,42,0.08);
+  --am-shadow-card: 0 2px 8px rgba(20,22,42,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+
+  /* ── Chrome ── */
+  --am-nav-bg: rgba(255,255,255,0.8);
 }
