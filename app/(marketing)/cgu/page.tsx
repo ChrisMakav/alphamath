@@ -1,16 +1,19 @@
 import React from "react";
-import { LegalLayout, LegalSection, LegalNote } from "../../components/ui/LegalLayout";
+import { LegalLayout, LegalSection } from "../../components/ui/LegalLayout";
 
 export default function CGUPage() {
   return (
     <LegalLayout title="Conditions Générales d'Utilisation" updatedAt="25 juin 2026">
-      <LegalNote>
-        Document fourni à titre indicatif. Les informations d&apos;identification de l&apos;éditeur
-        (raison sociale, forme juridique, adresse du siège, SIRET) doivent être complétées par
-        AlphaMath avant toute mise en production.
-      </LegalNote>
+      <LegalSection title="1. Éditeur de la Plateforme">
+        <p>
+          La Plateforme AlphaMath est éditée par <strong className="text-[var(--am-text)]">MAKAV Service Digital</strong>,
+          société à responsabilité limitée (SARL) spécialisée dans la programmation informatique,
+          immatriculée sous le numéro SIRET 888 368 925 00028, dont le siège social est situé au 19
+          rue de Sainte Catherine, 37800 Sainte-Maure-de-Touraine.
+        </p>
+      </LegalSection>
 
-      <LegalSection title="1. Objet">
+      <LegalSection title="2. Objet">
         <p>
           AlphaMath (« la Plateforme ») est un service en ligne d&apos;apprentissage des mathématiques
           destiné aux élèves du 6ème à la Licence (L1 à L3), ainsi qu&apos;à leurs parents et aux
@@ -24,7 +27,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="2. Acceptation des CGU">
+      <LegalSection title="3. Acceptation des CGU">
         <p>
           La création d&apos;un compte ou l&apos;utilisation de la Plateforme implique l&apos;acceptation
           pleine et entière des présentes CGU. Si l&apos;Utilisateur ne les accepte pas, il doit
@@ -32,7 +35,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="3. Création de compte">
+      <LegalSection title="4. Création de compte">
         <ul className="list-disc pl-5 flex flex-col gap-1.5">
           <li>L&apos;inscription nécessite un nom, une adresse e-mail valide et un mot de passe, ou une connexion via Google.</li>
           <li>L&apos;Utilisateur choisit un profil (élève, parent ou enseignant) et, le cas échéant, un niveau scolaire.</li>
@@ -46,7 +49,7 @@ export default function CGUPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="4. Offres, abonnements et facturation">
+      <LegalSection title="5. Offres, abonnements et facturation">
         <p>
           AlphaMath propose une offre gratuite (essai de 14 jours donnant accès à un cours au choix) et
           une offre Premium payante donnant accès à l&apos;intégralité des cours, exercices, annales et au
@@ -65,7 +68,7 @@ export default function CGUPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="5. Tuteur IA (AlphaBot)">
+      <LegalSection title="6. Tuteur IA (AlphaBot)">
         <p>
           Le tuteur conversationnel repose sur un modèle de langage tiers. Ses réponses sont générées
           automatiquement et peuvent contenir des approximations ou des erreurs. Elles ne remplacent
@@ -74,7 +77,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Générateur d'évaluations IA">
+      <LegalSection title="7. Générateur d'évaluations IA">
         <p>
           Cette fonctionnalité, réservée aux enseignants disposant d&apos;un compte Premium, génère des
           propositions d&apos;évaluations à partir de paramètres choisis par l&apos;enseignant. Le contenu
@@ -83,7 +86,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="7. Propriété intellectuelle">
+      <LegalSection title="8. Propriété intellectuelle">
         <p>
           L&apos;ensemble des contenus pédagogiques originaux de la Plateforme (cours, exercices,
           fiches de formules, corrections) sont protégés par le droit d&apos;auteur et restent la
@@ -99,7 +102,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="8. Comportement de l'Utilisateur">
+      <LegalSection title="9. Comportement de l'Utilisateur">
         <p>L&apos;Utilisateur s&apos;engage à :</p>
         <ul className="list-disc pl-5 flex flex-col gap-1.5">
           <li>ne pas usurper l&apos;identité d&apos;un tiers ni partager son compte avec d&apos;autres personnes ;</li>
@@ -108,7 +111,7 @@ export default function CGUPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="9. Disponibilité du service">
+      <LegalSection title="10. Disponibilité du service">
         <p>
           AlphaMath met en œuvre des moyens raisonnables pour assurer un accès continu à la Plateforme,
           sans garantir une disponibilité absolue. Des interruptions liées à la maintenance ou à des
@@ -116,7 +119,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="10. Responsabilité">
+      <LegalSection title="11. Responsabilité">
         <p>
           AlphaMath ne pourra être tenu responsable des dommages indirects résultant de
           l&apos;utilisation de la Plateforme, ni des conséquences d&apos;une utilisation des réponses du
@@ -124,7 +127,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="11. Résiliation">
+      <LegalSection title="12. Résiliation">
         <p>
           L&apos;Utilisateur peut supprimer son compte à tout moment depuis ses Paramètres. AlphaMath se
           réserve le droit de suspendre ou résilier l&apos;accès d&apos;un Utilisateur en cas de
@@ -132,7 +135,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="12. Modification des CGU">
+      <LegalSection title="13. Modification des CGU">
         <p>
           AlphaMath peut modifier les présentes CGU à tout moment. Les Utilisateurs seront informés de
           toute modification substantielle. La poursuite de l&apos;utilisation de la Plateforme après
@@ -140,7 +143,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="13. Droit applicable et litiges">
+      <LegalSection title="14. Droit applicable et litiges">
         <p>
           Les présentes CGU sont soumises au droit français. En cas de litige, et après tentative de
           résolution amiable, les tribunaux français compétents seront seuls saisis, sauf disposition
@@ -148,7 +151,7 @@ export default function CGUPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="14. Contact">
+      <LegalSection title="15. Contact">
         <p>
           Pour toute question relative aux présentes CGU, l&apos;Utilisateur peut nous écrire via le
           formulaire de <a href="/contact" className="text-[var(--am-green)] hover:underline">contact</a>.

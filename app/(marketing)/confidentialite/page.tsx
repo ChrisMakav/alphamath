@@ -1,15 +1,9 @@
 import React from "react";
-import { LegalLayout, LegalSection, LegalNote } from "../../components/ui/LegalLayout";
+import { LegalLayout, LegalSection } from "../../components/ui/LegalLayout";
 
 export default function ConfidentialitePage() {
   return (
     <LegalLayout title="Politique de Confidentialité" updatedAt="25 juin 2026">
-      <LegalNote>
-        Document fourni à titre indicatif. La raison sociale, l&apos;adresse du siège et, le cas
-        échéant, les coordonnées d&apos;un délégué à la protection des données doivent être complétées
-        par AlphaMath avant toute mise en production.
-      </LegalNote>
-
       <LegalSection title="1. Préambule">
         <p>
           AlphaMath attache une grande importance à la protection des données personnelles de ses
@@ -17,7 +11,12 @@ export default function ConfidentialitePage() {
           elles sont partagées, et quels droits vous pouvez exercer, conformément au Règlement Général
           sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
         </p>
-        <p>Le responsable du traitement des données est AlphaMath (informations légales à compléter).</p>
+        <p>
+          Le responsable du traitement des données est <strong className="text-[var(--am-text)]">MAKAV Service Digital</strong>,
+          SARL spécialisée dans la programmation informatique, immatriculée sous le numéro SIRET 888
+          368 925 00028, dont le siège social est situé au 19 rue de Sainte Catherine, 37800
+          Sainte-Maure-de-Touraine, éditrice de la Plateforme AlphaMath.
+        </p>
       </LegalSection>
 
       <LegalSection title="2. Données collectées">
