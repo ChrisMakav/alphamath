@@ -73,7 +73,8 @@ export async function replyToContactRequest(_prev: { error?: string } | undefine
       originalMessage: request.message,
       reply,
     });
-  } catch {
+  } catch (err) {
+    console.error("replyToContactRequest: échec envoi email", err);
     return { error: "L'email n'a pas pu être envoyé. Réessayez." };
   }
 
