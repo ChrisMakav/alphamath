@@ -55,9 +55,9 @@ export default async function MarketingLayout({ children }: { children: React.Re
               {
                 title: "Légal",
                 links: [
-                  { label: "CGU", href: "#" },
-                  { label: "Confidentialité", href: "#" },
-                  { label: "Accessibilité", href: "#" },
+                  { label: "CGU", href: "/cgu" },
+                  { label: "Confidentialité", href: "/confidentialite" },
+                  { label: "Accessibilité", href: "/accessibilite" },
                 ],
               },
             ].map((col) => (
