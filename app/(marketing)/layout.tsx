@@ -81,11 +81,12 @@ export default async function MarketingLayout({ children }: { children: React.Re
             ))}
           </div>
           <div
-            className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
+            className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-center sm:text-left"
             style={{ borderTop: "1px solid var(--am-border-subtle)", color: "var(--am-text-muted)" }}
           >
             <span>© {new Date().getFullYear()} AlphaMath Académie · Précision Pédagogique · Progression Structurée</span>
-            <span>
+            <span className="flex items-center gap-3">
+              <span>Site signé MAKAV Service Digital</span>
               <a href="/design-system" className="hover:text-[var(--am-green)] transition-colors">
                 Design System
               </a>
