@@ -2,20 +2,16 @@ import React from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "../../../lib/supabase/server";
 import { StatWidget } from "../../components/ui/StatWidget";
+import { Tag } from "../../components/ui/Badge";
 import { COURSES, LEVEL_LABELS } from "../../../lib/seed-data";
+import { CONTACT_SUBJECT_LABELS } from "../../../lib/contact";
 import type { Database } from "../../../lib/supabase/types";
 import { RoleSelect } from "./RoleSelect";
 import { ContactRequestStatusToggle } from "./ContactRequestStatusToggle";
+import { ContactReplyPanel } from "./ContactReplyPanel";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 type ContactRequest = Database["public"]["Tables"]["contact_requests"]["Row"];
-
-const CONTACT_SUBJECT_LABELS: Record<string, string> = {
-  inscription: "Inscription & abonnements",
-  etablissement: "Offre établissement / groupe",
-  technique: "Problème technique",
-  autre: "Autre demande",
-};
 
 export default async function AdminPage() {
   const supabase = await createClient();
@@ -85,7 +81,7 @@ export default async function AdminPage() {
           <table className="w-full text-sm">
             <thead>
               <tr style={{ borderBottom: "1px solid var(--am-border-subtle)" }}>
-                {["Nom", "Niveau", "XP", "Série", "Rôle", "Inscrit le"].map((h) => (
+                {["Nom", "Niveau", "XP", "Série", "Abonnement", "Rôle", "Inscrit le"].map((h) => (
                   <th
                     key={h}
                     className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wide"
@@ -105,6 +101,11 @@ export default async function AdminPage() {
                   </td>
                   <td className="px-5 py-3 text-[var(--am-text-secondary)]">{p.xp}</td>
                   <td className="px-5 py-3 text-[var(--am-text-secondary)]">{p.streak}j</td>
+                  <td className="px-5 py-3">
+                    <Tag variant={p.is_premium ? "success" : "default"}>
+                      {p.is_premium ? "Premium" : "Gratuit"}
+                    </Tag>
+                  </td>
                   <td className="px-5 py-3">
                     <RoleSelect userId={p.id} currentRole={p.role} disabled={p.id === user.id} />
                   </td>
@@ -140,7 +141,7 @@ export default async function AdminPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ borderBottom: "1px solid var(--am-border-subtle)" }}>
-                  {["Contact", "Sujet", "Message", "Statut", "Reçu le"].map((h) => (
+                  {["Contact", "Sujet", "Message", "Statut", "Reçu le", "Réponse"].map((h) => (
                     <th
                       key={h}
                       className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wide"
@@ -170,6 +171,9 @@ export default async function AdminPage() {
                     </td>
                     <td className="px-5 py-3 text-[var(--am-text-muted)] whitespace-nowrap">
                       {new Date(c.created_at).toLocaleDateString("fr-FR")}
+                    </td>
+                    <td className="px-5 py-3">
+                      <ContactReplyPanel id={c.id} adminReply={c.admin_reply} repliedAt={c.replied_at} />
                     </td>
                   </tr>
                 ))}

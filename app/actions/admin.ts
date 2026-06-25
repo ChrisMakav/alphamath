@@ -3,6 +3,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import type { Database } from "../../lib/supabase/types";
+import { CONTACT_SUBJECT_LABELS } from "../../lib/contact";
+import { sendContactReplyEmail } from "../../lib/emails/send-contact-reply";
 
 type Role = Database["public"]["Tables"]["profiles"]["Row"]["role"];
 const ROLES: Role[] = ["student", "teacher", "parent", "admin"];
@@ -40,6 +42,45 @@ export async function setUserRole(_prev: { error?: string } | undefined, formDat
     .from("profiles")
     .update({ role } as never)
     .eq("id", targetId);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/admin");
+  return { error: undefined };
+}
+
+export async function replyToContactRequest(_prev: { error?: string } | undefined, formData: FormData) {
+  const { supabase } = await requireAdmin();
+
+  const id = formData.get("id") as string;
+  const reply = (formData.get("reply") as string)?.trim();
+
+  if (!reply) return { error: "La réponse ne peut pas être vide." };
+
+  const { data: requestRaw } = await supabase
+    .from("contact_requests")
+    .select("*")
+    .eq("id", id)
+    .single();
+  const request = requestRaw as Database["public"]["Tables"]["contact_requests"]["Row"] | null;
+  if (!request) return { error: "Demande introuvable." };
+
+  try {
+    await sendContactReplyEmail({
+      to: request.email,
+      name: request.name,
+      subjectLabel: CONTACT_SUBJECT_LABELS[request.subject] ?? request.subject,
+      originalMessage: request.message,
+      reply,
+    });
+  } catch {
+    return { error: "L'email n'a pas pu être envoyé. Réessayez." };
+  }
+
+  const { error } = await supabase
+    .from("contact_requests")
+    .update({ admin_reply: reply, replied_at: new Date().toISOString(), status: "treated" } as never)
+    .eq("id", id);
 
   if (error) return { error: error.message };
 

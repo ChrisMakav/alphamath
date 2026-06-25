@@ -2,6 +2,10 @@ import { NextResponse, type NextRequest } from "next/server";
 import Stripe from "stripe";
 import { stripe } from "../../../../lib/stripe";
 import { createAdminClient } from "../../../../lib/supabase/admin";
+import { sendPremiumConfirmationEmail } from "../../../../lib/emails/send-premium-confirmation";
+import type { Database } from "../../../../lib/supabase/types";
+
+type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
@@ -56,6 +60,32 @@ export async function POST(request: NextRequest) {
           premium_status: subscription.status,
         } as never)
         .eq("stripe_customer_id", customerId);
+      break;
+    }
+
+    case "invoice.payment_succeeded": {
+      const invoice = event.data.object as Stripe.Invoice;
+      // Only the first invoice of a subscription — confirmation email is sent once, not on every renewal.
+      if (invoice.billing_reason !== "subscription_create") break;
+
+      const customerId = typeof invoice.customer === "string" ? invoice.customer : invoice.customer?.id;
+      const recipientEmail = invoice.customer_email;
+      if (!customerId || !recipientEmail) break;
+
+      const { data: profileRaw } = await supabase
+        .from("profiles")
+        .select("name")
+        .eq("stripe_customer_id", customerId)
+        .single();
+      const profile = profileRaw as Pick<Profile, "name"> | null;
+
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005";
+      await sendPremiumConfirmationEmail({
+        to: recipientEmail,
+        name: profile?.name ?? null,
+        invoice,
+        siteUrl,
+      });
       break;
     }
 

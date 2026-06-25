@@ -135,6 +135,8 @@ export interface Database {
           subject: string;
           message: string;
           status: "new" | "treated";
+          admin_reply: string | null;
+          replied_at: string | null;
           created_at: string;
         };
         Insert: {
@@ -146,6 +148,8 @@ export interface Database {
         };
         Update: {
           status?: "new" | "treated";
+          admin_reply?: string | null;
+          replied_at?: string | null;
         };
       };
     };
