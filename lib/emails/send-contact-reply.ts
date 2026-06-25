@@ -14,10 +14,12 @@ export async function sendContactReplyEmail({
   originalMessage: string;
   reply: string;
 }) {
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: EMAIL_FROM,
     to,
     subject: "Réponse à votre demande — AlphaMath",
     html: contactReplyEmailHtml({ name, subjectLabel, originalMessage, reply }),
   });
+
+  if (error) throw new Error(error.message);
 }

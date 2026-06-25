@@ -32,7 +32,7 @@ export async function sendPremiumConfirmationEmail({
     }
   }
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: EMAIL_FROM,
     to,
     subject: "Bienvenue dans AlphaMath Premium 🎉",
@@ -45,4 +45,6 @@ export async function sendPremiumConfirmationEmail({
     }),
     attachments,
   });
+
+  if (error) throw new Error(error.message);
 }
