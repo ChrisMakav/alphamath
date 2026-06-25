@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         typeof session.subscription === "string" ? session.subscription : session.subscription?.id;
 
       if (userId) {
-        await supabase
+        const { error } = await supabase
           .from("profiles")
           .update({
             stripe_customer_id: customerId ?? null,
@@ -43,6 +43,7 @@ export async function POST(request: NextRequest) {
             premium_status: "active",
           } as never)
           .eq("id", userId);
+        if (error) console.error("[webhook] Échec mise à jour profil (checkout.session.completed):", error);
       }
       break;
     }
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
       const customerId = typeof subscription.customer === "string" ? subscription.customer : subscription.customer.id;
       const isActive = subscription.status === "active" || subscription.status === "trialing";
 
-      await supabase
+      const { error } = await supabase
         .from("profiles")
         .update({
           stripe_subscription_id: subscription.id,
@@ -60,6 +61,7 @@ export async function POST(request: NextRequest) {
           premium_status: subscription.status,
         } as never)
         .eq("stripe_customer_id", customerId);
+      if (error) console.error("[webhook] Échec mise à jour profil (customer.subscription.updated):", error);
       break;
     }
 
@@ -70,7 +72,10 @@ export async function POST(request: NextRequest) {
 
       const customerId = typeof invoice.customer === "string" ? invoice.customer : invoice.customer?.id;
       const recipientEmail = invoice.customer_email;
-      if (!customerId || !recipientEmail) break;
+      if (!customerId || !recipientEmail) {
+        console.error("[webhook] invoice.payment_succeeded: customerId ou recipientEmail manquant", { customerId, recipientEmail });
+        break;
+      }
 
       const { data: profileRaw } = await supabase
         .from("profiles")
@@ -80,12 +85,16 @@ export async function POST(request: NextRequest) {
       const profile = profileRaw as Pick<Profile, "name"> | null;
 
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005";
-      await sendPremiumConfirmationEmail({
-        to: recipientEmail,
-        name: profile?.name ?? null,
-        invoice,
-        siteUrl,
-      });
+      try {
+        await sendPremiumConfirmationEmail({
+          to: recipientEmail,
+          name: profile?.name ?? null,
+          invoice,
+          siteUrl,
+        });
+      } catch (err) {
+        console.error("[webhook] Échec envoi email confirmation premium:", err);
+      }
       break;
     }
 
@@ -93,10 +102,11 @@ export async function POST(request: NextRequest) {
       const subscription = event.data.object as Stripe.Subscription;
       const customerId = typeof subscription.customer === "string" ? subscription.customer : subscription.customer.id;
 
-      await supabase
+      const { error } = await supabase
         .from("profiles")
         .update({ is_premium: false, premium_status: "canceled" } as never)
         .eq("stripe_customer_id", customerId);
+      if (error) console.error("[webhook] Échec mise à jour profil (customer.subscription.deleted):", error);
       break;
     }
 

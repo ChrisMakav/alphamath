@@ -21,15 +21,19 @@ export async function sendPremiumConfirmationEmail({
   });
 
   const attachments: { filename: string; content: Buffer }[] = [];
-  if (invoice.invoice_pdf) {
-    const pdfResponse = await fetch(invoice.invoice_pdf);
-    if (pdfResponse.ok) {
-      const pdfBuffer = Buffer.from(await pdfResponse.arrayBuffer());
-      attachments.push({
-        filename: `facture-alphamath-${invoice.number ?? invoice.id}.pdf`,
-        content: pdfBuffer,
-      });
+  try {
+    if (invoice.invoice_pdf) {
+      const pdfResponse = await fetch(invoice.invoice_pdf);
+      if (pdfResponse.ok) {
+        const pdfBuffer = Buffer.from(await pdfResponse.arrayBuffer());
+        attachments.push({
+          filename: `facture-alphamath-${invoice.number ?? invoice.id}.pdf`,
+          content: pdfBuffer,
+        });
+      }
     }
+  } catch (err) {
+    console.error("[email] Impossible de récupérer le PDF de facture Stripe:", err);
   }
 
   const { error } = await resend.emails.send({
