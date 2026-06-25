@@ -37,18 +37,18 @@ export default async function MarketingLayout({ children }: { children: React.Re
               {
                 title: "Plateforme",
                 links: [
-                  { label: "Cours", href: "#" },
-                  { label: "Pratique", href: "#" },
-                  { label: "Formules", href: "#" },
-                  { label: "Outils", href: "#" },
+                  { label: "Cours", href: "/courses" },
+                  { label: "Pratique", href: "/practice" },
+                  { label: "Formules", href: "/formulas" },
+                  { label: "Outils", href: "/tutor" },
                 ],
               },
               {
                 title: "Ressources",
                 links: [
-                  { label: "Blog", href: "#" },
-                  { label: "Podcasts", href: "#" },
-                  { label: "Olympiades", href: "#" },
+                  { label: "Blog", href: "/blog" },
+                  { label: "Podcasts", href: "/podcasts" },
+                  { label: "Olympiades", href: "/olympiades" },
                   { label: "Téléchargements", href: "/annales" },
                 ],
               },
