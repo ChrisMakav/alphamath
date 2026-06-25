@@ -89,7 +89,7 @@ export default function HomePage() {
               Une pédagogie qui combine rigueur et code
             </h2>
             <p className="text-[var(--am-text-secondary)] max-w-xl mx-auto">
-              MathPath modélisé pour une progression rigoureuse et naturelle.
+              Un parcours pédagogique structuré, pensé pour une progression rigoureuse et naturelle.
             </p>
             <Button variant="secondary" size="sm" className="mt-4" href="/courses">Voir toutes les fonctionnalités →</Button>
           </div>
