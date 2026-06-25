@@ -79,7 +79,7 @@ export default function HomePage() {
       </section>
 
       {/* Why AlphaMath */}
-      <section className="py-20 px-6">
+      <section id="methode" className="py-20 px-6 scroll-mt-20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--am-blue)" }}>

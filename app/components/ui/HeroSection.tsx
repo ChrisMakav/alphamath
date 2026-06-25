@@ -95,7 +95,7 @@ export function HeroSection({ className = "" }: HeroSectionProps) {
           <Button variant="primary" size="lg" href="/register">
             Commencer gratuitement
           </Button>
-          <Button variant="outline" size="lg" href="/courses">
+          <Button variant="outline" size="lg" href="/#methode">
             Découvrir la méthode
           </Button>
         </div>
