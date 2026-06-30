@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import { Navbar } from "../components/ui/Navbar";
 import { Sidebar } from "../components/ui/Sidebar";
+import { SessionGuard } from "../components/SessionGuard";
 import type { Database } from "../../lib/supabase/types";
 import { LEVEL_LABELS } from "../../lib/seed-data";
 
@@ -31,6 +32,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <div className="flex flex-col h-screen overflow-hidden print:h-auto print:overflow-visible">
+      <SessionGuard />
       <div className="print:hidden">
         <Navbar isAuthenticated />
       </div>
