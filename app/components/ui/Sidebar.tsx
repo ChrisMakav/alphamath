@@ -134,7 +134,7 @@ export function Sidebar({ userName = "Étudiant", userLevel, currentCourse, isAd
       {/* Bottom */}
       <div className="p-2 flex flex-col gap-0.5" style={{ borderTop: "1px solid var(--am-border-subtle)" }}>
         <a
-          href="#"
+          href="/contact"
           className="flex items-center gap-3 px-3 py-2.5 rounded-[var(--am-radius-md)] transition-all overflow-hidden"
           style={{ color: "var(--am-text-muted)" }}
         >
