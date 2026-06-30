@@ -9,6 +9,7 @@ import type { Database } from "../../../lib/supabase/types";
 import { RoleSelect } from "./RoleSelect";
 import { ContactRequestStatusToggle } from "./ContactRequestStatusToggle";
 import { ContactReplyPanel } from "./ContactReplyPanel";
+import { ContactMessageModal } from "./ContactMessageModal";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 type ContactRequest = Database["public"]["Tables"]["contact_requests"]["Row"];
@@ -163,8 +164,17 @@ export default async function AdminPage() {
                     <td className="px-5 py-3 text-[var(--am-text-secondary)]">
                       {CONTACT_SUBJECT_LABELS[c.subject] ?? c.subject}
                     </td>
-                    <td className="px-5 py-3 text-[var(--am-text-secondary)] max-w-xs">
-                      <p className="line-clamp-2">{c.message}</p>
+                    <td className="px-5 py-3 max-w-xs">
+                      <ContactMessageModal
+                        name={c.name}
+                        email={c.email}
+                        phone={c.phone ?? null}
+                        subject={c.subject}
+                        message={c.message}
+                        createdAt={c.created_at}
+                        adminReply={c.admin_reply ?? null}
+                        repliedAt={c.replied_at ?? null}
+                      />
                     </td>
                     <td className="px-5 py-3">
                       <ContactRequestStatusToggle id={c.id} currentStatus={c.status} />
