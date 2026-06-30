@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
+import { createAdminClient } from "../../lib/supabase/admin";
 import type { Database } from "../../lib/supabase/types";
 import { CONTACT_SUBJECT_LABELS } from "../../lib/contact";
 import { sendContactReplyEmail } from "../../lib/emails/send-contact-reply";
@@ -90,12 +91,13 @@ export async function replyToContactRequest(_prev: { error?: string } | undefine
 }
 
 export async function deleteContactRequest(_prev: { error?: string } | undefined, formData: FormData) {
-  const { supabase } = await requireAdmin();
+  await requireAdmin();
+  const adminSupabase = createAdminClient();
 
   const id = formData.get("id") as string;
   if (!id) return { error: "Identifiant manquant." };
 
-  const { error } = await supabase
+  const { error } = await adminSupabase
     .from("contact_requests")
     .delete()
     .eq("id", id);
