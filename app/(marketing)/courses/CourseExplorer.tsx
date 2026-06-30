@@ -91,7 +91,7 @@ function CoursesContent({ accessibleLevels }: CoursesContentProps) {
         <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--am-purple)" }}>
           CATALOGUE
         </p>
-        <h1 className="text-4xl font-black text-[var(--am-text)] mb-3">Course Explorer</h1>
+        <h1 className="text-4xl font-black text-[var(--am-text)] mb-3">Explorateur de cours</h1>
         <p className="text-[var(--am-text-secondary)] max-w-xl">
           Découvrez des parcours d'apprentissage structurés pour la maîtrise. De l'arithmétique fondamentale
           à l'analyse avancée, construisez votre fondation mathématique avec précision académique.
