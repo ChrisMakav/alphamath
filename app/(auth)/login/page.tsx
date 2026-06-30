@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,6 +10,19 @@ import { createClient } from "../../../lib/supabase/client";
 import { Input } from "../../components/ui/Input";
 import { Button } from "../../components/ui/Button";
 
+function InactivityBanner() {
+  const searchParams = useSearchParams();
+  if (searchParams.get("reason") !== "inactivity") return null;
+  return (
+    <div
+      className="mb-4 text-sm px-3 py-2 rounded-[var(--am-radius-md)]"
+      style={{ color: "#f59e0b", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}
+    >
+      Vous avez été déconnecté automatiquement après une période d'inactivité.
+    </div>
+  );
+}
+
 const schema = z.object({
   email: z.string().email("Adresse e-mail invalide"),
   password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caractères"),
@@ -18,8 +31,6 @@ type FormData = z.infer<typeof schema>;
 
 export default function LoginPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const inactivityLogout = searchParams.get("reason") === "inactivity";
   const [serverError, setServerError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -55,14 +66,9 @@ export default function LoginPage() {
         </p>
       </div>
 
-      {inactivityLogout && (
-        <div
-          className="mb-4 text-sm px-3 py-2 rounded-[var(--am-radius-md)]"
-          style={{ color: "#f59e0b", background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.2)" }}
-        >
-          Vous avez été déconnecté automatiquement après une période d'inactivité.
-        </div>
-      )}
+      <Suspense>
+        <InactivityBanner />
+      </Suspense>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <Input
