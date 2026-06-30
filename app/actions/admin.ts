@@ -89,6 +89,23 @@ export async function replyToContactRequest(_prev: { error?: string } | undefine
   return { error: undefined };
 }
 
+export async function deleteContactRequest(_prev: { error?: string } | undefined, formData: FormData) {
+  const { supabase } = await requireAdmin();
+
+  const id = formData.get("id") as string;
+  if (!id) return { error: "Identifiant manquant." };
+
+  const { error } = await supabase
+    .from("contact_requests")
+    .delete()
+    .eq("id", id);
+
+  if (error) return { error: error.message };
+
+  revalidatePath("/admin");
+  return { error: undefined };
+}
+
 export async function setContactRequestStatus(_prev: { error?: string } | undefined, formData: FormData) {
   const { supabase } = await requireAdmin();
 

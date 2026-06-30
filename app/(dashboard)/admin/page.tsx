@@ -10,6 +10,7 @@ import { RoleSelect } from "./RoleSelect";
 import { ContactRequestStatusToggle } from "./ContactRequestStatusToggle";
 import { ContactReplyPanel } from "./ContactReplyPanel";
 import { ContactMessageModal } from "./ContactMessageModal";
+import { DeleteContactButton } from "./DeleteContactButton";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 type ContactRequest = Database["public"]["Tables"]["contact_requests"]["Row"];
@@ -142,7 +143,7 @@ export default async function AdminPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ borderBottom: "1px solid var(--am-border-subtle)" }}>
-                  {["Contact", "Sujet", "Message", "Statut", "Reçu le", "Réponse"].map((h) => (
+                  {["Contact", "Sujet", "Message", "Statut", "Reçu le", "Réponse", ""].map((h) => (
                     <th
                       key={h}
                       className="text-left px-5 py-3 text-xs font-semibold uppercase tracking-wide"
@@ -184,6 +185,9 @@ export default async function AdminPage() {
                     </td>
                     <td className="px-5 py-3">
                       <ContactReplyPanel id={c.id} adminReply={c.admin_reply} repliedAt={c.replied_at} />
+                    </td>
+                    <td className="px-5 py-3">
+                      <DeleteContactButton id={c.id} />
                     </td>
                   </tr>
                 ))}
