@@ -33,7 +33,11 @@ export default function ForgotPasswordPage() {
       redirectTo: `${window.location.origin}/auth/callback?next=/reset-password`,
     });
     if (error) {
-      setServerError("Une erreur est survenue. Réessayez plus tard.");
+      setServerError(
+        error.code === "over_email_send_rate_limit"
+          ? "Trop de demandes envoyées. Patientez quelques minutes avant de réessayer."
+          : "Une erreur est survenue. Réessayez plus tard."
+      );
       setLoading(false);
       return;
     }
