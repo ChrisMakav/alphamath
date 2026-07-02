@@ -23,6 +23,19 @@ function InactivityBanner() {
   );
 }
 
+function ResetSuccessBanner() {
+  const searchParams = useSearchParams();
+  if (searchParams.get("reset") !== "success") return null;
+  return (
+    <div
+      className="mb-4 text-sm px-3 py-2 rounded-[var(--am-radius-md)]"
+      style={{ color: "var(--am-green)", background: "var(--am-green-muted)", border: "1px solid var(--am-green-dim)" }}
+    >
+      Mot de passe mis à jour. Connectez-vous avec votre nouveau mot de passe.
+    </div>
+  );
+}
+
 const schema = z.object({
   email: z.string().email("Adresse e-mail invalide"),
   password: z.string().min(6, "Le mot de passe doit contenir au moins 6 caractères"),
@@ -68,6 +81,7 @@ export default function LoginPage() {
 
       <Suspense>
         <InactivityBanner />
+        <ResetSuccessBanner />
       </Suspense>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -100,7 +114,7 @@ export default function LoginPage() {
         )}
 
         <div className="flex justify-end">
-          <Link href="#" className="text-xs text-[var(--am-text-muted)] hover:text-[var(--am-green)] transition-colors">
+          <Link href="/forgot-password" className="text-xs text-[var(--am-text-muted)] hover:text-[var(--am-green)] transition-colors">
             Mot de passe oublié ?
           </Link>
         </div>
